@@ -1,0 +1,106 @@
+<nyplAPI>
+  <request>
+    <uuid>510d47e0-cc34-a3d9-e040-e00a18064a99</uuid>
+  </request>
+  <response>
+    <headers>
+      <status>success</status>
+      <code>200</code>
+      <message>ok</message>
+    </headers>
+    <mods version="3.4" schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd">
+      <titleInfo type="" authority="" usage="primary" supplied="yes" lang="eng" script="">
+	<title>Pratt Institute</title>
+      </titleInfo>
+      <typeOfResource>still image</typeOfResource>
+      <genre authority="lctgm" valueURI="http://id.loc.gov/vocabulary/graphicMaterials/tgm004515">Genre prints</genre>
+      <identifier type="local_hades_collection" displayLabel="Hades Collection Guide ID (legacy)">482</identifier>
+      <identifier type="local_bnumber" displayLabel="NYPL catalog ID (B-number)">b17095009</identifier>
+      <identifier type="local_barcode" displayLabel="Barcode">33333159151691</identifier>
+      <location>
+	<physicalLocation authority="marcorg" type="repository">nn</physicalLocation>
+	<physicalLocation type="division">
+	  The Miriam and Ira D. Wallach Division of Art, Prints and Photographs: Picture Collection
+	</physicalLocation>
+	<shelfLocator>PC NEW YC-Coll</shelfLocator>
+	<physicalLocation type="division_short_name">Wallach Division: Picture Collection</physicalLocation>
+	<physicalLocation type="code">MMPC</physicalLocation>
+      </location>
+      <location>
+	<physicalLocation authority="marcorg" type="repository">nn</physicalLocation>
+	<physicalLocation type="division">
+	  The Miriam and Ira D. Wallach Division of Art, Prints and Photographs: Picture Collection
+	</physicalLocation>
+	<physicalLocation type="division_short_name">Wallach Division: Picture Collection</physicalLocation>
+	<physicalLocation type="code">MMPC</physicalLocation>
+      </location>
+      <physicalDescription>
+	<form authority="lctgm" valueURI="http://id.loc.gov/vocabulary/graphicMaterials/tgm011783">Wood engravings</form>
+	<extent>23 x 15 cm. (9 x 5 3/4 in.)</extent>
+      </physicalDescription>
+      <note type="content">
+	Printed on border: "The Daily News Co." Includes additional text.
+      </note>
+      <note type="source note">
+	Century magazine. (New York : The Century Co., 1870-).
+      </note>
+      <name type="personal" authority="naf" valueURI="http://id.loc.gov/authorities/names/nr99028666" usage="primary">
+	<namePart>Loeb, Louis, 1866-1909</namePart>
+	<role>
+	  <roleTerm valueURI="http://id.loc.gov/vocabulary/relators/art" authority="marcrelator" type="code">art</roleTerm>
+	  <roleTerm valueURI="http://id.loc.gov/vocabulary/relators/art" authority="marcrelator" type="text">Artist</roleTerm>
+	</role>
+      </name>
+      <name type="personal" authority="viaf" valueURI="http://viaf.org/viaf/95888532">
+	<namePart>
+	Del'Orme, E. G. H. (American engraver, active 1850s-1880s)</namePart>
+	<role>
+	  <roleTerm valueURI="http://id.loc.gov/vocabulary/relators/wde" authority="marcrelator" type="code">wde</roleTerm>
+	  <roleTerm valueURI="http://id.loc.gov/vocabulary/relators/wde" authority="marcrelator" type="text">Wood engraver</roleTerm>
+	</role>
+      </name>
+      <originInfo>
+	<dateCreated encoding="w3cdtf" keyDate="yes">1893</dateCreated>
+	<dateIssued encoding="w3cdtf">1893-10</dateIssued>
+      </originInfo>
+      <subject authority="">
+	<topic valueURI="http://id.loc.gov/vocabulary/graphicMaterials/tgm011227" authority="tgm">Universities &amp; colleges</topic>
+	<geographic authority="naf" valueURI="http://id.loc.gov/authorities/names/n80126293">New York (State)</geographic>
+	<geographic>New York</geographic>
+	<temporal>1800-1899</temporal>
+      </subject>
+      <subject authority="naf" valueURI="http://id.loc.gov/authorities/names/n50022857"></subject>
+      <subject>
+      <name type="corporate" authority="naf" valueURI="http://id.loc.gov/authorities/names/n50022857">
+	<namePart>Pratt Institute</namePart>
+      </name>
+      </subject>
+      <subject authority="lcsh" valueURI="http://id.loc.gov/authorities/subjects/sh85014649">
+	<topic authority="lcsh" valueURI="http://id.loc.gov/authorities/subjects/sh85014649">Blackboards</topic>
+      </subject>
+      <subject authority="lcsh" valueURI="http://id.loc.gov/authorities/subjects/sh00005819">
+	<topic authority="lcsh" valueURI="http://id.loc.gov/authorities/subjects/sh00005819">Students</topic>
+      </subject>
+      <identifier type="uuid">9dae2320-c55c-012f-bc97-58d385a7bc34</identifier>
+      <relatedItem type="host">
+	<titleInfo>
+	  <title>New York City -- Colleges &amp; Universities</title>
+	</titleInfo>
+	<identifier type="uuid">9503e1d0-c55c-012f-8f15-58d385a7bc34</identifier>
+	<identifier type="local_bnumber">b17095009</identifier>
+	<relatedItem type="host">
+	  <titleInfo>
+	    <title>Wallach Division Picture Collection</title>
+	  </titleInfo>
+	  <identifier type="uuid">79d4a650-c52e-012f-67ad-58d385a7bc34</identifier>
+	  <identifier type="local_hades_collection">482</identifier>
+	</relatedItem>
+      </relatedItem>
+    </mods>
+    <rightsStatement>
+      The copyright and related rights status of this item has been reviewed by The New York Public Library, but we were unable to make a conclusive determination as to the
+      copyright status of the item. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use.
+    </rightsStatement>
+    <rightsStatementURI>http://rightsstatements.org/vocab/UND/1.0/</rightsStatementURI>
+  </response>
+</nyplAPI>

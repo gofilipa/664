@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<mods version="3.4" xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd">
+
+    <titleInfo  supplied="yes" usage="primary">
+        <title>Document [fair copy of the Declaration of Independence]</title>
+    </titleInfo>
+
+
+    <name authority="naf" type="personal">
+        <namePart>Emmet, Thomas Addis (1828-1919)</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="code" valueURI="http://id.loc.gov/vocabulary/relators/col">col</roleTerm>
+            <roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/col">Collector</roleTerm>
+        </role>
+    </name>
+
+
+
+    <name type="personal" usage="primary">
+        <namePart>United States. Congress, Continental, 1775–1789</namePart>
+        <role>
+            <roleTerm authority="marcrelator" type="code" valueURI="http://id.loc.gov/vocabulary/relators/cre">cre</roleTerm>
+            <roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/cre">Creator</roleTerm>
+        </role>
+    </name>
+
+
+
+
+    <typeOfResource manuscript="yes" usage="primary">text</typeOfResource>
+
+    <originInfo>
+        <dateCreated encoding="w3cdtf" keyDate="yes" point="start">1483</dateCreated>
+        <dateCreated encoding="w3cdtf" point="end">1876</dateCreated>
+    </originInfo>
+
+
+    <originInfo>
+        <dateCreated encoding="w3cdtf">1776-07-04</dateCreated>
+        <place>
+            <placeTerm type="text">Philadelphia, Pa.</placeTerm>
+        </place>
+    </originInfo>
+
+
+
+
+    <identifier displayLabel="CATNYP ID (legacy)" type="local_catnyp">b3195144</identifier>
+    <identifier displayLabel="NYPL catalog ID (B-number)" type="local_bnumber">b11868616</identifier>
+    <identifier displayLabel="Hades Collection Guide ID (legacy)" type="local_hades_collection">166</identifier>
+    <identifier displayLabel="MSS Unit ID" type="local_mss">275659</identifier>
+    <identifier displayLabel="Other local Identifier" type="local_other">EM. 1524</identifier>
+
+
+
+    <location>
+        <physicalLocation authority="marcorg" type="repository">nn</physicalLocation>
+        <physicalLocation type="division">Manuscripts and Archives Division</physicalLocation>
+        <shelfLocator>MssCol 927</shelfLocator>
+    </location>
+
+
+
+    <subject>
+        <name authority="naf" type="corporate">
+            <namePart>United States. Declaration of Independence</namePart>
+        </name>
+    </subject>
+
+
+
+    <physicalDescription>
+        <note>4 pp. Fo</note>
+    </physicalDescription>
+
+
+    <abstract whatever="true">Declaration of Independence. Draft in the handwriting of Thomas Jefferson.</abstract>
+
+
+
+    <identifier type="uuid">cc022cf0-c52e-012f-bf39-58d385a7bc34</identifier>
+
+
+    <relatedItem type="host">
+        <titleInfo>
+            <title>Series VI. Declaration of Independence</title>
+        </titleInfo>
+        <identifier type="uuid">bc6fc360-c52e-012f-0b9f-58d385a7bc34</identifier>
+        <identifier type="local_hades">1749764</identifier>
+        <relatedItem type="host">
+            <titleInfo>
+                <title>Thomas Addis Emmet collection, 1483-1876, bulk (1700-1800)</title>
+            </titleInfo>
+            <identifier type="uuid">02d1c8f0-c52d-012f-a615-58d385a7bc34</identifier>
+            <identifier type="local_hades">1749752</identifier>
+            <identifier type="local_catnyp">b3195144</identifier>
+            <identifier type="local_bnumber">b11868616</identifier>
+            <identifier type="local_hades_collection">166</identifier>
+        </relatedItem>
+    </relatedItem>
+</mods>

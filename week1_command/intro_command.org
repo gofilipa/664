@@ -1,0 +1,71 @@
+* introduction to the command line
+by filipa calado
+
+** what is the command line
+a way of talking to the computer
+
+** why would you used the command line
+plain text
+
+** navigation
+#+begin_src 
+pwd
+
+cd
+
+ls
+
+ls -l -a
+#+end_src
+
+** creating files and folders / reading
+#+begin_src 
+touch 
+
+mkdir 
+
+wc 
+
+wc -lha
+#+end_src
+
+** group activity: searching text 10/10
+In partners, figure out how to use the GREP command. What does it do?
+Advanced: how do you use it to search across multiple nested folders?
+(hint: its a flag!)
+
+10/10
+
+** pipes
+takes the output of one command and makes it the input of another.
+
+#+begin_src 
+grep queer notecards.org | wc
+#+end_src
+
+can add flags to wc, like -l for line count. 
+
+** (if time) redirect
+
+#+begin_src 
+grep queer notecards.org >> queer_words.txt
+#+end_src
+
+*** Challenge
+Download the [[https://data.cityofnewyork.us/Social-Services/NYC-Women-s-Resource-Network-Database/pqg4-dm6b/about_data][NYC Women's Resource Network Database]] from [[https://opendata.cityofnewyork.us/][NYC Open Data]].
+Search the text for words like "women" or "migrant" or something else.
+Then save the results to a separate file. (hint: you'll need to use
+grep and redirect).
+
+#+begin_src
+  grep migrant
+~/Downloads/NYC_Women_s_Resource_Network_Database_20240828.csv >>
+~/Desktop/migrant.txt
+#+end_src
+
+** time to do challenge!
+Using command line tools and a dataset from NYC Open Data, do a word
+search of a file. Save your output to a separate file (like a txt
+file), and submit it on Canvas.
+
+** time to download and install Anaconda (highly recommended)
