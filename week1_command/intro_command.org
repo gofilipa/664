@@ -1,28 +1,46 @@
 * introduction to the command line
 by filipa calado
 
-** what is the command line
-a way of talking to the computer
-
+** what is the command line?
+- a way of talking to the computer.
+  - GUIs vs commands
+- the bash language
+  
 ** why would you used the command line
-plain text
+- "plain text" - what is this?
+  - demo with docx and plain text file.
+- what are some rich text file formats?
+  - what are some plain text file formats?
+- we can manipulate plain text quite easily
 
 ** navigation
-#+begin_src 
+- folder system on your computer
+  - tree: root and branches
+  - "directory"
+
+#+begin_src
+whoami
+
 pwd
 
 cd
+
+cd ..
+
+cd ~
 
 ls
 
 ls -l -a
 #+end_src
 
+Spend a few minutes navigating up and down the directory structure. 
+
 ** creating files and folders / reading
 #+begin_src 
 touch 
 
-mkdir 
+mkdir info-664
 
 wc 
 
@@ -51,21 +69,21 @@ can add flags to wc, like -l for line count.
 grep queer notecards.org >> queer_words.txt
 #+end_src
 
-*** Challenge
+*** Group Challenge
+Practice using grep on your own machine, searching for a word in
+different files. Then, use redirect to save the results to a separate
+file. 
+
+** time to do challenge!
 Download the [[https://data.cityofnewyork.us/Social-Services/NYC-Women-s-Resource-Network-Database/pqg4-dm6b/about_data][NYC Women's Resource Network Database]] from [[https://opendata.cityofnewyork.us/][NYC Open Data]].
 Search the text for words like "women" or "migrant" or something else.
-Then save the results to a separate file. (hint: you'll need to use
-grep and redirect).
+Then, using redirect, save the results to a separate file. (hint:
+you'll need to use grep and redirect).
 
 #+begin_src
   grep migrant
 ~/Downloads/NYC_Women_s_Resource_Network_Database_20240828.csv >>
 ~/Desktop/migrant.txt
 #+end_src
-
-** time to do challenge!
-Using command line tools and a dataset from NYC Open Data, do a word
-search of a file. Save your output to a separate file (like a txt
-file), and submit it on Canvas.
 
 ** time to download and install Anaconda (highly recommended)
