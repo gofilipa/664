@@ -1,0 +1,763 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>“Intro to Python for Working with Text” workshop series &#8212; Python for Programming Cultural Heritage</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'readme';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Python for Programming Cultural Heritage - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Python for Programming Cultural Heritage - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction to Python for Programming Cultural Heritage
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro/script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro/data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro/lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro/loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro/logic.html">logic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="gathering/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gathering/what.html">what is web scraping?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gathering/ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gathering/inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gathering/explore.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="gathering/scrape.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="gathering/legiscan_api.html">Legiscan API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="clean/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clean/dataframes.html">dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clean/scrape.html">scraping our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clean/cleaning.html">cleaning our text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="analyze/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyze/what.html">what is text analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyze/questions.html">research questions: defining gender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyze/processing.html">the <code class="docutils literal notranslate"><span class="pre">spaCy</span></code> pipeline</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="analyze/phrases.html">the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyze/entities.html">the <code class="docutils literal notranslate"><span class="pre">Entity-Ruler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyze/tokens.html">the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ml/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ml/ml.html">machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ml/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ml/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ml/fine-tune.html">fine-tuning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Freadme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>“Intro to Python for Working with Text” workshop series</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workshop-overview">Workshop Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-workshop-overviews">Individual workshop overviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#workshop-1-introduction-to-python-fundamentals">Workshop 1: “Introduction to Python Fundamentals”</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#workshop-2-python-for-web-scraping-and-apis">Workshop 2: “Python for Web Scraping and APIs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#workshop-3-python-for-text-cleaning">Workshop 3: “Python for Text Cleaning”</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#workshop-4-python-for-text-analysis">Workshop 4: “Python for Text Analysis”</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#workshop-5-python-for-text-generation-with-machine-learning">Workshop 5: “Python for Text Generation (with Machine Learning)”</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-scholarship-at-pul">Digital Scholarship at PUL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-specifications">Technical Specifications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credits">Credits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="intro-to-python-for-working-with-text-workshop-series">
+<h1>“Intro to Python for Working with Text” workshop series<a class="headerlink" href="#intro-to-python-for-working-with-text-workshop-series" title="Link to this heading">#</a></h1>
+<section id="workshop-overview">
+<h2>Workshop Overview<a class="headerlink" href="#workshop-overview" title="Link to this heading">#</a></h2>
+<p>As one of the most popular, versatile, and beginner-friendly
+programming langauges, Python can be used for a variety of tasks from
+gathering data to publishing websites.</p>
+<p>This 5-part workshop series introduces participants to the Python
+programming language for working with text-based data. Participants
+will gain Python skills by gathering, cleaning, and exploring data
+about the current <a class="reference external" href="https://translegislation.com/">anti-trans
+legislation</a> that is sweeping the
+United States. At the end of the series, participants will use the
+datasets that they create to train a small AI model to generate text.</p>
+<p>The first workshop begins with core concepts in programming to
+understand digital forms of data and basic manipulations. The second
+and third workshops move to data gathering and processing with web
+scraping, APIs, and text cleaning methods. Participants will then
+spend the fourth and fifth workhops exploring their datasets with text
+analysis and deep learning tools. See a more detailed description of
+each workshop below.</p>
+<p>The workshop website is built using <a class="reference external" href="https://www.google.com/url?sa=t&amp;amp;source=web&amp;amp;rct=j&amp;amp;opi=89978449&amp;amp;url=https://jupyterbook.org/&amp;amp;ved=2ahUKEwi7h8TotvSGAxXTk4kEHTBTCUEQFnoECAYQAQ&amp;amp;usg=AOvVaw2U9BjlgotCJej2DEcDbtcp">Jupyter
+Book</a>
+and <a class="reference external" href="https://pages.github.com/">Github Pages</a>. To make changes to the
+workshop, please read the <a class="reference internal" href="#technical-specifications"><span class="std std-ref">technical
+specifications</span></a> section below.</p>
+<section id="individual-workshop-overviews">
+<h3>Individual workshop overviews<a class="headerlink" href="#individual-workshop-overviews" title="Link to this heading">#</a></h3>
+<section id="workshop-1-introduction-to-python-fundamentals">
+<h4>Workshop 1: “Introduction to Python Fundamentals”<a class="headerlink" href="#workshop-1-introduction-to-python-fundamentals" title="Link to this heading">#</a></h4>
+<p>Basic introduction to core concepts in Python programming. Grounds
+instruction in critical awareness of data and what happens to data at
+various levels of transformation and abstraction.</p>
+</section>
+<section id="workshop-2-python-for-web-scraping-and-apis">
+<h4>Workshop 2: “Python for Web Scraping and APIs<a class="headerlink" href="#workshop-2-python-for-web-scraping-and-apis" title="Link to this heading">#</a></h4>
+<p>Teaches programmatic methods for extracting data from webpages using
+web scraping and APIs within an ethical approach. Advances core
+concepts of looping and conditional statements from introductory
+session and introduces object-oriented programming and working with
+code libraries. Participants will apply skills to gather data about
+current <a class="reference external" href="https://translegislation.com/">anti-trans legislation</a> in the
+USA.</p>
+<ul class="simple">
+<li><p>libraries: <code class="docutils literal notranslate"><span class="pre">requests</span></code>, <code class="docutils literal notranslate"><span class="pre">bs4</span></code>, and <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p></li>
+</ul>
+</section>
+<section id="workshop-3-python-for-text-cleaning">
+<h4>Workshop 3: “Python for Text Cleaning”<a class="headerlink" href="#workshop-3-python-for-text-cleaning" title="Link to this heading">#</a></h4>
+<p>Explores preparing text data for analysis, with emphasis on removing
+unwanted elements that may skew analysis. Participants will continue
+to build skills in algorithmic thinking while learning to
+write functions and  scripts for customizing and automating text cleaning processes.</p>
+<ul class="simple">
+<li><p>libraries: <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">spacy</span></code></p></li>
+</ul>
+</section>
+<section id="workshop-4-python-for-text-analysis">
+<h4>Workshop 4: “Python for Text Analysis”<a class="headerlink" href="#workshop-4-python-for-text-analysis" title="Link to this heading">#</a></h4>
+<p>Explores methods for finding and analyzing textual patterns through popular tasks in Natural
+Language Processing. Participants practice writing code to annotate
+and extract text according to specific features from current
+“anti-trans” bills in the USA.</p>
+<ul class="simple">
+<li><p>libraries: <code class="docutils literal notranslate"><span class="pre">spaCy</span></code></p></li>
+</ul>
+</section>
+<section id="workshop-5-python-for-text-generation-with-machine-learning">
+<h4>Workshop 5: “Python for Text Generation (with Machine Learning)”<a class="headerlink" href="#workshop-5-python-for-text-generation-with-machine-learning" title="Link to this heading">#</a></h4>
+<p>With the anti-trans bills data that they prepared in previous workshops, participants practice fine-tuning a small Text Generation model and learn about how to use Machine Learning for research.</p>
+<ul class="simple">
+<li><p>libraries: <code class="docutils literal notranslate"><span class="pre">transformers</span></code></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="digital-scholarship-at-pul">
+<h2>Digital Scholarship at PUL<a class="headerlink" href="#digital-scholarship-at-pul" title="Link to this heading">#</a></h2>
+<p>See more workshop offerings (including on Python) at the <a class="reference external" href="https://libcal.princeton.edu/calendar/">Princeton University library</a>. We have upcoming workshops on working with data, digital publishing, and more.</p>
+<p>Want to talk Python or another digital project or tool? Sign up for a <a class="reference external" href="https://bit.ly/ds-consults">consultation with Digital Scholarship</a> at Princeton.</p>
+</section>
+<section id="technical-specifications">
+<h2>Technical Specifications<a class="headerlink" href="#technical-specifications" title="Link to this heading">#</a></h2>
+<p>The front-facing website that hosts the workshops is built using
+<a class="reference external" href="https://www.google.com/url?sa=t&amp;amp;source=web&amp;amp;rct=j&amp;amp;opi=89978449&amp;amp;url=https://jupyterbook.org/&amp;amp;ved=2ahUKEwi7h8TotvSGAxXTk4kEHTBTCUEQFnoECAYQAQ&amp;amp;usg=AOvVaw2U9BjlgotCJej2DEcDbtcp">Jupyter
+Book</a>
+and displayed on Github servers via <a class="reference external" href="https://pages.github.com/">Github
+Pages</a>.</p>
+<p>Making changes to the website is much like making changes to any
+Github repository, but with the added step of pushing the changes to a
+new Github Pages branch. Below are the steps necessary to make changes
+and update the website accordingly. Please follow the steps below.</p>
+<p>Before starting, you’ll need to install a few pieces of software:</p>
+<ul class="simple">
+<li><p>Python (I use the <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a>
+distribution, but any kind of Python works as long as it is a
+version of Python 3+.</p></li>
+<li><p><a class="reference external" href="https://jupyterbook.org/en/stable/start/overview.html">Jupyter-Book</a>
+for building the website.</p></li>
+<li><p><a class="reference external" href="https://git-scm.com/downloads">Git</a> versioning software for sending
+files to a <a class="reference external" href="https://github.com/">Github</a> server, where they will be
+hosted. An account on Github will also be necessary.</p></li>
+</ul>
+<ol class="arabic">
+<li><p>First, clone the repository onto your computer by typing the
+following into your command line. After that, you’ll have your
+“book” (the Jupyter-Book repository) on your local machine.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/PULdischo/python-for-text.git</span>
+</pre></div>
+</div>
+</li>
+<li><p>Second, make changes to the files as needed. Maybe you want to add
+a new page or a new workshop. Jupyter-book files can be in markdown
+or python notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files). If you are adding a new file
+or section to the workshop, make sure to indicate the new material
+in the <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> (the table of contents) files, so it will appear
+in the sidebar. To learn more about how to create and modify files,
+check the excellent <a class="reference external" href="https://jupyterbook.org/en/stable/basics/organize.html">documentation on
+Jupyter-Book</a>.</p></li>
+<li><p>Third, you will “build” the book by running the following in your
+command line, making sure you are one directory <em>above</em> your book.
+For example, if you cloned the book into your Desktop folder, make
+sure you are in the Desktop folder (rather than the book’s folder),
+when you run the code below.</p>
+<p>The build process will create a <code class="docutils literal notranslate"><span class="pre">_build</span></code> folder in your book, which
+contains all of the html files necessary to display your content in
+a web browser.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">jupyter-book build [book&#39;s name]</span>
+<span class="go">   </span>
+</pre></div>
+</div>
+</li>
+<li><p>After building the book, you can push your changes to Github. Here
+you can add, commit, and push changes like you would do for a
+normal repository.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd bookname</span>
+<span class="go">git add .</span>
+<span class="go">git commit -m &quot;updating files&quot;</span>
+<span class="go">git push</span>
+</pre></div>
+</div>
+</li>
+<li><p>The final step will be another Github push, but this time to a new
+branch called <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>. Pushing to the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch allows
+us to upload the html files so viewers can see them rendered nicely
+on the browser.</p>
+<p>To push to <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>, you will need to install a software package
+called <code class="docutils literal notranslate"><span class="pre">ghp-import</span></code>. To install that package, run the code below.
+(Note: you will only need to install the package once; every time
+after that, you can simply push your changes.)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install ghp-import</span>
+</pre></div>
+</div>
+<p>Finally, back on your command line, you can push your changes to
+<code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> using the <code class="docutils literal notranslate"><span class="pre">ghp-import</span></code> command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ghp-import -n -p -f _build/html</span>
+</pre></div>
+</div>
+</li>
+<li><p>Note: only follow this step if you are setting up a completely new
+repository, such as on your own account. In this case, you need to
+tell Github explicitly to create a Github pages based off the
+<code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch that you just pushed. Go to your Github
+repository’s settings (check the toolbar at the top of your repo),
+select “Pages” from the tabs on the left, and configure your repo
+to build from the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch. Select this option from the
+dropdown under “Build and Deployment.”</p></li>
+</ol>
+<p>In a few minutes, your site should be visible at
+<code class="docutils literal notranslate"><span class="pre">https://PULdischo.github.io/bookname</span></code>, for this repo, the link is
+<a class="reference external" href="https://PULdischo.github.io/python-for-text">https://PULdischo.github.io/python-for-text</a>. If you’re experienceing
+problems, read more about <a class="reference external" href="https://jupyterbook.org/en/stable/start/publish.html#publish-your-book-online-with-github-pages">pushing to Github
+pages</a></p>
+</section>
+<section id="credits">
+<h2>Credits<a class="headerlink" href="#credits" title="Link to this heading">#</a></h2>
+<p>Created by Filipa Calado, Digital Scholarship Specialist, Princeton
+University Library.</p>
+<p>The first workshop, “Intro to Python,” is adapted from the <a class="reference external" href="https://gcdi.commons.gc.cuny.edu/">Graduate
+Center Digital Initiatives</a> Digital
+Humanities Research Institute <a class="reference external" href="https://github.com/DHRI-Curriculum/python">Python
+workshop</a>. The opening
+challenge from this workshop takes text from the <a class="reference external" href="https://www.manifestno.com/">Feminist Data
+Manifest-No</a> by M. Cifor, P. Garcia, et
+al.</p>
+<p>For more instruction with Python, please see these books:</p>
+<ul class="simple">
+<li><p>WJB Mattingly’s <a class="reference external" href="https://python-textbook.pythonhumanities.com/intro.html">Introduction to Python for
+Humanists</a></p></li>
+<li><p>Melanie Walsh’s <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/welcome.html">Introduction to Cultural Analytics &amp;
+Python</a></p></li>
+</ul>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workshop-overview">Workshop Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-workshop-overviews">Individual workshop overviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#workshop-1-introduction-to-python-fundamentals">Workshop 1: “Introduction to Python Fundamentals”</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#workshop-2-python-for-web-scraping-and-apis">Workshop 2: “Python for Web Scraping and APIs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#workshop-3-python-for-text-cleaning">Workshop 3: “Python for Text Cleaning”</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#workshop-4-python-for-text-analysis">Workshop 4: “Python for Text Analysis”</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#workshop-5-python-for-text-generation-with-machine-learning">Workshop 5: “Python for Text Generation (with Machine Learning)”</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-scholarship-at-pul">Digital Scholarship at PUL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-specifications">Technical Specifications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credits">Credits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

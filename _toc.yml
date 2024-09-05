@@ -1,0 +1,44 @@
+format: jb-book
+root: intro
+parts:
+- caption: intro to python
+  chapters:
+  - file: intro/overview
+  - file: intro/script
+  - file: intro/data-types
+  - file: intro/variables
+  - file: intro/lists
+  - file: intro/loops
+  - file: intro/logic
+- caption: gathering data
+  chapters:
+  - file: gathering/overview
+  - file: gathering/what
+  - file: gathering/ethics
+  - file: gathering/inspector
+  - file: gathering/explore
+  - file: gathering/scrape
+  - file: gathering/legiscan_api
+- caption: cleaning data
+  chapters:
+  - file: clean/overview
+  - file: clean/dataframes
+  - file: clean/scrape
+  - file: clean/cleaning
+- caption: analyzing data
+  chapters:
+  - file: analyze/overview
+  - file: analyze/what
+  - file: analyze/questions
+  - file: analyze/processing
+  - file: analyze/phrases
+  - file: analyze/entities
+  - file: analyze/tokens
+- caption: machine learning
+  chapters:
+  - file: ml/overview
+  - file: ml/ml
+  - file: ml/hf
+  - file: ml/inference
+  - file: ml/fine-tune
+  - file: ml/clusters

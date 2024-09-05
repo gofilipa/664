@@ -1,0 +1,211 @@
+* introduction to text generation
+** goals:
+- familiarity with how machine learning works: word vectors
+- familiarity with the HuggingFace platform and tools
+- running inference with Python
+- exploring datasets with Python
+- fine-tuning a model with Python
+- familiarity with how machine learning works: hypothesis, loss,
+  gradient descent.
+
+** outline
+Intro to ML & HF
+- word vectors -> prediction: 15 minutes
+- huggingface platform, models & datasets: 15 minutes
+- colab: running inference and loading datasets: 30 minutes
+- break: 10 min
+Intro to Fine-Tuning
+- fine-tuning a model: 1hr
+  - load and configure the dataset: 15 min
+    - padding, etc. 
+  - load and configure the trainer: 15 min
+    - sft library
+  - train the model and test results: 15 min
+    - hypothesis, loss, gradient descent
+
+** introduction to LLMs
+# 20 min
+# LLMs are prediction machines
+# 2 key developments:
+# word embeddings, quantifying language
+# attention mechanism, processing context
+
+:notes:
+Goal is to de-mystify how Large Language Models (a kind of AI
+software) work under the hood.
+
+Also to get a sense of the types of models that exist. There's a large
+ecosystem of models, which can be overwhelming. 
+
+All of this will help us in the next section, when we move to the HF
+website. 
+:end:
+
+*** How does ChatGPT work?
+How does it know what to respond when someone asks it a question?
+
+:notes:
+More specifically, how does it know what language to generate, what
+words follow other words?
+- by prediction.
+- it learns by reading. Gains an understanding of language from
+  processing massive amounts of text, deriving patterns.
+
+Two key developments in history of AI: 
+- quantifies the meanings of words; words in text become numerical
+  representations (word embeddings)
+- understands how words are used in context (attention mechanism)
+:end:
+
+*** Word Embeddings / Word Vectors
+
+#+CAPTION: Image from "Word Embedding: Basics", by Hariom Gautam
+#+attr_html: :width 500px
+[[https://miro.medium.com/v2/resize:fit:1400/format:webp/1*sAJdxEsDjsPMioHyzlN3_A.png]]
+
+:NOTES:
+How do we turn words into something that a computer can understand?
+
+We use "word embeddings", "word vectors."
+- technically: representations of language in vector space, graphical
+  space.
+- Each word is represented by a series of numbers,
+  with each of those numbers representing it's relationship to another
+  word. How closely they are related.
+- show vector for "cat" vs "dog":
+
+| word | tiger | cute | bones | wolf  |
+|---+---+---+---+---|
+| cat | .90 | .99 | .40 | .35 |
+| dog | .35 | .99 | .85 | .90 |
+
+
+Each word is expressed as a series of numbers. Each number a different dimension of the vector.
+
+Except we don't have just x, y, or z. We have hundreds, thousands of
+vectors.
+
+Show image from Medium.
+- More words here, along with their visualization in "vector space",
+  which is just a graph.
+
+Why do this to words? Why represent them as numbers?
+- So we can do math!
+- We can do linear algebra.
+  - Cat and kitten are close to each other, that means they have
+    similar meanings.
+  - We can do cosine similarity, finding out what two vectors are
+    similar to each other in shape/direction actually gives us a sense
+    of their semantic similarity. Opens up a world of algebra,
+    calculus, that we can do with language.
+
+:END:
+
+*** king - man + woman = queen
+vector(”King”) - vector(”Man”) + vector(”Woman”) = vector("Queen")
+
+:notes:
+Famous formula:
+- King - Man + Woman = Queen
+  - we can do math using language! Or do language using math!?
+- vector(”King”) - vector(”Man”) + vector(”Woman”) = vector("Queen")
+- Notice for a moment all the assumptions being made about gender
+  here.
+  - That the difference between a king and a queen has to do with
+    gender.
+  - What exactly is being calculated when we subtract "man" and add
+    "woman"?
+    - Is it biological sex that's being substracted?
+    - Is it gender conventions, femininity and masculinity? Kings are
+      embody a masculine ideal, and queens a feminine one?
+    - What qualities are being assumed to pertain to each gender and
+      each
+    role?
+- Not a massive deal, but interesting, because this is the formula
+  that introduced the power of word vectors to the world. So the
+  assumptions it plays on must be deeply embedded across society.
+
+See more:
+- [[https://arxiv.org/abs/1301.3781][Word2Vec paper]], 2013.
+- (and [[http://jalammar.github.io/illustrated-word2vec/][great explanation by Jay Alammar]])
+:end:
+*** Attention Mechanism
+
+:notes:
+After word vectors, the second big development is the "*Attention
+mechanim*"
+- Attention means that context matters, it is taken as input to the
+  calculations.
+  - Before, neural networks only took into account the words preceding
+    a given word.
+  - With attention, they could take the context, the words that
+    surround a word, into their calculations
+- Part of the "Transformer" architecture
+  - Development in 2017/2018 that changed the architecture of the
+    neural network, so that context could be factored into the
+    calculations.
+- See: [[https://arxiv.org/abs/1706.03762][Attention Is All You Need paper]], 2017.
+
+This development in *Transformer architecture / attention enabled BERT*
+and it's descendants
+- BERT is the first generation of LLMs that used transformer
+  architecture. 
+  - Developed by Google.
+  - Released open-source on *Apache 2.0 license*. One of the most
+    permissive licenses. Which made it very influential as people were
+    free to take the code for their own projects and modifications.
+
+On the HF website, we will see *many variations of BERT*, the berts!
+- People take the model architecture to train their own models.
+- They also take the BERT model as a "base" for fine-tuning.
+
+:end:
+
+*** Training and Fine-Tuning
+
+:notes:
+
+What is the *difference between training and fine-tuning*?
+- training
+  - the creation of a "base" model. It requires lots, LOTS of data,
+    gigabites of data, and compute power. It takes days, sometimes
+    longer.
+- fine-tuning:
+  - taking a base model, which has already been trained (like BERT)
+    and training it further, with a much smaller dataset that is
+    focused on a specific topic.
+  - customizing the model to work for a particular topic or kind of
+    data. 
+    - finBERT for sentiment analysis of financial data.
+- on HF, you'll start to see how models build on each other, and which
+  ones tend ot be popular "base" models.
+
+What are *tasks*?
+- the type of operation that you perform with the tool.
+  - "text generation" - chatGPT
+    - how do you train? by feeding text, the internet. 
+  - "text classification" - sentiment analysis, like for rating review
+    of businesses.
+    - how do you train? by feeding text with "scores" for sentiment,
+      etc.
+  - "text summarization" - condensing longer text into summaries.
+    - how do you train? by feeding a long text next to its summary.
+
+Why am I saying all this? 
+- to de-mystify the tool.
+  - these tools are not magic, they are not intuitive, possibly not
+    even "intelligent", they can just do a lot of math.
+- to understand variations in models and performance:
+  - because we are going to engage with different language models in
+    this workshop, in all shapes and sizes, and you'll see some of
+    these tools acting differently than what you're used to with
+    chatgpt, or more polished AI applications.
+
+- It helps to know how a bit about how they work and their major
+  developments to understand this ever more complicated ecosystem.
+
+:end:
+
+** resources
+Gradient Descent: 
+https://towardsdatascience.com/an-overview-of-the-gradient-descent-algorithm-8645c9e4de1e

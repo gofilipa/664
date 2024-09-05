@@ -1,0 +1,44 @@
+format: jb-book
+root: intro
+parts:
+- caption: intro to python
+  chapters:
+  - file: intro/overview
+  - file: intro/script
+  - file: intro/data-types
+  - file: intro/variables
+  - file: intro/lists
+  - file: intro/loops
+  - file: intro/logic
+- caption: scraping text
+  chapters:
+  - file: scrape/overview
+  - file: scrape/what
+  - file: scrape/ethics
+  - file: scrape/inspector
+  - file: scrape/explore
+  - file: scrape/scrape
+  - file: scrape/legiscan_api
+- caption: cleaning text
+  chapters:
+  - file: clean/overview
+  - file: clean/dataframes
+  - file: clean/scrape
+  - file: clean/cleaning
+- caption: analyzing text
+  chapters:
+  - file: analyze/overview
+  - file: analyze/what
+  - file: analyze/questions
+  - file: analyze/processing
+  - file: analyze/phrases
+  - file: analyze/entities
+  - file: analyze/tokens
+- caption: generating text
+  chapters:
+  - file: generate/overview
+  - file: generate/ml
+  - file: generate/hf
+  - file: generate/inference
+  - file: generate/fine-tune
+  - file: generate/clusters

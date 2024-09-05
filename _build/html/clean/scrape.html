@@ -1,0 +1,848 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>scraping our text &#8212; Python for Programming Cultural Heritage</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'clean/scrape';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cleaning our text" href="cleaning.html" />
+    <link rel="prev" title="dataframes" href="dataframes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Python for Programming Cultural Heritage - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Python for Programming Cultural Heritage - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python for Programming Cultural Heritage
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gathering/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/what.html">what is web scraping?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/explore.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/scrape.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataframes.html">dataframes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">scraping our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cleaning.html">cleaning our text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analyze/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/what.html">what is text analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/questions.html">research questions: defining gender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/processing.html">the <code class="docutils literal notranslate"><span class="pre">spaCy</span></code> pipeline</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../analyze/phrases.html">the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/entities.html">the <code class="docutils literal notranslate"><span class="pre">Entity-Ruler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/tokens.html">the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/ml.html">machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fclean/scrape.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/clean/scrape.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>scraping our text</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-the-bill-number">extracting the bill number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scraping-the-bill-text">scraping the bill text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decoding-text-from-bytes-to-string">decoding text from bytes to string</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="scraping-our-text">
+<h1>scraping our text<a class="headerlink" href="#scraping-our-text" title="Link to this heading">#</a></h1>
+<p>Researchers generally only share the analysis they have done <em>after</em> they got the data, which makes it hard for beginners to replicate the process. For that reason, I’m showing the data gathering process. (FYI - I tried using the <a class="reference external" href="http://congress.gov">congress.gov</a> API to get this dataset, which is always the right thing to do! But it doesn’t offer the full text of the bill, so that’s why I turned to scraping. For future reference, you can request an API key here: <a class="reference external" href="https://api.congress.gov/">https://api.congress.gov/</a>)</p>
+<p>Here, I’ll go over the I wrote for downloading bill data from <code class="docutils literal notranslate"><span class="pre">congress.gov</span></code> and scraping the text of the individual bills.</p>
+<p>First, I got a list of the relevant bills using the regular search function on the <code class="docutils literal notranslate"><span class="pre">congress.gov</span></code> website. I did a search for the term “transgender,” and then downloading the results to a spreadsheet. (Side note: the ability to download results from a search is super useful, and most websites won’t offer that functionality)</p>
+<p><img alt="image of congress.gov search interface" src="../_images/congress_gov.jpg" /></p>
+<p>Then, I loaded up the file (a csv file) into a Python notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span> <span class="c1"># for making http (web) requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># for working with tabular (spreadsheet) data</span>
+<span class="kn">import</span> <span class="nn">csv</span> <span class="c1"># also for working with tabular data, in csv format</span>
+
+<span class="c1"># this grabs the CSV from the previous section. If you get a file</span>
+<span class="c1"># not found error make sure you go through the previous section to </span>
+<span class="c1"># save that csv</span>
+<span class="n">bills</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;congress_clean.csv&#39;</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">bills</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 148 entries, 0 to 147
+Data columns (total 18 columns):
+ #   Column                   Non-Null Count  Dtype  
+---  ------                   --------------  -----  
+ 0   Unnamed: 0               148 non-null    int64  
+ 1   Legislation Number       148 non-null    object 
+ 2   URL                      148 non-null    object 
+ 3   Congress                 148 non-null    object 
+ 4   Title                    146 non-null    object 
+ 5   Sponsor                  148 non-null    object 
+ 6   Party of Sponsor         148 non-null    object 
+ 7   Date of Introduction     115 non-null    object 
+ 8   Committees               114 non-null    object 
+ 9   Latest Action            146 non-null    object 
+ 10  Latest Action Date       146 non-null    object 
+ 11  Latest Summary           61 non-null     object 
+ 12  Amends Bill              33 non-null     object 
+ 13  Date Offered             31 non-null     object 
+ 14  Date Submitted           2 non-null      object 
+ 15  Date Proposed            0 non-null      float64
+ 16  Amendment Text (Latest)  33 non-null     object 
+ 17  Amends Amendment         0 non-null      float64
+dtypes: float64(2), int64(1), object(15)
+memory usage: 20.9+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<section id="extracting-the-bill-number">
+<h2>extracting the bill number<a class="headerlink" href="#extracting-the-bill-number" title="Link to this heading">#</a></h2>
+<p>In order to scrape the bill text, we need just the bill number. In order to get that, we need to go through the <code class="docutils literal notranslate"><span class="pre">Legislation</span> <span class="pre">Number</span></code> column and extract just the number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Legislation Number&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        H.R. 1112
+1           S. 435
+2       H.Res. 886
+3       S.Res. 464
+4       H.Res. 269
+          ...     
+143    H.Amdt. 195
+144    H.Amdt. 193
+145    H.Amdt. 256
+146    H.Amdt. 257
+147    H.Amdt. 255
+Name: Legislation Number, Length: 148, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can use the split() method to split up the single string</span>
+<span class="c1"># into two strings, by the empty space in between them</span>
+
+<span class="n">bill</span> <span class="o">=</span> <span class="s2">&quot;H.R. 1112&quot;</span>
+<span class="n">bill</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;H.R.&#39;, &#39;1112&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can write a for loop to append the number to a list</span>
+<span class="c1"># involves checking if the item is a number, using &quot;isnumeric&quot;</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">bill</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+        <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">item</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1112&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To extract the bill numbers, we will write a loop that:</p>
+<ul class="simple">
+<li><p>goes through each row of <code class="docutils literal notranslate"><span class="pre">df['Legislation</span> <span class="pre">Number']</span></code></p></li>
+<li><p>turns that row into a string, using <code class="docutils literal notranslate"><span class="pre">str()</span></code> function</p></li>
+<li><p>splits that row by the empty space using <code class="docutils literal notranslate"><span class="pre">split()</span></code></p></li>
+<li><p>writes another loop to check if the item <code class="docutils literal notranslate"><span class="pre">isnumeric()</span></code></p></li>
+<li><p>appends the numeric item to a new list</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## go through each row in numbers column of our spreadsheet</span>
+<span class="c1">## extract the number and put into a separate list</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Legislation Number&#39;</span><span class="p">]:</span>
+    <span class="c1"># need to change data type to string in order to use split()</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="n">splitted</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">splitted</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+            <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="scraping-the-bill-text">
+<h2>scraping the bill text<a class="headerlink" href="#scraping-the-bill-text" title="Link to this heading">#</a></h2>
+<p>Using that list of numbers as input, we will write a function that scrapes the bill text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># here we are introducing &quot;f-strings&quot;, which is way of writing &quot;formatted strings&quot;</span>
+<span class="c1"># in python that allows us to input variables, like a bill number, in this case</span>
+
+<span class="k">def</span> <span class="nf">scrape_bill_text</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">bills_text</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+        <span class="c1"># f-string is used to add the specific bill number to the URL</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://www.congress.gov/117/bills/hr</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s1">/BILLS-117hr</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s1">ih.htm&#39;</span><span class="p">)</span>
+        <span class="c1"># requests library to scrape the URL, which is formatted for each bill number</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+        <span class="n">bills_text</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bills_text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calling the function and saving the results to <code class="docutils literal notranslate"><span class="pre">sample</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># so we don&#39;t overload the website, we will scrape just a sample of</span>
+<span class="c1"># the first 10 bills. This will be more than enough data for us to</span>
+<span class="c1"># practice cleaning.</span>
+
+<span class="n">sample</span> <span class="o">=</span> <span class="n">scrape_bill_text</span><span class="p">(</span><span class="n">numbers</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s check out our first item (the first bill text) in the list </span>
+
+<span class="n">sample</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&quot;&lt;html&gt;&lt;body&gt;&lt;pre&gt;\n[Congressional Bills 117th Congress]\n[From the U.S. Government Publishing Office]\n[H.R. 1112 Introduced in House (IH)]\n\n&amp;lt;DOC&amp;gt;\n\n\n\n\n\n\n117th CONGRESS\n  1st Session\n                                H. R. 1112\n\n   To require a report on the military coup in Burma, and for other \n                               purposes.\n\n\n_______________________________________________________________________\n\n\n                    IN THE HOUSE OF REPRESENTATIVES\n\n                           February 18, 2021\n\n    Mr. Connolly (for himself, Mr. Price of North Carolina, and Mr. \n  Buchanan) introduced the following bill; which was referred to the \n                      Committee on Foreign Affairs\n\n_______________________________________________________________________\n\n                                 A BILL\n\n\n \n   To require a report on the military coup in Burma, and for other \n                               purposes.\n\n    Be it enacted by the Senate and House of Representatives of the \nUnited States of America in Congress assembled,\n\nSECTION 1. SHORT TITLE.\n\n    This Act may be cited as the ``Protect Democracy in Burma Act of \n2021&#39;&#39;.\n\nSEC. 2. FINDINGS.\n\n    Congress finds the following:\n            (1) On March 14, 2005, the House of Representatives agreed \n        to H. Res. 135, which established the House Democracy \n        Assistance Commission (later changed to the House Democracy \n        Partnership, hereafter referred to as ``HDP&#39;&#39;) to work directly \n        with parliaments around the world to support the development of \n        effective, independent, and responsive legislative \n        institutions.\n            (2) HDP approved a legislative strengthening partnership \n        with Burma in 2016 and organized the first congressional \n        delegation to meet with the new civilian-led government, led by \n        State Counselor Aung San Suu Kyi, and civil society leaders in \n        May 2016.\n            (3) On February 2, 2021, the U.S. Department of State \n        assessed that Daw Aung San Suu Kyi, the leader of Burma&#39;s \n        ruling party, and President Win Myint, the duly elected head of \n        government, were deposed in a military coup on February 1, \n        2021.\n            (4) As part of the military coup, the Burmese military \n        declared martial law, suspended the civilian-led government, \n        and detained newly elected Members of Parliament in the \n        capitol, Naypyidaw, thereby usurping the role of the \n        democratically elected government and parliament.\n\nSEC. 3. SENSE OF CONGRESS.\n\n    It is the sense of Congress that--\n            (1) due to the Burmese military&#39;s seizure of government \n        through the detention of State Counsellor Aung San Suu Kyi, \n        President Win Myint, and other government leaders, Burma is not \n        represented by a democratically elected government;\n            (2) the inability of newly elected Members of Parliament to \n        begin their official mandate due to the Burmese military&#39;s \n        actions directly threatens the democratic trajectory of Burma&#39;s \n        Parliament, and thereby the country;\n            (3) the will and determination of those duly-elected \n        Members of Parliament who are taking it upon themselves to \n        continue serving as representatives of the people through \n        alternative methods of communicating and convening should be \n        lauded; and\n            (4) by preventing the Parliament from completing its work, \n        the Burmese military has rendered impossible and effectively \n        nullified the international collaborative relationships that \n        have supported and strengthened the institution, including the \n        Burmese parliament&#39;s partnership with HDP.\n\nSEC. 4. STATEMENT OF POLICY.\n\n    It is the policy of the United States to--\n            (1) engage with the Association of Southeast Asian Nations \n        (ASEAN) and ASEAN member states to--\n                    (A) condemn the military coup in Burma;\n                    (B) urge the unconditional release of detained \n                democratically elected leaders and civil society \n                members; and\n                    (C) support a return to Burma&#39;s democratic \n                transition; and\n            (2) instruct, as appropriate, representatives of the United \n        States Government to use the voice, vote, and influence of the \n        United States at the United Nations to hold accountable those \n        responsible for the military coup in Burma.\n\nSEC. 5. REPORT.\n\n    Not later than 90 days after the date of the enactment of this Act, \nthe Secretary of State shall submit to the Committee on Foreign Affairs \nand the Committee on Appropriations of the House of Representatives and \nthe Committee on Foreign Relations and the Committee on Appropriations \nof the Senate a report on the military coup in Burma, including a \ndescription of efforts to implement the policy specified in section 4.\n                                 &amp;lt;all&amp;gt;\n&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;\n&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="decoding-text-from-bytes-to-string">
+<h2>decoding text from bytes to string<a class="headerlink" href="#decoding-text-from-bytes-to-string" title="Link to this heading">#</a></h2>
+<p>We will “decode” the bytes type of data into a string, so we can eventually save it as a string format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use type() to see what kind of data we are working with.</span>
+<span class="c1"># list type </span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># within the list, bytes type</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bytes
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># turn bytes into string using decode()</span>
+<span class="n">decoded</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sample</span><span class="p">:</span>
+    <span class="n">decoded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">decoded</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decoded</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;&lt;html&gt;&lt;body&gt;&lt;pre&gt;\n[Congressional Bills 117th Congress]\n[From the U.S. Government Publishing Office]\n[H.R. 1112 Introduced in House (IH)]\n\n&amp;lt;DOC&amp;gt;\n\n\n\n\n\n\n117th CONGRESS\n  1st Session\n                                H. R. 1112\n\n   To require a report on the military coup in Burma, and for other \n                               purposes.\n\n\n_______________________________________________________________________\n\n\n                    IN THE HOUSE OF REPRESENTATIVES\n\n                           February 18, 2021\n\n    Mr. Connolly (for himself, Mr. Price of North Carolina, and Mr. \n  Buchanan) introduced the following bill; which was referred to the \n                      Committee on Foreign Affairs\n\n_______________________________________________________________________\n\n                                 A BILL\n\n\n \n   To require a report on the military coup in Burma, and for other \n                               purposes.\n\n    Be it enacted by the Senate and House of Representatives of the \nUnited States of America in Congress assembled,\n\nSECTION 1. SHORT TITLE.\n\n    This Act may be cited as the ``Protect Democracy in Burma Act of \n2021&#39;&#39;.\n\nSEC. 2. FINDINGS.\n\n    Congress finds the following:\n            (1) On March 14, 2005, the House of Representatives agreed \n        to H. Res. 135, which established the House Democracy \n        Assistance Commission (later changed to the House Democracy \n        Partnership, hereafter referred to as ``HDP&#39;&#39;) to work directly \n        with parliaments around the world to support the development of \n        effective, independent, and responsive legislative \n        institutions.\n            (2) HDP approved a legislative strengthening partnership \n        with Burma in 2016 and organized the first congressional \n        delegation to meet with the new civilian-led government, led by \n        State Counselor Aung San Suu Kyi, and civil society leaders in \n        May 2016.\n            (3) On February 2, 2021, the U.S. Department of State \n        assessed that Daw Aung San Suu Kyi, the leader of Burma&#39;s \n        ruling party, and President Win Myint, the duly elected head of \n        government, were deposed in a military coup on February 1, \n        2021.\n            (4) As part of the military coup, the Burmese military \n        declared martial law, suspended the civilian-led government, \n        and detained newly elected Members of Parliament in the \n        capitol, Naypyidaw, thereby usurping the role of the \n        democratically elected government and parliament.\n\nSEC. 3. SENSE OF CONGRESS.\n\n    It is the sense of Congress that--\n            (1) due to the Burmese military&#39;s seizure of government \n        through the detention of State Counsellor Aung San Suu Kyi, \n        President Win Myint, and other government leaders, Burma is not \n        represented by a democratically elected government;\n            (2) the inability of newly elected Members of Parliament to \n        begin their official mandate due to the Burmese military&#39;s \n        actions directly threatens the democratic trajectory of Burma&#39;s \n        Parliament, and thereby the country;\n            (3) the will and determination of those duly-elected \n        Members of Parliament who are taking it upon themselves to \n        continue serving as representatives of the people through \n        alternative methods of communicating and convening should be \n        lauded; and\n            (4) by preventing the Parliament from completing its work, \n        the Burmese military has rendered impossible and effectively \n        nullified the international collaborative relationships that \n        have supported and strengthened the institution, including the \n        Burmese parliament&#39;s partnership with HDP.\n\nSEC. 4. STATEMENT OF POLICY.\n\n    It is the policy of the United States to--\n            (1) engage with the Association of Southeast Asian Nations \n        (ASEAN) and ASEAN member states to--\n                    (A) condemn the military coup in Burma;\n                    (B) urge the unconditional release of detained \n                democratically elected leaders and civil society \n                members; and\n                    (C) support a return to Burma&#39;s democratic \n                transition; and\n            (2) instruct, as appropriate, representatives of the United \n        States Government to use the voice, vote, and influence of the \n        United States at the United Nations to hold accountable those \n        responsible for the military coup in Burma.\n\nSEC. 5. REPORT.\n\n    Not later than 90 days after the date of the enactment of this Act, \nthe Secretary of State shall submit to the Committee on Foreign Affairs \nand the Committee on Appropriations of the House of Representatives and \nthe Committee on Foreign Relations and the Committee on Appropriations \nof the Senate a report on the military coup in Burma, including a \ndescription of efforts to implement the policy specified in section 4.\n                                 &amp;lt;all&amp;gt;\n&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;\n&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">decoded</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./clean"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dataframes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">dataframes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="cleaning.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">cleaning our text</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-the-bill-number">extracting the bill number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scraping-the-bill-text">scraping the bill text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decoding-text-from-bytes-to-string">decoding text from bytes to string</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

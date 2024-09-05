@@ -1,0 +1,1746 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Python for Programming Cultural Heritage</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analyze/tomotopy';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Python for Programming Cultural Heritage - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Python for Programming Cultural Heritage - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python for Programming Cultural Heritage
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gathering/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/what.html">what is web scraping?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/explore.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/scrape.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/dataframes.html">dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/scrape.html">scraping our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what.html">what is text analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="questions.html">research questions: defining gender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">the <code class="docutils literal notranslate"><span class="pre">spaCy</span></code> pipeline</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="phrases.html">the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="entities.html">the <code class="docutils literal notranslate"><span class="pre">Entity-Ruler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokens.html">the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/ml.html">machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fanalyze/tomotopy.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/analyze/tomotopy.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tomotopy</span> <span class="k">as</span> <span class="nn">tp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">tomotopy</span> <span class="k">as</span> <span class="nn">tp</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tomotopy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># code from: https://bab2min.github.io/tomotopy/v0.12.6/en/</span>
+
+<span class="n">mdl</span> <span class="o">=</span> <span class="n">tp</span><span class="o">.</span><span class="n">LDAModel</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;117s_text_clean.txt&#39;</span><span class="p">):</span>
+    <span class="n">mdl</span><span class="o">.</span><span class="n">add_doc</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">mdl</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Iteration: </span><span class="si">{}</span><span class="se">\t</span><span class="s1">Log-likelihood: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">mdl</span><span class="o">.</span><span class="n">ll_per_word</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration: 0	Log-likelihood: -10.05363318804706
+Iteration: 10	Log-likelihood: -9.858915508280269
+Iteration: 20	Log-likelihood: -9.74286356506371
+Iteration: 30	Log-likelihood: -9.658925285328412
+Iteration: 40	Log-likelihood: -9.595007378988052
+Iteration: 50	Log-likelihood: -9.535697199549343
+Iteration: 60	Log-likelihood: -9.48274005619362
+Iteration: 70	Log-likelihood: -9.426581545490277
+Iteration: 80	Log-likelihood: -9.378284773081957
+Iteration: 90	Log-likelihood: -9.331731288012746
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mdl</span><span class="o">.</span><span class="n">k</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Top 10 words of topic #</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mdl</span><span class="o">.</span><span class="n">get_topic_words</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Top 10 words of topic #0
+[(&#39;the&#39;, 0.068659707903862), (&#39;of&#39;, 0.0678030401468277), (&#39;and&#39;, 0.024969883263111115), (&#39;to&#39;, 0.012879250571131706), (&#39;in&#39;, 0.012071261182427406), (&#39;subsection&#39;, 0.010465017519891262), (&#39;or&#39;, 0.010017216205596924), (&#39;under&#39;, 0.009686232544481754), (&#39;with&#39;, 0.009666763246059418), (&#39;for&#39;, 0.008089723996818066)]
+Top 10 words of topic #1
+[(&#39;of&#39;, 0.060066431760787964), (&#39;the&#39;, 0.059560343623161316), (&#39;a&#39;, 0.009752844460308552), (&#39;an&#39;, 0.009489256888628006), (&#39;in&#39;, 0.009320560842752457), (&#39;all&#39;, 0.008867190219461918), (&#39;be&#39;, 0.008571972139179707), (&#39;and&#39;, 0.008550885133445263), (&#39;amounts&#39;, 0.008150232024490833), (&#39;may&#39;, 0.007190773729234934)]
+Top 10 words of topic #2
+[(&#39;of&#39;, 0.04316667467355728), (&#39;the&#39;, 0.03680483251810074), (&#39;(1),&#39;, 0.00786292552947998), (&#39;multiple&#39;, 0.00770611921325326), (&#39;website&#39;, 0.007459709886461496), (&#39;development&#39;, 0.006429270375519991), (&#39;Small&#39;, 0.006026054732501507), (&#39;submits&#39;, 0.005398830398917198), (&#39;study&#39;, 0.00528682628646493), (&#39;For&#39;, 0.00528682628646493)]
+Top 10 words of topic #3
+[(&#39;of&#39;, 0.058979783207178116), (&#39;the&#39;, 0.047165337949991226), (&#39;and&#39;, 0.029641900211572647), (&#39;or&#39;, 0.022386722266674042), (&#39;a&#39;, 0.021501298993825912), (&#39;this&#39;, 0.013254974968731403), (&#39;to&#39;, 0.0130501389503479), (&#39;that&#39;, 0.01170218177139759), (&#39;under&#39;, 0.01104141864925623), (&#39;in&#39;, 0.011008379980921745)]
+Top 10 words of topic #4
+[(&#39;the&#39;, 0.05463080480694771), (&#39;to&#39;, 0.04452325403690338), (&#39;of&#39;, 0.03645624965429306), (&#39;and&#39;, 0.028014453127980232), (&#39;in&#39;, 0.02470674365758896), (&#39;under&#39;, 0.015164360404014587), (&#39;on&#39;, 0.014301737770438194), (&#39;by&#39;, 0.013807961717247963), (&#39;such&#39;, 0.012528900988399982), (&#39;Act&#39;, 0.012195750139653683)]
+Top 10 words of topic #5
+[(&#39;the&#39;, 0.07845806330442429), (&#39;of&#39;, 0.05571708083152771), (&#39;or&#39;, 0.012566741555929184), (&#39;a&#39;, 0.007827774621546268), (&#39;subparagraphs&#39;, 0.0065559749491512775), (&#39;by&#39;, 0.005904934834688902), (&#39;results&#39;, 0.005753530189394951), (&#39;and&#39;, 0.0056929681450128555), (&#39;Commission&#39;, 0.005465860944241285), (&#39;Secretary&#39;, 0.00526903523132205)]
+Top 10 words of topic #6
+[(&#39;the&#39;, 0.06347797811031342), (&#39;and&#39;, 0.05369298905134201), (&#39;of&#39;, 0.04592102766036987), (&#39;to&#39;, 0.024203119799494743), (&#39;for&#39;, 0.020841151475906372), (&#39;in&#39;, 0.01953371800482273), (&#39;by&#39;, 0.018314484506845474), (&#39;or&#39;, 0.018267791718244553), (&#39;a&#39;, 0.014361058361828327), (&#39;with&#39;, 0.011958910152316093)]
+Top 10 words of topic #7
+[(&#39;the&#39;, 0.07667236775159836), (&#39;and&#39;, 0.04478127881884575), (&#39;to&#39;, 0.04356956481933594), (&#39;in&#39;, 0.03651341423392296), (&#39;of&#39;, 0.034669727087020874), (&#39;or&#39;, 0.02444326877593994), (&#39;by&#39;, 0.02273537777364254), (&#39;a&#39;, 0.01943972148001194), (&#39;such&#39;, 0.010059376247227192), (&#39;State&#39;, 0.009155812673270702)]
+Top 10 words of topic #8
+[(&#39;the&#39;, 0.0825166329741478), (&#39;to&#39;, 0.04197634384036064), (&#39;and&#39;, 0.03820951655507088), (&#39;of&#39;, 0.02655003033578396), (&#39;a&#39;, 0.02239741012454033), (&#39;in&#39;, 0.021588319912552834), (&#39;or&#39;, 0.01756429672241211), (&#39;on&#39;, 0.014719082973897457), (&#39;section&#39;, 0.01396357361227274), (&#39;for&#39;, 0.013733169995248318)]
+Top 10 words of topic #9
+[(&#39;the&#39;, 0.07008221000432968), (&#39;of&#39;, 0.04086907580494881), (&#39;and&#39;, 0.030760111287236214), (&#39;for&#39;, 0.01990089751780033), (&#39;a&#39;, 0.01700046844780445), (&#39;in&#39;, 0.01593310944736004), (&#39;to&#39;, 0.014703326858580112), (&#39;by&#39;, 0.010457096621394157), (&#39;under&#39;, 0.00969911739230156), (&#39;or&#39;, 0.00953669287264347)]
+Top 10 words of topic #10
+[(&#39;of&#39;, 0.07274945825338364), (&#39;the&#39;, 0.0681016817688942), (&#39;and&#39;, 0.03169287368655205), (&#39;in&#39;, 0.022874997928738594), (&#39;a&#39;, 0.019379692152142525), (&#39;to&#39;, 0.017916364595294), (&#39;for&#39;, 0.010554233565926552), (&#39;this&#39;, 0.00970504805445671), (&#39;that&#39;, 0.00970504805445671), (&#39;or&#39;, 0.008992339484393597)]
+Top 10 words of topic #11
+[(&#39;the&#39;, 0.05743344873189926), (&#39;of&#39;, 0.04729364812374115), (&#39;and&#39;, 0.029524121433496475), (&#39;for&#39;, 0.02049395814538002), (&#39;to&#39;, 0.016560479998588562), (&#39;or&#39;, 0.015856433659791946), (&#39;a&#39;, 0.01384377758949995), (&#39;under&#39;, 0.01262700092047453), (&#39;this&#39;, 0.011471446603536606), (&#39;subsection&#39;, 0.010698525235056877)]
+Top 10 words of topic #12
+[(&#39;the&#39;, 0.06131643429398537), (&#39;to&#39;, 0.049924228340387344), (&#39;of&#39;, 0.03943973034620285), (&#39;and&#39;, 0.03516765311360359), (&#39;in&#39;, 0.03147434443235397), (&#39;a&#39;, 0.024291759356856346), (&#39;or&#39;, 0.02051101066172123), (&#39;shall&#39;, 0.014910676516592503), (&#39;by&#39;, 0.014302758499979973), (&#39;under&#39;, 0.013420029543340206)]
+Top 10 words of topic #13
+[(&#39;the&#39;, 0.06971889734268188), (&#39;of&#39;, 0.04819184169173241), (&#39;for&#39;, 0.011318896897137165), (&#39;service&#39;, 0.00961974449455738), (&#39;and&#39;, 0.009499331936240196), (&#39;notice&#39;, 0.009245128370821476), (&#39;accordance&#39;, 0.008616308681666851), (&#39;or&#39;, 0.006917155813425779), (&#39;United&#39;, 0.006716468371450901), (&#39;direct&#39;, 0.006662951782345772)]
+Top 10 words of topic #14
+[(&#39;the&#39;, 0.05681856721639633), (&#39;of&#39;, 0.04679609090089798), (&#39;and&#39;, 0.02928011119365692), (&#39;to&#39;, 0.02304108627140522), (&#39;as&#39;, 0.016194840893149376), (&#39;a&#39;, 0.016008004546165466), (&#39;under&#39;, 0.014753526076674461), (&#39;in&#39;, 0.01385937724262476), (&#39;or&#39;, 0.013445666059851646), (&#39;for&#39;, 0.013092010281980038)]
+Top 10 words of topic #15
+[(&#39;the&#39;, 0.06347855180501938), (&#39;of&#39;, 0.04220493882894516), (&#39;a&#39;, 0.023633327335119247), (&#39;in&#39;, 0.02110714465379715), (&#39;and&#39;, 0.020829541608691216), (&#39;to&#39;, 0.011057930067181587), (&#39;or&#39;, 0.01012333482503891), (&#39;by&#39;, 0.00923500582575798), (&#39;an&#39;, 0.007791472598910332), (&#39;subparagraph&#39;, 0.007643417920917273)]
+Top 10 words of topic #16
+[(&#39;the&#39;, 0.06799650192260742), (&#39;of&#39;, 0.03390679880976677), (&#39;to&#39;, 0.019815439358353615), (&#39;in&#39;, 0.01311543583869934), (&#39;with&#39;, 0.012078410014510155), (&#39;United&#39;, 0.009384173899888992), (&#39;that&#39;, 0.00906899943947792), (&#39;this&#39;, 0.008255645632743835), (&#39;and&#39;, 0.007848968729376793), (&#39;grant&#39;, 0.007767633069306612)]
+Top 10 words of topic #17
+[(&#39;the&#39;, 0.07441727817058563), (&#39;of&#39;, 0.05594754219055176), (&#39;and&#39;, 0.04185359179973602), (&#39;to&#39;, 0.02493506297469139), (&#39;a&#39;, 0.014921702444553375), (&#39;for&#39;, 0.014829093590378761), (&#39;or&#39;, 0.0137062082067132), (&#39;this&#39;, 0.011703535914421082), (&#39;under&#39;, 0.011275218799710274), (&#39;such&#39;, 0.011020543985068798)]
+Top 10 words of topic #18
+[(&#39;of&#39;, 0.04637026786804199), (&#39;the&#39;, 0.04447152093052864), (&#39;in&#39;, 0.030111614614725113), (&#39;and&#39;, 0.027223726734519005), (&#39;to&#39;, 0.024201635271310806), (&#39;for&#39;, 0.021994713693857193), (&#39;under&#39;, 0.01878374256193638), (&#39;or&#39;, 0.018301598727703094), (&#39;such&#39;, 0.01634817384183407), (&#39;a&#39;, 0.015602592378854752)]
+Top 10 words of topic #19
+[(&#39;the&#39;, 0.05153685435652733), (&#39;of&#39;, 0.048052337020635605), (&#39;to&#39;, 0.03191519156098366), (&#39;and&#39;, 0.026363912969827652), (&#39;for&#39;, 0.02047867514193058), (&#39;is&#39;, 0.01947679929435253), (&#39;a&#39;, 0.016433361917734146), (&#39;with&#39;, 0.015047118067741394), (&#39;any&#39;, 0.014234274625778198), (&#39;or&#39;, 0.013654571957886219)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mdl</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Basic Info&gt;
+| LDAModel (current version: 0.12.7)
+| 1 docs, 2767674 words
+| Total Vocabs: 132815, Used Vocabs: 132815
+| Entropy of words: 7.53844
+| Entropy of term-weighted words: 7.53844
+| Removed Vocabs: &lt;NA&gt;
+|
+&lt;Training Info&gt;
+| Iterations: 100, Burn-in steps: 0
+| Optimization Interval: 10
+| Log-likelihood per word: -9.33173
+|
+&lt;Initial Parameters&gt;
+| tw: TermWeight.ONE
+| min_cf: 0 (minimum collection frequency of words)
+| min_df: 0 (minimum document frequency of words)
+| rm_top: 0 (the number of top words to be removed)
+| k: 20 (the number of topics between 1 ~ 32767)
+| alpha: [0.1] (hyperparameter of Dirichlet distribution for document-topic, given as a single `float` in case of symmetric prior and as a list with length `k` of `float` in case of asymmetric prior.)
+| eta: 0.01 (hyperparameter of Dirichlet distribution for topic-word)
+| seed: 838198606 (random seed)
+| trained in version 0.12.7
+|
+&lt;Parameters&gt;
+| alpha (Dirichlet prior on the per-document topic distributions)
+|  [3.7074351 3.4881103 1.901951  5.129438  5.59113   2.5950232 6.3406425
+|   6.322668  6.0999055 4.4793215 4.507063  4.5393724 7.6008377 2.8937593
+|   5.06098   3.8771133 3.5813968 5.7212496 6.5073853 5.282207 ]
+| eta (Dirichlet prior on the per-topic word distribution)
+|  0.01
+|
+&lt;Topics&gt;
+| #0 (101396) : the of and to in
+| #1 (93517) : of the a an in
+| #2 (43313) : of the (1), multiple website
+| #3 (150012) : of the and or a
+| #4 (166764) : the to of and in
+| #5 (64720) : the of or a subparagraphs
+| #6 (191416) : the and of to for
+| #7 (190136) : the and to in of
+| #8 (185301) : the to and of a
+| #9 (127963) : the of and for a
+| #10 (130563) : of the and in a
+| #11 (129345) : the of and for to
+| #12 (238836) : the to of and in
+| #13 (73415) : the of for service and
+| #14 (148535) : the of and to as
+| #15 (106740) : the of a in and
+| #16 (97030) : the of to in with
+| #17 (171441) : the of and to a
+| #18 (199857) : of the in and to
+| #19 (157374) : the of to and for
+|
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<span class="kn">from</span> <span class="nn">spacy_cleaner</span> <span class="kn">import</span> <span class="n">processing</span><span class="p">,</span> <span class="n">Cleaner</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_sm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cleaner</span> <span class="o">=</span> <span class="n">Cleaner</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">processing</span><span class="o">.</span><span class="n">remove_stopword_token</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;117s_text_clean.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cleaner</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress: 100%|████████| 20706436/20706436 [1:33:35&lt;00:00, 3687.08it/s]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;b&#39;,
+ &#39;&quot;&#39;,
+ &#39;C&#39;,
+ &#39;o&#39;,
+ &#39;n&#39;,
+ &#39;g&#39;,
+ &#39;r&#39;,
+ &#39;e&#39;,
+ &#39;s&#39;,
+ &#39;s&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;l&#39;,
+ &#39;&#39;,
+ &#39;B&#39;,
+ &#39;&#39;,
+ &#39;l&#39;,
+ &#39;l&#39;,
+ &#39;s&#39;,
+ &#39;&#39;,
+ &#39;1&#39;,
+ &#39;1&#39;,
+ &#39;7&#39;,
+ &#39;t&#39;,
+ &#39;h&#39;,
+ &#39;&#39;,
+ &#39;C&#39;,
+ &#39;o&#39;,
+ &#39;n&#39;,
+ &#39;g&#39;,
+ &#39;r&#39;,
+ &#39;e&#39;,
+ &#39;s&#39;,
+ &#39;s&#39;,
+ &#39;F&#39;,
+ &#39;r&#39;,
+ &#39;o&#39;,
+ &#39;m&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;h&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;U&#39;,
+ &#39;.&#39;,
+ &#39;S&#39;,
+ &#39;.&#39;,
+ &#39;&#39;,
+ &#39;G&#39;,
+ &#39;o&#39;,
+ &#39;v&#39;,
+ &#39;e&#39;,
+ &#39;r&#39;,
+ &#39;n&#39;,
+ &#39;m&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;P&#39;,
+ &#39;u&#39;,
+ &#39;b&#39;,
+ &#39;l&#39;,
+ &#39;&#39;,
+ &#39;s&#39;,
+ &#39;h&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;g&#39;,
+ &#39;&#39;,
+ &#39;O&#39;,
+ &#39;f&#39;,
+ &#39;f&#39;,
+ &#39;&#39;,
+ &#39;c&#39;,
+ &#39;e&#39;,
+ &#39;S&#39;,
+ &#39;.&#39;,
+ &#39;&#39;,
+ &#39;5&#39;,
+ &#39;2&#39;,
+ &#39;4&#39;,
+ &#39;2&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;r&#39;,
+ &#39;o&#39;,
+ &#39;d&#39;,
+ &#39;u&#39;,
+ &#39;c&#39;,
+ &#39;e&#39;,
+ &#39;d&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;(&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;)&#39;,
+ &#39;&amp;&#39;,
+ &#39;l&#39;,
+ &#39;t&#39;,
+ &#39;;&#39;,
+ &#39;D&#39;,
+ &#39;O&#39;,
+ &#39;C&#39;,
+ &#39;&amp;&#39;,
+ &#39;g&#39;,
+ &#39;t&#39;,
+ &#39;;&#39;,
+ &#39;1&#39;,
+ &#39;1&#39;,
+ &#39;7&#39;,
+ &#39;t&#39;,
+ &#39;h&#39;,
+ &#39;&#39;,
+ &#39;C&#39;,
+ &#39;O&#39;,
+ &#39;N&#39;,
+ &#39;G&#39;,
+ &#39;R&#39;,
+ &#39;E&#39;,
+ &#39;S&#39;,
+ &#39;S&#39;,
+ &#39;2&#39;,
+ &#39;d&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;e&#39;,
+ &#39;s&#39;,
+ &#39;s&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;n&#39;,
+ &#39;S&#39;,
+ &#39;.&#39;,
+ &#39;&#39;,
+ &#39;5&#39;,
+ &#39;2&#39;,
+ &#39;4&#39;,
+ &#39;2&#39;,
+ &#39;T&#39;,
+ &#39;o&#39;,
+ &#39;&#39;,
+ &#39;p&#39;,
+ &#39;r&#39;,
+ &#39;e&#39;,
+ &#39;v&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;r&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;l&#39;,
+ &#39;&#39;,
+ &#39;v&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;l&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;c&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;g&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;s&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;w&#39;,
+ &#39;o&#39;,
+ &#39;m&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;,&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;d&#39;,
+ &#39;&#39;,
+ &#39;f&#39;,
+ &#39;o&#39;,
+ &#39;r&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;t&#39;,
+ &#39;h&#39;,
+ &#39;e&#39;,
+ &#39;r&#39;,
+ &#39;p&#39;,
+ &#39;u&#39;,
+ &#39;r&#39;,
+ &#39;p&#39;,
+ &#39;o&#39;,
+ &#39;s&#39;,
+ &#39;e&#39;,
+ &#39;s&#39;,
+ &#39;.&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;N&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;H&#39;,
+ &#39;E&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;E&#39;,
+ &#39;N&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;E&#39;,
+ &#39;&#39;,
+ &#39;O&#39;,
+ &#39;F&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;H&#39;,
+ &#39;E&#39;,
+ &#39;&#39;,
+ &#39;U&#39;,
+ &#39;N&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;E&#39;,
+ &#39;D&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;T&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;E&#39;,
+ &#39;S&#39;,
+ &#39;&#39;,
+ &#39;D&#39;,
+ &#39;e&#39;,
+ &#39;c&#39;,
+ &#39;e&#39;,
+ &#39;m&#39;,
+ &#39;b&#39;,
+ &#39;e&#39;,
+ &#39;r&#39;,
+ &#39;&#39;,
+ &#39;1&#39;,
+ &#39;3&#39;,
+ &#39;,&#39;,
+ &#39;&#39;,
+ &#39;2&#39;,
+ &#39;0&#39;,
+ &#39;2&#39;,
+ &#39;2&#39;,
+ &#39;M&#39;,
+ &#39;r&#39;,
+ &#39;s&#39;,
+ &#39;.&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;h&#39;,
+ &#39;&#39;,
+ &#39;h&#39;,
+ &#39;e&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;(&#39;,
+ &#39;f&#39;,
+ &#39;o&#39;,
+ &#39;r&#39;,
+ &#39;&#39;,
+ &#39;h&#39;,
+ &#39;e&#39;,
+ &#39;r&#39;,
+ &#39;s&#39;,
+ &#39;e&#39;,
+ &#39;l&#39;,
+ &#39;f&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;d&#39;,
+ &#39;&#39;,
+ &#39;M&#39;,
+ &#39;s&#39;,
+ &#39;.&#39;,
+ &#39;&#39;,
+ &#39;C&#39;,
+ &#39;o&#39;,
+ &#39;l&#39;,
+ &#39;l&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;s&#39;,
+ &#39;)&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;r&#39;,
+ &#39;o&#39;,
+ &#39;d&#39;,
+ &#39;u&#39;,
+ &#39;c&#39;,
+ &#39;e&#39;,
+ &#39;d&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;h&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;f&#39;,
+ &#39;o&#39;,
+ &#39;l&#39;,
+ &#39;l&#39;,
+ &#39;o&#39;,
+ &#39;w&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;g&#39;,
+ &#39;&#39;,
+ &#39;b&#39;,
+ &#39;&#39;,
+ &#39;l&#39;,
+ &#39;l&#39;,
+ &#39;;&#39;,
+ &#39;&#39;,
+ &#39;w&#39;,
+ &#39;h&#39;,
+ &#39;&#39;,
+ &#39;c&#39;,
+ &#39;h&#39;,
+ &#39;&#39;,
+ &#39;w&#39;,
+ &#39;&#39;,
+ &#39;s&#39;,
+ &#39;&#39;,
+ &#39;r&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;d&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;w&#39;,
+ &#39;&#39;,
+ &#39;c&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;d&#39;,
+ &#39;&#39;,
+ &#39;r&#39;,
+ &#39;e&#39;,
+ &#39;f&#39;,
+ &#39;e&#39;,
+ &#39;r&#39;,
+ &#39;r&#39;,
+ &#39;e&#39;,
+ &#39;d&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;o&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;h&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;C&#39;,
+ &#39;o&#39;,
+ &#39;m&#39;,
+ &#39;m&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;F&#39;,
+ &#39;o&#39;,
+ &#39;r&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;g&#39;,
+ &#39;n&#39;,
+ &#39;R&#39;,
+ &#39;e&#39;,
+ &#39;l&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;n&#39;,
+ &#39;s&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;B&#39;,
+ &#39;&#39;,
+ &#39;L&#39;,
+ &#39;L&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;o&#39;,
+ &#39;&#39;,
+ &#39;p&#39;,
+ &#39;r&#39;,
+ &#39;e&#39;,
+ &#39;v&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;r&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;l&#39;,
+ &#39;&#39;,
+ &#39;v&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;l&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;c&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;g&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;s&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;w&#39;,
+ &#39;o&#39;,
+ &#39;m&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;,&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;d&#39;,
+ &#39;&#39;,
+ &#39;f&#39;,
+ &#39;o&#39;,
+ &#39;r&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;t&#39;,
+ &#39;h&#39;,
+ &#39;e&#39;,
+ &#39;r&#39;,
+ &#39;p&#39;,
+ &#39;u&#39;,
+ &#39;r&#39;,
+ &#39;p&#39;,
+ &#39;o&#39;,
+ &#39;s&#39;,
+ &#39;e&#39;,
+ &#39;s&#39;,
+ &#39;.&#39;,
+ &#39;B&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;c&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;d&#39;,
+ &#39;&#39;,
+ &#39;b&#39;,
+ &#39;y&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;h&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;d&#39;,
+ &#39;&#39;,
+ &#39;H&#39;,
+ &#39;o&#39;,
+ &#39;u&#39;,
+ &#39;s&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;f&#39;,
+ &#39;&#39;,
+ &#39;R&#39;,
+ &#39;e&#39;,
+ &#39;p&#39;,
+ &#39;r&#39;,
+ &#39;e&#39;,
+ &#39;s&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;v&#39;,
+ &#39;e&#39;,
+ &#39;s&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;f&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;h&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;U&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;d&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;s&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;f&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;m&#39;,
+ &#39;e&#39;,
+ &#39;r&#39;,
+ &#39;&#39;,
+ &#39;c&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;C&#39;,
+ &#39;o&#39;,
+ &#39;n&#39;,
+ &#39;g&#39;,
+ &#39;r&#39;,
+ &#39;e&#39;,
+ &#39;s&#39;,
+ &#39;s&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;s&#39;,
+ &#39;s&#39;,
+ &#39;e&#39;,
+ &#39;m&#39;,
+ &#39;b&#39;,
+ &#39;l&#39;,
+ &#39;e&#39;,
+ &#39;d&#39;,
+ &#39;,&#39;,
+ &#39;S&#39;,
+ &#39;E&#39;,
+ &#39;C&#39;,
+ &#39;T&#39;,
+ &#39;&#39;,
+ &#39;O&#39;,
+ &#39;N&#39;,
+ &#39;&#39;,
+ &#39;1&#39;,
+ &#39;.&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;H&#39;,
+ &#39;O&#39;,
+ &#39;R&#39;,
+ &#39;T&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;L&#39;,
+ &#39;E&#39;,
+ &#39;;&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;&#39;,
+ &#39;B&#39;,
+ &#39;L&#39;,
+ &#39;E&#39;,
+ &#39;&#39;,
+ &#39;O&#39;,
+ &#39;F&#39;,
+ &#39;&#39;,
+ &#39;C&#39;,
+ &#39;O&#39;,
+ &#39;N&#39;,
+ &#39;T&#39;,
+ &#39;E&#39;,
+ &#39;N&#39;,
+ &#39;T&#39;,
+ &#39;S&#39;,
+ &#39;.&#39;,
+ &#39;(&#39;,
+ &#39;&#39;,
+ &#39;)&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;h&#39;,
+ &#39;o&#39;,
+ &#39;r&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;l&#39;,
+ &#39;e&#39;,
+ &#39;;&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;&#39;,
+ &#39;b&#39;,
+ &#39;l&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;f&#39;,
+ &#39;&#39;,
+ &#39;C&#39;,
+ &#39;o&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;s&#39;,
+ &#39;.&#39;,
+ &#39;-&#39;,
+ &#39;-&#39;,
+ &#39;T&#39;,
+ &#39;h&#39;,
+ &#39;&#39;,
+ &#39;s&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;c&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;m&#39;,
+ &#39;&#39;,
+ &#39;y&#39;,
+ &#39;&#39;,
+ &#39;b&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;c&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;d&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;s&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;h&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;`&#39;,
+ &#39;`&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;r&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;l&#39;,
+ &#39;&#39;,
+ &#39;V&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;l&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;c&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;g&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;s&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;W&#39;,
+ &#39;o&#39;,
+ &#39;m&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;c&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;f&#39;,
+ &#39;&#39;,
+ &#39;2&#39;,
+ &#39;0&#39;,
+ &#39;2&#39;,
+ &#39;2&#39;,
+ &quot;&#39;&quot;,
+ &quot;&#39;&quot;,
+ &#39;.&#39;,
+ &#39;(&#39;,
+ &#39;b&#39;,
+ &#39;)&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;&#39;,
+ &#39;b&#39;,
+ &#39;l&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;f&#39;,
+ &#39;&#39;,
+ &#39;C&#39;,
+ &#39;o&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;s&#39;,
+ &#39;.&#39;,
+ &#39;-&#39;,
+ &#39;-&#39;,
+ &#39;T&#39;,
+ &#39;h&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;b&#39;,
+ &#39;l&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;f&#39;,
+ &#39;&#39;,
+ &#39;c&#39;,
+ &#39;o&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;s&#39;,
+ &#39;&#39;,
+ &#39;f&#39;,
+ &#39;o&#39;,
+ &#39;r&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;h&#39;,
+ &#39;&#39;,
+ &#39;s&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;c&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;s&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;s&#39;,
+ &#39;&#39;,
+ &#39;f&#39;,
+ &#39;o&#39;,
+ &#39;l&#39;,
+ &#39;l&#39;,
+ &#39;o&#39;,
+ &#39;w&#39;,
+ &#39;s&#39;,
+ &#39;:&#39;,
+ &#39;S&#39;,
+ &#39;e&#39;,
+ &#39;c&#39;,
+ &#39;.&#39;,
+ &#39;&#39;,
+ &#39;1&#39;,
+ &#39;.&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;h&#39;,
+ &#39;o&#39;,
+ &#39;r&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;l&#39;,
+ &#39;e&#39;,
+ &#39;;&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;b&#39;,
+ &#39;l&#39;,
+ &#39;e&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;f&#39;,
+ &#39;&#39;,
+ &#39;c&#39;,
+ &#39;o&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;s&#39;,
+ &#39;.&#39;,
+ &#39;S&#39;,
+ &#39;e&#39;,
+ &#39;c&#39;,
+ &#39;.&#39;,
+ &#39;&#39;,
+ &#39;2&#39;,
+ &#39;.&#39;,
+ &#39;&#39;,
+ &#39;F&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;d&#39;,
+ &#39;&#39;,
+ &#39;n&#39;,
+ &#39;g&#39;,
+ &#39;s&#39;,
+ &#39;.&#39;,
+ &#39;S&#39;,
+ &#39;e&#39;,
+ &#39;c&#39;,
+ &#39;.&#39;,
+ &#39;&#39;,
+ &#39;3&#39;,
+ &#39;.&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;t&#39;,
+ &#39;e&#39;,
+ &#39;m&#39;,
+ &#39;e&#39;,
+ &#39;n&#39;,
+ &#39;t&#39;,
+ &#39;&#39;,
+ &#39;o&#39;,
+ &#39;f&#39;,
+ &#39;&#39;,
+ &#39;p&#39;,
+ &#39;o&#39;,
+ &#39;l&#39;,
+ &#39;&#39;,
+ &#39;c&#39;,
+ &#39;y&#39;,
+ &#39;.&#39;,
+ &#39;T&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;L&#39;,
+ &#39;E&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;-&#39;,
+ &#39;-&#39;,
+ &#39;U&#39;,
+ &#39;N&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;E&#39;,
+ &#39;D&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;T&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;E&#39;,
+ &#39;S&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;T&#39;,
+ &#39;R&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;E&#39;,
+ &#39;G&#39;,
+ &#39;Y&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;O&#39;,
+ &#39;&#39;,
+ &#39;P&#39;,
+ &#39;R&#39;,
+ &#39;E&#39;,
+ &#39;V&#39;,
+ &#39;E&#39;,
+ &#39;N&#39;,
+ &#39;T&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;N&#39;,
+ &#39;D&#39;,
+ &#39;&#39;,
+ &#39;R&#39;,
+ &#39;E&#39;,
+ &#39;S&#39;,
+ &#39;P&#39;,
+ &#39;O&#39;,
+ &#39;N&#39;,
+ &#39;D&#39;,
+ &#39;&#39;,
+ &#39;T&#39;,
+ &#39;O&#39;,
+ &#39;&#39;,
+ &#39;G&#39;,
+ &#39;E&#39;,
+ &#39;N&#39;,
+ &#39;D&#39;,
+ &#39;E&#39;,
+ &#39;R&#39;,
+ &#39;-&#39;,
+ &#39;B&#39;,
+ &#39;&#39;,
+ &#39;S&#39;,
+ &#39;E&#39;,
+ &#39;D&#39;,
+ &#39;V&#39;,
+ ...]
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./analyze"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

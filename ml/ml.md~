@@ -1,0 +1,40 @@
+# machine learning
+
+Machine Learning (ML) is a broad topic in Artificial Intelligence (AI)
+that contains process in natural language (NLP), computer vision,
+speech recognition, and more. In this workshop, we are going to focus
+on ML methods for NLP, specifically for text generation. 
+
+Before moving to text generation, however, it's useful to get a sense
+of how this process works under the hood. 
+
+## Word Vectors
+
+How does a text generation tool like ChatGPT work? How does it know
+what to respond when someone asks it a question? More specifically,
+how does it know what language to generate, what words follow other
+words?
+
+The answer is that it learns by prediction. It processes massive
+amounts of text, and from that processing, it gleans a sense of what
+words tend to follow other words.
+
+This is all possible thanks to "word vectors," which is language in a
+quantified form. 
+
+Technically speaking, word vectors are representations of words in
+graphical space. Each word is represented by a series of numbers that
+together make up its coordinate on a graph. 
+
+Practically, each of those numbers consists of a list of
+probabilities, which represent it's relationship to another word in
+the database.
+
+A vector for the words "cat" and "dog", must look like the following:
+
+| word | tiger | cute | bones | wolf  |
+|---+---+---+---+---|
+| cat | .90 | .99 | .40 | .35 |
+| dog | .35 | .99 | .85 | .90 |
+
+
