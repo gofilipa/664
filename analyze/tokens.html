@@ -1,0 +1,804 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>the token Matcher &#8212; Python for Programming Cultural Heritage</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analyze/tokens';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="workshop overview" href="../ml/overview.html" />
+    <link rel="prev" title="the Entity-Ruler" href="entities.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Python for Programming Cultural Heritage - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Python for Programming Cultural Heritage - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python for Programming Cultural Heritage
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gathering/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/what.html">what is web scraping?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/explore.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/scrape.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/dataframes.html">dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/scrape.html">scraping our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what.html">what is text analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="questions.html">research questions: defining gender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">the <code class="docutils literal notranslate"><span class="pre">spaCy</span></code> pipeline</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="phrases.html">the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="entities.html">the <code class="docutils literal notranslate"><span class="pre">Entity-Ruler</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/ml.html">machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fanalyze/tokens.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/analyze/tokens.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>the token Matcher</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-patterns-to-the-matcher">1. write patterns to the matcher</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-and-run-matcher">2. configure and run matcher</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-the-matches">print the matches</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-token-matcher">
+<h1>the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code><a class="headerlink" href="#the-token-matcher" title="Link to this heading">#</a></h1>
+<p>The token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code> is very similar to the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code> from two sections before. The difference is that this <code class="docutils literal notranslate"><span class="pre">Matcher</span></code> is allows for more variation, so we can capture different forms of the same basic pattern. For example, we could get definitions of gender (and sex, and sexuality) that use different words (like “means” or “includes”) or kinds of punctuation (like single or double quotes) in the defintition.</p>
+<p>The token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code> works by writing a pattern of tokens that we define using the token attributes. We can, for example, leverage the work we did with the <code class="docutils literal notranslate"><span class="pre">EntityRuler</span></code> in the previous section to help create our token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code>.</p>
+<p>First, we will import the matcher to create a matcher object. Then, we will write patterns and save them. After that, we add our new patterns to the matcher. Finally, we will run the matcher on our document. The steps are the following:</p>
+<ol class="arabic simple">
+<li><p>write patterns to matcher</p></li>
+<li><p>configure and run matcher</p></li>
+<li><p>print the results</p></li>
+</ol>
+<p>Let’s take it one step at a time.</p>
+<section id="write-patterns-to-the-matcher">
+<h2>1. write patterns to the matcher<a class="headerlink" href="#write-patterns-to-the-matcher" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># loading up our libraries and text</span>
+<span class="kn">import</span> <span class="nn">spacy</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">spacy.matcher</span> <span class="kn">import</span> <span class="n">Matcher</span>
+
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_sm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># loading up our libraries and text</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">spacy</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">requests</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">spacy.matcher</span> <span class="kn">import</span> <span class="n">Matcher</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;spacy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We want to capture not just “gender,” but “sex” and “sexuality,” as well as other synonyms for these terms. That’s where the custom entities from the last section will become useful.</p>
+<p>Below I am re-creating the custom entity ruler so that we can leverage these entites in our token matcher.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ruler</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">add_pipe</span><span class="p">(</span><span class="s2">&quot;entity_ruler&quot;</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="s2">&quot;ner&quot;</span><span class="p">)</span>
+
+<span class="n">patterns</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;GENDER&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s1">&#39;gender&#39;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;GENDER&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s1">&#39;trans&#39;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;GENDER&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s1">&#39;nonbinary&#39;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;GENDER&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s1">&#39;male&#39;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;GENDER&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s1">&#39;female&#39;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;SEX&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s1">&#39;sex&#39;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;SEX&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s1">&#39;biological&#39;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;SEXUALITY&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s1">&#39;sexuality&#39;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;SEXUALITY&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s1">&#39;orientation&#39;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;SEXUALITY&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s1">&#39;queer&#39;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;IDENTITY&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s1">&#39;LGBTQ&#39;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;IDENTITY&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s1">&#39;LGBT&#39;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;IDENTITY&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s1">&#39;LGBTQIA+&#39;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;IDENTITY&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s1">&#39;queer&#39;</span><span class="p">}</span>
+            <span class="p">]</span>
+
+<span class="n">ruler</span><span class="o">.</span><span class="n">add_patterns</span><span class="p">(</span><span class="n">patterns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is the basic format of the <code class="docutils literal notranslate"><span class="pre">Matcher</span></code>. We will add much more detail to this format later on, but it’s a good idea to get a sense of how it’s structured now, using JSON key-value pairs.</p>
+<p>Also, it draws the token attributes from this page: <a class="reference external" href="https://spacy.io/api/matcher">https://spacy.io/api/matcher</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern_format</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;LOWER&#39;</span><span class="p">:</span> <span class="s1">&#39;gender&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;IS_PUNCT&#39;</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;LOWER&#39;</span><span class="p">:</span> <span class="s1">&#39;means&#39;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We want to capture a specific pattern where gender is being defined. We’d want a phrase that captures text like: “gender means”, and to also get variations on the punctuation and/or terminologies in that text. For example, we want to get instances where they use both single and double quotes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="c1"># specifying the entity type, which can be one of our three</span>
+      <span class="c1"># custom entities</span>
+      <span class="p">{</span><span class="s2">&quot;ENT_TYPE&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s1">&#39;IN&#39;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="s1">&#39;GENDER&#39;</span><span class="p">,</span> <span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="s1">&#39;SEXUALITY&#39;</span>
+              <span class="p">]</span>
+          <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="p">{</span><span class="s1">&#39;OP&#39;</span><span class="p">:</span> <span class="s1">&#39;?&#39;</span><span class="p">},</span> <span class="c1"># catches a &quot;wild card&quot; if it appears zero or one time.</span>
+      <span class="p">{</span><span class="s1">&#39;OP&#39;</span><span class="p">:</span> <span class="s1">&#39;?&#39;</span><span class="p">},</span> <span class="c1"># catches a &quot;wild card&quot; if it appears zero or one time.</span>
+      <span class="p">{</span><span class="s1">&#39;OP&#39;</span><span class="p">:</span> <span class="s1">&#39;?&#39;</span><span class="p">},</span> <span class="c1"># catches a &quot;wild card&quot; if it appears zero or one time.</span>
+      <span class="p">{</span><span class="s1">&#39;OP&#39;</span><span class="p">:</span> <span class="s1">&#39;?&#39;</span><span class="p">},</span> <span class="c1"># catches a &quot;wild card&quot; if it appears zero or one time.</span>
+      <span class="p">{</span><span class="s1">&#39;OP&#39;</span><span class="p">:</span> <span class="s1">&#39;?&#39;</span><span class="p">},</span> <span class="c1"># catches a &quot;wild card&quot; if it appears zero or one time.</span>
+      <span class="p">{</span><span class="s1">&#39;OP&#39;</span><span class="p">:</span> <span class="s1">&#39;?&#39;</span><span class="p">},</span> <span class="c1"># catches a &quot;wild card&quot; if it appears zero or one time.</span>
+      <span class="p">{</span><span class="s1">&#39;OP&#39;</span><span class="p">:</span> <span class="s1">&#39;?&#39;</span><span class="p">},</span> <span class="c1"># catches a &quot;wild card&quot; if it appears zero or one time.</span>
+      <span class="p">{</span>
+          <span class="s1">&#39;IS_PUNCT&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;OP&#39;</span><span class="p">:</span> <span class="s1">&#39;+&#39;</span> <span class="c1">#one or more times</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+          <span class="c1"># getting the lowercase word of any of the following terms</span>
+          <span class="s1">&#39;LOWER&#39;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s1">&#39;IN&#39;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s1">&#39;means&#39;</span><span class="p">,</span> <span class="s1">&#39;signifies&#39;</span><span class="p">,</span> <span class="s1">&#39;includes&#39;</span>
+              <span class="p">]</span>
+          <span class="p">}</span>
+       <span class="p">}</span>
+  <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="configure-and-run-matcher">
+<h2>2. configure and run matcher<a class="headerlink" href="#configure-and-run-matcher" title="Link to this heading">#</a></h2>
+<p>Now we can configure the <code class="docutils literal notranslate"><span class="pre">Matcher</span></code>. First, create the matcher, then add our pattern to the matcher, and finally run the mather on our doc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># loading up our sample text, which is the first million characters</span>
+<span class="c1"># of our cleaned dataset</span>
+
+<span class="n">source</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://bit.ly/senate_117_bills_clean&#39;</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">content</span>
+<span class="n">decoded</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">decoded</span><span class="p">[:</span><span class="mi">500000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use matcher class to create a matcher object</span>
+<span class="n">matcher</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>
+
+<span class="c1"># add pattern to matcher</span>
+<span class="n">matcher</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;definition&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">pattern</span><span class="p">])</span>
+
+<span class="c1"># run matcher over doc</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">matcher</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># how many matches did we get?</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="print-the-matches">
+<h2>print the matches<a class="headerlink" href="#print-the-matches" title="Link to this heading">#</a></h2>
+<p>Let’s see the actual text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">match_id</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="n">string_id</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">match_id</span><span class="p">]</span>  <span class="c1"># Get string representation</span>
+    <span class="n">span</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>  <span class="c1"># The matched span</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">string_id</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">span</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="n">start</span><span class="p">]</span><span class="o">.</span><span class="n">sent</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>definition 2288 2292 gender analysis&#39;&#39;--(A) means
+Gender analysis.--The term ``gender analysis&#39;&#39;--(A) means a socioeconomic analysis of available or gathered quantitative and qualitative information to identify, understand, and explain gaps between men and women, which typically involves examining--(i) differences in the status of women and men and differential access to and control over assets, resources, education, opportunities, and services;(ii) the influence of gender roles, structural barriers, and norms on the division of time between paid, unpaid work (including the subsistence production and care for family members), and volunteer activities;(iii) the influence of gender roles, structural barriers, and norms on leadership roles and decision making; constraints, opportunities, and entry points for narrowing gender gaps and empowering women; and(iv) potential differential impacts of development policies and programs on men and women, including unintended or negative consequences; and(B) includes conclusions and recommendations to enable development policies and programs--(i) to narrow gender gaps; and(ii) to improve the lives of women and girls.(5) Office.--The term ``Office&#39;&#39; means the Office of Global Women&#39;s Issues established by the Secretary of State pursuant to section 202(a).(6)
+
+
+definition 9680 9684 gender identity&#39; means
+Gender identity.--The term `gender identity&#39; means the gender-related identity, appearance, mannerisms, or other gender-related characteristics of an individual, regardless of the individual&#39;s designated sex at birth.
+
+
+definition 9785 9788 orientation&#39; means
+``(5) Sexual orientation.--The term `sexual orientation&#39; means homosexuality, heterosexuality, or bisexuality.
+
+
+definition 11856 11861 gender transition procedure&#39; means
+In general.--The term `gender transition procedure&#39; means any medical or surgical service which seeks to alter or remove physiological or anatomical characteristics or features which are typical for the individual&#39;s biological sex, or to instill or create physiological or anatomical characteristics which resemble a sex different from the individual&#39;s birth sex, for the purpose of gender transition, including--``(I) physician&#39;s services and inpatient and outpatient hospital services, including gender transition surgery, and``(II) prescribed drugs related to gender transition, including puberty-blocking drugs, cross-sex hormones, or other mechanisms to promote the development of feminizing or masculinizing features (in the opposite sex).``(ii) Exceptions.--Such term does not include--``(I) services for treatment of a medically-verifiable disorder of sex development, including--``(aa) external biological sex characteristics which are irresolvably ambiguous, such as presence of 46 XX chromosomes with virilization, 46 XY chromosomes with undervirilization, or both ovarian and testicular tissue, or``(bb) other physician-diagnosed disorder of sexual development, with respect to which the physician has determined through genetic or biochemical testing that the individual does not have normal sex chromosome structure, sex steroid hormone production, or sex steroid hormone action for a biological male or biological female, or``(II) treatment of any infection, injury, disease, or disorder caused or exacerbated by the performance of any gender transition procedure, whether or not the gender transition procedure was performed in accordance with State and Federal law or whether not a deduction for expenses in connection with the gender transition procedure is allowable under this chapter.
+
+
+definition 12143 12146 gender&#39; means
+Gender.--The term `gender&#39; means the psychological, behavioral, social, and cultural aspects of being male or female.
+
+
+definition 12168 12172 gender transition&#39; means
+Gender transition.--The term `gender transition&#39; means the process in which an individual goes from identifying with and living as a gender that corresponds to his or her biological sex to identifying with and living as a gender different from his or her biological sex, and may involve social, legal, or physical changes.
+
+
+definition 12232 12237 gender transition surgery&#39; means
+In general.--The term `gender transition surgery&#39; means any surgical service, including genital or non-genital surgery, performed for the purpose of assisting an individual with a gender transition.
+
+
+definition 12548 12552 sex hormones&#39; means
+hormones.--The term `cross-sex hormones&#39; means testosterone or other androgens given to biological females at doses which are profoundly larger or more potent than would normally occur naturally in healthy biological females, and estrogen given to biological males at doses which are profoundly larger or more potent than would normally occur naturally in healthy biological males.
+
+
+definition 12542 12552 sex hormones.--The term `cross-sex hormones&#39; means
+``(ix) Cross-sex
+
+
+definition 13845 13848 sex&#39;&#39; means
+Biological sex.--The term ``biological sex&#39;&#39; means the biological indication of male and female in the context of reproductive potential or capacity, such as sex chromosomes, naturally occurring sex hormones, gonads, and nonambiguous internal and external genitalia present at birth, without regard to a person&#39;s psychological, chosen, or subjective experience of gender.(2)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Due to the versatility of the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code>, we can catch instances like gender dysphoria’’ means and orientation includes, which goes beyond what we were able to do with the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code>. Pretty cool, right?</p>
+<p>Next step is to save our data as a plain text file, so we can review it later.</p>
+<p>We will include just the matched phrase and the full sentence from which it occurs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./out/matcher_defs.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">match_id</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+        <span class="n">string_id</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">match_id</span><span class="p">]</span>  <span class="c1"># Get string representation</span>
+        <span class="n">span</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>  <span class="c1"># The matched span</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">span</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="n">start</span><span class="p">]</span><span class="o">.</span><span class="n">sent</span><span class="p">))</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s all, folks!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./analyze"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="entities.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">the <code class="docutils literal notranslate"><span class="pre">Entity-Ruler</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../ml/overview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">workshop overview</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-patterns-to-the-matcher">1. write patterns to the matcher</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-and-run-matcher">2. configure and run matcher</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-the-matches">print the matches</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

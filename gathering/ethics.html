@@ -1,0 +1,640 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>what is ethical? what is legal? &#8212; Python for Programming Cultural Heritage</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/ethics';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="the HTML Inspector" href="inspector.html" />
+    <link rel="prev" title="what is web scraping?" href="what.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Python for Programming Cultural Heritage - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Python for Programming Cultural Heritage - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python for Programming Cultural Heritage
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what.html">what is web scraping?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explore.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scrape.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="legiscan_api.html">Legiscan API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/dataframes.html">dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/scrape.html">scraping our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analyze/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/what.html">what is text analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/questions.html">research questions: defining gender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/processing.html">the <code class="docutils literal notranslate"><span class="pre">spaCy</span></code> pipeline</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../analyze/phrases.html">the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/entities.html">the <code class="docutils literal notranslate"><span class="pre">Entity-Ruler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/tokens.html">the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/ml.html">machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgathering/ethics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/gathering/ethics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>what is ethical? what is legal?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethical">ethical:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legal">legal:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-everything-legal-is-ethical-exhibit-a-i">not everything legal is ethical: exhibit A(I)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anti-trans-legislation">anti-trans legislation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="what-is-ethical-what-is-legal">
+<h1>what is ethical? what is legal?<a class="headerlink" href="#what-is-ethical-what-is-legal" title="Link to this heading">#</a></h1>
+<p>What follows is a brief overview of ethical and legal considerations for web scraping. Then, I offer my own process  in navigating these considerations as I determine how to scrape data on anti-trans legislation (explained further below).</p>
+<p>Though I consider both legality and ethics, my emphasis throughout the process will be on ethics. The legality of web scraping is already well covered in many places, including the University of Michigan’s excellent <a class="reference external" href="https://docs.google.com/document/d/11LZweIYD9MmjiZgY-VW1IXUPOP1k-SwXNiOdJDVC7Vw/edit#heading=h.ut4ttuudwb6i">guidebook</a> on the subject, so I will not attempt to reproduce it here.</p>
+<section id="ethical">
+<h2>ethical:<a class="headerlink" href="#ethical" title="Link to this heading">#</a></h2>
+<p>I begin with a list of ethical questions that researchers should ask themselves at the outset of any project. Here, I encourage you to think carefully about <em>who</em> your data pertains to (who is the data about?) and how gathering, doing analysis, and/or publishing that dataset will affect the groups involved. You especially want to do this work if your project involves communinities that are marginalized in any way.</p>
+<p>Here are some initial questions you want to ask yourself:</p>
+<ul class="simple">
+<li><p>Who is the data about? Who owns the data? (often times, the data’s owner is not the same as the person/group it describes)</p></li>
+<li><p>Does the data contain any personally identifying characteristics? If so, what are the potential effects of these details being shared or published?</p></li>
+<li><p>What do I intend to do with the data? (gather it, analyze it, publish it online, all of the above, etc.)</p></li>
+<li><p>How will publishing the data affect the persons/group(s) that the data describes?</p></li>
+</ul>
+<p>The most important thing is to <strong>assess any vulnerabilities about the people directly associated with the data</strong>. And this can only be answered on a case by case basis. There is no standard that applies to all groups.</p>
+<p>As you deliberate, you’ll want to consider how the data can be repurposed for monetary value or surveillance. How could that data be used for monitoring or value extraction? In what ways could that data be used to exploit human subjects? Could it make a particular group vulnerable? If the answer is yes, that doesn’t mean you have to forgo the project. But it does mean that you should think about how you use and share that data, to commit to protecting the dataset.</p>
+<p>Protocols for handling data will vary according to group of people your data is about. For example, indigenous populations across the United States are understandably protective of their information and may not want it to be made public. In that case, you could reach out to the groups directly and ask permission, or you can commit to keeping the data private (doing analysis on your own) and only sharing the results of the analysis. Another example, anti-trans legislation, is a different case. Collecting and publishing data about anti-trans laws brings scrutiny to the issue of trans discrimination, which benefits the group that the data describes. And additionally, the research goal of this project–to do a text analysis of terms like “gender” and “sex” defined within the bills–creates an opportunity to examine the ways that language is being used to oppress and limit this particular group.</p>
+<p>The most important consideration is how copying, analyzing, and/or publishing that data affects the groups to whom that data pertains. Be thoughtful about the potential effects of collecting that data and making it available.</p>
+</section>
+<section id="legal">
+<h2>legal:<a class="headerlink" href="#legal" title="Link to this heading">#</a></h2>
+<p>If after assessing the communities involved, you’ve determined how to handle the data in an ethical way, then you can move on to legality.</p>
+<p>What is legal? Basically, there are two questions here:</p>
+<ul class="simple">
+<li><p>First, is the data publically accessible? This is distinct from “open” or “free” data, each containing their own complexities. Just because something is publically accessible on the internet doesn’t mean it is open data, in the “public domain”. It may be protected by data holder’s IP rights or copyright law. Which leads to the second question.</p></li>
+<li><p>Second, does the data publisher permit scraping or mining their data? For this, you’d need to check the <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> file (more on this below) and the “Privacy” or “Terms of Service” pages on the website. Make sure to check the website thoroughly. On the Princeton University Library website, for example, scraping is clearly prohibited in a “Copyright and Access” section on the sidebar.</p></li>
+</ul>
+<p>If the answer is yes to both of these questions, then scraping (and perhaps even publishing, but you’d want to check that too) the data should be legal. If the answer is no to any of them, then your project <em>may</em> run the risk of violating the law.</p>
+<p>Finally, it is important to remember that copyright law protects making copies of information for the purpose of academic research. This means that, provided you do not distribute, publish, or sell the data, you can scrape information for your own private study. See more under the “<a class="reference external" href="https://www.copyright.gov/fair-use/">Fair Use</a>” description at the US Copyright Office.</p>
+</section>
+<section id="not-everything-legal-is-ethical-exhibit-a-i">
+<h2>not everything legal is ethical: exhibit A(I)<a class="headerlink" href="#not-everything-legal-is-ethical-exhibit-a-i" title="Link to this heading">#</a></h2>
+<p>It’s worth re-iterating the importance of ethics. Just because something legally can be scraped, analyzed and/or published doesn’t mean it should be scraped, analyzed, and/or published.</p>
+<p>For example, the web scraping processes being used to train the very popular generative AI tools like <em>ChatGPT</em>. The companies like OpenAI that make these tools take data from every corner of the web, use it to train their language and vision models, and then sell that technology back to the user. They do this without any compensation to their data sources, not even when the sources include <a class="reference external" href="https://authorsguild.org/news/ag-and-authors-file-class-action-suit-against-openai/">works of literature</a> or <a class="reference external" href="https://githubcopilotlitigation.com/">openly licensed software</a>, which is often stipulated for non-commercial use.</p>
+<p>Perhaps the worst offenders of scraping are those who use that data for surveillance and policing purposes, like in the creation of facial recognition software. For example, Clearview AI infamously <a class="reference external" href="https://www.technologyreview.com/2021/04/09/1022240/clearview-ai-nypd-emails/">scraped images from social media to sell to law enforcement</a>, who has been using the images in ways that violate privacy and <a class="reference external" href="https://news.mit.edu/2018/study-finds-gender-skin-type-bias-artificial-intelligence-systems-0212">exacerbate racial profiling</a>.</p>
+</section>
+<section id="anti-trans-legislation">
+<h2>anti-trans legislation<a class="headerlink" href="#anti-trans-legislation" title="Link to this heading">#</a></h2>
+<p>Taking ethics and legality is only the begining, and other hurdles can arise when logistically trying to scrape a website. I’m going to demonstrate one path of negotiating this complicated process, using trans legislation websites as an example.</p>
+<p>After making the assessment that this dataset (anti-trans legislation) wouldn’t harm any marginalized groups, I sought out some websites that were legally scrapable. By checking the <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> file for each site, I was able to see which ones prohibited scraping. To check this file, just append <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> to the root of the URL (the “root” is the part of the URL that ends with <code class="docutils literal notranslate"><span class="pre">.com</span></code> or <code class="docutils literal notranslate"><span class="pre">.org</span></code>, etc.).</p>
+<p>First, I came across a website that totally prohibits web scraping. Here, the <a class="reference external" href="https://www.billtrack50.com/">Bill Track 50</a> website, which aggregates legislative data from across the United States, has its <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> at <code class="docutils literal notranslate"><span class="pre">https://www.billtrack50.com/robots.txt</span></code>. It contains the following declaration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">User</span><span class="o">-</span><span class="n">agent</span><span class="p">:</span> <span class="o">*</span>
+<span class="n">Disallow</span><span class="p">:</span> <span class="o">/</span>
+</pre></div>
+</div>
+<p>The “user-agent” refers to the entity looking at the website, whether that be a person or a bot. The asterisk is a “wild card,” which means that it applies to <em>all</em> user-agents.</p>
+<p>The “disallow” line indicates which parts of the websites are off limits. The <code class="docutils literal notranslate"><span class="pre">/</span></code> in “disallow” means that all possible paths–that means, all possible sites contained under the root <code class="docutils literal notranslate"><span class="pre">billtrack50.com</span></code>, are off limits. Together, the user-agent and disallow declarations definitively shut the door to all scrapers: it means that all users,no matter who they are, cannot access any possible page created from the root URL, including the root itself. This is fairly understandable, as the organization’s financial model depends on its user-friendly API for accessing this data, which it sells to users.</p>
+<p>Here’s an example from another contender for scraping, <em>Track Trans Legislation</em>, which mostly allows scraping. It does have some limits, but only on the <code class="docutils literal notranslate"><span class="pre">admin</span></code> and <code class="docutils literal notranslate"><span class="pre">bill-logs</span></code> paths. Everything else on the site is fair game:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">User</span><span class="o">-</span><span class="n">agent</span><span class="p">:</span> <span class="o">*</span>
+<span class="n">Disallow</span><span class="p">:</span> <span class="o">/</span><span class="n">admin</span><span class="o">/</span>
+<span class="n">Disallow</span><span class="p">:</span> <span class="o">/</span><span class="n">bill</span><span class="o">-</span><span class="n">logs</span>
+</pre></div>
+</div>
+<!-- add the connection to BillTrack50-->
+<p>However, even if the website is legally scrapable, it may not be <em>technically</em> scrapable, which I quickly discovered when I tried to scrape the <em>Track Trans Legislation</em> site. The reason has to do with its so-called “dynamic” web interface. Because many scrapers work with static HTML (HTML that is rendered all at once), it cannot capture shifting, dynamic elements like those contained in JavaScript code. You can quickly tell if a site has dynamic elements if it has scrollable boxes, buttons, search bars, or something else that changes or updates in place without reloading the whole page. Those elements include their own processes, like APIs, that are not present in the static version of the website code (interestingly, one of the APIs contained in this site is the BillTrack50 API! which explains why this company wants to lock down scraping). So, although scraping <em>Track Trans Legislation</em> is legally permissable (for the most part), the information contained in its dynamic interface cannot be captured with typical web scrapers. To work with dynamic websites, use another tools like <a class="reference external" href="https://www.selenium.dev/">Selenium</a> (which simulates a browser where elements can then be “clicked” or “scrolled”, etc).</p>
+<p>Dynamic websites are popular, and unfortunately for me, there were a couple more of them which, while legally permissible, I couldn’t scrape. While these websites show the source code in the “page course” or “inspector” views (discussed in the next section), the dynamic elements do not appear in the code that is scraped by tools like bs4.</p>
+<p>Here’s a list of the sites that contain the data I want within dynamic elements, in this case, within scrollable boxes:</p>
+<ul class="simple">
+<li><p>ACLU’s “<a class="reference external" href="https://www.aclu.org/legislative-attacks-on-lgbtq-rights">Mapping Attacking on LGBTQ Rights in US State Legislatures</a>”</p></li>
+<li><p>Equality Federation’s “<a class="reference external" href="https://www.equalityfederation.org/tracker/cumulative-anti-transgender">Anti-Transgender Legislation</a>”</p></li>
+</ul>
+<p>Besides dynamic websites, another obstacle is the use of “bot blockers,” which guards against web scrapers by feeding the wrong information (usually a blank webpage) to the scraper. For example, the <a class="reference external" href="https://www.congress.gov/">Congress.gov</a> website uses bot blockers (even though the federal legislation is technically in the public domain). A bot blocker will usually give a web scraper a blank page with the following title embedded in the HTML:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Just a moment...<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>To its credit, <a class="reference external" href="http://Congress.gov">Congress.gov</a> does offer an API, the <a class="reference external" href="https://blogs.loc.gov/law/2022/09/introducing-the-congress-gov-api/">Congress.gov API</a>, which is a good option for those who want legislative data. If you encounter bot blockers, remember to check for an API, and also consider reaching out directly to the data holders/curators, to get your data.</p>
+<p>At the end of my search, I was left with the following two sites that contained the data I want in a static format:</p>
+<ul class="simple">
+<li><p>National Center for Transgender Equality’s “<a class="reference external" href="https://transequality.org/state-action-center">State Action Center</a>”</p></li>
+<li><p>Trans Leglislation Tracker’s “<a class="reference external" href="https://translegislation.com/">2023 anti-trans bills tracker</a>”</p></li>
+</ul>
+<p>I selected the second site, <em>Trans Legislation Tracker</em>, due to its wonderfully open declaration in its <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">User</span><span class="o">-</span><span class="n">agent</span><span class="p">:</span> <span class="o">*</span>
+<span class="n">Allow</span><span class="p">:</span> <span class="o">/</span>
+</pre></div>
+</div>
+<p>Nothing could be more permissive than that.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./gathering"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="what.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">what is web scraping?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="inspector.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">the HTML Inspector</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethical">ethical:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legal">legal:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-everything-legal-is-ethical-exhibit-a-i">not everything legal is ethical: exhibit A(I)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anti-trans-legislation">anti-trans legislation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1138 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>scraping with bs4 &#8212; Python for Programming Cultural Heritage</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/scrape';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Legiscan API" href="legiscan_api.html" />
+    <link rel="prev" title="exploring bs4" href="explore.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Python for Programming Cultural Heritage - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Python for Programming Cultural Heritage - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python for Programming Cultural Heritage
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what.html">what is web scraping?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explore.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="legiscan_api.html">Legiscan API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/dataframes.html">dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/scrape.html">scraping our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analyze/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/what.html">what is text analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/questions.html">research questions: defining gender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/processing.html">the <code class="docutils literal notranslate"><span class="pre">spaCy</span></code> pipeline</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../analyze/phrases.html">the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/entities.html">the <code class="docutils literal notranslate"><span class="pre">Entity-Ruler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/tokens.html">the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/ml.html">machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgathering/scrape.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/gathering/scrape.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>scraping with bs4</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-isolate-the-bill-cards-data-from-the-rest-of-the-page">step 1: isolate the bill cards data from the rest of the page</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-pick-out-information-from-each-bill-card">step 2: pick out information from each bill card</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-processing-information-about-the-bills">step 3: processing information about the bills</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-our-data-to-a-csv">3. saving our data to a CSV</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="scraping-with-bs4">
+<h1>scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code><a class="headerlink" href="#scraping-with-bs4" title="Link to this heading">#</a></h1>
+<p>Now we have a sense of the <code class="docutils literal notranslate"><span class="pre">bs4</span></code> syntax, and a list of the html elements that we want to scrape from the <code class="docutils literal notranslate"><span class="pre">https://translegislation.com/</span></code> website, we can write some code that extracts those elements and saves them in a structured format, like a spreadsheet.</p>
+<p>Before doing all that, we will import the libraries we need and create our <code class="docutils literal notranslate"><span class="pre">soup</span></code> object (that holds our website content).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">lxml</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">site</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://translegislation.com/bills/2023/passed&#39;</span><span class="p">)</span>
+<span class="n">html_code</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">content</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_code</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have loaded up the necessary libraries and soup object, we can extract the data we want. Like all good programmers, we will break our task up into a number of steps:</p>
+<ol class="arabic simple">
+<li><p>isolate the bill_cards data from the rest of the webpage</p></li>
+<li><p>pick out the information we want from the bill cards</p></li>
+<li><p>process the information from the bill cards into the format we want</p></li>
+<li><p>save that information to a csv file</p></li>
+</ol>
+<p>Each of these steps itself contains smaller steps, which we will figure out as we go along. Let’s begin with the first step</p>
+<section id="step-1-isolate-the-bill-cards-data-from-the-rest-of-the-page">
+<h2>step 1: isolate the bill cards data from the rest of the page<a class="headerlink" href="#step-1-isolate-the-bill-cards-data-from-the-rest-of-the-page" title="Link to this heading">#</a></h2>
+<p>First, create a new object called <code class="docutils literal notranslate"><span class="pre">bill_cards</span></code>, which enables us to narrow down the parts of the website that we want to scrape.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to get the element and class for the cards, use the inspector</span>
+
+<span class="n">bill_cards</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span> <span class="o">=</span><span class="s1">&#39;css-4rck61&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># checking our list by printing just the first three items</span>
+
+<span class="n">bill_cards</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;div class=&quot;css-4rck61&quot;&gt;&lt;style data-emotion=&quot;css 1dvz6tu&quot;&gt;.css-1dvz6tu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:baseline;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-box-flex-wrap:wrap;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:var(--chakra-space-2);margin-left:inherit;margin-right:inherit;margin-bottom:var(--chakra-space-2);}&lt;/style&gt;&lt;div class=&quot;css-1dvz6tu&quot;&gt;&lt;style data-emotion=&quot;css wd7aku&quot;&gt;.css-wd7aku{font-weight:var(--chakra-fontWeights-semibold);letter-spacing:var(--chakra-letterSpacings-wide);margin-bottom:var(--chakra-space-2);}&lt;/style&gt;&lt;div class=&quot;css-wd7aku&quot;&gt;&lt;style data-emotion=&quot;css 1vygpf9&quot;&gt;.css-1vygpf9{font-family:var(--chakra-fonts-heading);font-weight:var(--chakra-fontWeights-bold);font-size:var(--chakra-fontSizes-2xl);line-height:1.33;color:#181818;text-align:left;margin-bottom:var(--chakra-space-1);}@media screen and (min-width: 48em){.css-1vygpf9{font-size:var(--chakra-fontSizes-3xl);line-height:1.2;}}&lt;/style&gt;&lt;h3 class=&quot;chakra-heading css-1vygpf9&quot;&gt;&lt;style data-emotion=&quot;css f4h6uy&quot;&gt;.css-f4h6uy{transition-property:var(--chakra-transition-property-common);transition-duration:var(--chakra-transition-duration-fast);transition-timing-function:var(--chakra-transition-easing-ease-out);cursor:pointer;-webkit-text-decoration:none;text-decoration:none;outline:2px solid transparent;outline-offset:2px;color:inherit;}.css-f4h6uy:hover,.css-f4h6uy[data-hover]{-webkit-text-decoration:underline;text-decoration:underline;}.css-f4h6uy:focus,.css-f4h6uy[data-focus]{box-shadow:var(--chakra-shadows-outline);}&lt;/style&gt;&lt;a class=&quot;chakra-link css-f4h6uy&quot; href=&quot;/bills/2023/AL/HB261&quot;&gt;AL&lt;!-- --&gt; &lt;!-- --&gt;HB261&lt;/a&gt;&lt;/h3&gt;&lt;style data-emotion=&quot;css bu60l4&quot;&gt;.css-bu60l4{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;vertical-align:top;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;max-width:100%;font-weight:var(--chakra-fontWeights-medium);line-height:1.2;outline:2px solid transparent;outline-offset:2px;min-height:1.5rem;min-width:1.5rem;font-size:var(--chakra-fontSizes-sm);border-radius:0px;-webkit-padding-start:var(--chakra-space-2);padding-inline-start:var(--chakra-space-2);-webkit-padding-end:var(--chakra-space-2);padding-inline-end:var(--chakra-space-2);background:#b55202;color:var(--chakra-colors-white);}.css-bu60l4:focus,.css-bu60l4[data-focus]{box-shadow:var(--chakra-shadows-outline);}&lt;/style&gt;&lt;span class=&quot;css-bu60l4&quot;&gt;SPORTS&lt;/span&gt;&lt;/div&gt;&lt;style data-emotion=&quot;css bcf15j&quot;&gt;.css-bcf15j{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;vertical-align:top;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;max-width:100%;font-weight:var(--chakra-fontWeights-medium);line-height:1.2;outline:2px solid transparent;outline-offset:2px;min-height:1.25rem;min-width:1.25rem;font-size:var(--chakra-fontSizes-xs);-webkit-padding-start:var(--chakra-space-2);padding-inline-start:var(--chakra-space-2);-webkit-padding-end:var(--chakra-space-2);padding-inline-end:var(--chakra-space-2);border-radius:0px;background:var(--chakra-colors-red-100);color:var(--chakra-colors-gray-800);}.css-bcf15j:focus,.css-bcf15j[data-focus]{box-shadow:var(--chakra-shadows-outline);}&lt;/style&gt;&lt;span class=&quot;css-bcf15j&quot;&gt;PASSED&lt;/span&gt;&lt;/div&gt;&lt;style data-emotion=&quot;css bp9bt3&quot;&gt;.css-bp9bt3{font-family:var(--chakra-fonts-heading);font-weight:var(--chakra-fontWeights-semibold);font-size:var(--chakra-fontSizes-xl);line-height:1.2;margin-left:inherit;margin-right:inherit;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--chakra-line-clamp);--chakra-line-clamp:3;margin-bottom:var(--chakra-space-2);}&lt;/style&gt;&lt;h2 class=&quot;chakra-heading css-bp9bt3&quot;&gt;Relating to two-year and four-year public institutions of higher education; to amend Section 16-1-52, Code of Alabama 1975, to prohibit a biological male from participating on an athletic team or sport designated for females; to prohibit a biological female from participating on an athletic team or sport designated for males; to prohibit adverse action against a public K-12 school or public two-year or four-year institution of higher education for complying with this act; to prohibit adverse action or retaliation against a student who reports a violation of this act; and to provide a remedy for any student who suffers harm or is directy deprived of an athletic opportunity as a result of a violation of this act.&lt;/h2&gt;&lt;div class=&quot;css-bxak8j&quot;&gt;&lt;/div&gt;&lt;a class=&quot;chakra-link css-f4h6uy&quot; href=&quot;/bills/2023/AL/HB261&quot;&gt;&lt;style data-emotion=&quot;css 1952nyr&quot;&gt;.css-1952nyr{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;appearance:none;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;position:relative;white-space:nowrap;vertical-align:middle;outline:2px solid transparent;outline-offset:2px;width:auto;line-height:1.2;border-radius:0px;font-weight:var(--chakra-fontWeights-semibold);transition-property:var(--chakra-transition-property-common);transition-duration:var(--chakra-transition-duration-normal);height:var(--chakra-sizes-10);min-width:var(--chakra-sizes-10);font-size:var(--chakra-fontSizes-md);-webkit-padding-start:var(--chakra-space-4);padding-inline-start:var(--chakra-space-4);-webkit-padding-end:var(--chakra-space-4);padding-inline-end:var(--chakra-space-4);background:var(--chakra-colors-gray-100);border:1px solid #181818;background-color:var(--chakra-colors-white);}.css-1952nyr:focus,.css-1952nyr[data-focus]{box-shadow:var(--chakra-shadows-outline);}.css-1952nyr[disabled],.css-1952nyr[aria-disabled=true],.css-1952nyr[data-disabled]{opacity:0.4;cursor:not-allowed;box-shadow:var(--chakra-shadows-none);}.css-1952nyr:hover,.css-1952nyr[data-hover]{background:var(--chakra-colors-gray-200);}.css-1952nyr:hover[disabled],.css-1952nyr[data-hover][disabled],.css-1952nyr:hover[aria-disabled=true],.css-1952nyr[data-hover][aria-disabled=true],.css-1952nyr:hover[data-disabled],.css-1952nyr[data-hover][data-disabled]{background:var(--chakra-colors-gray-100);}.css-1952nyr:active,.css-1952nyr[data-active]{background:var(--chakra-colors-gray-300);}&lt;/style&gt;&lt;button class=&quot;chakra-button css-1952nyr&quot; type=&quot;button&quot;&gt;View Bill&lt;/button&gt;&lt;/a&gt;&lt;/div&gt;,
+ &lt;div class=&quot;css-4rck61&quot;&gt;&lt;div class=&quot;css-1dvz6tu&quot;&gt;&lt;div class=&quot;css-wd7aku&quot;&gt;&lt;h3 class=&quot;chakra-heading css-1vygpf9&quot;&gt;&lt;a class=&quot;chakra-link css-f4h6uy&quot; href=&quot;/bills/2023/AL/SB261&quot;&gt;AL&lt;!-- --&gt; &lt;!-- --&gt;SB261&lt;/a&gt;&lt;/h3&gt;&lt;style data-emotion=&quot;css iyw6hm&quot;&gt;.css-iyw6hm{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;vertical-align:top;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;max-width:100%;font-weight:var(--chakra-fontWeights-medium);line-height:1.2;outline:2px solid transparent;outline-offset:2px;min-height:1.5rem;min-width:1.5rem;font-size:var(--chakra-fontSizes-sm);border-radius:0px;-webkit-padding-start:var(--chakra-space-2);padding-inline-start:var(--chakra-space-2);-webkit-padding-end:var(--chakra-space-2);padding-inline-end:var(--chakra-space-2);background:#3E3F30;color:var(--chakra-colors-white);}.css-iyw6hm:focus,.css-iyw6hm[data-focus]{box-shadow:var(--chakra-shadows-outline);}&lt;/style&gt;&lt;span class=&quot;css-iyw6hm&quot;&gt;OTHER&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;css-bcf15j&quot;&gt;PASSED&lt;/span&gt;&lt;/div&gt;&lt;h2 class=&quot;chakra-heading css-bp9bt3&quot;&gt;Relating to public contracts; to prohibit governmental entities from entering into certain contracts with companies that boycott businesses because the business engages in certain sectors or does not meet certain environmental or corporate governance standards or does not facilitate certain activities; to provide that no company in the state shall be required by a governmental entity, nor penalized by a governmental entity for declining to engage in economic boycotts or other actions that further social, political, or ideological interests; to require the Attorney General to take actions to prevent federal laws or actions from penalizing, inflicting harm on, limiting commercial relations with, or changing or limiting the activities of companies or residents of the state based on the furtherance of economic boycott criteria; and to authorize the Attorney General to investigate and enforce this act; and to provide definitions.&lt;/h2&gt;&lt;div class=&quot;css-bxak8j&quot;&gt;&lt;/div&gt;&lt;a class=&quot;chakra-link css-f4h6uy&quot; href=&quot;/bills/2023/AL/SB261&quot;&gt;&lt;button class=&quot;chakra-button css-1952nyr&quot; type=&quot;button&quot;&gt;View Bill&lt;/button&gt;&lt;/a&gt;&lt;/div&gt;,
+ &lt;div class=&quot;css-4rck61&quot;&gt;&lt;div class=&quot;css-1dvz6tu&quot;&gt;&lt;div class=&quot;css-wd7aku&quot;&gt;&lt;h3 class=&quot;chakra-heading css-1vygpf9&quot;&gt;&lt;a class=&quot;chakra-link css-f4h6uy&quot; href=&quot;/bills/2023/AR/HB1156&quot;&gt;AR&lt;!-- --&gt; &lt;!-- --&gt;HB1156&lt;/a&gt;&lt;/h3&gt;&lt;style data-emotion=&quot;css bvx26t&quot;&gt;.css-bvx26t{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;vertical-align:top;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;max-width:100%;font-weight:var(--chakra-fontWeights-medium);line-height:1.2;outline:2px solid transparent;outline-offset:2px;min-height:1.5rem;min-width:1.5rem;font-size:var(--chakra-fontSizes-sm);border-radius:0px;-webkit-padding-start:var(--chakra-space-2);padding-inline-start:var(--chakra-space-2);-webkit-padding-end:var(--chakra-space-2);padding-inline-end:var(--chakra-space-2);background:#A33469;color:var(--chakra-colors-white);}.css-bvx26t:focus,.css-bvx26t[data-focus]{box-shadow:var(--chakra-shadows-outline);}&lt;/style&gt;&lt;span class=&quot;css-bvx26t&quot;&gt;BATHROOM&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;css-bcf15j&quot;&gt;PASSED&lt;/span&gt;&lt;/div&gt;&lt;h2 class=&quot;chakra-heading css-bp9bt3&quot;&gt;Concerning A Public School District Or Open-enrollment Public Charter School Policy Relating To A Public School Student&#39;s Sex.&lt;/h2&gt;&lt;div class=&quot;css-bxak8j&quot;&gt;&lt;/div&gt;&lt;a class=&quot;chakra-link css-f4h6uy&quot; href=&quot;/bills/2023/AR/HB1156&quot;&gt;&lt;button class=&quot;chakra-button css-1952nyr&quot; type=&quot;button&quot;&gt;View Bill&lt;/button&gt;&lt;/a&gt;&lt;/div&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="step-2-pick-out-information-from-each-bill-card">
+<h1>step 2: pick out information from each bill card<a class="headerlink" href="#step-2-pick-out-information-from-each-bill-card" title="Link to this heading">#</a></h1>
+<p>Everything that we need is contained within the object, <code class="docutils literal notranslate"><span class="pre">bill_cards</span></code>. Now, we use the inspector to get the elements and attributes for the items within <code class="docutils literal notranslate"><span class="pre">bill_cards</span></code>, like:</p>
+<ul class="simple">
+<li><p>bill title</p></li>
+<li><p>bill category</p></li>
+<li><p>bill description</p></li>
+<li><p>link to bill</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get bill title</span>
+
+<span class="n">soup</span><span class="o">.</span><span class="n">h3</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;AL HB261&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get bill caption</span>
+
+<span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span> <span class="o">=</span><span class="s1">&#39;css-4rck61&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">h2</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Relating to two-year and four-year public institutions of higher education; to amend Section 16-1-52, Code of Alabama 1975, to prohibit a biological male from participating on an athletic team or sport designated for females; to prohibit a biological female from participating on an athletic team or sport designated for males; to prohibit adverse action against a public K-12 school or public two-year or four-year institution of higher education for complying with this act; to prohibit adverse action or retaliation against a student who reports a violation of this act; and to provide a remedy for any student who suffers harm or is directy deprived of an athletic opportunity as a result of a violation of this act.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get bill category</span>
+
+<span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;css-4rck61&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;SPORTS&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get bill description (if any)</span>
+
+<span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span> <span class="o">=</span><span class="s1">&#39;css-4rck61&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># get bill description (if any)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span> <span class="o">=</span><span class="s1">&#39;css-4rck61&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">text</span>
+
+<span class="ne">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;text&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get link extension</span>
+
+<span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span> <span class="o">=</span><span class="s1">&#39;css-4rck61&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/bills/2023/AL/HB261&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because we now have the code for the relevant HTML elements, we will now extract them and save them. To do that, we will write a loop that goes through each item in our <code class="docutils literal notranslate"><span class="pre">bill_cards</span></code>, gets the relevant HTML element, and saves it to a variable. Our loop will goes through each bill card, one by one, and pull out the title, description, category, and link.</p>
+<p><em>Note: loops are ways of programmatically going through a dataset and doing something to each item in the dataset, like extracting it. Read more about <a class="reference internal" href="../intro/loops.html"><span class="std std-doc">loops in the intro workshop</span></a></em></p>
+<p>Below, I will be explaining the code logic in by writing it out in “pseudo-code” in the comments. Pseudo-code is a cross between normal language and programming language, that is useful for explaining and working out how to write the actual programming code in Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for each card in bill_cards:</span>
+<span class="c1"># get the title in h3.text</span>
+<span class="c1"># get the caption in h2.text</span>
+<span class="c1"># get the category in span.text</span>
+<span class="c1"># get the descriptoin in p.text (if any)</span>
+<span class="c1"># get the link in a tag, class &quot;chakra-link&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># runs the loop on the bill cards</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">bill_cards</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span> <span class="c1"># only the first ten cards, just to check if it is working</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">h3</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="c1"># title</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">h2</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="c1"># caption</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="c1"># category</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="c1"># description (if any)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">])</span> <span class="c1"># add https://translegislation.com/bills/2023/US</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AL HB261
+Relating to two-year and four-year public institutions of higher education; to amend Section 16-1-52, Code of Alabama 1975, to prohibit a biological male from participating on an athletic team or sport designated for females; to prohibit a biological female from participating on an athletic team or sport designated for males; to prohibit adverse action against a public K-12 school or public two-year or four-year institution of higher education for complying with this act; to prohibit adverse action or retaliation against a student who reports a violation of this act; and to provide a remedy for any student who suffers harm or is directy deprived of an athletic opportunity as a result of a violation of this act.
+SPORTS
+
+/bills/2023/AL/HB261
+AL SB261
+Relating to public contracts; to prohibit governmental entities from entering into certain contracts with companies that boycott businesses because the business engages in certain sectors or does not meet certain environmental or corporate governance standards or does not facilitate certain activities; to provide that no company in the state shall be required by a governmental entity, nor penalized by a governmental entity for declining to engage in economic boycotts or other actions that further social, political, or ideological interests; to require the Attorney General to take actions to prevent federal laws or actions from penalizing, inflicting harm on, limiting commercial relations with, or changing or limiting the activities of companies or residents of the state based on the furtherance of economic boycott criteria; and to authorize the Attorney General to investigate and enforce this act; and to provide definitions.
+OTHER
+
+/bills/2023/AL/SB261
+AR HB1156
+Concerning A Public School District Or Open-enrollment Public Charter School Policy Relating To A Public School Student&#39;s Sex.
+BATHROOM
+
+/bills/2023/AR/HB1156
+AR HB1468
+To Create The Given Name Act; And To Prohibit Requiring Employees Of Public Schools And State-supported Institutions Of Higher Education To Use A Person&#39;s Preferred Pronoun, Name, Or Title Without Parental Consent.
+EDUCATION
+
+/bills/2023/AR/HB1468
+AR HB1615
+To Create The Conscience Protection Act; And To Amend The Religious Freedom Restoration Act.
+OTHER
+
+/bills/2023/AR/HB1615
+AR SB125
+Concerning Free Speech Rights At State-supported Institutions Of Higher Education.
+EDUCATION
+
+/bills/2023/AR/SB125
+AR SB199
+Concerning Medical Malpractice And Gender Transition In Minors; And To Create The Protecting Minors From Medical Malpractice Act Of 2023.
+HEALTHCARE
+
+/bills/2023/AR/SB199
+AR SB270
+To Amend The Criminal Offense Of Sexual Indecency With A Child.
+BATHROOM
+
+/bills/2023/AR/SB270
+AR SB294
+To Create The Learns Act; To Amend Various Provisions Of The Arkansas Code As They Relate To Early Childhood Through Grade Twelve Education In The State Of Arkansas; And To Declare An Emergency.
+BATHROOM
+
+/bills/2023/AR/SB294
+AR SB43
+To Add Certain Restrictions To An Adult-oriented Performance; And To Define An Adult-oriented Performance.
+OTHER
+
+/bills/2023/AR/SB43
+</pre></div>
+</div>
+</div>
+</div>
+<p>It worked! Now, the next step is to assign a variable for each item. This allows us to save the data to the variable name, and later, to add it to a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">bill_cards</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">h3</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">caption</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">h2</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;https://translegislation.com/bills/2023/passed&#39;</span> <span class="o">+</span> <span class="n">item</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">caption</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">link</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AL HB261 Relating to two-year and four-year public institutions of higher education; to amend Section 16-1-52, Code of Alabama 1975, to prohibit a biological male from participating on an athletic team or sport designated for females; to prohibit a biological female from participating on an athletic team or sport designated for males; to prohibit adverse action against a public K-12 school or public two-year or four-year institution of higher education for complying with this act; to prohibit adverse action or retaliation against a student who reports a violation of this act; and to provide a remedy for any student who suffers harm or is directy deprived of an athletic opportunity as a result of a violation of this act. SPORTS  https://translegislation.com/bills/2023/passed/bills/2023/AL/HB261
+AL SB261 Relating to public contracts; to prohibit governmental entities from entering into certain contracts with companies that boycott businesses because the business engages in certain sectors or does not meet certain environmental or corporate governance standards or does not facilitate certain activities; to provide that no company in the state shall be required by a governmental entity, nor penalized by a governmental entity for declining to engage in economic boycotts or other actions that further social, political, or ideological interests; to require the Attorney General to take actions to prevent federal laws or actions from penalizing, inflicting harm on, limiting commercial relations with, or changing or limiting the activities of companies or residents of the state based on the furtherance of economic boycott criteria; and to authorize the Attorney General to investigate and enforce this act; and to provide definitions. OTHER  https://translegislation.com/bills/2023/passed/bills/2023/AL/SB261
+AR HB1156 Concerning A Public School District Or Open-enrollment Public Charter School Policy Relating To A Public School Student&#39;s Sex. BATHROOM  https://translegislation.com/bills/2023/passed/bills/2023/AR/HB1156
+AR HB1468 To Create The Given Name Act; And To Prohibit Requiring Employees Of Public Schools And State-supported Institutions Of Higher Education To Use A Person&#39;s Preferred Pronoun, Name, Or Title Without Parental Consent. EDUCATION  https://translegislation.com/bills/2023/passed/bills/2023/AR/HB1468
+AR HB1615 To Create The Conscience Protection Act; And To Amend The Religious Freedom Restoration Act. OTHER  https://translegislation.com/bills/2023/passed/bills/2023/AR/HB1615
+AR SB125 Concerning Free Speech Rights At State-supported Institutions Of Higher Education. EDUCATION  https://translegislation.com/bills/2023/passed/bills/2023/AR/SB125
+AR SB199 Concerning Medical Malpractice And Gender Transition In Minors; And To Create The Protecting Minors From Medical Malpractice Act Of 2023. HEALTHCARE  https://translegislation.com/bills/2023/passed/bills/2023/AR/SB199
+AR SB270 To Amend The Criminal Offense Of Sexual Indecency With A Child. BATHROOM  https://translegislation.com/bills/2023/passed/bills/2023/AR/SB270
+AR SB294 To Create The Learns Act; To Amend Various Provisions Of The Arkansas Code As They Relate To Early Childhood Through Grade Twelve Education In The State Of Arkansas; And To Declare An Emergency. BATHROOM  https://translegislation.com/bills/2023/passed/bills/2023/AR/SB294
+AR SB43 To Add Certain Restrictions To An Adult-oriented Performance; And To Define An Adult-oriented Performance. OTHER  https://translegislation.com/bills/2023/passed/bills/2023/AR/SB43
+</pre></div>
+</div>
+</div>
+</div>
+<p>It works! Now let’s save it to lists.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a bunch of empty lists where we will dump our data</span>
+<span class="n">titles</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">captions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">categories</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">descriptions</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># our for loop that saves each item we want from the bill_cards</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">bill_cards</span><span class="p">:</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">h3</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">caption</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">h2</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">text</span>
+    
+    <span class="c1"># adding the items to the empty lists</span>
+    <span class="n">titles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">captions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">caption</span><span class="p">)</span>
+    <span class="n">categories</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">category</span><span class="p">)</span>
+    <span class="n">descriptions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="step-3-processing-information-about-the-bills">
+<h2>step 3: processing information about the bills<a class="headerlink" href="#step-3-processing-information-about-the-bills" title="Link to this heading">#</a></h2>
+<p>Before adding saving our dataset to a spreadsheet, we are going to do a bit more data processing and gathering. This will enable us to make a more robust dataset at the end. Here, we are going to do two things:</p>
+<ol class="arabic simple">
+<li><p>split the title column into state and title</p></li>
+<li><p>get the link directly to the bill page on LegiScan</p></li>
+</ol>
+<p>Like the previous sections, I’m going to use comments to write some pseudo-code that separates out the steps of the larger task. This is good practice for all programmers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first, we will split the bill name into two variables, state and title </span>
+<span class="c1"># this will make things more clean when we add it to our spreadsheet</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">bill_cards</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="n">state</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">h3</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AL HB261
+AL SB261
+AR HB1156
+AR HB1468
+AR HB1615
+AR SB125
+AR SB199
+AR SB270
+AR SB294
+AR SB43
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## now, we will get the link to state bill, in the following steps:</span>
+
+<span class="c1">## first, make a list of URLs:</span>
+<span class="c1">## then, for each URL, make a soup.</span>
+<span class="c1">## then, for each soup, get the link to the state bill, called &quot;extension&quot;</span>
+<span class="c1">## then, add the link extension to the root, saving it as &quot;urls&quot;</span>
+<span class="c1">## finally, add the urls to a new list, called &quot;legiscan links&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">bill_cards</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="n">extension</span> <span class="o">=</span> <span class="s1">&#39;https://translegislation.com/&#39;</span> <span class="o">+</span> <span class="n">item</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">extension</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://translegislation.com//bills/2023/AL/HB261
+https://translegislation.com//bills/2023/AL/SB261
+https://translegislation.com//bills/2023/AR/HB1156
+https://translegislation.com//bills/2023/AR/HB1468
+https://translegislation.com//bills/2023/AR/HB1615
+https://translegislation.com//bills/2023/AR/SB125
+https://translegislation.com//bills/2023/AR/SB199
+https://translegislation.com//bills/2023/AR/SB270
+https://translegislation.com//bills/2023/AR/SB294
+https://translegislation.com//bills/2023/AR/SB43
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">urls</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">bill_cards</span><span class="p">:</span>
+    <span class="n">extension</span> <span class="o">=</span> <span class="s1">&#39;https://translegislation.com/&#39;</span> <span class="o">+</span> <span class="n">item</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+    <span class="n">urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">extension</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">urls</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://translegislation.com//bills/2023/AL/HB261&#39;,
+ &#39;https://translegislation.com//bills/2023/AL/SB261&#39;,
+ &#39;https://translegislation.com//bills/2023/AR/HB1156&#39;,
+ &#39;https://translegislation.com//bills/2023/AR/HB1468&#39;,
+ &#39;https://translegislation.com//bills/2023/AR/HB1615&#39;,
+ &#39;https://translegislation.com//bills/2023/AR/SB125&#39;,
+ &#39;https://translegislation.com//bills/2023/AR/SB199&#39;,
+ &#39;https://translegislation.com//bills/2023/AR/SB270&#39;,
+ &#39;https://translegislation.com//bills/2023/AR/SB294&#39;,
+ &#39;https://translegislation.com//bills/2023/AR/SB43&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># making a soup object of *every* page that is linked</span>
+<span class="c1"># this may take several seconds</span>
+
+<span class="n">soups</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
+    <span class="n">site</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="n">html_code</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_code</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+    <span class="n">soups</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">legiscan_links</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">soups</span><span class="p">:</span>
+    <span class="c1"># get the url for state url</span>
+    <span class="n">anchor_tag</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;chakra-link css-oga2ct&#39;</span><span class="p">)</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="n">anchor_tag</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+    <span class="n">legiscan_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="saving-our-data-to-a-csv">
+<h2>3. saving our data to a CSV<a class="headerlink" href="#saving-our-data-to-a-csv" title="Link to this heading">#</a></h2>
+<p>This is the final step. First, we will import two libraries for working with tabular data <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">csv</span></code>.</p>
+<p>Then, we will add each of our lists into the “DataFrame” (the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> term for a tabular type of object), where they will appear as separate columns. Finally, we will save our DataFrame as a .csv file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing the necessary libraries</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating empty lists to hold all of our data</span>
+
+<span class="n">states</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">titles</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">captions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">categories</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">descriptions</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># extracting the data from the bill cards</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">bill_cards</span><span class="p">:</span>
+    <span class="n">state</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">h3</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="c1"># adding the extra step to split the bill name into state and title items</span>
+    <span class="n">caption</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">h2</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">text</span>
+    
+    <span class="c1"># adding the items to the empty lists</span>
+    <span class="n">states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+    <span class="n">titles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">captions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">caption</span><span class="p">)</span>
+    <span class="n">categories</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">category</span><span class="p">)</span>
+    <span class="n">descriptions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+    <span class="c1"># remember that &quot;legiscan_links&quot; is already saved as a list, so we don&#39;t have to create it here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating a dataframe, with separate columns to hold each of our lists</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="n">states</span><span class="p">,</span>
+     <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">titles</span><span class="p">,</span>
+     <span class="s1">&#39;caption&#39;</span><span class="p">:</span> <span class="n">captions</span><span class="p">,</span>
+     <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="n">categories</span><span class="p">,</span>
+     <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">descriptions</span><span class="p">,</span>
+     <span class="s1">&#39;legiscan link&#39;</span><span class="p">:</span> <span class="n">legiscan_links</span>
+    <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># checking the first 5 lines of the dataframe</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>title</th>
+      <th>caption</th>
+      <th>category</th>
+      <th>description</th>
+      <th>legiscan link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AL</td>
+      <td>HB261</td>
+      <td>Relating to two-year and four-year public inst...</td>
+      <td>SPORTS</td>
+      <td></td>
+      <td>https://legiscan.com/AL/text/HB261/id/2817698</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AL</td>
+      <td>SB261</td>
+      <td>Relating to public contracts; to prohibit gove...</td>
+      <td>OTHER</td>
+      <td></td>
+      <td>https://legiscan.com/AL/text/SB261/id/2821857</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AR</td>
+      <td>HB1156</td>
+      <td>Concerning A Public School District Or Open-en...</td>
+      <td>BATHROOM</td>
+      <td></td>
+      <td>https://legiscan.com/AR/text/HB1156/id/2756961</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AR</td>
+      <td>HB1468</td>
+      <td>To Create The Given Name Act; And To Prohibit ...</td>
+      <td>EDUCATION</td>
+      <td></td>
+      <td>https://legiscan.com/AR/text/HB1468/id/2781770</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AR</td>
+      <td>HB1615</td>
+      <td>To Create The Conscience Protection Act; And T...</td>
+      <td>OTHER</td>
+      <td></td>
+      <td>https://legiscan.com/AR/text/HB1615/id/2781807</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># saving the dataframe as a csv file</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;bill_data.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And that’s all! If you are on google colab, check your sidebar under the “files” tab. You should see a .csv file containing the data we’ve scraped from the <code class="docutils literal notranslate"><span class="pre">translegislation.com</span></code> website. Well done!</p>
+<p>In the next section, we will look at an API method for getting legislative data, and save that data to a CSV file. In that activity, you’ll see the differences in handling data acrossn web scraping and API methods.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./gathering"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="explore.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="legiscan_api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Legiscan API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-isolate-the-bill-cards-data-from-the-rest-of-the-page">step 1: isolate the bill cards data from the rest of the page</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-pick-out-information-from-each-bill-card">step 2: pick out information from each bill card</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-processing-information-about-the-bills">step 3: processing information about the bills</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-our-data-to-a-csv">3. saving our data to a CSV</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
