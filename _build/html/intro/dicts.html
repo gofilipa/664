@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -423,6 +423,8 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dictionary">what is a dictionary?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-csv-module">the CSV module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-challenge">group challenge:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-end">the end</a></li>
 </ul>
             </nav>
         </div>
@@ -692,6 +694,26 @@ Walker, Latrice
 </div>
 </div>
 </section>
+<section id="group-challenge">
+<h2>group challenge:<a class="headerlink" href="#group-challenge" title="Link to this heading">#</a></h2>
+<p>Write a loop that prints out the Candidate’s name and Violation if that violation contains the word “contribution” in it. Use f-strings so that you can format the answer the following:</p>
+<p>Name: [candidate name], Violation: [candidate violation]</p>
+<p>Here’s the answer, but don’t look until you’ve spent at least 5 mintues working on it!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;violations.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">dict_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dict_reader</span><span class="p">:</span>
+        <span class="n">violation</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Current Violation Name&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;contributions&quot;</span> <span class="ow">or</span> <span class="s2">&quot;contribution&quot;</span> <span class="ow">in</span> <span class="n">violation</span><span class="p">:</span>
+            <span class="n">candidate</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Candidate&#39;</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Name: </span><span class="si">{</span><span class="n">candidate</span><span class="si">}</span><span class="s1">, Violation: </span><span class="si">{</span><span class="n">violation</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="the-end">
+<h2>the end<a class="headerlink" href="#the-end" title="Link to this heading">#</a></h2>
+<p>Congratulations on making it through the workshop! You are officially a beginner now.</p>
+<p>In the next workshop, we build on these skills in the practice of web scraping and APIs. We will create a dataset that we will clean, process, and analyze in future sessions.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -760,6 +782,8 @@ Walker, Latrice
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dictionary">what is a dictionary?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-csv-module">the CSV module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-challenge">group challenge:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-end">the end</a></li>
 </ul>
   </nav></div>
 

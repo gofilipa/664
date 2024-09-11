@@ -19,44 +19,79 @@ Agenda
 
 
 ** lists
+List methods
 - list methods
   - what are they?
   - append, remove, pop, sort
-- individual challenge:
-  - lookup how to use ~insert()~ method
-  - how is this different from other methods we've tried?
-- compare with Python docs. Notice the way that documentation   tends to
+
+Individual challenge, 5min:
+- lookup how to use ~insert()~ method
+- how is this different from other methods we've tried?
+- compare with Python docs. Notice the way that documentation tends to
   be written
 
-** TODO loops
+** loops
 How we do things to data.
 - types of data for categorizing data; variables for saving data; how
   to work with lists of data; now, how to do things to
   lists/groupings.
+  - also works with strings
 - syntax: for item in collection: print(item).
   - practice with both lists and strings
 - a note on variable names:
   - the variable following "for" is assigned on the fly
 
-Challenge:
+Individual challenge:
 - write a loop that counts the number of words in a paragraph.
   - You'll need to set up a "counter" variable, to keep track of the
-    numbers. Set the initial value of "counter" to 0. 
+    numbers. Set the initial value of "counter" to 0.
+  - You'll need to read about the += operator in python.
+
+String Methods
+- how to do things to strings within loops
+- 'HELLO'.lower()
+- make a list of cities, and make them all lowercasee
+- now save that list to a new list, an empty list
+  - why would we want to do this?
+
 ** logic
+Boolean data
+- true or false
+- operators, look them up. Many different kinds.
+- if statement for checking age
+  - multiple conditions
+
+Combining loops with logic:
+- going back to the first bit of text, check the loop for the word
+  "refuse"
+- if it contains the word "refuse" we will append it to the new list
+
+Group challenge:
+- list of prime numbers and their squares, using f strings.
+
 ** dicts and csv module
 - what is a dict?
   - data structure
   - syntax for accessing items
+
 - csv module
   - what is a module? a collection of code for doing something, in
     this case, for opening csv files
-  - individual activity: read a little of the docs on CSV module
-    - read about, reader, writer, DictReader
-    - practice copy/pasting the code into your notebook, but change
-      some of the varaibles to customize. 
+- printing rows from csv on Campaign Violations
+  - check the type of data(s)
+  - how do we access info from different types?
 
-#+begin_src python
-  import csv
-  with open('filename.csv', 'r') as f:
-      csv.reader(f)
-#+end_src
+Individual activity, 5min:
+    - read a little of the docs on CSV module, reader, DictReader
+    - google these terms
+    - google the difference between them
+    - we will circle back in 5 minutes
+
+Combining logic, loops, and dicts:
+- search for a specific candidate name.
+
+Group challenge: 
+- Write a loop that prints out the Candidate's name and Violation if
+  that violation contains the word "contribution" in it. Use f-strings
+
+** next week: web scraping!
