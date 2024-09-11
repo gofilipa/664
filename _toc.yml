@@ -10,6 +10,7 @@ parts:
   - file: intro/lists
   - file: intro/loops
   - file: intro/logic
+  - file: intro/dicts
 - caption: gathering data
   chapters:
   - file: gathering/overview

@@ -188,6 +188,7 @@
 <li class="toctree-l1"><a class="reference internal" href="lists.html">lists</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logic.html">logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dicts.html">dicts and csvs</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
 <ul class="nav bd-sidenav">
@@ -521,19 +522,19 @@ or there will be a <code class="docutils literal notranslate"><span class="pre">
 defined.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;y&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>h
+e
+l
+l
+o
 </pre></div>
 </div>
 </div>
@@ -554,6 +555,15 @@ shorthand for indicating an item from a list.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>egg sandwich
+coffee
+biscuits and gravy
+strawberries
+omelette
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="string-methods">
@@ -569,6 +579,11 @@ might want to lowercase all of the letters from our dataset to prepare it for an
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;hello&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now, let’s combine this <code class="docutils literal notranslate"><span class="pre">string</span></code> method with what we know about loops.
 Let’s try it on a list of items with varying levels of capitalization.</p>
@@ -577,6 +592,14 @@ Let’s try it on a list of items with varying levels of capitalization.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Lisbon&#39;</span><span class="p">,</span> <span class="s1">&#39;Setubal&#39;</span><span class="p">,</span> <span class="s1">&#39;Alcacer do Sal&#39;</span><span class="p">,</span> <span class="s1">&#39;Lagos&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">cities</span><span class="p">:</span>
    <span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lisbon
+setubal
+alcacer do sal
+lagos
 </pre></div>
 </div>
 </div>
@@ -630,6 +653,20 @@ saw briefly above when we talked about list methods.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1.&#39;,
+ &#39;We&#39;,
+ &#39;refuse&#39;,
+ &#39;to&#39;,
+ &#39;operate&#39;,
+ &#39;under&#39;,
+ &#39;the&#39;,
+ &#39;assumption&#39;,
+ &#39;that&#39;,
+ &#39;risk&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can see our text as a list of strings, saved to the variable
 “words.” Now, we can do things programmatically to each <code class="docutils literal notranslate"><span class="pre">string</span></code> in
@@ -641,6 +678,272 @@ the <code class="docutils literal notranslate"><span class="pre">list</span></co
   <span class="n">words_lower</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
 
 <span class="n">words_lower</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1.&#39;,
+ &#39;we&#39;,
+ &#39;refuse&#39;,
+ &#39;to&#39;,
+ &#39;operate&#39;,
+ &#39;under&#39;,
+ &#39;the&#39;,
+ &#39;assumption&#39;,
+ &#39;that&#39;,
+ &#39;risk&#39;,
+ &#39;and&#39;,
+ &#39;harm&#39;,
+ &#39;associated&#39;,
+ &#39;with&#39;,
+ &#39;data&#39;,
+ &#39;practices&#39;,
+ &#39;can&#39;,
+ &#39;be&#39;,
+ &#39;bounded&#39;,
+ &#39;to&#39;,
+ &#39;mean&#39;,
+ &#39;the&#39;,
+ &#39;same&#39;,
+ &#39;thing&#39;,
+ &#39;for&#39;,
+ &#39;everyone,&#39;,
+ &#39;everywhere,&#39;,
+ &#39;at&#39;,
+ &#39;every&#39;,
+ &#39;time.&#39;,
+ &#39;we&#39;,
+ &#39;commit&#39;,
+ &#39;to&#39;,
+ &#39;acknowledging&#39;,
+ &#39;how&#39;,
+ &#39;historical&#39;,
+ &#39;and&#39;,
+ &#39;systemic&#39;,
+ &#39;patterns&#39;,
+ &#39;of&#39;,
+ &#39;violence&#39;,
+ &#39;and&#39;,
+ &#39;exploitation&#39;,
+ &#39;produce&#39;,
+ &#39;differential&#39;,
+ &#39;vulnerabilities&#39;,
+ &#39;for&#39;,
+ &#39;communities.&#39;,
+ &#39;2.&#39;,
+ &#39;we&#39;,
+ &#39;refuse&#39;,
+ &#39;to&#39;,
+ &#39;be&#39;,
+ &#39;disciplined&#39;,
+ &#39;by&#39;,
+ &#39;data,&#39;,
+ &#39;devices,&#39;,
+ &#39;and&#39;,
+ &#39;practices&#39;,
+ &#39;that&#39;,
+ &#39;seek&#39;,
+ &#39;to&#39;,
+ &#39;shape&#39;,
+ &#39;and&#39;,
+ &#39;normalize&#39;,
+ &#39;racialized,&#39;,
+ &#39;gendered,&#39;,
+ &#39;and&#39;,
+ &#39;differently-abled&#39;,
+ &#39;bodies&#39;,
+ &#39;in&#39;,
+ &#39;ways&#39;,
+ &#39;that&#39;,
+ &#39;make&#39;,
+ &#39;us&#39;,
+ &#39;available&#39;,
+ &#39;to&#39;,
+ &#39;be&#39;,
+ &#39;tracked,&#39;,
+ &#39;monitored,&#39;,
+ &#39;and&#39;,
+ &#39;surveilled.&#39;,
+ &#39;we&#39;,
+ &#39;commit&#39;,
+ &#39;to&#39;,
+ &#39;taking&#39;,
+ &#39;back&#39;,
+ &#39;control&#39;,
+ &#39;over&#39;,
+ &#39;the&#39;,
+ &#39;ways&#39;,
+ &#39;we&#39;,
+ &#39;behave,&#39;,
+ &#39;live,&#39;,
+ &#39;and&#39;,
+ &#39;engage&#39;,
+ &#39;with&#39;,
+ &#39;data&#39;,
+ &#39;and&#39;,
+ &#39;its&#39;,
+ &#39;technologies.&#39;,
+ &#39;3.&#39;,
+ &#39;we&#39;,
+ &#39;refuse&#39;,
+ &#39;the&#39;,
+ &#39;use&#39;,
+ &#39;of&#39;,
+ &#39;data&#39;,
+ &#39;about&#39;,
+ &#39;people&#39;,
+ &#39;in&#39;,
+ &#39;perpetuity.&#39;,
+ &#39;we&#39;,
+ &#39;commit&#39;,
+ &#39;to&#39;,
+ &#39;embracing&#39;,
+ &#39;agency&#39;,
+ &#39;and&#39;,
+ &#39;working&#39;,
+ &#39;with&#39;,
+ &#39;intentionality,&#39;,
+ &#39;preparing&#39;,
+ &#39;bodies&#39;,
+ &#39;or&#39;,
+ &#39;corpuses&#39;,
+ &#39;of&#39;,
+ &#39;data&#39;,
+ &#39;to&#39;,
+ &#39;be&#39;,
+ &#39;laid&#39;,
+ &#39;to&#39;,
+ &#39;rest&#39;,
+ &#39;when&#39;,
+ &#39;they&#39;,
+ &#39;are&#39;,
+ &#39;not&#39;,
+ &#39;being&#39;,
+ &#39;used&#39;,
+ &#39;in&#39;,
+ &#39;service&#39;,
+ &#39;to&#39;,
+ &#39;the&#39;,
+ &#39;people&#39;,
+ &#39;about&#39;,
+ &#39;whom&#39;,
+ &#39;they&#39;,
+ &#39;were&#39;,
+ &#39;created.&#39;,
+ &#39;4.&#39;,
+ &#39;we&#39;,
+ &#39;refuse&#39;,
+ &#39;to&#39;,
+ &#39;understand&#39;,
+ &#39;data&#39;,
+ &#39;as&#39;,
+ &#39;disembodied&#39;,
+ &#39;and&#39;,
+ &#39;thereby&#39;,
+ &#39;dehumanized&#39;,
+ &#39;and&#39;,
+ &#39;departicularized.&#39;,
+ &#39;we&#39;,
+ &#39;commit&#39;,
+ &#39;to&#39;,
+ &#39;understanding&#39;,
+ &#39;data&#39;,
+ &#39;as&#39;,
+ &#39;always&#39;,
+ &#39;and&#39;,
+ &#39;variously&#39;,
+ &#39;attached&#39;,
+ &#39;to&#39;,
+ &#39;bodies;&#39;,
+ &#39;we&#39;,
+ &#39;vow&#39;,
+ &#39;to&#39;,
+ &#39;interrogate&#39;,
+ &#39;the&#39;,
+ &#39;biopolitical&#39;,
+ &#39;implications&#39;,
+ &#39;of&#39;,
+ &#39;data&#39;,
+ &#39;with&#39;,
+ &#39;a&#39;,
+ &#39;keen&#39;,
+ &#39;eye&#39;,
+ &#39;to&#39;,
+ &#39;gender,&#39;,
+ &#39;race,&#39;,
+ &#39;sexuality,&#39;,
+ &#39;class,&#39;,
+ &#39;disability,&#39;,
+ &#39;nationality,&#39;,
+ &#39;and&#39;,
+ &#39;other&#39;,
+ &#39;forms&#39;,
+ &#39;of&#39;,
+ &#39;embodied&#39;,
+ &#39;difference.&#39;,
+ &#39;5.&#39;,
+ &#39;we&#39;,
+ &#39;refuse&#39;,
+ &#39;any&#39;,
+ &#39;code&#39;,
+ &#39;of&#39;,
+ &#39;phony&#39;,
+ &#39;“ethics”&#39;,
+ &#39;and&#39;,
+ &#39;false&#39;,
+ &#39;proclamations&#39;,
+ &#39;of&#39;,
+ &#39;transparency&#39;,
+ &#39;that&#39;,
+ &#39;are&#39;,
+ &#39;wielded&#39;,
+ &#39;as&#39;,
+ &#39;cover,&#39;,
+ &#39;as&#39;,
+ &#39;tools&#39;,
+ &#39;of&#39;,
+ &#39;power,&#39;,
+ &#39;as&#39;,
+ &#39;forms&#39;,
+ &#39;for&#39;,
+ &#39;escape&#39;,
+ &#39;that&#39;,
+ &#39;let&#39;,
+ &#39;the&#39;,
+ &#39;people&#39;,
+ &#39;who&#39;,
+ &#39;create&#39;,
+ &#39;systems&#39;,
+ &#39;off&#39;,
+ &#39;the&#39;,
+ &#39;hook&#39;,
+ &#39;from&#39;,
+ &#39;accountability&#39;,
+ &#39;or&#39;,
+ &#39;responsibility.&#39;,
+ &#39;we&#39;,
+ &#39;commit&#39;,
+ &#39;to&#39;,
+ &#39;a&#39;,
+ &#39;feminist&#39;,
+ &#39;data&#39;,
+ &#39;ethics&#39;,
+ &#39;that&#39;,
+ &#39;explicitly&#39;,
+ &#39;seeks&#39;,
+ &#39;equity&#39;,
+ &#39;and&#39;,
+ &#39;demands&#39;,
+ &#39;justice&#39;,
+ &#39;by&#39;,
+ &#39;helping&#39;,
+ &#39;us&#39;,
+ &#39;understand&#39;,
+ &#39;and&#39;,
+ &#39;shift&#39;,
+ &#39;how&#39;,
+ &#39;power&#39;,
+ &#39;works.&#39;]
 </pre></div>
 </div>
 </div>

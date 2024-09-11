@@ -1,0 +1,817 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>dicts and csvs &#8212; Python for Programming Cultural Heritage</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro/dicts';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="workshop overview" href="../gathering/overview.html" />
+    <link rel="prev" title="logic" href="logic.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Python for Programming Cultural Heritage - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Python for Programming Cultural Heritage - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python for Programming Cultural Heritage
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logic.html">logic</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">dicts and csvs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gathering/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/what.html">what is web scraping?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/explore.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/scrape.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/dataframes.html">dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/scrape.html">scraping our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analyze/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/what.html">what is text analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/questions.html">research questions: defining gender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/processing.html">the <code class="docutils literal notranslate"><span class="pre">spaCy</span></code> pipeline</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../analyze/phrases.html">the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/entities.html">the <code class="docutils literal notranslate"><span class="pre">Entity-Ruler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/tokens.html">the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/ml.html">machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro/dicts.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/intro/dicts.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>dicts and csvs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dictionary">what is a dictionary?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-csv-module">the CSV module</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dicts-and-csvs">
+<h1>dicts and csvs<a class="headerlink" href="#dicts-and-csvs" title="Link to this heading">#</a></h1>
+<section id="what-is-a-dictionary">
+<h2>what is a dictionary?<a class="headerlink" href="#what-is-a-dictionary" title="Link to this heading">#</a></h2>
+<p>Information organized into key:value pairs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filipa</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;filipa&#39;</span><span class="p">,</span> <span class="s1">&#39;da gama&#39;</span><span class="p">,</span> <span class="s1">&#39;calado&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span>
+    <span class="s1">&#39;degree&#39;</span><span class="p">:</span> <span class="s1">&#39;literature&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;jobs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;professor&#39;</span><span class="p">,</span> <span class="s1">&#39;digital scholarship specialist&#39;</span><span class="p">,</span> <span class="s1">&#39;student&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>How do we access items within a column? With brackets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filipa</span><span class="p">[</span><span class="s1">&#39;jobs&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;professor&#39;, &#39;digital scholarship specialist&#39;, &#39;student&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filipa</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35
+</pre></div>
+</div>
+</div>
+</div>
+<p>How do we access items within a column? With list indexing,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filipa</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;filipa&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Don’t worry if this looks wonky to you now. We will have plenty of time to practice in the next few sessions on APIs.</p>
+</section>
+<section id="the-csv-module">
+<h2>the CSV module<a class="headerlink" href="#the-csv-module" title="Link to this heading">#</a></h2>
+<p>The dataset we will be using consists of campaign finance violations by New York City political candidates, officially titled “<a class="reference external" href="https://data.cityofnewyork.us/City-Government/Enforcement-Actions-Board-Determinations-and-Penal/xrxs-qn95/about_data">Enforcement Actions Board Determinations and Penalties</a>,” which can be found on <a class="reference external" href="https://opendata.cityofnewyork.us/">NYC Open Data</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The CSV module allows you to import <code class="docutils literal notranslate"><span class="pre">.csv</span></code> files into your python notebook. Then, you can use methods like <code class="docutils literal notranslate"><span class="pre">reader()</span></code> to load up the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print each row in the dataset</span>
+<span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;violations_sample.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;\ufeffElection Cycle &#39;, &#39;Candidate&#39;, &#39;Board Meeting Date&#39;, &#39;Violation&#39;, &#39;Current Violation Name&#39;, &#39;Final Board Determination&#39;]
+[&#39;2019A&#39;, &#39;Espinal, Rafael&#39;, &#39;8/31/23&#39;, &#39;Failing to report transactions in daily pre-election disclosure statements&#39;, &#39;Failing to report transactions in daily pre-election disclosure statements&#39;, &#39;$250 &#39;]
+[&#39;2019A&#39;, &#39;Espinal, Rafael&#39;, &#39;8/31/23&#39;, &#39;Accepting over-the-limit contributions&#39;, &#39;Accepting over-the-limit contributions&#39;, &#39;$5,050 &#39;]
+[&#39;2019A&#39;, &#39;Espinal, Rafael&#39;, &#39;8/31/23&#39;, &#39;Accepting contributions from corporations and a limited liabilty company&#39;, &#39;Accepting contributions from corporations and a limited liabilty company&#39;, &#39;$1,000 &#39;]
+[&#39;2019A&#39;, &#39;Blake, Michael&#39;, &#39;8/31/23&#39;, &#39;Failing to document transactions&#39;, &#39;Failing to document transactions&#39;, &#39;$100 &#39;]
+[&#39;2019A&#39;, &#39;Blake, Michael&#39;, &#39;8/31/23&#39;, &#39;Failing to report transactions in daily pre-election disclosure statements&#39;, &#39;Failing to report transactions in daily pre-election disclosure statements&#39;, &#39;$250 &#39;]
+[&#39;2019A&#39;, &#39;Blake, Michael&#39;, &#39;9/1/23&#39;, &#39;Failing to demonstrate compliance with intermediary reporting and documentation requirements&#39;, &#39;Failing to demonstrate compliance with intermediary reporting and documentation requirements&#39;, &#39;VNP&#39;]
+[&#39;2019A&#39;, &#39;Blake, Michael&#39;, &#39;8/31/23&#39;, &#39;Failing to demonstrate that spending was in furtherance of the campaign&#39;, &#39;Failing to demonstrate that spending was in furtherance of the campaign&#39;, &#39;$125 &#39;]
+[&#39;2019A&#39;, &#39;Blake, Michael&#39;, &#39;8/31/23&#39;, &#39;Making impermissable post-election expenditures&#39;, &#39;Making impermissable post-election expenditures&#39;, &#39;$1,184 &#39;]
+[&#39;2019&#39;, &#39;Borelli, Joseph&#39;, &#39;7/17/23&#39;, &#39;Failing to disclose a merchant account&#39;, &#39;Failing to disclose a merchant account&#39;, &#39;$100 &#39;]
+[&#39;2019&#39;, &#39;Borelli, Joseph&#39;, &#39;7/17/23&#39;, &#39;Failing to provide bank and merchant account statements&#39;, &#39;Failing to provide bank and merchant account statements&#39;, &#39;$650 &#39;]
+[&#39;2019&#39;, &#39;Borelli, Joseph&#39;, &#39;7/17/23&#39;, &#39;Accepting a contribution from an unregistered political committee&#39;, &#39;Accepting a contribution from an unregistered political committee&#39;, &#39;$275 &#39;]
+[&#39;2019A&#39;, &#39;Sheikh, Helal&#39;, &#39;7/17/23&#39;, &#39;Failing to report transactions&#39;, &#39;Failing to report transactions&#39;, &#39;$101 &#39;]
+[&#39;2019A&#39;, &#39;Sheikh, Helal&#39;, &#39;7/17/23&#39;, &#39;Failing to respond to Draft Audit Report&#39;, &#39;Failing to respond to Draft Audit Report&#39;, &#39;$500 &#39;]
+[&#39;2019B&#39;, &#39;Rose, Xamayla&#39;, &#39;6/2/23&#39;, &#39;Failing to document transactions&#39;, &#39;Failing to document transactions&#39;, &#39;$149 &#39;]
+[&#39;2019B&#39;, &#39;Rose, Xamayla&#39;, &#39;6/2/23&#39;, &#39;Accepting over-the-limit contributions&#39;, &#39;Accepting over-the-limit contributions&#39;, &#39;$375 &#39;]
+[&#39;2019B&#39;, &#39;Rose, Xamayla&#39;, &#39;6/2/23&#39;, &#39;Accepting contributions from corporations, limited liability companies, or partnerships&#39;, &#39;Accepting contributions from corporations, limited liability companies, or partnerships&#39;, &#39;$6,770 &#39;]
+[&#39;2019B&#39;, &#39;Rose, Xamayla&#39;, &#39;6/2/23&#39;, &#39;Failing to demonstrate that spending was in furtherance of the campagin&#39;, &#39;Failing to demonstrate that spending was in furtherance of the campagin&#39;, &#39;VNP&#39;]
+[&#39;2019B&#39;, &#39;Rose, Xamayla&#39;, &#39;6/2/23&#39;, &#39;Making impermissable post-election expenditures&#39;, &#39;Making impermissable post-election expenditures&#39;, &#39;$1,804 &#39;]
+[&#39;2019A&#39;, &#39;Walker, Latrice&#39;, &#39;6/2/23&#39;, &#39;Failing to disclose a political committee&#39;, &#39;Failing to disclose a political committee&#39;, &#39;$100 &#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check our data type</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_csv.reader
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># how do we get items from a list?</span>
+<span class="c1"># print the value for the second column (candidate) </span>
+<span class="c1"># on each row of the dataset</span>
+
+<span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;violations_sample.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Candidate
+Espinal, Rafael
+Espinal, Rafael
+Espinal, Rafael
+Blake, Michael
+Blake, Michael
+Blake, Michael
+Blake, Michael
+Blake, Michael
+Borelli, Joseph
+Borelli, Joseph
+Borelli, Joseph
+Sheikh, Helal
+Sheikh, Helal
+Rose, Xamayla
+Rose, Xamayla
+Rose, Xamayla
+Rose, Xamayla
+Rose, Xamayla
+Walker, Latrice
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;violations_sample.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">dict_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dict_reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Espinal, Rafael&#39;, &#39;Board Meeting Date&#39;: &#39;8/31/23&#39;, &#39;Violation&#39;: &#39;Failing to report transactions in daily pre-election disclosure statements&#39;, &#39;Current Violation Name&#39;: &#39;Failing to report transactions in daily pre-election disclosure statements&#39;, &#39;Final Board Determination&#39;: &#39;$250 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Espinal, Rafael&#39;, &#39;Board Meeting Date&#39;: &#39;8/31/23&#39;, &#39;Violation&#39;: &#39;Accepting over-the-limit contributions&#39;, &#39;Current Violation Name&#39;: &#39;Accepting over-the-limit contributions&#39;, &#39;Final Board Determination&#39;: &#39;$5,050 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Espinal, Rafael&#39;, &#39;Board Meeting Date&#39;: &#39;8/31/23&#39;, &#39;Violation&#39;: &#39;Accepting contributions from corporations and a limited liabilty company&#39;, &#39;Current Violation Name&#39;: &#39;Accepting contributions from corporations and a limited liabilty company&#39;, &#39;Final Board Determination&#39;: &#39;$1,000 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Blake, Michael&#39;, &#39;Board Meeting Date&#39;: &#39;8/31/23&#39;, &#39;Violation&#39;: &#39;Failing to document transactions&#39;, &#39;Current Violation Name&#39;: &#39;Failing to document transactions&#39;, &#39;Final Board Determination&#39;: &#39;$100 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Blake, Michael&#39;, &#39;Board Meeting Date&#39;: &#39;8/31/23&#39;, &#39;Violation&#39;: &#39;Failing to report transactions in daily pre-election disclosure statements&#39;, &#39;Current Violation Name&#39;: &#39;Failing to report transactions in daily pre-election disclosure statements&#39;, &#39;Final Board Determination&#39;: &#39;$250 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Blake, Michael&#39;, &#39;Board Meeting Date&#39;: &#39;9/1/23&#39;, &#39;Violation&#39;: &#39;Failing to demonstrate compliance with intermediary reporting and documentation requirements&#39;, &#39;Current Violation Name&#39;: &#39;Failing to demonstrate compliance with intermediary reporting and documentation requirements&#39;, &#39;Final Board Determination&#39;: &#39;VNP&#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Blake, Michael&#39;, &#39;Board Meeting Date&#39;: &#39;8/31/23&#39;, &#39;Violation&#39;: &#39;Failing to demonstrate that spending was in furtherance of the campaign&#39;, &#39;Current Violation Name&#39;: &#39;Failing to demonstrate that spending was in furtherance of the campaign&#39;, &#39;Final Board Determination&#39;: &#39;$125 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Blake, Michael&#39;, &#39;Board Meeting Date&#39;: &#39;8/31/23&#39;, &#39;Violation&#39;: &#39;Making impermissable post-election expenditures&#39;, &#39;Current Violation Name&#39;: &#39;Making impermissable post-election expenditures&#39;, &#39;Final Board Determination&#39;: &#39;$1,184 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019&#39;, &#39;Candidate&#39;: &#39;Borelli, Joseph&#39;, &#39;Board Meeting Date&#39;: &#39;7/17/23&#39;, &#39;Violation&#39;: &#39;Failing to disclose a merchant account&#39;, &#39;Current Violation Name&#39;: &#39;Failing to disclose a merchant account&#39;, &#39;Final Board Determination&#39;: &#39;$100 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019&#39;, &#39;Candidate&#39;: &#39;Borelli, Joseph&#39;, &#39;Board Meeting Date&#39;: &#39;7/17/23&#39;, &#39;Violation&#39;: &#39;Failing to provide bank and merchant account statements&#39;, &#39;Current Violation Name&#39;: &#39;Failing to provide bank and merchant account statements&#39;, &#39;Final Board Determination&#39;: &#39;$650 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019&#39;, &#39;Candidate&#39;: &#39;Borelli, Joseph&#39;, &#39;Board Meeting Date&#39;: &#39;7/17/23&#39;, &#39;Violation&#39;: &#39;Accepting a contribution from an unregistered political committee&#39;, &#39;Current Violation Name&#39;: &#39;Accepting a contribution from an unregistered political committee&#39;, &#39;Final Board Determination&#39;: &#39;$275 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Sheikh, Helal&#39;, &#39;Board Meeting Date&#39;: &#39;7/17/23&#39;, &#39;Violation&#39;: &#39;Failing to report transactions&#39;, &#39;Current Violation Name&#39;: &#39;Failing to report transactions&#39;, &#39;Final Board Determination&#39;: &#39;$101 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Sheikh, Helal&#39;, &#39;Board Meeting Date&#39;: &#39;7/17/23&#39;, &#39;Violation&#39;: &#39;Failing to respond to Draft Audit Report&#39;, &#39;Current Violation Name&#39;: &#39;Failing to respond to Draft Audit Report&#39;, &#39;Final Board Determination&#39;: &#39;$500 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019B&#39;, &#39;Candidate&#39;: &#39;Rose, Xamayla&#39;, &#39;Board Meeting Date&#39;: &#39;6/2/23&#39;, &#39;Violation&#39;: &#39;Failing to document transactions&#39;, &#39;Current Violation Name&#39;: &#39;Failing to document transactions&#39;, &#39;Final Board Determination&#39;: &#39;$149 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019B&#39;, &#39;Candidate&#39;: &#39;Rose, Xamayla&#39;, &#39;Board Meeting Date&#39;: &#39;6/2/23&#39;, &#39;Violation&#39;: &#39;Accepting over-the-limit contributions&#39;, &#39;Current Violation Name&#39;: &#39;Accepting over-the-limit contributions&#39;, &#39;Final Board Determination&#39;: &#39;$375 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019B&#39;, &#39;Candidate&#39;: &#39;Rose, Xamayla&#39;, &#39;Board Meeting Date&#39;: &#39;6/2/23&#39;, &#39;Violation&#39;: &#39;Accepting contributions from corporations, limited liability companies, or partnerships&#39;, &#39;Current Violation Name&#39;: &#39;Accepting contributions from corporations, limited liability companies, or partnerships&#39;, &#39;Final Board Determination&#39;: &#39;$6,770 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019B&#39;, &#39;Candidate&#39;: &#39;Rose, Xamayla&#39;, &#39;Board Meeting Date&#39;: &#39;6/2/23&#39;, &#39;Violation&#39;: &#39;Failing to demonstrate that spending was in furtherance of the campagin&#39;, &#39;Current Violation Name&#39;: &#39;Failing to demonstrate that spending was in furtherance of the campagin&#39;, &#39;Final Board Determination&#39;: &#39;VNP&#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019B&#39;, &#39;Candidate&#39;: &#39;Rose, Xamayla&#39;, &#39;Board Meeting Date&#39;: &#39;6/2/23&#39;, &#39;Violation&#39;: &#39;Making impermissable post-election expenditures&#39;, &#39;Current Violation Name&#39;: &#39;Making impermissable post-election expenditures&#39;, &#39;Final Board Determination&#39;: &#39;$1,804 &#39;}
+{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Walker, Latrice&#39;, &#39;Board Meeting Date&#39;: &#39;6/2/23&#39;, &#39;Violation&#39;: &#39;Failing to disclose a political committee&#39;, &#39;Current Violation Name&#39;: &#39;Failing to disclose a political committee&#39;, &#39;Final Board Determination&#39;: &#39;$100 &#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now we have a different data type for row</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;,
+ &#39;Candidate&#39;: &#39;Walker, Latrice&#39;,
+ &#39;Board Meeting Date&#39;: &#39;6/2/23&#39;,
+ &#39;Violation&#39;: &#39;Failing to disclose a political committee&#39;,
+ &#39;Current Violation Name&#39;: &#39;Failing to disclose a political committee&#39;,
+ &#39;Final Board Determination&#39;: &#39;$100 &#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># combining loops and logic to search for a specific condition in the dataset</span>
+
+<span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;violations.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">dict_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dict_reader</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Candidate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Adams, Eric&#39;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Board Meeting Date&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Current Violation Name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>05/15/2023 Failing to respond and late response to requests for information or documentation
+05/15/2023 Failing to properly wind down TIE activities
+05/15/2023 Accepting prohibited donations
+06/09/2016 Failing to provide bank, credit card, and merchant account statements
+06/09/2016 Failing to report/late reporting of transactions in daily pre-election disclosure statements
+06/09/2016 Accepting over-the-limit contributions
+06/09/2016 Accepting contributions from corporations, limited liability companies, or partnerships
+06/09/2016 Accepting contributions from unregistered political committees
+06/09/2016 Failing to demonstrate compliance with intermediary reporting and documentation requirements
+06/09/2016 Failing to document transactions
+06/09/2016 Failing to demonstrate that spending was in furtherance of the campaign
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="logic.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">logic</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../gathering/overview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">workshop overview</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dictionary">what is a dictionary?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-csv-module">the CSV module</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
