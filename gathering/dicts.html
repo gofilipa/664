@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Legiscan API &#8212; Python for Programming Cultural Heritage</title>
+    <title>dictionaries &#8212; Python for Programming Cultural Heritage</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/legiscan_api';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/dicts';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="workshop overview" href="../clean/overview.html" />
-    <link rel="prev" title="dictionaries" href="dicts.html" />
+    <link rel="next" title="Legiscan API" href="legiscan_api.html" />
+    <link rel="prev" title="scraping with bs4" href="scrape.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -199,8 +199,8 @@
 <li class="toctree-l1"><a class="reference internal" href="explore.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="scrape.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="dicts.html">dictionaries</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Legiscan API</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legiscan_api.html">Legiscan API</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
 <ul class="nav bd-sidenav">
@@ -298,7 +298,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgathering/legiscan_api.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgathering/dicts.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -328,7 +328,7 @@
       
       
       
-      <li><a href="../_sources/gathering/legiscan_api.ipynb" target="_blank"
+      <li><a href="../_sources/gathering/dicts.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,7 +410,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Legiscan API</h1>
+    <h1>dictionaries</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -424,337 +424,60 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="legiscan-api">
-<h1>Legiscan API<a class="headerlink" href="#legiscan-api" title="Link to this heading">#</a></h1>
-<p>Now we turn to examine APIs, how to create one, and how to navigate and download the results. You will notice how much easier it is to manage the data, which comes already in a clean and structured format (as JSON), which is opposed to the messy HTML data that we get with web scraping.</p>
-<p>The <a class="reference external" href="https://legiscan.com/legiscan">Legiscan API</a> provides access to legislative data, such as bills, sponsors, hearing information, etc, from all 50 states. To use the Legiscan API, you’d first need to make an account on Legiscan, and request an API key. The key (which we will incorporate into our API call) gives you authentication to access the data on Legiscan.</p>
-<p>After getting our API key, we can create our API call. The first step is import our libraries that we need in order to use the API. Then, we can construct our API call, putting together the root, key and query.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="dictionaries">
+<h1>dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h1>
+<p>What is a dictionary? Information organized into key:value pairs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filipa</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;filipa&#39;</span><span class="p">,</span> <span class="s1">&#39;da gama&#39;</span><span class="p">,</span> <span class="s1">&#39;calado&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span>
+    <span class="s1">&#39;degree&#39;</span><span class="p">:</span> <span class="s1">&#39;literature&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;jobs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;professor&#39;</span><span class="p">,</span> <span class="s1">&#39;digital scholarship specialist&#39;</span><span class="p">,</span> <span class="s1">&#39;student&#39;</span><span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>How do we access items within a column? With brackets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the components of the API call, which make up the &quot;request&quot; variable</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://api.legiscan.com/?key=&#39;</span>
-<span class="n">key</span> <span class="o">=</span> <span class="c1"># insert your key here</span>
-<span class="n">page</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">&#39;&amp;op=getSearch&amp;state=ALL&amp;query=transgender&#39;</span> <span class="o">+</span> <span class="s1">&#39;&amp;page=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">))</span>
-
-<span class="c1"># to print out the full URL, and we can paste in the browser to get </span>
-<span class="c1"># an interactive look at the raw results</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">&#39;&amp;op=getSearch&amp;state=ALL&amp;query=transgender&#39;</span> <span class="o">+</span> <span class="s1">&#39;&amp;page=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filipa</span><span class="p">[</span><span class="s1">&#39;jobs&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-    <span class="n">key</span> <span class="o">=</span> <span class="c1"># insert your key here</span>
-          <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;professor&#39;, &#39;digital scholarship specialist&#39;, &#39;student&#39;]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now we can make the API call, using the “request” object that we created above. From there, we call the <code class="docutils literal notranslate"><span class="pre">.json()</span></code> method, to navigate through the results, which are in json format.</p>
-<p>Accessing items in json involves using brackets to indicate the keys.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the page_total and the count from the request summary</span>
-<span class="n">page_total</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;searchresult&#39;</span><span class="p">][</span><span class="s1">&#39;summary&#39;</span><span class="p">][</span><span class="s1">&#39;page_total&#39;</span><span class="p">]</span>
-<span class="n">count</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;searchresult&#39;</span><span class="p">][</span><span class="s1">&#39;summary&#39;</span><span class="p">][</span><span class="s1">&#39;count&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Page total: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">page_total</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;Total results: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filipa</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Page total: 13
-Total results: 604
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now we write a few loops. The first one gathers all the data from each page of the results. The second loop parses that data into a dataframe object (a tabular or spreadsheet format) so we can examine it and eventually save it to a csv file.</p>
+<p>How do we access items within a column? With list indexing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># request the additional pages of the query by adding 1 to the &#39;page&#39; </span>
-<span class="c1"># parameter until it reaches the page_total. Store each page of  </span>
-<span class="c1"># requests in a list. Wait 3 seconds between each request to avoid </span>
-<span class="c1"># overloading the API</span>
-
-<span class="n">pages</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">page_total</span><span class="p">):</span>
-    <span class="n">page</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">&#39;&amp;op=getSearch&amp;state=ALL&amp;query=transgender&#39;</span> <span class="o">+</span> <span class="s1">&#39;&amp;page=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">))</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">pages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for each page of the request, parse the results and add them to a </span>
-<span class="c1"># dataframe. each page is a json file with individual results labeled</span>
-<span class="c1"># &#39;0&#39; through &#39;49&#39; and # &#39;summary&#39; nested under searchresult. Ignore </span>
-<span class="c1"># the summary and use pandas.concat to add each of the results from </span>
-<span class="c1"># the request in a dataframe</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">pages</span><span class="p">:</span>
-    <span class="n">results</span> <span class="o">=</span> <span class="n">page</span><span class="p">[</span><span class="s1">&#39;searchresult&#39;</span><span class="p">]</span>
-    <span class="c1"># if the page has no results, skip it</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="p">])])</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">continue</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now we have our data in a tabular structure, thanks to the DataFrame that we got from a different library called <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. This DataFrame format enables us to examine our data in a spreadsheet.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filipa</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>relevance</th>
-      <th>state</th>
-      <th>bill_number</th>
-      <th>bill_id</th>
-      <th>change_hash</th>
-      <th>url</th>
-      <th>text_url</th>
-      <th>research_url</th>
-      <th>last_action_date</th>
-      <th>last_action</th>
-      <th>title</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>100</td>
-      <td>UT</td>
-      <td>HB0316</td>
-      <td>1819064</td>
-      <td>bb27e8c4d929c9331af7b02dc6d81348</td>
-      <td>https://legiscan.com/UT/bill/HB0316/2024</td>
-      <td>https://legiscan.com/UT/text/HB0316/2024</td>
-      <td>https://legiscan.com/UT/research/HB0316/2024</td>
-      <td>2024-02-12</td>
-      <td>Senate/ 1st reading (Introduced) in Senate Rul...</td>
-      <td>Inmate Assignment Amendments</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>99</td>
-      <td>DC</td>
-      <td>B25-0460</td>
-      <td>1778035</td>
-      <td>e96fc947b1b4170adf7a3fe91291a61b</td>
-      <td>https://legiscan.com/DC/bill/B25-0460/2023</td>
-      <td>https://legiscan.com/DC/text/B25-0460/2023</td>
-      <td>https://legiscan.com/DC/research/B25-0460/2023</td>
-      <td>2023-09-22</td>
-      <td>Notice of Intent to Act on B25-0460 Published ...</td>
-      <td>Transgender and Gender-Diverse Mortality and F...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>99</td>
-      <td>DC</td>
-      <td>CER25-0143</td>
-      <td>1782702</td>
-      <td>9aff2f06c9f9b38306f8f3a8e83183c8</td>
-      <td>https://legiscan.com/DC/bill/CER25-0143/2023</td>
-      <td>https://legiscan.com/DC/text/CER25-0143/2023</td>
-      <td>https://legiscan.com/DC/research/CER25-0143/2023</td>
-      <td>2023-11-24</td>
-      <td>Resolution ACR25-0141, Effective from Nov 07, ...</td>
-      <td>Transgender Day of Remembrance Recognition Res...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>99</td>
-      <td>VT</td>
-      <td>JRH004</td>
-      <td>1751508</td>
-      <td>bfb4a15ca9ece1f262e6ed5759e192ba</td>
-      <td>https://legiscan.com/VT/bill/JRH004/2023</td>
-      <td>https://legiscan.com/VT/text/JRH004/2023</td>
-      <td>https://legiscan.com/VT/research/JRH004/2023</td>
-      <td>2023-04-07</td>
-      <td>Senate Message, adopted in concurrence</td>
-      <td>Joint resolution recognizing March 31, 2023 as...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>99</td>
-      <td>US</td>
-      <td>HR886</td>
-      <td>1784730</td>
-      <td>15a2a26d5c91782333a2b37fc8083154</td>
-      <td>https://legiscan.com/US/bill/HR886/2023</td>
-      <td>https://legiscan.com/US/text/HR886/2023</td>
-      <td>https://legiscan.com/US/research/HR886/2023</td>
-      <td>2023-11-21</td>
-      <td>Referred to the House Committee on the Judiciary.</td>
-      <td>Supporting the goals and principles of Transge...</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>6</td>
-      <td>US</td>
-      <td>HB2670</td>
-      <td>1757049</td>
-      <td>ccfa8fba0550b39bb71af841122e2132</td>
-      <td>https://legiscan.com/US/bill/HB2670/2023</td>
-      <td>https://legiscan.com/US/text/HB2670/2023</td>
-      <td>https://legiscan.com/US/research/HB2670/2023</td>
-      <td>2023-12-22</td>
-      <td>Became Public Law No: 118-31.</td>
-      <td>CONVENE Act of 2023 Sensible Classification Ac...</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>4</td>
-      <td>MI</td>
-      <td>HB4437</td>
-      <td>1757146</td>
-      <td>604fc33c04c0b4d89cce5b8bd0d51893</td>
-      <td>https://legiscan.com/MI/bill/HB4437/2023</td>
-      <td>https://legiscan.com/MI/text/HB4437/2023</td>
-      <td>https://legiscan.com/MI/research/HB4437/2023</td>
-      <td>2023-09-06</td>
-      <td>Disapproved Line Item(s) Re-referred To Commit...</td>
-      <td>Appropriations: omnibus; appropriations for mu...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>4</td>
-      <td>NY</td>
-      <td>S04007</td>
-      <td>1690727</td>
-      <td>1579358405b6c681a7bd5ed500b7ac14</td>
-      <td>https://legiscan.com/NY/bill/S04007/2023</td>
-      <td>https://legiscan.com/NY/text/S04007/2023</td>
-      <td>https://legiscan.com/NY/research/S04007/2023</td>
-      <td>2023-05-03</td>
-      <td>SIGNED CHAP.57</td>
-      <td>Enacts into law major components of legislatio...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>NY</td>
-      <td>S04004</td>
-      <td>1690688</td>
-      <td>30e29d6956eec2d3ff19a58c35ad73f8</td>
-      <td>https://legiscan.com/NY/bill/S04004/2023</td>
-      <td>https://legiscan.com/NY/text/S04004/2023</td>
-      <td>https://legiscan.com/NY/research/S04004/2023</td>
-      <td>2023-05-01</td>
-      <td>SUBSTITUTED BY A3004D</td>
-      <td>Makes appropriations for the support of govern...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>3</td>
-      <td>NY</td>
-      <td>A03004</td>
-      <td>1690608</td>
-      <td>b862da143af26ca5a2997011fc933673</td>
-      <td>https://legiscan.com/NY/bill/A03004/2023</td>
-      <td>https://legiscan.com/NY/text/A03004/2023</td>
-      <td>https://legiscan.com/NY/research/A03004/2023</td>
-      <td>2023-05-12</td>
-      <td>thru line veto memo.36</td>
-      <td>Makes appropriations for the support of govern...</td>
-    </tr>
-  </tbody>
-</table>
-<p>604 rows × 11 columns</p>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Int64Index: 604 entries, 0 to 3
-Data columns (total 11 columns):
- #   Column            Non-Null Count  Dtype 
----  ------            --------------  ----- 
- 0   relevance         604 non-null    int64 
- 1   state             604 non-null    object
- 2   bill_number       604 non-null    object
- 3   bill_id           604 non-null    int64 
- 4   change_hash       604 non-null    object
- 5   url               604 non-null    object
- 6   text_url          604 non-null    object
- 7   research_url      604 non-null    object
- 8   last_action_date  604 non-null    object
- 9   last_action       604 non-null    object
- 10  title             604 non-null    object
-dtypes: int64(2), object(9)
-memory usage: 56.6+ KB
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;filipa&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;legiscan_api_results.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>That’s it!</p>
-<p>In the next workshop, we will look at analyzing the plain text from some of these bills, which we will access through the <code class="docutils literal notranslate"><span class="pre">congress.gov</span></code> website.</p>
+<p>Don’t worry if this looks wonky to you now. We will have plenty of time to practice in the next few lessons on APIs.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -788,20 +511,20 @@ memory usage: 56.6+ KB
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="dicts.html"
+       href="scrape.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">dictionaries</p>
+        <p class="prev-next-title">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></p>
       </div>
     </a>
     <a class="right-next"
-       href="../clean/overview.html"
+       href="legiscan_api.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">workshop overview</p>
+        <p class="prev-next-title">Legiscan API</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

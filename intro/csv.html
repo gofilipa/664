@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>dicts and csvs &#8212; Python for Programming Cultural Heritage</title>
+    <title>the csv module &#8212; Python for Programming Cultural Heritage</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -57,7 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro/dicts';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro/csv';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="workshop overview" href="../gathering/overview.html" />
@@ -188,7 +188,7 @@
 <li class="toctree-l1"><a class="reference internal" href="lists.html">lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loops.html">loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logic.html">logic</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">dicts and csvs</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
 <ul class="nav bd-sidenav">
@@ -199,6 +199,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../gathering/explore.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/scrape.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../gathering/dicts.html">dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
@@ -297,7 +298,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro/dicts.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro/csv.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -327,7 +328,7 @@
       
       
       
-      <li><a href="../_sources/intro/dicts.ipynb" target="_blank"
+      <li><a href="../_sources/intro/csv.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -411,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>dicts and csvs</h1>
+    <h1>the csv module</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -421,8 +422,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dictionary">what is a dictionary?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-csv-module">the CSV module</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-challenge">group challenge:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-end">the end</a></li>
 </ul>
@@ -436,65 +435,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="dicts-and-csvs">
-<h1>dicts and csvs<a class="headerlink" href="#dicts-and-csvs" title="Link to this heading">#</a></h1>
-<section id="what-is-a-dictionary">
-<h2>what is a dictionary?<a class="headerlink" href="#what-is-a-dictionary" title="Link to this heading">#</a></h2>
-<p>Information organized into key:value pairs.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filipa</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;filipa&#39;</span><span class="p">,</span> <span class="s1">&#39;da gama&#39;</span><span class="p">,</span> <span class="s1">&#39;calado&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span>
-    <span class="s1">&#39;degree&#39;</span><span class="p">:</span> <span class="s1">&#39;literature&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;jobs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;professor&#39;</span><span class="p">,</span> <span class="s1">&#39;digital scholarship specialist&#39;</span><span class="p">,</span> <span class="s1">&#39;student&#39;</span><span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>How do we access items within a column? With brackets.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filipa</span><span class="p">[</span><span class="s1">&#39;jobs&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;professor&#39;, &#39;digital scholarship specialist&#39;, &#39;student&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filipa</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35
-</pre></div>
-</div>
-</div>
-</div>
-<p>How do we access items within a column? With list indexing,</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filipa</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;filipa&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<p>Don’t worry if this looks wonky to you now. We will have plenty of time to practice in the next few sessions on APIs.</p>
-</section>
-<section id="the-csv-module">
-<h2>the CSV module<a class="headerlink" href="#the-csv-module" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-csv-module">
+<h1>the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module<a class="headerlink" href="#the-csv-module" title="Link to this heading">#</a></h1>
 <p>The dataset we will be using consists of campaign finance violations by New York City political candidates, officially titled “<a class="reference external" href="https://data.cityofnewyork.us/City-Government/Enforcement-Actions-Board-Determinations-and-Penal/xrxs-qn95/about_data">Enforcement Actions Board Determinations and Penalties</a>,” which can be found on <a class="reference external" href="https://opendata.cityofnewyork.us/">NYC Open Data</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -602,109 +544,78 @@ Walker, Latrice
 </div>
 </div>
 </div>
+<p>Let’s combine loops with logic. Print out all of the rows that contain the word “Eric” in the second column (<code class="docutils literal notranslate"><span class="pre">Candidate</span></code>) in the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;violations_sample.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">dict_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dict_reader</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;violations.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;Eric&quot;</span> <span class="ow">in</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Espinal, Rafael&#39;, &#39;Board Meeting Date&#39;: &#39;8/31/23&#39;, &#39;Violation&#39;: &#39;Failing to report transactions in daily pre-election disclosure statements&#39;, &#39;Current Violation Name&#39;: &#39;Failing to report transactions in daily pre-election disclosure statements&#39;, &#39;Final Board Determination&#39;: &#39;$250 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Espinal, Rafael&#39;, &#39;Board Meeting Date&#39;: &#39;8/31/23&#39;, &#39;Violation&#39;: &#39;Accepting over-the-limit contributions&#39;, &#39;Current Violation Name&#39;: &#39;Accepting over-the-limit contributions&#39;, &#39;Final Board Determination&#39;: &#39;$5,050 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Espinal, Rafael&#39;, &#39;Board Meeting Date&#39;: &#39;8/31/23&#39;, &#39;Violation&#39;: &#39;Accepting contributions from corporations and a limited liabilty company&#39;, &#39;Current Violation Name&#39;: &#39;Accepting contributions from corporations and a limited liabilty company&#39;, &#39;Final Board Determination&#39;: &#39;$1,000 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Blake, Michael&#39;, &#39;Board Meeting Date&#39;: &#39;8/31/23&#39;, &#39;Violation&#39;: &#39;Failing to document transactions&#39;, &#39;Current Violation Name&#39;: &#39;Failing to document transactions&#39;, &#39;Final Board Determination&#39;: &#39;$100 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Blake, Michael&#39;, &#39;Board Meeting Date&#39;: &#39;8/31/23&#39;, &#39;Violation&#39;: &#39;Failing to report transactions in daily pre-election disclosure statements&#39;, &#39;Current Violation Name&#39;: &#39;Failing to report transactions in daily pre-election disclosure statements&#39;, &#39;Final Board Determination&#39;: &#39;$250 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Blake, Michael&#39;, &#39;Board Meeting Date&#39;: &#39;9/1/23&#39;, &#39;Violation&#39;: &#39;Failing to demonstrate compliance with intermediary reporting and documentation requirements&#39;, &#39;Current Violation Name&#39;: &#39;Failing to demonstrate compliance with intermediary reporting and documentation requirements&#39;, &#39;Final Board Determination&#39;: &#39;VNP&#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Blake, Michael&#39;, &#39;Board Meeting Date&#39;: &#39;8/31/23&#39;, &#39;Violation&#39;: &#39;Failing to demonstrate that spending was in furtherance of the campaign&#39;, &#39;Current Violation Name&#39;: &#39;Failing to demonstrate that spending was in furtherance of the campaign&#39;, &#39;Final Board Determination&#39;: &#39;$125 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Blake, Michael&#39;, &#39;Board Meeting Date&#39;: &#39;8/31/23&#39;, &#39;Violation&#39;: &#39;Making impermissable post-election expenditures&#39;, &#39;Current Violation Name&#39;: &#39;Making impermissable post-election expenditures&#39;, &#39;Final Board Determination&#39;: &#39;$1,184 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019&#39;, &#39;Candidate&#39;: &#39;Borelli, Joseph&#39;, &#39;Board Meeting Date&#39;: &#39;7/17/23&#39;, &#39;Violation&#39;: &#39;Failing to disclose a merchant account&#39;, &#39;Current Violation Name&#39;: &#39;Failing to disclose a merchant account&#39;, &#39;Final Board Determination&#39;: &#39;$100 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019&#39;, &#39;Candidate&#39;: &#39;Borelli, Joseph&#39;, &#39;Board Meeting Date&#39;: &#39;7/17/23&#39;, &#39;Violation&#39;: &#39;Failing to provide bank and merchant account statements&#39;, &#39;Current Violation Name&#39;: &#39;Failing to provide bank and merchant account statements&#39;, &#39;Final Board Determination&#39;: &#39;$650 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019&#39;, &#39;Candidate&#39;: &#39;Borelli, Joseph&#39;, &#39;Board Meeting Date&#39;: &#39;7/17/23&#39;, &#39;Violation&#39;: &#39;Accepting a contribution from an unregistered political committee&#39;, &#39;Current Violation Name&#39;: &#39;Accepting a contribution from an unregistered political committee&#39;, &#39;Final Board Determination&#39;: &#39;$275 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Sheikh, Helal&#39;, &#39;Board Meeting Date&#39;: &#39;7/17/23&#39;, &#39;Violation&#39;: &#39;Failing to report transactions&#39;, &#39;Current Violation Name&#39;: &#39;Failing to report transactions&#39;, &#39;Final Board Determination&#39;: &#39;$101 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Sheikh, Helal&#39;, &#39;Board Meeting Date&#39;: &#39;7/17/23&#39;, &#39;Violation&#39;: &#39;Failing to respond to Draft Audit Report&#39;, &#39;Current Violation Name&#39;: &#39;Failing to respond to Draft Audit Report&#39;, &#39;Final Board Determination&#39;: &#39;$500 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019B&#39;, &#39;Candidate&#39;: &#39;Rose, Xamayla&#39;, &#39;Board Meeting Date&#39;: &#39;6/2/23&#39;, &#39;Violation&#39;: &#39;Failing to document transactions&#39;, &#39;Current Violation Name&#39;: &#39;Failing to document transactions&#39;, &#39;Final Board Determination&#39;: &#39;$149 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019B&#39;, &#39;Candidate&#39;: &#39;Rose, Xamayla&#39;, &#39;Board Meeting Date&#39;: &#39;6/2/23&#39;, &#39;Violation&#39;: &#39;Accepting over-the-limit contributions&#39;, &#39;Current Violation Name&#39;: &#39;Accepting over-the-limit contributions&#39;, &#39;Final Board Determination&#39;: &#39;$375 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019B&#39;, &#39;Candidate&#39;: &#39;Rose, Xamayla&#39;, &#39;Board Meeting Date&#39;: &#39;6/2/23&#39;, &#39;Violation&#39;: &#39;Accepting contributions from corporations, limited liability companies, or partnerships&#39;, &#39;Current Violation Name&#39;: &#39;Accepting contributions from corporations, limited liability companies, or partnerships&#39;, &#39;Final Board Determination&#39;: &#39;$6,770 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019B&#39;, &#39;Candidate&#39;: &#39;Rose, Xamayla&#39;, &#39;Board Meeting Date&#39;: &#39;6/2/23&#39;, &#39;Violation&#39;: &#39;Failing to demonstrate that spending was in furtherance of the campagin&#39;, &#39;Current Violation Name&#39;: &#39;Failing to demonstrate that spending was in furtherance of the campagin&#39;, &#39;Final Board Determination&#39;: &#39;VNP&#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019B&#39;, &#39;Candidate&#39;: &#39;Rose, Xamayla&#39;, &#39;Board Meeting Date&#39;: &#39;6/2/23&#39;, &#39;Violation&#39;: &#39;Making impermissable post-election expenditures&#39;, &#39;Current Violation Name&#39;: &#39;Making impermissable post-election expenditures&#39;, &#39;Final Board Determination&#39;: &#39;$1,804 &#39;}
-{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;, &#39;Candidate&#39;: &#39;Walker, Latrice&#39;, &#39;Board Meeting Date&#39;: &#39;6/2/23&#39;, &#39;Violation&#39;: &#39;Failing to disclose a political committee&#39;, &#39;Current Violation Name&#39;: &#39;Failing to disclose a political committee&#39;, &#39;Final Board Determination&#39;: &#39;$100 &#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;2021T&#39;, &#39;Adams, Eric&#39;, &#39;05/15/2023&#39;, &#39;Failing to respond and late response to requests for information or documentation&#39;, &#39;Failing to respond and late response to requests for information or documentation&#39;, &#39;$14,400&#39;]
+[&#39;2021T&#39;, &#39;Adams, Eric&#39;, &#39;05/15/2023&#39;, &#39;Failing to properly wind down TIE activities&#39;, &#39;Failing to properly wind down TIE activities&#39;, &#39;$200&#39;]
+[&#39;2021T&#39;, &#39;Adams, Eric&#39;, &#39;05/15/2023&#39;, &#39;Accepting prohibited donations&#39;, &#39;Accepting prohibited donations&#39;, &#39;$5,000&#39;]
+[&#39;2017&#39;, &#39;Ulrich, Eric&#39;, &#39;07/15/2021&#39;, &#39;Failing to report transactions&#39;, &#39;Failing to report transactions&#39;, &#39;$1,352&#39;]
+[&#39;2017&#39;, &#39;Ulrich, Eric&#39;, &#39;07/15/2021&#39;, &#39;Failing to demonstrate compliance with cash receipts reporting and documentation requirements&#39;, &#39;Failing to demonstrate compliance with cash receipts reporting and documentation requirements&#39;, &#39;$75&#39;]
+[&#39;2017&#39;, &#39;Ulrich, Eric&#39;, &#39;07/15/2021&#39;, &#39;Failing to report transactions in daily pre-election disclosure statements&#39;, &#39;Failing to report transactions in daily pre-election disclosure statements&#39;, &#39;$300&#39;]
+[&#39;2017&#39;, &#39;Ulrich, Eric&#39;, &#39;07/15/2021&#39;, &#39;Failing to document transactions&#39;, &#39;Failing to document transactions&#39;, &#39;$300&#39;]
+[&#39;2017&#39;, &#39;Ulrich, Eric&#39;, &#39;07/15/2021&#39;, &#39;Accepting over-the-limit contributions&#39;, &#39;Accepting over-the-limit contributions&#39;, &#39;$3,187&#39;]
+[&#39;2017&#39;, &#39;Ulrich, Eric&#39;, &#39;07/15/2021&#39;, &#39;Failing to demonstrate compliance with intermediary reporting and documentation requirements&#39;, &#39;Failing to demonstrate compliance with intermediary reporting and documentation requirements&#39;, &#39;$100&#39;]
+[&#39;2017&#39;, &#39;Ulrich, Eric&#39;, &#39;07/15/2021&#39;, &#39;Failing to demonstrate that spending was in furtherance of the campaign&#39;, &#39;Failing to demonstrate that spending was in furtherance of the campaign&#39;, &#39;$331&#39;]
+[&#39;2017&#39;, &#39;Ulrich, Eric&#39;, &#39;07/15/2021&#39;, &#39;Making impermissible post-election expenditures&#39;, &#39;Making impermissible post-election expenditures&#39;, &#39;$1,261&#39;]
+[&#39;2017&#39;, &#39;Ulrich, Eric&#39;, &#39;07/15/2021&#39;, &#39;Exceeding the expenditure limit&#39;, &#39;Exceeding the expenditure limit&#39;, &#39;$13,750&#39;]
+[&#39;2013&#39;, &#39;Adams, Eric&#39;, &#39;06/09/2016&#39;, &#39;Failing to provide merchant account statements&#39;, &#39;Failing to provide bank, credit card, and merchant account statements&#39;, &#39;$500&#39;]
+[&#39;2013&#39;, &#39;Adams, Eric&#39;, &#39;06/09/2016&#39;, &#39;Failing to file daily pre-election disclosure statements&#39;, &#39;Failing to report/late reporting of transactions in daily pre-election disclosure statements&#39;, &#39;$250&#39;]
+[&#39;2013&#39;, &#39;Adams, Eric&#39;, &#39;06/09/2016&#39;, &#39;Accepting an over-the-limit contribution&#39;, &#39;Accepting over-the-limit contributions&#39;, &#39;$125&#39;]
+[&#39;2013&#39;, &#39;Adams, Eric&#39;, &#39;06/09/2016&#39;, &#39;Accepting a corporate contribution&#39;, &#39;Accepting contributions from corporations, limited liability companies, or partnerships&#39;, &#39;$70&#39;]
+[&#39;2013&#39;, &#39;Adams, Eric&#39;, &#39;06/09/2016&#39;, &#39;Accepting two contributions from unregistered political committees&#39;, &#39;Accepting contributions from unregistered political committees&#39;, &#39;$225&#39;]
+[&#39;2013&#39;, &#39;Adams, Eric&#39;, &#39;06/09/2016&#39;, &#39;Failing to demonstrate compliance with intermediary reporting and documentation requirements&#39;, &#39;Failing to demonstrate compliance with intermediary reporting and documentation requirements&#39;, &#39;VNP&#39;]
+[&#39;2013&#39;, &#39;Adams, Eric&#39;, &#39;06/09/2016&#39;, &#39;Failing to document transactions&#39;, &#39;Failing to document transactions&#39;, &#39;$700&#39;]
+[&#39;2013&#39;, &#39;Adams, Eric&#39;, &#39;06/09/2016&#39;, &#39;Failing to demonstrate spending was in furtherance of the campaign&#39;, &#39;Failing to demonstrate that spending was in furtherance of the campaign&#39;, &#39;VNP&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Accepting over-the-limit contributions&#39;, &#39;Accepting over-the-limit contributions&#39;, &#39;$12,875&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Accepting corporate contributions&#39;, &#39;Accepting contributions from corporations, limited liability companies, or partnerships&#39;, &#39;$12,125&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Accepting contributions from unregistered political committees&#39;, &#39;Accepting contributions from unregistered political committees&#39;, &#39;$750&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Accepting over-the-limit Doing Business contributions&#39;, &#39;Accepting over-the-limit Doing Business contributions&#39;, &#39;$10,850&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Filing a disclosure statement eight days late&#39;, &#39;Failing to file/filing late disclosure statements&#39;, &#39;VNP&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Failing to file required daily pre-election disclosure statements&#39;, &#39;Failing to report/late reporting of transactions in daily pre-election disclosure statements&#39;, &#39;200&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Failing to provide bank statements&#39;, &#39;Failing to provide bank, credit card, and merchant account statements&#39;, &#39;1500&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Failing to report transactions&#39;, &#39;Failing to report transactions&#39;, &#39;$1,974&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Failing to accurately report credit card contributions, resulting in an 11.78% variance&#39;, &#39;Failing to demonstrate compliance with reporting requirements for receipts or disbursements&#39;, &#39;$1,500&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Failing to provide signed intermediary affirmation statements and failing to respond to questions regarding intermediaries&#39;, &#39;Failing to demonstrate compliance with intermediary reporting and documentation requirements&#39;, &#39;$2,600&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Exceeding the expenditure limit&#39;, &#39;Exceeding the expenditure limit&#39;, &#39;$29,732&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Making improper post-election expenditures&#39;, &#39;Making impermissible post-election expenditures&#39;, &#39;$3,208&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Failing to demonstrate that spending was in furtherance of the campaign&#39;, &#39;Failing to demonstrate that spending was in furtherance of the campaign&#39;, &#39;$1,188&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Failing to document transactions&#39;, &#39;Failing to document transactions&#39;, &#39;$1,400&#39;]
+[&#39;2009&#39;, &#39;Gioia, Eric&#39;, &#39;07/25/2013&#39;, &#39;Failing to adequately document transactions&#39;, &#39;Failing to document transactions&#39;, &#39;$2,500&#39;]
+[&#39;2009&#39;, &#39;Ulrich, Eric A.&#39;, &#39;11/18/2010&#39;, &#39;Repayment: unspent campaign funds (surplus)&#39;, &#39;Repayment: unspent campaign funds (surplus)&#39;, &#39;$1,320&#39;]
+[&#39;2009A&#39;, &#39;Ulrich, Eric A.&#39;, &#39;08/12/2010&#39;, &#39;Repayment: unspent campaign funds (surplus)&#39;, &#39;Repayment: unspent campaign funds (surplus)&#39;, &#39;$4,189&#39;]
+[&#39;2005&#39;, &#39;Blackwell, Eric&#39;, &#39;03/13/2008&#39;, &#39;Failing to report in-kind contributions&#39;, &#39;Failing to demonstrate compliance with reporting requirements for receipts or disbursements&#39;, &#39;$150&#39;]
+[&#39;2005&#39;, &#39;Blackwell, Eric&#39;, &#39;03/13/2008&#39;, &#39;Failing to report in-kind contributions&#39;, &#39;Failing to demonstrate compliance with reporting requirements for receipts or disbursements&#39;, &#39;$50&#39;]
+[&#39;2005&#39;, &#39;Blackwell, Eric&#39;, &#39;03/13/2008&#39;, &#39;Failing to report in-kind contributions&#39;, &#39;Failing to demonstrate compliance with reporting requirements for receipts or disbursements&#39;, &#39;$50&#39;]
+[&#39;2005&#39;, &#39;Blackwell, Eric&#39;, &#39;03/13/2008&#39;, &#39;225.72% monetary disbursements variance&#39;, &#39;Failing to demonstrate compliance with reporting requirements for receipts or disbursements&#39;, &#39;$500&#39;]
+[&#39;2005&#39;, &#39;Blackwell, Eric&#39;, &#39;03/13/2008&#39;, &#39;19.69% monetary receipts variance&#39;, &#39;Failing to demonstrate compliance with reporting requirements for receipts or disbursements&#39;, &#39;$500&#39;]
+[&#39;2005&#39;, &#39;Blackwell, Eric&#39;, &#39;03/13/2008&#39;, &#39;20% cash receipts variance&#39;, &#39;Failing to demonstrate compliance with reporting requirements for receipts or disbursements&#39;, &#39;VNP&#39;]
+[&#39;2005&#39;, &#39;Blackwell, Eric&#39;, &#39;03/13/2008&#39;, &#39;Fraud and misrepresentation&#39;, &#39;Material misrepresentation; fraud; submission of false or ficticious information&#39;, &#39;No violation&#39;]
+[&#39;2005&#39;, &#39;Blackwell, Eric&#39;, &#39;03/13/2008&#39;, &#39;Breach of certification&#39;, &#39;Breach of certification&#39;, &#39;No violation&#39;]
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now we have a different data type for row</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;\ufeffElection Cycle &#39;: &#39;2019A&#39;,
- &#39;Candidate&#39;: &#39;Walker, Latrice&#39;,
- &#39;Board Meeting Date&#39;: &#39;6/2/23&#39;,
- &#39;Violation&#39;: &#39;Failing to disclose a political committee&#39;,
- &#39;Current Violation Name&#39;: &#39;Failing to disclose a political committee&#39;,
- &#39;Final Board Determination&#39;: &#39;$100 &#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># combining loops and logic to search for a specific condition in the dataset</span>
-
-<span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;violations.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">dict_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dict_reader</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Candidate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Adams, Eric&#39;</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Board Meeting Date&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Current Violation Name&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>05/15/2023 Failing to respond and late response to requests for information or documentation
-05/15/2023 Failing to properly wind down TIE activities
-05/15/2023 Accepting prohibited donations
-06/09/2016 Failing to provide bank, credit card, and merchant account statements
-06/09/2016 Failing to report/late reporting of transactions in daily pre-election disclosure statements
-06/09/2016 Accepting over-the-limit contributions
-06/09/2016 Accepting contributions from corporations, limited liability companies, or partnerships
-06/09/2016 Accepting contributions from unregistered political committees
-06/09/2016 Failing to demonstrate compliance with intermediary reporting and documentation requirements
-06/09/2016 Failing to document transactions
-06/09/2016 Failing to demonstrate that spending was in furtherance of the campaign
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 <section id="group-challenge">
 <h2>group challenge:<a class="headerlink" href="#group-challenge" title="Link to this heading">#</a></h2>
 <p>Write a loop that prints out the Candidate’s name and Violation if that violation contains the word “contribution” in it. Use f-strings so that you can format the answer the following:</p>
 <p>Name: [candidate name], Violation: [candidate violation]</p>
 <p>Here’s the answer, but don’t look until you’ve spent at least 5 mintues working on it!</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;violations.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">dict_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">dict_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dict_reader</span><span class="p">:</span>
-        <span class="n">violation</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Current Violation Name&#39;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="s2">&quot;contributions&quot;</span> <span class="ow">or</span> <span class="s2">&quot;contribution&quot;</span> <span class="ow">in</span> <span class="n">violation</span><span class="p">:</span>
-            <span class="n">candidate</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Candidate&#39;</span><span class="p">]</span>
+        <span class="n">violation</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;contribution&quot;</span> <span class="ow">in</span> <span class="n">violation</span><span class="p">:</span>
+            <span class="n">candidate</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Name: </span><span class="si">{</span><span class="n">candidate</span><span class="si">}</span><span class="s1">, Violation: </span><span class="si">{</span><span class="n">violation</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -780,8 +691,6 @@ Walker, Latrice
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dictionary">what is a dictionary?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-csv-module">the CSV module</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-challenge">group challenge:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-end">the end</a></li>
 </ul>
