@@ -1,0 +1,4 @@
+** dicts
+- what is a dict?
+  - data structure
+  - syntax for accessing items

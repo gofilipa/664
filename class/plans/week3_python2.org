@@ -3,7 +3,7 @@ Agenda
 - review last week's lessons on Python 1
 - review challenge
 - lessons for today: lists, loops, logic!
-- start working with dicts and CSV module
+- start working with CSV module
 
 ** review
 - data types,
@@ -54,6 +54,9 @@ String Methods
 - now save that list to a new list, an empty list
   - why would we want to do this?
 
+Group challenge:
+- list of prime numbers and their squares, using f strings.
+
 ** logic
 Boolean data
 - true or false
@@ -66,32 +69,21 @@ Combining loops with logic:
   "refuse"
 - if it contains the word "refuse" we will append it to the new list
 
-Group challenge:
-- list of prime numbers and their squares, using f strings.
-
-** dicts and csv module
-- what is a dict?
-  - data structure
-  - syntax for accessing items
-
+** csv module
 - csv module
   - what is a module? a collection of code for doing something, in
     this case, for opening csv files
-- printing rows from csv on Campaign Violations
+  - read a little of the docs on CSV module, reader
+
+- printing rows from csv on [[https://data.cityofnewyork.us/City-Government/Enforcement-Actions-Board-Determinations-and-Penal/xrxs-qn95/about_data][Campaign Violations]]:
   - check the type of data(s)
   - how do we access info from different types?
 
-Individual activity, 5min:
-    - read a little of the docs on CSV module, reader, DictReader
-    - google these terms
-    - google the difference between them
-    - we will circle back in 5 minutes
+Combining logic, loops, and csv:
+- search for a specific candidate name in the dataset
+- print out all rows containing that candidate's name
+- advanced: print out only the date and the violation
 
-Combining logic, loops, and dicts:
-- search for a specific candidate name.
-
-Group challenge: 
-- Write a loop that prints out the Candidate's name and Violation if
-  that violation contains the word "contribution" in it. Use f-strings
+  
 
 ** next week: web scraping!

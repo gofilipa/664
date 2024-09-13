@@ -10,7 +10,7 @@ parts:
   - file: intro/lists
   - file: intro/loops
   - file: intro/logic
-  - file: intro/dicts
+  - file: intro/csv
 - caption: gathering data
   chapters:
   - file: gathering/overview
@@ -19,6 +19,7 @@ parts:
   - file: gathering/inspector
   - file: gathering/explore
   - file: gathering/scrape
+  - file: gathering/dicts
   - file: gathering/legiscan_api
 - caption: cleaning data
   chapters:
