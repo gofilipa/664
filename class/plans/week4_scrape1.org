@@ -1,0 +1,30 @@
+* web scraping day one: NYTimes website
+** what is web scraping?
+- taking data
+- vs APIs
+- ethics & legality
+- bs4 and requests
+- other libraries: scrapy, selenium
+
+
+** intro to HTML
+- sample page, elements, attributes
+- the HTML inspector
+- try to remove an ad from the website
+
+
+** exploring bs4
+- what is bs4?
+- how to scrape a website with 6 lines of code
+- the soup object
+- getting text
+- getting attributes
+- more granular searching with find()
+- challenge: how do you get all the elements for a tag on the page?
+- find_all()
+
+BREAK
+
+- group challenge, filtering results by condition
+
+IF TIME, show them other libraries. 

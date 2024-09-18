@@ -15,10 +15,12 @@ parts:
   chapters:
   - file: gathering/overview
   - file: gathering/what
-  - file: gathering/ethics
   - file: gathering/inspector
-  - file: gathering/explore
-  - file: gathering/scrape
+  - file: gathering/exploring
+  - file: gathering/ethics
+  - file: gathering/scraping
+  - file: gathering/to-dataframe
+  - file: gathering/met
   - file: gathering/dicts
   - file: gathering/legiscan_api
 - caption: cleaning data

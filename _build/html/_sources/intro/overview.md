@@ -1,7 +1,7 @@
-# workshop overview
+# chapter overview
 
 ## learning objectives
-This workshop explores how the Python programming language takes data, organizes it into collections or groupings, with the goal of doing something to that data. 
+This chapter explores how the Python programming language takes data, organizes it into collections or groupings, with the goal of doing something to that data. 
 
 It introduces:
 

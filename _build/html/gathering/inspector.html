@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/inspector';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="exploring bs4" href="explore.html" />
-    <link rel="prev" title="what is ethical? what is legal?" href="ethics.html" />
+    <link rel="next" title="exploring bs4" href="exploring.html" />
+    <link rel="prev" title="what is web scraping?" href="what.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,7 +181,7 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">chapter overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
@@ -192,13 +192,15 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">chapter overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="what.html">what is web scraping?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">the HTML Inspector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="explore.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="scrape.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="exploring.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="to-dataframe.html">saving scraped data</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="met.html">the MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dicts.html">dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legiscan_api.html">Legiscan API</a></li>
 </ul>
@@ -422,8 +424,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-inspector">the Inspector</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-html">intro to HTML</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-inspector">the Inspector</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scraping-on-google-colab">scraping on Google Colab</a></li>
 </ul>
             </nav>
@@ -438,20 +440,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-html-inspector">
 <h1>the HTML Inspector<a class="headerlink" href="#the-html-inspector" title="Link to this heading">#</a></h1>
-<section id="the-inspector">
-<h2>the Inspector<a class="headerlink" href="#the-inspector" title="Link to this heading">#</a></h2>
-<p>Before playing around with the web scraper, we will first inspect a web page “under the hood” to get a sense of what the website code looks like. This will be helpful later on, when we want to isolate elements from a webpage for scraping.</p>
-<p>To see the website code, you can use the “inspector” tool. Follow these steps:</p>
-<ol class="arabic simple">
-<li><p>Open up a web browser, go to the <em>Trans Legislation Tracker</em> at <code class="docutils literal notranslate"><span class="pre">https://translegislation.com</span></code></p></li>
-<li><p>Right click on the first heading, which should say “2024 anti-trans bills tracker”</p></li>
-<li><p>On the dropdown menu, select “Inspect” or “Inspector.” (If you do not see this option, try opening the “Tools” or “Development” menu at the top of the application, and then selecting “Web Development Tools” or “Inspector” from the menu).</p></li>
-<li><p>A new window will pop up within your browser window. This window may appear overwhelming, and it contains a lot more information that we will need. For now, just focus on the part that shows the HTML code.</p></li>
-</ol>
-</section>
 <section id="intro-to-html">
 <h2>intro to HTML<a class="headerlink" href="#intro-to-html" title="Link to this heading">#</a></h2>
-<p>For those of you who have never seen HTML before,m I’m going to examine a sample HTML file. An HTML file (short for HyperText Markup Language) tells the computer how to layout the web page.</p>
+<p>For those of you who have never seen HTML before, I’m going to examine a sample HTML file. An HTML file (short for HyperText Markup Language) tells the computer how to layout the web page.</p>
 <p>Note the different parts of the page indicated by “elements” or “tags.” The <strong>head</strong> tag, for example, includes the <strong>title</strong>, <strong>h1</strong>, <strong>h2</strong> tags, and the <strong>body</strong> tag includes <strong>a</strong> and <strong>p</strong> tags. In addition to elements/tags there are also “attributes,” which provide more information about the tag, like how to style it or where to insert a link. Below we see attributes for <strong>class</strong> and <strong>href</strong>.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -471,6 +462,17 @@ document.write(`
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </div>
+</section>
+<section id="the-inspector">
+<h2>the Inspector<a class="headerlink" href="#the-inspector" title="Link to this heading">#</a></h2>
+<p>Before playing around with the web scraper, we will first inspect a web page “under the hood” to get a sense of what the website code looks like. This will be helpful later on, when we want to isolate elements from a webpage for scraping.</p>
+<p>To see the website code, you can use the “inspector” tool. Follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Open up a web browser, go to the <em>The New York Times</em> at <code class="docutils literal notranslate"><span class="pre">https://nytimes.com</span></code></p></li>
+<li><p>Right click on the first heading.</p></li>
+<li><p>On the dropdown menu, select “Inspect” or “Inspector.” (If you do not see this option, try opening the “Tools” or “Development” menu at the top of the application, and then selecting “Web Development Tools” or “Inspector” from the menu).</p></li>
+<li><p>A new window will pop up within your browser window. This window may appear overwhelming, and it contains a lot more information that we will need. For now, just focus on the part that shows the HTML code.</p></li>
+</ol>
 </section>
 <section id="scraping-on-google-colab">
 <h2>scraping on Google Colab<a class="headerlink" href="#scraping-on-google-colab" title="Link to this heading">#</a></h2>
@@ -509,16 +511,16 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ethics.html"
+       href="what.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">what is ethical? what is legal?</p>
+        <p class="prev-next-title">what is web scraping?</p>
       </div>
     </a>
     <a class="right-next"
-       href="explore.html"
+       href="exploring.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -542,8 +544,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-inspector">the Inspector</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-html">intro to HTML</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-inspector">the Inspector</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scraping-on-google-colab">scraping on Google Colab</a></li>
 </ul>
   </nav></div>
