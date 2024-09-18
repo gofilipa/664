@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>exploring bs4 &#8212; Python for Programming Cultural Heritage</title>
+    <title>scraping with bs4 &#8212; Python for Programming Cultural Heritage</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/explore';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/scraping';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="scraping with bs4" href="scrape.html" />
-    <link rel="prev" title="the HTML Inspector" href="inspector.html" />
+    <link rel="next" title="saving scraped data" href="to-dataframe.html" />
+    <link rel="prev" title="what is ethical? what is legal?" href="ethics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,7 +181,7 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">chapter overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
@@ -192,13 +192,15 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">chapter overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="what.html">what is web scraping?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inspector.html">the HTML Inspector</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="scrape.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="exploring.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="to-dataframe.html">saving scraped data</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="met.html">the MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dicts.html">dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legiscan_api.html">Legiscan API</a></li>
 </ul>
@@ -298,7 +300,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgathering/explore.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgathering/scraping.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -328,7 +330,7 @@
       
       
       
-      <li><a href="../_sources/gathering/explore.ipynb" target="_blank"
+      <li><a href="../_sources/gathering/scraping.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -412,7 +414,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>exploring bs4</h1>
+    <h1>scraping with bs4</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -422,9 +424,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-bs4">what is <code class="docutils literal notranslate"><span class="pre">bs4?</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anti-trans-legislation">anti-trans legislation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-our-page">inspecting our page</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-soup-object">the <code class="docutils literal notranslate"><span class="pre">soup</span></code> object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-the-soup-object">checking the <code class="docutils literal notranslate"><span class="pre">soup</span></code> object</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-text">getting text</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-attributes">getting attributes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find"><code class="docutils literal notranslate"><span class="pre">find()</span></code></a></li>
@@ -441,12 +443,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="exploring-bs4">
-<h1>exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code><a class="headerlink" href="#exploring-bs4" title="Link to this heading">#</a></h1>
-<section id="what-is-bs4">
-<h2>what is <code class="docutils literal notranslate"><span class="pre">bs4?</span></code><a class="headerlink" href="#what-is-bs4" title="Link to this heading">#</a></h2>
-<p>bs4 is short for <code class="docutils literal notranslate"><span class="pre">BeautifulSoup4</span></code>, a python package for parsing HTML data. bs4’s power comes from using python syntax to access and manipulate HTML elements. This means that it uses the python language and its syntax to get information from pages written in the web’s main computer lanugage, HTML.</p>
-<p>I explain what the code below does in “comments” contained within each cell. Comments in Python are written on lines that begin with a hashtag <code class="docutils literal notranslate"><span class="pre">#</span></code>. They are like annotations for the code. The <code class="docutils literal notranslate"><span class="pre">#</span></code> which starts the comment line indicates to the computer that it should ignore that line (in other words, that the line is meant for human readers).</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="scraping-with-bs4">
+<h1>scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code><a class="headerlink" href="#scraping-with-bs4" title="Link to this heading">#</a></h1>
+<section id="anti-trans-legislation">
+<h2>anti-trans legislation<a class="headerlink" href="#anti-trans-legislation" title="Link to this heading">#</a></h2>
+<p>The past couple of years have seen an explosion in anti-trans legislation that restricts basic rights and recognition for trans people. In 2023, more than 500 bills were proposed that prevent trans people from using bathrooms, playing in sports, accessing healthcare, and more in ways that accord with their gender identity. Of those 500 proposals across state legislatures, 87 passed. Compare that number with last year, 2022, 174 bills were proposed, and 26 passed. See the <a class="reference external" href="https://translegislation.com/">Trans Legislation Tracker</a> for more information.</p>
+<p>This workshsop uses Python to scrape basic metadata about the 83 bills that have passed in 2023. This dataset, which is relatively small in size, will be a starting point for a larger dataset to be used in our next workshop on Text Analysis. For that workshop, participants will use Python to gather, clean, and analyze the full text of the bills themselves from <code class="docutils literal notranslate"><span class="pre">congress.gov</span></code>. They will explore how the terms “gender” and “sex” are being defined across the legislation, among other questions about the language contained within them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the following libraries for our web scraping project</span>
@@ -523,10 +525,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="the-soup-object">
-<h2>the <code class="docutils literal notranslate"><span class="pre">soup</span></code> object<a class="headerlink" href="#the-soup-object" title="Link to this heading">#</a></h2>
-<p>This word “object” in Python is something you’ll hear often. It means a collection of data and functions that can work on that data. You can think of it as a way of representing real world objects (like this web page) that is organized and accessible, so you can search and manipulate that information with Python.</p>
-<p>Let’s take an initial look into what this beautiful soup object allows us to do. It takes the HTML source, the specific HTML elements or “tags,” and makes it possible for us to access those tags using python syntax.</p>
+<section id="checking-the-soup-object">
+<h2>checking the <code class="docutils literal notranslate"><span class="pre">soup</span></code> object<a class="headerlink" href="#checking-the-soup-object" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">h2</span>
@@ -554,7 +554,7 @@ document.write(`
 </section>
 <section id="getting-text">
 <h2>getting text<a class="headerlink" href="#getting-text" title="Link to this heading">#</a></h2>
-<p>Let’s go a little deeper than the element. We can access the text within each tag, getting rid of tags like <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;h3&gt;</span></code>, by using the <code class="docutils literal notranslate"><span class="pre">text</span></code> property.</p>
+<p>Remember, we can access the text within each tag, getting rid of tags like <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;h3&gt;</span></code>, by using the <code class="docutils literal notranslate"><span class="pre">text</span></code> property.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># append the text property after the title property</span>
@@ -595,7 +595,7 @@ document.write(`
 </section>
 <section id="getting-attributes">
 <h2>getting attributes<a class="headerlink" href="#getting-attributes" title="Link to this heading">#</a></h2>
-<p>In addition to text, we can also get the HTML attributes. <a class="reference external" href="https://www.w3schools.com/html/html_attributes.asp">HTML attributes</a> contain additional inforamation about HTML tag. A popular attribute is <code class="docutils literal notranslate"><span class="pre">href</span></code>, which stands for hyperlink reference, and it contains the link’s URL address. To access the attributes like <code class="docutils literal notranslate"><span class="pre">href</span></code>, we use the syntax: <code class="docutils literal notranslate"><span class="pre">tag['attr']</span></code>.</p>
+<p>Remember that, in addition to text, we can also get the HTML attributes. <a class="reference external" href="https://www.w3schools.com/html/html_attributes.asp">HTML attributes</a> contain additional inforamation about HTML tag. A popular attribute is <code class="docutils literal notranslate"><span class="pre">href</span></code>, which stands for hyperlink reference, and it contains the link’s URL address. To access the attributes like <code class="docutils literal notranslate"><span class="pre">href</span></code>, we use the syntax: <code class="docutils literal notranslate"><span class="pre">tag['attr']</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># note that this prints the value of each attribute (like the name of the class), not</span>
@@ -944,20 +944,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="inspector.html"
+       href="ethics.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">the HTML Inspector</p>
+        <p class="prev-next-title">what is ethical? what is legal?</p>
       </div>
     </a>
     <a class="right-next"
-       href="scrape.html"
+       href="to-dataframe.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></p>
+        <p class="prev-next-title">saving scraped data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -977,9 +977,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-bs4">what is <code class="docutils literal notranslate"><span class="pre">bs4?</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anti-trans-legislation">anti-trans legislation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-our-page">inspecting our page</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-soup-object">the <code class="docutils literal notranslate"><span class="pre">soup</span></code> object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-the-soup-object">checking the <code class="docutils literal notranslate"><span class="pre">soup</span></code> object</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-text">getting text</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-attributes">getting attributes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find"><code class="docutils literal notranslate"><span class="pre">find()</span></code></a></li>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>the HTML Inspector &#8212; Python for Programming Cultural Heritage</title>
+    <title>the MET API &#8212; Python for Programming Cultural Heritage</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/inspector';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/met';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="exploring bs4" href="exploring.html" />
-    <link rel="prev" title="what is web scraping?" href="what.html" />
+    <link rel="next" title="dictionaries" href="dicts.html" />
+    <link rel="prev" title="saving scraped data" href="to-dataframe.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -194,13 +194,13 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">chapter overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="what.html">what is web scraping?</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inspector.html">the HTML Inspector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exploring.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="to-dataframe.html">saving scraped data</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="met.html">the MET API</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">the MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dicts.html">dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legiscan_api.html">Legiscan API</a></li>
 </ul>
@@ -300,7 +300,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgathering/inspector.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgathering/met.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -330,7 +330,7 @@
       
       
       
-      <li><a href="../_sources/gathering/inspector.md" target="_blank"
+      <li><a href="../_sources/gathering/met.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -340,7 +340,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -414,7 +414,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>the HTML Inspector</h1>
+    <h1>the MET API</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -424,9 +424,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-html">intro to HTML</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-inspector">the Inspector</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scraping-on-google-colab">scraping on Google Colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anatomy-of-a-url">the anatomy of a URL</a></li>
 </ul>
             </nav>
         </div>
@@ -438,45 +436,37 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="the-html-inspector">
-<h1>the HTML Inspector<a class="headerlink" href="#the-html-inspector" title="Link to this heading">#</a></h1>
-<section id="intro-to-html">
-<h2>intro to HTML<a class="headerlink" href="#intro-to-html" title="Link to this heading">#</a></h2>
-<p>For those of you who have never seen HTML before, I’m going to examine a sample HTML file. An HTML file (short for HyperText Markup Language) tells the computer how to layout the web page.</p>
-<p>Note the different parts of the page indicated by “elements” or “tags.” The <strong>head</strong> tag, for example, includes the <strong>title</strong>, <strong>h1</strong>, <strong>h2</strong> tags, and the <strong>body</strong> tag includes <strong>a</strong> and <strong>p</strong> tags. In addition to elements/tags there are also “attributes,” which provide more information about the tag, like how to style it or where to insert a link. Below we see attributes for <strong>class</strong> and <strong>href</strong>.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>The Dormouse&#39;s story<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>This is a first level heading<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>This is a second level heading<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;title&quot;</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>The Dormouse&#39;s story<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;story&quot;</span><span class="p">&gt;</span>Once upon a time there were three little sisters; and their names were
-        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://example.com/elsie&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sister&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;link1&quot;</span><span class="p">&gt;</span>Elsie<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>,
-        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://example.com/lacie&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sister&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;link2&quot;</span><span class="p">&gt;</span>Lacie<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> and
-        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://example.com/tillie&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sister&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;link3&quot;</span><span class="p">&gt;</span>Tillie<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>;
-        and they lived at the bottom of a well.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;story&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-</section>
-<section id="the-inspector">
-<h2>the Inspector<a class="headerlink" href="#the-inspector" title="Link to this heading">#</a></h2>
-<p>Before playing around with the web scraper, we will first inspect a web page “under the hood” to get a sense of what the website code looks like. This will be helpful later on, when we want to isolate elements from a webpage for scraping.</p>
-<p>To see the website code, you can use the “inspector” tool. Follow these steps:</p>
-<ol class="arabic simple">
-<li><p>Open up a web browser, go to the <em>The New York Times</em> at <code class="docutils literal notranslate"><span class="pre">https://nytimes.com</span></code></p></li>
-<li><p>Right click on the first heading.</p></li>
-<li><p>On the dropdown menu, select “Inspect” or “Inspector.” (If you do not see this option, try opening the “Tools” or “Development” menu at the top of the application, and then selecting “Web Development Tools” or “Inspector” from the menu).</p></li>
-<li><p>A new window will pop up within your browser window. This window may appear overwhelming, and it contains a lot more information that we will need. For now, just focus on the part that shows the HTML code.</p></li>
-</ol>
-</section>
-<section id="scraping-on-google-colab">
-<h2>scraping on Google Colab<a class="headerlink" href="#scraping-on-google-colab" title="Link to this heading">#</a></h2>
-<p>On the next page, we will open a Google Colab document to start scraping. If you are unfamiliar with the Colab environment, please see the <a class="reference internal" href="../intro/overview.html#google-colab-environment"><span class="std std-ref">Colab overview section</span></a></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-met-api">
+<h1>the MET API<a class="headerlink" href="#the-met-api" title="Link to this heading">#</a></h1>
+<section id="the-anatomy-of-a-url">
+<h2>the anatomy of a URL<a class="headerlink" href="#the-anatomy-of-a-url" title="Link to this heading">#</a></h2>
+<p>My favorite API is the <a class="reference external" href="https://metmuseum.github.io/">Met API</a>, from the Metropolitan Museum of Art in New York City. I like this API because it is free, open, and requires no sign-up or authentication codes.</p>
+<p>To give more of a sense of how an API gets data from a server, I will explain the “anatomy” of a URL. APIs use URL <em>endpoints</em> to get data from servers. You can think of a URL as a series of folders that each contain data. The folder which contains the data you want is the endpoint. Here’s how the Met uses URLs in its API:</p>
+<ul class="simple">
+<li><p>the <em>root</em> consists of the base URL.</p>
+<ul>
+<li><p><a class="reference external" href="https://collectionapi.metmuseum.org/">https://collectionapi.metmuseum.org/</a></p></li>
+</ul>
+</li>
+<li><p>the <em>path</em> which consists of a directory structure (file structure) where the data is held:</p>
+<ul>
+<li><p>/public/collection/v1/objects</p></li>
+<li><p>/public/collection/v1/departments</p></li>
+<li><p>/public/collection/v1/search</p></li>
+</ul>
+</li>
+<li><p>the <em>query parameter</em> or the <em>endpoint</em> which is the specific request.</p>
+<ul>
+<li><p>?q=SearchTerm</p></li>
+<li><p>?q=Berthe+Morisot</p></li>
+</ul>
+</li>
+</ul>
+<p>So, to search for objects that match the name of the painter “Berthe Morisot,” one would use the following request URL:
+<code class="docutils literal notranslate"><span class="pre">https://collectionapi.metmuseum.org/public/collection/v1/search?q=Berthe+Morisot</span></code></p>
+<p>The results would appear as a list of object IDs in a JSON format. Then, one would use the objects path to search for a specific object. The result is the catalog information for that item in JSON format. Put the above URL in the browser to see it for yourself!</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://collectionapi.metmuseum.org/public/collection/v1/objects/438009</span></code></p>
+<p>At the end of the workshop, we will look more deeply at the <a class="reference external" href="https://legiscan.com/legiscan">Legiscan API</a>.</p>
 </section>
 </section>
 
@@ -511,20 +501,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="what.html"
+       href="to-dataframe.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">what is web scraping?</p>
+        <p class="prev-next-title">saving scraped data</p>
       </div>
     </a>
     <a class="right-next"
-       href="exploring.html"
+       href="dicts.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></p>
+        <p class="prev-next-title">dictionaries</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -544,9 +534,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-html">intro to HTML</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-inspector">the Inspector</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scraping-on-google-colab">scraping on Google Colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anatomy-of-a-url">the anatomy of a URL</a></li>
 </ul>
   </nav></div>
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>scraping with bs4 &#8212; Python for Programming Cultural Heritage</title>
+    <title>saving scraped data &#8212; Python for Programming Cultural Heritage</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/scrape';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/to-dataframe';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="dictionaries" href="dicts.html" />
-    <link rel="prev" title="exploring bs4" href="explore.html" />
+    <link rel="next" title="the MET API" href="met.html" />
+    <link rel="prev" title="scraping with bs4" href="scraping.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,7 +181,7 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">chapter overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
@@ -192,13 +192,15 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">chapter overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="what.html">what is web scraping?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inspector.html">the HTML Inspector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="explore.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="exploring.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">saving scraped data</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="met.html">the MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dicts.html">dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legiscan_api.html">Legiscan API</a></li>
 </ul>
@@ -298,7 +300,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgathering/scrape.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgathering/to-dataframe.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -328,7 +330,7 @@
       
       
       
-      <li><a href="../_sources/gathering/scrape.ipynb" target="_blank"
+      <li><a href="../_sources/gathering/to-dataframe.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -412,7 +414,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>scraping with bs4</h1>
+    <h1>saving scraped data</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -422,7 +424,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">saving scraped data</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-isolate-the-bill-cards-data-from-the-rest-of-the-page">step 1: isolate the bill cards data from the rest of the page</a></li>
 </ul>
 </li>
@@ -443,8 +445,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="scraping-with-bs4">
-<h1>scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code><a class="headerlink" href="#scraping-with-bs4" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="saving-scraped-data">
+<h1>saving scraped data<a class="headerlink" href="#saving-scraped-data" title="Link to this heading">#</a></h1>
 <p>Now we have a sense of the <code class="docutils literal notranslate"><span class="pre">bs4</span></code> syntax, and a list of the html elements that we want to scrape from the <code class="docutils literal notranslate"><span class="pre">https://translegislation.com/</span></code> website, we can write some code that extracts those elements and saves them in a structured format, like a spreadsheet.</p>
 <p>Before doing all that, we will import the libraries we need and create our <code class="docutils literal notranslate"><span class="pre">soup</span></code> object (that holds our website content).</p>
 <div class="cell docutils container">
@@ -1040,20 +1042,20 @@ https://translegislation.com//bills/2023/AR/SB43
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="explore.html"
+       href="scraping.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></p>
+        <p class="prev-next-title">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></p>
       </div>
     </a>
     <a class="right-next"
-       href="dicts.html"
+       href="met.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">dictionaries</p>
+        <p class="prev-next-title">the MET API</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1073,7 +1075,7 @@ https://translegislation.com//bills/2023/AR/SB43
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">saving scraped data</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-isolate-the-bill-cards-data-from-the-rest-of-the-page">step 1: isolate the bill cards data from the rest of the page</a></li>
 </ul>
 </li>
