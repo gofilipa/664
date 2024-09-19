@@ -1,0 +1,1061 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Python for Programming Cultural Heritage</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'class/intro-web-scraping';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Python for Programming Cultural Heritage - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Python for Programming Cultural Heritage - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python for Programming Cultural Heritage
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gathering/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/what.html">what is web scraping?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/exploring.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/to-dataframe.html">saving scraped data</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../gathering/met.html">the MET API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/dicts.html">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/dataframes.html">dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/scrape.html">scraping our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analyze/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/what.html">what is text analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/questions.html">research questions: defining gender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/processing.html">the <code class="docutils literal notranslate"><span class="pre">spaCy</span></code> pipeline</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../analyze/phrases.html">the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/entities.html">the <code class="docutils literal notranslate"><span class="pre">Entity-Ruler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/tokens.html">the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/ml.html">machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fclass/intro-web-scraping.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/class/intro-web-scraping.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">site</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.nytimes.com/section/nyregion&#39;</span><span class="p">)</span>
+<span class="n">html_source</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">content</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_source</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;title data-rh=&quot;true&quot;&gt;New York - The New York Times&lt;/title&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Advertisement&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">snippet</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;indicate-hover&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">snippet</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">title</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;New York - The New York Times&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">h3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2024/09/19/nyregion/cuomo-nursing-homes-covid.html&quot;&gt;Emails Suggest Cuomo Undersold His Role in Altering Covid Report&lt;/a&gt;&lt;/h3&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;indicate-hover css-91bpc3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;indicate-hover css-91bpc3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+
+<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/bs4/element.py:2428,</span> in <span class="ni">ResultSet.__getattr__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2426</span> <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2427</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Raise a helpful exception to explain a common code fix.&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">2428</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2429</span>         <span class="s2">&quot;ResultSet object has no attribute &#39;</span><span class="si">%s</span><span class="s2">&#39;. You&#39;re probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?&quot;</span> <span class="o">%</span> <span class="n">key</span>
+<span class="g g-Whitespace">   </span><span class="mi">2430</span>     <span class="p">)</span>
+
+<span class="ne">AttributeError</span>: ResultSet object has no attribute &#39;text&#39;. You&#39;re probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">divs</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">div_text</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">divs</span><span class="p">:</span>
+    <span class="n">div_text</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># loop through the new list, and check if headlines contain certain words</span>
+
+<span class="n">div_text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Skip to contentSkip to site indexNew York\xa0Today’s PaperAdvertisementSKIP ADVERTISEMENTSupported bySKIP ADVERTISEMENTNew YorkEric AdamsKathy HochulBig CityMetropolitan DiarySunday RoutineHighlightsThe Police Called. He Checked the News, and His ‘Heart Dropped.’Gregory Delpeche, a bystander, is in critical condition after being shot by a police officer at a Brooklyn subway station. His friend of decades says it never should have happened.\xa0By Hurubie Meko and Wesley ParnellCreditDave Sanders for The New York TimesAtlantic City Mayor Indicted on Child Abuse ChargesMarty Small Sr. and his wife, the superintendent of the city’s schools, are accused of beating and punching their teenage daughter.\xa0By Alyce McFaddenCreditWayne Parry/Associated PressHarvey Weinstein Faces New Sexual Assault Charge in ManhattanThe disgraced Hollywood producer’s 2020 sex-crime conviction was thrown out, but he will be retried on those charges as well.\xa0By Hurubie MekoCreditMichelle V. Agins/The New York TimesA $336 Million Plan to Build Housing, Retail and an Arts Hub in NewarkNJPAC in Newark is building apartments, retail space and a huge community center. It sees the project as key to its mission — and its future.\xa0By Tracey TullyCreditJames Estrin/The New York TimesTrump, Hardly New York’s Favorite Son, Brings His Message to Long IslandDonald J. Trump’s rally in Nassau County on Wednesday is another sign of the area’s shift to the right, but some question his choice to spend time in a non-battleground state.\xa0By Nicholas FandosCreditDoug Mills/The New York TimesM.T.A.’s Financial Needs Grow With Congestion Pricing in PurgatoryTransit leaders proposed a plan on Wednesday to spend more than $65 billion to upgrade New York City’s subway and bus system. Whether they will be able to fully fund it is unclear.\xa0By Ana LeyCreditLila Barth for The New York TimesWith Trump Sentencing Delayed, It’s an Ordinary WednesdayIn Justice Juan Merchan’s Manhattan courtroom, the wheels of justice keep turning on the day that the former president was to have been sentenced.\xa0By James BarronCreditJefferson Siegel for The New York TimesNew York TodaySchool Workers’ Families Took Disney Trip Meant for Homeless StudentsNew York City school employees took their children or grandchildren to Disney World and other places through a program intended for homeless students, investigators found.\xa0By Ed ShanahanCreditJohn Raoux/Associated PressWhy Eric Adams Is Resisting Pressure to Oust Members of His Inner CircleMayor Adams has been loyal to longtime aides despite growing calls for them to resign. It is a trait he has shown through his career.\xa0By Emma G. FitzsimmonsDana RubinsteinWilliam K. Rashbaum and Jeffery C. MaysCreditKarsten Moran for The New York TimesAdvertisementSKIP ADVERTISEMENTLatestSearchSearchClear this text inputValarie D’Elia, Travel Reporter on TV and Radio, Dies at 64She steered vacationers and business travelers to choice destinations, talked about the best deals, and offered up savvy tips on how to avoid vexation.By Sam Roberts\xa0Harrison J. Goldin, 88, New York City Comptroller in Fiscal Crisis, Is DeadHe weathered the storm as the city’s chief financial officer for 16 years and jousted with Mayor Koch in a public feud and a losing primary bid to replace him.By Joseph P. Fried\xa0‘You’re Basically on a Broadway Stage, With New Friends’At the touring dance party Broadway Rave, the playlist is all show tunes. But don’t worry, no house remixes of “I Dreamed a Dream” here.By Annie Aguiar\xa0Panic! At the Vegan Food FestivalThe New York stop of Vegandale, a roughly 200-vendor event, caused confusion and angered many ticketholders at Citi Field over the weekend.By Priya Krishna\xa0The King Cole Bar Reopens, Moodier Than BeforeAfter a major renovation, a cozy gathering spot at the St. Regis New York is ready to serve.By Louis Lucero II\xa0N.Y.C. Schools Chancellor Seeks to Project Stability as Inquiries SwirlDavid C. Banks, whose phone was seized during an investigation related to his brother, largely avoided discussing his current circumstances in his annual State of Our Schools speech.By Claire Fahy\xa0A Wildly Popular New York Taqueria Nails Its SequelCarnitas Ramírez, the East Village sibling of a hit restaurant in Brooklyn, turns out tacos that hark back to the dish’s working-class roots.By Priya Krishna\xa0New York TodayWhy Taxpayers Are Funding Cuomo’s Legal BillsThe former governor resigned because of sexual harassment charges, but under the law the public foots the bill for his defense.By James Barron\xa0Critics Question N.Y.P.D. Shootings After Fare Evasion Stop in SubwayOfficers fired during a clash with a man carrying a knife who was first stopped for fare evasion, police said. Two bystanders, an officer and the man were struck.By Ed Shanahan,\xa0Ana Ley and Claire Fahy\xa0Pelosi Blamed New York for House Losses. Hochul Wants Another Chance.The New York governor has rebuilt the state Democratic Party to help flip key swing seats in November. But can she stanch her own political bleeding?By Nicholas Fandos\xa0Page 1 of 1012345678910AdvertisementSKIP ADVERTISEMENTFollow Us@NYTMetrotwitter page for @NYTMetroAdvertisementSKIP ADVERTISEMENTSite IndexSite Information Navigation©\xa02024\xa0The New York Times CompanyNYTCoContact UsAccessibilityWork with usAdvertiseT Brand StudioYour Ad ChoicesPrivacy PolicyTerms of ServiceTerms of SaleSite MapCanadaInternationalHelpSubscriptionsManage Privacy Preferences&#39;,
+ &#39;Skip to contentSkip to site indexNew York\xa0Today’s Paper&#39;,
+ &#39;Skip to contentSkip to site indexNew York\xa0Today’s Paper&#39;,
+ &#39;Skip to contentSkip to site index&#39;,
+ &#39;New York&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;\xa0Today’s Paper&#39;,
+ &#39;\xa0&#39;,
+ &#39;Today’s Paper&#39;,
+ &#39;&#39;,
+ &#39;AdvertisementSKIP ADVERTISEMENTSupported bySKIP ADVERTISEMENTNew YorkEric AdamsKathy HochulBig CityMetropolitan DiarySunday RoutineHighlightsThe Police Called. He Checked the News, and His ‘Heart Dropped.’Gregory Delpeche, a bystander, is in critical condition after being shot by a police officer at a Brooklyn subway station. His friend of decades says it never should have happened.\xa0By Hurubie Meko and Wesley ParnellCreditDave Sanders for The New York TimesAtlantic City Mayor Indicted on Child Abuse ChargesMarty Small Sr. and his wife, the superintendent of the city’s schools, are accused of beating and punching their teenage daughter.\xa0By Alyce McFaddenCreditWayne Parry/Associated PressHarvey Weinstein Faces New Sexual Assault Charge in ManhattanThe disgraced Hollywood producer’s 2020 sex-crime conviction was thrown out, but he will be retried on those charges as well.\xa0By Hurubie MekoCreditMichelle V. Agins/The New York TimesA $336 Million Plan to Build Housing, Retail and an Arts Hub in NewarkNJPAC in Newark is building apartments, retail space and a huge community center. It sees the project as key to its mission — and its future.\xa0By Tracey TullyCreditJames Estrin/The New York TimesTrump, Hardly New York’s Favorite Son, Brings His Message to Long IslandDonald J. Trump’s rally in Nassau County on Wednesday is another sign of the area’s shift to the right, but some question his choice to spend time in a non-battleground state.\xa0By Nicholas FandosCreditDoug Mills/The New York TimesM.T.A.’s Financial Needs Grow With Congestion Pricing in PurgatoryTransit leaders proposed a plan on Wednesday to spend more than $65 billion to upgrade New York City’s subway and bus system. Whether they will be able to fully fund it is unclear.\xa0By Ana LeyCreditLila Barth for The New York TimesWith Trump Sentencing Delayed, It’s an Ordinary WednesdayIn Justice Juan Merchan’s Manhattan courtroom, the wheels of justice keep turning on the day that the former president was to have been sentenced.\xa0By James BarronCreditJefferson Siegel for The New York TimesNew York TodaySchool Workers’ Families Took Disney Trip Meant for Homeless StudentsNew York City school employees took their children or grandchildren to Disney World and other places through a program intended for homeless students, investigators found.\xa0By Ed ShanahanCreditJohn Raoux/Associated PressWhy Eric Adams Is Resisting Pressure to Oust Members of His Inner CircleMayor Adams has been loyal to longtime aides despite growing calls for them to resign. It is a trait he has shown through his career.\xa0By Emma G. FitzsimmonsDana RubinsteinWilliam K. Rashbaum and Jeffery C. MaysCreditKarsten Moran for The New York TimesAdvertisementSKIP ADVERTISEMENTLatestSearchSearchClear this text inputValarie D’Elia, Travel Reporter on TV and Radio, Dies at 64She steered vacationers and business travelers to choice destinations, talked about the best deals, and offered up savvy tips on how to avoid vexation.By Sam Roberts\xa0Harrison J. Goldin, 88, New York City Comptroller in Fiscal Crisis, Is DeadHe weathered the storm as the city’s chief financial officer for 16 years and jousted with Mayor Koch in a public feud and a losing primary bid to replace him.By Joseph P. Fried\xa0‘You’re Basically on a Broadway Stage, With New Friends’At the touring dance party Broadway Rave, the playlist is all show tunes. But don’t worry, no house remixes of “I Dreamed a Dream” here.By Annie Aguiar\xa0Panic! At the Vegan Food FestivalThe New York stop of Vegandale, a roughly 200-vendor event, caused confusion and angered many ticketholders at Citi Field over the weekend.By Priya Krishna\xa0The King Cole Bar Reopens, Moodier Than BeforeAfter a major renovation, a cozy gathering spot at the St. Regis New York is ready to serve.By Louis Lucero II\xa0N.Y.C. Schools Chancellor Seeks to Project Stability as Inquiries SwirlDavid C. Banks, whose phone was seized during an investigation related to his brother, largely avoided discussing his current circumstances in his annual State of Our Schools speech.By Claire Fahy\xa0A Wildly Popular New York Taqueria Nails Its SequelCarnitas Ramírez, the East Village sibling of a hit restaurant in Brooklyn, turns out tacos that hark back to the dish’s working-class roots.By Priya Krishna\xa0New York TodayWhy Taxpayers Are Funding Cuomo’s Legal BillsThe former governor resigned because of sexual harassment charges, but under the law the public foots the bill for his defense.By James Barron\xa0Critics Question N.Y.P.D. Shootings After Fare Evasion Stop in SubwayOfficers fired during a clash with a man carrying a knife who was first stopped for fare evasion, police said. Two bystanders, an officer and the man were struck.By Ed Shanahan,\xa0Ana Ley and Claire Fahy\xa0Pelosi Blamed New York for House Losses. Hochul Wants Another Chance.The New York governor has rebuilt the state Democratic Party to help flip key swing seats in November. But can she stanch her own political bleeding?By Nicholas Fandos\xa0Page 1 of 1012345678910AdvertisementSKIP ADVERTISEMENTFollow Us@NYTMetrotwitter page for @NYTMetroAdvertisementSKIP ADVERTISEMENTSite IndexSite Information Navigation©\xa02024\xa0The New York Times CompanyNYTCoContact UsAccessibilityWork with usAdvertiseT Brand StudioYour Ad ChoicesPrivacy PolicyTerms of ServiceTerms of SaleSite MapCanadaInternationalHelpSubscriptionsManage Privacy Preferences&#39;,
+ &#39;&#39;,
+ &#39;AdvertisementSKIP ADVERTISEMENT&#39;,
+ &#39;AdvertisementSKIP ADVERTISEMENT&#39;,
+ &#39;Advertisement&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;Supported bySKIP ADVERTISEMENTNew York&#39;,
+ &#39;Supported bySKIP ADVERTISEMENT&#39;,
+ &#39;Supported bySKIP ADVERTISEMENT&#39;,
+ &#39;Supported bySKIP ADVERTISEMENT&#39;,
+ &#39;Supported by&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;New York&#39;,
+ &#39;New York&#39;,
+ &#39;New York&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;HighlightsThe Police Called. He Checked the News, and His ‘Heart Dropped.’Gregory Delpeche, a bystander, is in critical condition after being shot by a police officer at a Brooklyn subway station. His friend of decades says it never should have happened.\xa0By Hurubie Meko and Wesley ParnellCreditDave Sanders for The New York TimesAtlantic City Mayor Indicted on Child Abuse ChargesMarty Small Sr. and his wife, the superintendent of the city’s schools, are accused of beating and punching their teenage daughter.\xa0By Alyce McFaddenCreditWayne Parry/Associated PressHarvey Weinstein Faces New Sexual Assault Charge in ManhattanThe disgraced Hollywood producer’s 2020 sex-crime conviction was thrown out, but he will be retried on those charges as well.\xa0By Hurubie MekoCreditMichelle V. Agins/The New York TimesA $336 Million Plan to Build Housing, Retail and an Arts Hub in NewarkNJPAC in Newark is building apartments, retail space and a huge community center. It sees the project as key to its mission — and its future.\xa0By Tracey TullyCreditJames Estrin/The New York TimesTrump, Hardly New York’s Favorite Son, Brings His Message to Long IslandDonald J. Trump’s rally in Nassau County on Wednesday is another sign of the area’s shift to the right, but some question his choice to spend time in a non-battleground state.\xa0By Nicholas FandosCreditDoug Mills/The New York TimesM.T.A.’s Financial Needs Grow With Congestion Pricing in PurgatoryTransit leaders proposed a plan on Wednesday to spend more than $65 billion to upgrade New York City’s subway and bus system. Whether they will be able to fully fund it is unclear.\xa0By Ana LeyCreditLila Barth for The New York TimesWith Trump Sentencing Delayed, It’s an Ordinary WednesdayIn Justice Juan Merchan’s Manhattan courtroom, the wheels of justice keep turning on the day that the former president was to have been sentenced.\xa0By James BarronCreditJefferson Siegel for The New York TimesNew York TodaySchool Workers’ Families Took Disney Trip Meant for Homeless StudentsNew York City school employees took their children or grandchildren to Disney World and other places through a program intended for homeless students, investigators found.\xa0By Ed ShanahanCreditJohn Raoux/Associated PressWhy Eric Adams Is Resisting Pressure to Oust Members of His Inner CircleMayor Adams has been loyal to longtime aides despite growing calls for them to resign. It is a trait he has shown through his career.\xa0By Emma G. FitzsimmonsDana RubinsteinWilliam K. Rashbaum and Jeffery C. MaysCreditKarsten Moran for The New York TimesAdvertisementSKIP ADVERTISEMENT&#39;,
+ &#39;HighlightsThe Police Called. He Checked the News, and His ‘Heart Dropped.’Gregory Delpeche, a bystander, is in critical condition after being shot by a police officer at a Brooklyn subway station. His friend of decades says it never should have happened.\xa0By Hurubie Meko and Wesley ParnellCreditDave Sanders for The New York TimesAtlantic City Mayor Indicted on Child Abuse ChargesMarty Small Sr. and his wife, the superintendent of the city’s schools, are accused of beating and punching their teenage daughter.\xa0By Alyce McFaddenCreditWayne Parry/Associated PressHarvey Weinstein Faces New Sexual Assault Charge in ManhattanThe disgraced Hollywood producer’s 2020 sex-crime conviction was thrown out, but he will be retried on those charges as well.\xa0By Hurubie MekoCreditMichelle V. Agins/The New York TimesA $336 Million Plan to Build Housing, Retail and an Arts Hub in NewarkNJPAC in Newark is building apartments, retail space and a huge community center. It sees the project as key to its mission — and its future.\xa0By Tracey TullyCreditJames Estrin/The New York Times&#39;,
+ &#39;The Police Called. He Checked the News, and His ‘Heart Dropped.’Gregory Delpeche, a bystander, is in critical condition after being shot by a police officer at a Brooklyn subway station. His friend of decades says it never should have happened.\xa0By Hurubie Meko and Wesley Parnell&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;Atlantic City Mayor Indicted on Child Abuse ChargesMarty Small Sr. and his wife, the superintendent of the city’s schools, are accused of beating and punching their teenage daughter.\xa0By Alyce McFadden&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;Harvey Weinstein Faces New Sexual Assault Charge in ManhattanThe disgraced Hollywood producer’s 2020 sex-crime conviction was thrown out, but he will be retried on those charges as well.\xa0By Hurubie Meko&#39;,
+ &#39;The disgraced Hollywood producer’s 2020 sex-crime conviction was thrown out, but he will be retried on those charges as well.\xa0By Hurubie Meko&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;A $336 Million Plan to Build Housing, Retail and an Arts Hub in NewarkNJPAC in Newark is building apartments, retail space and a huge community center. It sees the project as key to its mission — and its future.\xa0By Tracey Tully&#39;,
+ &#39;NJPAC in Newark is building apartments, retail space and a huge community center. It sees the project as key to its mission — and its future.\xa0By Tracey Tully&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;Trump, Hardly New York’s Favorite Son, Brings His Message to Long IslandDonald J. Trump’s rally in Nassau County on Wednesday is another sign of the area’s shift to the right, but some question his choice to spend time in a non-battleground state.\xa0By Nicholas FandosCreditDoug Mills/The New York TimesM.T.A.’s Financial Needs Grow With Congestion Pricing in PurgatoryTransit leaders proposed a plan on Wednesday to spend more than $65 billion to upgrade New York City’s subway and bus system. Whether they will be able to fully fund it is unclear.\xa0By Ana LeyCreditLila Barth for The New York TimesWith Trump Sentencing Delayed, It’s an Ordinary WednesdayIn Justice Juan Merchan’s Manhattan courtroom, the wheels of justice keep turning on the day that the former president was to have been sentenced.\xa0By James BarronCreditJefferson Siegel for The New York TimesNew York TodaySchool Workers’ Families Took Disney Trip Meant for Homeless StudentsNew York City school employees took their children or grandchildren to Disney World and other places through a program intended for homeless students, investigators found.\xa0By Ed ShanahanCreditJohn Raoux/Associated PressWhy Eric Adams Is Resisting Pressure to Oust Members of His Inner CircleMayor Adams has been loyal to longtime aides despite growing calls for them to resign. It is a trait he has shown through his career.\xa0By Emma G. FitzsimmonsDana RubinsteinWilliam K. Rashbaum and Jeffery C. MaysCreditKarsten Moran for The New York Times&#39;,
+ &#39;Trump, Hardly New York’s Favorite Son, Brings His Message to Long IslandDonald J. Trump’s rally in Nassau County on Wednesday is another sign of the area’s shift to the right, but some question his choice to spend time in a non-battleground state.\xa0By Nicholas FandosCreditDoug Mills/The New York TimesM.T.A.’s Financial Needs Grow With Congestion Pricing in PurgatoryTransit leaders proposed a plan on Wednesday to spend more than $65 billion to upgrade New York City’s subway and bus system. Whether they will be able to fully fund it is unclear.\xa0By Ana LeyCreditLila Barth for The New York TimesWith Trump Sentencing Delayed, It’s an Ordinary WednesdayIn Justice Juan Merchan’s Manhattan courtroom, the wheels of justice keep turning on the day that the former president was to have been sentenced.\xa0By James BarronCreditJefferson Siegel for The New York TimesNew York TodaySchool Workers’ Families Took Disney Trip Meant for Homeless StudentsNew York City school employees took their children or grandchildren to Disney World and other places through a program intended for homeless students, investigators found.\xa0By Ed ShanahanCreditJohn Raoux/Associated PressWhy Eric Adams Is Resisting Pressure to Oust Members of His Inner CircleMayor Adams has been loyal to longtime aides despite growing calls for them to resign. It is a trait he has shown through his career.\xa0By Emma G. FitzsimmonsDana RubinsteinWilliam K. Rashbaum and Jeffery C. MaysCreditKarsten Moran for The New York Times&#39;,
+ &#39;Trump, Hardly New York’s Favorite Son, Brings His Message to Long IslandDonald J. Trump’s rally in Nassau County on Wednesday is another sign of the area’s shift to the right, but some question his choice to spend time in a non-battleground state.\xa0By Nicholas FandosCreditDoug Mills/The New York Times&#39;,
+ &#39;Trump, Hardly New York’s Favorite Son, Brings His Message to Long IslandDonald J. Trump’s rally in Nassau County on Wednesday is another sign of the area’s shift to the right, but some question his choice to spend time in a non-battleground state.\xa0By Nicholas Fandos&#39;,
+ &#39;&#39;,
+ &#39;M.T.A.’s Financial Needs Grow With Congestion Pricing in PurgatoryTransit leaders proposed a plan on Wednesday to spend more than $65 billion to upgrade New York City’s subway and bus system. Whether they will be able to fully fund it is unclear.\xa0By Ana LeyCreditLila Barth for The New York Times&#39;,
+ &#39;M.T.A.’s Financial Needs Grow With Congestion Pricing in PurgatoryTransit leaders proposed a plan on Wednesday to spend more than $65 billion to upgrade New York City’s subway and bus system. Whether they will be able to fully fund it is unclear.\xa0By Ana Ley&#39;,
+ &#39;&#39;,
+ &#39;With Trump Sentencing Delayed, It’s an Ordinary WednesdayIn Justice Juan Merchan’s Manhattan courtroom, the wheels of justice keep turning on the day that the former president was to have been sentenced.\xa0By James BarronCreditJefferson Siegel for The New York TimesNew York Today&#39;,
+ &#39;With Trump Sentencing Delayed, It’s an Ordinary WednesdayIn Justice Juan Merchan’s Manhattan courtroom, the wheels of justice keep turning on the day that the former president was to have been sentenced.\xa0By James Barron&#39;,
+ &#39;&#39;,
+ &#39;New York Today&#39;,
+ &#39;School Workers’ Families Took Disney Trip Meant for Homeless StudentsNew York City school employees took their children or grandchildren to Disney World and other places through a program intended for homeless students, investigators found.\xa0By Ed ShanahanCreditJohn Raoux/Associated Press&#39;,
+ &#39;School Workers’ Families Took Disney Trip Meant for Homeless StudentsNew York City school employees took their children or grandchildren to Disney World and other places through a program intended for homeless students, investigators found.\xa0By Ed Shanahan&#39;,
+ &#39;&#39;,
+ &#39;Why Eric Adams Is Resisting Pressure to Oust Members of His Inner CircleMayor Adams has been loyal to longtime aides despite growing calls for them to resign. It is a trait he has shown through his career.\xa0By Emma G. FitzsimmonsDana RubinsteinWilliam K. Rashbaum and Jeffery C. MaysCreditKarsten Moran for The New York Times&#39;,
+ &#39;Why Eric Adams Is Resisting Pressure to Oust Members of His Inner CircleMayor Adams has been loyal to longtime aides despite growing calls for them to resign. It is a trait he has shown through his career.\xa0By Emma G. FitzsimmonsDana RubinsteinWilliam K. Rashbaum and Jeffery C. Mays&#39;,
+ &#39;&#39;,
+ &#39;AdvertisementSKIP ADVERTISEMENT&#39;,
+ &#39;Advertisement&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;LatestSearchSearchClear this text inputValarie D’Elia, Travel Reporter on TV and Radio, Dies at 64She steered vacationers and business travelers to choice destinations, talked about the best deals, and offered up savvy tips on how to avoid vexation.By Sam Roberts\xa0Harrison J. Goldin, 88, New York City Comptroller in Fiscal Crisis, Is DeadHe weathered the storm as the city’s chief financial officer for 16 years and jousted with Mayor Koch in a public feud and a losing primary bid to replace him.By Joseph P. Fried\xa0‘You’re Basically on a Broadway Stage, With New Friends’At the touring dance party Broadway Rave, the playlist is all show tunes. But don’t worry, no house remixes of “I Dreamed a Dream” here.By Annie Aguiar\xa0Panic! At the Vegan Food FestivalThe New York stop of Vegandale, a roughly 200-vendor event, caused confusion and angered many ticketholders at Citi Field over the weekend.By Priya Krishna\xa0The King Cole Bar Reopens, Moodier Than BeforeAfter a major renovation, a cozy gathering spot at the St. Regis New York is ready to serve.By Louis Lucero II\xa0N.Y.C. Schools Chancellor Seeks to Project Stability as Inquiries SwirlDavid C. Banks, whose phone was seized during an investigation related to his brother, largely avoided discussing his current circumstances in his annual State of Our Schools speech.By Claire Fahy\xa0A Wildly Popular New York Taqueria Nails Its SequelCarnitas Ramírez, the East Village sibling of a hit restaurant in Brooklyn, turns out tacos that hark back to the dish’s working-class roots.By Priya Krishna\xa0New York TodayWhy Taxpayers Are Funding Cuomo’s Legal BillsThe former governor resigned because of sexual harassment charges, but under the law the public foots the bill for his defense.By James Barron\xa0Critics Question N.Y.P.D. Shootings After Fare Evasion Stop in SubwayOfficers fired during a clash with a man carrying a knife who was first stopped for fare evasion, police said. Two bystanders, an officer and the man were struck.By Ed Shanahan,\xa0Ana Ley and Claire Fahy\xa0Pelosi Blamed New York for House Losses. Hochul Wants Another Chance.The New York governor has rebuilt the state Democratic Party to help flip key swing seats in November. But can she stanch her own political bleeding?By Nicholas Fandos\xa0Page 1 of 1012345678910AdvertisementSKIP ADVERTISEMENTFollow Us@NYTMetrotwitter page for @NYTMetroAdvertisementSKIP ADVERTISEMENT&#39;,
+ &#39;LatestSearchSearchClear this text inputValarie D’Elia, Travel Reporter on TV and Radio, Dies at 64She steered vacationers and business travelers to choice destinations, talked about the best deals, and offered up savvy tips on how to avoid vexation.By Sam Roberts\xa0Harrison J. Goldin, 88, New York City Comptroller in Fiscal Crisis, Is DeadHe weathered the storm as the city’s chief financial officer for 16 years and jousted with Mayor Koch in a public feud and a losing primary bid to replace him.By Joseph P. Fried\xa0‘You’re Basically on a Broadway Stage, With New Friends’At the touring dance party Broadway Rave, the playlist is all show tunes. But don’t worry, no house remixes of “I Dreamed a Dream” here.By Annie Aguiar\xa0Panic! At the Vegan Food FestivalThe New York stop of Vegandale, a roughly 200-vendor event, caused confusion and angered many ticketholders at Citi Field over the weekend.By Priya Krishna\xa0The King Cole Bar Reopens, Moodier Than BeforeAfter a major renovation, a cozy gathering spot at the St. Regis New York is ready to serve.By Louis Lucero II\xa0N.Y.C. Schools Chancellor Seeks to Project Stability as Inquiries SwirlDavid C. Banks, whose phone was seized during an investigation related to his brother, largely avoided discussing his current circumstances in his annual State of Our Schools speech.By Claire Fahy\xa0A Wildly Popular New York Taqueria Nails Its SequelCarnitas Ramírez, the East Village sibling of a hit restaurant in Brooklyn, turns out tacos that hark back to the dish’s working-class roots.By Priya Krishna\xa0New York TodayWhy Taxpayers Are Funding Cuomo’s Legal BillsThe former governor resigned because of sexual harassment charges, but under the law the public foots the bill for his defense.By James Barron\xa0Critics Question N.Y.P.D. Shootings After Fare Evasion Stop in SubwayOfficers fired during a clash with a man carrying a knife who was first stopped for fare evasion, police said. Two bystanders, an officer and the man were struck.By Ed Shanahan,\xa0Ana Ley and Claire Fahy\xa0Pelosi Blamed New York for House Losses. Hochul Wants Another Chance.The New York governor has rebuilt the state Democratic Party to help flip key swing seats in November. But can she stanch her own political bleeding?By Nicholas Fandos\xa0Page 1 of 1012345678910AdvertisementSKIP ADVERTISEMENTFollow Us@NYTMetrotwitter page for @NYTMetroAdvertisementSKIP ADVERTISEMENT&#39;,
+ &#39;SearchClear this text input&#39;,
+ &#39;Search&#39;,
+ &#39;Clear this text input&#39;,
+ &#39;Valarie D’Elia, Travel Reporter on TV and Radio, Dies at 64She steered vacationers and business travelers to choice destinations, talked about the best deals, and offered up savvy tips on how to avoid vexation.By Sam Roberts\xa0Harrison J. Goldin, 88, New York City Comptroller in Fiscal Crisis, Is DeadHe weathered the storm as the city’s chief financial officer for 16 years and jousted with Mayor Koch in a public feud and a losing primary bid to replace him.By Joseph P. Fried\xa0‘You’re Basically on a Broadway Stage, With New Friends’At the touring dance party Broadway Rave, the playlist is all show tunes. But don’t worry, no house remixes of “I Dreamed a Dream” here.By Annie Aguiar\xa0Panic! At the Vegan Food FestivalThe New York stop of Vegandale, a roughly 200-vendor event, caused confusion and angered many ticketholders at Citi Field over the weekend.By Priya Krishna\xa0The King Cole Bar Reopens, Moodier Than BeforeAfter a major renovation, a cozy gathering spot at the St. Regis New York is ready to serve.By Louis Lucero II\xa0N.Y.C. Schools Chancellor Seeks to Project Stability as Inquiries SwirlDavid C. Banks, whose phone was seized during an investigation related to his brother, largely avoided discussing his current circumstances in his annual State of Our Schools speech.By Claire Fahy\xa0A Wildly Popular New York Taqueria Nails Its SequelCarnitas Ramírez, the East Village sibling of a hit restaurant in Brooklyn, turns out tacos that hark back to the dish’s working-class roots.By Priya Krishna\xa0New York TodayWhy Taxpayers Are Funding Cuomo’s Legal BillsThe former governor resigned because of sexual harassment charges, but under the law the public foots the bill for his defense.By James Barron\xa0Critics Question N.Y.P.D. Shootings After Fare Evasion Stop in SubwayOfficers fired during a clash with a man carrying a knife who was first stopped for fare evasion, police said. Two bystanders, an officer and the man were struck.By Ed Shanahan,\xa0Ana Ley and Claire Fahy\xa0Pelosi Blamed New York for House Losses. Hochul Wants Another Chance.The New York governor has rebuilt the state Democratic Party to help flip key swing seats in November. But can she stanch her own political bleeding?By Nicholas Fandos\xa0Page 1 of 1012345678910&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;Valarie D’Elia, Travel Reporter on TV and Radio, Dies at 64She steered vacationers and business travelers to choice destinations, talked about the best deals, and offered up savvy tips on how to avoid vexation.By Sam Roberts\xa0&#39;,
+ &#39;&#39;,
+ &#39;\xa0&#39;,
+ &#39;Harrison J. Goldin, 88, New York City Comptroller in Fiscal Crisis, Is DeadHe weathered the storm as the city’s chief financial officer for 16 years and jousted with Mayor Koch in a public feud and a losing primary bid to replace him.By Joseph P. Fried\xa0&#39;,
+ &#39;&#39;,
+ &#39;\xa0&#39;,
+ &#39;‘You’re Basically on a Broadway Stage, With New Friends’At the touring dance party Broadway Rave, the playlist is all show tunes. But don’t worry, no house remixes of “I Dreamed a Dream” here.By Annie Aguiar\xa0&#39;,
+ &#39;&#39;,
+ &#39;\xa0&#39;,
+ &#39;Panic! At the Vegan Food FestivalThe New York stop of Vegandale, a roughly 200-vendor event, caused confusion and angered many ticketholders at Citi Field over the weekend.By Priya Krishna\xa0&#39;,
+ &#39;&#39;,
+ &#39;\xa0&#39;,
+ &#39;The King Cole Bar Reopens, Moodier Than BeforeAfter a major renovation, a cozy gathering spot at the St. Regis New York is ready to serve.By Louis Lucero II\xa0&#39;,
+ &#39;&#39;,
+ &#39;\xa0&#39;,
+ &#39;N.Y.C. Schools Chancellor Seeks to Project Stability as Inquiries SwirlDavid C. Banks, whose phone was seized during an investigation related to his brother, largely avoided discussing his current circumstances in his annual State of Our Schools speech.By Claire Fahy\xa0&#39;,
+ &#39;&#39;,
+ &#39;\xa0&#39;,
+ &#39;A Wildly Popular New York Taqueria Nails Its SequelCarnitas Ramírez, the East Village sibling of a hit restaurant in Brooklyn, turns out tacos that hark back to the dish’s working-class roots.By Priya Krishna\xa0&#39;,
+ &#39;&#39;,
+ &#39;\xa0&#39;,
+ &#39;New York TodayWhy Taxpayers Are Funding Cuomo’s Legal BillsThe former governor resigned because of sexual harassment charges, but under the law the public foots the bill for his defense.By James Barron\xa0&#39;,
+ &#39;&#39;,
+ &#39;New York Today&#39;,
+ &#39;\xa0&#39;,
+ &#39;Critics Question N.Y.P.D. Shootings After Fare Evasion Stop in SubwayOfficers fired during a clash with a man carrying a knife who was first stopped for fare evasion, police said. Two bystanders, an officer and the man were struck.By Ed Shanahan,\xa0Ana Ley and Claire Fahy\xa0&#39;,
+ &#39;&#39;,
+ &#39;\xa0&#39;,
+ &#39;Pelosi Blamed New York for House Losses. Hochul Wants Another Chance.The New York governor has rebuilt the state Democratic Party to help flip key swing seats in November. But can she stanch her own political bleeding?By Nicholas Fandos\xa0&#39;,
+ &#39;&#39;,
+ &#39;\xa0&#39;,
+ &#39;&#39;,
+ &#39;Page 1 of 1012345678910&#39;,
+ &#39;AdvertisementSKIP ADVERTISEMENTFollow Us@NYTMetrotwitter page for @NYTMetroAdvertisementSKIP ADVERTISEMENT&#39;,
+ &#39;AdvertisementSKIP ADVERTISEMENT&#39;,
+ &#39;Advertisement&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;@NYTMetrotwitter page for @NYTMetro&#39;,
+ &#39;AdvertisementSKIP ADVERTISEMENT&#39;,
+ &#39;Advertisement&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">header_text</span><span class="p">:</span>
+    <span class="n">subway_lower</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s2">&quot;subway&quot;</span> <span class="ow">in</span> <span class="n">subway_lower</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Police Called. He Checked the News, and His ‘Heart Dropped.’Gregory Delpeche, a bystander, is in critical condition after being shot by a police officer at a Brooklyn subway station. His friend of decades says it never should have happened. By Hurubie Meko and Wesley ParnellCreditDave Sanders for The New York Times
+Critics Question N.Y.P.D. Shootings After Fare Evasion Stop in SubwayOfficers fired during a clash with a man carrying a knife who was first stopped for fare evasion, police said. Two bystanders, an officer and the man were struck.By Ed Shanahan, Ana Ley and Claire Fahy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">header_text</span><span class="p">:</span>
+    <span class="n">police_lower</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s2">&quot;police&quot;</span> <span class="ow">in</span> <span class="n">police_lower</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Police Called. He Checked the News, and His ‘Heart Dropped.’Gregory Delpeche, a bystander, is in critical condition after being shot by a police officer at a Brooklyn subway station. His friend of decades says it never should have happened. By Hurubie Meko and Wesley ParnellCreditDave Sanders for The New York Times
+Critics Question N.Y.P.D. Shootings After Fare Evasion Stop in SubwayOfficers fired during a clash with a man carrying a knife who was first stopped for fare evasion, police said. Two bystanders, an officer and the man were struck.By Ed Shanahan, Ana Ley and Claire Fahy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">site</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.congress.gov/118/crec/2024/07/11/170/115/modified/CREC-2024-07-11-pt1-PgS4800-2.htm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">content</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;html&gt;&lt;body&gt;&lt;pre&gt;
+
+
+[Pages S4800-S4801]
+From the Congressional Record Online through the Government Publishing Office [&lt;a href=&quot;https://www.gpo.gov&quot;&gt;www.gpo.gov&lt;/a&gt;]
+
+  SA 2476. Mr. RUBIO submitted an amendment intended to be proposed by 
+him to the bill S. 4638, to authorize appropriations for fiscal year 
+2025 for military activities of the Department of Defense, for military 
+construction, and for defense activities of the Department of Energy, 
+to prescribe military personnel strengths for such fiscal year, and for 
+other purposes; which was ordered to lie on the table; as follows:
+
+       At the end of title V, add the following:
+
+          Subtitle L--Ensuring Military Readiness Act of 2024
+
+     SEC. 599E. SHORT TITLE.
+
+       This subtitle may be cited as the ``Ensuring Military 
+     Readiness Act of 2024&#39;&#39;.
+
+     SEC. 599F. LIMITATIONS ON MILITARY SERVICE BY INDIVIDUALS WHO 
+                   IDENTIFY AS TRANSGENDER.
+
+       Not later than 90 days after the date of the enactment of 
+     this Act, the Secretary of Defense shall prescribe 
+     regulations regarding service of individuals who identify as 
+     transgender as follows:
+       (1) Persons who identify as transgender with a history of 
+     diagnosis of gender dysphoria are disqualified from military 
+     service except under the following limited circumstances:
+       (A) Individuals may serve in the Armed Forces if they have 
+     been stable for 36 consecutive months in their biological sex 
+     prior to accession.
+       (B) Members of the Armed Forces diagnosed with gender 
+     dysphoria after entering into service may be retained if they 
+     do not undergo gender transition procedures and remain 
+     deployable within applicable retention standards for their 
+     biological sex.
+       (C) Members of the Armed Forces serving as of the date of 
+     the enactment of this Act who have been diagnosed with gender 
+     dysphoria may continue to serve only in their biological sex, 
+     irrespective of any changes previously made to their gender 
+     marker in the Defense Enrollment Eligibility Reporting System 
+     (DEERS), and receive medically necessary treatment for gender 
+     dysphoria. Such treatment may not include gender transition 
+     procedures.
+       (2) Persons who identify as transgender who seek or have 
+     undergone gender transition are disqualified from military 
+     service.
+       (3) Persons who identify as transgender without a history 
+     or diagnosis of gender dysphoria, who are otherwise qualified 
+     for service and meet all physical and mental requirements, 
+     may serve in the Armed Forces in their biological sex.
+
+     SEC. 599G. REVISED REGULATIONS REGARDING GENDER MARKINGS.
+
+       Not later than 90 days after the date of the enactment of 
+     this Act, the Secretary of Defense shall prescribe 
+     regulations updating the Defense Enrollment Eligibility 
+     Reporting System (DEERS) to require the gender markers for 
+     members of the Armed Forces to match their biological sex, 
+     irrespective of any previous changes allowed.
+
+     SEC. 599H. DEFINITIONS.
+
+       In this subtitle:
+       (1) Cross-sex hormones.--The term ``cross-sex hormones&#39;&#39; 
+     means testosterone or other androgens given to biological 
+     females at doses that are profoundly larger or more potent 
+     than would normally occur naturally in healthy biological 
+     females, or estrogen given to biological males at doses that 
+     are profoundly larger or more potent than would normally 
+     occur naturally in healthy biological males.
+       (2) Gender.--The term ``gender&#39;&#39; means the psychological, 
+     behavioral, social, and cultural aspects of being male or 
+     female.
+       (3) Gender dysphoria.--The term ``gender dysphoria&#39;&#39; means 
+     a marked incongruence between one&#39;s experienced or expressed 
+     gender and biological sex.
+       (4) Gender transition.--The term ``gender transition&#39;&#39; 
+     means the process by which a person goes from identifying 
+     with and living as a gender that corresponds to his or her 
+     biological sex to identifying with and living as a gender 
+     different from his or her biological sex, and may involve 
+     social, legal, or physical changes.
+       (5) Gender transition procedures.--The term ``gender 
+     transition procedures&#39;&#39;--
+       (A) means--
+       (i) any medical or surgical intervention, including 
+     physician&#39;s services, inpatient and outpatient hospital 
+     services, or prescribed drugs related to gender transition, 
+     that seeks to alter or remove physical or anatomical 
+     characteristics or features that are typical for the 
+     individual&#39;s biological sex or to instill or create 
+     physiological or anatomical characteristics that resemble a 
+     sex different from the individual&#39;s birth sex, including 
+     medical services that provide puberty-blocking drugs, cross-
+     sex hormones, or other mechanisms to promote the development 
+     of feminizing or masculinizing features (in the opposite 
+     sex); and
+       (ii) genital or non-genital gender transition surgery 
+     performed for the purpose of assisting an individual with a 
+     gender transition; and
+       (B) does not include--
+       (i) services to those born with a medically verifiable 
+     disorder of sex development, including a person with external 
+     biological sex characteristics that are irresolvably 
+     ambiguous, such as those born with 46 XX chromosomes with 
+     virilization, 46 XY chromosomes with undervirilization, or 
+     having both ovarian and testicular tissue;
+       (ii) services provided when a physician has otherwise 
+     diagnosed a disorder of sexual development, in which the 
+     physician has determined through genetic or biochemical 
+     testing that the person does not have normal sex chromosome 
+     structure, sex steroid hormone production, or sex steroid 
+     hormone action for a biological male or biological female; or
+       (iii) the treatment of any infection, injury, disease, or 
+     disorder that has been caused by or exacerbated by the 
+     performance of gender transition procedures, whether or not 
+     the gender transition procedure was performed in accordance 
+     with State and Federal law or whether or not funding for the 
+     gender transition procedure is permissible.
+       (6) Gender transition surgery.--The term ``gender 
+     transition surgery&#39;&#39; means any medical or surgical service 
+     that seeks to surgically alter or remove healthy physical or 
+     anatomical characteristics or features that are typical for 
+     the individual&#39;s biological sex in order to instill or create 
+     physiological or anatomical characteristics that resemble a 
+     sex different from the individual&#39;s birth sex, including 
+     genital or non-genital gender reassignment surgery performed 
+     for the purpose of assisting an individual with a gender 
+     transition.
+       (7) Genital gender transition surgery.--The term ``genital 
+     gender transition surgery&#39;&#39; includes surgical procedures such 
+     as penectomy, orchiectomy, vaginoplasty, clitoroplasty, or 
+     vulvoplasty for biologically male patients or hysterectomy, 
+     ovariectomy, reconstruction of the fixed part of the urethra 
+     with or without a metoidioplasty or a phalloplasty, 
+     vaginectomy, scrotoplasty, or implantation of erection or 
+     testicular prostheses for biologically female patients, when 
+     performed for the purpose of assisting an individual with a 
+     gender transition.
+       (8) Non-genital gender transition surgery.--The term ``non-
+     genital gender transition surgery&#39;&#39;--
+       (A) includes, when performed for the purpose of assisting 
+     an individual with a gender transition--
+       (i) surgical procedures such as augmentation mammoplasty, 
+     facial feminization surgery, liposuction, lipofilling, voice 
+     surgery, thyroid cartilage reduction, gluteal augmentation 
+     (implants or lipofilling), hair reconstruction, or various 
+     aesthetic procedures for biologically male patients; or
+       (ii) subcutaneous mastectomy, voice surgery, liposuction, 
+     lipofilling, pectoral implants or various aesthetic 
+     procedures for biologically female patients; and
+       (B) does not include any procedure undertaken because the 
+     individual suffers from a physical disorder, physical injury, 
+     or physical illness that would, as certified by a physician, 
+     place the individual in imminent danger of death or 
+     impairment of major bodily function unless surgery is 
+     performed, unless the procedure is for the purpose of a 
+     gender transition.
+       (9) Puberty-blocking drugs.--The term ``puberty-blocking 
+     drugs&#39;&#39; means, when used to delay or suppress pubertal 
+     development in children for the purpose of assisting an 
+     individual with a gender transition--
+       (A) Gonadotropin-releasing hormone (GnRH) analogues or 
+     other synthetic drugs used in biological males to stop 
+     luteinizing hormone secretion and therefore testosterone 
+     secretion; and
+       (B) synthetic drugs used in biological females that stop 
+     the production of estrogen and progesterone.
+       (10) Sex; birth sex; biological sex.--The terms ``sex&#39;&#39;, 
+     ``birth sex,&#39;&#39; and ``biological
+
+[[Page S4801]]
+
+     sex&#39;&#39; refer to the biological indication of male and female 
+     in the context of reproductive potential or capacity, such as 
+     sex chromosomes, naturally occurring sex hormones, gonads, 
+     and non-ambiguous internal and external genitalia present at 
+     birth, without regard to an individual&#39;s psychological, 
+     chosen, or subjective experience of gender.
+                                 ______
+
+
+
+&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./class"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
