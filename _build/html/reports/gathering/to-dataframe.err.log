@@ -18,17 +18,38 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# get bill description (if any)
+# a bunch of empty lists where we will dump our data
+titles = []
+captions = []
+categories = []
+descriptions = []
+links = []
 
-soup.find('div', class_ ='css-4rck61').p.text
+# our for loop that saves each item we want from the bill_cards
+for item in bill_cards:
+    title = item.h3.text
+    category = item.find('span').text
+    caption = item.h2.text
+    description = item.p.text
+    link = 'https://translegislation.com/bills/2023/passed' + item.a['href']
+    
+    # adding the items to the empty lists
+    titles.append(title)
+    categories.append(category)
+    captions.append(caption)
+    descriptions.append(description)
+    links.append(link)
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mAttributeError[0m                            Traceback (most recent call last)
-Cell [0;32mIn[8], line 3[0m
-[1;32m      1[0m [38;5;66;03m# get bill description (if any)[39;00m
-[0;32m----> 3[0m soup[38;5;241m.[39mfind([38;5;124m'[39m[38;5;124mdiv[39m[38;5;124m'[39m, class_ [38;5;241m=[39m[38;5;124m'[39m[38;5;124mcss-4rck61[39m[38;5;124m'[39m)[38;5;241m.[39mp[38;5;241m.[39mtext
+Cell [0;32mIn[6], line 13[0m
+[1;32m     11[0m category [38;5;241m=[39m item[38;5;241m.[39mfind([38;5;124m'[39m[38;5;124mspan[39m[38;5;124m'[39m)[38;5;241m.[39mtext
+[1;32m     12[0m caption [38;5;241m=[39m item[38;5;241m.[39mh2[38;5;241m.[39mtext
+[0;32m---> 13[0m description [38;5;241m=[39m item[38;5;241m.[39mp[38;5;241m.[39mtext
+[1;32m     14[0m link [38;5;241m=[39m [38;5;124m'[39m[38;5;124mhttps://translegislation.com/bills/2023/passed[39m[38;5;124m'[39m [38;5;241m+[39m item[38;5;241m.[39ma[[38;5;124m'[39m[38;5;124mhref[39m[38;5;124m'[39m]
+[1;32m     16[0m [38;5;66;03m# adding the items to the empty lists[39;00m
 
 [0;31mAttributeError[0m: 'NoneType' object has no attribute 'text'
 

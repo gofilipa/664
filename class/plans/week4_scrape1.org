@@ -15,7 +15,7 @@
 
 ** exploring bs4
 - what is bs4?
-- how to scrape a website with 6 lines of code
+- how to scrape a website with 5 lines of code
 - the soup object
 - getting text
 - getting attributes

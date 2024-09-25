@@ -1,0 +1,53 @@
+* web scraping part deux
+Goals:
+- review last week:
+- continue practicing writing code to extract and filter through elements
+- intro to pandas: saving our data to a spreadsheet
+- discussing XML data structures
+  - what is xml? 
+  - show them the LOC RDF formats, like EAD
+  - show them a little bit of your QTE project
+- brainstorm interests (if time)
+
+Review last week
+- bs4 and requests
+- making the soup object
+  - what are attributes and methods?
+    - (like .text, .find, .find_all)
+- abstraction - multi-step process for doing things to HTML data
+  - what if we want to get all text on a page that contains a specific
+    word? 
+    - scraping all of an element
+    - writing loops to get the text, saving it to a list
+    - writing conditions to filter out the results
+
+Scrape the translegislation.org website
+- intro to anti-trans legislation
+- get our soup
+  - attributes like text
+  - saving our data to variables, for easier use later
+  - searching by HTML attributes: class and href
+    - methods vs attributes
+      - individual challenge: get the content of a link in two ways 
+  - looping through find_all()
+  - getting data from each bill card
+    - step 1: isolate our bill_cards data from the rest of the web
+      page
+    - step 2: pick out information from each bill card
+      - group challenge: find the elements 
+
+Introduction to pandas
+- how we save these elements.
+  - first we just print them, for each bill card
+  - then we save them to a variable
+  - then we save them to a list.
+  - then we create a dataframe
+  - then we save to a CSV
+
+BREAK
+
+XML data structures
+- can use bs4 to work with them. 
+
+Time to explore web scraping, grabbing elements from Moma or another
+website. 
