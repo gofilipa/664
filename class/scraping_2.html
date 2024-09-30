@@ -1,0 +1,869 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Python for Programming Cultural Heritage</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'class/scraping_2';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Python for Programming Cultural Heritage - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Python for Programming Cultural Heritage - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python for Programming Cultural Heritage
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gathering/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/what.html">what is web scraping?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/exploring.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/to-dataframe.html">saving scraped data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/met.html">the MET API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/dicts.html">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/dataframes.html">dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/scrape.html">scraping our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analyze/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/what.html">what is text analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/questions.html">research questions: defining gender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/processing.html">the <code class="docutils literal notranslate"><span class="pre">spaCy</span></code> pipeline</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../analyze/phrases.html">the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/entities.html">the <code class="docutils literal notranslate"><span class="pre">Entity-Ruler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/tokens.html">the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/ml.html">machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fclass/scraping_2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/class/scraping_2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span> <span class="c1"># http requests over the internet</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">site</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://translegislation.com/bills/2024/US&#39;</span><span class="p">)</span>
+<span class="n">html_source_code</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">content</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_source_code</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;title&gt;United States Bills | Anti-trans legislation&lt;/title&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">h3</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;chakra-heading&#39;, &#39;css-1vygpf9&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;css-1vygpf9&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;US HB1064&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titles</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;css-1vygpf9&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for i in titles:</span>
+<span class="c1">#     print(i.text)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">h3</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/bills/2024/US/HB1064&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">extention</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">h3</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># f-strings</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://translegislation.com&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">+</span> <span class="n">extention</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://translegislation.com/bills/2024/US/HB1064&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Goal: scrape each item from each bill card, save it to a CSV</span>
+
+<span class="c1"># 1. identify the HTML element that encompasses all the bill cards</span>
+<span class="c1"># 2. identify the specific elements within each bill card</span>
+<span class="c1"># 3. process our data into lists</span>
+<span class="c1"># 4. save our data as a csv file</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cards</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;css-1ftdpv0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cards</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;US HB1064MILITARYINTRODUCEDEnsuring Military Readiness Act of 2023To provide requirements related to the eligibility of transgender individuals from serving in the Armed Forces.Transgender persons who require or have undergone gender transition are disqualified from military service.View BillUS HB1112MILITARYINTRODUCEDEnsuring Military Readiness Act of 2023To provide requirements related to the eligibility of individuals who identify as transgender from serving in the Armed Forces.View BillUS HB1276HEALTHCAREINTRODUCEDProtect Minors from Medical Malpractice Act of 2023To protect children from medical malpractice in the form of gender transition procedures.A medical practitioner, in any circumstance described in subsection (c), who performs a gender-transition procedure on an individual who is less than 18 years of age shall, as described in subsection (b), be liable to the individual if injured (including any physical, psychological, emotional, or physiological harms) by such procedure, related treatment, or the after effects of the procedure or treatment.View BillUS HB1399HEALTHCAREINTRODUCEDProtect Children’s Innocence ActTo amend chapter 110 of title 18, United States Code, to prohibit gender affirming care on minors, and for other purposes.Whoever, in any circumstance described in subsection (e), knowingly performs any gender-affirming care on a minor is guilty of a class C felony.View BillUS HB1490INCARCERATIONINTRODUCEDPreventing Violence Against Female Inmates Act of 2023To secure the dignity and safety of incarcerated women.The Bureau of Prisons— shall not co-locate in detention facilities persons charged with or convicted of offenses [...] if those persons are not of the same biological sex.View BillUS HB1585EDUCATIONINTRODUCEDProhibiting Parental Secrecy Policies In Schools Act of 2023To require a State receiving funds pursuant to title II of the Elementary and Secondary Education Act of 1965 to implement a State policy to prohibit a school employee from conducting certain social gender transition interventions.prohibiting a school employee from (1) using pronouns for a minor that are inconsistent with the minor’s biological sex [...] without the consent of a custodial parent or legal guardian; (2) providing, promoting, referring to, or otherwise [...] promote changes to the minor‚ physical appearance so that it aligns with the opposite biological sex for the purpose of recognizing or promoting a self-professed identity that is incongruent with their biological sex, without the consent of a custodial parent or legal guardianView BillUS HB216EDUCATIONINTRODUCEDMy Child, My Choice Act of 2023To prohibit Federal education funds from being provided to elementary schools that do not require teachers to obtain written parental consent prior to teaching lessons specifically related to gender identity, sexual orientation, or transgender studies, and for other purposes.View BillUS HB3101OTHERINTRODUCEDTPA Act Traditional Passport ActTo prohibit the issuance of a passport with any gender designation other than &quot;male&quot; or &quot;female&quot;, and for other purposes.The Secretary of State may not issue any passport that contains a gender designation other than &quot;male&quot; or &quot;female&quot;, and may permit applicants for passports to select, between such designations, only the designation that matches the biological gender of the applicant.View BillUS HB3102OTHERINTRODUCEDTSA Act Traditional Screening Application ActTo prohibit the Transportation Security Administration from using the &quot;X&quot; gender designation in the TSA PreCheck advanced security program, and for other purposes.The Administrator of the Transportation Security Administration may not use the &quot;X&quot; gender designation in the TSA PreCheck advanced security program. The Administrator may permit applicants to and participants in such program to select from only &quot;Male&quot; or &quot;Female&quot;.View BillUS HB3328HEALTHCAREINTRODUCEDProtecting Children From Experimentation Act of 2023To amend chapter 110 of title 18, United States Code, to prohibit gender transition procedures on minors, and for other purposes.Any physical or mental healthcare professional who knowingly performs or provides a referral for any gender transition procedure on a minor shall be fined under this title, imprisoned not more than 5 years, or both.View BillUS HB3329HEALTHCAREINTRODUCEDEnd Taxpayer Funding of Gender Experimentation Act of 2023To prohibit taxpayer-funded gender transition procedures, and for other purposes.No funds authorized or appropriated by Federal law, and none of the funds in any trust fund to which funds are authorized or appropriated by Federal law, shall be expended for any gender transition procedures [or...] for health benefits coverage that includes coverage of gender transition procedures.View BillUS HB3462EDUCATIONINTRODUCEDEmpower Parents to Protect Their Kids Act of 2023To require elementary schools and secondary schools that receive Federal funds to obtain parental consent before facilitating a child\&#39;s gender transition in any form, and for other purposes.Contrary to the unfounded assertions of activists, &quot;socially transitioning&quot; a child is not an evidence-based practice and it is not a neutral or uncontroversial decision. This practice is an experimental social and psychological intervention that has immediate effects on a child\&#39;s psychology and a high likelihood of changing the life path of a child. A &quot;social gender transition&quot; may make it more difficult  for a child to reverse course later on, thereby increasing the likelihood that the child will continue on to a &quot;medical transition&quot;, resulting in life-changing, irreversible consequences. (4) Any policies that attempt to circumvent parental authority are a violation of parents\&#39; constitutionally protected rights to direct the care, custody, and upbringing of their children as recognized by the Supreme Court.View BillUS HB3887HEALTHCAREINTRODUCEDChildren’s Hospital GME Support Reauthorization Act of 2023To amend title III of the Public Health Service Act to reauthorize the program of payments to children\&#39;s hospitals that operate graduate medical education programs, and for other purposes.No payment may be made under this section to a children’s hospital for a fiscal year [...] if, at any point during the preceding fiscal year, such hospital furnished gender-affirming care [...] to an individual under 18 years of age.View BillUS HB429HEALTHCAREINTRODUCEDNo Tax Breaks for Radical Corporate Activism ActTo amend the Internal Revenue Code of 1986 to deny the trade or business expense deduction for the reimbursement of employee costs of child gender transition procedure or travel to obtain an abortion.No deduction shall be allowed under this chapter to an employer for any amount paid or incurred to reimburse an employee for, or to otherwise pay, expenses in connection with [...] any gender transition procedure for a minor child of the employee.View BillUS HB4365HEALTHCAREENGROSSEDDepartment of Defense Appropriations Act, 2024Making appropriations for the Department of Defense for the fiscal year ending September 30, 2024, and for other purposes.None of the funds made available by this Act may be used for surgical procedures or hormone therapies for the purposes of gender affirming care.View BillUS HB4367HEALTHCAREINTRODUCEDDepartment of Homeland Security Appropriations Act, 2024Making appropriations for the Department of Homeland Security for the fiscal year ending September 30, 2024, and for other purposes.None of the funds appropriated or otherwise made available by this Act may be made available to administer hormone therapy medication or perform or facilitate any surgery for any person in custody of U.S. Immigration and Customs Enforcement for the purpose of gender-affirming care.View BillUS HB4398OTHERINTRODUCEDPatriotism Not Pride ActTo prohibit certain Federal activity with respect to the promotion of Lesbian, Gay, Bisexual, Transgender, Queer, and Intersex Pride Month and the display of flags representing sexual orientation or gender identity on Federal property or grounds, and for other purposes.No Federal funds may be used by an agency to develop, organize, administer, engage in, promote, or endorse any activity, including any event, initiative, official communication, social media post, educational program, or public campaign, that aims to promote or recognize Lesbian, Gay, Bisexual, Transgender, Queer, and Intersex Pride Month or any event with a similar theme.View BillUS HB4665HEALTHCAREENGROSSEDDepartment of State, Foreign Operations, and Related Programs Appropriations Act, 2024Making appropriations for the Department of State, foreign operations, and related programs for the fiscal year ending September 30, 2024, and for other purposes.None of the funds made available by this Act or any other Act shall be used or transferred to another Federal Agency, board, or commission to fund any domestic or international non-governmental organization or any other program, organization, or association coordinated or operated by such non-governmental organization that either offers counseling regarding sex change surgeries, promotes sex change surgeries for any reason as an option, conducts or subsidizes sex change surgeries, promotes the use of medications or other substances to halt the onset of puberty or sexual development of minors, or otherwise promotes transgenderism.View BillUS HB4821OTHERENGROSSEDDepartment of the Interior, Environment, and Related Agencies Appropriations Act, 2024Making appropriations for the Department of the Interior, environment, and related agencies for the fiscal year ending September 30, 2024, and for other purposes.SEC. 454. None of the funds appropriated or otherwise made available by this Act may be made available to implement, administer, apply, enforce, or carry out Executive Order No. 13985 of January 20, 2021 (86 Fed. Reg. 7009, relating to advancing racial equity and support for underserved communities through the Federal Government), Executive Order No. 14035 of June 25, 2021 (86 Fed. Reg. 34593, relating to diversity, equity, inclusion, and accessibility in the Federal workforce), or Executive Order No. 14091 of February 16, 2023 (88 Fed. Reg. 10825, relating to further advancing racial equity and support for underserved communities through the Federal Government).View BillUS HB5EDUCATIONENGROSSEDParents Bill of Rights ActTo ensure the rights of parents are honored and protected in the Nation\&#39;s public schools.View BillUS HB5327EDUCATIONINTRODUCEDEmpowering Parents ActTo establish a private right of action for parents with respect to the teaching of racial discrimination theory and other actions by covered schools, and for other purposes.A covered school shall not [...] intentionally expose a student to radical gender theory; A covered school shall not [...] require a biological woman and a biological man to share a private facility; [shall prohibit] instruct or require an employee of such school to refer to a student using a pronoun not as associated with the biological sex of such student, without obtaining consent to do so from a parent of such student.View BillUS HB5636HEALTHCAREINTRODUCEDProtect Children’s Innocence ActTo amend chapter 110 of title 18, United States Code, to prohibit gender affirming care on minors.Whoever [...] knowingly performs any gender affirming care on a minor is guilty of a class C felony.View BillUS HB5893CIVIL RIGHTSINTRODUCEDCommerce, Justice, Science, and Related Agencies Appropriations Act, 2024Making appropriations for the Departments of Commerce and Justice, Science, and Related Agencies for the fiscal year ending September 30, 2024, and for other purposes.SEC. 581. None of the funds made available by this Act may be used to sue any State or local government over any law relating to transgender issues, or to intervene or file an amicus brief in such a case.View BillUS HB5894HEALTHCAREINTRODUCEDDepartment of Education Appropriations Act, 2024 Department of Health and Human Services Appropriations Act, 2024 Department of Labor Appropriations Act, 2024Making appropriations for the Departments of Labor, Health and Human Services, and Education, and related agencies for the fiscal year ending September 30, 2024, and for other purposes.None of the funds in this Act may be used to implement, administer, or enforce Executive Order 13988, entitled ‘Preventing and Combating Discrimination on the Basis of Gender Identity or Sexual Orientation,’ published by the Executive Office of the President on January 25, 2021 (86 Fed. Reg. 7023).View BillUS HB6040HEALTHCAREINTRODUCEDProtecting Our Kids from Harmful Research ActTo prohibit the use of Federal funds for gender transition in minors.No Federal funds may be used to fund research or publications relating to gender transition in individuals under the age of 18, including any observational studies that gather evidence on the provision of hormonal treatments or surgical procedures on minors, for the purpose of— (1) affirming a minor’s perception of his or her sex, if that perception is incongruent with such minor’s sex; or (2) affirming a minor’s asserted identity, if the asserted identity is incongruent with such minor’s sex.View BillUS HB6258HEALTHCAREINTRODUCEDGUARD Act Guaranteeing Unalienable and Anatomical Rights for Dependents ActTo amend the Child Abuse Prevention and Treatment Act to disqualify any State that discriminates against parents or guardians who oppose medical, surgical, pharmacological, psychological treatment, or clothing and social changes related to affirming the subjective claims of gender identity expressed by any minor if such claimed identity is inconsistent with such minor\&#39;s biological sex from receiving funding under such Act.No State may receive funding under this Act if such State takes any adverse action or otherwise discriminates against parents, guardians, or legal representatives who oppose medical, surgical, pharmacological, psychological treatment, or other medical intervention, or clothing, name or pronoun use, or other social changes or practices related to transitioning to or affirming the claims or expressions of gender identity of any minor under the charge, care, or supervision of the parent, guardian, or legal representative, if such gender identity is inconsistent, in such parent’s, guardian’s, or legal representative’s estimation, with such minor’s biological sex, as determined definitively at or before birth, regardless of any medical diagnosis or indication of gender dysphoria, body dysphoria, dissociative identity disorder, or social anxiety disorder.View BillUS HB6658OTHERINTRODUCEDSAFE Home Act Sensible Adoption For Every Home ActTo prohibit entities receiving Federal assistance that are involved in adoption or foster care placements from delaying or denying placements under certain conditions.Prohibits any entity that receives Federal assistance and is involved in adoption or foster care placements from delaying or denying the placement of a minor child for adoption or into foster care, or otherwise discriminating in making a placement decision with a prospective or actual adoptive or foster parent, for any of the following reasons:View BillUS HB6728SPORTSINTRODUCEDSave Women’s Sports Act of 2023To require public school, and public institution of higher education, athletic teams and clubs to be designated for membership based on biological sex, and for other purposes.An intercollegiate, intramural, or club athletic team or sport that is sponsored by a public school, or a public institution of higher education, or that is a competing team or sport sponsored by a non-public school or institution, and that receives Federal financial assistance, shall be expressly designated as, and composed of students of, only 1 of the following  categories of team or club members based on biological sex at birth: (1) Males.  (2) Females. (3) Coed members described in paragraphs (1) and (2). [...] REQUIREMENT. The membership of athletic  teams or sports designated only for females shall only be open to biological females at birth.View BillUS HB7183HEALTHCAREINTRODUCEDPROTECTS Act of 2024 Protecting Resources Of Taxpayers to Eliminate Childhood Transgender Surgeries Act of 2024To prohibit Federal funds from being used to provide certain gender transition procedures to minors.PROHIBITING FEDERAL FUNDS FROM BEING USED TO PROVIDE CERTAIN GENDER TRANSITION PROCEDURES TO MINORS.View BillUS HB7187SPORTSINTRODUCEDProtection of Women in Olympic and Amateur Sports ActTo modify eligibility requirements for amateur sports governing organizations.To modify eligibility requirements for amateur sports governing organizations.View BillUS HB734SPORTSENGROSSEDProtection of Women and Girls in Sports Act of 2023To amend the Education Amendments of 1972 to provide that for purposes of determining compliance with title IX of such Act in athletics, sex shall be recognized based solely on a person\&#39;s reproductive biology and genetics at birth.View BillUS HB736EDUCATIONINTRODUCEDPROTECT Kids Act Parental Rights Over The Education and Care of Their Kids ActTo require elementary and middle schools that receive Federal funds to obtain parental consent before changing a minor child\&#39;s gender markers, pronouns, or preferred name on any school form or allowing a child to change the child\&#39;s sex-based accommodations, including locker rooms or bathrooms.View BillUS HB7725EDUCATIONINTRODUCEDTo amend the Higher Education Act of 1965 to prohibit graduate medical schools from receiving Federal financial assistance if such schools adopt certain policies and requirements relating to diversity, equity, and inclusion.No graduate medical school at an institution of higher education shall be eligible to receive funds or any other form of financial assistance under any Federal program, including participation in any federally funded or guaranteed student loan program, unless the institution certifies to the Secretary that the institution does not, and will not, do any of the following: [...] (4) Establish, maintain, or contract with a diversity, equity, and inclusion office, or any other functional equivalent of such an office, to serve the medical school. (5) Require or incentivize an individual to complete a diversity statement professing or adhering to diversity, equity, and inclusion as a condition of, or benefit in, admission or employment at such school.View BillUS HB8070HEALTHCAREENGROSSEDServicemember Quality of Life Improvement and National Defense Authorization Act for Fiscal Year 2025To authorize appropriations for fiscal year 2025 for military activities of the Department of Defense, for military construction, and for defense activities of the Department of Energy, to prescribe military personnel strengths for such fiscal year, and for other purposes.PROHIBITION ON [...] RADICAL GENDER IDEOLOGY. —None of the funds authorized to be appropriated by this Act or otherwise mad available for fiscal year 2025 or any fiscal year thereafter for the Department of Defense Education Activity may be obligated or expended to purchase, maintain, or display in a school library or classroom— [...] (2) any material that espouses, advocates, or promotes radical gender ideology.View BillUS HB8433EDUCATIONINTRODUCEDAbolishing Woke Awards for Research and Development Act of 2024To amend the Public Health Service Act to require the National Institutes of Health to select awardees based on merit, and for other purposes.The National Institutes of Health (including any officer thereof)— [...] (2) shall not mandate the use of diversity statements or any other diversity, equity, and inclusion material or documentation as a qualification for, or condition of receipt of, an award.View BillUS HB8580HEALTHCAREENGROSSEDMilitary Construction, Veterans Affairs, and Related Agencies Appropriations Act, 2025Making appropriations for military construction, the Department of Veterans Affairs, and related agencies for the fiscal year ending September 30, 2025, and for other purposes.None of the funds made available by this Act may be used for surgical procedures or hormone therapies for the purposes of gender affirming care.View BillUS HB8708EDUCATIONINTRODUCEDEliminate DEI in Colleges ActTo prohibit Federal funding for institutions of higher education that carry out diversity, equity, and inclusion initiatives, and for other purposes.View BillUS HB8752HEALTHCAREINTRODUCEDDepartment of Homeland Security Appropriations Act, 2025Making appropriations for the Department of Homeland Security for the fiscal year ending September 30, 2025, and for other purposes.None of the funds appropriated or otherwise made available by this Act may be made available to administer hormone therapy medication or perform or facilitate any surgery for any person in custody of U.S. Immigration and Customs Enforcement for the purpose of gender-affirming care.View BillUS HB8771HEALTHCAREENGROSSEDDepartment of State, Foreign Operations, and Related Programs Appropriations Act, 2025Making appropriations for the Department of State, foreign operations, and related programs for the fiscal year ending September 30, 2025, and for other purposes.None of the funds made available by this Act or any other Act shall be used or transferred to another Federal Agency, board, or commission to fund any domestic or international non-governmental organization or any other program, organization, or association coordinated or operated by such non-governmental organization that either offers counseling regarding sex change surgeries, promotes sex change surgeries for any reason as an option, conducts or subsidizes sex change surgeries, promotes the use of medications or other substances to halt the onset of puberty or sexual development of minors, or otherwise promotes transgenderism.View BillUS HB8774HEALTHCAREENGROSSEDDepartment of Defense Appropriations Act, 2025Making appropriations for the Department of Defense for the fiscal year ending September 30, 2025, and for other purposes.None of the funds appropriated or otherwise made available by this Act may be used, with regards to a member of the Armed Forces with a minor dependent child enrolled in an Exceptional Family Member Program (EFMP)— (1) to provide gender transition procedures, including surgery or medication, to such child through such EFMP; (2) to provide a referral for a procedure described in paragraph (1) to such child through such EFMP; or (3) to approve a change of duty station for such member through such EFMP for the purpose of providing such child with access to procedures described in paragraph (1).View BillUS HB8997MARRIAGEINTRODUCEDEnergy and Water Development and Related Agencies Appropriations Act, 2025Making appropriations for energy and water development and related agencies for the fiscal year ending September 30, 2025, and for other purposes.None of the funds provided by this Act, or previous appropriations Acts, shall be used in whole or in part to take any discriminatory action against a person, wholly or partially, on the basis that such person speaks, or acts, in accordance with a sincerely held religious belief, or moral conviction, that marriage is, or should be recognized as, a union of one man and one woman.View BillUS HB8998MARRIAGEENGROSSEDDepartment of the Interior, Environment, and Related Agencies Appropriations Act, 2025Making appropriations for the Department of the Interior, environment, and related agencies for the fiscal year ending September 30, 2025, and for other purposes.None of the funds provided by this Act, or previous appropriations Acts, shall be used in whole or in part to take any discriminatory action against a person, wholly or partially, on the basis that such person speaks, or acts, in accordance with a sincerely held religious belief, or moral conviction, that marriage is, or should be recognized as, a union of one man and one woman.View BillUS HB9026HEALTHCAREINTRODUCEDScience Appropriations Act, 2025 Department of Justice Appropriations Act, 2025 Department of Commerce Appropriations Act, 2025Making appropriations for the Departments of Commerce and Justice, Science, and Related Agencies for the fiscal year ending September 30, 2025, and for other purposes.SEC. 565. None of the funds made available by this or any other Act may be used to investigate, litigate, or advocate against any person or recipient, as currently defined at section 106.2 of title 34, Code of Federal Regulations, for defining ‘‘sex’’ as currently used in, inter alia, section 1681 of title 20, United States Code, and sections 106.21, 22, 23, 30, 31, 32, 33, 34, 35, 37, 39, 40, 41, 44, and 45 of title 34, Code of Federal Regulations, to mean biological sex, male or female, as determined by the type of gamete an individual produces; and for defining &quot;boys and girls&quot; to mean only biological boys, whose DNA consists of one X sex chromosome and one Y sex chromosome, and biological girls, whose DNA consists of two X sex chromosomes.View BillUS HB9027MARRIAGEINTRODUCEDAgriculture, Rural Development, Food and Drug Administration, and Related Agencies Appropriations Act, 2025Making appropriations for Agriculture, Rural Development, Food and Drug Administration, and Related Agencies programs for the fiscal year ending September 30, 2025, and for other purposes.None of the funds provided by this Act, or previous appropriations Acts, shall be used in whole or in part to take any discriminatory action against a person, wholly or partially, on the basis that such person speaks, or acts, in accordance with a sincerely held religious belief, or moral conviction, that marriage is, or should be recognized as, a union of one man and one woman.View BillUS HB9028MARRIAGEINTRODUCEDDepartment of Transportation Appropriations Act, 2025 Department of Housing and Urban Development Appropriations Act, 2025Making appropriations for the Departments of Transportation, and Housing and Urban Development, and related agencies for the fiscal year ending September 30, 2025, and for other purposes.None of the funds provided by this Act, or previous appropriations Acts, shall be used in whole or in part to take any discriminatory action against a person, wholly or partially, on the basis that such person speaks, or acts, in accordance with a sincerely held religious belief, or moral conviction, that marriage is, or should be recognized as, a union of one man and one woman.View BillUS HB9029HEALTHCAREINTRODUCEDDepartment of Education Appropriations Act, 2025 Department of Health and Human Services Appropriations Act, 2025 Department of Labor Appropriations Act, 2025Making appropriations for the Departments of Labor, Health and Human Services, and Education, and related agencies for the fiscal year ending September 30, 2025, and for other purposes.None of the funds made available by this Act may be used to implement, administer, or enforce Executive Order 13988, entitled &quot;Preventing and Combating Discrimination on the Basis of Gender Identity or Sexual Orientation,&quot; published by the Executive Office of the President on January 25, 2021 (86 Fed. Reg. 7023). SEC. 247.View BillUS HB9218CIVIL RIGHTSINTRODUCEDDefining Male and Female Act of 2024To establish a clear and consistent biological definition of male and female.View BillUS HB9586HEALTHCAREINTRODUCEDTo prohibit Federal funds from being used to provide certain gender transition procedures to individuals in the custody of the Department of Homeland Security and the Department of Health and Human Services.PROHIBITING FEDERAL FUNDS FROM BEING USED TO PROVIDE CERTAIN GENDER TRANSITION PROCEDURES. [...] no Federal funds may be used or otherwise made available to provide or refer for a specified gender transition procedure to an individual in the custody of the Department of Homeland Security or the Department of Health and Human Services or to reimburse any entity for providing such a procedure to such an individual.View BillUS HB985OTHERINTRODUCEDProductivity Over Pronouns ActTo prohibit the use of Federal funds in any program, project, or activity of any agency in the Executive Branch to provide principles, resources, or specific suggestions for gender neutral or inclusive language or inclusive communication principles to help inform an inclusive approach to carrying out any such program, project, and activity.Amounts may not be appropriated for use in any program, project, or activity of any agency, and funds made available [...] to provide principles, resources, or specific suggestions for gender neutral or inclusive language or inclusive communication principles to help inform an inclusive approach to carrying out any such program, project, and activity.View BillUS HJR160HEALTHCAREINTRODUCEDProviding for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Department of Health and Human Services relating to &quot;Nondiscrimination in Health Programs and Activities&quot;.Resolved by the Senate and House of Representatives of the United States of America in Congress assembled, That Congress disapproves the rule submitted by the Department of Health and Human Services relating to &quot;Nondiscrimination in Health Programs and Activities&quot; (89 Fed. Reg. 37522 (May 6, 2024)), and such rule shall have no force or effect.View BillUS HJR165EDUCATIONENGROSSEDProviding for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Department of Education relating to &quot;Nondiscrimination on the Basis of Sex in Education Programs or Activities Receiving Federal Financial Assistance&quot;.That Congress disapproves the rule submitted by the Department of Education relating to &quot;Nondiscrimination on the Basis of Sex in Education Programs or Activities Receiving Federal Financial Assistance&quot; (89 Fed. Reg. 33474; published April 29, 2024), and such rule shall have no force or effect.View BillUS HR115CIVIL RIGHTSINTRODUCEDEstablishing a Women\&#39;s Bill of Rights to reaffirm legal protections afforded to women under Federal law.View BillUS HR1223SPORTSINTRODUCEDDesignating October, 10, 2024, as &quot;American Girls in Sports Day&quot;.Whereas October 10th, as represented by the Roman numerals &quot;XX&quot;, signifies the female XX chromosomes: Now, therefore, be it Resolved, That the Senate—  (1) recognizes October 10, 2024, as &quot;American 2 Girls in Sports Day&quot; [...] calls on sports-governing bodies in the United States and abroad to protect biological women and girls in sports.View BillUS HR282EDUCATIONINTRODUCEDExpressing that compelled political litmus tests used by public institutions to require individuals to identify with specific ideological views are directly at odds with the principles of academic freedom and free speech and in violation of the First Amendment of the Constitution.That the House of Representatives condemns public institutions of higher education for conditioning admission to any student applicant, or the hiring, reappointment, or promotion of any faculty member, on the applicant or faculty member [...] making a pledge or statement regarding diversity, equity, and inclusion, or related topicsView BillUS HR298SPORTSINTRODUCEDProviding for consideration of the bill (H.R. 734) to amend the Education Amendments of 1972 to provide that for purposes of determining compliance with title IX of such Act in athletics, sex shall be recognized based solely on a person\&#39;s reproductive biology and genetics at birth, and providing for consideration of the joint resolution (H.J. Res. 42) disapproving the action of the District of Columbia Council in approving the Comprehensive Policing and Justice Reform Amendment Act of 2022.Providing for consideration of the bill (H.R. 734) to amend the Education Amendments of 1972 to provide that for purposes of determining compliance with title IX of such Act in athletics, sex shall be recognized based solely on a person’s reproductive biology and genetics at birthView BillUS HR518EDUCATIONINTRODUCEDPushing back against the labeling of attempts by parents to ensure school curriculum and sports are age and sex appropriate as extreme.Pushing back against the labeling of attempts by parents to ensure school curriculum and sports are age and sex appropriate as extreme. Whereas all students should feel welcome in their classroom, but radical far-left ideas inappropriate for minors should not; Whereas it is not extreme or hateful to believe children as young as 6 should not be subject to discussion about sexual orientation or gender ideology in the classroom; Whereas it is not extreme or hateful to believe biological men should not compete against biological women in sports;View BillUS HR536SPORTSINTRODUCEDSupporting the designation of the week including June 23, 2023, as &quot;National Women\&#39;s Sports Week&quot; to celebrate the anniversary of the passage of title IX and the growth of women\&#39;s sports.Whereas title IX’s purpose and benefit are negated for women whenever men claiming to be women are granted access to female sports;View BillUS HR769CIVIL RIGHTSINTRODUCEDExpressing support for the designation of October 10, 2023, as &quot;Real Women\&#39;s Day&quot;.Whereas October 10th is symbolized by the Roman numerals &quot;XX&quot;: Now, therefore, be it Resolved, That the House of Representatives— (1) opposes forcing biological women and girls to compete against biological boys and men in girls\&#39; and women\&#39;s sports; (2) opposes the weakening of Title IX protections; and (3) supports the designation of a &quot;Real Women\&#39;s Day&quot;.View BillUS SB1595HEALTHCAREINTRODUCEDEnd Taxpayer Funding of Gender Experimentation Act of 2023A bill to prohibit taxpayer-funded gender transition procedures, and for other purposes.No funds authorized or appropriated by Federal law, and none of the funds in any trust fund to which funds are authorized or appropriated by Federal law, shall be expended for any gender transition procedures [or...] for health benefits coverage that includes coverage of gender transition procedures.View BillUS SB1597HEALTHCAREINTRODUCEDProtecting Children From Experimentation Act of 2023A bill to amend chapter 110 of title 18, United States Code, to prohibit gender transition procedures on minors, and for other purposes.Any physical or mental healthcare professional who knowingly performs or provides a referral for any gender transition procedure on a minor shall be fined under this title, imprisoned not more than 5 years, or both.View BillUS SB1709EDUCATIONINTRODUCEDEmpower Parents to Protect Their Kids Act of 2023A bill to require elementary schools and secondary schools that receive Federal funds to obtain parental consent before facilitating a child\&#39;s gender transition in any form, and for other purposes.Contrary to the unfounded assertions of activists, &quot;socially transitioning&quot; a child is not an evidence-based practice and it is not a neutral or uncontroversial decision. This practice is an experimental social and psychological intervention that has immediate effects on a child\&#39;s psychology and a high likelihood of changing the life path of a child. A &quot;social gender transition&quot; may make it more difficult  for a child to reverse course later on, thereby increasing the likelihood that the child will continue on to a &quot;medical transition&quot;, resulting in life-changing, irreversible consequences. (4) Any policies that attempt to circumvent parental authority are a violation of parents\&#39; constitutionally protected rights to direct the care, custody, and upbringing of their children as recognized by the Supreme Court.View BillUS SB187HEALTHCAREINTRODUCEDNo Tax Breaks for Radical Corporate Activism Act of 2023A bill to amend the Internal Revenue Code of 1986 to deny the trade or business expense deduction for the reimbursement of employee costs of child gender transition procedure or travel to obtain an abortion.No deduction shall be allowed under this chapter to an employer for any amount paid or incurred to reimburse an employee for, or to otherwise pay, expenses in connection with [...] any gender transition procedure for a minor child of the employee.View BillUS SB200EDUCATIONINTRODUCEDPROTECT Kids Act Parental Rights Over The Education and Care of Their Kids ActA bill to require elementary and middle schools that receive Federal funds to obtain parental consent before changing a minor child\&#39;s gender markers, pronouns, or preferred name on any school form or allowing a child to change the child\&#39;s sex-based accommodations, including locker rooms or bathrooms.View BillUS SB2357HEALTHCAREINTRODUCEDProtect Children’s Innocence ActA bill to amend chapter 110 of title 18, United States Code, to prohibit gender-affirming care on minors, and for other purposes.Whoever, in any circumstance described in subsection (e), knowingly performs any gender-affirming care on a minor is guilty of a class C felony.View BillUS SB2394HEALTHCAREINTRODUCEDGUARD Act Guaranteeing Unalienable and Anatomical Rights for DependentsA bill to amend the Child Abuse Prevention and Treatment Act to disqualify any State that discriminates against parents or guardians who oppose medical, surgical, pharmacological, psychological treatment, or clothing and social changes related to affirming the subjective claims of gender identity expressed by any minor if such claimed identity is inconsistent with such minor\&#39;s biological sex from receiving funding under such Act.No State may receive funding under this Act if such State takes any adverse action or otherwise discriminates against parents, guardians, or legal representatives who oppose medical, surgical, pharmacological, psychological treatment, or other medical intervention, or clothing, name or pronoun use, or other social changes or practices related to transitioning to or affirming the claims or expressions of gender identity of any minor under the charge, care, or supervision of the parent, guardian, or legal representative, if such gender identity is inconsistent, in such parent’s, guardian’s, or legal representative’s estimation, with such minor’s biological sex, as determined definitively at or before birth, regardless of any medical diagnosis or indication of gender dysphoria, body dysphoria, dissociative identity disorder, or social anxiety disorder.View BillUS SB2797HEALTHCAREINTRODUCEDProtecting Conscience in Our Health Care ActA bill to ensure religious freedom and rights of conscience for health care workers and other government employees, and to protect health care workers and other government employees from various forms of compelled speech.No Federal or State government or agency, or covered entity shall: (1) require an employee to participate in a seminar, workshop, training, or other educational or professional activity, or in using a curriculum, that advocates for the idea that an individual can have an identity that is incongruent with their sex; (2) require an employee to attend or participate in an event or activity affirming, celebrating, or supporting an identity that is incongruent with an individual\&#39;s sex; [...] (6) require an employee to affirm and use preferred pronouns of another, including a medical patient, without regard for whether those pronouns conflict with the employee\&#39;s religious or moral beliefs, or the employee\&#39;s understanding of the relationship between sex and identity; (7) require an employee to share the employee\&#39;s preferred pronouns upon meeting or interacting with another individual or patient.View BillUS SB3035HEALTHCAREINTRODUCEDProtecting Our Kids from Harmful Research ActA bill to prohibit the use of Federal funds for gender transition in minors.No Federal funds may be used to fund research or publications relating to gender transition in individuals under the age of 18, including any observational studies that gather evidence on the provision of hormonal treatments or surgical procedures on minors, for the purpose of— (1) affirming a minor’s perception of his or her sex, if that perception is incongruent with such minor’s sex; or (2) affirming a minor’s asserted identity, if the asserted identity is incongruent with such minor’s sex.View BillUS SB3438OTHERINTRODUCEDSAFE Home Act Sensible Adoption For Every Home ActA bill to prohibit entities receiving Federal assistance that are involved in adoption or foster care placements from delaying or denying placements under certain conditions.Prohibits any entity that receives Federal assistance and is involved in adoption or foster care placements from delaying or denying the placement of a minor child for adoption or into foster care, or otherwise discriminating in making a placement decision with a prospective or actual adoptive or foster parent, for any of the following reasons:View BillUS SB3729SPORTSINTRODUCEDProtection of Women in Olympic and Amateur Sports ActA bill to modify eligibility requirements for amateur sports governing organizations.To modify eligibility requirements for amateur sports governing organizations.View BillUS SB435MILITARYINTRODUCEDEnsuring Military Readiness Act of 2023A bill to provide requirements related to the eligibility of individuals who identify as transgender from serving in the Armed Forces.View BillUS SB457HEALTHCAREINTRODUCEDProtecting Our Kids from Child Abuse ActA bill to establish a Federal tort against pediatric gender clinics and other entities pushing gender-transition procedures that cause bodily injury to children or harm the mental health of children.The following individuals and entities shall be liable in accordance with this section to any individual who suffers bodily injury or harm to mental health (including any physical, psychological, emotional, or physiological harm) that is attributable, in whole or in part, to a gender-transition procedure performed on the individual when the individual was a minor: (1) A pediatric gender clinic where the gender18 transition procedure was provided. (2) Any medical practitioner who administered health care, at the time of the particular procedure, at the pediatric gender clinic where the gender-transition procedure was provided. (3) An institution of higher education that hosts, operates, partners with, provides funding to, or is otherwise affiliated with the pediatric gender clinic where the gender-transition procedure was provided. (4) A hospital that hosts, operates, partners with, provides funding to, or is otherwise affiliated with the pediatric gender clinic where the gender6 transition procedure was provided. (5) Any medical practitioner who performed the gender-transition procedure on the individual.View BillUS SB4638HEALTHCAREINTRODUCEDMilitary Construction Authorization Act for Fiscal Year 2025A bill to authorize appropriations for fiscal year 2025 for military activities of the Department of Defense, for military construction, and for defense activities of the Department of Energy, to prescribe military personnel strengths for such fiscal year, and for other purposes.PROHIBITION OF COVERAGE UNDER TRICARE PROGRAM OF CERTAIN MEDICAL PROCEDURES FOR CHILDREN THAT COULD RESULT IN STERILIZATION. Section 1079(a) of title 10, United States Code, is amended by adding at the end the following new paragraph: &quot;(20) Affirming hormone therapy, puberty blockers, and other medical interventions for the treatment of gender dysphoria that could result in sterilization may not be provided to a child under the age of 18.&quot;View BillUS SB613SPORTSINTRODUCEDProtection of Women and Girls in Sports Act of 2023A bill to provide that for purposes of determining compliance with title IX of the Education Amendments of 1972 in athletics, sex shall be recognized based solely on a person\&#39;s reproductive biology and genetics at birth.It shall be a violation of subsection (a) for a recipient of Federal funds who operates, sponsors, or facilitates athletic programs or activities to permit a person whose sex is male to participate in an athletic program or activity that is designated for women or girls. For purposes of this subsection, sex shall be recognized based solely on a person’s reproductive biology and genetics at birth.View BillUS SB635HEALTHCAREINTRODUCEDProtecting Minors from Medical Malpractice Act of 2023A bill to protect children from medical malpractice in the form of gender transition procedures.A medical practitioner, in any circumstance described in subsection (c), who performs a gender-transition procedure on an individual who is less than 18 years of age shall, as described in subsection (b), be liable to the individual if injured (including any physical, psychological, emotional, or physiological harms) by such procedure, related treatment, or the aftereffects of the procedure or treatment.View BillUS SB752INCARCERATIONINTRODUCEDPreventing Violence Against Female Inmates Act of 2023A bill to secure the dignity and safety of incarcerated women.The Bureau of Prisons‚ (A) shall use the biological sex of persons charged with or convicted of offenses against the United States in making determinations regarding housing such persons; and [...] shall not co-locate in detention facilities persons charged with or convicted of offenses against the United States if those persons are not of the same biological sex.View BillUS SJR90HEALTHCAREINTRODUCEDA joint resolution providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Department of Health and Human Services relating to &quot;Nondiscrimination in Health Programs and Activities&quot;.Resolved by the Senate and House of Representatives of the United States of America in Congress assembled, That Congress disapproves the rule submitted by the Department of Health and Human Services relating to &quot;Nondiscrimination in Health Programs and Activities&quot; (89 Fed. Reg. 37522 (May 6, 2024)), and such rule shall have no force or effect.View BillUS SJR96EDUCATIONINTRODUCEDA joint resolution providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Department of Education relating to &quot;Nondiscrimination on the Basis of Sex in Education Programs or Activities Receiving Federal Financial Assistance&quot;.Resolved by the Senate and House of Representatives of the United States of America in Congress assembled That Congress disapproves the rule submitted by the Department of Education relating to &quot;Nondiscrimination on the Basis of Sex in Education Programs or Activities Receiving Federal Financial Assistance&quot; (89 Fed. Reg. 33474 (April 29, 2024)), and such rule shall have no force or effect.View BillUS SR267SPORTSINTRODUCEDA resolution supporting the designation of the week of June 18 through June 24, 2023, as &quot;National Women\&#39;s Sports Week&quot; to celebrate the anniversary of the enactment of title IX of the Education Amendments of 1972 and the growth of women\&#39;s sports.Whereas the purposes and benefits of title IX are negated for women whenever men claiming to be women are granted access to female sports;View BillUS SR53CIVIL RIGHTSINTRODUCEDA resolution establishing a Women\&#39;s Bill of Rights to reaffirm legal protections afforded to women under Federal law.View BillUS SR669SPORTSINTRODUCEDA resolution designating October 10, 2024, as &quot;American Girls in Sports Day&quot;.Whereas October 10th, as represented by the Roman numerals &quot;XX&quot;, signifies the female XX chromosomes: Now, therefore, be it Resolved, That the Senate—  (1) recognizes October 10, 2024, as &quot;American 2 Girls in Sports Day&quot; [...] calls on sports-governing bodies in the United States and abroad to protect biological women and girls in sports.View Bill&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">cards</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bs4.element.Tag
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># grabbing all of the cards individually using &quot;find_all()&quot;</span>
+<span class="n">cards</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span> <span class="o">=</span> <span class="s1">&#39;css-4rck61&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titles</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">categories</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">captions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">descriptions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">links</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="n">cards</span><span class="p">:</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">card</span><span class="o">.</span><span class="n">h3</span><span class="o">.</span><span class="n">text</span> <span class="c1"># print the title</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">card</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">text</span> <span class="c1"># category</span>
+    <span class="n">caption</span> <span class="o">=</span> <span class="n">card</span><span class="o">.</span><span class="n">h2</span><span class="o">.</span><span class="n">text</span> <span class="c1"># caption</span>
+    <span class="k">if</span> <span class="n">card</span><span class="o">.</span><span class="n">p</span><span class="p">:</span> <span class="c1"># description</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="n">card</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">text</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;N/a&#39;</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://translegislation.com</span><span class="si">{</span><span class="n">card</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="n">titles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">categories</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">category</span><span class="p">)</span>
+    <span class="n">captions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">caption</span><span class="p">)</span>
+    <span class="n">descriptions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+    <span class="n">links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">titles</span><span class="p">,</span>
+    <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="n">categories</span><span class="p">,</span>
+    <span class="s1">&#39;caption&#39;</span><span class="p">:</span> <span class="n">captions</span><span class="p">,</span>
+    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">descriptions</span><span class="p">,</span>
+    <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="n">links</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 80 entries, 0 to 79
+Data columns (total 5 columns):
+ #   Column       Non-Null Count  Dtype 
+---  ------       --------------  ----- 
+ 0   title        80 non-null     object
+ 1   category     80 non-null     object
+ 2   caption      80 non-null     object
+ 3   description  80 non-null     object
+ 4   link         80 non-null     object
+dtypes: object(5)
+memory usage: 3.3+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">site</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.moma.org/collection/?classifications=any&amp;date_begin=Pre-1850&amp;date_end=2024&amp;include_uncataloged_works=false&amp;on_view=false&amp;q=van+gogh&amp;recent_acquisitions=false&amp;with_images=true&#39;</span><span class="p">)</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">content</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+&lt;!--[if lt IE 7]&gt; &lt;html class=&quot;no-js ie6 oldie&quot; lang=&quot;en-US&quot;&gt; &lt;![endif]--&gt;&lt;!--[if IE 7]&gt;    &lt;html class=&quot;no-js ie7 oldie&quot; lang=&quot;en-US&quot;&gt; &lt;![endif]--&gt;&lt;!--[if IE 8]&gt;    &lt;html class=&quot;no-js ie8 oldie&quot; lang=&quot;en-US&quot;&gt; &lt;![endif]--&gt;&lt;!--[if gt IE 8]&gt;&lt;!--&gt;&lt;html class=&quot;no-js&quot; lang=&quot;en-US&quot;&gt; &lt;!--&lt;![endif]--&gt;
+&lt;head&gt;
+&lt;title&gt;Attention Required! | Cloudflare&lt;/title&gt;
+&lt;meta charset=&quot;utf-8&quot;/&gt;
+&lt;meta content=&quot;text/html; charset=utf-8&quot; http-equiv=&quot;Content-Type&quot;/&gt;
+&lt;meta content=&quot;IE=Edge&quot; http-equiv=&quot;X-UA-Compatible&quot;/&gt;
+&lt;meta content=&quot;noindex, nofollow&quot; name=&quot;robots&quot;/&gt;
+&lt;meta content=&quot;width=device-width,initial-scale=1&quot; name=&quot;viewport&quot;/&gt;
+&lt;link href=&quot;/cdn-cgi/styles/cf.errors.css&quot; id=&quot;cf_styles-css&quot; rel=&quot;stylesheet&quot;/&gt;
+&lt;!--[if lt IE 9]&gt;&lt;link rel=&quot;stylesheet&quot; id=&#39;cf_styles-ie-css&#39; href=&quot;/cdn-cgi/styles/cf.errors.ie.css&quot; /&gt;&lt;![endif]--&gt;
+&lt;style&gt;body{margin:0;padding:0}&lt;/style&gt;
+&lt;!--[if gte IE 10]&gt;&lt;!--&gt;
+&lt;script&gt;
+  if (!navigator.cookieEnabled) {
+    window.addEventListener(&#39;DOMContentLoaded&#39;, function () {
+      var cookieEl = document.getElementById(&#39;cookie-alert&#39;);
+      cookieEl.style.display = &#39;block&#39;;
+    })
+  }
+&lt;/script&gt;
+&lt;!--&lt;![endif]--&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;cf-wrapper&quot;&gt;
+&lt;div class=&quot;cf-alert cf-alert-error cf-cookie-error&quot; data-translate=&quot;enable_cookies&quot; id=&quot;cookie-alert&quot;&gt;Please enable cookies.&lt;/div&gt;
+&lt;div class=&quot;cf-error-details-wrapper&quot; id=&quot;cf-error-details&quot;&gt;
+&lt;div class=&quot;cf-wrapper cf-header cf-error-overview&quot;&gt;
+&lt;h1 data-translate=&quot;block_headline&quot;&gt;Sorry, you have been blocked&lt;/h1&gt;
+&lt;h2 class=&quot;cf-subheadline&quot;&gt;&lt;span data-translate=&quot;unable_to_access&quot;&gt;You are unable to access&lt;/span&gt; moma.org&lt;/h2&gt;
+&lt;/div&gt;&lt;!-- /.header --&gt;
+&lt;div class=&quot;cf-section cf-highlight&quot;&gt;
+&lt;div class=&quot;cf-wrapper&quot;&gt;
+&lt;div class=&quot;cf-screenshot-container cf-screenshot-full&quot;&gt;
+&lt;span class=&quot;cf-no-screenshot error&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;!-- /.captcha-container --&gt;
+&lt;div class=&quot;cf-section cf-wrapper&quot;&gt;
+&lt;div class=&quot;cf-columns two&quot;&gt;
+&lt;div class=&quot;cf-column&quot;&gt;
+&lt;h2 data-translate=&quot;blocked_why_headline&quot;&gt;Why have I been blocked?&lt;/h2&gt;
+&lt;p data-translate=&quot;blocked_why_detail&quot;&gt;This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cf-column&quot;&gt;
+&lt;h2 data-translate=&quot;blocked_resolve_headline&quot;&gt;What can I do to resolve this?&lt;/h2&gt;
+&lt;p data-translate=&quot;blocked_resolve_detail&quot;&gt;You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;!-- /.section --&gt;
+&lt;div class=&quot;cf-error-footer cf-wrapper w-240 lg:w-full py-10 sm:py-4 sm:px-8 mx-auto text-center sm:text-left border-solid border-0 border-t border-gray-300&quot;&gt;
+&lt;p class=&quot;text-13&quot;&gt;
+&lt;span class=&quot;cf-footer-item sm:block sm:mb-1&quot;&gt;Cloudflare Ray ID: &lt;strong class=&quot;font-semibold&quot;&gt;8cb47eaf5db043f9&lt;/strong&gt;&lt;/span&gt;
+&lt;span class=&quot;cf-footer-separator sm:hidden&quot;&gt;•&lt;/span&gt;
+&lt;span class=&quot;cf-footer-item hidden sm:block sm:mb-1&quot; id=&quot;cf-footer-item-ip&quot;&gt;
+      Your IP:
+      &lt;button class=&quot;cf-footer-ip-reveal-btn&quot; id=&quot;cf-footer-ip-reveal&quot; type=&quot;button&quot;&gt;Click to reveal&lt;/button&gt;
+&lt;span class=&quot;hidden&quot; id=&quot;cf-footer-ip&quot;&gt;2603:7000:3d00:1b00:257b:2993:1d17:b0e4&lt;/span&gt;
+&lt;span class=&quot;cf-footer-separator sm:hidden&quot;&gt;•&lt;/span&gt;
+&lt;/span&gt;
+&lt;span class=&quot;cf-footer-item sm:block sm:mb-1&quot;&gt;&lt;span&gt;Performance &amp;amp; security by&lt;/span&gt; &lt;a href=&quot;https://www.cloudflare.com/5xx-error-landing&quot; id=&quot;brand_link&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;Cloudflare&lt;/a&gt;&lt;/span&gt;
+&lt;/p&gt;
+&lt;script&gt;(function(){function d(){var b=a.getElementById(&quot;cf-footer-item-ip&quot;),c=a.getElementById(&quot;cf-footer-ip-reveal&quot;);b&amp;&amp;&quot;classList&quot;in b&amp;&amp;(b.classList.remove(&quot;hidden&quot;),c.addEventListener(&quot;click&quot;,function(){c.classList.add(&quot;hidden&quot;);a.getElementById(&quot;cf-footer-ip&quot;).classList.remove(&quot;hidden&quot;)}))}var a=document;document.addEventListener&amp;&amp;a.addEventListener(&quot;DOMContentLoaded&quot;,d)})();&lt;/script&gt;
+&lt;/div&gt;&lt;!-- /.error-footer --&gt;
+&lt;/div&gt;&lt;!-- /#cf-error-details --&gt;
+&lt;/div&gt;&lt;!-- /#cf-wrapper --&gt;
+&lt;script&gt;
+  window._cf_translation = {};
+  
+  
+&lt;/script&gt;
+&lt;script&gt;(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement(&#39;script&#39;);d.innerHTML=&quot;window.__CF$cv$params={r:&#39;8cb47eaf5db043f9&#39;,t:&#39;MTcyNzcwMjI2NC4wMDAwMDA=&#39;};var a=document.createElement(&#39;script&#39;);a.nonce=&#39;&#39;;a.src=&#39;/cdn-cgi/challenge-platform/scripts/jsd/main.js&#39;;document.getElementsByTagName(&#39;head&#39;)[0].appendChild(a);&quot;;b.getElementsByTagName(&#39;head&#39;)[0].appendChild(d)}}if(document.body){var a=document.createElement(&#39;iframe&#39;);a.height=1;a.width=1;a.style.position=&#39;absolute&#39;;a.style.top=0;a.style.left=0;a.style.border=&#39;none&#39;;a.style.visibility=&#39;hidden&#39;;document.body.appendChild(a);if(&#39;loading&#39;!==document.readyState)c();else if(window.addEventListener)document.addEventListener(&#39;DOMContentLoaded&#39;,c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);&#39;loading&#39;!==document.readyState&amp;&amp;(document.onreadystatechange=e,c())}}}})();&lt;/script&gt;&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./class"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
