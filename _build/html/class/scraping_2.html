@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -199,7 +199,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../gathering/ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/to-dataframe.html">saving scraped data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gathering/met.html">the MET API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/dicts.html">dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
 </ul>
@@ -739,12 +739,12 @@ memory usage: 3.3+ KB
 &lt;/div&gt;&lt;!-- /.section --&gt;
 &lt;div class=&quot;cf-error-footer cf-wrapper w-240 lg:w-full py-10 sm:py-4 sm:px-8 mx-auto text-center sm:text-left border-solid border-0 border-t border-gray-300&quot;&gt;
 &lt;p class=&quot;text-13&quot;&gt;
-&lt;span class=&quot;cf-footer-item sm:block sm:mb-1&quot;&gt;Cloudflare Ray ID: &lt;strong class=&quot;font-semibold&quot;&gt;8cb47eaf5db043f9&lt;/strong&gt;&lt;/span&gt;
+&lt;span class=&quot;cf-footer-item sm:block sm:mb-1&quot;&gt;Cloudflare Ray ID: &lt;strong class=&quot;font-semibold&quot;&gt;8cc82f0d8e3b42ac&lt;/strong&gt;&lt;/span&gt;
 &lt;span class=&quot;cf-footer-separator sm:hidden&quot;&gt;•&lt;/span&gt;
 &lt;span class=&quot;cf-footer-item hidden sm:block sm:mb-1&quot; id=&quot;cf-footer-item-ip&quot;&gt;
       Your IP:
       &lt;button class=&quot;cf-footer-ip-reveal-btn&quot; id=&quot;cf-footer-ip-reveal&quot; type=&quot;button&quot;&gt;Click to reveal&lt;/button&gt;
-&lt;span class=&quot;hidden&quot; id=&quot;cf-footer-ip&quot;&gt;2603:7000:3d00:1b00:257b:2993:1d17:b0e4&lt;/span&gt;
+&lt;span class=&quot;hidden&quot; id=&quot;cf-footer-ip&quot;&gt;69.74.60.218&lt;/span&gt;
 &lt;span class=&quot;cf-footer-separator sm:hidden&quot;&gt;•&lt;/span&gt;
 &lt;/span&gt;
 &lt;span class=&quot;cf-footer-item sm:block sm:mb-1&quot;&gt;&lt;span&gt;Performance &amp;amp; security by&lt;/span&gt; &lt;a href=&quot;https://www.cloudflare.com/5xx-error-landing&quot; id=&quot;brand_link&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;Cloudflare&lt;/a&gt;&lt;/span&gt;
@@ -758,7 +758,7 @@ memory usage: 3.3+ KB
   
   
 &lt;/script&gt;
-&lt;script&gt;(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement(&#39;script&#39;);d.innerHTML=&quot;window.__CF$cv$params={r:&#39;8cb47eaf5db043f9&#39;,t:&#39;MTcyNzcwMjI2NC4wMDAwMDA=&#39;};var a=document.createElement(&#39;script&#39;);a.nonce=&#39;&#39;;a.src=&#39;/cdn-cgi/challenge-platform/scripts/jsd/main.js&#39;;document.getElementsByTagName(&#39;head&#39;)[0].appendChild(a);&quot;;b.getElementsByTagName(&#39;head&#39;)[0].appendChild(d)}}if(document.body){var a=document.createElement(&#39;iframe&#39;);a.height=1;a.width=1;a.style.position=&#39;absolute&#39;;a.style.top=0;a.style.left=0;a.style.border=&#39;none&#39;;a.style.visibility=&#39;hidden&#39;;document.body.appendChild(a);if(&#39;loading&#39;!==document.readyState)c();else if(window.addEventListener)document.addEventListener(&#39;DOMContentLoaded&#39;,c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);&#39;loading&#39;!==document.readyState&amp;&amp;(document.onreadystatechange=e,c())}}}})();&lt;/script&gt;&lt;/body&gt;
+&lt;script&gt;(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement(&#39;script&#39;);d.innerHTML=&quot;window.__CF$cv$params={r:&#39;8cc82f0d8e3b42ac&#39;,t:&#39;MTcyNzkwODcxNy4wMDAwMDA=&#39;};var a=document.createElement(&#39;script&#39;);a.nonce=&#39;&#39;;a.src=&#39;/cdn-cgi/challenge-platform/scripts/jsd/main.js&#39;;document.getElementsByTagName(&#39;head&#39;)[0].appendChild(a);&quot;;b.getElementsByTagName(&#39;head&#39;)[0].appendChild(d)}}if(document.body){var a=document.createElement(&#39;iframe&#39;);a.height=1;a.width=1;a.style.position=&#39;absolute&#39;;a.style.top=0;a.style.left=0;a.style.border=&#39;none&#39;;a.style.visibility=&#39;hidden&#39;;document.body.appendChild(a);if(&#39;loading&#39;!==document.readyState)c();else if(window.addEventListener)document.addEventListener(&#39;DOMContentLoaded&#39;,c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);&#39;loading&#39;!==document.readyState&amp;&amp;(document.onreadystatechange=e,c())}}}})();&lt;/script&gt;&lt;/body&gt;
 &lt;/html&gt;
 </pre></div>
 </div>
