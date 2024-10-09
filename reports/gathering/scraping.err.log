@@ -28,18 +28,20 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-site = requests.get('https://www.nytimes.com/section/nyregion')
-html_source = site.content
-soup = BeautifulSoup(html_source, 'lxml')
+# save the data from the website as a "soup" object
+
+site = requests.get('https://translegislation.com/bills/2024/US') # gets the URL
+html_code = site.content # saves the HTML code
+soup = BeautifulSoup(html_code, 'lxml') # creates a soup object
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFeatureNotFound[0m                           Traceback (most recent call last)
-Cell [0;32mIn[2], line 3[0m
-[1;32m      1[0m site [38;5;241m=[39m requests[38;5;241m.[39mget([38;5;124m'[39m[38;5;124mhttps://www.nytimes.com/section/nyregion[39m[38;5;124m'[39m)
-[1;32m      2[0m html_source [38;5;241m=[39m site[38;5;241m.[39mcontent
-[0;32m----> 3[0m soup [38;5;241m=[39m [43mBeautifulSoup[49m[43m([49m[43mhtml_source[49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mlxml[39;49m[38;5;124;43m'[39;49m[43m)[49m
+Cell [0;32mIn[2], line 5[0m
+[1;32m      3[0m site [38;5;241m=[39m requests[38;5;241m.[39mget([38;5;124m'[39m[38;5;124mhttps://translegislation.com/bills/2024/US[39m[38;5;124m'[39m) [38;5;66;03m# gets the URL[39;00m
+[1;32m      4[0m html_code [38;5;241m=[39m site[38;5;241m.[39mcontent [38;5;66;03m# saves the HTML code[39;00m
+[0;32m----> 5[0m soup [38;5;241m=[39m [43mBeautifulSoup[49m[43m([49m[43mhtml_code[49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mlxml[39;49m[38;5;124;43m'[39;49m[43m)[49m [38;5;66;03m# creates a soup object[39;00m
 
 File [0;32m/opt/anaconda3/envs/jb/lib/python3.13/site-packages/bs4/__init__.py:250[0m, in [0;36mBeautifulSoup.__init__[0;34m(self, markup, features, builder, parse_only, from_encoding, exclude_encodings, element_classes, **kwargs)[0m
 [1;32m    248[0m     builder_class [38;5;241m=[39m builder_registry[38;5;241m.[39mlookup([38;5;241m*[39mfeatures)

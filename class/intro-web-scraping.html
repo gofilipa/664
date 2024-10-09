@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -201,6 +201,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../gathering/to-dataframe.html">saving scraped data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/dicts.html">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/nyt_api.html">NYT API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
@@ -451,6 +452,30 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FeatureNotFound</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">site</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.nytimes.com/section/nyregion&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">html_source</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">content</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_source</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/envs/jb/lib/python3.13/site-packages/bs4/__init__.py:250,</span> in <span class="ni">BeautifulSoup.__init__</span><span class="nt">(self, markup, features, builder, parse_only, from_encoding, exclude_encodings, element_classes, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">248</span>     <span class="n">builder_class</span> <span class="o">=</span> <span class="n">builder_registry</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="o">*</span><span class="n">features</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">249</span>     <span class="k">if</span> <span class="n">builder_class</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">250</span>         <span class="k">raise</span> <span class="n">FeatureNotFound</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">251</span>             <span class="s2">&quot;Couldn&#39;t find a tree builder with the features you &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">252</span>             <span class="s2">&quot;requested: </span><span class="si">%s</span><span class="s2">. Do you need to install a parser library?&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span>             <span class="o">%</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">features</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">255</span> <span class="c1"># At this point either we have a TreeBuilder instance in</span>
+<span class="g g-Whitespace">    </span><span class="mi">256</span> <span class="c1"># builder, or we have a builder_class that we can instantiate</span>
+<span class="g g-Whitespace">    </span><span class="mi">257</span> <span class="c1"># with the remaining **kwargs.</span>
+<span class="g g-Whitespace">    </span><span class="mi">258</span> <span class="k">if</span> <span class="n">builder</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="ne">FeatureNotFound</span>: Couldn&#39;t find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -489,6 +514,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p class=&quot;indicate-hover css-mqqhto&quot;&gt;Mideast Crisis&lt;/p&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -504,7 +534,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;New York - The New York Times&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The New York Times - Breaking News, US News, World News and Videos&#39;
 </pre></div>
 </div>
 </div>
@@ -516,7 +546,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2024/10/02/nyregion/nyc-doorman-steals-money-from-teacher.html&quot;&gt;Her Pension Checks Vanished. The Doorman Stole Them, Prosecutors Say.&lt;/a&gt;&lt;/h3&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;h3 class=&quot;css-1nudrh3&quot; id=&quot;U.S.-links-column-header&quot;&gt;Sections&lt;/h3&gt;
 </pre></div>
 </div>
 </div>
@@ -530,7 +560,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;indicate-hover css-91bpc3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
 
 <span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/bs4/element.py:2428,</span> in <span class="ni">ResultSet.__getattr__</span><span class="nt">(self, key)</span>
