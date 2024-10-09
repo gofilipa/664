@@ -1,0 +1,84 @@
+* the MET API, continued. 
+** review: API requests, methods, calls
+- discuss the anatomy of an API request
+  - root, path, endpoint
+  - making the call
+- go over some useful methods for working with API data
+  - dir(), json(), keys() 
+- read over documentation for the MET API
+  - search path
+  - object path
+
+** review: challenge: search -> object calling
+- that number from search corresponds to an object. let's make a new
+  search to find it.
+- write a new request using f-string, passing that into requests.get
+- requests.get, then dir, then json
+- save the variable to "first-json", then check some of the keys
+
+** looping through results to make many calls
+- we are going to grab a bunch of these, create a dataset of works.
+- let's start with the first ten, saving them to a list:
+  - get the IDs, make a list.
+  - write a loop that prints the first ten
+  - group challenge:
+    - write a loop that requests the first ten
+    - use loop and f strings
+    - save to a new list called first 10.
+    - must parse and get json before you add to the list.
+
+** adding conditions:
+- now, use loops and bracket syntax to examine some of the values
+  - cannot access the none values
+  - use if &/or item.get()
+- now, do it for 100 items
+  - individual challenge: google how to add sleep to your loop
+    - add sleep = .5
+- check out the names, and the genders.
+- use f strings to print out both
+  - notice anything interesting?
+    - only the women have an actual gender. hmmmmm....
+    - why is that?
+
+** BREAK
+
+** NYT API
+Creating API calls with keys
+- requesting an API key
+- adding the key
+- checking out the response: type() and dir()
+
+Parsing our data:
+- keys()
+- brackets to go deeper
+- type() to examine time of data
+- where is each article?
+
+Paginating through results
+- &page= parameter, range() function
+- write a loop that goes through a range of 5 pages, and does a search
+  for each page.
+- append the results for each page to a list called results
+- check out our results, where is our data?
+
+Pulling data out of results
+- use type(0 and keys(), and list and dict indexing, to go deeper into
+  our data.
+- where is our article data now?
+- simplify life by creating a variable
+- now we can explore keys()
+- now we can go deeeep into the objects, lists, within dicts,
+  containing dicts
+
+Saving data to lists
+- write a loop that iterates through pages, then through results on
+  each page, to pull out article data.
+- start with just the abstract
+- expand to dates and keywords
+  - keywords is complex! requires going deeper
+- save to lists
+- save to df
+- DONEEEE
+
+Next week, will be sharing information about APIs of interest to us. 
+

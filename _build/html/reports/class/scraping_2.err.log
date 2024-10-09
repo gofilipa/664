@@ -1,0 +1,57 @@
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/opt/anaconda3/envs/jb/lib/python3.13/asyncio/base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+site = requests.get('https://translegislation.com/bills/2024/US')
+html_source_code = site.content
+soup = BeautifulSoup(html_source_code, 'lxml')
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFeatureNotFound[0m                           Traceback (most recent call last)
+Cell [0;32mIn[2], line 3[0m
+[1;32m      1[0m site [38;5;241m=[39m requests[38;5;241m.[39mget([38;5;124m'[39m[38;5;124mhttps://translegislation.com/bills/2024/US[39m[38;5;124m'[39m)
+[1;32m      2[0m html_source_code [38;5;241m=[39m site[38;5;241m.[39mcontent
+[0;32m----> 3[0m soup [38;5;241m=[39m [43mBeautifulSoup[49m[43m([49m[43mhtml_source_code[49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mlxml[39;49m[38;5;124;43m'[39;49m[43m)[49m
+
+File [0;32m/opt/anaconda3/envs/jb/lib/python3.13/site-packages/bs4/__init__.py:250[0m, in [0;36mBeautifulSoup.__init__[0;34m(self, markup, features, builder, parse_only, from_encoding, exclude_encodings, element_classes, **kwargs)[0m
+[1;32m    248[0m     builder_class [38;5;241m=[39m builder_registry[38;5;241m.[39mlookup([38;5;241m*[39mfeatures)
+[1;32m    249[0m     [38;5;28;01mif[39;00m builder_class [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 250[0m         [38;5;28;01mraise[39;00m FeatureNotFound(
+[1;32m    251[0m             [38;5;124m"[39m[38;5;124mCouldn[39m[38;5;124m'[39m[38;5;124mt find a tree builder with the features you [39m[38;5;124m"[39m
+[1;32m    252[0m             [38;5;124m"[39m[38;5;124mrequested: [39m[38;5;132;01m%s[39;00m[38;5;124m. Do you need to install a parser library?[39m[38;5;124m"[39m
+[1;32m    253[0m             [38;5;241m%[39m [38;5;124m"[39m[38;5;124m,[39m[38;5;124m"[39m[38;5;241m.[39mjoin(features))
+[1;32m    255[0m [38;5;66;03m# At this point either we have a TreeBuilder instance in[39;00m
+[1;32m    256[0m [38;5;66;03m# builder, or we have a builder_class that we can instantiate[39;00m
+[1;32m    257[0m [38;5;66;03m# with the remaining **kwargs.[39;00m
+[1;32m    258[0m [38;5;28;01mif[39;00m builder [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+
+[0;31mFeatureNotFound[0m: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+

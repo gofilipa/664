@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -201,6 +201,7 @@
 <li class="toctree-l1"><a class="reference internal" href="to-dataframe.html">saving scraped data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dicts.html">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nyt_api.html">NYT API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legiscan_api.html">Legiscan API</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
@@ -462,6 +463,18 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">requests</span> <span class="c1"># to make https requests</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> <span class="c1"># our web scraping library</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">lxml</span> <span class="c1"># a parser for working with html data</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;lxml&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -563,7 +576,7 @@ If you get an error with importing one of the above libraries, make sure you hav
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Her Pension Checks Vanished. The Doorman Stole Them, Prosecutors Say.&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;A $336 Million Plan to Build Housing, Retail and an Arts Hub in Newark&#39;
 </pre></div>
 </div>
 </div>
@@ -630,7 +643,7 @@ If you get an error with importing one of the above libraries, make sure you hav
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;css-14ee9cx&quot;&gt;&lt;article class=&quot;css-1l4spti&quot;&gt;&lt;figure aria-label=&quot;media&quot; class=&quot;css-8izaxg&quot; role=&quot;group&quot;&gt;&lt;div class=&quot;css-79elbk&quot; data-testid=&quot;imageContainer-children-Image&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;css-rq4mmj&quot; decoding=&quot;async&quot; height=&quot;100&quot; sizes=&quot;(min-width: 1024px) 205px, 150px&quot; src=&quot;https://static01.nyt.com/images/2024/10/02/multimedia/02Gold-02-vmbz/02Gold-02-vmbz-thumbWide.jpg?quality=75&amp;amp;auto=webp&amp;amp;disable=upscale&quot; srcset=&quot;https://static01.nyt.com/images/2024/10/02/multimedia/02Gold-02-vmbz/02Gold-02-vmbz-thumbWide.jpg?quality=100&amp;amp;auto=webp 190w,https://static01.nyt.com/images/2024/10/02/multimedia/02Gold-02-vmbz/02Gold-02-vmbz-videoThumb.jpg?quality=100&amp;amp;auto=webp 75w,https://static01.nyt.com/images/2024/10/02/multimedia/02Gold-02-vmbz/02Gold-02-vmbz-videoLarge.jpg?quality=100&amp;amp;auto=webp 768w,https://static01.nyt.com/images/2024/10/02/multimedia/02Gold-02-vmbz/02Gold-02-vmbz-mediumThreeByTwo210.jpg?quality=100&amp;amp;auto=webp 210w,https://static01.nyt.com/images/2024/10/02/multimedia/02Gold-02-vmbz/02Gold-02-vmbz-mediumThreeByTwo225.jpg?quality=100&amp;amp;auto=webp 225w,https://static01.nyt.com/images/2024/10/02/multimedia/02Gold-02-vmbz/02Gold-02-vmbz-mediumThreeByTwo440.jpg?quality=100&amp;amp;auto=webp 440w,https://static01.nyt.com/images/2024/10/02/multimedia/02Gold-02-vmbz/02Gold-02-vmbz-mediumThreeByTwo252.jpg?quality=100&amp;amp;auto=webp 252w,https://static01.nyt.com/images/2024/10/02/multimedia/02Gold-02-vmbz/02Gold-02-vmbz-mediumThreeByTwo378.jpg?quality=100&amp;amp;auto=webp 378w,https://static01.nyt.com/images/2024/10/02/multimedia/02Gold-02-vmbz/02Gold-02-vmbz-threeByTwoLargeAt2X.jpg?quality=100&amp;amp;auto=webp 1936w,https://static01.nyt.com/images/2024/10/02/multimedia/02Gold-02-vmbz/02Gold-02-vmbz-threeByTwoMediumAt2X.jpg?quality=100&amp;amp;auto=webp 1500w,https://static01.nyt.com/images/2024/10/02/multimedia/02Gold-02-vmbz/02Gold-02-vmbz-threeByTwoSmallAt2X.jpg?quality=100&amp;amp;auto=webp 600w&quot; width=&quot;150&quot;/&gt;&lt;/div&gt;&lt;figcaption class=&quot;css-ktho12 e3rygrp0&quot; data-testid=&quot;photoviewer-children-ImageCaption&quot;&gt;&lt;/figcaption&gt;&lt;/figure&gt;&lt;a class=&quot;css-8hzhxf&quot; href=&quot;/2024/10/02/nyregion/eugene-gold-dead.html&quot;&gt;&lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Eugene Gold, Brooklyn D.A. Who Led the ‘Son of Sam’ Case, Dies at 100&lt;/h3&gt;&lt;/a&gt;&lt;p class=&quot;css-1pga48a e15t083i1&quot;&gt;He prosecuted high-profile cases in the 1970s and championed Soviet Jews, but, after retiring, he ran afoul of the law himself, charged with a sex offense.&lt;/p&gt;&lt;p class=&quot;css-1y3ykdt e140qd2t0&quot;&gt;By &lt;span class=&quot;css-1n7hynb&quot;&gt;Joseph P. Fried&lt;/span&gt;&lt;/p&gt;&lt;/article&gt;&lt;div class=&quot;css-agsgss e15t083i3&quot;&gt;&lt;span class=&quot;css-1wj8chu&quot;&gt; &lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;css-14ee9cx&quot;&gt;&lt;article class=&quot;css-1l4spti&quot;&gt;&lt;figure aria-label=&quot;media&quot; class=&quot;css-8izaxg&quot; role=&quot;group&quot;&gt;&lt;div class=&quot;css-79elbk&quot; data-testid=&quot;imageContainer-children-Image&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;css-rq4mmj&quot; decoding=&quot;async&quot; height=&quot;100&quot; sizes=&quot;(min-width: 1024px) 205px, 150px&quot; src=&quot;https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-thumbWide.jpg?quality=75&amp;amp;auto=webp&amp;amp;disable=upscale&quot; srcset=&quot;https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-thumbWide.jpg?quality=100&amp;amp;auto=webp 190w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-videoThumb.jpg?quality=100&amp;amp;auto=webp 75w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-videoLarge.jpg?quality=100&amp;amp;auto=webp 768w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-mediumThreeByTwo210.jpg?quality=100&amp;amp;auto=webp 210w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-mediumThreeByTwo225.jpg?quality=100&amp;amp;auto=webp 225w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-mediumThreeByTwo440.jpg?quality=100&amp;amp;auto=webp 440w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-mediumThreeByTwo252.jpg?quality=100&amp;amp;auto=webp 252w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-mediumThreeByTwo378.jpg?quality=100&amp;amp;auto=webp 378w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-threeByTwoLargeAt2X.jpg?quality=100&amp;amp;auto=webp 2227w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-threeByTwoMediumAt2X.jpg?quality=100&amp;amp;auto=webp 1500w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-threeByTwoSmallAt2X.jpg?quality=100&amp;amp;auto=webp 600w&quot; width=&quot;150&quot;/&gt;&lt;/div&gt;&lt;figcaption class=&quot;css-ktho12 e3rygrp0&quot; data-testid=&quot;photoviewer-children-ImageCaption&quot;&gt;&lt;/figcaption&gt;&lt;/figure&gt;&lt;a class=&quot;css-8hzhxf&quot; href=&quot;/2024/09/18/nyregion/harrison-j-goldin-dead.html&quot;&gt;&lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Harrison J. Goldin, 88, New York City Comptroller in Fiscal Crisis, Is Dead&lt;/h3&gt;&lt;/a&gt;&lt;p class=&quot;css-1pga48a e15t083i1&quot;&gt;He weathered the storm as the city’s chief financial officer for 16 years and jousted with Mayor Koch in a public feud and a losing primary bid to replace him.&lt;/p&gt;&lt;p class=&quot;css-1y3ykdt e140qd2t0&quot;&gt;By &lt;span class=&quot;css-1n7hynb&quot;&gt;Joseph P. Fried&lt;/span&gt;&lt;/p&gt;&lt;/article&gt;&lt;div class=&quot;css-agsgss e15t083i3&quot;&gt;&lt;span class=&quot;&quot;&gt; &lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
 </pre></div>
 </div>
 </div>
@@ -643,7 +656,7 @@ If you get an error with importing one of the above libraries, make sure you hav
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Eugene Gold, Brooklyn D.A. Who Led the ‘Son of Sam’ Case, Dies at 100He prosecuted high-profile cases in the 1970s and championed Soviet Jews, but, after retiring, he ran afoul of the law himself, charged with a sex offense.By Joseph P. Fried\xa0&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Harrison J. Goldin, 88, New York City Comptroller in Fiscal Crisis, Is DeadHe weathered the storm as the city’s chief financial officer for 16 years and jousted with Mayor Koch in a public feud and a losing primary bid to replace him.By Joseph P. Fried\xa0&#39;
 </pre></div>
 </div>
 </div>
@@ -663,20 +676,20 @@ If you get an error with importing one of the above libraries, make sure you hav
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2024/10/02/nyregion/nyc-doorman-steals-money-from-teacher.html&quot;&gt;Her Pension Checks Vanished. The Doorman Stole Them, Prosecutors Say.&lt;/a&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2024/10/02/nyregion/penn-station-gateway.html&quot;&gt;Penn Station Takes Up Two Blocks. Railroads Say They Must Have More.&lt;/a&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2024/10/02/nyregion/eric-adams-black-voters.html&quot;&gt;What Black Voters Are Saying About Eric Adams Since His Indictment&lt;/a&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2024/10/02/nyregion/adams-return-federal-court.html&quot;&gt;Prosecutors Warn of More Charges and Defendants in Adams Graft Case&lt;/a&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Eugene Gold, Brooklyn D.A. Who Led the ‘Son of Sam’ Case, Dies at 100&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Sarah Snook to Make Broadway Debut in One-Woman ‘Dorian Gray’&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Truckers See Ports Turn Into Ghost Towns, and Worry About Their Future&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Halloween in New York: Things to Do in October&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;‘Water for Elephants’ to Close on Broadway&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Alicia Keys, LaChanze and Kristin Chenoweth Gather to Support Black Theater&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Donna Henes,‘Urban Shaman’ Who Heralded the Seasons, Dies at 79&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Read Eric Adams’s Legal Filing&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;3 Ambitious Song Cycles, but Only One Connects Mind and Heart&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Adams Accuses Prosecutors of Leaking Investigation Details to News Media&lt;/h3&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2024/09/18/nyregion/performing-arts-real-estate-nj.html&quot;&gt;A $336 Million Plan to Build Housing, Retail and an Arts Hub in Newark&lt;/a&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2024/09/18/nyregion/trump-long-island-nassau.html&quot;&gt;Trump, Hardly New York’s Favorite Son, Brings His Message to Long Island&lt;/a&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2024/09/18/nyregion/nypd-shooting-brooklyn-subway-bystander.html&quot;&gt;The Police Called. He Checked the News, and His ‘Heart Dropped.’&lt;/a&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2024/09/18/nyregion/mta-capital-plan-congestion-pricing.html&quot;&gt;M.T.A.’s Financial Needs Grow With Congestion Pricing in Purgatory&lt;/a&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Harrison J. Goldin, 88, New York City Comptroller in Fiscal Crisis, Is Dead&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;‘You’re Basically on a Broadway Stage, With New Friends’&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Panic! At the Vegan Food Festival&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;The King Cole Bar Reopens, Moodier Than Before&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;A Wildly Popular New York Taqueria Nails Its Sequel&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Why Taxpayers Are Funding Cuomo’s Legal Bills&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Critics Question N.Y.P.D. Shootings After Fare Evasion Stop in Subway&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;N.Y.C. Fire Safety Chiefs Accused of Taking Bribes&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;A ‘Buena Vista Social Club’ Musical Will Open on Broadway Next Year&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;2 N.Y.C. Fire Department Chiefs Arrested on Bribery Charges&lt;/h3&gt;]
 </pre></div>
 </div>
 </div>
@@ -691,7 +704,7 @@ If you get an error with importing one of the above libraries, make sure you hav
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">41</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
 
 <span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/bs4/element.py:2428,</span> in <span class="ni">ResultSet.__getattr__</span><span class="nt">(self, key)</span>

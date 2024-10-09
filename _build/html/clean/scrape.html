@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -201,6 +201,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../gathering/to-dataframe.html">saving scraped data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/dicts.html">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/nyt_api.html">NYT API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
@@ -459,6 +460,21 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">requests</span> <span class="c1"># for making http (web) requests</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># for working with tabular (spreadsheet) data</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">csv</span> <span class="c1"># also for working with tabular data, in csv format</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># this grabs the CSV from the previous section. If you get a file</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># not found error make sure you go through the previous section to </span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># save that csv</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -629,7 +645,7 @@ Name: Legislation Number, Length: 148, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>147
 </pre></div>
 </div>
 </div>

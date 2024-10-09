@@ -1,0 +1,4328 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Python for Programming Cultural Heritage</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'class/met-api';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Python for Programming Cultural Heritage - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Python for Programming Cultural Heritage - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python for Programming Cultural Heritage
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gathering/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/what.html">what is web scraping?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/exploring.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/to-dataframe.html">saving scraped data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/met_api.html">The MET API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/dicts.html">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/nyt_api.html">NYT API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/dataframes.html">dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/scrape.html">scraping our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analyze/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/what.html">what is text analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/questions.html">research questions: defining gender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/processing.html">the <code class="docutils literal notranslate"><span class="pre">spaCy</span></code> pipeline</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../analyze/phrases.html">the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/entities.html">the <code class="docutils literal notranslate"><span class="pre">Entity-Ruler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/tokens.html">the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/ml.html">machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fclass/met-api.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/class/met-api.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;https://collectionapi.metmuseum.org&#39;</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/public/collection/v1/search&#39;</span>
+<span class="n">parameter</span> <span class="o">=</span> <span class="s1">&#39;?q=woman&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="n">parameter</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://collectionapi.metmuseum.org/public/collection/v1/search?q=woman&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="n">parameter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>requests.models.Response
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__attrs__&#39;,
+ &#39;__bool__&#39;,
+ &#39;__class__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dict__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__enter__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__exit__&#39;,
+ &#39;__firstlineno__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__getstate__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__iter__&#39;,
+ &#39;__le__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__module__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__nonzero__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__setstate__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__static_attributes__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__weakref__&#39;,
+ &#39;_content&#39;,
+ &#39;_content_consumed&#39;,
+ &#39;_next&#39;,
+ &#39;apparent_encoding&#39;,
+ &#39;close&#39;,
+ &#39;connection&#39;,
+ &#39;content&#39;,
+ &#39;cookies&#39;,
+ &#39;elapsed&#39;,
+ &#39;encoding&#39;,
+ &#39;headers&#39;,
+ &#39;history&#39;,
+ &#39;is_permanent_redirect&#39;,
+ &#39;is_redirect&#39;,
+ &#39;iter_content&#39;,
+ &#39;iter_lines&#39;,
+ &#39;json&#39;,
+ &#39;links&#39;,
+ &#39;next&#39;,
+ &#39;ok&#39;,
+ &#39;raise_for_status&#39;,
+ &#39;raw&#39;,
+ &#39;reason&#39;,
+ &#39;request&#39;,
+ &#39;status_code&#39;,
+ &#39;text&#39;,
+ &#39;url&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;total&#39;: 13625,
+ &#39;objectIDs&#39;: [483873,
+  207162,
+  283274,
+  483877,
+  685333,
+  494305,
+  481438,
+  374147,
+  515811,
+  685319,
+  489510,
+  492892,
+  486510,
+  655796,
+  204181,
+  247582,
+  205376,
+  193453,
+  195502,
+  193045,
+  200897,
+  208482,
+  436173,
+  483484,
+  856709,
+  548584,
+  551500,
+  253505,
+  486423,
+  436616,
+  467700,
+  196462,
+  255391,
+  251428,
+  547202,
+  436121,
+  436896,
+  486578,
+  547334,
+  437402,
+  254469,
+  560727,
+  436002,
+  254597,
+  253135,
+  436986,
+  249222,
+  253050,
+  248132,
+  486845,
+  544210,
+  587759,
+  252452,
+  249091,
+  547257,
+  437099,
+  436295,
+  232047,
+  255275,
+  255417,
+  248689,
+  334249,
+  389226,
+  839042,
+  451943,
+  486742,
+  464456,
+  437881,
+  550970,
+  247004,
+  437879,
+  436024,
+  547860,
+  249223,
+  441024,
+  555567,
+  554337,
+  459192,
+  437880,
+  437160,
+  437390,
+  231788,
+  436004,
+  546746,
+  371017,
+  196452,
+  547758,
+  547476,
+  459052,
+  547820,
+  566713,
+  255697,
+  568194,
+  543905,
+  435711,
+  550158,
+  500194,
+  552504,
+  552505,
+  555761,
+  254747,
+  546047,
+  468716,
+  466235,
+  460424,
+  252594,
+  337064,
+  12787,
+  486209,
+  244801,
+  252721,
+  254436,
+  252411,
+  467701,
+  490013,
+  489981,
+  207128,
+  207088,
+  494051,
+  484524,
+  207175,
+  544183,
+  436170,
+  488711,
+  207051,
+  207064,
+  207063,
+  207056,
+  449475,
+  490037,
+  208857,
+  207045,
+  255027,
+  241071,
+  196453,
+  248351,
+  247538,
+  545413,
+  247882,
+  555755,
+  256221,
+  553770,
+  245538,
+  773251,
+  247900,
+  248393,
+  255423,
+  247506,
+  555946,
+  247569,
+  247579,
+  549021,
+  544218,
+  548486,
+  241295,
+  548508,
+  246283,
+  548466,
+  544055,
+  255478,
+  551351,
+  548636,
+  246746,
+  246747,
+  246749,
+  248385,
+  248402,
+  248409,
+  248406,
+  247890,
+  251511,
+  255023,
+  241274,
+  246389,
+  251941,
+  255612,
+  248794,
+  253497,
+  248167,
+  248603,
+  247540,
+  247561,
+  247520,
+  253824,
+  254758,
+  736840,
+  550934,
+  552786,
+  256225,
+  254763,
+  255034,
+  544895,
+  241287,
+  241285,
+  241283,
+  241050,
+  241099,
+  241133,
+  241047,
+  241014,
+  251510,
+  255434,
+  254761,
+  248793,
+  251274,
+  251273,
+  253057,
+  248598,
+  248608,
+  247581,
+  247555,
+  247553,
+  247507,
+  247499,
+  546662,
+  251512,
+  247557,
+  241279,
+  241273,
+  241282,
+  241278,
+  241070,
+  241072,
+  241108,
+  241048,
+  246392,
+  255431,
+  248599,
+  248105,
+  247556,
+  245507,
+  247881,
+  241098,
+  241049,
+  246669,
+  255432,
+  255982,
+  248597,
+  547832,
+  471988,
+  252569,
+  254748,
+  254749,
+  246994,
+  257433,
+  259248,
+  547203,
+  545882,
+  241069,
+  255002,
+  547826,
+  248166,
+  248337,
+  249087,
+  247889,
+  252626,
+  256921,
+  554749,
+  252587,
+  248600,
+  248613,
+  544523,
+  555718,
+  555717,
+  251174,
+  256831,
+  255096,
+  241037,
+  248596,
+  247532,
+  248381,
+  555719,
+  435991,
+  247489,
+  555757,
+  255433,
+  556555,
+  544867,
+  545032,
+  545895,
+  245517,
+  547818,
+  246278,
+  547845,
+  547837,
+  544412,
+  436174,
+  252414,
+  251352,
+  570349,
+  12100,
+  193627,
+  207048,
+  53446,
+  255111,
+  459211,
+  253487,
+  679844,
+  481763,
+  19317,
+  207749,
+  493751,
+  544678,
+  208841,
+  682087,
+  246286,
+  248672,
+  242041,
+  254759,
+  252571,
+  196458,
+  555658,
+  255192,
+  256778,
+  544869,
+  248714,
+  248453,
+  248386,
+  248384,
+  248417,
+  248606,
+  250714,
+  255594,
+  256204,
+  254498,
+  254755,
+  552477,
+  552824,
+  549254,
+  548509,
+  242370,
+  241062,
+  241079,
+  241095,
+  241063,
+  246694,
+  246418,
+  249273,
+  254526,
+  255415,
+  255595,
+  244734,
+  251166,
+  251216,
+  253423,
+  248602,
+  247559,
+  556551,
+  545035,
+  549698,
+  552233,
+  554680,
+  555566,
+  643802,
+  251350,
+  248741,
+  643690,
+  253708,
+  252919,
+  238518,
+  544689,
+  250655,
+  255436,
+  255026,
+  253040,
+  250530,
+  252637,
+  248897,
+  256758,
+  251454,
+  246985,
+  250701,
+  253055,
+  251492,
+  248309,
+  248114,
+  547834,
+  248366,
+  255410,
+  253051,
+  250529,
+  240955,
+  245508,
+  253484,
+  253509,
+  248595,
+  247502,
+  247554,
+  241251,
+  247870,
+  547821,
+  251868,
+  255440,
+  256979,
+  255390,
+  258079,
+  247574,
+  250528,
+  250527,
+  244074,
+  256571,
+  436153,
+  10112,
+  547838,
+  468309,
+  546032,
+  436934,
+  552036,
+  242077,
+  248586,
+  254765,
+  322114,
+  468215,
+  250585,
+  252946,
+  254677,
+  251525,
+  10113,
+  54915,
+  39126,
+  210670,
+  11446,
+  500442,
+  459071,
+  765030,
+  38577,
+  254852,
+  851529,
+  38187,
+  247869,
+  58697,
+  643540,
+  251858,
+  252927,
+  248896,
+  726731,
+  192673,
+  56152,
+  466065,
+  544225,
+  436128,
+  436172,
+  447386,
+  436171,
+  897321,
+  255454,
+  437182,
+  69855,
+  250183,
+  201851,
+  11716,
+  203444,
+  550681,
+  207144,
+  195145,
+  551290,
+  436125,
+  438018,
+  747607,
+  329944,
+  436910,
+  437322,
+  10247,
+  271716,
+  435864,
+  250706,
+  771054,
+  208173,
+  489645,
+  437759,
+  196507,
+  436582,
+  437437,
+  202972,
+  246996,
+  258562,
+  590353,
+  249608,
+  241266,
+  241090,
+  251557,
+  249595,
+  254533,
+  255339,
+  247003,
+  246993,
+  249052,
+  248799,
+  251234,
+  250927,
+  251041,
+  251061,
+  253494,
+  253493,
+  253495,
+  257623,
+  548515,
+  557746,
+  338096,
+  252375,
+  545150,
+  207191,
+  575539,
+  545271,
+  572166,
+  572165,
+  200916,
+  85395,
+  356821,
+  254508,
+  254195,
+  254695,
+  329768,
+  250707,
+  547861,
+  254496,
+  249218,
+  242092,
+  248378,
+  251589,
+  251577,
+  251593,
+  251592,
+  251580,
+  251579,
+  251582,
+  251581,
+  254820,
+  249180,
+  557681,
+  253347,
+  545881,
+  255176,
+  251349,
+  253584,
+  253047,
+  250722,
+  241228,
+  251578,
+  250973,
+  247513,
+  256866,
+  254811,
+  254798,
+  255370,
+  255043,
+  255978,
+  560171,
+  560174,
+  560166,
+  560172,
+  560170,
+  560167,
+  560168,
+  560169,
+  560173,
+  549123,
+  435670,
+  253485,
+  437133,
+  258495,
+  436259,
+  191845,
+  42482,
+  548521,
+  255549,
+  436846,
+  247479,
+  436152,
+  256601,
+  437838,
+  547441,
+  544824,
+  19226,
+  590748,
+  656910,
+  436872,
+  702752,
+  437405,
+  254170,
+  437073,
+  253049,
+  251543,
+  252504,
+  549983,
+  251375,
+  251573,
+  244056,
+  244073,
+  255280,
+  255290,
+  251182,
+  250680,
+  253511,
+  253496,
+  256239,
+  248809,
+  435990,
+  436531,
+  207046,
+  201621,
+  195360,
+  201333,
+  557205,
+  241117,
+  245531,
+  248601,
+  248712,
+  247533,
+  547492,
+  547478,
+  549525,
+  236035,
+  460603,
+  38244,
+  207092,
+  254762,
+  195781,
+  241185,
+  241138,
+  253421,
+  258000,
+  550679,
+  248310,
+  468216,
+  436875,
+  383862,
+  207054,
+  753553,
+  753551,
+  193822,
+  883943,
+  196441,
+  196485,
+  329783,
+  253078,
+  193823,
+  254319,
+  251817,
+  251506,
+  254317,
+  550749,
+  254181,
+  252938,
+  246932,
+  436947,
+  817179,
+  548394,
+  248001,
+  465928,
+  436120,
+  254207,
+  251404,
+  247368,
+  248362,
+  561100,
+  246650,
+  552054,
+  782304,
+  252285,
+  255984,
+  253776,
+  38424,
+  254546,
+  549984,
+  251586,
+  251590,
+  251591,
+  253579,
+  208343,
+  247106,
+  255165,
+  243470,
+  248574,
+  256191,
+  464125,
+  436216,
+  829997,
+  829998,
+  435717,
+  435718,
+  437391,
+  445966,
+  337894,
+  204272,
+  10916,
+  204273,
+  201218,
+  545876,
+  471098,
+  253005,
+  247542,
+  468586,
+  196484,
+  438120,
+  241168,
+  241236,
+  241204,
+  460489,
+  208344,
+  46509,
+  471961,
+  252515,
+  253367,
+  254481,
+  253622,
+  248363,
+  254307,
+  466041,
+  208347,
+  197226,
+  548635,
+  435820,
+  247373,
+  250715,
+  840760,
+  840750,
+  252573,
+  471377,
+  196481,
+  196483,
+  196443,
+  196486,
+  248091,
+  254340,
+  245069,
+  254949,
+  254924,
+  255457,
+  247387,
+  251089,
+  255095,
+  256254,
+  253680,
+  247543,
+  247541,
+  452028,
+  251386,
+  254943,
+  247872,
+  256949,
+  438625,
+  254465,
+  258421,
+  341263,
+  339837,
+  436327,
+  204274,
+  255112,
+  550693,
+  247391,
+  471095,
+  245017,
+  557684,
+  251184,
+  438118,
+  437430,
+  548610,
+  254766,
+  488228,
+  716874,
+  248297,
+  490576,
+  320604,
+  320606,
+  320601,
+  320602,
+  320603,
+  16038,
+  307476,
+  320605,
+  488691,
+  319087,
+  504408,
+  319017,
+  20538,
+  319903,
+  475094,
+  475093,
+  60142,
+  340864,
+  340668,
+  437055,
+  253054,
+  247547,
+  504514,
+  492354,
+  207593,
+  247440,
+  254174,
+  247446,
+  251878,
+  251495,
+  255935,
+  253679,
+  247437,
+  199486,
+  252539,
+  245598,
+  729644,
+  246939,
+  436449,
+  548633,
+  715423,
+  489278,
+  552998,
+  552997,
+  254286,
+  191849,
+  560668,
+  659735,
+  254767,
+  207502,
+  483490,
+  486752,
+  768419,
+  848097,
+  207478,
+  201425,
+  482692,
+  489772,
+  489773,
+  493904,
+  485684,
+  244823,
+  192028,
+  243648,
+  250825,
+  42113,
+  254568,
+  546798,
+  245601,
+  248099,
+  247010,
+  252924,
+  241267,
+  436794,
+  241115,
+  751536,
+  479089,
+  424206,
+  252335,
+  254329,
+  252979,
+  247901,
+  240160,
+  245071,
+  245068,
+  245132,
+  251421,
+  244999,
+  254603,
+  249147,
+  545963,
+  241132,
+  246974,
+  247518,
+  254760,
+  254753,
+  251547,
+  250712,
+  247987,
+  241135,
+  254179,
+  752926,
+  250557,
+  768129,
+  242098,
+  254488,
+  766256,
+  69947,
+  69946,
+  207785,
+  320854,
+  558022,
+  558021,
+  55770,
+  253348,
+  715420,
+  248088,
+  255883,
+  647865,
+  78519,
+  398112,
+  382059,
+  655078,
+  256172,
+  639903,
+  547855,
+  547844,
+  547836,
+  545806,
+  552566,
+  544785,
+  248679,
+  686487,
+  708764,
+  12072,
+  680568,
+  710403,
+  198944,
+  246592,
+  186838,
+  829343,
+  360182,
+  198910,
+  191847,
+  199869,
+  13460,
+  39068,
+  472319,
+  264574,
+  247299,
+  670997,
+  671003,
+  650885,
+  650268,
+  396217,
+  373716,
+  396492,
+  11162,
+  10688,
+  829476,
+  56693,
+  271516,
+  335713,
+  399667,
+  374585,
+  396119,
+  19229,
+  488837,
+  725525,
+  485814,
+  495226,
+  231130,
+  206324,
+  483351,
+  375240,
+  830344,
+  685323,
+  650275,
+  334482,
+  481466,
+  254792,
+  480989,
+  904318,
+  460374,
+  15475,
+  11430,
+  12145,
+  12254,
+  13348,
+  206058,
+  189035,
+  207325,
+  486347,
+  901388,
+  486697,
+  374116,
+  486638,
+  207318,
+  489000,
+  483362,
+  483375,
+  483369,
+  485799,
+  491328,
+  487953,
+  347891,
+  362261,
+  557637,
+  254669,
+  251385,
+  368683,
+  284181,
+  367911,
+  268374,
+  189273,
+  192322,
+  489637,
+  481230,
+  196542,
+  36367,
+  189272,
+  203209,
+  203210,
+  12031,
+  488429,
+  45381,
+  44586,
+  854141,
+  251135,
+  687771,
+  708901,
+  708897,
+  662706,
+  14981,
+  36368,
+  490608,
+  227737,
+  ...]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__class__&#39;,
+ &#39;__class_getitem__&#39;,
+ &#39;__contains__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__delitem__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__getitem__&#39;,
+ &#39;__getstate__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__ior__&#39;,
+ &#39;__iter__&#39;,
+ &#39;__le__&#39;,
+ &#39;__len__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__or__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__reversed__&#39;,
+ &#39;__ror__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__setitem__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;clear&#39;,
+ &#39;copy&#39;,
+ &#39;fromkeys&#39;,
+ &#39;get&#39;,
+ &#39;items&#39;,
+ &#39;keys&#39;,
+ &#39;pop&#39;,
+ &#39;popitem&#39;,
+ &#39;setdefault&#39;,
+ &#39;update&#39;,
+ &#39;values&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;total&#39;, &#39;objectIDs&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">students</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;tyler&#39;</span><span class="p">,</span> <span class="s1">&#39;alison&#39;</span><span class="p">,</span> <span class="s1">&#39;brendan&#39;</span><span class="p">,</span> <span class="s1">&#39;nicolas&#39;</span><span class="p">,</span> <span class="s1">&#39;marko&#39;</span><span class="p">,</span> <span class="s1">&#39;keyarow&#39;</span><span class="p">,</span> <span class="s1">&#39;lawrence&#39;</span><span class="p">,</span> <span class="s1">&#39;michaela&#39;</span><span class="p">,</span> <span class="s1">&#39;filipa&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;sign&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;pisces&#39;</span><span class="p">,</span> <span class="s1">&#39;leo&#39;</span><span class="p">,</span> <span class="s1">&#39;virgo&#39;</span><span class="p">,</span> <span class="s1">&#39;virgo&#39;</span><span class="p">,</span> <span class="s1">&#39;virgo&#39;</span><span class="p">,</span> <span class="s1">&#39;pisces&#39;</span><span class="p">,</span> <span class="s1">&#39;aquarius&#39;</span><span class="p">,</span> <span class="s1">&#39;aries&#39;</span><span class="p">,</span> <span class="s1">&#39;gemini&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">students</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;name&#39;, &#39;sign&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">students</span><span class="p">[</span><span class="s1">&#39;sign&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;virgo&#39;, &#39;virgo&#39;, &#39;virgo&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;total&#39;, &#39;objectIDs&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;objectIDs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;objectIDs&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[483873,
+ 207162,
+ 283274,
+ 483877,
+ 685333,
+ 494305,
+ 481438,
+ 374147,
+ 515811,
+ 685319,
+ 489510,
+ 492892,
+ 486510,
+ 655796,
+ 204181,
+ 247582,
+ 205376,
+ 193453,
+ 195502,
+ 193045,
+ 200897,
+ 208482,
+ 436173,
+ 483484,
+ 856709,
+ 548584,
+ 551500,
+ 253505,
+ 486423,
+ 436616,
+ 467700,
+ 196462,
+ 255391,
+ 251428,
+ 547202,
+ 436121,
+ 436896,
+ 486578,
+ 547334,
+ 437402,
+ 254469,
+ 560727,
+ 436002,
+ 254597,
+ 253135,
+ 436986,
+ 249222,
+ 253050,
+ 248132,
+ 486845,
+ 544210,
+ 587759,
+ 252452,
+ 249091,
+ 547257,
+ 437099,
+ 436295,
+ 232047,
+ 255275,
+ 255417,
+ 248689,
+ 334249,
+ 389226,
+ 839042,
+ 451943,
+ 486742,
+ 464456,
+ 437881,
+ 550970,
+ 247004,
+ 437879,
+ 436024,
+ 547860,
+ 249223,
+ 441024,
+ 555567,
+ 554337,
+ 459192,
+ 437880,
+ 437160,
+ 437390,
+ 231788,
+ 436004,
+ 546746,
+ 371017,
+ 196452,
+ 547758,
+ 547476,
+ 459052,
+ 547820,
+ 566713,
+ 255697,
+ 568194,
+ 543905,
+ 435711,
+ 550158,
+ 500194,
+ 552504,
+ 552505,
+ 555761,
+ 254747,
+ 546047,
+ 468716,
+ 466235,
+ 460424,
+ 252594,
+ 337064,
+ 12787,
+ 486209,
+ 244801,
+ 252721,
+ 254436,
+ 252411,
+ 467701,
+ 490013,
+ 489981,
+ 207128,
+ 207088,
+ 494051,
+ 484524,
+ 207175,
+ 544183,
+ 436170,
+ 488711,
+ 207051,
+ 207064,
+ 207063,
+ 207056,
+ 449475,
+ 490037,
+ 208857,
+ 207045,
+ 255027,
+ 241071,
+ 196453,
+ 248351,
+ 247538,
+ 545413,
+ 247882,
+ 555755,
+ 256221,
+ 553770,
+ 245538,
+ 773251,
+ 247900,
+ 248393,
+ 255423,
+ 247506,
+ 555946,
+ 247569,
+ 247579,
+ 549021,
+ 544218,
+ 548486,
+ 241295,
+ 548508,
+ 246283,
+ 548466,
+ 544055,
+ 255478,
+ 551351,
+ 548636,
+ 246746,
+ 246747,
+ 246749,
+ 248385,
+ 248402,
+ 248409,
+ 248406,
+ 247890,
+ 251511,
+ 255023,
+ 241274,
+ 246389,
+ 251941,
+ 255612,
+ 248794,
+ 253497,
+ 248167,
+ 248603,
+ 247540,
+ 247561,
+ 247520,
+ 253824,
+ 254758,
+ 736840,
+ 550934,
+ 552786,
+ 256225,
+ 254763,
+ 255034,
+ 544895,
+ 241287,
+ 241285,
+ 241283,
+ 241050,
+ 241099,
+ 241133,
+ 241047,
+ 241014,
+ 251510,
+ 255434,
+ 254761,
+ 248793,
+ 251274,
+ 251273,
+ 253057,
+ 248598,
+ 248608,
+ 247581,
+ 247555,
+ 247553,
+ 247507,
+ 247499,
+ 546662,
+ 251512,
+ 247557,
+ 241279,
+ 241273,
+ 241282,
+ 241278,
+ 241070,
+ 241072,
+ 241108,
+ 241048,
+ 246392,
+ 255431,
+ 248599,
+ 248105,
+ 247556,
+ 245507,
+ 247881,
+ 241098,
+ 241049,
+ 246669,
+ 255432,
+ 255982,
+ 248597,
+ 547832,
+ 471988,
+ 252569,
+ 254748,
+ 254749,
+ 246994,
+ 257433,
+ 259248,
+ 547203,
+ 545882,
+ 241069,
+ 255002,
+ 547826,
+ 248166,
+ 248337,
+ 249087,
+ 247889,
+ 252626,
+ 256921,
+ 554749,
+ 252587,
+ 248600,
+ 248613,
+ 544523,
+ 555718,
+ 555717,
+ 251174,
+ 256831,
+ 255096,
+ 241037,
+ 248596,
+ 247532,
+ 248381,
+ 555719,
+ 435991,
+ 247489,
+ 555757,
+ 255433,
+ 556555,
+ 544867,
+ 545032,
+ 545895,
+ 245517,
+ 547818,
+ 246278,
+ 547845,
+ 547837,
+ 544412,
+ 436174,
+ 252414,
+ 251352,
+ 570349,
+ 12100,
+ 193627,
+ 207048,
+ 53446,
+ 255111,
+ 459211,
+ 253487,
+ 679844,
+ 481763,
+ 19317,
+ 207749,
+ 493751,
+ 544678,
+ 208841,
+ 682087,
+ 246286,
+ 248672,
+ 242041,
+ 254759,
+ 252571,
+ 196458,
+ 555658,
+ 255192,
+ 256778,
+ 544869,
+ 248714,
+ 248453,
+ 248386,
+ 248384,
+ 248417,
+ 248606,
+ 250714,
+ 255594,
+ 256204,
+ 254498,
+ 254755,
+ 552477,
+ 552824,
+ 549254,
+ 548509,
+ 242370,
+ 241062,
+ 241079,
+ 241095,
+ 241063,
+ 246694,
+ 246418,
+ 249273,
+ 254526,
+ 255415,
+ 255595,
+ 244734,
+ 251166,
+ 251216,
+ 253423,
+ 248602,
+ 247559,
+ 556551,
+ 545035,
+ 549698,
+ 552233,
+ 554680,
+ 555566,
+ 643802,
+ 251350,
+ 248741,
+ 643690,
+ 253708,
+ 252919,
+ 238518,
+ 544689,
+ 250655,
+ 255436,
+ 255026,
+ 253040,
+ 250530,
+ 252637,
+ 248897,
+ 256758,
+ 251454,
+ 246985,
+ 250701,
+ 253055,
+ 251492,
+ 248309,
+ 248114,
+ 547834,
+ 248366,
+ 255410,
+ 253051,
+ 250529,
+ 240955,
+ 245508,
+ 253484,
+ 253509,
+ 248595,
+ 247502,
+ 247554,
+ 241251,
+ 247870,
+ 547821,
+ 251868,
+ 255440,
+ 256979,
+ 255390,
+ 258079,
+ 247574,
+ 250528,
+ 250527,
+ 244074,
+ 256571,
+ 436153,
+ 10112,
+ 547838,
+ 468309,
+ 546032,
+ 436934,
+ 552036,
+ 242077,
+ 248586,
+ 254765,
+ 322114,
+ 468215,
+ 250585,
+ 252946,
+ 254677,
+ 251525,
+ 10113,
+ 54915,
+ 39126,
+ 210670,
+ 11446,
+ 500442,
+ 459071,
+ 765030,
+ 38577,
+ 254852,
+ 851529,
+ 38187,
+ 247869,
+ 58697,
+ 643540,
+ 251858,
+ 252927,
+ 248896,
+ 726731,
+ 192673,
+ 56152,
+ 466065,
+ 544225,
+ 436128,
+ 436172,
+ 447386,
+ 436171,
+ 897321,
+ 255454,
+ 437182,
+ 69855,
+ 250183,
+ 201851,
+ 11716,
+ 203444,
+ 550681,
+ 207144,
+ 195145,
+ 551290,
+ 436125,
+ 438018,
+ 747607,
+ 329944,
+ 436910,
+ 437322,
+ 10247,
+ 271716,
+ 435864,
+ 250706,
+ 771054,
+ 208173,
+ 489645,
+ 437759,
+ 196507,
+ 436582,
+ 437437,
+ 202972,
+ 246996,
+ 258562,
+ 590353,
+ 249608,
+ 241266,
+ 241090,
+ 251557,
+ 249595,
+ 254533,
+ 255339,
+ 247003,
+ 246993,
+ 249052,
+ 248799,
+ 251234,
+ 250927,
+ 251041,
+ 251061,
+ 253494,
+ 253493,
+ 253495,
+ 257623,
+ 548515,
+ 557746,
+ 338096,
+ 252375,
+ 545150,
+ 207191,
+ 575539,
+ 545271,
+ 572166,
+ 572165,
+ 200916,
+ 85395,
+ 356821,
+ 254508,
+ 254195,
+ 254695,
+ 329768,
+ 250707,
+ 547861,
+ 254496,
+ 249218,
+ 242092,
+ 248378,
+ 251589,
+ 251577,
+ 251593,
+ 251592,
+ 251580,
+ 251579,
+ 251582,
+ 251581,
+ 254820,
+ 249180,
+ 557681,
+ 253347,
+ 545881,
+ 255176,
+ 251349,
+ 253584,
+ 253047,
+ 250722,
+ 241228,
+ 251578,
+ 250973,
+ 247513,
+ 256866,
+ 254811,
+ 254798,
+ 255370,
+ 255043,
+ 255978,
+ 560171,
+ 560174,
+ 560166,
+ 560172,
+ 560170,
+ 560167,
+ 560168,
+ 560169,
+ 560173,
+ 549123,
+ 435670,
+ 253485,
+ 437133,
+ 258495,
+ 436259,
+ 191845,
+ 42482,
+ 548521,
+ 255549,
+ 436846,
+ 247479,
+ 436152,
+ 256601,
+ 437838,
+ 547441,
+ 544824,
+ 19226,
+ 590748,
+ 656910,
+ 436872,
+ 702752,
+ 437405,
+ 254170,
+ 437073,
+ 253049,
+ 251543,
+ 252504,
+ 549983,
+ 251375,
+ 251573,
+ 244056,
+ 244073,
+ 255280,
+ 255290,
+ 251182,
+ 250680,
+ 253511,
+ 253496,
+ 256239,
+ 248809,
+ 435990,
+ 436531,
+ 207046,
+ 201621,
+ 195360,
+ 201333,
+ 557205,
+ 241117,
+ 245531,
+ 248601,
+ 248712,
+ 247533,
+ 547492,
+ 547478,
+ 549525,
+ 236035,
+ 460603,
+ 38244,
+ 207092,
+ 254762,
+ 195781,
+ 241185,
+ 241138,
+ 253421,
+ 258000,
+ 550679,
+ 248310,
+ 468216,
+ 436875,
+ 383862,
+ 207054,
+ 753553,
+ 753551,
+ 193822,
+ 883943,
+ 196441,
+ 196485,
+ 329783,
+ 253078,
+ 193823,
+ 254319,
+ 251817,
+ 251506,
+ 254317,
+ 550749,
+ 254181,
+ 252938,
+ 246932,
+ 436947,
+ 817179,
+ 548394,
+ 248001,
+ 465928,
+ 436120,
+ 254207,
+ 251404,
+ 247368,
+ 248362,
+ 561100,
+ 246650,
+ 552054,
+ 782304,
+ 252285,
+ 255984,
+ 253776,
+ 38424,
+ 254546,
+ 549984,
+ 251586,
+ 251590,
+ 251591,
+ 253579,
+ 208343,
+ 247106,
+ 255165,
+ 243470,
+ 248574,
+ 256191,
+ 464125,
+ 436216,
+ 829997,
+ 829998,
+ 435717,
+ 435718,
+ 437391,
+ 445966,
+ 337894,
+ 204272,
+ 10916,
+ 204273,
+ 201218,
+ 545876,
+ 471098,
+ 253005,
+ 247542,
+ 468586,
+ 196484,
+ 438120,
+ 241168,
+ 241236,
+ 241204,
+ 460489,
+ 208344,
+ 46509,
+ 471961,
+ 252515,
+ 253367,
+ 254481,
+ 253622,
+ 248363,
+ 254307,
+ 466041,
+ 208347,
+ 197226,
+ 548635,
+ 435820,
+ 247373,
+ 250715,
+ 840760,
+ 840750,
+ 252573,
+ 471377,
+ 196481,
+ 196483,
+ 196443,
+ 196486,
+ 248091,
+ 254340,
+ 245069,
+ 254949,
+ 254924,
+ 255457,
+ 247387,
+ 251089,
+ 255095,
+ 256254,
+ 253680,
+ 247543,
+ 247541,
+ 452028,
+ 251386,
+ 254943,
+ 247872,
+ 256949,
+ 438625,
+ 254465,
+ 258421,
+ 341263,
+ 339837,
+ 436327,
+ 204274,
+ 255112,
+ 550693,
+ 247391,
+ 471095,
+ 245017,
+ 557684,
+ 251184,
+ 438118,
+ 437430,
+ 548610,
+ 254766,
+ 488228,
+ 716874,
+ 248297,
+ 490576,
+ 320604,
+ 320606,
+ 320601,
+ 320602,
+ 320603,
+ 16038,
+ 307476,
+ 320605,
+ 488691,
+ 319087,
+ 504408,
+ 319017,
+ 20538,
+ 319903,
+ 475094,
+ 475093,
+ 60142,
+ 340864,
+ 340668,
+ 437055,
+ 253054,
+ 247547,
+ 504514,
+ 492354,
+ 207593,
+ 247440,
+ 254174,
+ 247446,
+ 251878,
+ 251495,
+ 255935,
+ 253679,
+ 247437,
+ 199486,
+ 252539,
+ 245598,
+ 729644,
+ 246939,
+ 436449,
+ 548633,
+ 715423,
+ 489278,
+ 552998,
+ 552997,
+ 254286,
+ 191849,
+ 560668,
+ 659735,
+ 254767,
+ 207502,
+ 483490,
+ 486752,
+ 768419,
+ 848097,
+ 207478,
+ 201425,
+ 482692,
+ 489772,
+ 489773,
+ 493904,
+ 485684,
+ 244823,
+ 192028,
+ 243648,
+ 250825,
+ 42113,
+ 254568,
+ 546798,
+ 245601,
+ 248099,
+ 247010,
+ 252924,
+ 241267,
+ 436794,
+ 241115,
+ 751536,
+ 479089,
+ 424206,
+ 252335,
+ 254329,
+ 252979,
+ 247901,
+ 240160,
+ 245071,
+ 245068,
+ 245132,
+ 251421,
+ 244999,
+ 254603,
+ 249147,
+ 545963,
+ 241132,
+ 246974,
+ 247518,
+ 254760,
+ 254753,
+ 251547,
+ 250712,
+ 247987,
+ 241135,
+ 254179,
+ 752926,
+ 250557,
+ 768129,
+ 242098,
+ 254488,
+ 766256,
+ 69947,
+ 69946,
+ 207785,
+ 320854,
+ 558022,
+ 558021,
+ 55770,
+ 253348,
+ 715420,
+ 248088,
+ 255883,
+ 647865,
+ 78519,
+ 398112,
+ 382059,
+ 655078,
+ 256172,
+ 639903,
+ 547855,
+ 547844,
+ 547836,
+ 545806,
+ 552566,
+ 544785,
+ 248679,
+ 686487,
+ 708764,
+ 12072,
+ 680568,
+ 710403,
+ 198944,
+ 246592,
+ 186838,
+ 829343,
+ 360182,
+ 198910,
+ 191847,
+ 199869,
+ 13460,
+ 39068,
+ 472319,
+ 264574,
+ 247299,
+ 670997,
+ 671003,
+ 650885,
+ 650268,
+ 396217,
+ 373716,
+ 396492,
+ 11162,
+ 10688,
+ 829476,
+ 56693,
+ 271516,
+ 335713,
+ 399667,
+ 374585,
+ 396119,
+ 19229,
+ 488837,
+ 725525,
+ 485814,
+ 495226,
+ 231130,
+ 206324,
+ 483351,
+ 375240,
+ 830344,
+ 685323,
+ 650275,
+ 334482,
+ 481466,
+ 254792,
+ 480989,
+ 904318,
+ 460374,
+ 15475,
+ 11430,
+ 12145,
+ 12254,
+ 13348,
+ 206058,
+ 189035,
+ 207325,
+ 486347,
+ 901388,
+ 486697,
+ 374116,
+ 486638,
+ 207318,
+ 489000,
+ 483362,
+ 483375,
+ 483369,
+ 485799,
+ 491328,
+ 487953,
+ 347891,
+ 362261,
+ 557637,
+ 254669,
+ 251385,
+ 368683,
+ 284181,
+ 367911,
+ 268374,
+ 189273,
+ 192322,
+ 489637,
+ 481230,
+ 196542,
+ 36367,
+ 189272,
+ 203209,
+ 203210,
+ 12031,
+ 488429,
+ 45381,
+ 44586,
+ 854141,
+ 251135,
+ 687771,
+ 708901,
+ 708897,
+ 662706,
+ 14981,
+ 36368,
+ 490608,
+ 227737,
+ ...]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">root</span><span class="si">}</span><span class="s1">/public/collection/v1/objects/</span><span class="si">{</span><span class="n">first</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__attrs__&#39;,
+ &#39;__bool__&#39;,
+ &#39;__class__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dict__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__enter__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__exit__&#39;,
+ &#39;__firstlineno__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__getstate__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__iter__&#39;,
+ &#39;__le__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__module__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__nonzero__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__setstate__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__static_attributes__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__weakref__&#39;,
+ &#39;_content&#39;,
+ &#39;_content_consumed&#39;,
+ &#39;_next&#39;,
+ &#39;apparent_encoding&#39;,
+ &#39;close&#39;,
+ &#39;connection&#39;,
+ &#39;content&#39;,
+ &#39;cookies&#39;,
+ &#39;elapsed&#39;,
+ &#39;encoding&#39;,
+ &#39;headers&#39;,
+ &#39;history&#39;,
+ &#39;is_permanent_redirect&#39;,
+ &#39;is_redirect&#39;,
+ &#39;iter_content&#39;,
+ &#39;iter_lines&#39;,
+ &#39;json&#39;,
+ &#39;links&#39;,
+ &#39;next&#39;,
+ &#39;ok&#39;,
+ &#39;raise_for_status&#39;,
+ &#39;raw&#39;,
+ &#39;reason&#39;,
+ &#39;request&#39;,
+ &#39;status_code&#39;,
+ &#39;text&#39;,
+ &#39;url&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_object</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_object</span><span class="p">[</span><span class="s1">&#39;constituents&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Willem de Kooning&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_object</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;objectID&#39;: 483873,
+ &#39;isHighlight&#39;: False,
+ &#39;accessionNumber&#39;: &#39;1984.613.2&#39;,
+ &#39;accessionYear&#39;: &#39;1984&#39;,
+ &#39;isPublicDomain&#39;: False,
+ &#39;primaryImage&#39;: &#39;&#39;,
+ &#39;primaryImageSmall&#39;: &#39;&#39;,
+ &#39;additionalImages&#39;: [],
+ &#39;constituents&#39;: [{&#39;constituentID&#39;: 161817,
+   &#39;role&#39;: &#39;Artist&#39;,
+   &#39;name&#39;: &#39;Willem de Kooning&#39;,
+   &#39;constituentULAN_URL&#39;: &#39;http://vocab.getty.edu/page/ulan/500000974&#39;,
+   &#39;constituentWikidata_URL&#39;: &#39;https://www.wikidata.org/wiki/Q132305&#39;,
+   &#39;gender&#39;: &#39;&#39;}],
+ &#39;department&#39;: &#39;Modern and Contemporary Art&#39;,
+ &#39;objectName&#39;: &#39;Painting&#39;,
+ &#39;title&#39;: &#39;Woman&#39;,
+ &#39;culture&#39;: &#39;&#39;,
+ &#39;period&#39;: &#39;&#39;,
+ &#39;dynasty&#39;: &#39;&#39;,
+ &#39;reign&#39;: &#39;&#39;,
+ &#39;portfolio&#39;: &#39;&#39;,
+ &#39;artistRole&#39;: &#39;Artist&#39;,
+ &#39;artistPrefix&#39;: &#39;&#39;,
+ &#39;artistDisplayName&#39;: &#39;Willem de Kooning&#39;,
+ &#39;artistDisplayBio&#39;: &#39;American (born The Netherlands), Rotterdam 1904–1997 East Hampton, New York&#39;,
+ &#39;artistSuffix&#39;: &#39;&#39;,
+ &#39;artistAlphaSort&#39;: &#39;De Kooning, Willem&#39;,
+ &#39;artistNationality&#39;: &#39;American, born The Netherlands&#39;,
+ &#39;artistBeginDate&#39;: &#39;1904&#39;,
+ &#39;artistEndDate&#39;: &#39;1997&#39;,
+ &#39;artistGender&#39;: &#39;&#39;,
+ &#39;artistWikidata_URL&#39;: &#39;https://www.wikidata.org/wiki/Q132305&#39;,
+ &#39;artistULAN_URL&#39;: &#39;http://vocab.getty.edu/page/ulan/500000974&#39;,
+ &#39;objectDate&#39;: &#39;1944&#39;,
+ &#39;objectBeginDate&#39;: 1944,
+ &#39;objectEndDate&#39;: 1944,
+ &#39;medium&#39;: &#39;Oil and charcoal on canvas&#39;,
+ &#39;dimensions&#39;: &#39;45 7/8 × 31 3/4 in. (116.5 × 80.6 cm)&#39;,
+ &#39;measurements&#39;: [{&#39;elementName&#39;: &#39;Overall&#39;,
+   &#39;elementDescription&#39;: None,
+   &#39;elementMeasurements&#39;: {&#39;Height&#39;: 116.522736, &#39;Width&#39;: 80.645164}},
+  {&#39;elementName&#39;: &#39;Frame&#39;,
+   &#39;elementDescription&#39;: &#39;F.1.1984.613.2 Brown wood float frame-AR Pexi&#39;,
+   &#39;elementMeasurements&#39;: {&#39;Depth&#39;: 9.207519,
+    &#39;Height&#39;: 125.730255,
+    &#39;Width&#39;: 90.80518}}],
+ &#39;creditLine&#39;: &#39;From the Collection of Thomas B. Hess, Gift of the heirs of Thomas B. Hess, 1984&#39;,
+ &#39;geographyType&#39;: &#39;&#39;,
+ &#39;city&#39;: &#39;&#39;,
+ &#39;state&#39;: &#39;&#39;,
+ &#39;county&#39;: &#39;&#39;,
+ &#39;country&#39;: &#39;&#39;,
+ &#39;region&#39;: &#39;&#39;,
+ &#39;subregion&#39;: &#39;&#39;,
+ &#39;locale&#39;: &#39;&#39;,
+ &#39;locus&#39;: &#39;&#39;,
+ &#39;excavation&#39;: &#39;&#39;,
+ &#39;river&#39;: &#39;&#39;,
+ &#39;classification&#39;: &#39;Paintings&#39;,
+ &#39;rightsAndReproduction&#39;: &#39;© 2024 Artists Rights Society (ARS), New York&#39;,
+ &#39;linkResource&#39;: &#39;&#39;,
+ &#39;metadataDate&#39;: &#39;2024-09-21T04:53:05.127Z&#39;,
+ &#39;repository&#39;: &#39;Metropolitan Museum of Art, New York, NY&#39;,
+ &#39;objectURL&#39;: &#39;https://www.metmuseum.org/art/collection/search/483873&#39;,
+ &#39;tags&#39;: [{&#39;term&#39;: &#39;Women&#39;,
+   &#39;AAT_URL&#39;: &#39;http://vocab.getty.edu/page/aat/300025943&#39;,
+   &#39;Wikidata_URL&#39;: &#39;https://www.wikidata.org/wiki/Q467&#39;}],
+ &#39;objectWikidata_URL&#39;: &#39;https://www.wikidata.org/wiki/Q20189686&#39;,
+ &#39;isTimelineWork&#39;: False,
+ &#39;GalleryNumber&#39;: &#39;&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_object</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;objectID&#39;, &#39;isHighlight&#39;, &#39;accessionNumber&#39;, &#39;accessionYear&#39;, &#39;isPublicDomain&#39;, &#39;primaryImage&#39;, &#39;primaryImageSmall&#39;, &#39;additionalImages&#39;, &#39;constituents&#39;, &#39;department&#39;, &#39;objectName&#39;, &#39;title&#39;, &#39;culture&#39;, &#39;period&#39;, &#39;dynasty&#39;, &#39;reign&#39;, &#39;portfolio&#39;, &#39;artistRole&#39;, &#39;artistPrefix&#39;, &#39;artistDisplayName&#39;, &#39;artistDisplayBio&#39;, &#39;artistSuffix&#39;, &#39;artistAlphaSort&#39;, &#39;artistNationality&#39;, &#39;artistBeginDate&#39;, &#39;artistEndDate&#39;, &#39;artistGender&#39;, &#39;artistWikidata_URL&#39;, &#39;artistULAN_URL&#39;, &#39;objectDate&#39;, &#39;objectBeginDate&#39;, &#39;objectEndDate&#39;, &#39;medium&#39;, &#39;dimensions&#39;, &#39;measurements&#39;, &#39;creditLine&#39;, &#39;geographyType&#39;, &#39;city&#39;, &#39;state&#39;, &#39;county&#39;, &#39;country&#39;, &#39;region&#39;, &#39;subregion&#39;, &#39;locale&#39;, &#39;locus&#39;, &#39;excavation&#39;, &#39;river&#39;, &#39;classification&#39;, &#39;rightsAndReproduction&#39;, &#39;linkResource&#39;, &#39;metadataDate&#39;, &#39;repository&#39;, &#39;objectURL&#39;, &#39;tags&#39;, &#39;objectWikidata_URL&#39;, &#39;isTimelineWork&#39;, &#39;GalleryNumber&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;objectIDs&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;objectIDs&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[483873,
+ 207162,
+ 283274,
+ 483877,
+ 685333,
+ 494305,
+ 481438,
+ 374147,
+ 515811,
+ 685319,
+ 489510,
+ 492892,
+ 486510,
+ 655796,
+ 204181,
+ 247582,
+ 205376,
+ 193453,
+ 195502,
+ 193045,
+ 200897,
+ 208482,
+ 436173,
+ 483484,
+ 856709,
+ 548584,
+ 551500,
+ 253505,
+ 486423,
+ 436616,
+ 467700,
+ 196462,
+ 255391,
+ 251428,
+ 547202,
+ 436121,
+ 436896,
+ 486578,
+ 547334,
+ 437402,
+ 254469,
+ 560727,
+ 436002,
+ 254597,
+ 253135,
+ 436986,
+ 249222,
+ 253050,
+ 248132,
+ 486845,
+ 544210,
+ 587759,
+ 252452,
+ 249091,
+ 547257,
+ 437099,
+ 436295,
+ 232047,
+ 255275,
+ 255417,
+ 248689,
+ 334249,
+ 389226,
+ 839042,
+ 451943,
+ 486742,
+ 464456,
+ 437881,
+ 550970,
+ 247004,
+ 437879,
+ 436024,
+ 547860,
+ 249223,
+ 441024,
+ 555567,
+ 554337,
+ 459192,
+ 437880,
+ 437160,
+ 437390,
+ 231788,
+ 436004,
+ 546746,
+ 371017,
+ 196452,
+ 547758,
+ 547476,
+ 459052,
+ 547820,
+ 566713,
+ 255697,
+ 568194,
+ 543905,
+ 435711,
+ 550158,
+ 500194,
+ 552504,
+ 552505,
+ 555761,
+ 254747,
+ 546047,
+ 468716,
+ 466235,
+ 460424,
+ 252594,
+ 337064,
+ 12787,
+ 486209,
+ 244801,
+ 252721,
+ 254436,
+ 252411,
+ 467701,
+ 490013,
+ 489981,
+ 207128,
+ 207088,
+ 494051,
+ 484524,
+ 207175,
+ 544183,
+ 436170,
+ 488711,
+ 207051,
+ 207064,
+ 207063,
+ 207056,
+ 449475,
+ 490037,
+ 208857,
+ 207045,
+ 255027,
+ 241071,
+ 196453,
+ 248351,
+ 247538,
+ 545413,
+ 247882,
+ 555755,
+ 256221,
+ 553770,
+ 245538,
+ 773251,
+ 247900,
+ 248393,
+ 255423,
+ 247506,
+ 555946,
+ 247569,
+ 247579,
+ 549021,
+ 544218,
+ 548486,
+ 241295,
+ 548508,
+ 246283,
+ 548466,
+ 544055,
+ 255478,
+ 551351,
+ 548636,
+ 246746,
+ 246747,
+ 246749,
+ 248385,
+ 248402,
+ 248409,
+ 248406,
+ 247890,
+ 251511,
+ 255023,
+ 241274,
+ 246389,
+ 251941,
+ 255612,
+ 248794,
+ 253497,
+ 248167,
+ 248603,
+ 247540,
+ 247561,
+ 247520,
+ 253824,
+ 254758,
+ 736840,
+ 550934,
+ 552786,
+ 256225,
+ 254763,
+ 255034,
+ 544895,
+ 241287,
+ 241285,
+ 241283,
+ 241050,
+ 241099,
+ 241133,
+ 241047,
+ 241014,
+ 251510,
+ 255434,
+ 254761,
+ 248793,
+ 251274,
+ 251273,
+ 253057,
+ 248598,
+ 248608,
+ 247581,
+ 247555,
+ 247553,
+ 247507,
+ 247499,
+ 546662,
+ 251512,
+ 247557,
+ 241279,
+ 241273,
+ 241282,
+ 241278,
+ 241070,
+ 241072,
+ 241108,
+ 241048,
+ 246392,
+ 255431,
+ 248599,
+ 248105,
+ 247556,
+ 245507,
+ 247881,
+ 241098,
+ 241049,
+ 246669,
+ 255432,
+ 255982,
+ 248597,
+ 547832,
+ 471988,
+ 252569,
+ 254748,
+ 254749,
+ 246994,
+ 257433,
+ 259248,
+ 547203,
+ 545882,
+ 241069,
+ 255002,
+ 547826,
+ 248166,
+ 248337,
+ 249087,
+ 247889,
+ 252626,
+ 256921,
+ 554749,
+ 252587,
+ 248600,
+ 248613,
+ 544523,
+ 555718,
+ 555717,
+ 251174,
+ 256831,
+ 255096,
+ 241037,
+ 248596,
+ 247532,
+ 248381,
+ 555719,
+ 435991,
+ 247489,
+ 555757,
+ 255433,
+ 556555,
+ 544867,
+ 545032,
+ 545895,
+ 245517,
+ 547818,
+ 246278,
+ 547845,
+ 547837,
+ 544412,
+ 436174,
+ 252414,
+ 251352,
+ 570349,
+ 12100,
+ 193627,
+ 207048,
+ 53446,
+ 255111,
+ 459211,
+ 253487,
+ 679844,
+ 481763,
+ 19317,
+ 207749,
+ 493751,
+ 544678,
+ 208841,
+ 682087,
+ 246286,
+ 248672,
+ 242041,
+ 254759,
+ 252571,
+ 196458,
+ 555658,
+ 255192,
+ 256778,
+ 544869,
+ 248714,
+ 248453,
+ 248386,
+ 248384,
+ 248417,
+ 248606,
+ 250714,
+ 255594,
+ 256204,
+ 254498,
+ 254755,
+ 552477,
+ 552824,
+ 549254,
+ 548509,
+ 242370,
+ 241062,
+ 241079,
+ 241095,
+ 241063,
+ 246694,
+ 246418,
+ 249273,
+ 254526,
+ 255415,
+ 255595,
+ 244734,
+ 251166,
+ 251216,
+ 253423,
+ 248602,
+ 247559,
+ 556551,
+ 545035,
+ 549698,
+ 552233,
+ 554680,
+ 555566,
+ 643802,
+ 251350,
+ 248741,
+ 643690,
+ 253708,
+ 252919,
+ 238518,
+ 544689,
+ 250655,
+ 255436,
+ 255026,
+ 253040,
+ 250530,
+ 252637,
+ 248897,
+ 256758,
+ 251454,
+ 246985,
+ 250701,
+ 253055,
+ 251492,
+ 248309,
+ 248114,
+ 547834,
+ 248366,
+ 255410,
+ 253051,
+ 250529,
+ 240955,
+ 245508,
+ 253484,
+ 253509,
+ 248595,
+ 247502,
+ 247554,
+ 241251,
+ 247870,
+ 547821,
+ 251868,
+ 255440,
+ 256979,
+ 255390,
+ 258079,
+ 247574,
+ 250528,
+ 250527,
+ 244074,
+ 256571,
+ 436153,
+ 10112,
+ 547838,
+ 468309,
+ 546032,
+ 436934,
+ 552036,
+ 242077,
+ 248586,
+ 254765,
+ 322114,
+ 468215,
+ 250585,
+ 252946,
+ 254677,
+ 251525,
+ 10113,
+ 54915,
+ 39126,
+ 210670,
+ 11446,
+ 500442,
+ 459071,
+ 765030,
+ 38577,
+ 254852,
+ 851529,
+ 38187,
+ 247869,
+ 58697,
+ 643540,
+ 251858,
+ 252927,
+ 248896,
+ 726731,
+ 192673,
+ 56152,
+ 466065,
+ 544225,
+ 436128,
+ 436172,
+ 447386,
+ 436171,
+ 897321,
+ 255454,
+ 437182,
+ 69855,
+ 250183,
+ 201851,
+ 11716,
+ 203444,
+ 550681,
+ 207144,
+ 195145,
+ 551290,
+ 436125,
+ 438018,
+ 747607,
+ 329944,
+ 436910,
+ 437322,
+ 10247,
+ 271716,
+ 435864,
+ 250706,
+ 771054,
+ 208173,
+ 489645,
+ 437759,
+ 196507,
+ 436582,
+ 437437,
+ 202972,
+ 246996,
+ 258562,
+ 590353,
+ 249608,
+ 241266,
+ 241090,
+ 251557,
+ 249595,
+ 254533,
+ 255339,
+ 247003,
+ 246993,
+ 249052,
+ 248799,
+ 251234,
+ 250927,
+ 251041,
+ 251061,
+ 253494,
+ 253493,
+ 253495,
+ 257623,
+ 548515,
+ 557746,
+ 338096,
+ 252375,
+ 545150,
+ 207191,
+ 575539,
+ 545271,
+ 572166,
+ 572165,
+ 200916,
+ 85395,
+ 356821,
+ 254508,
+ 254195,
+ 254695,
+ 329768,
+ 250707,
+ 547861,
+ 254496,
+ 249218,
+ 242092,
+ 248378,
+ 251589,
+ 251577,
+ 251593,
+ 251592,
+ 251580,
+ 251579,
+ 251582,
+ 251581,
+ 254820,
+ 249180,
+ 557681,
+ 253347,
+ 545881,
+ 255176,
+ 251349,
+ 253584,
+ 253047,
+ 250722,
+ 241228,
+ 251578,
+ 250973,
+ 247513,
+ 256866,
+ 254811,
+ 254798,
+ 255370,
+ 255043,
+ 255978,
+ 560171,
+ 560174,
+ 560166,
+ 560172,
+ 560170,
+ 560167,
+ 560168,
+ 560169,
+ 560173,
+ 549123,
+ 435670,
+ 253485,
+ 437133,
+ 258495,
+ 436259,
+ 191845,
+ 42482,
+ 548521,
+ 255549,
+ 436846,
+ 247479,
+ 436152,
+ 256601,
+ 437838,
+ 547441,
+ 544824,
+ 19226,
+ 590748,
+ 656910,
+ 436872,
+ 702752,
+ 437405,
+ 254170,
+ 437073,
+ 253049,
+ 251543,
+ 252504,
+ 549983,
+ 251375,
+ 251573,
+ 244056,
+ 244073,
+ 255280,
+ 255290,
+ 251182,
+ 250680,
+ 253511,
+ 253496,
+ 256239,
+ 248809,
+ 435990,
+ 436531,
+ 207046,
+ 201621,
+ 195360,
+ 201333,
+ 557205,
+ 241117,
+ 245531,
+ 248601,
+ 248712,
+ 247533,
+ 547492,
+ 547478,
+ 549525,
+ 236035,
+ 460603,
+ 38244,
+ 207092,
+ 254762,
+ 195781,
+ 241185,
+ 241138,
+ 253421,
+ 258000,
+ 550679,
+ 248310,
+ 468216,
+ 436875,
+ 383862,
+ 207054,
+ 753553,
+ 753551,
+ 193822,
+ 883943,
+ 196441,
+ 196485,
+ 329783,
+ 253078,
+ 193823,
+ 254319,
+ 251817,
+ 251506,
+ 254317,
+ 550749,
+ 254181,
+ 252938,
+ 246932,
+ 436947,
+ 817179,
+ 548394,
+ 248001,
+ 465928,
+ 436120,
+ 254207,
+ 251404,
+ 247368,
+ 248362,
+ 561100,
+ 246650,
+ 552054,
+ 782304,
+ 252285,
+ 255984,
+ 253776,
+ 38424,
+ 254546,
+ 549984,
+ 251586,
+ 251590,
+ 251591,
+ 253579,
+ 208343,
+ 247106,
+ 255165,
+ 243470,
+ 248574,
+ 256191,
+ 464125,
+ 436216,
+ 829997,
+ 829998,
+ 435717,
+ 435718,
+ 437391,
+ 445966,
+ 337894,
+ 204272,
+ 10916,
+ 204273,
+ 201218,
+ 545876,
+ 471098,
+ 253005,
+ 247542,
+ 468586,
+ 196484,
+ 438120,
+ 241168,
+ 241236,
+ 241204,
+ 460489,
+ 208344,
+ 46509,
+ 471961,
+ 252515,
+ 253367,
+ 254481,
+ 253622,
+ 248363,
+ 254307,
+ 466041,
+ 208347,
+ 197226,
+ 548635,
+ 435820,
+ 247373,
+ 250715,
+ 840760,
+ 840750,
+ 252573,
+ 471377,
+ 196481,
+ 196483,
+ 196443,
+ 196486,
+ 248091,
+ 254340,
+ 245069,
+ 254949,
+ 254924,
+ 255457,
+ 247387,
+ 251089,
+ 255095,
+ 256254,
+ 253680,
+ 247543,
+ 247541,
+ 452028,
+ 251386,
+ 254943,
+ 247872,
+ 256949,
+ 438625,
+ 254465,
+ 258421,
+ 341263,
+ 339837,
+ 436327,
+ 204274,
+ 255112,
+ 550693,
+ 247391,
+ 471095,
+ 245017,
+ 557684,
+ 251184,
+ 438118,
+ 437430,
+ 548610,
+ 254766,
+ 488228,
+ 716874,
+ 248297,
+ 490576,
+ 320604,
+ 320606,
+ 320601,
+ 320602,
+ 320603,
+ 16038,
+ 307476,
+ 320605,
+ 488691,
+ 319087,
+ 504408,
+ 319017,
+ 20538,
+ 319903,
+ 475094,
+ 475093,
+ 60142,
+ 340864,
+ 340668,
+ 437055,
+ 253054,
+ 247547,
+ 504514,
+ 492354,
+ 207593,
+ 247440,
+ 254174,
+ 247446,
+ 251878,
+ 251495,
+ 255935,
+ 253679,
+ 247437,
+ 199486,
+ 252539,
+ 245598,
+ 729644,
+ 246939,
+ 436449,
+ 548633,
+ 715423,
+ 489278,
+ 552998,
+ 552997,
+ 254286,
+ 191849,
+ 560668,
+ 659735,
+ 254767,
+ 207502,
+ 483490,
+ 486752,
+ 768419,
+ 848097,
+ 207478,
+ 201425,
+ 482692,
+ 489772,
+ 489773,
+ 493904,
+ 485684,
+ 244823,
+ 192028,
+ 243648,
+ 250825,
+ 42113,
+ 254568,
+ 546798,
+ 245601,
+ 248099,
+ 247010,
+ 252924,
+ 241267,
+ 436794,
+ 241115,
+ 751536,
+ 479089,
+ 424206,
+ 252335,
+ 254329,
+ 252979,
+ 247901,
+ 240160,
+ 245071,
+ 245068,
+ 245132,
+ 251421,
+ 244999,
+ 254603,
+ 249147,
+ 545963,
+ 241132,
+ 246974,
+ 247518,
+ 254760,
+ 254753,
+ 251547,
+ 250712,
+ 247987,
+ 241135,
+ 254179,
+ 752926,
+ 250557,
+ 768129,
+ 242098,
+ 254488,
+ 766256,
+ 69947,
+ 69946,
+ 207785,
+ 320854,
+ 558022,
+ 558021,
+ 55770,
+ 253348,
+ 715420,
+ 248088,
+ 255883,
+ 647865,
+ 78519,
+ 398112,
+ 382059,
+ 655078,
+ 256172,
+ 639903,
+ 547855,
+ 547844,
+ 547836,
+ 545806,
+ 552566,
+ 544785,
+ 248679,
+ 686487,
+ 708764,
+ 12072,
+ 680568,
+ 710403,
+ 198944,
+ 246592,
+ 186838,
+ 829343,
+ 360182,
+ 198910,
+ 191847,
+ 199869,
+ 13460,
+ 39068,
+ 472319,
+ 264574,
+ 247299,
+ 670997,
+ 671003,
+ 650885,
+ 650268,
+ 396217,
+ 373716,
+ 396492,
+ 11162,
+ 10688,
+ 829476,
+ 56693,
+ 271516,
+ 335713,
+ 399667,
+ 374585,
+ 396119,
+ 19229,
+ 488837,
+ 725525,
+ 485814,
+ 495226,
+ 231130,
+ 206324,
+ 483351,
+ 375240,
+ 830344,
+ 685323,
+ 650275,
+ 334482,
+ 481466,
+ 254792,
+ 480989,
+ 904318,
+ 460374,
+ 15475,
+ 11430,
+ 12145,
+ 12254,
+ 13348,
+ 206058,
+ 189035,
+ 207325,
+ 486347,
+ 901388,
+ 486697,
+ 374116,
+ 486638,
+ 207318,
+ 489000,
+ 483362,
+ 483375,
+ 483369,
+ 485799,
+ 491328,
+ 487953,
+ 347891,
+ 362261,
+ 557637,
+ 254669,
+ 251385,
+ 368683,
+ 284181,
+ 367911,
+ 268374,
+ 189273,
+ 192322,
+ 489637,
+ 481230,
+ 196542,
+ 36367,
+ 189272,
+ 203209,
+ 203210,
+ 12031,
+ 488429,
+ 45381,
+ 44586,
+ 854141,
+ 251135,
+ 687771,
+ 708901,
+ 708897,
+ 662706,
+ 14981,
+ 36368,
+ 490608,
+ 227737,
+ ...]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. &quot;SEARCH&quot; ENDPOINT</span>
+<span class="n">parameter</span> <span class="o">=</span> <span class="s1">&#39;?q=woman&#39;</span> <span class="o">+</span> <span class="s1">&#39;&amp;&#39;</span> <span class="o">+</span> <span class="s1">&#39;isHighlight=true&#39;</span>
+<span class="n">new</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">root</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">parameter</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_parsed</span> <span class="o">=</span> <span class="n">new</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_parsed</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;total&#39;, &#39;objectIDs&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_first</span> <span class="o">=</span> <span class="n">new_parsed</span><span class="p">[</span><span class="s1">&#39;objectIDs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. &quot;OBJECT&quot; ENDPOINT</span>
+<span class="n">object_path</span> <span class="o">=</span> <span class="s1">&#39;/public/collection/v1/objects/&#39;</span>
+<span class="n">new_first_object</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="n">object_path</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">new_first</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ids</span> <span class="o">=</span> <span class="n">new_parsed</span><span class="p">[</span><span class="s1">&#39;objectIDs&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write a loop that makes an &quot;object&quot; request for the first </span>
+<span class="c1"># 10 items in the &quot;search&quot; results</span>
+<span class="n">first_ten</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">[:</span><span class="mi">100</span><span class="p">]:</span>
+    <span class="c1"># make a new request </span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="n">object_path</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="n">parsed</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">first_ten</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">first_ten</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_ten</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;objectID&#39;: 322114,
+ &#39;isHighlight&#39;: True,
+ &#39;accessionNumber&#39;: &#39;86.16.3&#39;,
+ &#39;accessionYear&#39;: &#39;1886&#39;,
+ &#39;isPublicDomain&#39;: True,
+ &#39;primaryImage&#39;: &#39;https://images.metmuseum.org/CRDImages/an/original/DP-15732-009.jpg&#39;,
+ &#39;primaryImageSmall&#39;: &#39;https://images.metmuseum.org/CRDImages/an/web-large/DP-15732-009.jpg&#39;,
+ &#39;additionalImages&#39;: [&#39;https://images.metmuseum.org/CRDImages/an/original/DP-15732-010.jpg&#39;],
+ &#39;constituents&#39;: None,
+ &#39;department&#39;: &#39;Ancient Near Eastern Art&#39;,
+ &#39;objectName&#39;: &#39;Sculpture&#39;,
+ &#39;title&#39;: &#39;Figure of a reclining woman&#39;,
+ &#39;culture&#39;: &#39;Parthian&#39;,
+ &#39;period&#39;: &#39;Parthian&#39;,
+ &#39;dynasty&#39;: &#39;&#39;,
+ &#39;reign&#39;: &#39;&#39;,
+ &#39;portfolio&#39;: &#39;&#39;,
+ &#39;artistRole&#39;: &#39;&#39;,
+ &#39;artistPrefix&#39;: &#39;&#39;,
+ &#39;artistDisplayName&#39;: &#39;&#39;,
+ &#39;artistDisplayBio&#39;: &#39;&#39;,
+ &#39;artistSuffix&#39;: &#39;&#39;,
+ &#39;artistAlphaSort&#39;: &#39;&#39;,
+ &#39;artistNationality&#39;: &#39;&#39;,
+ &#39;artistBeginDate&#39;: &#39;&#39;,
+ &#39;artistEndDate&#39;: &#39;&#39;,
+ &#39;artistGender&#39;: &#39;&#39;,
+ &#39;artistWikidata_URL&#39;: &#39;&#39;,
+ &#39;artistULAN_URL&#39;: &#39;&#39;,
+ &#39;objectDate&#39;: &#39;ca. 2nd century BCE–2nd century CE&#39;,
+ &#39;objectBeginDate&#39;: -200,
+ &#39;objectEndDate&#39;: 200,
+ &#39;medium&#39;: &#39;Alabaster (gypsum)&#39;,
+ &#39;dimensions&#39;: &#39;2 7/8 × 6 7/8 × 2 1/4 in. (7.3 × 17.5 × 5.7 cm)&#39;,
+ &#39;measurements&#39;: [{&#39;elementName&#39;: &#39;Overall&#39;,
+   &#39;elementDescription&#39;: None,
+   &#39;elementMeasurements&#39;: {&#39;Depth&#39;: 5.7150116,
+    &#39;Height&#39;: 7.3,
+    &#39;Weight&#39;: 0.3685852,
+    &#39;Width&#39;: 17.5}}],
+ &#39;creditLine&#39;: &#39;Wolfe Expedition, Purchase, Catharine Lorillard Wolfe Gift, 1886&#39;,
+ &#39;geographyType&#39;: &#39;&#39;,
+ &#39;city&#39;: &#39;&#39;,
+ &#39;state&#39;: &#39;&#39;,
+ &#39;county&#39;: &#39;&#39;,
+ &#39;country&#39;: &#39;&#39;,
+ &#39;region&#39;: &#39;Mesopotamia&#39;,
+ &#39;subregion&#39;: &#39;said to be from Ctesiphon&#39;,
+ &#39;locale&#39;: &#39;&#39;,
+ &#39;locus&#39;: &#39;&#39;,
+ &#39;excavation&#39;: &#39;&#39;,
+ &#39;river&#39;: &#39;&#39;,
+ &#39;classification&#39;: &#39;&#39;,
+ &#39;rightsAndReproduction&#39;: &#39;&#39;,
+ &#39;linkResource&#39;: &#39;&#39;,
+ &#39;metadataDate&#39;: &#39;2024-06-27T04:54:21.257Z&#39;,
+ &#39;repository&#39;: &#39;Metropolitan Museum of Art, New York, NY&#39;,
+ &#39;objectURL&#39;: &#39;https://www.metmuseum.org/art/collection/search/322114&#39;,
+ &#39;tags&#39;: [{&#39;term&#39;: &#39;Female Nudes&#39;,
+   &#39;AAT_URL&#39;: &#39;http://vocab.getty.edu/page/aat/300189568&#39;,
+   &#39;Wikidata_URL&#39;: &#39;https://www.wikidata.org/wiki/Q40446&#39;}],
+ &#39;objectWikidata_URL&#39;: &#39;https://www.wikidata.org/wiki/Q29384398&#39;,
+ &#39;isTimelineWork&#39;: True,
+ &#39;GalleryNumber&#39;: &#39;&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">first_ten</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;artistDisplayName&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;artistGender&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Albrecht Dürer
+
+
+
+Ugo da Carpi
+
+Fra Filippo Lippi
+
+Jacometto (Jacometto Veneziano)
+
+Andrea Mantegna
+
+Jacometto (Jacometto Veneziano)
+
+Hans Baldung (called Hans Baldung Grien)
+
+
+
+Franz von Stuck
+
+David Roentgen
+
+
+
+Joachim Beuckelaer
+
+Joachim Patinir
+
+Gustave Moreau
+
+Elisabeth Louise Vigée Le Brun
+Female
+
+
+Georges Seurat
+
+Paul Gauguin
+
+Maya artist(s)
+
+Faith Ringgold
+Female
+Georges de La Tour
+
+Edouard Manet
+
+Charles Le Brun
+
+Rosa Bonheur
+Female
+Nicolas Poussin
+
+Giovanni di ser Giovanni Guidi (called Scheggia)
+
+Jules Bastien-Lepage
+
+Pablo Picasso
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_ten</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;objectID&#39;, &#39;isHighlight&#39;, &#39;accessionNumber&#39;, &#39;accessionYear&#39;, &#39;isPublicDomain&#39;, &#39;primaryImage&#39;, &#39;primaryImageSmall&#39;, &#39;additionalImages&#39;, &#39;constituents&#39;, &#39;department&#39;, &#39;objectName&#39;, &#39;title&#39;, &#39;culture&#39;, &#39;period&#39;, &#39;dynasty&#39;, &#39;reign&#39;, &#39;portfolio&#39;, &#39;artistRole&#39;, &#39;artistPrefix&#39;, &#39;artistDisplayName&#39;, &#39;artistDisplayBio&#39;, &#39;artistSuffix&#39;, &#39;artistAlphaSort&#39;, &#39;artistNationality&#39;, &#39;artistBeginDate&#39;, &#39;artistEndDate&#39;, &#39;artistGender&#39;, &#39;artistWikidata_URL&#39;, &#39;artistULAN_URL&#39;, &#39;objectDate&#39;, &#39;objectBeginDate&#39;, &#39;objectEndDate&#39;, &#39;medium&#39;, &#39;dimensions&#39;, &#39;measurements&#39;, &#39;creditLine&#39;, &#39;geographyType&#39;, &#39;city&#39;, &#39;state&#39;, &#39;county&#39;, &#39;country&#39;, &#39;region&#39;, &#39;subregion&#39;, &#39;locale&#39;, &#39;locus&#39;, &#39;excavation&#39;, &#39;river&#39;, &#39;classification&#39;, &#39;rightsAndReproduction&#39;, &#39;linkResource&#39;, &#39;metadataDate&#39;, &#39;repository&#39;, &#39;objectURL&#39;, &#39;tags&#39;, &#39;objectWikidata_URL&#39;, &#39;isTimelineWork&#39;, &#39;GalleryNumber&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./class"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

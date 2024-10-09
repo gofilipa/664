@@ -28,13 +28,14 @@ goals:
 - what does the number mean? look at "Search" section on MET API docs.
 - individual challenge: play around with some parameters besides q,
   and you can layer them with &
+** BREAK
 ** objects endpoint
 - that number corresponds to an object. let's make a new search to
   find it.
 - write a new request using f-string, passing that into requests.get
 - requests.get, then dir, then json
 - save the variable to "first-json", then check some of the keys
-** BREAK
+
 ** looping and conditions
 - we are going to grab a bunch of these, create a dataset of works.
 - get the IDs, make a list.

@@ -1,0 +1,3401 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>NYT API &#8212; Python for Programming Cultural Heritage</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/nyt_api';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Legiscan API" href="legiscan_api.html" />
+    <link rel="prev" title="dictionaries" href="dicts.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Python for Programming Cultural Heritage - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Python for Programming Cultural Heritage - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python for Programming Cultural Heritage
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what.html">what is web scraping?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exploring.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="to-dataframe.html">saving scraped data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="met_api.html">The MET API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dicts.html">dictionaries</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">NYT API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legiscan_api.html">Legiscan API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/dataframes.html">dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/scrape.html">scraping our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analyze/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/what.html">what is text analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/questions.html">research questions: defining gender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/processing.html">the <code class="docutils literal notranslate"><span class="pre">spaCy</span></code> pipeline</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../analyze/phrases.html">the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/entities.html">the <code class="docutils literal notranslate"><span class="pre">Entity-Ruler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/tokens.html">the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/ml.html">machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgathering/nyt_api.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/gathering/nyt_api.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>NYT API</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-api-calls-with-keys">creating API calls with keys</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parsing-our-data">parsing our data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paginating-through-results">paginating through results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pulling-articles-out-of-our-results">pulling articles out of our results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-challenge-exploring-keys">individual challenge: exploring keys</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-our-data-to-lists">saving our data to lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-challenge-lists-more-lists">group challenge: lists more lists!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-going-deep-into-keywords">Bonus: going deep into keywords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-challenge-to-dataframe">individual challenge: to dataframe!</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-analysis-with-spacy">text analysis with spaCy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokens">tokens</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ner">NER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-frequencies">word frequencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependency">dependency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-searching-text-by-grammatical-dependancy">BONUS: searching text by grammatical dependancy</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="nyt-api">
+<h1>NYT API<a class="headerlink" href="#nyt-api" title="Link to this heading">#</a></h1>
+<p>To use the New York Times API, register for an <a class="reference external" href="https://developer.nytimes.com/">API key here</a>.</p>
+<p>For more detailed explanation on using the API, see this resource:
+<a class="reference external" href="https://nicksubic.medium.com/a-guide-to-querying-the-new-york-times-api-with-python-b621556236f8">https://nicksubic.medium.com/a-guide-to-querying-the-new-york-times-api-with-python-b621556236f8</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="creating-api-calls-with-keys">
+<h2>creating API calls with keys<a class="headerlink" href="#creating-api-calls-with-keys" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># key</span>
+<span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="c1"># query</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;migrant&#39;</span>
+
+<span class="c1"># base URL</span>
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;https://api.nytimes.com/svc/search/v2/articlesearch.json?&amp;q=</span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s1">&amp;api-key=</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [401]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>requests.models.Response
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__attrs__&#39;,
+ &#39;__bool__&#39;,
+ &#39;__class__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dict__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__enter__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__exit__&#39;,
+ &#39;__firstlineno__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__getstate__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__iter__&#39;,
+ &#39;__le__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__module__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__nonzero__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__setstate__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__static_attributes__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__weakref__&#39;,
+ &#39;_content&#39;,
+ &#39;_content_consumed&#39;,
+ &#39;_next&#39;,
+ &#39;apparent_encoding&#39;,
+ &#39;close&#39;,
+ &#39;connection&#39;,
+ &#39;content&#39;,
+ &#39;cookies&#39;,
+ &#39;elapsed&#39;,
+ &#39;encoding&#39;,
+ &#39;headers&#39;,
+ &#39;history&#39;,
+ &#39;is_permanent_redirect&#39;,
+ &#39;is_redirect&#39;,
+ &#39;iter_content&#39;,
+ &#39;iter_lines&#39;,
+ &#39;json&#39;,
+ &#39;links&#39;,
+ &#39;next&#39;,
+ &#39;ok&#39;,
+ &#39;raise_for_status&#39;,
+ &#39;raw&#39;,
+ &#39;reason&#39;,
+ &#39;request&#39;,
+ &#39;status_code&#39;,
+ &#39;text&#39;,
+ &#39;url&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="parsing-our-data">
+<h2>parsing our data<a class="headerlink" href="#parsing-our-data" title="Link to this heading">#</a></h2>
+<p>We want to turn our response object into a <code class="docutils literal notranslate"><span class="pre">dict</span></code> data structure, which we can more easily explore using Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;fault&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use methods like <code class="docutils literal notranslate"><span class="pre">keys()</span></code> to see what is contained within the <code class="docutils literal notranslate"><span class="pre">parsed</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+<span class="ne">KeyError</span>: &#39;response&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use brackets to go deeper into the <code class="docutils literal notranslate"><span class="pre">dict</span></code> structure. First, check out the <code class="docutils literal notranslate"><span class="pre">meta</span></code> key, then the <code class="docutils literal notranslate"><span class="pre">docs</span></code> key.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;meta&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;meta&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;hits&#39;: 31494, &#39;offset&#39;: 0, &#39;time&#39;: 62}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Inside <code class="docutils literal notranslate"><span class="pre">docs</span></code>, we have a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;docs&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<p>The data in <code class="docutils literal notranslate"><span class="pre">docs</span></code> is absolutely massive, so we will just print out the first item in that object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;docs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;abstract&#39;: &#39;The decision comes as political pressure mounts to cut down on programs that allow migrants to stay in the United States temporarily, even without a visa or green card.&#39;,
+ &#39;web_url&#39;: &#39;https://www.nytimes.com/2024/10/04/us/politics/biden-will-allow-legal-status-to-lapse-for-migrants-from-4-countries.html&#39;,
+ &#39;snippet&#39;: &#39;The decision comes as political pressure mounts to cut down on programs that allow migrants to stay in the United States temporarily, even without a visa or green card.&#39;,
+ &#39;lead_paragraph&#39;: &#39;The Biden administration said Friday it would allow the temporary legal permission for migrants from Cuba, Venezuela, Haiti, and Nicaragua to lapse, forcing hundreds of thousands of people to find other methods to stay in the country or face deportation.&#39;,
+ &#39;print_section&#39;: &#39;A&#39;,
+ &#39;print_page&#39;: &#39;20&#39;,
+ &#39;source&#39;: &#39;The New York Times&#39;,
+ &#39;multimedia&#39;: [{&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;xlarge&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-articleLarge.jpg&#39;,
+   &#39;height&#39;: 400,
+   &#39;width&#39;: 600,
+   &#39;legacy&#39;: {&#39;xlarge&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-articleLarge.jpg&#39;,
+    &#39;xlargewidth&#39;: 600,
+    &#39;xlargeheight&#39;: 400},
+   &#39;subType&#39;: &#39;xlarge&#39;,
+   &#39;crop_name&#39;: &#39;articleLarge&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;popup&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-popup.jpg&#39;,
+   &#39;height&#39;: 434,
+   &#39;width&#39;: 650,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;popup&#39;,
+   &#39;crop_name&#39;: &#39;popup&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;blog480&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-blog480.jpg&#39;,
+   &#39;height&#39;: 320,
+   &#39;width&#39;: 480,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;blog480&#39;,
+   &#39;crop_name&#39;: &#39;blog480&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;blog533&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-blog533.jpg&#39;,
+   &#39;height&#39;: 356,
+   &#39;width&#39;: 533,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;blog533&#39;,
+   &#39;crop_name&#39;: &#39;blog533&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;blog427&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-blog427.jpg&#39;,
+   &#39;height&#39;: 285,
+   &#39;width&#39;: 427,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;blog427&#39;,
+   &#39;crop_name&#39;: &#39;blog427&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;tmagSF&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-tmagSF.jpg&#39;,
+   &#39;height&#39;: 241,
+   &#39;width&#39;: 362,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;tmagSF&#39;,
+   &#39;crop_name&#39;: &#39;tmagSF&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;tmagArticle&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-tmagArticle.jpg&#39;,
+   &#39;height&#39;: 395,
+   &#39;width&#39;: 592,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;tmagArticle&#39;,
+   &#39;crop_name&#39;: &#39;tmagArticle&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;slide&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-slide.jpg&#39;,
+   &#39;height&#39;: 400,
+   &#39;width&#39;: 600,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;slide&#39;,
+   &#39;crop_name&#39;: &#39;slide&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;jumbo&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-jumbo.jpg&#39;,
+   &#39;height&#39;: 683,
+   &#39;width&#39;: 1024,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;jumbo&#39;,
+   &#39;crop_name&#39;: &#39;jumbo&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;superJumbo&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-superJumbo.jpg&#39;,
+   &#39;height&#39;: 1366,
+   &#39;width&#39;: 2048,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;superJumbo&#39;,
+   &#39;crop_name&#39;: &#39;superJumbo&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;blog225&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-blog225.jpg&#39;,
+   &#39;height&#39;: 150,
+   &#39;width&#39;: 225,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;blog225&#39;,
+   &#39;crop_name&#39;: &#39;blog225&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;master1050&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-master1050.jpg&#39;,
+   &#39;height&#39;: 700,
+   &#39;width&#39;: 1050,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;master1050&#39;,
+   &#39;crop_name&#39;: &#39;master1050&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;master675&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-master675.jpg&#39;,
+   &#39;height&#39;: 450,
+   &#39;width&#39;: 675,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;master675&#39;,
+   &#39;crop_name&#39;: &#39;master675&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;master495&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-master495.jpg&#39;,
+   &#39;height&#39;: 330,
+   &#39;width&#39;: 495,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;master495&#39;,
+   &#39;crop_name&#39;: &#39;master495&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;master180&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-master180.jpg&#39;,
+   &#39;height&#39;: 120,
+   &#39;width&#39;: 180,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;master180&#39;,
+   &#39;crop_name&#39;: &#39;master180&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;master315&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-master315.jpg&#39;,
+   &#39;height&#39;: 210,
+   &#39;width&#39;: 315,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;master315&#39;,
+   &#39;crop_name&#39;: &#39;master315&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;master768&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-master768.jpg&#39;,
+   &#39;height&#39;: 512,
+   &#39;width&#39;: 768,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;master768&#39;,
+   &#39;crop_name&#39;: &#39;master768&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;thumbnail&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-thumbStandard.jpg&#39;,
+   &#39;height&#39;: 75,
+   &#39;width&#39;: 75,
+   &#39;legacy&#39;: {&#39;thumbnail&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-thumbStandard.jpg&#39;,
+    &#39;thumbnailwidth&#39;: 75,
+    &#39;thumbnailheight&#39;: 75},
+   &#39;subType&#39;: &#39;thumbnail&#39;,
+   &#39;crop_name&#39;: &#39;thumbStandard&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;blogSmallThumb&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-blogSmallThumb.jpg&#39;,
+   &#39;height&#39;: 50,
+   &#39;width&#39;: 50,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;blogSmallThumb&#39;,
+   &#39;crop_name&#39;: &#39;blogSmallThumb&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;thumbLarge&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-thumbLarge.jpg&#39;,
+   &#39;height&#39;: 150,
+   &#39;width&#39;: 150,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;thumbLarge&#39;,
+   &#39;crop_name&#39;: &#39;thumbLarge&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;smallSquare168&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-smallSquare168.jpg&#39;,
+   &#39;height&#39;: 168,
+   &#39;width&#39;: 168,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;smallSquare168&#39;,
+   &#39;crop_name&#39;: &#39;smallSquare168&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;smallSquare252&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-smallSquare252.jpg&#39;,
+   &#39;height&#39;: 252,
+   &#39;width&#39;: 252,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;smallSquare252&#39;,
+   &#39;crop_name&#39;: &#39;smallSquare252&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;square320&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-square320.jpg&#39;,
+   &#39;height&#39;: 320,
+   &#39;width&#39;: 320,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;square320&#39;,
+   &#39;crop_name&#39;: &#39;square320&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;moth&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-moth.jpg&#39;,
+   &#39;height&#39;: 151,
+   &#39;width&#39;: 151,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;moth&#39;,
+   &#39;crop_name&#39;: &#39;moth&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;filmstrip&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-filmstrip.jpg&#39;,
+   &#39;height&#39;: 190,
+   &#39;width&#39;: 190,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;filmstrip&#39;,
+   &#39;crop_name&#39;: &#39;filmstrip&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;square640&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-square640.jpg&#39;,
+   &#39;height&#39;: 640,
+   &#39;width&#39;: 640,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;square640&#39;,
+   &#39;crop_name&#39;: &#39;square640&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;mediumSquare149&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumSquare149.jpg&#39;,
+   &#39;height&#39;: 149,
+   &#39;width&#39;: 149,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;mediumSquare149&#39;,
+   &#39;crop_name&#39;: &#39;mediumSquare149&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;mediumSquareAt3X&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumSquareAt3X.jpg&#39;,
+   &#39;height&#39;: 1801,
+   &#39;width&#39;: 1800,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;mediumSquareAt3X&#39;,
+   &#39;crop_name&#39;: &#39;mediumSquareAt3X&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;sfSpan&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-sfSpan.jpg&#39;,
+   &#39;height&#39;: 263,
+   &#39;width&#39;: 395,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;sfSpan&#39;,
+   &#39;crop_name&#39;: &#39;sfSpan&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;largeHorizontal375&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-largeHorizontal375.jpg&#39;,
+   &#39;height&#39;: 250,
+   &#39;width&#39;: 375,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;largeHorizontal375&#39;,
+   &#39;crop_name&#39;: &#39;largeHorizontal375&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;largeHorizontalJumbo&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-largeHorizontalJumbo.jpg&#39;,
+   &#39;height&#39;: 683,
+   &#39;width&#39;: 1024,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;largeHorizontalJumbo&#39;,
+   &#39;crop_name&#39;: &#39;largeHorizontalJumbo&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;horizontalMediumAt2X&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-horizontalMediumAt2X.jpg&#39;,
+   &#39;height&#39;: 5461,
+   &#39;width&#39;: 8188,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;horizontalMediumAt2X&#39;,
+   &#39;crop_name&#39;: &#39;horizontalMediumAt2X&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;hpLarge&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-hpLarge.jpg&#39;,
+   &#39;height&#39;: 288,
+   &#39;width&#39;: 511,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;hpLarge&#39;,
+   &#39;crop_name&#39;: &#39;hpLarge&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;largeWidescreen573&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-largeWidescreen573.jpg&#39;,
+   &#39;height&#39;: 323,
+   &#39;width&#39;: 573,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;largeWidescreen573&#39;,
+   &#39;crop_name&#39;: &#39;largeWidescreen573&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;largeWidescreen1050&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-largeWidescreen1050.jpg&#39;,
+   &#39;height&#39;: 591,
+   &#39;width&#39;: 1050,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;largeWidescreen1050&#39;,
+   &#39;crop_name&#39;: &#39;largeWidescreen1050&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;wide&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-thumbWide.jpg&#39;,
+   &#39;height&#39;: 126,
+   &#39;width&#39;: 190,
+   &#39;legacy&#39;: {&#39;widewidth&#39;: 190,
+    &#39;wideheight&#39;: 126,
+    &#39;wide&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-thumbWide.jpg&#39;},
+   &#39;subType&#39;: &#39;wide&#39;,
+   &#39;crop_name&#39;: &#39;thumbWide&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoThumb&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoThumb.jpg&#39;,
+   &#39;height&#39;: 50,
+   &#39;width&#39;: 75,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoThumb&#39;,
+   &#39;crop_name&#39;: &#39;videoThumb&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoLarge&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoLarge.jpg&#39;,
+   &#39;height&#39;: 507,
+   &#39;width&#39;: 768,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoLarge&#39;,
+   &#39;crop_name&#39;: &#39;videoLarge&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;mediumThreeByTwo210&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumThreeByTwo210.jpg&#39;,
+   &#39;height&#39;: 140,
+   &#39;width&#39;: 210,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;mediumThreeByTwo210&#39;,
+   &#39;crop_name&#39;: &#39;mediumThreeByTwo210&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;mediumThreeByTwo225&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumThreeByTwo225.jpg&#39;,
+   &#39;height&#39;: 150,
+   &#39;width&#39;: 225,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;mediumThreeByTwo225&#39;,
+   &#39;crop_name&#39;: &#39;mediumThreeByTwo225&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;mediumThreeByTwo440&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumThreeByTwo440.jpg&#39;,
+   &#39;height&#39;: 293,
+   &#39;width&#39;: 440,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;mediumThreeByTwo440&#39;,
+   &#39;crop_name&#39;: &#39;mediumThreeByTwo440&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;mediumThreeByTwo252&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumThreeByTwo252.jpg&#39;,
+   &#39;height&#39;: 168,
+   &#39;width&#39;: 252,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;mediumThreeByTwo252&#39;,
+   &#39;crop_name&#39;: &#39;mediumThreeByTwo252&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;mediumThreeByTwo378&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumThreeByTwo378.jpg&#39;,
+   &#39;height&#39;: 252,
+   &#39;width&#39;: 378,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;mediumThreeByTwo378&#39;,
+   &#39;crop_name&#39;: &#39;mediumThreeByTwo378&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;threeByTwoLargeAt2X&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-threeByTwoLargeAt2X.jpg&#39;,
+   &#39;height&#39;: 5461,
+   &#39;width&#39;: 8188,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;threeByTwoLargeAt2X&#39;,
+   &#39;crop_name&#39;: &#39;threeByTwoLargeAt2X&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;threeByTwoMediumAt2X&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-threeByTwoMediumAt2X.jpg&#39;,
+   &#39;height&#39;: 1000,
+   &#39;width&#39;: 1500,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;threeByTwoMediumAt2X&#39;,
+   &#39;crop_name&#39;: &#39;threeByTwoMediumAt2X&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;threeByTwoSmallAt2X&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-threeByTwoSmallAt2X.jpg&#39;,
+   &#39;height&#39;: 400,
+   &#39;width&#39;: 600,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;threeByTwoSmallAt2X&#39;,
+   &#39;crop_name&#39;: &#39;threeByTwoSmallAt2X&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;articleInline&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-articleInline.jpg&#39;,
+   &#39;height&#39;: 127,
+   &#39;width&#39;: 190,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;articleInline&#39;,
+   &#39;crop_name&#39;: &#39;articleInline&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;hpSmall&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-hpSmall.jpg&#39;,
+   &#39;height&#39;: 109,
+   &#39;width&#39;: 163,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;hpSmall&#39;,
+   &#39;crop_name&#39;: &#39;hpSmall&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;blogSmallInline&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-blogSmallInline.jpg&#39;,
+   &#39;height&#39;: 101,
+   &#39;width&#39;: 151,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;blogSmallInline&#39;,
+   &#39;crop_name&#39;: &#39;blogSmallInline&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;mediumFlexible177&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumFlexible177.jpg&#39;,
+   &#39;height&#39;: 118,
+   &#39;width&#39;: 177,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;mediumFlexible177&#39;,
+   &#39;crop_name&#39;: &#39;mediumFlexible177&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoSmall&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSmall.jpg&#39;,
+   &#39;height&#39;: 281,
+   &#39;width&#39;: 500,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoSmall&#39;,
+   &#39;crop_name&#39;: &#39;videoSmall&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoHpMedium&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoHpMedium.jpg&#39;,
+   &#39;height&#39;: 211,
+   &#39;width&#39;: 375,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoHpMedium&#39;,
+   &#39;crop_name&#39;: &#39;videoHpMedium&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoSixteenByNine600&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine600.jpg&#39;,
+   &#39;height&#39;: 338,
+   &#39;width&#39;: 600,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoSixteenByNine600&#39;,
+   &#39;crop_name&#39;: &#39;videoSixteenByNine600&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoSixteenByNine540&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine540.jpg&#39;,
+   &#39;height&#39;: 304,
+   &#39;width&#39;: 540,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoSixteenByNine540&#39;,
+   &#39;crop_name&#39;: &#39;videoSixteenByNine540&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoSixteenByNine495&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine495.jpg&#39;,
+   &#39;height&#39;: 278,
+   &#39;width&#39;: 495,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoSixteenByNine495&#39;,
+   &#39;crop_name&#39;: &#39;videoSixteenByNine495&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoSixteenByNine390&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine390.jpg&#39;,
+   &#39;height&#39;: 219,
+   &#39;width&#39;: 390,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoSixteenByNine390&#39;,
+   &#39;crop_name&#39;: &#39;videoSixteenByNine390&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoSixteenByNine1050&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine1050.jpg&#39;,
+   &#39;height&#39;: 591,
+   &#39;width&#39;: 1050,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoSixteenByNine1050&#39;,
+   &#39;crop_name&#39;: &#39;videoSixteenByNine1050&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoSixteenByNine480&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine480.jpg&#39;,
+   &#39;height&#39;: 270,
+   &#39;width&#39;: 480,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoSixteenByNine480&#39;,
+   &#39;crop_name&#39;: &#39;videoSixteenByNine480&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoSixteenByNine310&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine310.jpg&#39;,
+   &#39;height&#39;: 174,
+   &#39;width&#39;: 310,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoSixteenByNine310&#39;,
+   &#39;crop_name&#39;: &#39;videoSixteenByNine310&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoSixteenByNine225&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine225.jpg&#39;,
+   &#39;height&#39;: 126,
+   &#39;width&#39;: 225,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoSixteenByNine225&#39;,
+   &#39;crop_name&#39;: &#39;videoSixteenByNine225&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoSixteenByNine96&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine96.jpg&#39;,
+   &#39;height&#39;: 54,
+   &#39;width&#39;: 96,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoSixteenByNine96&#39;,
+   &#39;crop_name&#39;: &#39;videoSixteenByNine96&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoSixteenByNine3000&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine3000.jpg&#39;,
+   &#39;height&#39;: 1688,
+   &#39;width&#39;: 3000,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoSixteenByNine3000&#39;,
+   &#39;crop_name&#39;: &#39;videoSixteenByNine3000&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoSixteenByNine768&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine768.jpg&#39;,
+   &#39;height&#39;: 432,
+   &#39;width&#39;: 768,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoSixteenByNine768&#39;,
+   &#39;crop_name&#39;: &#39;videoSixteenByNine768&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoSixteenByNine150&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine150.jpg&#39;,
+   &#39;height&#39;: 84,
+   &#39;width&#39;: 150,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoSixteenByNine150&#39;,
+   &#39;crop_name&#39;: &#39;videoSixteenByNine150&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoSixteenByNineJumbo1600&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNineJumbo1600.jpg&#39;,
+   &#39;height&#39;: 900,
+   &#39;width&#39;: 1600,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoSixteenByNineJumbo1600&#39;,
+   &#39;crop_name&#39;: &#39;videoSixteenByNineJumbo1600&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;miniMoth&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-miniMoth.jpg&#39;,
+   &#39;height&#39;: 70,
+   &#39;width&#39;: 151,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;miniMoth&#39;,
+   &#39;crop_name&#39;: &#39;miniMoth&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;windowsTile336H&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-windowsTile336H.jpg&#39;,
+   &#39;height&#39;: 336,
+   &#39;width&#39;: 694,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;windowsTile336H&#39;,
+   &#39;crop_name&#39;: &#39;windowsTile336H&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoFifteenBySeven1305&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoFifteenBySeven1305.jpg&#39;,
+   &#39;height&#39;: 609,
+   &#39;width&#39;: 1305,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoFifteenBySeven1305&#39;,
+   &#39;crop_name&#39;: &#39;videoFifteenBySeven1305&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;videoFifteenBySeven2610&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoFifteenBySeven2610.jpg&#39;,
+   &#39;height&#39;: 1218,
+   &#39;width&#39;: 2610,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;videoFifteenBySeven2610&#39;,
+   &#39;crop_name&#39;: &#39;videoFifteenBySeven2610&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;facebookJumbo&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-facebookJumbo.jpg&#39;,
+   &#39;height&#39;: 550,
+   &#39;width&#39;: 1050,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;facebookJumbo&#39;,
+   &#39;crop_name&#39;: &#39;facebookJumbo&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;watch308&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-watch308.jpg&#39;,
+   &#39;height&#39;: 348,
+   &#39;width&#39;: 312,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;watch308&#39;,
+   &#39;crop_name&#39;: &#39;watch308&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;watch268&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-watch268.jpg&#39;,
+   &#39;height&#39;: 304,
+   &#39;width&#39;: 272,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;watch268&#39;,
+   &#39;crop_name&#39;: &#39;watch268&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;verticalTwoByThree735&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-verticalTwoByThree735.jpg&#39;,
+   &#39;height&#39;: 1103,
+   &#39;width&#39;: 735,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;verticalTwoByThree735&#39;,
+   &#39;crop_name&#39;: &#39;verticalTwoByThree735&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;mobileMasterAt3x&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mobileMasterAt3x.jpg&#39;,
+   &#39;height&#39;: 1801,
+   &#39;width&#39;: 1800,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;mobileMasterAt3x&#39;,
+   &#39;crop_name&#39;: &#39;mobileMasterAt3x&#39;},
+  {&#39;rank&#39;: 0,
+   &#39;subtype&#39;: &#39;googleFourByThree&#39;,
+   &#39;caption&#39;: None,
+   &#39;credit&#39;: None,
+   &#39;type&#39;: &#39;image&#39;,
+   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-googleFourByThree.jpg&#39;,
+   &#39;height&#39;: 600,
+   &#39;width&#39;: 800,
+   &#39;legacy&#39;: {},
+   &#39;subType&#39;: &#39;googleFourByThree&#39;,
+   &#39;crop_name&#39;: &#39;googleFourByThree&#39;}],
+ &#39;headline&#39;: {&#39;main&#39;: &#39;Biden Will Allow Legal Permission to Lapse for Migrants From 4 Countries&#39;,
+  &#39;kicker&#39;: None,
+  &#39;content_kicker&#39;: None,
+  &#39;print_headline&#39;: &#39;Program Letting Migrants Stay In U.S. to Lapse&#39;,
+  &#39;name&#39;: None,
+  &#39;seo&#39;: None,
+  &#39;sub&#39;: None},
+ &#39;keywords&#39;: [{&#39;name&#39;: &#39;persons&#39;,
+   &#39;value&#39;: &#39;Biden, Joseph R Jr&#39;,
+   &#39;rank&#39;: 1,
+   &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;,
+   &#39;value&#39;: &#39;Immigration and Emigration&#39;,
+   &#39;rank&#39;: 2,
+   &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Illegal Immigration&#39;, &#39;rank&#39;: 3, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Deportation&#39;, &#39;rank&#39;: 4, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Green Cards (US)&#39;, &#39;rank&#39;: 5, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Foreign Workers&#39;, &#39;rank&#39;: 6, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;,
+   &#39;value&#39;: &#39;United States Politics and Government&#39;,
+   &#39;rank&#39;: 7,
+   &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;,
+   &#39;value&#39;: &#39;Presidential Election of 2024&#39;,
+   &#39;rank&#39;: 8,
+   &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;persons&#39;, &#39;value&#39;: &#39;Harris, Kamala D&#39;, &#39;rank&#39;: 9, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;Cuba&#39;, &#39;rank&#39;: 10, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;Haiti&#39;, &#39;rank&#39;: 11, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;Nicaragua&#39;, &#39;rank&#39;: 12, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;Venezuela&#39;, &#39;rank&#39;: 13, &#39;major&#39;: &#39;N&#39;}],
+ &#39;pub_date&#39;: &#39;2024-10-04T18:58:04+0000&#39;,
+ &#39;document_type&#39;: &#39;article&#39;,
+ &#39;news_desk&#39;: &#39;Washington&#39;,
+ &#39;section_name&#39;: &#39;U.S.&#39;,
+ &#39;subsection_name&#39;: &#39;Politics&#39;,
+ &#39;byline&#39;: {&#39;original&#39;: &#39;By Hamed Aleaziz&#39;,
+  &#39;person&#39;: [{&#39;firstname&#39;: &#39;Hamed&#39;,
+    &#39;middlename&#39;: None,
+    &#39;lastname&#39;: &#39;Aleaziz&#39;,
+    &#39;qualifier&#39;: None,
+    &#39;title&#39;: None,
+    &#39;role&#39;: &#39;reported&#39;,
+    &#39;organization&#39;: &#39;&#39;,
+    &#39;rank&#39;: 1}],
+  &#39;organization&#39;: None},
+ &#39;type_of_material&#39;: &#39;News&#39;,
+ &#39;_id&#39;: &#39;nyt://article/0ffd3132-6423-5846-85dc-6922c078ffa0&#39;,
+ &#39;word_count&#39;: 535,
+ &#39;uri&#39;: &#39;nyt://article/0ffd3132-6423-5846-85dc-6922c078ffa0&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The very first item in <code class="docutils literal notranslate"><span class="pre">docs</span></code> appears to be information about a single article.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;docs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;abstract&#39;, &#39;web_url&#39;, &#39;snippet&#39;, &#39;lead_paragraph&#39;, &#39;print_section&#39;, &#39;print_page&#39;, &#39;source&#39;, &#39;multimedia&#39;, &#39;headline&#39;, &#39;keywords&#39;, &#39;pub_date&#39;, &#39;document_type&#39;, &#39;news_desk&#39;, &#39;section_name&#39;, &#39;subsection_name&#39;, &#39;byline&#39;, &#39;type_of_material&#39;, &#39;_id&#39;, &#39;word_count&#39;, &#39;uri&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s save the information in <code class="docutils literal notranslate"><span class="pre">docs</span></code> to a list. That way, we will have an easier time going through the data, and won’t have to re-type out all of the keys that our data is nested within.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">articles</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;docs&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have a list of articles. Let’s look at the first one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">articles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">articles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;abstract&#39;, &#39;web_url&#39;, &#39;snippet&#39;, &#39;lead_paragraph&#39;, &#39;print_section&#39;, &#39;print_page&#39;, &#39;source&#39;, &#39;multimedia&#39;, &#39;headline&#39;, &#39;keywords&#39;, &#39;pub_date&#39;, &#39;document_type&#39;, &#39;news_desk&#39;, &#39;section_name&#39;, &#39;subsection_name&#39;, &#39;byline&#39;, &#39;type_of_material&#39;, &#39;_id&#39;, &#39;word_count&#39;, &#39;uri&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="paginating-through-results">
+<h2>paginating through results<a class="headerlink" href="#paginating-through-results" title="Link to this heading">#</a></h2>
+<p>We have 10 articles, because the NYTimes API only allows us to get 10 results at a time. We can paginate through the results by adding an <code class="docutils literal notranslate"><span class="pre">&amp;page=</span></code> parameter, combined with a <code class="docutils literal notranslate"><span class="pre">sleep()</span></code> function, which allows us to insert pauses in our request (as to not overload the NYTimes servers).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">articles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will write a loop that does the following:</p>
+<ul class="simple">
+<li><p>create a url with variables for pagination, query, and our key</p></li>
+<li><p>make an API call, save our response to <code class="docutils literal notranslate"><span class="pre">response</span></code></p></li>
+<li><p>parse our data from the <code class="docutils literal notranslate"><span class="pre">response</span></code></p></li>
+<li><p>access the response data we want in <code class="docutils literal notranslate"><span class="pre">docs</span></code></p></li>
+<li><p>save it to a list</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;migrant&#39;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>  
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;https://api.nytimes.com/svc/search/v2/articlesearch.json?q=</span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s1">&amp;page=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&amp;api-key=</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">parsed</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">articles</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;docs&#39;</span><span class="p">]</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">articles</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># sleep at least 6 seconds not to overload the servers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the end, we have a list of results, 5 lists to be exact (each list represents one page of articles). Each result (or page) contains information about 10 articles that matched our search.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pulling-articles-out-of-our-results">
+<h2>pulling articles out of our results<a class="headerlink" href="#pulling-articles-out-of-our-results" title="Link to this heading">#</a></h2>
+<p>Let’s try to look at just the first article on the first page. To do that, we need to know what kind of data we are dealing with. Use <code class="docutils literal notranslate"><span class="pre">type()</span></code> and list and dict indexing methods to figure out how to get just the abstract from the first article.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we have a dict within a list within a list</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;abstract&#39;, &#39;web_url&#39;, &#39;snippet&#39;, &#39;lead_paragraph&#39;, &#39;print_section&#39;, &#39;print_page&#39;, &#39;source&#39;, &#39;multimedia&#39;, &#39;headline&#39;, &#39;keywords&#39;, &#39;pub_date&#39;, &#39;document_type&#39;, &#39;news_desk&#39;, &#39;section_name&#39;, &#39;subsection_name&#39;, &#39;byline&#39;, &#39;type_of_material&#39;, &#39;_id&#39;, &#39;word_count&#39;, &#39;uri&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;abstract&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The decision comes as political pressure mounts to cut down on programs that allow migrants to stay in the United States temporarily, even without a visa or green card.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can simplify our life by creating a variable</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">article</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="individual-challenge-exploring-keys">
+<h3>individual challenge: exploring keys<a class="headerlink" href="#individual-challenge-exploring-keys" title="Link to this heading">#</a></h3>
+<p>Explore some of the other keys, in this <code class="docutils literal notranslate"><span class="pre">article</span></code> object. Some of them contain more nesting dicts. See if you can access the data inside of them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">article</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;abstract&#39;, &#39;web_url&#39;, &#39;snippet&#39;, &#39;lead_paragraph&#39;, &#39;print_section&#39;, &#39;print_page&#39;, &#39;source&#39;, &#39;multimedia&#39;, &#39;headline&#39;, &#39;keywords&#39;, &#39;pub_date&#39;, &#39;document_type&#39;, &#39;news_desk&#39;, &#39;section_name&#39;, &#39;subsection_name&#39;, &#39;byline&#39;, &#39;type_of_material&#39;, &#39;_id&#39;, &#39;word_count&#39;, &#39;uri&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">article</span><span class="p">[</span><span class="s1">&#39;byline&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;original&#39;: &#39;By Hamed Aleaziz&#39;,
+ &#39;person&#39;: [{&#39;firstname&#39;: &#39;Hamed&#39;,
+   &#39;middlename&#39;: None,
+   &#39;lastname&#39;: &#39;Aleaziz&#39;,
+   &#39;qualifier&#39;: None,
+   &#39;title&#39;: None,
+   &#39;role&#39;: &#39;reported&#39;,
+   &#39;organization&#39;: &#39;&#39;,
+   &#39;rank&#39;: 1}],
+ &#39;organization&#39;: None}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">article</span><span class="p">[</span><span class="s1">&#39;byline&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">article</span><span class="p">[</span><span class="s1">&#39;byline&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;original&#39;, &#39;person&#39;, &#39;organization&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">article</span><span class="p">[</span><span class="s1">&#39;byline&#39;</span><span class="p">][</span><span class="s1">&#39;person&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;firstname&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hamed&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">article</span><span class="p">[</span><span class="s1">&#39;byline&#39;</span><span class="p">][</span><span class="s1">&#39;person&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;lastname&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Aleaziz&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="saving-our-data-to-lists">
+<h2>saving our data to lists<a class="headerlink" href="#saving-our-data-to-lists" title="Link to this heading">#</a></h2>
+<p>Now let’s say we want just a list of the abstracts. We could write a loop (actually, a loop within a loop!) to pull out the abstract information for each article on each page.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we need to do nested loops</span>
+
+<span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span> <span class="c1"># loops through list of pages</span>
+    <span class="k">for</span> <span class="n">article</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span> <span class="c1"># loops through list of articles </span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">article</span><span class="p">[</span><span class="s1">&#39;abstract&#39;</span><span class="p">])</span> <span class="c1"># grabs abstract of article</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The decision comes as political pressure mounts to cut down on programs that allow migrants to stay in the United States temporarily, even without a visa or green card.
+The country’s defense ministry said the military officers who opened fire might have mistaken the migrants for cartel members.
+Italy, an aging country, badly needs migrant labor and immigration, but the government has admitted that the pathways for legal entry are rife with abuse.
+At least nine people are known to have died in a sinking off the Canary Islands and 48 more are missing, the latest disaster on the perilous Atlantic crossing from West Africa.
+It’s been a year since Mayor Eric Adams made his ominous prediction. City officials should treat the arrival of migrants as an opportunity rather than a catastrophe, advocates say.
+Reports and interviews shed new light on the holding center, where migrants’ calls with lawyers are monitored and some say they’ve been forced to wear blackout goggles.
+A group of New York’s most powerful philanthropies will spend millions to help make migrants more self-sufficient.
+Former President Donald J. Trump has long tried to stoke fear about immigration. Now, he’s doubling down as the presidential race heats up.
+In his next documentary, Michael P. Nash takes on A.I. and how it might be used to address environmental issues.
+The former president and his allies, who often decry undocumented immigrants, are targeting programs that allow millions of people to enter the country lawfully.
+A federal appeals court will consider the future of DACA, which has allowed hundreds of thousands of undocumented young people to live and work in the United States.
+Donald J. Trump answered preselected questions from a pro-military crowd who echoed his false claims and approved of his vow to conduct massive deportations of undocumented immigrants.
+Several countries have chartered flights, while others issued warnings and offered assistance.
+For the former president, removing millions of undocumented immigrants is the solution to most of the nation’s most pressing challenges.
+An ad from two Democratic groups skates over Kamala Harris’s tough recent stance on border security and instead focuses on her more immigration-friendly plans.
+Gov. Tim Walz of Minnesota has acted as attack dog for the Harris campaign, and Senator JD Vance of Ohio has stepped in to explain away former President Donald J. Trump’s incendiary remarks.
+Germany’s unilateral decision to close its borders has angered its neighbors in Europe.
+Eric Adams gives new meaning to the concept of the frequent-flier program.
+Vice President Kamala Harris vowed to combat the flow of fentanyl into the country when she visited the border on Friday. Former President Donald J. Trump ratcheted up his false claims in response.
+Former President Donald J. Trump assailed Vice President Kamala Harris in harshly personal terms in what he conceded was “a dark speech.”
+The Freedom Party has made itself the country’s most popular party, with calls to bar asylum seekers. It is poised to come out on top in parliamentary elections for the first time.
+Donald Trump used a pair of events to try to blame Kamala Harris for inflation and the migrant crisis, tapping into themes that helped him win Michigan in 2016.
+A local official said there was “absolutely no evidence” that Haitian migrants have stolen and eaten pets, an outlandish claim amplified by the Trump campaign on Monday.
+The change will make what had been a short-term fix, which appears to have led to a drop in border crossings, a central feature of the asylum system.
+Vowing to carry on President Biden’s crackdown on asylum and to impose order on the southern border, the vice president demonstrated how much the politics of immigration have changed.
+Visiting the border on Friday in Arizona, the vice president will try to neutralize a key vulnerability, and will demonstrate her party’s harder line on immigration.
+The Republican vice-presidential nominee acknowledged that an outlandish claim he had amplified about Haitian immigrants stealing and eating pets could “turn out to be false.”
+In his first interview with Western media since becoming president of Senegal, Bassirou Diomaye Faye said the United Nations has to change to reflect changing world demographics.
+During a trip to Arizona, Vice President Kamala Harris is expected to make her first visit to the southern border since becoming the Democratic nominee.
+Mr. Musk described Prime Minister Giorgia Meloni as “authentic, honest and thoughtful.” She used her Atlantic Council spotlight to defend Western values.
+From calling for mass deportations to spreading false claims about migrants’ eating pets, former President Donald J. Trump and his running mate, Senator JD Vance of Ohio, are taking a hard line.
+Tren de Aragua’s emergence in New York City and elsewhere has led law enforcement officials to strategize how to stem the gang’s growth.
+A gallery in a shelter near the Brooklyn Navy Yard is showcasing the work of two migrants. One of them did some of his paintings under the Brooklyn-Queens Expressway.
+The immigrants are mainly in the United States under temporary protected status, which the executive branch can grant to people whose home countries are in crisis.
+We cover the presidential candidates’ immigration policies.
+Margarita Solito and her family fled violence and poverty in El Salvador, hoping to build a better life in San Francisco. The city often wasn’t what they thought it would be.
+Italian rescuers said that seven Syrian migrants survived a shipwreck about 10 miles from the island of Lampedusa, in the Central Mediterranean. The survivors told officials that 21 fellow travelers, including three minors, had fallen off during the crossing because of rough seas.
+The Springfield fable is part of a crusade to throw immigrants out of the country.
+Seven survivors were rescued from the boat that sank after leaving Libya. A crackdown by Italy has reduced migration, but not the high death rates that come with crossing the Mediterranean.
+Representative Gabe Vasquez, a Democrat in a border district, is under attack by his Republican opponent on immigration policy. Can a pro-abortion access message help him prevail?
+The former president meandered over 80 minutes from complaints about Tuesday’s debate to elevating baseless claims that have circulated on right-wing social media.
+Secretary of Homeland Security Alejandro Mayorkas explains what his agency has done to address the challenges at the U.S.-Mexico border.
+Speaking at an event in Tucson, Ariz., former President Donald J. Trump called for eliminating taxes on overtime pay as he declared Tuesday’s debate a “monumental victory” for him.
+Binyamin Appelbaum on why Harris’s ill-defined plan is still better than Trump’s.
+Apparently, this election is about … pets.
+Over 60 people were crowded into a small boat that “rapidly and brutally” broke apart off the coast of France, authorities said.
+Our columnists and contributors rate Trump’s and Harris’s debate performances.
+Former President Donald J. Trump offered a dire portrait of America, often relying on false and debunked claims as he described “a failing nation.”
+The government said it would expand patrols as part of a ‘hard line’ on illegal migration following two deadly stabbings by rejected asylum seekers and a surge in support for the far right.
+As the candidates meet for their only scheduled debate on Tuesday night, here is what to be on the lookout for.
+</pre></div>
+</div>
+</div>
+</div>
+<section id="group-challenge-lists-more-lists">
+<h3>group challenge: lists more lists!<a class="headerlink" href="#group-challenge-lists-more-lists" title="Link to this heading">#</a></h3>
+<p>Go through the article data, and grab the following information:</p>
+<ul class="simple">
+<li><p>abstract</p></li>
+<li><p>publication date</p></li>
+<li><p>one other detail (check the list of <code class="docutils literal notranslate"><span class="pre">keys()</span></code>) of your choosing</p></li>
+</ul>
+<p>Save all of that information to lists.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abstracts</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">keywords</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+        <span class="n">abstracts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;abstract&#39;</span><span class="p">])</span>
+        <span class="n">dates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;pub_date&#39;</span><span class="p">])</span>
+        <span class="n">keywords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;keywords&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">abstracts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abstracts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;The decision comes as political pressure mounts to cut down on programs that allow migrants to stay in the United States temporarily, even without a visa or green card.&#39;,
+ &#39;The country’s defense ministry said the military officers who opened fire might have mistaken the migrants for cartel members.&#39;,
+ &#39;Italy, an aging country, badly needs migrant labor and immigration, but the government has admitted that the pathways for legal entry are rife with abuse.&#39;,
+ &#39;At least nine people are known to have died in a sinking off the Canary Islands and 48 more are missing, the latest disaster on the perilous Atlantic crossing from West Africa.&#39;,
+ &#39;It’s been a year since Mayor Eric Adams made his ominous prediction. City officials should treat the arrival of migrants as an opportunity rather than a catastrophe, advocates say.&#39;,
+ &#39;Reports and interviews shed new light on the holding center, where migrants’ calls with lawyers are monitored and some say they’ve been forced to wear blackout goggles.&#39;,
+ &#39;A group of New York’s most powerful philanthropies will spend millions to help make migrants more self-sufficient.&#39;,
+ &#39;Former President Donald J. Trump has long tried to stoke fear about immigration. Now, he’s doubling down as the presidential race heats up.&#39;,
+ &#39;In his next documentary, Michael P. Nash takes on A.I. and how it might be used to address environmental issues.&#39;,
+ &#39;The former president and his allies, who often decry undocumented immigrants, are targeting programs that allow millions of people to enter the country lawfully.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bonus-going-deep-into-keywords">
+<h3>Bonus: going deep into keywords<a class="headerlink" href="#bonus-going-deep-into-keywords" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;keywords&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Biden, Joseph R Jr
+Chiapas (Mexico)
+Italy
+Drownings
+Illegal Immigration
+Illegal Immigration
+Illegal Immigration
+Illegal Immigration
+Democracy (Theory and Philosophy)
+Presidential Election of 2024
+Illegal Immigration
+Presidential Election of 2024
+Evacuations and Evacuees
+Trump, Donald J
+Harris, Kamala D
+Presidential Election of 2024
+Right-Wing Extremism and Alt-Right
+Presidential Election of 2024
+Presidential Election of 2024
+Polls and Public Opinion
+Politics and Government
+Presidential Election of 2024
+Springfield (Ohio)
+Illegal Immigration
+Harris, Kamala D
+Harris, Kamala D
+Presidential Election of 2024
+Faye, Bassirou Diomaye
+Harris, Kamala D
+Meloni, Giorgia (1977- )
+Presidential Election of 2024
+Tren de Aragua (Gang)
+New York City
+Presidential Election of 2024
+internal-storyline-no
+Homeless Persons
+Drownings
+Haitian-Americans
+Maritime Accidents and Safety
+United States Politics and Government
+Presidential Election of 2024
+Mayorkas, Alejandro
+Presidential Election of 2024
+audio-neutral-informative
+Presidential Election of 2024
+Drownings
+Presidential Election of 2024
+United States Politics and Government
+Illegal Immigration
+Presidential Election of 2024
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abstracts</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">keywords</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+        <span class="n">abstracts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;abstract&#39;</span><span class="p">])</span>
+        <span class="n">dates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;pub_date&#39;</span><span class="p">])</span>
+        <span class="n">keywords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;keywords&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="individual-challenge-to-dataframe">
+<h3>individual challenge: to dataframe!<a class="headerlink" href="#individual-challenge-to-dataframe" title="Link to this heading">#</a></h3>
+<p>make the lists into a dataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">dates</span><span class="p">,</span>
+    <span class="s1">&#39;abstract&#39;</span><span class="p">:</span> <span class="n">abstracts</span><span class="p">,</span>
+    <span class="s1">&#39;keywords&#39;</span><span class="p">:</span> <span class="n">keywords</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>abstract</th>
+      <th>keywords</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2024-10-04T18:58:04+0000</td>
+      <td>The decision comes as political pressure mount...</td>
+      <td>Biden, Joseph R Jr</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2024-10-03T02:49:49+0000</td>
+      <td>The country’s defense ministry said the milita...</td>
+      <td>Chiapas (Mexico)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2024-09-28T04:01:18+0000</td>
+      <td>Italy, an aging country, badly needs migrant l...</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2024-09-30T18:52:57+0000</td>
+      <td>At least nine people are known to have died in...</td>
+      <td>Drownings</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2024-09-20T07:00:08+0000</td>
+      <td>It’s been a year since Mayor Eric Adams made h...</td>
+      <td>Illegal Immigration</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;nyt_data.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="text-analysis-with-spacy">
+<h2>text analysis with spaCy<a class="headerlink" href="#text-analysis-with-spacy" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;en_core_web_sm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">docs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">abstracts</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The decision comes as political pressure mounts to cut down on programs that allow migrants to stay in the United States temporarily, even without a visa or green card.
+The country’s defense ministry said the military officers who opened fire might have mistaken the migrants for cartel members.
+Italy, an aging country, badly needs migrant labor and immigration, but the government has admitted that the pathways for legal entry are rife with abuse.
+At least nine people are known to have died in a sinking off the Canary Islands and 48 more are missing, the latest disaster on the perilous Atlantic crossing from West Africa.
+It’s been a year since Mayor Eric Adams made his ominous prediction. City officials should treat the arrival of migrants as an opportunity rather than a catastrophe, advocates say.
+Reports and interviews shed new light on the holding center, where migrants’ calls with lawyers are monitored and some say they’ve been forced to wear blackout goggles.
+A group of New York’s most powerful philanthropies will spend millions to help make migrants more self-sufficient.
+Former President Donald J. Trump has long tried to stoke fear about immigration. Now, he’s doubling down as the presidential race heats up.
+In his next documentary, Michael P. Nash takes on A.I. and how it might be used to address environmental issues.
+The former president and his allies, who often decry undocumented immigrants, are targeting programs that allow millions of people to enter the country lawfully.
+A federal appeals court will consider the future of DACA, which has allowed hundreds of thousands of undocumented young people to live and work in the United States.
+Donald J. Trump answered preselected questions from a pro-military crowd who echoed his false claims and approved of his vow to conduct massive deportations of undocumented immigrants.
+Several countries have chartered flights, while others issued warnings and offered assistance.
+For the former president, removing millions of undocumented immigrants is the solution to most of the nation’s most pressing challenges.
+An ad from two Democratic groups skates over Kamala Harris’s tough recent stance on border security and instead focuses on her more immigration-friendly plans.
+Gov. Tim Walz of Minnesota has acted as attack dog for the Harris campaign, and Senator JD Vance of Ohio has stepped in to explain away former President Donald J. Trump’s incendiary remarks.
+Germany’s unilateral decision to close its borders has angered its neighbors in Europe.
+Eric Adams gives new meaning to the concept of the frequent-flier program.
+Vice President Kamala Harris vowed to combat the flow of fentanyl into the country when she visited the border on Friday. Former President Donald J. Trump ratcheted up his false claims in response.
+Former President Donald J. Trump assailed Vice President Kamala Harris in harshly personal terms in what he conceded was “a dark speech.”
+The Freedom Party has made itself the country’s most popular party, with calls to bar asylum seekers. It is poised to come out on top in parliamentary elections for the first time.
+Donald Trump used a pair of events to try to blame Kamala Harris for inflation and the migrant crisis, tapping into themes that helped him win Michigan in 2016.
+A local official said there was “absolutely no evidence” that Haitian migrants have stolen and eaten pets, an outlandish claim amplified by the Trump campaign on Monday.
+The change will make what had been a short-term fix, which appears to have led to a drop in border crossings, a central feature of the asylum system.
+Vowing to carry on President Biden’s crackdown on asylum and to impose order on the southern border, the vice president demonstrated how much the politics of immigration have changed.
+Visiting the border on Friday in Arizona, the vice president will try to neutralize a key vulnerability, and will demonstrate her party’s harder line on immigration.
+The Republican vice-presidential nominee acknowledged that an outlandish claim he had amplified about Haitian immigrants stealing and eating pets could “turn out to be false.”
+In his first interview with Western media since becoming president of Senegal, Bassirou Diomaye Faye said the United Nations has to change to reflect changing world demographics.
+During a trip to Arizona, Vice President Kamala Harris is expected to make her first visit to the southern border since becoming the Democratic nominee.
+Mr. Musk described Prime Minister Giorgia Meloni as “authentic, honest and thoughtful.” She used her Atlantic Council spotlight to defend Western values.
+From calling for mass deportations to spreading false claims about migrants’ eating pets, former President Donald J. Trump and his running mate, Senator JD Vance of Ohio, are taking a hard line.
+Tren de Aragua’s emergence in New York City and elsewhere has led law enforcement officials to strategize how to stem the gang’s growth.
+A gallery in a shelter near the Brooklyn Navy Yard is showcasing the work of two migrants. One of them did some of his paintings under the Brooklyn-Queens Expressway.
+The immigrants are mainly in the United States under temporary protected status, which the executive branch can grant to people whose home countries are in crisis.
+We cover the presidential candidates’ immigration policies.
+Margarita Solito and her family fled violence and poverty in El Salvador, hoping to build a better life in San Francisco. The city often wasn’t what they thought it would be.
+Italian rescuers said that seven Syrian migrants survived a shipwreck about 10 miles from the island of Lampedusa, in the Central Mediterranean. The survivors told officials that 21 fellow travelers, including three minors, had fallen off during the crossing because of rough seas.
+The Springfield fable is part of a crusade to throw immigrants out of the country.
+Seven survivors were rescued from the boat that sank after leaving Libya. A crackdown by Italy has reduced migration, but not the high death rates that come with crossing the Mediterranean.
+Representative Gabe Vasquez, a Democrat in a border district, is under attack by his Republican opponent on immigration policy. Can a pro-abortion access message help him prevail?
+The former president meandered over 80 minutes from complaints about Tuesday’s debate to elevating baseless claims that have circulated on right-wing social media.
+Secretary of Homeland Security Alejandro Mayorkas explains what his agency has done to address the challenges at the U.S.-Mexico border.
+Speaking at an event in Tucson, Ariz., former President Donald J. Trump called for eliminating taxes on overtime pay as he declared Tuesday’s debate a “monumental victory” for him.
+Binyamin Appelbaum on why Harris’s ill-defined plan is still better than Trump’s.
+Apparently, this election is about … pets.
+Over 60 people were crowded into a small boat that “rapidly and brutally” broke apart off the coast of France, authorities said.
+Our columnists and contributors rate Trump’s and Harris’s debate performances.
+Former President Donald J. Trump offered a dire portrait of America, often relying on false and debunked claims as he described “a failing nation.”
+The government said it would expand patrols as part of a ‘hard line’ on illegal migration following two deadly stabbings by rejected asylum seekers and a surge in support for the far right.
+As the candidates meet for their only scheduled debate on Tuesday night, here is what to be on the lookout for.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tokens">
+<h2>tokens<a class="headerlink" href="#tokens" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The
+decision
+comes
+as
+political
+pressure
+mounts
+to
+cut
+down
+on
+programs
+that
+allow
+migrants
+to
+stay
+in
+the
+United
+States
+temporarily
+,
+even
+without
+a
+visa
+or
+green
+card
+.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>spacy.tokens.token.Token
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># see all the methods for Token objects!</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;_&#39;,
+ &#39;__bytes__&#39;,
+ &#39;__class__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__getstate__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__le__&#39;,
+ &#39;__len__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__pyx_vtable__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__unicode__&#39;,
+ &#39;ancestors&#39;,
+ &#39;check_flag&#39;,
+ &#39;children&#39;,
+ &#39;cluster&#39;,
+ &#39;conjuncts&#39;,
+ &#39;dep&#39;,
+ &#39;dep_&#39;,
+ &#39;doc&#39;,
+ &#39;ent_id&#39;,
+ &#39;ent_id_&#39;,
+ &#39;ent_iob&#39;,
+ &#39;ent_iob_&#39;,
+ &#39;ent_kb_id&#39;,
+ &#39;ent_kb_id_&#39;,
+ &#39;ent_type&#39;,
+ &#39;ent_type_&#39;,
+ &#39;get_extension&#39;,
+ &#39;has_dep&#39;,
+ &#39;has_extension&#39;,
+ &#39;has_head&#39;,
+ &#39;has_morph&#39;,
+ &#39;has_vector&#39;,
+ &#39;head&#39;,
+ &#39;i&#39;,
+ &#39;idx&#39;,
+ &#39;iob_strings&#39;,
+ &#39;is_alpha&#39;,
+ &#39;is_ancestor&#39;,
+ &#39;is_ascii&#39;,
+ &#39;is_bracket&#39;,
+ &#39;is_currency&#39;,
+ &#39;is_digit&#39;,
+ &#39;is_left_punct&#39;,
+ &#39;is_lower&#39;,
+ &#39;is_oov&#39;,
+ &#39;is_punct&#39;,
+ &#39;is_quote&#39;,
+ &#39;is_right_punct&#39;,
+ &#39;is_sent_end&#39;,
+ &#39;is_sent_start&#39;,
+ &#39;is_space&#39;,
+ &#39;is_stop&#39;,
+ &#39;is_title&#39;,
+ &#39;is_upper&#39;,
+ &#39;lang&#39;,
+ &#39;lang_&#39;,
+ &#39;left_edge&#39;,
+ &#39;lefts&#39;,
+ &#39;lemma&#39;,
+ &#39;lemma_&#39;,
+ &#39;lex&#39;,
+ &#39;lex_id&#39;,
+ &#39;like_email&#39;,
+ &#39;like_num&#39;,
+ &#39;like_url&#39;,
+ &#39;lower&#39;,
+ &#39;lower_&#39;,
+ &#39;morph&#39;,
+ &#39;n_lefts&#39;,
+ &#39;n_rights&#39;,
+ &#39;nbor&#39;,
+ &#39;norm&#39;,
+ &#39;norm_&#39;,
+ &#39;orth&#39;,
+ &#39;orth_&#39;,
+ &#39;pos&#39;,
+ &#39;pos_&#39;,
+ &#39;prefix&#39;,
+ &#39;prefix_&#39;,
+ &#39;prob&#39;,
+ &#39;rank&#39;,
+ &#39;remove_extension&#39;,
+ &#39;right_edge&#39;,
+ &#39;rights&#39;,
+ &#39;sent&#39;,
+ &#39;sent_start&#39;,
+ &#39;sentiment&#39;,
+ &#39;set_extension&#39;,
+ &#39;set_morph&#39;,
+ &#39;shape&#39;,
+ &#39;shape_&#39;,
+ &#39;similarity&#39;,
+ &#39;subtree&#39;,
+ &#39;suffix&#39;,
+ &#39;suffix_&#39;,
+ &#39;tag&#39;,
+ &#39;tag_&#39;,
+ &#39;tensor&#39;,
+ &#39;text&#39;,
+ &#39;text_with_ws&#39;,
+ &#39;vector&#39;,
+ &#39;vector_norm&#39;,
+ &#39;vocab&#39;,
+ &#39;whitespace_&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">dep_</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The DET det
+decision NOUN nsubj
+comes VERB ROOT
+as ADP prep
+political ADJ amod
+pressure NOUN compound
+mounts NOUN pobj
+to PART aux
+cut VERB relcl
+down ADP prt
+on ADP prep
+programs NOUN pobj
+that PRON nsubj
+allow VERB relcl
+migrants NOUN nsubj
+to PART aux
+stay VERB ccomp
+in ADP prep
+the DET det
+United PROPN compound
+States PROPN pobj
+temporarily ADV advmod
+, PUNCT punct
+even ADV advmod
+without ADP prep
+a DET det
+visa NOUN pobj
+or CCONJ cc
+green ADJ amod
+card NOUN conj
+. PUNCT punct
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ner">
+<h2>NER<a class="headerlink" href="#ner" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># see docs (hah!) on Doc object on this page: https://spacy.io/api/doc</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>spacy.tokens.doc.Doc
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;_&#39;,
+ &#39;__bytes__&#39;,
+ &#39;__class__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__getitem__&#39;,
+ &#39;__getstate__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__iter__&#39;,
+ &#39;__le__&#39;,
+ &#39;__len__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__pyx_vtable__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__setstate__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__unicode__&#39;,
+ &#39;_bulk_merge&#39;,
+ &#39;_context&#39;,
+ &#39;_get_array_attrs&#39;,
+ &#39;_realloc&#39;,
+ &#39;_vector&#39;,
+ &#39;_vector_norm&#39;,
+ &#39;cats&#39;,
+ &#39;char_span&#39;,
+ &#39;copy&#39;,
+ &#39;count_by&#39;,
+ &#39;doc&#39;,
+ &#39;ents&#39;,
+ &#39;extend_tensor&#39;,
+ &#39;from_array&#39;,
+ &#39;from_bytes&#39;,
+ &#39;from_dict&#39;,
+ &#39;from_disk&#39;,
+ &#39;from_docs&#39;,
+ &#39;from_json&#39;,
+ &#39;get_extension&#39;,
+ &#39;get_lca_matrix&#39;,
+ &#39;has_annotation&#39;,
+ &#39;has_extension&#39;,
+ &#39;has_unknown_spaces&#39;,
+ &#39;has_vector&#39;,
+ &#39;is_nered&#39;,
+ &#39;is_parsed&#39;,
+ &#39;is_sentenced&#39;,
+ &#39;is_tagged&#39;,
+ &#39;lang&#39;,
+ &#39;lang_&#39;,
+ &#39;mem&#39;,
+ &#39;noun_chunks&#39;,
+ &#39;noun_chunks_iterator&#39;,
+ &#39;remove_extension&#39;,
+ &#39;retokenize&#39;,
+ &#39;sentiment&#39;,
+ &#39;sents&#39;,
+ &#39;set_ents&#39;,
+ &#39;set_extension&#39;,
+ &#39;similarity&#39;,
+ &#39;spans&#39;,
+ &#39;tensor&#39;,
+ &#39;text&#39;,
+ &#39;text_with_ws&#39;,
+ &#39;to_array&#39;,
+ &#39;to_bytes&#39;,
+ &#39;to_dict&#39;,
+ &#39;to_disk&#39;,
+ &#39;to_json&#39;,
+ &#39;to_utf8_array&#39;,
+ &#39;user_data&#39;,
+ &#39;user_hooks&#39;,
+ &#39;user_span_hooks&#39;,
+ &#39;user_token_hooks&#39;,
+ &#39;vector&#39;,
+ &#39;vector_norm&#39;,
+ &#39;vocab&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">ent</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">ent</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">ent</span><span class="o">.</span><span class="n">label_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the United States GPE
+Italy GPE
+At least nine CARDINAL
+the Canary Islands LOC
+48 CARDINAL
+Atlantic LOC
+West Africa GPE
+Eric Adams PERSON
+New York GPE
+millions CARDINAL
+Donald J. Trump PERSON
+Michael P. Nash PERSON
+A.I. ORG
+millions CARDINAL
+hundreds of thousands CARDINAL
+the United States GPE
+Donald J. Trump PERSON
+millions CARDINAL
+two CARDINAL
+Democratic NORP
+Kamala Harris’s PERSON
+Tim Walz PERSON
+Minnesota GPE
+Harris PERSON
+JD Vance PERSON
+Ohio GPE
+Donald J. Trump’s PERSON
+Germany GPE
+Europe LOC
+Eric Adams PERSON
+Kamala Harris PERSON
+Friday DATE
+Donald J. Trump PERSON
+Donald J. Trump PERSON
+Kamala Harris PERSON
+The Freedom Party ORG
+first ORDINAL
+Donald Trump PERSON
+Kamala Harris PERSON
+Michigan GPE
+2016 DATE
+Haitian NORP
+Trump ORG
+Monday DATE
+Biden PERSON
+Friday DATE
+Arizona GPE
+Republican NORP
+Haitian NORP
+first ORDINAL
+Western NORP
+Senegal GPE
+Bassirou Diomaye Faye PERSON
+the United Nations ORG
+Arizona GPE
+Kamala Harris PERSON
+first ORDINAL
+Democratic NORP
+Musk PERSON
+Giorgia Meloni PERSON
+Atlantic Council ORG
+Western NORP
+Donald J. Trump PERSON
+JD Vance PERSON
+Ohio GPE
+New York City GPE
+the Brooklyn Navy Yard ORG
+two CARDINAL
+One CARDINAL
+the Brooklyn-Queens Expressway ORG
+the United States GPE
+Margarita Solito PERSON
+El Salvador GPE
+San Francisco GPE
+Italian NORP
+seven CARDINAL
+Syrian NORP
+about 10 miles QUANTITY
+Lampedusa PERSON
+the Central Mediterranean LOC
+21 CARDINAL
+three CARDINAL
+Springfield GPE
+Seven CARDINAL
+Libya GPE
+Italy GPE
+Mediterranean LOC
+Gabe Vasquez PERSON
+Democrat NORP
+Republican NORP
+80 minutes TIME
+about Tuesday DATE
+Homeland Security Alejandro Mayorkas ORG
+U.S.-Mexico ORG
+Tucson GPE
+Ariz. GPE
+Donald J. Trump PERSON
+Tuesday DATE
+Binyamin Appelbaum PERSON
+Harris’s PERSON
+Trump’s ORG
+60 CARDINAL
+France GPE
+Trump’s ORG
+Harris PERSON
+Donald J. Trump PERSON
+America GPE
+two CARDINAL
+Tuesday DATE
+night TIME
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-frequencies">
+<h2>word frequencies<a class="headerlink" href="#word-frequencies" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">token</span><span class="o">.</span><span class="n">is_stop</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">token</span><span class="o">.</span><span class="n">is_punct</span><span class="p">:</span>
+                <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">word_freq</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="n">common_words</span> <span class="o">=</span> <span class="n">word_freq</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">common_words</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Trump&#39;, 12), (&#39;President&#39;, 11), (&#39;migrants&#39;, 9), (&#39;Donald&#39;, 9), (&#39;J.&#39;, 8), (&#39;Harris&#39;, 8), (&#39;border&#39;, 8), (&#39;immigration&#39;, 7), (&#39;country&#39;, 6), (&#39;said&#39;, 6), (&#39;president&#39;, 6), (&#39;immigrants&#39;, 6), (&#39;people&#39;, 5), (&#39;false&#39;, 5), (&#39;claims&#39;, 5), (&#39;Kamala&#39;, 5), (&#39;United&#39;, 4), (&#39;undocumented&#39;, 4), (&#39;asylum&#39;, 4), (&#39;pets&#39;, 4)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dependency">
+<h2>dependency<a class="headerlink" href="#dependency" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spacy</span> <span class="kn">import</span> <span class="n">displacy</span>
+<span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">docs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;dep&quot;</span><span class="p">,</span> <span class="n">jupyter</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span class="tex2jax_ignore"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:lang="en" id="3e495b38bf5a440d8bf89b83da7cc4a8-0" class="displacy" width="5125" height="574.5" direction="ltr" style="max-width: none; height: 574.5px; color: #000000; background: #ffffff; font-family: Arial; direction: ltr">
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="50">The</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="50">DET</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="225">decision</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="225">NOUN</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="400">comes</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="400">VERB</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="575">as</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="575">ADP</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="750">political</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="750">ADJ</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="925">pressure</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="925">NOUN</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="1100">mounts</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="1100">NOUN</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="1275">to</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="1275">PART</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="1450">cut</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="1450">VERB</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="1625">down</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="1625">ADP</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="1800">on</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="1800">ADP</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="1975">programs</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="1975">NOUN</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="2150">that</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="2150">PRON</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="2325">allow</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="2325">VERB</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="2500">migrants</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="2500">NOUN</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="2675">to</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="2675">PART</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="2850">stay</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="2850">VERB</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="3025">in</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="3025">ADP</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="3200">the</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="3200">DET</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="3375">United</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="3375">PROPN</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="3550">States</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="3550">PROPN</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="3725">temporarily,</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="3725">ADV</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="3900">even</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="3900">ADV</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="4075">without</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="4075">ADP</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="4250">a</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="4250">DET</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="4425">visa</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="4425">NOUN</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="4600">or</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="4600">CCONJ</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="4775">green</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="4775">ADJ</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="484.5">
+    <tspan class="displacy-word" fill="currentColor" x="4950">card.</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="4950">NOUN</tspan>
+</text>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-0" stroke-width="2px" d="M70,439.5 C70,352.0 205.0,352.0 205.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-0" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">det</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M70,441.5 L62,429.5 78,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-1" stroke-width="2px" d="M245,439.5 C245,352.0 380.0,352.0 380.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-1" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">nsubj</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M245,441.5 L237,429.5 253,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-2" stroke-width="2px" d="M420,439.5 C420,352.0 555.0,352.0 555.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-2" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M555.0,441.5 L563.0,429.5 547.0,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-3" stroke-width="2px" d="M770,439.5 C770,264.5 1085.0,264.5 1085.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-3" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M770,441.5 L762,429.5 778,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-4" stroke-width="2px" d="M945,439.5 C945,352.0 1080.0,352.0 1080.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-4" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M945,441.5 L937,429.5 953,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-5" stroke-width="2px" d="M595,439.5 C595,177.0 1090.0,177.0 1090.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-5" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M1090.0,441.5 L1098.0,429.5 1082.0,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-6" stroke-width="2px" d="M1295,439.5 C1295,352.0 1430.0,352.0 1430.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-6" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">aux</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M1295,441.5 L1287,429.5 1303,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-7" stroke-width="2px" d="M1120,439.5 C1120,264.5 1435.0,264.5 1435.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-7" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">relcl</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M1435.0,441.5 L1443.0,429.5 1427.0,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-8" stroke-width="2px" d="M1470,439.5 C1470,352.0 1605.0,352.0 1605.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-8" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prt</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M1605.0,441.5 L1613.0,429.5 1597.0,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-9" stroke-width="2px" d="M1470,439.5 C1470,264.5 1785.0,264.5 1785.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-9" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M1785.0,441.5 L1793.0,429.5 1777.0,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-10" stroke-width="2px" d="M1820,439.5 C1820,352.0 1955.0,352.0 1955.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-10" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M1955.0,441.5 L1963.0,429.5 1947.0,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-11" stroke-width="2px" d="M2170,439.5 C2170,352.0 2305.0,352.0 2305.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-11" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">nsubj</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M2170,441.5 L2162,429.5 2178,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-12" stroke-width="2px" d="M1995,439.5 C1995,264.5 2310.0,264.5 2310.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-12" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">relcl</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M2310.0,441.5 L2318.0,429.5 2302.0,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-13" stroke-width="2px" d="M2520,439.5 C2520,264.5 2835.0,264.5 2835.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-13" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">nsubj</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M2520,441.5 L2512,429.5 2528,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-14" stroke-width="2px" d="M2695,439.5 C2695,352.0 2830.0,352.0 2830.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-14" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">aux</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M2695,441.5 L2687,429.5 2703,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-15" stroke-width="2px" d="M2345,439.5 C2345,177.0 2840.0,177.0 2840.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-15" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">ccomp</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M2840.0,441.5 L2848.0,429.5 2832.0,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-16" stroke-width="2px" d="M2870,439.5 C2870,352.0 3005.0,352.0 3005.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-16" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M3005.0,441.5 L3013.0,429.5 2997.0,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-17" stroke-width="2px" d="M3220,439.5 C3220,264.5 3535.0,264.5 3535.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-17" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">det</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M3220,441.5 L3212,429.5 3228,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-18" stroke-width="2px" d="M3395,439.5 C3395,352.0 3530.0,352.0 3530.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-18" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M3395,441.5 L3387,429.5 3403,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-19" stroke-width="2px" d="M3045,439.5 C3045,177.0 3540.0,177.0 3540.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-19" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M3540.0,441.5 L3548.0,429.5 3532.0,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-20" stroke-width="2px" d="M2870,439.5 C2870,89.5 3720.0,89.5 3720.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-20" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">advmod</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M3720.0,441.5 L3728.0,429.5 3712.0,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-21" stroke-width="2px" d="M3920,439.5 C3920,352.0 4055.0,352.0 4055.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-21" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">advmod</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M3920,441.5 L3912,429.5 3928,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-22" stroke-width="2px" d="M2870,439.5 C2870,2.0 4075.0,2.0 4075.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-22" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M4075.0,441.5 L4083.0,429.5 4067.0,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-23" stroke-width="2px" d="M4270,439.5 C4270,352.0 4405.0,352.0 4405.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-23" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">det</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M4270,441.5 L4262,429.5 4278,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-24" stroke-width="2px" d="M4095,439.5 C4095,264.5 4410.0,264.5 4410.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-24" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M4410.0,441.5 L4418.0,429.5 4402.0,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-25" stroke-width="2px" d="M4445,439.5 C4445,352.0 4580.0,352.0 4580.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-25" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">cc</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M4580.0,441.5 L4588.0,429.5 4572.0,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-26" stroke-width="2px" d="M4795,439.5 C4795,352.0 4930.0,352.0 4930.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-26" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">amod</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M4795,441.5 L4787,429.5 4803,429.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-27" stroke-width="2px" d="M4445,439.5 C4445,264.5 4935.0,264.5 4935.0,439.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-3e495b38bf5a440d8bf89b83da7cc4a8-0-27" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">conj</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M4935.0,441.5 L4943.0,429.5 4927.0,429.5" fill="currentColor"/>
+</g>
+</svg></span></div></div>
+</div>
+</section>
+<section id="bonus-searching-text-by-grammatical-dependancy">
+<h2>BONUS: searching text by grammatical dependancy<a class="headerlink" href="#bonus-searching-text-by-grammatical-dependancy" title="Link to this heading">#</a></h2>
+<p>See this tutorial for more info: <a class="reference external" href="https://applied-language-technology.mooc.fi/html/notebooks/part_iii/03_pattern_matching.html">https://applied-language-technology.mooc.fi/html/notebooks/part_iii/03_pattern_matching.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first, join the docs into one string to process with matcher</span>
+<span class="c1"># then run nlp() again</span>
+
+<span class="n">abstracts_string</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">abstracts</span><span class="p">)</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">abstracts_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doc</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The decision comes as political pressure mounts to cut down on programs that allow migrants to stay in the United States temporarily, even without a visa or green card. The country’s defense ministry said the military officers who opened fire might have mistaken the migrants for cartel
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spacy.matcher</span> <span class="kn">import</span> <span class="n">Matcher</span>
+
+<span class="c1"># Create a Matcher and provide model vocabulary; assign result under the variable &#39;matcher&#39;</span>
+<span class="n">matcher</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>
+
+<span class="c1"># Call the variable to examine the object</span>
+<span class="n">matcher</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;spacy.matcher.matcher.Matcher at 0x320449cf0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a list with nested dictionaries that contains the pattern to be matched</span>
+<span class="n">pronoun_verb</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;POS&#39;</span><span class="p">:</span> <span class="s1">&#39;PRON&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;POS&#39;</span><span class="p">:</span> <span class="s1">&#39;VERB&#39;</span><span class="p">}]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add the pattern to the matcher under the name &#39;pronoun+verb&#39;</span>
+<span class="n">matcher</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;pronoun+verb&quot;</span><span class="p">,</span> <span class="n">patterns</span><span class="o">=</span><span class="p">[</span><span class="n">pronoun_verb</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the Matcher to the Doc object under &#39;doc&#39;; provide the argument</span>
+<span class="c1"># &#39;as_spans&#39; and set its value to True to get Spans as output\</span>
+
+<span class="n">matches</span> <span class="o">=</span> <span class="n">matcher</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+
+<span class="c1"># Call the variable to examine the output</span>
+<span class="c1"># result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matches</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(12298179334642351811, 12, 14),
+ (12298179334642351811, 40, 42),
+ (12298179334642351811, 168, 170),
+ (12298179334642351811, 265, 267),
+ (12298179334642351811, 318, 320),
+ (12298179334642351811, 482, 484),
+ (12298179334642351811, 518, 520),
+ (12298179334642351811, 586, 588),
+ (12298179334642351811, 588, 590),
+ (12298179334642351811, 598, 600),
+ (12298179334642351811, 638, 640),
+ (12298179334642351811, 822, 824),
+ (12298179334642351811, 916, 918),
+ (12298179334642351811, 957, 959),
+ (12298179334642351811, 995, 997),
+ (12298179334642351811, 1072, 1074),
+ (12298179334642351811, 1092, 1094),
+ (12298179334642351811, 1129, 1131),
+ (12298179334642351811, 1202, 1204),
+ (12298179334642351811, 1300, 1302)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">match_id</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+    <span class="n">string_id</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">match_id</span><span class="p">]</span>  <span class="c1"># Look up string ID</span>
+    <span class="n">span</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">string_id</span><span class="p">,</span> <span class="n">span</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pronoun+verb that allow
+pronoun+verb who opened
+pronoun+verb some say
+pronoun+verb that allow
+pronoun+verb who echoed
+pronoun+verb she visited
+pronoun+verb he conceded
+pronoun+verb that helped
+pronoun+verb him win
+pronoun+verb there was
+pronoun+verb which appears
+pronoun+verb She used
+pronoun+verb them did
+pronoun+verb We cover
+pronoun+verb they thought
+pronoun+verb that sank
+pronoun+verb that come
+pronoun+verb him prevail
+pronoun+verb he declared
+pronoun+verb he described
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./gathering"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dicts.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">dictionaries</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="legiscan_api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Legiscan API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-api-calls-with-keys">creating API calls with keys</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parsing-our-data">parsing our data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paginating-through-results">paginating through results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pulling-articles-out-of-our-results">pulling articles out of our results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-challenge-exploring-keys">individual challenge: exploring keys</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-our-data-to-lists">saving our data to lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-challenge-lists-more-lists">group challenge: lists more lists!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-going-deep-into-keywords">Bonus: going deep into keywords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-challenge-to-dataframe">individual challenge: to dataframe!</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-analysis-with-spacy">text analysis with spaCy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokens">tokens</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ner">NER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-frequencies">word frequencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependency">dependency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-searching-text-by-grammatical-dependancy">BONUS: searching text by grammatical dependancy</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

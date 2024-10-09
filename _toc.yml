@@ -22,6 +22,7 @@ parts:
   - file: gathering/to-dataframe
   - file: gathering/met_api
   - file: gathering/dicts
+  - file: gathering/nyt_api
   - file: gathering/legiscan_api
 - caption: cleaning data
   chapters:

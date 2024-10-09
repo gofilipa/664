@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -201,6 +201,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../gathering/to-dataframe.html">saving scraped data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/dicts.html">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/nyt_api.html">NYT API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
@@ -476,47 +477,13 @@ Transformers.”</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None of PyTorch, TensorFlow &gt;= 2.0, or Flax have been found. Models won&#39;t be available and only tokenizers, configuration and file/data utilities can be used.
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">pipe</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">&quot;text-generation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;EleutherAI/gpt-neo-125m&quot;</span><span class="p">)</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">pipe</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">&quot;text-generation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;EleutherAI/gpt-neo-125m&quot;</span><span class="p">)</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/transformers/pipelines/__init__.py:906,</span> in <span class="ni">pipeline</span><span class="nt">(task, model, config, tokenizer, feature_extractor, image_processor, framework, revision, use_fast, token, device, device_map, torch_dtype, trust_remote_code, model_kwargs, pipeline_class, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">904</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="n">framework</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">905</span>     <span class="n">model_classes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tf&quot;</span><span class="p">:</span> <span class="n">targeted_task</span><span class="p">[</span><span class="s2">&quot;tf&quot;</span><span class="p">],</span> <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="n">targeted_task</span><span class="p">[</span><span class="s2">&quot;pt&quot;</span><span class="p">]}</span>
-<span class="ne">--&gt; </span><span class="mi">906</span>     <span class="n">framework</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">infer_framework_load_model</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">907</span>         <span class="n">model</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">908</span>         <span class="n">model_classes</span><span class="o">=</span><span class="n">model_classes</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">909</span>         <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">910</span>         <span class="n">framework</span><span class="o">=</span><span class="n">framework</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">911</span>         <span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">912</span>         <span class="o">**</span><span class="n">hub_kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">913</span>         <span class="o">**</span><span class="n">model_kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">914</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">916</span> <span class="n">model_config</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">config</span>
-<span class="g g-Whitespace">    </span><span class="mi">917</span> <span class="n">hub_kwargs</span><span class="p">[</span><span class="s2">&quot;_commit_hash&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">_commit_hash</span>
-
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/transformers/pipelines/base.py:234,</span> in <span class="ni">infer_framework_load_model</span><span class="nt">(model, config, model_classes, task, framework, **model_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">208</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span><span class="sd"> Select framework (TensorFlow or PyTorch) to use from the `model` passed. Returns a tuple (framework, model).</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">231</span><span class="sd">     `Tuple`: A tuple framework, model.</span>
-<span class="g g-Whitespace">    </span><span class="mi">232</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">233</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">is_tf_available</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_torch_available</span><span class="p">():</span>
-<span class="ne">--&gt; </span><span class="mi">234</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">235</span>         <span class="s2">&quot;At least one of TensorFlow 2.0 or PyTorch should be installed. &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">236</span>         <span class="s2">&quot;To install TensorFlow 2.0, read the instructions at https://www.tensorflow.org/install/ &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">237</span>         <span class="s2">&quot;To install PyTorch, read the instructions at https://pytorch.org/.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">238</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">240</span>     <span class="n">model_kwargs</span><span class="p">[</span><span class="s2">&quot;_from_pipeline&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">task</span>
-
-<span class="ne">RuntimeError</span>: At least one of TensorFlow 2.0 or PyTorch should be installed. To install TensorFlow 2.0, read the instructions at https://www.tensorflow.org/install/ To install PyTorch, read the instructions at https://pytorch.org/.
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;transformers&#39;
 </pre></div>
 </div>
 </div>

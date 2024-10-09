@@ -1,55 +1,57 @@
 Traceback (most recent call last):
-  File "/opt/anaconda3/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/opt/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 1314, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/anaconda3/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/anaconda3/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/opt/anaconda3/envs/jb/lib/python3.13/asyncio/base_events.py", line 721, in run_until_complete
     return future.result()
-           ^^^^^^^^^^^^^^^
-  File "/opt/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+           ~~~~~~~~~~~~~^^
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/opt/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# a bunch of empty lists where we will dump our data
-titles = []
-captions = []
-categories = []
-descriptions = []
-links = []
-
-# our for loop that saves each item we want from the bill_cards
-for item in bill_cards:
-    title = item.h3.text
-    category = item.find('span').text
-    caption = item.h2.text
-    description = item.p.text
-    link = 'https://translegislation.com/bills/2023/passed' + item.a['href']
-    
-    # adding the items to the empty lists
-    titles.append(title)
-    categories.append(category)
-    captions.append(caption)
-    descriptions.append(description)
-    links.append(link)
+site = requests.get('https://translegislation.com/bills/2024/US')
+html_code = site.content
+soup = BeautifulSoup(html_code, 'lxml')
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mAttributeError[0m                            Traceback (most recent call last)
-Cell [0;32mIn[6], line 13[0m
-[1;32m     11[0m category [38;5;241m=[39m item[38;5;241m.[39mfind([38;5;124m'[39m[38;5;124mspan[39m[38;5;124m'[39m)[38;5;241m.[39mtext
-[1;32m     12[0m caption [38;5;241m=[39m item[38;5;241m.[39mh2[38;5;241m.[39mtext
-[0;32m---> 13[0m description [38;5;241m=[39m item[38;5;241m.[39mp[38;5;241m.[39mtext
-[1;32m     14[0m link [38;5;241m=[39m [38;5;124m'[39m[38;5;124mhttps://translegislation.com/bills/2023/passed[39m[38;5;124m'[39m [38;5;241m+[39m item[38;5;241m.[39ma[[38;5;124m'[39m[38;5;124mhref[39m[38;5;124m'[39m]
-[1;32m     16[0m [38;5;66;03m# adding the items to the empty lists[39;00m
+[0;31mFeatureNotFound[0m                           Traceback (most recent call last)
+Cell [0;32mIn[2], line 3[0m
+[1;32m      1[0m site [38;5;241m=[39m requests[38;5;241m.[39mget([38;5;124m'[39m[38;5;124mhttps://translegislation.com/bills/2024/US[39m[38;5;124m'[39m)
+[1;32m      2[0m html_code [38;5;241m=[39m site[38;5;241m.[39mcontent
+[0;32m----> 3[0m soup [38;5;241m=[39m [43mBeautifulSoup[49m[43m([49m[43mhtml_code[49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mlxml[39;49m[38;5;124;43m'[39;49m[43m)[49m
 
-[0;31mAttributeError[0m: 'NoneType' object has no attribute 'text'
+File [0;32m/opt/anaconda3/envs/jb/lib/python3.13/site-packages/bs4/__init__.py:250[0m, in [0;36mBeautifulSoup.__init__[0;34m(self, markup, features, builder, parse_only, from_encoding, exclude_encodings, element_classes, **kwargs)[0m
+[1;32m    248[0m     builder_class [38;5;241m=[39m builder_registry[38;5;241m.[39mlookup([38;5;241m*[39mfeatures)
+[1;32m    249[0m     [38;5;28;01mif[39;00m builder_class [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 250[0m         [38;5;28;01mraise[39;00m FeatureNotFound(
+[1;32m    251[0m             [38;5;124m"[39m[38;5;124mCouldn[39m[38;5;124m'[39m[38;5;124mt find a tree builder with the features you [39m[38;5;124m"[39m
+[1;32m    252[0m             [38;5;124m"[39m[38;5;124mrequested: [39m[38;5;132;01m%s[39;00m[38;5;124m. Do you need to install a parser library?[39m[38;5;124m"[39m
+[1;32m    253[0m             [38;5;241m%[39m [38;5;124m"[39m[38;5;124m,[39m[38;5;124m"[39m[38;5;241m.[39mjoin(features))
+[1;32m    255[0m [38;5;66;03m# At this point either we have a TreeBuilder instance in[39;00m
+[1;32m    256[0m [38;5;66;03m# builder, or we have a builder_class that we can instantiate[39;00m
+[1;32m    257[0m [38;5;66;03m# with the remaining **kwargs.[39;00m
+[1;32m    258[0m [38;5;28;01mif[39;00m builder [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+
+[0;31mFeatureNotFound[0m: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 
