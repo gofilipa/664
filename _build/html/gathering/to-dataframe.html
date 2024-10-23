@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/to-dataframe';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The MET API" href="met_api.html" />
+    <link rel="next" title="dictionaries" href="dicts.html" />
     <link rel="prev" title="scraping with bs4" href="scraping.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -199,16 +199,15 @@
 <li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">saving scraped data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dicts.html">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nyt_api.html">NYT API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legiscan_api.html">Legiscan API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="karol.html">Genius API</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clean/dataframes.html">dataframes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clean/scrape.html">scraping our text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
@@ -633,12 +632,12 @@ US HB3328 Protecting Children From Experimentation Act of 2023 HEALTHCARE To ame
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">category</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">caption</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">h2</span><span class="o">.</span><span class="n">text</span>
-<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">description</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">text</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># adding the items to the empty lists</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">titles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">category</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">caption</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">h2</span><span class="o">.</span><span class="n">text</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">description</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">text</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;https://translegislation.com/bills/2023/passed&#39;</span> <span class="o">+</span> <span class="n">item</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="c1"># adding the items to the empty lists</span>
 
 <span class="ne">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;text&#39;
 </pre></div>
@@ -769,11 +768,14 @@ https://translegislation.com//bills/2024/US/HB3328
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">legiscan_links</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">congress_links</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">soups</span><span class="p">:</span>
-    <span class="c1"># get the url for state url</span>
-    <span class="n">anchor_tag</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;chakra-link css-oga2ct&#39;</span><span class="p">)</span>
-    <span class="n">link</span> <span class="o">=</span> <span class="n">anchor_tag</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
-    <span class="n">legiscan_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+    <span class="c1"># we are getting two links here, one to legiscan and one to the congress website</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;chakra-link css-oga2ct&#39;</span><span class="p">)</span>
+    <span class="n">anchor1</span> <span class="o">=</span> <span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;href&#39;</span><span class="p">]</span> <span class="c1"># link to legiscan</span>
+    <span class="n">legiscan_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">anchor1</span><span class="p">)</span>
+    <span class="n">anchor2</span> <span class="o">=</span> <span class="n">links</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;href&#39;</span><span class="p">]</span> <span class="c1"># link to congress</span>
+    <span class="n">congress_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">anchor2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -816,23 +818,23 @@ https://translegislation.com//bills/2024/US/HB3328
  &#39;https://legiscan.com/US/text/HB7183/id/2930086&#39;,
  &#39;https://legiscan.com/US/text/HB7187/id/2930340&#39;,
  &#39;https://legiscan.com/US/text/HB734/id/2787793&#39;,
- &#39;https://legiscan.com/US/text/HB736/id/2758803&#39;,
+ &#39;https://legiscan.com/US/text/HB736/id/3023788&#39;,
  &#39;https://legiscan.com/US/text/HB7725/id/2974064&#39;,
  &#39;https://legiscan.com/US/text/HB8070/id/3011826&#39;,
  &#39;https://legiscan.com/US/text/HB8433/id/3012543&#39;,
- &#39;https://legiscan.com/US/text/HB8580/id/3008798&#39;,
+ &#39;https://legiscan.com/US/text/HB8580/id/3020996&#39;,
  &#39;https://legiscan.com/US/text/HB8708/id/3016017&#39;,
  &#39;https://legiscan.com/US/text/HB8752/id/3013700&#39;,
- &#39;https://legiscan.com/US/text/HB8771/id/3013260&#39;,
- &#39;https://legiscan.com/US/text/HB8774/id/3014246&#39;,
+ &#39;https://legiscan.com/US/text/HB8771/id/3020997&#39;,
+ &#39;https://legiscan.com/US/text/HB8774/id/3020988&#39;,
  &#39;https://legiscan.com/US/text/HB8997/id/3014401&#39;,
- &#39;https://legiscan.com/US/text/HB8998/id/3015728&#39;,
+ &#39;https://legiscan.com/US/text/HB8998/id/3021001&#39;,
  &#39;https://legiscan.com/US/text/HB9026/id/3014403&#39;,
  &#39;https://legiscan.com/US/text/HB9027/id/3014469&#39;,
  &#39;https://legiscan.com/US/text/HB9028/id/3014468&#39;,
  &#39;https://legiscan.com/US/text/HB9029/id/3014470&#39;,
  &#39;https://legiscan.com/US/text/HB9218/id/3019830&#39;,
- &#39;https://www.congress.gov/bill/118th-congress/house-bill/9586/all-info&#39;,
+ &#39;https://legiscan.com/US/text/HB9586/id/3021417&#39;,
  &#39;https://legiscan.com/US/text/HB985/id/2727973&#39;,
  &#39;https://legiscan.com/US/text/HJR160/id/3003197&#39;,
  &#39;https://legiscan.com/US/text/HJR165/id/3015576&#39;,
@@ -865,6 +867,97 @@ https://translegislation.com//bills/2024/US/HB3328
  &#39;https://legiscan.com/US/text/SR267/id/2831179&#39;,
  &#39;https://legiscan.com/US/text/SR53/id/2696872&#39;,
  &#39;https://legiscan.com/US/text/SR669/id/2998369&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">congress_links</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.congress.gov/bill/118th-congress/house-bill/1064/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/1112/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/1276/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/1399/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/1490/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/1585/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/216/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/3101/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/3102/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/3328/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/3329/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/3462/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/3887/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/429/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/4365/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/4367/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/4398/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/4665/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/4821/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/5/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/5327/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/5636/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/5893/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/5894/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/6040/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/6258/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/6658/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/6728/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/7183/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/7187/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/734/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/736/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/7725/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/8070/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/8433/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/8580/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/8708/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/8752/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/8771/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/8774/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/8997/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/8998/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/9026/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/9027/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/9028/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/9029/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/9218/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/9586/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-bill/985/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-joint-resolution/160/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-joint-resolution/165/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-resolution/115/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-resolution/1223/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-resolution/282/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-resolution/298/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-resolution/518/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-resolution/536/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/house-resolution/769/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/1595/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/1597/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/1709/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/187/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/200/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/2357/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/2394/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/2797/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/3035/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/3438/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/3729/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/435/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/457/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/4638/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/613/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/635/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-bill/752/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-joint-resolution/90/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-joint-resolution/96/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-resolution/267/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-resolution/53/all-info&#39;,
+ &#39;https://www.congress.gov/bill/118th-congress/senate-resolution/669/all-info&#39;]
 </pre></div>
 </div>
 </div>
@@ -922,7 +1015,8 @@ https://translegislation.com//bills/2024/US/HB3328
      <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="n">categories</span><span class="p">,</span>
      <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">descriptions</span><span class="p">,</span>
      <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">urls</span><span class="p">,</span>
-     <span class="s1">&#39;legiscan&#39;</span><span class="p">:</span> <span class="n">legiscan_links</span>
+     <span class="s1">&#39;legiscan&#39;</span><span class="p">:</span> <span class="n">legiscan_links</span><span class="p">,</span>
+     <span class="s1">&#39;congress&#39;</span><span class="p">:</span> <span class="n">congress_links</span>
     <span class="p">})</span>
 </pre></div>
 </div>
@@ -961,6 +1055,7 @@ https://translegislation.com//bills/2024/US/HB3328
       <th>description</th>
       <th>url</th>
       <th>legiscan</th>
+      <th>congress</th>
     </tr>
   </thead>
   <tbody>
@@ -972,6 +1067,7 @@ https://translegislation.com//bills/2024/US/HB3328
       <td>Ensuring Military Readiness Act of 2023</td>
       <td>https://translegislation.com//bills/2024/US/HB...</td>
       <td>https://legiscan.com/US/text/HB1064/id/2737306</td>
+      <td>https://www.congress.gov/bill/118th-congress/h...</td>
     </tr>
     <tr>
       <th>1</th>
@@ -981,6 +1077,7 @@ https://translegislation.com//bills/2024/US/HB3328
       <td>Ensuring Military Readiness Act of 2023</td>
       <td>https://translegislation.com//bills/2024/US/HB...</td>
       <td>https://legiscan.com/US/text/HB1112/id/2742708</td>
+      <td>https://www.congress.gov/bill/118th-congress/h...</td>
     </tr>
     <tr>
       <th>2</th>
@@ -990,6 +1087,7 @@ https://translegislation.com//bills/2024/US/HB3328
       <td>Protect Minors from Medical Malpractice Act of...</td>
       <td>https://translegislation.com//bills/2024/US/HB...</td>
       <td>https://legiscan.com/US/text/HB1276/id/2755407</td>
+      <td>https://www.congress.gov/bill/118th-congress/h...</td>
     </tr>
     <tr>
       <th>3</th>
@@ -999,6 +1097,7 @@ https://translegislation.com//bills/2024/US/HB3328
       <td>Protect Children’s Innocence Act</td>
       <td>https://translegislation.com//bills/2024/US/HB...</td>
       <td>https://legiscan.com/US/text/HB1399/id/2796538</td>
+      <td>https://www.congress.gov/bill/118th-congress/h...</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1008,6 +1107,7 @@ https://translegislation.com//bills/2024/US/HB3328
       <td>Preventing Violence Against Female Inmates Act...</td>
       <td>https://translegislation.com//bills/2024/US/HB...</td>
       <td>https://legiscan.com/US/text/HB1490/id/2761146</td>
+      <td>https://www.congress.gov/bill/118th-congress/h...</td>
     </tr>
   </tbody>
 </table>
@@ -1067,11 +1167,11 @@ https://translegislation.com//bills/2024/US/HB3328
       </div>
     </a>
     <a class="right-next"
-       href="met_api.html"
+       href="dicts.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">The MET API</p>
+        <p class="prev-next-title">dictionaries</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

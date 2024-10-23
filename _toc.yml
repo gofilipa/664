@@ -20,15 +20,14 @@ parts:
   - file: gathering/ethics
   - file: gathering/scraping
   - file: gathering/to-dataframe
-  - file: gathering/met_api
   - file: gathering/dicts
+  - file: gathering/met_api
   - file: gathering/nyt_api
   - file: gathering/legiscan_api
+  - file: gathering/karol
 - caption: cleaning data
   chapters:
   - file: clean/overview
-  - file: clean/dataframes
-  - file: clean/scrape
   - file: clean/cleaning
 - caption: analyzing data
   chapters:

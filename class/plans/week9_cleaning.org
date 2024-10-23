@@ -1,0 +1,7 @@
+* cleaning
+Agenda
+- talk about final projects, talk through some samples
+- mini lesson on cleaning with Python
+- time to research areas that you're interested in
+- pitch general area that you're interested in working with
+- come to class next week with some data to workshop 

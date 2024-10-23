@@ -35,7 +35,7 @@ import csv # also for working with tabular data, in csv format
 # this grabs the CSV from the previous section. If you get a file
 # not found error make sure you go through the previous section to 
 # save that csv
-bills = pd.read_csv('congress_clean.csv')
+bills = pd.read_csv('../gathering/bill_data.csv')
 
 df = pd.DataFrame(bills)
 ------------------

@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/legiscan_api';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="workshop overview" href="../clean/overview.html" />
+    <link rel="next" title="Genius API" href="karol.html" />
     <link rel="prev" title="NYT API" href="nyt_api.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -199,16 +199,15 @@
 <li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="to-dataframe.html">saving scraped data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dicts.html">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nyt_api.html">NYT API</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Legiscan API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="karol.html">Genius API</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clean/dataframes.html">dataframes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clean/scrape.html">scraping our text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
@@ -428,7 +427,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="legiscan-api">
 <h1>Legiscan API<a class="headerlink" href="#legiscan-api" title="Link to this heading">#</a></h1>
-<p>Now we turn to examine APIs, how to create one, and how to navigate and download the results. You will notice how much easier it is to manage the data, which comes already in a clean and structured format (as JSON), which is opposed to the messy HTML data that we get with web scraping.</p>
 <p>The <a class="reference external" href="https://legiscan.com/legiscan">Legiscan API</a> provides access to legislative data, such as bills, sponsors, hearing information, etc, from all 50 states. To use the Legiscan API, you’d first need to make an account on Legiscan, and request an API key. The key (which we will incorporate into our API call) gives you authentication to access the data on Legiscan.</p>
 <p>After getting our API key, we can create our API call. The first step is import our libraries that we need in order to use the API. Then, we can construct our API call, putting together the root, key and query.</p>
 <div class="cell docutils container">
@@ -760,7 +758,6 @@ memory usage: 56.6+ KB
 </div>
 </div>
 <p>That’s it!</p>
-<p>In the next workshop, we will look at analyzing the plain text from some of these bills, which we will access through the <code class="docutils literal notranslate"><span class="pre">congress.gov</span></code> website.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -803,11 +800,11 @@ memory usage: 56.6+ KB
       </div>
     </a>
     <a class="right-next"
-       href="../clean/overview.html"
+       href="karol.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">workshop overview</p>
+        <p class="prev-next-title">Genius API</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
