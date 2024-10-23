@@ -1,7 +1,46 @@
 * cleaning
 Agenda
+- mini lesson on cleaning with Python, and on authentication
 - talk about final projects, talk through some samples
-- mini lesson on cleaning with Python
 - time to research areas that you're interested in
 - pitch general area that you're interested in working with
-- come to class next week with some data to workshop 
+- come to class next week with some data to workshop
+
+Mini lesson on cleaning
+- get our text
+- decode it
+- inspect our text for things we want to remove
+  - take a slice of the first 1000 chars.
+- looping through text to replace it.
+  - create a list of things we want to remove
+  - loop through that list
+  - check if it's in the text
+  - if so, replace it
+- put all of this in a function!
+  - calling and defining the function
+  - def add
+  - add() takes params
+- group challenge: move all the cleaning into a function, then call
+  the function on our text.
+- save our text with statement
+
+Authentication
+- genius API, NYT API, there are different ways to do it.
+
+
+BREAK
+
+Looking at existing final projects 
+- going through a couple of them, reading the code
+- try to guess what the code is doing
+
+Freewrite
+- what kind of data are you interested in working with or learning
+  about?
+- where can you find that data?
+  - Make a list of at least 2-3 websites.
+  - Do the websites have APIs? How accessible are the APIs?
+- if you got that data, what could you do with it? Be speculative.
+
+
+Share
