@@ -28,28 +28,28 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import requests # for making http (web) requests
-import pandas as pd # for working with tabular (spreadsheet) data
-import csv # also for working with tabular data, in csv format
-
-# this grabs the CSV from the previous section. If you get a file
-# not found error make sure you go through the previous section to 
-# save that csv
-bills = pd.read_csv('../gathering/bill_data.csv')
-
-df = pd.DataFrame(bills)
+import pandas as pd
+df = pd.DataFrame({
+    'title': titles,
+    'artist name': names,
+    'artist gender': genders,
+    'artist nationality': nationality,
+    'artist culture': culture,
+    'gallery location': gallery
+})
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 2[0m
-[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mrequests[39;00m [38;5;66;03m# for making http (web) requests[39;00m
-[0;32m----> 2[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m [38;5;66;03m# for working with tabular (spreadsheet) data[39;00m
-[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mcsv[39;00m [38;5;66;03m# also for working with tabular data, in csv format[39;00m
-[1;32m      5[0m [38;5;66;03m# this grabs the CSV from the previous section. If you get a file[39;00m
-[1;32m      6[0m [38;5;66;03m# not found error make sure you go through the previous section to [39;00m
-[1;32m      7[0m [38;5;66;03m# save that csv[39;00m
+Cell [0;32mIn[14], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[1;32m      2[0m df [38;5;241m=[39m pd[38;5;241m.[39mDataFrame({
+[1;32m      3[0m     [38;5;124m'[39m[38;5;124mtitle[39m[38;5;124m'[39m: titles,
+[1;32m      4[0m     [38;5;124m'[39m[38;5;124martist name[39m[38;5;124m'[39m: names,
+[0;32m   (...)[0m
+[1;32m      8[0m     [38;5;124m'[39m[38;5;124mgallery location[39m[38;5;124m'[39m: gallery
+[1;32m      9[0m })
 
 [0;31mModuleNotFoundError[0m: No module named 'pandas'
 

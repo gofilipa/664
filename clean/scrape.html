@@ -60,8 +60,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'clean/scrape';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cleaning our text" href="cleaning.html" />
-    <link rel="prev" title="dataframes" href="dataframes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -123,6 +121,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -199,16 +199,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../gathering/ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/to-dataframe.html">saving scraped data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gathering/met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/dicts.html">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/nyt_api.html">NYT API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/karol.html">Genius API</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">workshop overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dataframes.html">dataframes</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">scraping our text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cleaning.html">cleaning our text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
@@ -440,11 +439,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="scraping-our-text">
 <h1>scraping our text<a class="headerlink" href="#scraping-our-text" title="Link to this heading">#</a></h1>
-<p>Researchers generally only share the analysis they have done <em>after</em> they got the data, which makes it hard for beginners to replicate the process. For that reason, I’m showing the data gathering process. (FYI - I tried using the <a class="reference external" href="http://congress.gov">congress.gov</a> API to get this dataset, which is always the right thing to do! But it doesn’t offer the full text of the bill, so that’s why I turned to scraping. For future reference, you can request an API key here: <a class="reference external" href="https://api.congress.gov/">https://api.congress.gov/</a>)</p>
-<p>Here, I’ll go over the I wrote for downloading bill data from <code class="docutils literal notranslate"><span class="pre">congress.gov</span></code> and scraping the text of the individual bills.</p>
-<p>First, I got a list of the relevant bills using the regular search function on the <code class="docutils literal notranslate"><span class="pre">congress.gov</span></code> website. I did a search for the term “transgender,” and then downloading the results to a spreadsheet. (Side note: the ability to download results from a search is super useful, and most websites won’t offer that functionality)</p>
-<p><img alt="image of congress.gov search interface" src="../_images/congress_gov.jpg" /></p>
-<p>Then, I loaded up the file (a csv file) into a Python notebook.</p>
+<p>Here I show how we can use web scraping to get bill data from <a class="reference external" href="http://congress.gov">congress.gov</a> servers. FYI - I tried using the <a class="reference external" href="http://congress.gov">congress.gov</a> API to get this dataset, which is always the right thing to do! But it doesn’t offer the full text of the bill, so that’s why I turned to scraping. For future reference, you can request an API key here: <a class="reference external" href="https://api.congress.gov/">https://api.congress.gov/</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span> <span class="c1"># for making http (web) requests</span>
@@ -454,7 +449,7 @@ document.write(`
 <span class="c1"># this grabs the CSV from the previous section. If you get a file</span>
 <span class="c1"># not found error make sure you go through the previous section to </span>
 <span class="c1"># save that csv</span>
-<span class="n">bills</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;congress_clean.csv&#39;</span><span class="p">)</span>
+<span class="n">bills</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../gathering/bill_data.csv&#39;</span><span class="p">)</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">bills</span><span class="p">)</span>
 </pre></div>
@@ -484,56 +479,208 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 148 entries, 0 to 147
-Data columns (total 18 columns):
- #   Column                   Non-Null Count  Dtype  
----  ------                   --------------  -----  
- 0   Unnamed: 0               148 non-null    int64  
- 1   Legislation Number       148 non-null    object 
- 2   URL                      148 non-null    object 
- 3   Congress                 148 non-null    object 
- 4   Title                    146 non-null    object 
- 5   Sponsor                  148 non-null    object 
- 6   Party of Sponsor         148 non-null    object 
- 7   Date of Introduction     115 non-null    object 
- 8   Committees               114 non-null    object 
- 9   Latest Action            146 non-null    object 
- 10  Latest Action Date       146 non-null    object 
- 11  Latest Summary           61 non-null     object 
- 12  Amends Bill              33 non-null     object 
- 13  Date Offered             31 non-null     object 
- 14  Date Submitted           2 non-null      object 
- 15  Date Proposed            0 non-null      float64
- 16  Amendment Text (Latest)  33 non-null     object 
- 17  Amends Amendment         0 non-null      float64
-dtypes: float64(2), int64(1), object(15)
-memory usage: 20.9+ KB
+RangeIndex: 80 entries, 0 to 79
+Data columns (total 8 columns):
+ #   Column       Non-Null Count  Dtype 
+---  ------       --------------  ----- 
+ 0   Unnamed: 0   80 non-null     int64 
+ 1   title        80 non-null     object
+ 2   caption      80 non-null     object
+ 3   category     80 non-null     object
+ 4   description  80 non-null     object
+ 5   url          80 non-null     object
+ 6   legiscan     80 non-null     object
+ 7   congress     80 non-null     object
+dtypes: int64(1), object(7)
+memory usage: 5.1+ KB
 </pre></div>
 </div>
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>title</th>
+      <th>caption</th>
+      <th>category</th>
+      <th>description</th>
+      <th>url</th>
+      <th>legiscan</th>
+      <th>congress</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>US HB1064</td>
+      <td>Ensuring Military Readiness Act of 2023</td>
+      <td>MILITARY</td>
+      <td>Ensuring Military Readiness Act of 2023</td>
+      <td>https://translegislation.com//bills/2024/US/HB...</td>
+      <td>https://legiscan.com/US/text/HB1064/id/2737306</td>
+      <td>https://www.congress.gov/bill/118th-congress/h...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>US HB1112</td>
+      <td>Ensuring Military Readiness Act of 2023</td>
+      <td>MILITARY</td>
+      <td>Ensuring Military Readiness Act of 2023</td>
+      <td>https://translegislation.com//bills/2024/US/HB...</td>
+      <td>https://legiscan.com/US/text/HB1112/id/2742708</td>
+      <td>https://www.congress.gov/bill/118th-congress/h...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>US HB1276</td>
+      <td>Protect Minors from Medical Malpractice Act of...</td>
+      <td>HEALTHCARE</td>
+      <td>Protect Minors from Medical Malpractice Act of...</td>
+      <td>https://translegislation.com//bills/2024/US/HB...</td>
+      <td>https://legiscan.com/US/text/HB1276/id/2755407</td>
+      <td>https://www.congress.gov/bill/118th-congress/h...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>US HB1399</td>
+      <td>Protect Children’s Innocence Act</td>
+      <td>HEALTHCARE</td>
+      <td>Protect Children’s Innocence Act</td>
+      <td>https://translegislation.com//bills/2024/US/HB...</td>
+      <td>https://legiscan.com/US/text/HB1399/id/2796538</td>
+      <td>https://www.congress.gov/bill/118th-congress/h...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>US HB1490</td>
+      <td>Preventing Violence Against Female Inmates Act...</td>
+      <td>INCARCERATION</td>
+      <td>Preventing Violence Against Female Inmates Act...</td>
+      <td>https://translegislation.com//bills/2024/US/HB...</td>
+      <td>https://legiscan.com/US/text/HB1490/id/2761146</td>
+      <td>https://www.congress.gov/bill/118th-congress/h...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>75</td>
+      <td>US SJR90</td>
+      <td>A joint resolution providing for congressional...</td>
+      <td>HEALTHCARE</td>
+      <td>A joint resolution providing for congressional...</td>
+      <td>https://translegislation.com//bills/2024/US/SJR90</td>
+      <td>https://legiscan.com/US/text/SJR90/id/3003899</td>
+      <td>https://www.congress.gov/bill/118th-congress/s...</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>76</td>
+      <td>US SJR96</td>
+      <td>A joint resolution providing for congressional...</td>
+      <td>EDUCATION</td>
+      <td>A joint resolution providing for congressional...</td>
+      <td>https://translegislation.com//bills/2024/US/SJR96</td>
+      <td>https://legiscan.com/US/text/SJR96/id/3009679</td>
+      <td>https://www.congress.gov/bill/118th-congress/s...</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>77</td>
+      <td>US SR267</td>
+      <td>A resolution supporting the designation of the...</td>
+      <td>SPORTS</td>
+      <td>A resolution supporting the designation of the...</td>
+      <td>https://translegislation.com//bills/2024/US/SR267</td>
+      <td>https://legiscan.com/US/text/SR267/id/2831179</td>
+      <td>https://www.congress.gov/bill/118th-congress/s...</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>78</td>
+      <td>US SR53</td>
+      <td>A resolution establishing a Women's Bill of Ri...</td>
+      <td>CIVIL RIGHTS</td>
+      <td>A resolution establishing a Women's Bill of Ri...</td>
+      <td>https://translegislation.com//bills/2024/US/SR53</td>
+      <td>https://legiscan.com/US/text/SR53/id/2696872</td>
+      <td>https://www.congress.gov/bill/118th-congress/s...</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>79</td>
+      <td>US SR669</td>
+      <td>A resolution designating October 10, 2024, as ...</td>
+      <td>SPORTS</td>
+      <td>A resolution designating October 10, 2024, as ...</td>
+      <td>https://translegislation.com//bills/2024/US/SR669</td>
+      <td>https://legiscan.com/US/text/SR669/id/2998369</td>
+      <td>https://www.congress.gov/bill/118th-congress/s...</td>
+    </tr>
+  </tbody>
+</table>
+<p>80 rows × 8 columns</p>
+</div></div></div>
 </div>
 <section id="extracting-the-bill-number">
 <h2>extracting the bill number<a class="headerlink" href="#extracting-the-bill-number" title="Link to this heading">#</a></h2>
 <p>In order to scrape the bill text, we need just the bill number. In order to get that, we need to go through the <code class="docutils literal notranslate"><span class="pre">Legislation</span> <span class="pre">Number</span></code> column and extract just the number.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Legislation Number&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        H.R. 1112
-1           S. 435
-2       H.Res. 886
-3       S.Res. 464
-4       H.Res. 269
-          ...     
-143    H.Amdt. 195
-144    H.Amdt. 193
-145    H.Amdt. 256
-146    H.Amdt. 257
-147    H.Amdt. 255
-Name: Legislation Number, Length: 148, dtype: object
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     US HB1064
+1     US HB1112
+2     US HB1276
+3     US HB1399
+4     US HB1490
+        ...    
+75     US SJR90
+76     US SJR96
+77     US SR267
+78      US SR53
+79     US SR669
+Name: title, Length: 80, dtype: object
 </pre></div>
 </div>
 </div>
@@ -543,62 +690,245 @@ Name: Legislation Number, Length: 148, dtype: object
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can use the split() method to split up the single string</span>
 <span class="c1"># into two strings, by the empty space in between them</span>
 
-<span class="n">bill</span> <span class="o">=</span> <span class="s2">&quot;H.R. 1112&quot;</span>
+<span class="n">bill</span> <span class="o">=</span> <span class="s2">&quot;US HB1064&quot;</span>
 <span class="n">bill</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;H.R.&#39;, &#39;1112&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;US&#39;, &#39;HB1064&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can write a for loop to append the number to a list</span>
-<span class="c1"># involves checking if the item is a number, using &quot;isnumeric&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save our variable, which is a list of two items </span>
 
-<span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">bill</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
-        <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="n">bill</span> <span class="o">=</span> <span class="s2">&quot;US HB1064&quot;</span>
+<span class="n">splitted</span> <span class="o">=</span> <span class="n">bill</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">item</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now we focus on the second item in the new list </span>
+
+<span class="n">splitted</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1112&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;HB1064&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<p>To extract the bill numbers, we will write a loop that:</p>
-<ul class="simple">
-<li><p>goes through each row of <code class="docutils literal notranslate"><span class="pre">df['Legislation</span> <span class="pre">Number']</span></code></p></li>
-<li><p>turns that row into a string, using <code class="docutils literal notranslate"><span class="pre">str()</span></code> function</p></li>
-<li><p>splits that row by the empty space using <code class="docutils literal notranslate"><span class="pre">split()</span></code></p></li>
-<li><p>writes another loop to check if the item <code class="docutils literal notranslate"><span class="pre">isnumeric()</span></code></p></li>
-<li><p>appends the numeric item to a new list</p></li>
-</ul>
+<p>Now let’s do it to all of them!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## go through each row in numbers column of our spreadsheet</span>
-<span class="c1">## extract the number and put into a separate list</span>
-<span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Legislation Number&#39;</span><span class="p">]:</span>
-    <span class="c1"># need to change data type to string in order to use split()</span>
-    <span class="n">row</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-    <span class="n">splitted</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">splitted</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
-            <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titles</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]:</span>
+    <span class="n">bill_title</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="n">titles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bill_title</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;HB1064&#39;,
+ &#39;HB1112&#39;,
+ &#39;HB1276&#39;,
+ &#39;HB1399&#39;,
+ &#39;HB1490&#39;,
+ &#39;HB1585&#39;,
+ &#39;HB216&#39;,
+ &#39;HB3101&#39;,
+ &#39;HB3102&#39;,
+ &#39;HB3328&#39;,
+ &#39;HB3329&#39;,
+ &#39;HB3462&#39;,
+ &#39;HB3887&#39;,
+ &#39;HB429&#39;,
+ &#39;HB4365&#39;,
+ &#39;HB4367&#39;,
+ &#39;HB4398&#39;,
+ &#39;HB4665&#39;,
+ &#39;HB4821&#39;,
+ &#39;HB5&#39;,
+ &#39;HB5327&#39;,
+ &#39;HB5636&#39;,
+ &#39;HB5893&#39;,
+ &#39;HB5894&#39;,
+ &#39;HB6040&#39;,
+ &#39;HB6258&#39;,
+ &#39;HB6658&#39;,
+ &#39;HB6728&#39;,
+ &#39;HB7183&#39;,
+ &#39;HB7187&#39;,
+ &#39;HB734&#39;,
+ &#39;HB736&#39;,
+ &#39;HB7725&#39;,
+ &#39;HB8070&#39;,
+ &#39;HB8433&#39;,
+ &#39;HB8580&#39;,
+ &#39;HB8708&#39;,
+ &#39;HB8752&#39;,
+ &#39;HB8771&#39;,
+ &#39;HB8774&#39;,
+ &#39;HB8997&#39;,
+ &#39;HB8998&#39;,
+ &#39;HB9026&#39;,
+ &#39;HB9027&#39;,
+ &#39;HB9028&#39;,
+ &#39;HB9029&#39;,
+ &#39;HB9218&#39;,
+ &#39;HB9586&#39;,
+ &#39;HB985&#39;,
+ &#39;HJR160&#39;,
+ &#39;HJR165&#39;,
+ &#39;HR115&#39;,
+ &#39;HR1223&#39;,
+ &#39;HR282&#39;,
+ &#39;HR298&#39;,
+ &#39;HR518&#39;,
+ &#39;HR536&#39;,
+ &#39;HR769&#39;,
+ &#39;SB1595&#39;,
+ &#39;SB1597&#39;,
+ &#39;SB1709&#39;,
+ &#39;SB187&#39;,
+ &#39;SB200&#39;,
+ &#39;SB2357&#39;,
+ &#39;SB2394&#39;,
+ &#39;SB2797&#39;,
+ &#39;SB3035&#39;,
+ &#39;SB3438&#39;,
+ &#39;SB3729&#39;,
+ &#39;SB435&#39;,
+ &#39;SB457&#39;,
+ &#39;SB4638&#39;,
+ &#39;SB613&#39;,
+ &#39;SB635&#39;,
+ &#39;SB752&#39;,
+ &#39;SJR90&#39;,
+ &#39;SJR96&#39;,
+ &#39;SR267&#39;,
+ &#39;SR53&#39;,
+ &#39;SR669&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## a very complicated piece of code that goes into each bill title to pull out just the numbers</span>
+<span class="c1">## feel free to skip --- this is advanced stuff!</span>
+
+<span class="n">title_numbers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">title_body</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">titles</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">char</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()):</span>
+            <span class="n">text</span> <span class="o">+=</span> <span class="n">char</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">numbers</span> <span class="o">+=</span> <span class="n">char</span>
+    <span class="n">title_body</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">title_numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="n">title_numbers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1064&#39;,
+ &#39;1112&#39;,
+ &#39;1276&#39;,
+ &#39;1399&#39;,
+ &#39;1490&#39;,
+ &#39;1585&#39;,
+ &#39;216&#39;,
+ &#39;3101&#39;,
+ &#39;3102&#39;,
+ &#39;3328&#39;,
+ &#39;3329&#39;,
+ &#39;3462&#39;,
+ &#39;3887&#39;,
+ &#39;429&#39;,
+ &#39;4365&#39;,
+ &#39;4367&#39;,
+ &#39;4398&#39;,
+ &#39;4665&#39;,
+ &#39;4821&#39;,
+ &#39;5&#39;,
+ &#39;5327&#39;,
+ &#39;5636&#39;,
+ &#39;5893&#39;,
+ &#39;5894&#39;,
+ &#39;6040&#39;,
+ &#39;6258&#39;,
+ &#39;6658&#39;,
+ &#39;6728&#39;,
+ &#39;7183&#39;,
+ &#39;7187&#39;,
+ &#39;734&#39;,
+ &#39;736&#39;,
+ &#39;7725&#39;,
+ &#39;8070&#39;,
+ &#39;8433&#39;,
+ &#39;8580&#39;,
+ &#39;8708&#39;,
+ &#39;8752&#39;,
+ &#39;8771&#39;,
+ &#39;8774&#39;,
+ &#39;8997&#39;,
+ &#39;8998&#39;,
+ &#39;9026&#39;,
+ &#39;9027&#39;,
+ &#39;9028&#39;,
+ &#39;9029&#39;,
+ &#39;9218&#39;,
+ &#39;9586&#39;,
+ &#39;985&#39;,
+ &#39;160&#39;,
+ &#39;165&#39;,
+ &#39;115&#39;,
+ &#39;1223&#39;,
+ &#39;282&#39;,
+ &#39;298&#39;,
+ &#39;518&#39;,
+ &#39;536&#39;,
+ &#39;769&#39;,
+ &#39;1595&#39;,
+ &#39;1597&#39;,
+ &#39;1709&#39;,
+ &#39;187&#39;,
+ &#39;200&#39;,
+ &#39;2357&#39;,
+ &#39;2394&#39;,
+ &#39;2797&#39;,
+ &#39;3035&#39;,
+ &#39;3438&#39;,
+ &#39;3729&#39;,
+ &#39;435&#39;,
+ &#39;457&#39;,
+ &#39;4638&#39;,
+ &#39;613&#39;,
+ &#39;635&#39;,
+ &#39;752&#39;,
+ &#39;90&#39;,
+ &#39;96&#39;,
+ &#39;267&#39;,
+ &#39;53&#39;,
+ &#39;669&#39;]
 </pre></div>
 </div>
 </div>
@@ -773,24 +1103,6 @@ Name: Legislation Number, Length: 148, dtype: object
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="dataframes.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">dataframes</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="cleaning.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">cleaning our text</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               

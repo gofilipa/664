@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Legiscan API &#8212; Python for Programming Cultural Heritage</title>
+    <title>Genius API &#8212; Python for Programming Cultural Heritage</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/legiscan_api';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/karol';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Genius API" href="karol.html" />
-    <link rel="prev" title="NYT API" href="nyt_api.html" />
+    <link rel="next" title="workshop overview" href="../clean/overview.html" />
+    <link rel="prev" title="Legiscan API" href="legiscan_api.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -202,8 +202,8 @@
 <li class="toctree-l1"><a class="reference internal" href="dicts.html">dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nyt_api.html">NYT API</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Legiscan API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="karol.html">Genius API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legiscan_api.html">Legiscan API</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Genius API</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
 <ul class="nav bd-sidenav">
@@ -299,7 +299,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgathering/legiscan_api.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgathering/karol.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -329,7 +329,7 @@
       
       
       
-      <li><a href="../_sources/gathering/legiscan_api.ipynb" target="_blank"
+      <li><a href="../_sources/gathering/karol.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -411,7 +411,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Legiscan API</h1>
+    <h1>Genius API</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -425,339 +425,315 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="legiscan-api">
-<h1>Legiscan API<a class="headerlink" href="#legiscan-api" title="Link to this heading">#</a></h1>
-<p>The <a class="reference external" href="https://legiscan.com/legiscan">Legiscan API</a> provides access to legislative data, such as bills, sponsors, hearing information, etc, from all 50 states. To use the Legiscan API, you’d first need to make an account on Legiscan, and request an API key. The key (which we will incorporate into our API call) gives you authentication to access the data on Legiscan.</p>
-<p>After getting our API key, we can create our API call. The first step is import our libraries that we need in order to use the API. Then, we can construct our API call, putting together the root, key and query.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="genius-api">
+<h1>Genius API<a class="headerlink" href="#genius-api" title="Link to this heading">#</a></h1>
+<p>This API requires authentication, and here’s an example of how that works.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># get an access token </span>
+<span class="n">access</span> <span class="o">=</span> <span class="s1">&#39;t_5_qC1yaHVuFRV0YKc6-QyiT1J5D-iMTRCYCuTLtgbdqLyIjdOqXxRUAVqiw1is&#39;</span>
+
+<span class="c1"># pass your access token as a variable into a &quot;headers&quot; dict</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;Bearer </span><span class="si">{</span><span class="n">access</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here I’m using the “Artists” endpoint, which means I already have an artist ID number on hand. This endpoint returns data about the artist, and you need the artist ID to access it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pass your headers dict into the get() request</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.genius.com/artists/530703&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">requests</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">time</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the components of the API call, which make up the &quot;request&quot; variable</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://api.legiscan.com/?key=&#39;</span>
-<span class="n">key</span> <span class="o">=</span> <span class="c1"># insert your key here</span>
-<span class="n">page</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">&#39;&amp;op=getSearch&amp;state=ALL&amp;query=transgender&#39;</span> <span class="o">+</span> <span class="s1">&#39;&amp;page=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">))</span>
-
-<span class="c1"># to print out the full URL, and we can paste in the browser to get </span>
-<span class="c1"># an interactive look at the raw results</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">&#39;&amp;op=getSearch&amp;state=ALL&amp;query=transgender&#39;</span> <span class="o">+</span> <span class="s1">&#39;&amp;page=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now we can make the API call, using the “request” object that we created above. From there, we call the <code class="docutils literal notranslate"><span class="pre">.json()</span></code> method, to navigate through the results, which are in json format.</p>
-<p>Accessing items in json involves using brackets to indicate the keys.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the page_total and the count from the request summary</span>
-<span class="n">page_total</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;searchresult&#39;</span><span class="p">][</span><span class="s1">&#39;summary&#39;</span><span class="p">][</span><span class="s1">&#39;page_total&#39;</span><span class="p">]</span>
-<span class="n">count</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;searchresult&#39;</span><span class="p">][</span><span class="s1">&#39;summary&#39;</span><span class="p">][</span><span class="s1">&#39;count&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Page total: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">page_total</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;Total results: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Page total: 13
-Total results: 604
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now we write a few loops. The first one gathers all the data from each page of the results. The second loop parses that data into a dataframe object (a tabular or spreadsheet format) so we can examine it and eventually save it to a csv file.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># request the additional pages of the query by adding 1 to the &#39;page&#39; </span>
-<span class="c1"># parameter until it reaches the page_total. Store each page of  </span>
-<span class="c1"># requests in a list. Wait 3 seconds between each request to avoid </span>
-<span class="c1"># overloading the API</span>
-
-<span class="n">pages</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">page_total</span><span class="p">):</span>
-    <span class="n">page</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">&#39;&amp;op=getSearch&amp;state=ALL&amp;query=transgender&#39;</span> <span class="o">+</span> <span class="s1">&#39;&amp;page=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">))</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">pages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;meta&#39;, &#39;response&#39;])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for each page of the request, parse the results and add them to a </span>
-<span class="c1"># dataframe. each page is a json file with individual results labeled</span>
-<span class="c1"># &#39;0&#39; through &#39;49&#39; and # &#39;summary&#39; nested under searchresult. Ignore </span>
-<span class="c1"># the summary and use pandas.concat to add each of the results from </span>
-<span class="c1"># the request in a dataframe</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">pages</span><span class="p">:</span>
-    <span class="n">results</span> <span class="o">=</span> <span class="n">page</span><span class="p">[</span><span class="s1">&#39;searchresult&#39;</span><span class="p">]</span>
-    <span class="c1"># if the page has no results, skip it</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="p">])])</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">continue</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now we have our data in a tabular structure, thanks to the DataFrame that we got from a different library called <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. This DataFrame format enables us to examine our data in a spreadsheet.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;artist&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>relevance</th>
-      <th>state</th>
-      <th>bill_number</th>
-      <th>bill_id</th>
-      <th>change_hash</th>
-      <th>url</th>
-      <th>text_url</th>
-      <th>research_url</th>
-      <th>last_action_date</th>
-      <th>last_action</th>
-      <th>title</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>100</td>
-      <td>UT</td>
-      <td>HB0316</td>
-      <td>1819064</td>
-      <td>bb27e8c4d929c9331af7b02dc6d81348</td>
-      <td>https://legiscan.com/UT/bill/HB0316/2024</td>
-      <td>https://legiscan.com/UT/text/HB0316/2024</td>
-      <td>https://legiscan.com/UT/research/HB0316/2024</td>
-      <td>2024-02-12</td>
-      <td>Senate/ 1st reading (Introduced) in Senate Rul...</td>
-      <td>Inmate Assignment Amendments</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>99</td>
-      <td>DC</td>
-      <td>B25-0460</td>
-      <td>1778035</td>
-      <td>e96fc947b1b4170adf7a3fe91291a61b</td>
-      <td>https://legiscan.com/DC/bill/B25-0460/2023</td>
-      <td>https://legiscan.com/DC/text/B25-0460/2023</td>
-      <td>https://legiscan.com/DC/research/B25-0460/2023</td>
-      <td>2023-09-22</td>
-      <td>Notice of Intent to Act on B25-0460 Published ...</td>
-      <td>Transgender and Gender-Diverse Mortality and F...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>99</td>
-      <td>DC</td>
-      <td>CER25-0143</td>
-      <td>1782702</td>
-      <td>9aff2f06c9f9b38306f8f3a8e83183c8</td>
-      <td>https://legiscan.com/DC/bill/CER25-0143/2023</td>
-      <td>https://legiscan.com/DC/text/CER25-0143/2023</td>
-      <td>https://legiscan.com/DC/research/CER25-0143/2023</td>
-      <td>2023-11-24</td>
-      <td>Resolution ACR25-0141, Effective from Nov 07, ...</td>
-      <td>Transgender Day of Remembrance Recognition Res...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>99</td>
-      <td>VT</td>
-      <td>JRH004</td>
-      <td>1751508</td>
-      <td>bfb4a15ca9ece1f262e6ed5759e192ba</td>
-      <td>https://legiscan.com/VT/bill/JRH004/2023</td>
-      <td>https://legiscan.com/VT/text/JRH004/2023</td>
-      <td>https://legiscan.com/VT/research/JRH004/2023</td>
-      <td>2023-04-07</td>
-      <td>Senate Message, adopted in concurrence</td>
-      <td>Joint resolution recognizing March 31, 2023 as...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>99</td>
-      <td>US</td>
-      <td>HR886</td>
-      <td>1784730</td>
-      <td>15a2a26d5c91782333a2b37fc8083154</td>
-      <td>https://legiscan.com/US/bill/HR886/2023</td>
-      <td>https://legiscan.com/US/text/HR886/2023</td>
-      <td>https://legiscan.com/US/research/HR886/2023</td>
-      <td>2023-11-21</td>
-      <td>Referred to the House Committee on the Judiciary.</td>
-      <td>Supporting the goals and principles of Transge...</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>6</td>
-      <td>US</td>
-      <td>HB2670</td>
-      <td>1757049</td>
-      <td>ccfa8fba0550b39bb71af841122e2132</td>
-      <td>https://legiscan.com/US/bill/HB2670/2023</td>
-      <td>https://legiscan.com/US/text/HB2670/2023</td>
-      <td>https://legiscan.com/US/research/HB2670/2023</td>
-      <td>2023-12-22</td>
-      <td>Became Public Law No: 118-31.</td>
-      <td>CONVENE Act of 2023 Sensible Classification Ac...</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>4</td>
-      <td>MI</td>
-      <td>HB4437</td>
-      <td>1757146</td>
-      <td>604fc33c04c0b4d89cce5b8bd0d51893</td>
-      <td>https://legiscan.com/MI/bill/HB4437/2023</td>
-      <td>https://legiscan.com/MI/text/HB4437/2023</td>
-      <td>https://legiscan.com/MI/research/HB4437/2023</td>
-      <td>2023-09-06</td>
-      <td>Disapproved Line Item(s) Re-referred To Commit...</td>
-      <td>Appropriations: omnibus; appropriations for mu...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>4</td>
-      <td>NY</td>
-      <td>S04007</td>
-      <td>1690727</td>
-      <td>1579358405b6c681a7bd5ed500b7ac14</td>
-      <td>https://legiscan.com/NY/bill/S04007/2023</td>
-      <td>https://legiscan.com/NY/text/S04007/2023</td>
-      <td>https://legiscan.com/NY/research/S04007/2023</td>
-      <td>2023-05-03</td>
-      <td>SIGNED CHAP.57</td>
-      <td>Enacts into law major components of legislatio...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>NY</td>
-      <td>S04004</td>
-      <td>1690688</td>
-      <td>30e29d6956eec2d3ff19a58c35ad73f8</td>
-      <td>https://legiscan.com/NY/bill/S04004/2023</td>
-      <td>https://legiscan.com/NY/text/S04004/2023</td>
-      <td>https://legiscan.com/NY/research/S04004/2023</td>
-      <td>2023-05-01</td>
-      <td>SUBSTITUTED BY A3004D</td>
-      <td>Makes appropriations for the support of govern...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>3</td>
-      <td>NY</td>
-      <td>A03004</td>
-      <td>1690608</td>
-      <td>b862da143af26ca5a2997011fc933673</td>
-      <td>https://legiscan.com/NY/bill/A03004/2023</td>
-      <td>https://legiscan.com/NY/text/A03004/2023</td>
-      <td>https://legiscan.com/NY/research/A03004/2023</td>
-      <td>2023-05-12</td>
-      <td>thru line veto memo.36</td>
-      <td>Makes appropriations for the support of govern...</td>
-    </tr>
-  </tbody>
-</table>
-<p>604 rows × 11 columns</p>
-</div></div></div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;alternate_names&#39;, &#39;api_path&#39;, &#39;description&#39;, &#39;facebook_name&#39;, &#39;followers_count&#39;, &#39;header_image_url&#39;, &#39;id&#39;, &#39;image_url&#39;, &#39;instagram_name&#39;, &#39;is_meme_verified&#39;, &#39;is_verified&#39;, &#39;name&#39;, &#39;translation_artist&#39;, &#39;twitter_name&#39;, &#39;url&#39;, &#39;current_user_metadata&#39;, &#39;iq&#39;, &#39;description_annotation&#39;, &#39;user&#39;])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;artist&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Int64Index: 604 entries, 0 to 3
-Data columns (total 11 columns):
- #   Column            Non-Null Count  Dtype 
----  ------            --------------  ----- 
- 0   relevance         604 non-null    int64 
- 1   state             604 non-null    object
- 2   bill_number       604 non-null    object
- 3   bill_id           604 non-null    int64 
- 4   change_hash       604 non-null    object
- 5   url               604 non-null    object
- 6   text_url          604 non-null    object
- 7   research_url      604 non-null    object
- 8   last_action_date  604 non-null    object
- 9   last_action       604 non-null    object
- 10  title             604 non-null    object
-dtypes: int64(2), object(9)
-memory usage: 56.6+ KB
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;KAROL G&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using the “songs” endpoint now, to get data about the song</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># path for the songs endpoint: /artists/:id/songs</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://api.genius.com/artists/530703/songs&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;legiscan_api_results.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>That’s it!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;songs&#39;, &#39;next_page&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;songs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;annotation_count&#39;: 0,
+ &#39;api_path&#39;: &#39;/songs/8719369&#39;,
+ &#39;artist_names&#39;: &quot;Q&#39; Lokura &amp; Banda Mix&quot;,
+ &#39;full_title&#39;: &quot;200 Copas by\xa0Q&#39;\xa0Lokura &amp; Banda Mix&quot;,
+ &#39;header_image_thumbnail_url&#39;: &#39;https://images.genius.com/54b7e1a701572b780907f1cd0e5c1b30.300x300x1.jpg&#39;,
+ &#39;header_image_url&#39;: &#39;https://images.genius.com/54b7e1a701572b780907f1cd0e5c1b30.1000x1000x1.jpg&#39;,
+ &#39;id&#39;: 8719369,
+ &#39;lyrics_owner_id&#39;: 9433615,
+ &#39;lyrics_state&#39;: &#39;complete&#39;,
+ &#39;path&#39;: &#39;/Q-lokura-and-banda-mix-200-copas-lyrics&#39;,
+ &#39;primary_artist_names&#39;: &quot;Q&#39; Lokura &amp; Banda Mix&quot;,
+ &#39;pyongs_count&#39;: None,
+ &#39;relationships_index_url&#39;: &#39;https://genius.com/Q-lokura-and-banda-mix-200-copas-sample&#39;,
+ &#39;release_date_components&#39;: {&#39;year&#39;: 2021, &#39;month&#39;: 11, &#39;day&#39;: 10},
+ &#39;release_date_for_display&#39;: &#39;November 10, 2021&#39;,
+ &#39;release_date_with_abbreviated_month_for_display&#39;: &#39;Nov. 10, 2021&#39;,
+ &#39;song_art_image_thumbnail_url&#39;: &#39;https://images.genius.com/54b7e1a701572b780907f1cd0e5c1b30.300x300x1.jpg&#39;,
+ &#39;song_art_image_url&#39;: &#39;https://images.genius.com/54b7e1a701572b780907f1cd0e5c1b30.1000x1000x1.jpg&#39;,
+ &#39;stats&#39;: {&#39;unreviewed_annotations&#39;: 0, &#39;hot&#39;: False},
+ &#39;title&#39;: &#39;200 Copas&#39;,
+ &#39;title_with_featured&#39;: &#39;200 Copas&#39;,
+ &#39;url&#39;: &#39;https://genius.com/Q-lokura-and-banda-mix-200-copas-lyrics&#39;,
+ &#39;featured_artists&#39;: [],
+ &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/3404931&#39;,
+  &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1729626412&#39;,
+  &#39;id&#39;: 3404931,
+  &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1729626412&#39;,
+  &#39;is_meme_verified&#39;: False,
+  &#39;is_verified&#39;: False,
+  &#39;name&#39;: &#39;Q’ Lokura &amp; Banda Mix&#39;,
+  &#39;url&#39;: &#39;https://genius.com/artists/Q-lokura-and-banda-mix&#39;},
+ &#39;primary_artists&#39;: [{&#39;api_path&#39;: &#39;/artists/3404931&#39;,
+   &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1729626412&#39;,
+   &#39;id&#39;: 3404931,
+   &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1729626412&#39;,
+   &#39;is_meme_verified&#39;: False,
+   &#39;is_verified&#39;: False,
+   &#39;name&#39;: &#39;Q’ Lokura &amp; Banda Mix&#39;,
+   &#39;url&#39;: &#39;https://genius.com/artists/Q-lokura-and-banda-mix&#39;}]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;songs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;https://api.genius.com/songs/</span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;song&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;annotation_count&#39;, &#39;api_path&#39;, &#39;apple_music_id&#39;, &#39;apple_music_player_url&#39;, &#39;artist_names&#39;, &#39;description&#39;, &#39;embed_content&#39;, &#39;featured_video&#39;, &#39;full_title&#39;, &#39;header_image_thumbnail_url&#39;, &#39;header_image_url&#39;, &#39;id&#39;, &#39;language&#39;, &#39;lyrics_owner_id&#39;, &#39;lyrics_placeholder_reason&#39;, &#39;lyrics_state&#39;, &#39;path&#39;, &#39;primary_artist_names&#39;, &#39;pyongs_count&#39;, &#39;recording_location&#39;, &#39;relationships_index_url&#39;, &#39;release_date&#39;, &#39;release_date_for_display&#39;, &#39;release_date_with_abbreviated_month_for_display&#39;, &#39;song_art_image_thumbnail_url&#39;, &#39;song_art_image_url&#39;, &#39;stats&#39;, &#39;title&#39;, &#39;title_with_featured&#39;, &#39;url&#39;, &#39;current_user_metadata&#39;, &#39;song_art_primary_color&#39;, &#39;song_art_secondary_color&#39;, &#39;song_art_text_color&#39;, &#39;album&#39;, &#39;custom_performances&#39;, &#39;description_annotation&#39;, &#39;featured_artists&#39;, &#39;lyrics_marked_complete_by&#39;, &#39;lyrics_marked_staff_approved_by&#39;, &#39;media&#39;, &#39;primary_artist&#39;, &#39;primary_artists&#39;, &#39;producer_artists&#39;, &#39;song_relationships&#39;, &#39;translation_songs&#39;, &#39;verified_annotations_by&#39;, &#39;verified_contributors&#39;, &#39;verified_lyrics_by&#39;, &#39;writer_artists&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;song&#39;</span><span class="p">][</span><span class="s1">&#39;description_annotation&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_type&#39;: &#39;referent&#39;,
+ &#39;annotator_id&#39;: 17336116,
+ &#39;annotator_login&#39;: &#39;Fri&#39;,
+ &#39;api_path&#39;: &#39;/referents/27535384&#39;,
+ &#39;classification&#39;: &#39;needs_exegesis&#39;,
+ &#39;fragment&#39;: &#39;200 Copas&#39;,
+ &#39;id&#39;: 27535384,
+ &#39;is_description&#39;: True,
+ &#39;path&#39;: &#39;/27535384/Q-lokura-and-banda-mix-200-copas/200-copas&#39;,
+ &#39;range&#39;: {&#39;content&#39;: &#39;200 Copas&#39;},
+ &#39;song_id&#39;: 8719369,
+ &#39;url&#39;: &#39;https://genius.com/27535384/Q-lokura-and-banda-mix-200-copas/200-copas&#39;,
+ &#39;verified_annotator_ids&#39;: [],
+ &#39;annotatable&#39;: {&#39;api_path&#39;: &#39;/songs/8719369&#39;,
+  &#39;client_timestamps&#39;: {&#39;updated_by_human_at&#39;: 1673467250,
+   &#39;lyrics_updated_at&#39;: 1673467189},
+  &#39;context&#39;: &quot;Q&#39; Lokura &amp; Banda Mix&quot;,
+  &#39;id&#39;: 8719369,
+  &#39;image_url&#39;: &#39;https://images.genius.com/54b7e1a701572b780907f1cd0e5c1b30.1000x1000x1.jpg&#39;,
+  &#39;link_title&#39;: &#39;200 Copas by\xa0Q’\xa0Lokura &amp; Banda Mix&#39;,
+  &#39;title&#39;: &#39;200 Copas&#39;,
+  &#39;type&#39;: &#39;Song&#39;,
+  &#39;url&#39;: &#39;https://genius.com/Q-lokura-and-banda-mix-200-copas-lyrics&#39;},
+ &#39;annotations&#39;: [{&#39;api_path&#39;: &#39;/annotations/27535384&#39;,
+   &#39;body&#39;: {&#39;dom&#39;: {&#39;tag&#39;: &#39;root&#39;}},
+   &#39;comment_count&#39;: 0,
+   &#39;community&#39;: True,
+   &#39;custom_preview&#39;: None,
+   &#39;has_voters&#39;: False,
+   &#39;id&#39;: 27535384,
+   &#39;pinned&#39;: False,
+   &#39;share_url&#39;: &#39;https://genius.com/27535384&#39;,
+   &#39;source&#39;: None,
+   &#39;state&#39;: &#39;needs_exegesis&#39;,
+   &#39;url&#39;: &#39;https://genius.com/27535384/Q-lokura-and-banda-mix-200-copas/200-copas&#39;,
+   &#39;verified&#39;: False,
+   &#39;votes_total&#39;: 0,
+   &#39;current_user_metadata&#39;: {&#39;permissions&#39;: [],
+    &#39;excluded_permissions&#39;: [&#39;vote&#39;,
+     &#39;edit&#39;,
+     &#39;cosign&#39;,
+     &#39;uncosign&#39;,
+     &#39;destroy&#39;,
+     &#39;accept&#39;,
+     &#39;reject&#39;,
+     &#39;see_unreviewed&#39;,
+     &#39;clear_votes&#39;,
+     &#39;propose_edit_to&#39;,
+     &#39;pin_to_profile&#39;,
+     &#39;unpin_from_profile&#39;,
+     &#39;update_source&#39;,
+     &#39;edit_custom_preview&#39;,
+     &#39;create_comment&#39;],
+    &#39;interactions&#39;: {&#39;cosign&#39;: False, &#39;pyong&#39;: False, &#39;vote&#39;: None},
+    &#39;iq_by_action&#39;: {}},
+   &#39;authors&#39;: [{&#39;attribution&#39;: 1.0,
+     &#39;pinned_role&#39;: None,
+     &#39;user&#39;: {&#39;api_path&#39;: &#39;/users/17336116&#39;,
+      &#39;avatar&#39;: {&#39;tiny&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/tiny/9f94a554d3adc5275af111246f2bd29a&#39;,
+        &#39;bounding_box&#39;: {&#39;width&#39;: 16, &#39;height&#39;: 16}},
+       &#39;thumb&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/thumb/9f94a554d3adc5275af111246f2bd29a&#39;,
+        &#39;bounding_box&#39;: {&#39;width&#39;: 32, &#39;height&#39;: 32}},
+       &#39;small&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/small/9f94a554d3adc5275af111246f2bd29a&#39;,
+        &#39;bounding_box&#39;: {&#39;width&#39;: 100, &#39;height&#39;: 100}},
+       &#39;medium&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/medium/9f94a554d3adc5275af111246f2bd29a&#39;,
+        &#39;bounding_box&#39;: {&#39;width&#39;: 300, &#39;height&#39;: 400}}},
+      &#39;header_image_url&#39;: &#39;https://images.genius.com/a3f3e4fae808e9426937a2b4180993bf.640x908x1.jpg&#39;,
+      &#39;human_readable_role_for_display&#39;: &#39;Moderator&#39;,
+      &#39;id&#39;: 17336116,
+      &#39;iq&#39;: 1209351,
+      &#39;login&#39;: &#39;Fri&#39;,
+      &#39;name&#39;: &#39;Fri&#39;,
+      &#39;role_for_display&#39;: &#39;moderator&#39;,
+      &#39;url&#39;: &#39;https://genius.com/Fri&#39;,
+      &#39;current_user_metadata&#39;: {&#39;permissions&#39;: [],
+       &#39;excluded_permissions&#39;: [&#39;follow&#39;],
+       &#39;interactions&#39;: {&#39;following&#39;: False}}}}],
+   &#39;cosigned_by&#39;: [],
+   &#39;rejection_comment&#39;: None,
+   &#39;verified_by&#39;: None}]}
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -791,20 +767,20 @@ memory usage: 56.6+ KB
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="nyt_api.html"
+       href="legiscan_api.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">NYT API</p>
+        <p class="prev-next-title">Legiscan API</p>
       </div>
     </a>
     <a class="right-next"
-       href="karol.html"
+       href="../clean/overview.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Genius API</p>
+        <p class="prev-next-title">workshop overview</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Legiscan API" href="legiscan_api.html" />
-    <link rel="prev" title="dictionaries" href="dicts.html" />
+    <link rel="prev" title="The MET API" href="met_api.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -199,16 +199,15 @@
 <li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="to-dataframe.html">saving scraped data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dicts.html">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="met_api.html">The MET API</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">NYT API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legiscan_api.html">Legiscan API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="karol.html">Genius API</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clean/dataframes.html">dataframes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clean/scrape.html">scraping our text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
@@ -472,7 +471,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># key</span>
-<span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;HHhPAjnfEF2EmLtf9PdGsLEQZizR3iQu&#39;</span>
 
 <span class="c1"># query</span>
 <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;migrant&#39;</span>
@@ -497,7 +496,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [401]&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
 </pre></div>
 </div>
 </div>
@@ -606,7 +605,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;fault&#39;])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;status&#39;, &#39;copyright&#39;, &#39;response&#39;])
 </pre></div>
 </div>
 </div>
@@ -619,12 +618,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-
-<span class="ne">KeyError</span>: &#39;response&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;docs&#39;, &#39;meta&#39;])
 </pre></div>
 </div>
 </div>
@@ -649,7 +643,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;hits&#39;: 31494, &#39;offset&#39;: 0, &#39;time&#39;: 62}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;hits&#39;: 31570, &#39;offset&#39;: 0, &#39;time&#39;: 46}
 </pre></div>
 </div>
 </div>
@@ -675,22 +669,20 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;abstract&#39;: &#39;The decision comes as political pressure mounts to cut down on programs that allow migrants to stay in the United States temporarily, even without a visa or green card.&#39;,
- &#39;web_url&#39;: &#39;https://www.nytimes.com/2024/10/04/us/politics/biden-will-allow-legal-status-to-lapse-for-migrants-from-4-countries.html&#39;,
- &#39;snippet&#39;: &#39;The decision comes as political pressure mounts to cut down on programs that allow migrants to stay in the United States temporarily, even without a visa or green card.&#39;,
- &#39;lead_paragraph&#39;: &#39;The Biden administration said Friday it would allow the temporary legal permission for migrants from Cuba, Venezuela, Haiti, and Nicaragua to lapse, forcing hundreds of thousands of people to find other methods to stay in the country or face deportation.&#39;,
- &#39;print_section&#39;: &#39;A&#39;,
- &#39;print_page&#39;: &#39;20&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;abstract&#39;: &#39;The ruling was a major blow to the conservative government’s plan to have asylum claims heard in Albania instead of Italy.&#39;,
+ &#39;web_url&#39;: &#39;https://www.nytimes.com/2024/10/18/world/europe/italy-albania-migrants-judge.html&#39;,
+ &#39;snippet&#39;: &#39;The ruling was a major blow to the conservative government’s plan to have asylum claims heard in Albania instead of Italy.&#39;,
+ &#39;lead_paragraph&#39;: &#39;Italian judges on Friday struck down a request by the government to hold a group of migrants in a detention center in Albania, ordering that they should be taken to Italy, in a major setback for Prime Minister Giorgia Meloni’s flagship policy of outsourcing asylum requests.&#39;,
  &#39;source&#39;: &#39;The New York Times&#39;,
  &#39;multimedia&#39;: [{&#39;rank&#39;: 0,
    &#39;subtype&#39;: &#39;xlarge&#39;,
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-articleLarge.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-articleLarge.jpg&#39;,
    &#39;height&#39;: 400,
    &#39;width&#39;: 600,
-   &#39;legacy&#39;: {&#39;xlarge&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-articleLarge.jpg&#39;,
+   &#39;legacy&#39;: {&#39;xlarge&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-articleLarge.jpg&#39;,
     &#39;xlargewidth&#39;: 600,
     &#39;xlargeheight&#39;: 400},
    &#39;subType&#39;: &#39;xlarge&#39;,
@@ -700,8 +692,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-popup.jpg&#39;,
-   &#39;height&#39;: 434,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-popup.jpg&#39;,
+   &#39;height&#39;: 433,
    &#39;width&#39;: 650,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;popup&#39;,
@@ -711,7 +703,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-blog480.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-blog480.jpg&#39;,
    &#39;height&#39;: 320,
    &#39;width&#39;: 480,
    &#39;legacy&#39;: {},
@@ -722,8 +714,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-blog533.jpg&#39;,
-   &#39;height&#39;: 356,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-blog533.jpg&#39;,
+   &#39;height&#39;: 355,
    &#39;width&#39;: 533,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;blog533&#39;,
@@ -733,7 +725,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-blog427.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-blog427.jpg&#39;,
    &#39;height&#39;: 285,
    &#39;width&#39;: 427,
    &#39;legacy&#39;: {},
@@ -744,7 +736,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-tmagSF.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-tmagSF.jpg&#39;,
    &#39;height&#39;: 241,
    &#39;width&#39;: 362,
    &#39;legacy&#39;: {},
@@ -755,7 +747,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-tmagArticle.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-tmagArticle.jpg&#39;,
    &#39;height&#39;: 395,
    &#39;width&#39;: 592,
    &#39;legacy&#39;: {},
@@ -766,7 +758,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-slide.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-slide.jpg&#39;,
    &#39;height&#39;: 400,
    &#39;width&#39;: 600,
    &#39;legacy&#39;: {},
@@ -777,7 +769,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-jumbo.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-jumbo.jpg&#39;,
    &#39;height&#39;: 683,
    &#39;width&#39;: 1024,
    &#39;legacy&#39;: {},
@@ -788,8 +780,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-superJumbo.jpg&#39;,
-   &#39;height&#39;: 1366,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-superJumbo.jpg&#39;,
+   &#39;height&#39;: 1365,
    &#39;width&#39;: 2048,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;superJumbo&#39;,
@@ -799,7 +791,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-blog225.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-blog225.jpg&#39;,
    &#39;height&#39;: 150,
    &#39;width&#39;: 225,
    &#39;legacy&#39;: {},
@@ -810,7 +802,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-master1050.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-master1050.jpg&#39;,
    &#39;height&#39;: 700,
    &#39;width&#39;: 1050,
    &#39;legacy&#39;: {},
@@ -821,7 +813,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-master675.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-master675.jpg&#39;,
    &#39;height&#39;: 450,
    &#39;width&#39;: 675,
    &#39;legacy&#39;: {},
@@ -832,7 +824,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-master495.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-master495.jpg&#39;,
    &#39;height&#39;: 330,
    &#39;width&#39;: 495,
    &#39;legacy&#39;: {},
@@ -843,7 +835,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-master180.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-master180.jpg&#39;,
    &#39;height&#39;: 120,
    &#39;width&#39;: 180,
    &#39;legacy&#39;: {},
@@ -854,7 +846,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-master315.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-master315.jpg&#39;,
    &#39;height&#39;: 210,
    &#39;width&#39;: 315,
    &#39;legacy&#39;: {},
@@ -865,7 +857,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-master768.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-master768.jpg&#39;,
    &#39;height&#39;: 512,
    &#39;width&#39;: 768,
    &#39;legacy&#39;: {},
@@ -876,10 +868,10 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-thumbStandard.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-thumbStandard.jpg&#39;,
    &#39;height&#39;: 75,
    &#39;width&#39;: 75,
-   &#39;legacy&#39;: {&#39;thumbnail&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-thumbStandard.jpg&#39;,
+   &#39;legacy&#39;: {&#39;thumbnail&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-thumbStandard.jpg&#39;,
     &#39;thumbnailwidth&#39;: 75,
     &#39;thumbnailheight&#39;: 75},
    &#39;subType&#39;: &#39;thumbnail&#39;,
@@ -889,7 +881,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-blogSmallThumb.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-blogSmallThumb.jpg&#39;,
    &#39;height&#39;: 50,
    &#39;width&#39;: 50,
    &#39;legacy&#39;: {},
@@ -900,7 +892,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-thumbLarge.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-thumbLarge.jpg&#39;,
    &#39;height&#39;: 150,
    &#39;width&#39;: 150,
    &#39;legacy&#39;: {},
@@ -911,7 +903,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-smallSquare168.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-smallSquare168.jpg&#39;,
    &#39;height&#39;: 168,
    &#39;width&#39;: 168,
    &#39;legacy&#39;: {},
@@ -922,7 +914,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-smallSquare252.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-smallSquare252.jpg&#39;,
    &#39;height&#39;: 252,
    &#39;width&#39;: 252,
    &#39;legacy&#39;: {},
@@ -933,7 +925,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-square320.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-square320.jpg&#39;,
    &#39;height&#39;: 320,
    &#39;width&#39;: 320,
    &#39;legacy&#39;: {},
@@ -944,7 +936,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-moth.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-moth.jpg&#39;,
    &#39;height&#39;: 151,
    &#39;width&#39;: 151,
    &#39;legacy&#39;: {},
@@ -955,7 +947,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-filmstrip.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-filmstrip.jpg&#39;,
    &#39;height&#39;: 190,
    &#39;width&#39;: 190,
    &#39;legacy&#39;: {},
@@ -966,7 +958,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-square640.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-square640.jpg&#39;,
    &#39;height&#39;: 640,
    &#39;width&#39;: 640,
    &#39;legacy&#39;: {},
@@ -977,7 +969,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumSquare149.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-mediumSquare149.jpg&#39;,
    &#39;height&#39;: 149,
    &#39;width&#39;: 149,
    &#39;legacy&#39;: {},
@@ -988,8 +980,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumSquareAt3X.jpg&#39;,
-   &#39;height&#39;: 1801,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-mediumSquareAt3X.jpg&#39;,
+   &#39;height&#39;: 1800,
    &#39;width&#39;: 1800,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;mediumSquareAt3X&#39;,
@@ -999,7 +991,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-sfSpan.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-sfSpan.jpg&#39;,
    &#39;height&#39;: 263,
    &#39;width&#39;: 395,
    &#39;legacy&#39;: {},
@@ -1010,7 +1002,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-largeHorizontal375.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-largeHorizontal375.jpg&#39;,
    &#39;height&#39;: 250,
    &#39;width&#39;: 375,
    &#39;legacy&#39;: {},
@@ -1021,7 +1013,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-largeHorizontalJumbo.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-largeHorizontalJumbo.jpg&#39;,
    &#39;height&#39;: 683,
    &#39;width&#39;: 1024,
    &#39;legacy&#39;: {},
@@ -1032,9 +1024,9 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-horizontalMediumAt2X.jpg&#39;,
-   &#39;height&#39;: 5461,
-   &#39;width&#39;: 8188,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-horizontalMediumAt2X.jpg&#39;,
+   &#39;height&#39;: 3600,
+   &#39;width&#39;: 5400,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;horizontalMediumAt2X&#39;,
    &#39;crop_name&#39;: &#39;horizontalMediumAt2X&#39;},
@@ -1043,8 +1035,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-hpLarge.jpg&#39;,
-   &#39;height&#39;: 288,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-hpLarge.jpg&#39;,
+   &#39;height&#39;: 287,
    &#39;width&#39;: 511,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;hpLarge&#39;,
@@ -1054,8 +1046,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-largeWidescreen573.jpg&#39;,
-   &#39;height&#39;: 323,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-largeWidescreen573.jpg&#39;,
+   &#39;height&#39;: 322,
    &#39;width&#39;: 573,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;largeWidescreen573&#39;,
@@ -1065,7 +1057,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-largeWidescreen1050.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-largeWidescreen1050.jpg&#39;,
    &#39;height&#39;: 591,
    &#39;width&#39;: 1050,
    &#39;legacy&#39;: {},
@@ -1076,12 +1068,12 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-thumbWide.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-thumbWide.jpg&#39;,
    &#39;height&#39;: 126,
    &#39;width&#39;: 190,
    &#39;legacy&#39;: {&#39;widewidth&#39;: 190,
     &#39;wideheight&#39;: 126,
-    &#39;wide&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-thumbWide.jpg&#39;},
+    &#39;wide&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-thumbWide.jpg&#39;},
    &#39;subType&#39;: &#39;wide&#39;,
    &#39;crop_name&#39;: &#39;thumbWide&#39;},
   {&#39;rank&#39;: 0,
@@ -1089,7 +1081,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoThumb.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoThumb.jpg&#39;,
    &#39;height&#39;: 50,
    &#39;width&#39;: 75,
    &#39;legacy&#39;: {},
@@ -1100,7 +1092,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoLarge.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoLarge.jpg&#39;,
    &#39;height&#39;: 507,
    &#39;width&#39;: 768,
    &#39;legacy&#39;: {},
@@ -1111,7 +1103,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumThreeByTwo210.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-mediumThreeByTwo210.jpg&#39;,
    &#39;height&#39;: 140,
    &#39;width&#39;: 210,
    &#39;legacy&#39;: {},
@@ -1122,7 +1114,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumThreeByTwo225.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-mediumThreeByTwo225.jpg&#39;,
    &#39;height&#39;: 150,
    &#39;width&#39;: 225,
    &#39;legacy&#39;: {},
@@ -1133,7 +1125,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumThreeByTwo440.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-mediumThreeByTwo440.jpg&#39;,
    &#39;height&#39;: 293,
    &#39;width&#39;: 440,
    &#39;legacy&#39;: {},
@@ -1144,7 +1136,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumThreeByTwo252.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-mediumThreeByTwo252.jpg&#39;,
    &#39;height&#39;: 168,
    &#39;width&#39;: 252,
    &#39;legacy&#39;: {},
@@ -1155,7 +1147,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumThreeByTwo378.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-mediumThreeByTwo378.jpg&#39;,
    &#39;height&#39;: 252,
    &#39;width&#39;: 378,
    &#39;legacy&#39;: {},
@@ -1166,9 +1158,9 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-threeByTwoLargeAt2X.jpg&#39;,
-   &#39;height&#39;: 5461,
-   &#39;width&#39;: 8188,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-threeByTwoLargeAt2X.jpg&#39;,
+   &#39;height&#39;: 3600,
+   &#39;width&#39;: 5400,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;threeByTwoLargeAt2X&#39;,
    &#39;crop_name&#39;: &#39;threeByTwoLargeAt2X&#39;},
@@ -1177,7 +1169,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-threeByTwoMediumAt2X.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-threeByTwoMediumAt2X.jpg&#39;,
    &#39;height&#39;: 1000,
    &#39;width&#39;: 1500,
    &#39;legacy&#39;: {},
@@ -1188,7 +1180,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-threeByTwoSmallAt2X.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-threeByTwoSmallAt2X.jpg&#39;,
    &#39;height&#39;: 400,
    &#39;width&#39;: 600,
    &#39;legacy&#39;: {},
@@ -1199,7 +1191,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-articleInline.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-articleInline.jpg&#39;,
    &#39;height&#39;: 127,
    &#39;width&#39;: 190,
    &#39;legacy&#39;: {},
@@ -1210,7 +1202,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-hpSmall.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-hpSmall.jpg&#39;,
    &#39;height&#39;: 109,
    &#39;width&#39;: 163,
    &#39;legacy&#39;: {},
@@ -1221,7 +1213,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-blogSmallInline.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-blogSmallInline.jpg&#39;,
    &#39;height&#39;: 101,
    &#39;width&#39;: 151,
    &#39;legacy&#39;: {},
@@ -1232,7 +1224,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mediumFlexible177.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-mediumFlexible177.jpg&#39;,
    &#39;height&#39;: 118,
    &#39;width&#39;: 177,
    &#39;legacy&#39;: {},
@@ -1243,7 +1235,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSmall.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoSmall.jpg&#39;,
    &#39;height&#39;: 281,
    &#39;width&#39;: 500,
    &#39;legacy&#39;: {},
@@ -1254,7 +1246,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoHpMedium.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoHpMedium.jpg&#39;,
    &#39;height&#39;: 211,
    &#39;width&#39;: 375,
    &#39;legacy&#39;: {},
@@ -1265,7 +1257,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine600.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoSixteenByNine600.jpg&#39;,
    &#39;height&#39;: 338,
    &#39;width&#39;: 600,
    &#39;legacy&#39;: {},
@@ -1276,7 +1268,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine540.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoSixteenByNine540.jpg&#39;,
    &#39;height&#39;: 304,
    &#39;width&#39;: 540,
    &#39;legacy&#39;: {},
@@ -1287,7 +1279,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine495.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoSixteenByNine495.jpg&#39;,
    &#39;height&#39;: 278,
    &#39;width&#39;: 495,
    &#39;legacy&#39;: {},
@@ -1298,7 +1290,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine390.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoSixteenByNine390.jpg&#39;,
    &#39;height&#39;: 219,
    &#39;width&#39;: 390,
    &#39;legacy&#39;: {},
@@ -1309,7 +1301,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine1050.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoSixteenByNine1050.jpg&#39;,
    &#39;height&#39;: 591,
    &#39;width&#39;: 1050,
    &#39;legacy&#39;: {},
@@ -1320,7 +1312,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine480.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoSixteenByNine480.jpg&#39;,
    &#39;height&#39;: 270,
    &#39;width&#39;: 480,
    &#39;legacy&#39;: {},
@@ -1331,7 +1323,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine310.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoSixteenByNine310.jpg&#39;,
    &#39;height&#39;: 174,
    &#39;width&#39;: 310,
    &#39;legacy&#39;: {},
@@ -1342,7 +1334,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine225.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoSixteenByNine225.jpg&#39;,
    &#39;height&#39;: 126,
    &#39;width&#39;: 225,
    &#39;legacy&#39;: {},
@@ -1353,7 +1345,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine96.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoSixteenByNine96.jpg&#39;,
    &#39;height&#39;: 54,
    &#39;width&#39;: 96,
    &#39;legacy&#39;: {},
@@ -1364,8 +1356,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine3000.jpg&#39;,
-   &#39;height&#39;: 1688,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoSixteenByNine3000.jpg&#39;,
+   &#39;height&#39;: 1687,
    &#39;width&#39;: 3000,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;videoSixteenByNine3000&#39;,
@@ -1375,7 +1367,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine768.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoSixteenByNine768.jpg&#39;,
    &#39;height&#39;: 432,
    &#39;width&#39;: 768,
    &#39;legacy&#39;: {},
@@ -1386,7 +1378,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNine150.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoSixteenByNine150.jpg&#39;,
    &#39;height&#39;: 84,
    &#39;width&#39;: 150,
    &#39;legacy&#39;: {},
@@ -1397,7 +1389,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoSixteenByNineJumbo1600.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoSixteenByNineJumbo1600.jpg&#39;,
    &#39;height&#39;: 900,
    &#39;width&#39;: 1600,
    &#39;legacy&#39;: {},
@@ -1408,7 +1400,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-miniMoth.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-miniMoth.jpg&#39;,
    &#39;height&#39;: 70,
    &#39;width&#39;: 151,
    &#39;legacy&#39;: {},
@@ -1419,7 +1411,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-windowsTile336H.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-windowsTile336H.jpg&#39;,
    &#39;height&#39;: 336,
    &#39;width&#39;: 694,
    &#39;legacy&#39;: {},
@@ -1430,7 +1422,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoFifteenBySeven1305.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoFifteenBySeven1305.jpg&#39;,
    &#39;height&#39;: 609,
    &#39;width&#39;: 1305,
    &#39;legacy&#39;: {},
@@ -1441,7 +1433,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-videoFifteenBySeven2610.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-videoFifteenBySeven2610.jpg&#39;,
    &#39;height&#39;: 1218,
    &#39;width&#39;: 2610,
    &#39;legacy&#39;: {},
@@ -1452,7 +1444,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-facebookJumbo.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-facebookJumbo.jpg&#39;,
    &#39;height&#39;: 550,
    &#39;width&#39;: 1050,
    &#39;legacy&#39;: {},
@@ -1463,7 +1455,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-watch308.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-watch308.jpg&#39;,
    &#39;height&#39;: 348,
    &#39;width&#39;: 312,
    &#39;legacy&#39;: {},
@@ -1474,8 +1466,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-watch268.jpg&#39;,
-   &#39;height&#39;: 304,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-watch268.jpg&#39;,
+   &#39;height&#39;: 303,
    &#39;width&#39;: 272,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;watch268&#39;,
@@ -1485,8 +1477,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-verticalTwoByThree735.jpg&#39;,
-   &#39;height&#39;: 1103,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-verticalTwoByThree735.jpg&#39;,
+   &#39;height&#39;: 1102,
    &#39;width&#39;: 735,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;verticalTwoByThree735&#39;,
@@ -1496,8 +1488,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-mobileMasterAt3x.jpg&#39;,
-   &#39;height&#39;: 1801,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-mobileMasterAt3x.jpg&#39;,
+   &#39;height&#39;: 1800,
    &#39;width&#39;: 1800,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;mobileMasterAt3x&#39;,
@@ -1507,63 +1499,72 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/10/04/multimedia/04dc-immig-ftvk/04dc-immig-ftvk-googleFourByThree.jpg&#39;,
+   &#39;url&#39;: &#39;images/2024/10/18/multimedia/18albania-photo-ktqm/18albania-photo-ktqm-googleFourByThree.jpg&#39;,
    &#39;height&#39;: 600,
    &#39;width&#39;: 800,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;googleFourByThree&#39;,
    &#39;crop_name&#39;: &#39;googleFourByThree&#39;}],
- &#39;headline&#39;: {&#39;main&#39;: &#39;Biden Will Allow Legal Permission to Lapse for Migrants From 4 Countries&#39;,
+ &#39;headline&#39;: {&#39;main&#39;: &#39;Italian Judges Strike Down Request to Hold Migrants in Albania&#39;,
   &#39;kicker&#39;: None,
   &#39;content_kicker&#39;: None,
-  &#39;print_headline&#39;: &#39;Program Letting Migrants Stay In U.S. to Lapse&#39;,
+  &#39;print_headline&#39;: None,
   &#39;name&#39;: None,
   &#39;seo&#39;: None,
   &#39;sub&#39;: None},
- &#39;keywords&#39;: [{&#39;name&#39;: &#39;persons&#39;,
-   &#39;value&#39;: &#39;Biden, Joseph R Jr&#39;,
+ &#39;keywords&#39;: [{&#39;name&#39;: &#39;glocations&#39;,
+   &#39;value&#39;: &#39;Italy&#39;,
    &#39;rank&#39;: 1,
    &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;ALBANIA&#39;, &#39;rank&#39;: 2, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;Bangladesh&#39;, &#39;rank&#39;: 3, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;Egypt&#39;, &#39;rank&#39;: 4, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;Europe&#39;, &#39;rank&#39;: 5, &#39;major&#39;: &#39;N&#39;},
   {&#39;name&#39;: &#39;subject&#39;,
-   &#39;value&#39;: &#39;Immigration and Emigration&#39;,
-   &#39;rank&#39;: 2,
+   &#39;value&#39;: &#39;Decisions and Verdicts&#39;,
+   &#39;rank&#39;: 6,
    &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Illegal Immigration&#39;, &#39;rank&#39;: 3, &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Deportation&#39;, &#39;rank&#39;: 4, &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Green Cards (US)&#39;, &#39;rank&#39;: 5, &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Foreign Workers&#39;, &#39;rank&#39;: 6, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Illegal Immigration&#39;, &#39;rank&#39;: 7, &#39;major&#39;: &#39;N&#39;},
   {&#39;name&#39;: &#39;subject&#39;,
-   &#39;value&#39;: &#39;United States Politics and Government&#39;,
-   &#39;rank&#39;: 7,
-   &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;,
-   &#39;value&#39;: &#39;Presidential Election of 2024&#39;,
+   &#39;value&#39;: &#39;Politics and Government&#39;,
    &#39;rank&#39;: 8,
    &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;persons&#39;, &#39;value&#39;: &#39;Harris, Kamala D&#39;, &#39;rank&#39;: 9, &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;Cuba&#39;, &#39;rank&#39;: 10, &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;Haiti&#39;, &#39;rank&#39;: 11, &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;Nicaragua&#39;, &#39;rank&#39;: 12, &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;Venezuela&#39;, &#39;rank&#39;: 13, &#39;major&#39;: &#39;N&#39;}],
- &#39;pub_date&#39;: &#39;2024-10-04T18:58:04+0000&#39;,
+  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Asylum, Right of&#39;, &#39;rank&#39;: 9, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;,
+   &#39;value&#39;: &#39;Refugees and Displaced Persons&#39;,
+   &#39;rank&#39;: 10,
+   &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;,
+   &#39;value&#39;: &#39;Immigration Detention&#39;,
+   &#39;rank&#39;: 11,
+   &#39;major&#39;: &#39;N&#39;}],
+ &#39;pub_date&#39;: &#39;2024-10-18T17:33:30+0000&#39;,
  &#39;document_type&#39;: &#39;article&#39;,
- &#39;news_desk&#39;: &#39;Washington&#39;,
- &#39;section_name&#39;: &#39;U.S.&#39;,
- &#39;subsection_name&#39;: &#39;Politics&#39;,
- &#39;byline&#39;: {&#39;original&#39;: &#39;By Hamed Aleaziz&#39;,
-  &#39;person&#39;: [{&#39;firstname&#39;: &#39;Hamed&#39;,
+ &#39;news_desk&#39;: &#39;Foreign&#39;,
+ &#39;section_name&#39;: &#39;World&#39;,
+ &#39;subsection_name&#39;: &#39;Europe&#39;,
+ &#39;byline&#39;: {&#39;original&#39;: &#39;By Emma Bubola and Elisabetta Povoledo&#39;,
+  &#39;person&#39;: [{&#39;firstname&#39;: &#39;Emma&#39;,
     &#39;middlename&#39;: None,
-    &#39;lastname&#39;: &#39;Aleaziz&#39;,
+    &#39;lastname&#39;: &#39;Bubola&#39;,
     &#39;qualifier&#39;: None,
     &#39;title&#39;: None,
     &#39;role&#39;: &#39;reported&#39;,
     &#39;organization&#39;: &#39;&#39;,
-    &#39;rank&#39;: 1}],
+    &#39;rank&#39;: 1},
+   {&#39;firstname&#39;: &#39;Elisabetta&#39;,
+    &#39;middlename&#39;: None,
+    &#39;lastname&#39;: &#39;Povoledo&#39;,
+    &#39;qualifier&#39;: None,
+    &#39;title&#39;: None,
+    &#39;role&#39;: &#39;reported&#39;,
+    &#39;organization&#39;: &#39;&#39;,
+    &#39;rank&#39;: 2}],
   &#39;organization&#39;: None},
  &#39;type_of_material&#39;: &#39;News&#39;,
- &#39;_id&#39;: &#39;nyt://article/0ffd3132-6423-5846-85dc-6922c078ffa0&#39;,
- &#39;word_count&#39;: 535,
- &#39;uri&#39;: &#39;nyt://article/0ffd3132-6423-5846-85dc-6922c078ffa0&#39;}
+ &#39;_id&#39;: &#39;nyt://article/5f3da01e-323c-5b51-a9b4-1e366ca4387d&#39;,
+ &#39;word_count&#39;: 808,
+ &#39;uri&#39;: &#39;nyt://article/5f3da01e-323c-5b51-a9b4-1e366ca4387d&#39;}
 </pre></div>
 </div>
 </div>
@@ -1576,7 +1577,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;abstract&#39;, &#39;web_url&#39;, &#39;snippet&#39;, &#39;lead_paragraph&#39;, &#39;print_section&#39;, &#39;print_page&#39;, &#39;source&#39;, &#39;multimedia&#39;, &#39;headline&#39;, &#39;keywords&#39;, &#39;pub_date&#39;, &#39;document_type&#39;, &#39;news_desk&#39;, &#39;section_name&#39;, &#39;subsection_name&#39;, &#39;byline&#39;, &#39;type_of_material&#39;, &#39;_id&#39;, &#39;word_count&#39;, &#39;uri&#39;])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;abstract&#39;, &#39;web_url&#39;, &#39;snippet&#39;, &#39;lead_paragraph&#39;, &#39;source&#39;, &#39;multimedia&#39;, &#39;headline&#39;, &#39;keywords&#39;, &#39;pub_date&#39;, &#39;document_type&#39;, &#39;news_desk&#39;, &#39;section_name&#39;, &#39;subsection_name&#39;, &#39;byline&#39;, &#39;type_of_material&#39;, &#39;_id&#39;, &#39;word_count&#39;, &#39;uri&#39;])
 </pre></div>
 </div>
 </div>
@@ -1609,7 +1610,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;abstract&#39;, &#39;web_url&#39;, &#39;snippet&#39;, &#39;lead_paragraph&#39;, &#39;print_section&#39;, &#39;print_page&#39;, &#39;source&#39;, &#39;multimedia&#39;, &#39;headline&#39;, &#39;keywords&#39;, &#39;pub_date&#39;, &#39;document_type&#39;, &#39;news_desk&#39;, &#39;section_name&#39;, &#39;subsection_name&#39;, &#39;byline&#39;, &#39;type_of_material&#39;, &#39;_id&#39;, &#39;word_count&#39;, &#39;uri&#39;])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;abstract&#39;, &#39;web_url&#39;, &#39;snippet&#39;, &#39;lead_paragraph&#39;, &#39;source&#39;, &#39;multimedia&#39;, &#39;headline&#39;, &#39;keywords&#39;, &#39;pub_date&#39;, &#39;document_type&#39;, &#39;news_desk&#39;, &#39;section_name&#39;, &#39;subsection_name&#39;, &#39;byline&#39;, &#39;type_of_material&#39;, &#39;_id&#39;, &#39;word_count&#39;, &#39;uri&#39;])
 </pre></div>
 </div>
 </div>
@@ -1649,6 +1650,18 @@ document.write(`
     <span class="n">articles</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;docs&#39;</span><span class="p">]</span>
     <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">articles</span><span class="p">)</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># sleep at least 6 seconds not to overload the servers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">articles</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;docs&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">articles</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># sleep at least 6 seconds not to overload the servers</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -3292,12 +3305,12 @@ pronoun+verb he described
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="dicts.html"
+       href="met_api.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">dictionaries</p>
+        <p class="prev-next-title">The MET API</p>
       </div>
     </a>
     <a class="right-next"
