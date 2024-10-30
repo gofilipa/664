@@ -1,0 +1,23 @@
+* data analysis with pandas
+
+** concepts 
+
+- loading a dataset into a dataframe.
+  - df - basic data structure in pandas
+- exploratory
+  - df.info() - data types
+  - df.head(), df.tail() 
+  - df.columns
+  - df['column'] - selecting by column
+  - df['column'].values - array of column values
+  - df.describe() - stats
+  - df[0:3] - slicing rows
+- sorting:
+  - df.sort_values('column') - sorts column, try with year
+    in descending order
+  - df.value_counts('column') - counts highest values per column
+- "boolean indexing" - conditional statements
+  - 
+
+- visualizing
+  - df.department.value_counts().plot(kind = 'barh')

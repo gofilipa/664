@@ -31,13 +31,7 @@ parts:
   - file: clean/cleaning
 - caption: analyzing data
   chapters:
-  - file: analyze/overview
-  - file: analyze/what
-  - file: analyze/questions
-  - file: analyze/processing
-  - file: analyze/phrases
-  - file: analyze/entities
-  - file: analyze/tokens
+  - file: analyze/pandas
 - caption: machine learning
   chapters:
   - file: ml/overview
