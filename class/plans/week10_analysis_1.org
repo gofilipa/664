@@ -25,9 +25,21 @@
     - new_df = df['colum'].str.contains('string text')
     - df.loc[new_df, 'column']
 
+** BREAK
 
+** workshop on datasets
+- create a dataframe, soup, or string of text with your data.
+- spend some time exploring your dataset in Python.
+- use dataframe methods, bs4 methods, or string looping methods to
+  extract elements.
+- this is a time for exploration with help in the room
+- while you're working, think about:
+  - what is the data that you want to extract from this dataset?
+  - what would you do with that data?
 
-NEXT CLASS?
+** challenge: do something to your data for next week
+
+** NEXT CLASS?
 - advanced selection
   - df.loc[]
   - df.iloc[]
@@ -36,3 +48,5 @@ NEXT CLASS?
   - df.set_index('column')
 - visualizing
   - df.department.value_counts().plot(kind = 'barh')
+
+** 

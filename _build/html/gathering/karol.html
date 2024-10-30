@@ -212,14 +212,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../analyze/overview.html">workshop overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../analyze/what.html">what is text analysis?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../analyze/questions.html">research questions: defining gender</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../analyze/processing.html">the <code class="docutils literal notranslate"><span class="pre">spaCy</span></code> pipeline</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../analyze/phrases.html">the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../analyze/entities.html">the <code class="docutils literal notranslate"><span class="pre">Entity-Ruler</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../analyze/tokens.html">the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/pandas.html">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
 <ul class="nav bd-sidenav">
@@ -441,7 +434,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Here I’m using the “Artists” endpoint, which means I already have an artist ID number on hand. This endpoint returns data about the artist, and you need the artist ID to access it.</p>
+<p>Here I’m using the “<a class="reference external" href="https://docs.genius.com/#artists-h2">Artists</a>” endpoint, which means I already have an artist ID number on hand, by using the</p>
+<p>This endpoint returns data about the artist, and you need the artist ID to access it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pass your headers dict into the get() request</span>
@@ -584,17 +578,17 @@ document.write(`
  &#39;url&#39;: &#39;https://genius.com/Q-lokura-and-banda-mix-200-copas-lyrics&#39;,
  &#39;featured_artists&#39;: [],
  &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/3404931&#39;,
-  &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1729626412&#39;,
+  &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1730216413&#39;,
   &#39;id&#39;: 3404931,
-  &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1729626412&#39;,
+  &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1730216413&#39;,
   &#39;is_meme_verified&#39;: False,
   &#39;is_verified&#39;: False,
   &#39;name&#39;: &#39;Q’ Lokura &amp; Banda Mix&#39;,
   &#39;url&#39;: &#39;https://genius.com/artists/Q-lokura-and-banda-mix&#39;},
  &#39;primary_artists&#39;: [{&#39;api_path&#39;: &#39;/artists/3404931&#39;,
-   &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1729626412&#39;,
+   &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1730216413&#39;,
    &#39;id&#39;: 3404931,
-   &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1729626412&#39;,
+   &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1730216413&#39;,
    &#39;is_meme_verified&#39;: False,
    &#39;is_verified&#39;: False,
    &#39;name&#39;: &#39;Q’ Lokura &amp; Banda Mix&#39;,
@@ -638,7 +632,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;annotation_count&#39;, &#39;api_path&#39;, &#39;apple_music_id&#39;, &#39;apple_music_player_url&#39;, &#39;artist_names&#39;, &#39;description&#39;, &#39;embed_content&#39;, &#39;featured_video&#39;, &#39;full_title&#39;, &#39;header_image_thumbnail_url&#39;, &#39;header_image_url&#39;, &#39;id&#39;, &#39;language&#39;, &#39;lyrics_owner_id&#39;, &#39;lyrics_placeholder_reason&#39;, &#39;lyrics_state&#39;, &#39;path&#39;, &#39;primary_artist_names&#39;, &#39;pyongs_count&#39;, &#39;recording_location&#39;, &#39;relationships_index_url&#39;, &#39;release_date&#39;, &#39;release_date_for_display&#39;, &#39;release_date_with_abbreviated_month_for_display&#39;, &#39;song_art_image_thumbnail_url&#39;, &#39;song_art_image_url&#39;, &#39;stats&#39;, &#39;title&#39;, &#39;title_with_featured&#39;, &#39;url&#39;, &#39;current_user_metadata&#39;, &#39;song_art_primary_color&#39;, &#39;song_art_secondary_color&#39;, &#39;song_art_text_color&#39;, &#39;album&#39;, &#39;custom_performances&#39;, &#39;description_annotation&#39;, &#39;featured_artists&#39;, &#39;lyrics_marked_complete_by&#39;, &#39;lyrics_marked_staff_approved_by&#39;, &#39;media&#39;, &#39;primary_artist&#39;, &#39;primary_artists&#39;, &#39;producer_artists&#39;, &#39;song_relationships&#39;, &#39;translation_songs&#39;, &#39;verified_annotations_by&#39;, &#39;verified_contributors&#39;, &#39;verified_lyrics_by&#39;, &#39;writer_artists&#39;])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;annotation_count&#39;, &#39;api_path&#39;, &#39;apple_music_id&#39;, &#39;apple_music_player_url&#39;, &#39;artist_names&#39;, &#39;description&#39;, &#39;embed_content&#39;, &#39;featured_video&#39;, &#39;full_title&#39;, &#39;header_image_thumbnail_url&#39;, &#39;header_image_url&#39;, &#39;id&#39;, &#39;language&#39;, &#39;lyrics_owner_id&#39;, &#39;lyrics_state&#39;, &#39;path&#39;, &#39;primary_artist_names&#39;, &#39;pyongs_count&#39;, &#39;recording_location&#39;, &#39;relationships_index_url&#39;, &#39;release_date&#39;, &#39;release_date_for_display&#39;, &#39;release_date_with_abbreviated_month_for_display&#39;, &#39;song_art_image_thumbnail_url&#39;, &#39;song_art_image_url&#39;, &#39;stats&#39;, &#39;title&#39;, &#39;title_with_featured&#39;, &#39;url&#39;, &#39;current_user_metadata&#39;, &#39;song_art_primary_color&#39;, &#39;song_art_secondary_color&#39;, &#39;song_art_text_color&#39;, &#39;album&#39;, &#39;custom_performances&#39;, &#39;description_annotation&#39;, &#39;featured_artists&#39;, &#39;lyrics_marked_complete_by&#39;, &#39;lyrics_marked_staff_approved_by&#39;, &#39;media&#39;, &#39;primary_artist&#39;, &#39;primary_artists&#39;, &#39;producer_artists&#39;, &#39;song_relationships&#39;, &#39;translation_songs&#39;, &#39;verified_annotations_by&#39;, &#39;verified_contributors&#39;, &#39;verified_lyrics_by&#39;, &#39;writer_artists&#39;])
 </pre></div>
 </div>
 </div>
@@ -708,18 +702,18 @@ document.write(`
    &#39;authors&#39;: [{&#39;attribution&#39;: 1.0,
      &#39;pinned_role&#39;: None,
      &#39;user&#39;: {&#39;api_path&#39;: &#39;/users/17336116&#39;,
-      &#39;avatar&#39;: {&#39;tiny&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/tiny/9f94a554d3adc5275af111246f2bd29a&#39;,
+      &#39;avatar&#39;: {&#39;tiny&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/tiny/c8f0ec1e4810aad03460c164c6a6975c&#39;,
         &#39;bounding_box&#39;: {&#39;width&#39;: 16, &#39;height&#39;: 16}},
-       &#39;thumb&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/thumb/9f94a554d3adc5275af111246f2bd29a&#39;,
+       &#39;thumb&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/thumb/c8f0ec1e4810aad03460c164c6a6975c&#39;,
         &#39;bounding_box&#39;: {&#39;width&#39;: 32, &#39;height&#39;: 32}},
-       &#39;small&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/small/9f94a554d3adc5275af111246f2bd29a&#39;,
+       &#39;small&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/small/c8f0ec1e4810aad03460c164c6a6975c&#39;,
         &#39;bounding_box&#39;: {&#39;width&#39;: 100, &#39;height&#39;: 100}},
-       &#39;medium&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/medium/9f94a554d3adc5275af111246f2bd29a&#39;,
+       &#39;medium&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/medium/c8f0ec1e4810aad03460c164c6a6975c&#39;,
         &#39;bounding_box&#39;: {&#39;width&#39;: 300, &#39;height&#39;: 400}}},
       &#39;header_image_url&#39;: &#39;https://images.genius.com/a3f3e4fae808e9426937a2b4180993bf.640x908x1.jpg&#39;,
       &#39;human_readable_role_for_display&#39;: &#39;Moderator&#39;,
       &#39;id&#39;: 17336116,
-      &#39;iq&#39;: 1209351,
+      &#39;iq&#39;: 1218044,
       &#39;login&#39;: &#39;Fri&#39;,
       &#39;name&#39;: &#39;Fri&#39;,
       &#39;role_for_display&#39;: &#39;moderator&#39;,
