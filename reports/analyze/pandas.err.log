@@ -28,26 +28,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-results = []
-query = 'migrant'
-for i in range(0, 5):  
-    url = f'https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&page={i}&api-key={key}'
-    response = requests.get(url)
-    parsed = response.json()
-    articles = parsed['response']['docs']
-    results.append(articles)
-    sleep(6) # sleep at least 6 seconds not to overload the servers
+import pandas as pd
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mKeyError[0m                                  Traceback (most recent call last)
-Cell [0;32mIn[19], line 7[0m
-[1;32m      5[0m response [38;5;241m=[39m requests[38;5;241m.[39mget(url)
-[1;32m      6[0m parsed [38;5;241m=[39m response[38;5;241m.[39mjson()
-[0;32m----> 7[0m articles [38;5;241m=[39m [43mparsed[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mresponse[39;49m[38;5;124;43m'[39;49m[43m][49m[[38;5;124m'[39m[38;5;124mdocs[39m[38;5;124m'[39m]
-[1;32m      8[0m results[38;5;241m.[39mappend(articles)
-[1;32m      9[0m sleep([38;5;241m6[39m) [38;5;66;03m# sleep at least 6 seconds not to overload the servers[39;00m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
 
-[0;31mKeyError[0m: 'response'
+[0;31mModuleNotFoundError[0m: No module named 'pandas'
 
