@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'analyze/pandas';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="workshop overview" href="../ml/overview.html" />
+    <link rel="next" title="visualizing data with pandas" href="pandas_2.html" />
     <link rel="prev" title="cleaning our text" href="../clean/cleaning.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -213,6 +213,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
 <ul class="nav bd-sidenav">
@@ -2183,6 +2184,30 @@ Hanging scroll; ink, color, and gold on silk      1
 Greywacke                                         1
 limestone, paint                                  1
 Name: count, Length: 128, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;artistDisplayName&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>artistDisplayName
+Edgar Degas                                       14
+Imperial Porcelain Manufactory, St. Petersburg     8
+Pablo Picasso                                      7
+Johannes Vermeer                                   3
+Willem de Kooning                                  3
+                                                  ..
+Giovanni Battista Gaulli (Il Baciccio)             1
+Giacomo Ceruti                                     1
+Georges Braque                                     1
+Gaston Lachaise                                    1
+Woman&#39;s Liberty Loan Committee                     1
+Name: count, Length: 90, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -4178,14 +4203,14 @@ memory usage: 17.3+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dress</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;dress&#39;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">courbet</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;artistDisplayName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Courbet&#39;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">dress</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">courbet</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -4233,33 +4258,96 @@ memory usage: 17.3+ KB
   </thead>
   <tbody>
     <tr>
-      <th>252</th>
-      <td>252</td>
-      <td>248337.0</td>
-      <td>0.0</td>
-      <td>10.210.50</td>
-      <td>1910.0</td>
+      <th>42</th>
+      <td>42</td>
+      <td>436002.0</td>
       <td>1.0</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
+      <td>29.100.57</td>
+      <td>1929.0</td>
+      <td>1.0</td>
+      <td>https://images.metmuseum.org/CRDImages/ep/orig...</td>
+      <td>https://images.metmuseum.org/CRDImages/ep/web-...</td>
       <td>[]</td>
-      <td>NaN</td>
+      <td>[{'constituentID': 161790, 'role': 'Artist', '...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2023-02-07T04:46:51.34Z</td>
+      <td>2024-10-03T04:53:53.567Z</td>
       <td>Metropolitan Museum of Art, New York, NY</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
-      <td>[{'term': 'Heads', 'AAT_URL': 'http://vocab.ge...</td>
-      <td>https://www.wikidata.org/wiki/Q116290125</td>
+      <td>[{'term': 'Female Nudes', 'AAT_URL': 'http://v...</td>
+      <td>https://www.wikidata.org/wiki/Q8030760</td>
+      <td>1.0</td>
+      <td>811</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>70</td>
+      <td>436024.0</td>
       <td>0.0</td>
-      <td>171</td>
+      <td>29.100.59</td>
+      <td>1929.0</td>
+      <td>1.0</td>
+      <td>https://images.metmuseum.org/CRDImages/ep/orig...</td>
+      <td>https://images.metmuseum.org/CRDImages/ep/web-...</td>
+      <td>[]</td>
+      <td>[{'constituentID': 161790, 'role': 'Artist', '...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2024-10-03T04:53:53.567Z</td>
+      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>https://www.metmuseum.org/art/collection/searc...</td>
+      <td>[{'term': 'Portraits', 'AAT_URL': 'http://voca...</td>
+      <td>https://www.wikidata.org/wiki/Q19905240</td>
+      <td>1.0</td>
+      <td>812</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>82</td>
+      <td>436004.0</td>
+      <td>0.0</td>
+      <td>29.100.62</td>
+      <td>1929.0</td>
+      <td>1.0</td>
+      <td>https://images.metmuseum.org/CRDImages/ep/orig...</td>
+      <td>https://images.metmuseum.org/CRDImages/ep/web-...</td>
+      <td>[]</td>
+      <td>[{'constituentID': 161790, 'role': 'Artist', '...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2024-10-03T04:53:53.567Z</td>
+      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>https://www.metmuseum.org/art/collection/searc...</td>
+      <td>[{'term': 'Female Nudes', 'AAT_URL': 'http://v...</td>
+      <td>https://www.wikidata.org/wiki/Q39013</td>
+      <td>1.0</td>
+      <td>811</td>
       <td>NaN</td>
     </tr>
   </tbody>
 </table>
-<p>1 rows × 59 columns</p>
+<p>3 rows × 59 columns</p>
 </div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">courbet</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42                    Woman with a Parrot
+70    Woman in a Riding Habit (L&#39;Amazone)
+82                 The Woman in the Waves
+Name: title, dtype: object
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -4304,11 +4392,11 @@ memory usage: 17.3+ KB
       </div>
     </a>
     <a class="right-next"
-       href="../ml/overview.html"
+       href="pandas_2.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">workshop overview</p>
+        <p class="prev-next-title">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

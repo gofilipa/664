@@ -1,4 +1,4 @@
-* data analysis with pandas
+* data analysis with pandas I
 
 ** concepts 
 
@@ -39,14 +39,3 @@
 
 ** challenge: do something to your data for next week
 
-** NEXT CLASS?
-- advanced selection
-  - df.loc[]
-  - df.iloc[]
-- indexes
-  - df.index
-  - df.set_index('column')
-- visualizing
-  - df.department.value_counts().plot(kind = 'barh')
-
-** 

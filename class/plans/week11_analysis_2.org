@@ -1,0 +1,55 @@
+* data analysis with pandas II
+** review last class
+- loading a text: DataFrame and read_csv
+- viewing text methods
+  - info(), columns,
+  - syntax for accessing columns
+- sorting:
+  - df.value_counts('column') -> counts highest values per column
+  - df.sort_values('column') -> sorts column
+- filtering:
+  - df['column'] == 'text string'
+    - new_df = (df['column'] == 'text string')
+    - df[new_df] -> returns new dataframe with condition
+
+** analysis II
+- more sorting:
+  - We can use various parameters to customize the sort_values()
+    function. You can see all of them on the docs entry for
+    pandas.DataFrame.sort_values.
+    - df.sort_values('Bill Type', inplace=True)
+    - df.sort_values(['Bill Type', 'State'], inplace=True))
+  - another way of saving the df is to set it to a new variable
+    - sorted = df.sort_values(['Bill Type', 'State'])
+- counting values
+  - df.value_counts('Youth State Risk')
+    - returns a series
+- filtering
+  - boolean methods
+    - df['Bill Type'] == 'Book Ban'
+    - books = df['Bill Type'] == 'Book Ban'
+    - df[books]
+    - df[books].value_counts('State')
+  - string methods
+    - bathrooms = df['Bill Type'].str.contains('Bathroom')
+    - df[bathrooms].value_counts('State')
+- visualizing
+  - df.plot() -> doesnt make sense
+  - df.plot(kind='bar') -> still no sense
+  - df.value_counts('Bill Type').plot(kind='bar') -> now have
+    specificity, but not legible
+  - the type of data you feed into plot matters!
+    - df['Bill Type'].plot(kind='bar') -> numeric error
+  - method chaining
+    - df.value_counts('Bill Type').nlargest(10).plot(kind='bar')
+  - Looking into the pandas.DataFrame.plot docs to see what other
+    params are available, like `barh`, `xlabel` and `title`.
+    - df.value_counts('Bill Type').nlargest(10).plot(kind='barh',
+      xlabel='Number of Bills', title='Most Frequent Categories for
+      Anti-Trans Bills')
+  - other plots:
+    - df.value_counts('Bill Type').plot(kind='pie')
+
+** workshops
+- check in, round the rooms: where are you at? obstacles now?
+- finish challenge, working individually 

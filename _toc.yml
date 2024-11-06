@@ -32,6 +32,7 @@ parts:
 - caption: analyzing data
   chapters:
   - file: analyze/pandas
+  - file: analyze/pandas_2
 - caption: machine learning
   chapters:
   - file: ml/overview
