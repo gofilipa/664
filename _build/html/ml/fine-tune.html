@@ -216,8 +216,6 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">workshop overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ml.html">machine learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hf.html">Huggingface🤗 platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inference.html">running inference</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">fine-tuning</a></li>
@@ -469,15 +467,10 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;gofilipa/gender_congress_117-118&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;gofilipa/bedtime_stories&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found cached dataset csv (/Users/caladof/.cache/huggingface/datasets/gofilipa___csv/gofilipa--gender_congress_117-118-304e9fdc48b3d0d4/0.0.0/6954658bab30a358235fa864b05cf819af0e179325c740e4bc853bcc7ec513e1)
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "25dcd4ef05f84cfe9af029c8d4a5e80d", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>Padding is necessary to account for different sizes of text in our dataset.</p>
 <p><em>From the <a class="reference external" href="https://huggingface.co/docs/transformers/en/pad_truncation">docs on 🤗</a>:
@@ -497,6 +490,7 @@ Batched inputs are often different lengths, so they can’t be converted to fixe
     <span class="n">num_train_epochs</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="c1"># how many times we iterate over the dataset as a whole</span>
     <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">2e-4</span><span class="p">,</span> <span class="c1"># how many &quot;steps&quot; we take in adjusting the parameters to make up for loss</span>
     <span class="n">weight_decay</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">,</span> <span class="c1"># way of regularizing the parameters</span>
+    <span class="n">report_to</span><span class="o">=</span><span class="s2">&quot;none&quot;</span> <span class="c1"># this is a new param, to avoid a login to W&amp;B</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -507,17 +501,10 @@ Batched inputs are often different lengths, so they can’t be converted to fixe
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trainer</span> <span class="o">=</span> <span class="n">SFTTrainer</span><span class="p">(</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="p">,</span>
     <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">],</span>
-    <span class="n">dataset_text_field</span> <span class="o">=</span> <span class="s2">&quot;definitions&quot;</span><span class="p">,</span>
+    <span class="n">dataset_text_field</span> <span class="o">=</span> <span class="s2">&quot;stories&quot;</span><span class="p">,</span>
     <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">,</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">training_params</span>
 <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caladof/anaconda3/lib/python3.11/site-packages/trl/trainer/sft_trainer.py:246: UserWarning: You didn&#39;t pass a `max_seq_length` argument to the SFTTrainer, this will default to 1024
-  warnings.warn(
-Loading cached processed dataset at /Users/caladof/.cache/huggingface/datasets/gofilipa___csv/gofilipa--gender_congress_117-118-304e9fdc48b3d0d4/0.0.0/6954658bab30a358235fa864b05cf819af0e179325c740e4bc853bcc7ec513e1/cache-3618ad3aa0d944c2.arrow
 </pre></div>
 </div>
 </div>
@@ -543,10 +530,9 @@ Loading cached processed dataset at /Users/caladof/.cache/huggingface/datasets/g
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pipe</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;text-generation&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pipe</span><span class="p">(</span><span class="s2">&quot;To affirm a person&#39;s gender means&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pipe</span><span class="p">(</span><span class="s2">&quot;There once was a little girl named Filipa and&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The results aren’t great. To get better results, we’d need to adjust the hyperparameters (learning rate and epochs, primarily) at the top.</p>
 </section>
 
     <script type="text/x-thebe-config">
