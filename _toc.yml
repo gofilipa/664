@@ -38,3 +38,7 @@ parts:
   - file: ml/hf
   - file: ml/inference
   - file: ml/fine-tune
+- caption: publishing
+  chapters:
+  - file: publish/github
+  - file: publish/git
