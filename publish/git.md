@@ -27,3 +27,48 @@ paste the following into your terminal or command line application
 git config --global user.name "YOUR_USERNAME"
 git config --global user.email "im_satoshi@musk.com"
 ```
+
+## Step 4: Generate/check your machine for existing SSH keys. (Optional)
+
+Follow instructions here on [generating and adding SSH keys to git and github](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/). (Scroll down to "Step 3" in the instructions)
+
+## Step 5: Clone a repo
+
+Get the link to your repo from Github.com. Go to your repo homepage,
+press the green "Code" button, and copy the `https` URL there (which
+is the URL to your repo).
+
+Then, go to your terminal and use the clone command to cone the
+repo. Make sure you're on your desktop or wherever you want the
+project file to exist on your computer.
+
+```console
+cd ~/Desktop
+git clone https://github.com/your_user_name/your_repo_name.git
+```
+## Step 6: Make some changes!
+
+Do some work on the repo.
+
+## Step 7: Adding & committing
+
+When you're done working, you need to add and commit your changes. In
+the quotes, you can include a short message summarizing your
+changes. This creates a very useful log of every commit. 
+
+```console
+git add .
+git commit -m 'write a short message about your changes here'
+```
+
+## Step 8: Push your changes All the changes we made in the file are
+updated in the local repository. Now to update the changes to the
+remote repo, which exists on Github.com:
+
+```console
+git remote add origin paste_your_git_repo_url
+git push -u origin main
+```
+
+See an excellent and comprehensive tutorial on
+[freeCodeCamp](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/).
