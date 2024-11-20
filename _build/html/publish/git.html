@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Huggingface🤗 platform &#8212; Python for Programming Cultural Heritage</title>
+    <title>introduction to git &#8212; Python for Programming Cultural Heritage</title>
   
   
   
@@ -57,11 +57,10 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ml/hf';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'publish/git';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="running inference" href="inference.html" />
-    <link rel="prev" title="visualizing data with pandas" href="../analyze/pandas_2.html" />
+    <link rel="prev" title="introduction to github" href="github.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -216,15 +215,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../analyze/pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Huggingface🤗 platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="inference.html">running inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fine-tune.html">fine-tuning</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">publishing</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../publish/github.html">introduction to github</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../publish/git.html">introduction to git</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="github.html">introduction to github</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">introduction to git</a></li>
 </ul>
 
     </div>
@@ -296,7 +295,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fml/hf.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpublish/git.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +325,7 @@
       
       
       
-      <li><a href="../_sources/ml/hf.md" target="_blank"
+      <li><a href="../_sources/publish/git.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,7 +409,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Huggingface🤗 platform</h1>
+    <h1>introduction to git</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,11 +419,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models-hub">“models hub”</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#models-hub-activity-5-10-minutes">models hub activity: 5-10 minutes</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets-hub">“datasets hub”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-make-sure-you-have-git-installed-on-you-machine">Step 1: Make sure you have Git installed on you machine.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-set-up-your-account-on-github-you-likely-already-did-this">Step 2: Set up your account on Github (you likely already did this)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-configure-user-info-via-command-line">Step 3: Configure user info via Command Line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-authenticating">Step 4: Authenticating</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-clone-a-repo">Step 5: Clone a repo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-make-some-changes">Step 6: Make some changes!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-adding-committing">Step 7: Adding &amp; committing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-push-your-changes-all-the-changes-we-made-in-the-file-are">Step 8: Push your changes All the changes we made in the file are</a></li>
 </ul>
             </nav>
         </div>
@@ -436,128 +438,75 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="huggingface-platform">
-<h1>Huggingface🤗 platform<a class="headerlink" href="#huggingface-platform" title="Link to this heading">#</a></h1>
-<p>Now let’s move to the platform we will be using, HuggingFace🤗.</p>
-<p>🤗 is an AI research and development company based in Brooklyn, New
-York City. The company hosts and develops platform for Machine
-Learning, which contains compute &amp; collaborative spaces for AI
-models, datasets, and more. It is like a github for ML, if github
-had additional “hubs” for things besides just code (like datasets,
-papers, apps, etc).</p>
-<section id="models-hub">
-<h2>“models hub”<a class="headerlink" href="#models-hub" title="Link to this heading">#</a></h2>
-<p>We will start with the “models hub,” which contains AI models created
-by 🤗 users. Users train and/or fine-tune models, then publish them on
-the hub for others to use.</p>
-<p>The navigation goes from left to right. On left side, there are tasks,
-like text classification. On right side, there are models. We are
-going to narrow down the models.</p>
-<p>Filter results by “most downloaded”, and try to guess what the model
-does just by looking at the name.</p>
-<ul class="simple">
-<li><p>Wav2Vec - audio to vector, speech to text.</p></li>
-<li><p>RoBERTa - one of the many permutations of BERT, you’ll see. First
-model to put into practice the Transformer architecture.</p></li>
-</ul>
-<p>Then, filter results by “most liked”:</p>
-<ul class="simple">
-<li><p>click on <a class="reference external" href="https://huggingface.co/runwayml/stable-diffusion-v1-5">Stable Diffusion</a></p>
-<ul>
-<li><p>on each model, you can see the model details at the top of the
-page (keywords, size, papers)</p></li>
-<li><p>the inference on the right. Because this is a large model, we
-will enter a prompt now.</p>
-<ul>
-<li><p>You can run these models (what we call “inference”) directly
-on the HF website. Which is amazing.</p></li>
-</ul>
-</li>
-<li><p>the model card in the main section.</p>
-<ul>
-<li><p>explanation of model, code to use it, attributions, licensing,
-instructions for ethical use, “limitations and biases”</p></li>
-</ul>
-</li>
-<li><p>things like “Training” and “Environmental Impact” are super
-rare.</p></li>
-</ul>
-</li>
-</ul>
-<p>Go back to the search, and type <code class="docutils literal notranslate"><span class="pre">gpt-neo-125</span></code>.</p>
-<ul class="simple">
-<li><p>click on the
-<a class="reference external" href="https://huggingface.co/EleutherAI/gpt-neo-125m">gpt-125m</a> result.</p>
-<ul>
-<li><p>a model developed by EleutherAI, a non-profit research lab.</p></li>
-<li><p>part of a larger family of models named “gpt-neo” with the size
-at the end.</p></li>
-</ul>
-</li>
-<li><p>notice “<em>model size</em>”. How big is it?</p></li>
-<li><p>125m parameters. That’s how many inputs goes into
-inference. Includes things like word vectors, but also different
-kinds of inputs.</p></li>
-<li><p>size is an indication of complexity. The larger the size, the more
-likely that the model will preform well.</p></li>
-<li><p>notice the “<em>license</em>”:</p>
-<ul>
-<li><p>MIT license. Very permissive, part of the “Open Source”
-licenses.</p>
-<ul>
-<li><p>the model is totally open to download and modify as you wish,
-even for commercial purposes.</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>practice running inference here for a few mintues. Anything that you
-notice about the results?</p>
-<ul class="simple">
-<li><p>it’s repetitive. A problem caused by the traits of our
-language itself.</p></li>
-<li><p>it generates words that have the highest likelihood. The words that
-have this likelihood tend to be the same ones, over and
-over again.</p></li>
-</ul>
-<section id="models-hub-activity-5-10-minutes">
-<h3>models hub activity: 5-10 minutes<a class="headerlink" href="#models-hub-activity-5-10-minutes" title="Link to this heading">#</a></h3>
-<p>Go back to the models page, and choose a task that interests you.</p>
-<p>Filter by “most likes” or “most downloads”.</p>
-<p>Explore some of the top results, clicking on the links to the model
-pages.</p>
-<p>Run inference on a few of the models that you find, taking note of the
-model size.</p>
-<p>What differences do you notice between the models?</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-git">
+<h1>introduction to git<a class="headerlink" href="#introduction-to-git" title="Link to this heading">#</a></h1>
+<p>The purpose of <code class="docutils literal notranslate"><span class="pre">git</span></code> (and VCS generally) is to track changes so that
+one can more easily manange their own projects and collaborate with
+others. Version control means we can keep track of who does what in a
+project, and revert files to previous forms (this is super useful in
+software development, where minor changes in code can break an entire
+app!).</p>
+<section id="step-1-make-sure-you-have-git-installed-on-you-machine">
+<h2>Step 1: Make sure you have Git installed on you machine.<a class="headerlink" href="#step-1-make-sure-you-have-git-installed-on-you-machine" title="Link to this heading">#</a></h2>
+<p>To use git, you need to first install the software. <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Read here to
+install
+Git</a>.</p>
 </section>
+<section id="step-2-set-up-your-account-on-github-you-likely-already-did-this">
+<h2>Step 2: Set up your account on Github (you likely already did this)<a class="headerlink" href="#step-2-set-up-your-account-on-github-you-likely-already-did-this" title="Link to this heading">#</a></h2>
+<p>You need to set up an account on github, following the steps in the
+previous lesson.</p>
 </section>
-<section id="datasets-hub">
-<h2>“datasets hub”<a class="headerlink" href="#datasets-hub" title="Link to this heading">#</a></h2>
-<p>Besides models, 🤗 offers Datasets. These datasets are used to
-fine-tune (and also train and evaluate) models. We are going to take
-a little peak into this part of the platform.</p>
-<p>Before diving in, important to consider how these datasets were
-created. There are a lot of <em>ethical issues</em> with the ways that
-datasets for training are created and cleaned (or not cleaned).</p>
-<p>Where do we get most of the data used to train these models?</p>
-<ul class="simple">
-<li><p>scraped from the internet, most of them.</p>
-<ul>
-<li><p>What kind of data does the internet contain?</p></li>
-</ul>
-</li>
-<li><p>how do you remove bias and discrimination?</p>
-<ul>
-<li><p>attempts to automate this have failed: “<a class="reference external" href="https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words">List of Dirty Obscene…</a>”</p></li>
-</ul>
-</li>
-<li><p>RLHF - “reinforcement learning from human feedback”, which creates a
-labor exploitation issue.</p></li>
-</ul>
-<p>TLDR: There’s a race to get these products out there, so people aren’t
-taking the time needed to adequately clean the data and make sure
-it’s safe.</p>
+<section id="step-3-configure-user-info-via-command-line">
+<h2>Step 3: Configure user info via Command Line<a class="headerlink" href="#step-3-configure-user-info-via-command-line" title="Link to this heading">#</a></h2>
+<p>Then, you need to configure your user information locally. Copy and
+paste the following into your terminal or command line application</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git config --global user.name &quot;YOUR_USERNAME&quot;</span>
+<span class="go">git config --global user.email &quot;im_satoshi@musk.com&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="step-4-authenticating">
+<h2>Step 4: Authenticating<a class="headerlink" href="#step-4-authenticating" title="Link to this heading">#</a></h2>
+<p>For Mac users, follow these instructions: <a class="reference external" href="https://dev.to/shafia/support-for-password-authentication-was-removed-please-use-a-personal-access-token-instead-4nbk">https://dev.to/shafia/support-for-password-authentication-was-removed-please-use-a-personal-access-token-instead-4nbk</a></p>
+<p>For Windows users, follow these instructions: <a class="reference external" href="https://stackoverflow.com/questions/68775869/message-support-for-password-authentication-was-removed">https://stackoverflow.com/questions/68775869/message-support-for-password-authentication-was-removed</a></p>
+</section>
+<section id="step-5-clone-a-repo">
+<h2>Step 5: Clone a repo<a class="headerlink" href="#step-5-clone-a-repo" title="Link to this heading">#</a></h2>
+<p>Get the link to your repo from <a class="reference external" href="http://Github.com">Github.com</a>. Go to your repo homepage,
+press the green “Code” button, and copy the <code class="docutils literal notranslate"><span class="pre">https</span></code> URL there (which
+is the URL to your repo).</p>
+<p>Then, go to your terminal and use the clone command to cone the
+repo. Make sure you’re on your desktop or wherever you want the
+project file to exist on your computer.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd ~/Desktop</span>
+<span class="go">git clone https://github.com/your_user_name/your_repo_name.git</span>
+</pre></div>
+</div>
+</section>
+<section id="step-6-make-some-changes">
+<h2>Step 6: Make some changes!<a class="headerlink" href="#step-6-make-some-changes" title="Link to this heading">#</a></h2>
+<p>Do some work on the repo.</p>
+</section>
+<section id="step-7-adding-committing">
+<h2>Step 7: Adding &amp; committing<a class="headerlink" href="#step-7-adding-committing" title="Link to this heading">#</a></h2>
+<p>When you’re done working, you need to add and commit your changes. In
+the quotes, you can include a short message summarizing your
+changes. This creates a very useful log of every commit.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git add .</span>
+<span class="go">git commit -m &#39;write a short message about your changes here&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="step-8-push-your-changes-all-the-changes-we-made-in-the-file-are">
+<h2>Step 8: Push your changes All the changes we made in the file are<a class="headerlink" href="#step-8-push-your-changes-all-the-changes-we-made-in-the-file-are" title="Link to this heading">#</a></h2>
+<p>updated in the local repository. Now to update the changes to the
+remote repo, which exists on <a class="reference external" href="http://Github.com">Github.com</a>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git push</span>
+</pre></div>
+</div>
+<p>For more on git:
+<a class="reference external" href="https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/">https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/</a></p>
 </section>
 </section>
 
@@ -574,7 +523,7 @@ it’s safe.</p>
         },
         kernelOptions: {
             name: "python3",
-            path: "./ml"
+            path: "./publish"
         },
         predefinedOutput: true
     }
@@ -592,22 +541,13 @@ it’s safe.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../analyze/pandas_2.html"
+       href="github.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
+        <p class="prev-next-title">introduction to github</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="inference.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">running inference</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -625,11 +565,14 @@ it’s safe.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models-hub">“models hub”</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#models-hub-activity-5-10-minutes">models hub activity: 5-10 minutes</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets-hub">“datasets hub”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-make-sure-you-have-git-installed-on-you-machine">Step 1: Make sure you have Git installed on you machine.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-set-up-your-account-on-github-you-likely-already-did-this">Step 2: Set up your account on Github (you likely already did this)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-configure-user-info-via-command-line">Step 3: Configure user info via Command Line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-authenticating">Step 4: Authenticating</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-clone-a-repo">Step 5: Clone a repo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-make-some-changes">Step 6: Make some changes!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-adding-committing">Step 7: Adding &amp; committing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-push-your-changes-all-the-changes-we-made-in-the-file-are">Step 8: Push your changes All the changes we made in the file are</a></li>
 </ul>
   </nav></div>
 
