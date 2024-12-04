@@ -42,3 +42,4 @@ parts:
   chapters:
   - file: publish/github
   - file: publish/git
+  - file: publish/jekyll

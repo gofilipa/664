@@ -1,0 +1,711 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>publishing a static site &#8212; Python for Programming Cultural Heritage</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'publish/jekyll';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="introduction to git" href="git.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Python for Programming Cultural Heritage - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Python for Programming Cultural Heritage - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python for Programming Cultural Heritage
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gathering/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/what.html">what is web scraping?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/exploring.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/to-dataframe.html">saving scraped data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/dicts.html">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/met_api.html">The MET API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/nyt_api.html">NYT API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/karol.html">Genius API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analyze/pandas.html">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">publishing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="github.html">introduction to github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">introduction to git</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">publishing a static site</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpublish/jekyll.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/publish/jekyll.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>publishing a static site</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-github-pages">what is Github Pages?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-jekyll">what is Jekyll?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-way">easy way</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-theme-and-fork-it">1) choose a theme and fork it!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-the-web-editor-edit-your-index-md-file">2) open the web editor, edit your index.md file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commit-and-push-your-changes">3) commit and push your changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-github-pages-on-your-repo-settings">4) configure Github pages on your repo settings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-way">hard way</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pre-requisites-ruby-jekyll">1) installing pre-requisites: ruby &amp; jekyll</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-a-theme">2) fork a theme</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-pages">3) editing pages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-to-github-pages">4) pushing to github pages</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="publishing-a-static-site">
+<h1>publishing a static site<a class="headerlink" href="#publishing-a-static-site" title="Link to this heading">#</a></h1>
+<p>For this session, we will combine <a class="reference external" href="https://jekyllrb.com/">Jekyll</a> and
+<a class="reference external" href="https://pages.github.com/">Github Pages</a> to deploy your project into
+a website that others can access on the internet.</p>
+<section id="what-is-github-pages">
+<h2>what is Github Pages?<a class="headerlink" href="#what-is-github-pages" title="Link to this heading">#</a></h2>
+<p>A hosting service by Github that lets you create static sites on the web. It takes HTML, CSS, and JavaScript files from a GitHub repository, and publishes them as a website.</p>
+<p>What are static sites? Websites that are generated once (usually by a program like Python or Ruby), then pushed to the server to be hosted in its already-generated or “static” state.</p>
+</section>
+<section id="what-is-jekyll">
+<h2>what is Jekyll?<a class="headerlink" href="#what-is-jekyll" title="Link to this heading">#</a></h2>
+<p>Jekyll is a static site generator. A program that allows you to convert plain text documents (like markdown files) into HTML and CSS. With Jekyll you can author documents in a relatively easy format like Markdown, and have it transform into HTML.</p>
+<p>There are two ways to use Jekyll for Github pages. The easy way and the hard way. I’m going to review both of them here, and provide detailed instructions below.</p>
+<p>The easy way: Github pages has built-in support for some kinds of Jekyll sites, which means that you can create one completely through <a class="reference external" href="http://Github.com">Github.com</a>. This is a massive benefit, because virtually all open source web authoring platforms require you to download and install software via the command line.</p>
+<p>The hard way: For those of you more familiar with the command line, you’d have a lot more options of different Jekyll themes to choose from, and a lot more control generally over the way your site is created. That being said, it is a higher barrier to entry and requires you to install software like git, ruby, and jekyll over the command line.</p>
+</section>
+<section id="easy-way">
+<h2>easy way<a class="headerlink" href="#easy-way" title="Link to this heading">#</a></h2>
+<section id="choose-a-theme-and-fork-it">
+<h3>1) choose a theme and fork it!<a class="headerlink" href="#choose-a-theme-and-fork-it" title="Link to this heading">#</a></h3>
+<p>Choose a theme you like from this page: <a class="reference external" href="https://pages.github.com/themes/">https://pages.github.com/themes/</a></p>
+<p>Fork the theme by going to the github page, and on the top right, press “fork”.</p>
+<p>When you are prompted, be sure to change the name of the respository to something relevant to your project.</p>
+</section>
+<section id="open-the-web-editor-edit-your-index-md-file">
+<h3>2) open the web editor, edit your <a class="reference external" href="http://index.md">index.md</a> file<a class="headerlink" href="#open-the-web-editor-edit-your-index-md-file" title="Link to this heading">#</a></h3>
+<p>Open the code editor by pressing the period button on your keyboard. You’ll see a new interface appear which lets you edit the files in your repo.</p>
+<p>First, move all of the files (except README) in the root folder to nest permanently under the “docs” folder. You can leave the <a class="reference external" href="http://README.md">README.md</a> file in the root (later on, you can add your own information here).</p>
+<p>The “docs” folder is where Github looks for the HTML files to display on your site, so by moving the files there, you’re making it easier for Github to generate your site later on.</p>
+<p>Second, open the <a class="reference external" href="http://index.md">index.md</a> file, which should now be in the “docs” folder. This file is written in markdown, and offers a handy key for markdown formatting. The top section (sandwiched by hyphens) is layout information for the page. Do not change these first three lines).</p>
+<p>The rest you can delete to get rid of it, or keep it around for convenience, as it offers useful information on how to format markdown. I’ve simply “commented” it out using markdown comments, which look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!-- --&gt;
+</pre></div>
+</div>
+<p>You can comment out most of that text by wrapping it with these symbols. For example, I’m commenting out the first line from the file below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!-- Text can be bold, italic, ~strikethrough~ or `keyword`. --&gt;
+</pre></div>
+</div>
+<p>You can read a whole lot more about markdown formatting here: <a class="reference external" href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a></p>
+<p>Want to create new page? Create a new file for your page called <a class="reference external" href="http://PAGE-NAME.md">PAGE-NAME.md</a>, replacing PAGE-NAME with a meaningful filename for the page.</p>
+<p>Add the following frontmatter to the top of the file, replacing PAGE-TITLE with the page’s title and URL-PATH with a path you want for the page’s URL. For example, if the base URL of your site is <a class="reference external" href="https://octocat.github.io">https://octocat.github.io</a> and your URL-PATH is about/contact, your page will be located at <a class="reference external" href="https://octocat.github.io/about/contact">https://octocat.github.io/about/contact</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">layout</span><span class="p">:</span> <span class="n">page</span>
+<span class="n">title</span><span class="p">:</span> <span class="s2">&quot;PAGE-TITLE&quot;</span>
+<span class="n">permalink</span><span class="p">:</span> <span class="o">/</span><span class="n">URL</span><span class="o">-</span><span class="n">PATH</span>
+</pre></div>
+</div>
+<p>Below the frontmatter, add content for your page.</p>
+</section>
+<section id="commit-and-push-your-changes">
+<h3>3) commit and push your changes<a class="headerlink" href="#commit-and-push-your-changes" title="Link to this heading">#</a></h3>
+<p>Once you’re done editing the markdown file, go to the little “source” tab on the left. It looks like three dots connected by lines. Here, on the lefthand sidebar, you’ll see a list of all the changes you’ve made, and a blank text box above them. In that blank box, write a short message summarizing your changes, like “edited the <a class="reference external" href="http://index.md">index.md</a> file”. Then, press the “commit &amp; push” button.</p>
+</section>
+<section id="configure-github-pages-on-your-repo-settings">
+<h3>4) configure Github pages on your repo settings<a class="headerlink" href="#configure-github-pages-on-your-repo-settings" title="Link to this heading">#</a></h3>
+<p>Back on your regular repository page (you will need to open up a new tab and navigate to your repo on github), go to the “Settings” tab at the top. Then, scroll down to the “Pages” tab on the left sidebar.</p>
+<p>Then, on the main section of the page, go to the Branch heading. From the first dropdown, select “Master” or “Main,” and on the second dropdown, select “docs”. Finally, click save.</p>
+<p>Congratulations!</p>
+<p>Your website will be visible in a few minutes at the URL:</p>
+<p><code class="docutils literal notranslate"><span class="pre">your_username.github.io/your_repo_name</span></code></p>
+</section>
+</section>
+<section id="hard-way">
+<h2>hard way<a class="headerlink" href="#hard-way" title="Link to this heading">#</a></h2>
+<section id="installing-pre-requisites-ruby-jekyll">
+<h3>1) installing pre-requisites: ruby &amp; jekyll<a class="headerlink" href="#installing-pre-requisites-ruby-jekyll" title="Link to this heading">#</a></h3>
+<p>Follow instructions here (according to your Operating System) to install the requirements, which are ruby and jekyll:</p>
+<p><a class="reference external" href="https://jekyllrb.com/docs/installation/">https://jekyllrb.com/docs/installation/</a></p>
+</section>
+<section id="fork-a-theme">
+<h3>2) fork a theme<a class="headerlink" href="#fork-a-theme" title="Link to this heading">#</a></h3>
+<p>Choose a jekyll theme that you like from these pages: <a class="reference external" href="https://jekyllrb.com/docs/themes/">https://jekyllrb.com/docs/themes/</a></p>
+<p>Fork the theme by going to the github page, and on the top right, press “fork”.</p>
+<p>When you are prompted, be sure to change the name of the respository to something relevant to your project.</p>
+<p>Then, clone the repo to your desktop.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">Desktop</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="p">[</span><span class="n">insert</span> <span class="n">URL</span> <span class="k">for</span> <span class="n">your</span> <span class="n">theme</span><span class="p">]</span>
+<span class="n">cd</span> <span class="p">[</span><span class="n">insert</span> <span class="n">name</span> <span class="n">of</span> <span class="n">theme</span> <span class="n">folder</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Next, run bundle install to install the necessary jekyll packages (called “gems”) in that folder.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bundle</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>Finally, generate the website on your local machine:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bundle</span> <span class="n">exec</span> <span class="n">jekyll</span> <span class="n">serve</span>
+</pre></div>
+</div>
+</section>
+<section id="editing-pages">
+<h3>3) editing pages<a class="headerlink" href="#editing-pages" title="Link to this heading">#</a></h3>
+<p>Open the folder of your repo on you desktop (or wherever you’ve saved it on your computer)</p>
+<p>First, move all of the files (except README) in the root folder to nest permanently under the “docs” folder. You can leave the <a class="reference external" href="http://README.md">README.md</a> file in the root (later on, you can add your own information here).</p>
+<p>The “docs” folder is where Github looks for the HTML files to display on your site, so by moving the files there, you’re making it easier for Github to generate your site later on.</p>
+<p>Second, open the <a class="reference external" href="http://index.md">index.md</a> file, which should now be in the “docs” folder. This file is written in markdown, and offers a handy key for markdown formatting. The top section (sandwiched by hyphens) is layout information for the page. Do not change these first three lines).</p>
+<p>The rest you can delete to get rid of it, or keep it around for convenience, as it offers useful information on how to format markdown. I’ve simply “commented” it out using markdown comments, which look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!– –&gt;
+</pre></div>
+</div>
+<p>You can comment out most of that text by wrapping it with these symbols. For example, I’m commenting out the first line from the file below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!– Text can be bold, italic, ~strikethrough~ or `keyword`. –&gt;
+</pre></div>
+</div>
+<p>You can read a whole lot more about markdown formatting here: <a class="reference external" href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a></p>
+<p>Want to create new page? Create a new file for your page called <a class="reference external" href="http://PAGE-NAME.md">PAGE-NAME.md</a>, replacing PAGE-NAME with a meaningful filename for the page.</p>
+<p>Add the following frontmatter to the top of the file, replacing PAGE-TITLE with the page’s title and URL-PATH with a path you want for the page’s URL. For example, if the base URL of your site is <a class="reference external" href="https://octocat.github.io">https://octocat.github.io</a> and your URL-PATH is about/contact, your page will be located at <a class="reference external" href="https://octocat.github.io/about/contact">https://octocat.github.io/about/contact</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">layout</span><span class="p">:</span> <span class="n">page</span>
+<span class="n">title</span><span class="p">:</span> <span class="s2">&quot;PAGE-TITLE&quot;</span>
+<span class="n">permalink</span><span class="p">:</span> <span class="o">/</span><span class="n">URL</span><span class="o">-</span><span class="n">PATH</span>
+</pre></div>
+</div>
+<p>Below the frontmatter, add content for your page.</p>
+</section>
+<section id="pushing-to-github-pages">
+<h3>4) pushing to github pages<a class="headerlink" href="#pushing-to-github-pages" title="Link to this heading">#</a></h3>
+<p>Add the github-pages gem to your <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gem</span> <span class="s2">&quot;github-pages&quot;</span><span class="p">,</span> <span class="s2">&quot;~&gt; GITHUB-PAGES-VERSION&quot;</span><span class="p">,</span> <span class="n">group</span><span class="p">:</span> <span class="p">:</span><span class="n">jekyll_plugins</span> 
+</pre></div>
+</div>
+<p>Replace GITHUB-PAGES-VERSION with the latest supported version of the github-pages gem, which is “232” as of December 2024. Save and close the file.</p>
+<p>Then, you’ll have to build your gems once again, since you’ve just just added a new gem for github pages.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bundle</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>For help, see “Configuring a publishing source for your GitHub Pages site”: <a class="reference external" href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll">https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll</a></p>
+<p>Then, go to <code class="docutils literal notranslate"><span class="pre">github.com</span></code> to your regular repository page.</p>
+<p>On your github repo page, go to the “Settings” tab at the top. Then,
+scroll down to the “Pages” tab on the left sidebar.</p>
+<p>Then, on the main section of the page, go to the Branch heading. From the first dropdown, select “Master” or “Main,” and on the second dropdown, select “docs”. Finally, click save.</p>
+<p>Congratulations!</p>
+<p>Your website will be visible in a few minutes at the URL:</p>
+<p><code class="docutils literal notranslate"><span class="pre">your_username.github.io/your_repo_name</span></code></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./publish"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="git.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">introduction to git</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-github-pages">what is Github Pages?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-jekyll">what is Jekyll?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-way">easy way</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-theme-and-fork-it">1) choose a theme and fork it!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-the-web-editor-edit-your-index-md-file">2) open the web editor, edit your index.md file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commit-and-push-your-changes">3) commit and push your changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-github-pages-on-your-repo-settings">4) configure Github pages on your repo settings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-way">hard way</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pre-requisites-ruby-jekyll">1) installing pre-requisites: ruby &amp; jekyll</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-a-theme">2) fork a theme</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-pages">3) editing pages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-to-github-pages">4) pushing to github pages</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
