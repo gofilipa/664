@@ -1,0 +1,28 @@
+** Lawrence
+Grabs first lines of shakespeares sonnets, 154 lines total, and scores
+them by pairs with perplexity.
+- Evaluate
+** Keyarow
+Gets list of banned books from PEN America, and uses that to make
+calls to get more info from Open Library API. Will try to do a content
+analysis of the subjects. Difficulty with pulling out subjects as lists.
+- pandas, OpenLibrary API
+** Marko
+Created a combined "intersection" of five books.
+- textwrap, re, transformers
+** Nathan
+Created a site to update prices for game Runescape
+- runescape API, python, pandas, time,
+** Nicolas
+Searching for sustainibility in museums. Simplifying the query shows
+more results, what you want. Difficulty with json within Json. 
+** Brendan
+Creating a workflow for pulling out information about immigration
+historically. Difficulty with pulling out subjects, json within json.
+- DPLA API
+** Alison
+Scraping book covers from science fiction. Women scifi writers were
+able to publish stories that were gender bending.
+** Tyler
+MET API to study fatness over time.
+** Michaela
