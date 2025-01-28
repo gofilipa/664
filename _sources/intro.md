@@ -3,29 +3,21 @@ By Filipa Calado
 
 Pratt Institute School of Information
 
-## Welcome to the workshops!
-As one of the most popular, versatile, and beginner-friendly
-programming langauges, Python can be used for a variety of tasks from
-analyzing data to building websites.
-
-This 5-part workshop series introduces participants to the Python
-programming language for working in cultural heritage contexts like
-libraries, archives, and museums. The first workshop begins with core
-concepts, like data types, variables, functions, loops, and
-conditional statements. The second and third workshops move to data
-gathering and processing with web scraping, APIs, and text cleaning
-methods. The fourth and fifth workshops explore text analysis with
-Natural Language Processing (NLP) and deep learning tools. See a more
-detailed description of each workshop below.
+## Welcome to Programming for Cultural Heritage!
+This website offers a series of Python lessons organized into
+different sections, like "Introduction to Python Fundamentals" and
+"Python for Data Cleaning". These materials introduce participants to
+the Python programming language for working in cultural heritage
+contexts like libraries, archives, and museums.
 
 ### Workshop overviews
-**Workshop 1: “Introduction to Python Fundamentals”**
+**1: “Introduction to Python Fundamentals”**
 - Offers basic
   introduction to core concepts in Python programming, grounded in a
   critical awareness about data and what happens to data at various
   levels of transformation and abstraction.
 
-**Workshop 2: “Python for Web Scraping and APIs”**
+**2: “Python for Web Scraping and APIs”**
 - Introduction to ethics, legality, and programmatic methods for
   extracting data from the web. Advances core concepts from
   introductory session (like loops and conditional statements) and
@@ -34,7 +26,7 @@ detailed description of each workshop below.
   current “anti-trans” bills in the USA.
 - libraries: `requests`, `bs4`, and `pandas`
 
-**Workshop 3: “Python for Data Cleaning”**
+**3: “Python for Data Cleaning”**
 - Experiments with approaches for wrangling
   text data into formats for analysis, with emphasis on removing unwanted
   elements that may skew analysis. While building on skills
@@ -43,16 +35,21 @@ detailed description of each workshop below.
   scripts for running customized text cleaning processes.  
 - libraries: `pandas`, `spacy`
 
-**Workshop 4: “Python for Data Analysis”**
+**4: “Python for Data Analysis”**
 - Explores methods for finding and analyzing textual patterns through popular tasks in Natural
   Language Processing. Participants practice writing code to annotate
   and extract text according to specific features from current
   “anti-trans” bills in the USA.
 - libraries: `spaCy`
   
-***Workshop 5: “Python for Machine Learning”**
+**5: “Python for Machine Learning”**
 - With the anti-trans bills data that they prepared in previous workshops, participants practice fine-tuning a small Text Generation model and learn about how to use Machine Learning for research.
 - libraries: `transformers`
+
+**6: "Python for Publishing"
+- For this session, we will learn Jekyll and Github Pages to deploy
+  your project into a website that others can access on the internet.
+
 
 ## Sources
 This curriculum is inspired by the [Graduate Center Digital
