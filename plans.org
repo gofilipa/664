@@ -1,6 +1,4 @@
-* introduction to the command line
-by filipa calado
-
+* week 1: introduction to the command line
 ** what is the command line?
 - a way of talking to the computer.
   - GUIs vs commands
