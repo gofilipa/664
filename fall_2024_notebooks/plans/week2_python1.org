@@ -1,6 +1,5 @@
 * plan - Python day 1
 ** agenda
-- review challenge from last week
 - introduce Python programming language
 - start challenge for this week
 

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -421,7 +421,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-indexing"><code class="docutils literal notranslate"><span class="pre">list</span></code> indexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-indexing"><code class="docutils literal notranslate"><span class="pre">list</span></code> indexing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-question-why-does-list-indexing-begin-with-0">Advanced question: Why does list indexing begin with 0?</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-slicing"><code class="docutils literal notranslate"><span class="pre">list</span></code> slicing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-methods"><code class="docutils literal notranslate"><span class="pre">list</span></code> methods</a></li>
 </ul>
@@ -437,14 +440,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lists">
 <h1>lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">list</span></code> data type is perhaps the most common data type for working
-with text. Textual data tends to be saved as a <code class="docutils literal notranslate"><span class="pre">list</span></code>, or a collection
-of separate <code class="docutils literal notranslate"><span class="pre">strings</span></code>, each string consisting of a sequence of
-characters that represents a single word.</p>
-<p>It is important to remember
-that while humans might read each <code class="docutils literal notranslate"><span class="pre">string</span></code> as a word, the computer does
-not ascribe any semantic value to it, only processing it as sequence of
-characters.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">list</span></code> data type is perhaps the most common data type for working with multiple data.
+Textual data tends to be saved as a <code class="docutils literal notranslate"><span class="pre">list</span></code>, or a collection of separate <code class="docutils literal notranslate"><span class="pre">strings</span></code>, each
+string consisting of a sequence of characters that represents a single word.</p>
+<p>It is important to remember that while humans might read each <code class="docutils literal notranslate"><span class="pre">string</span></code> as a word, the computer
+does not ascribe any semantic value to it, only processing it as sequence of characters.</p>
 <section id="list-indexing">
 <h2><code class="docutils literal notranslate"><span class="pre">list</span></code> indexing<a class="headerlink" href="#list-indexing" title="Link to this heading">#</a></h2>
 <p>List indexing enables programmers access specific items in a list. It is super useful for working with large lists, such as a
@@ -473,8 +473,9 @@ accessed with the index 0.</p>
 </div>
 </div>
 </div>
-<p><em>Advanced question: Why does list indexing begin with 0?</em></p>
-<p><em>The answer is a bit complicated,
+<section id="advanced-question-why-does-list-indexing-begin-with-0">
+<h3>Advanced question: Why does list indexing begin with 0?<a class="headerlink" href="#advanced-question-why-does-list-indexing-begin-with-0" title="Link to this heading">#</a></h3>
+<p>The answer is a bit complicated,
 and gets into technical details of how computer memory works in
 programming. Put simply, it has to do with the memory location being
 based in offsets. Because the first item of a list is also
@@ -482,7 +483,7 @@ the origin location of the list, its offset is 0. In other words, to go
 to the first item in the list, there is no movement (or offset) from the
 current, or origin, location. The second item of the list requires 1
 movement from current location, and is therefore assigned to the
-location 1.</em></p>
+location 1.</p>
 <p>The third item in a list would be accessed with the index 2.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -496,7 +497,7 @@ location 1.</em></p>
 </div>
 </div>
 </div>
-<p>Python offers an initially strange syntax for accessing the last item of a list, which is really useful for taking a peek at the end of a list. The last item in a list is accessed with the index -1. This might seem peculiar, but if you imagine the list items forming a circle which goes clockwise, then going backward (counterclockwise) one step would take you to the last item. That backward step is represented with -1.</p>
+<p>Python offers a seemingly strange syntax for accessing the last item of a list, which you can use to take a peek at the end of a list. The last item in a list is accessed with the index -1. This might seem peculiar, but if you imagine the list items forming a circle which goes clockwise, then going backward (counterclockwise) one step would take you to the last item. That backward step is represented with -1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">breakfast</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -509,6 +510,7 @@ location 1.</em></p>
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="list-slicing">
 <h2><code class="docutils literal notranslate"><span class="pre">list</span></code> slicing<a class="headerlink" href="#list-slicing" title="Link to this heading">#</a></h2>
@@ -524,7 +526,7 @@ the section which you want to grab. In between these values, insert a
 and end points. A list slice therefore looks like the following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">breakfast</span> <span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">breakfast</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -568,9 +570,9 @@ items without printing the entire list. We will use this trick a lot in future w
 <h2><code class="docutils literal notranslate"><span class="pre">list</span></code> methods<a class="headerlink" href="#list-methods" title="Link to this heading">#</a></h2>
 <p>Like strings, lists also have specific <em>methods</em> that only work with
 list type data. List methods enable one to do
-various things to data contained in lists.</p>
-<p>Some of the more popular methods have to do with creating and modifying
-items in a list. One list method, <code class="docutils literal notranslate"><span class="pre">append()</span></code>, adds items to a list. For
+various things to data contained in lists. Some of the more popular methods have to do with creating and modifying
+items in a list.</p>
+<p>One list method, <code class="docutils literal notranslate"><span class="pre">append()</span></code>, adds items to a list. For
 example, to a list of breakfast items, one can add additional yummy items
 using <code class="docutils literal notranslate"><span class="pre">append()</span></code>:</p>
 <div class="cell docutils container">
@@ -766,7 +768,10 @@ programmatically with lists.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-indexing"><code class="docutils literal notranslate"><span class="pre">list</span></code> indexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-indexing"><code class="docutils literal notranslate"><span class="pre">list</span></code> indexing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-question-why-does-list-indexing-begin-with-0">Advanced question: Why does list indexing begin with 0?</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-slicing"><code class="docutils literal notranslate"><span class="pre">list</span></code> slicing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-methods"><code class="docutils literal notranslate"><span class="pre">list</span></code> methods</a></li>
 </ul>
