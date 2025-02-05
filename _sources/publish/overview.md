@@ -1,15 +1,3 @@
-# chapter overview
-
-## learning objectives
-This chapter explores how the Python programming language takes data, organizes it into collections or groupings, with the goal of doing something to that data. 
-
-It introduces:
-
-- data types and variables for categorizing and saving data
-- functions and methods for working with data
-- iterative and logical structures
-- basic Python syntax
-
 ## Python environments
 
 There are many ways to use Python. For this workshop, we will be using
