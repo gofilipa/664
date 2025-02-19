@@ -1,10 +1,11 @@
-* week 1: introduction to the command line
-** what is the command line?
+* plans
+** week 1: introduction to the command line
+*** what is the command line?
 - a way of talking to the computer.
   - GUIs vs commands
 - the bash language
   
-** why would you used the command line
+*** why would you used the command line
 - on your computer, everything is a file
 - "plain text" - what is this?
   - demo with docx and plain text file.
@@ -13,7 +14,7 @@
 - why use command line?
   - we can manipulate plain text quite easily
 
-** navigation
+*** navigation
 - on your computer, everything is in a folder
 - "directory structure" folder system on your computer
   - tree: root and branches
@@ -36,9 +37,9 @@ ls -l -a
 
 Home vs root folder
 
-*** Practice: Spend a few minutes navigating up and down the directory structure
+**** Practice: Spend a few minutes navigating up and down the directory structure
 
-** creating files and folders / reading
+*** creating files and folders / reading
 Navigate to the place where you want to keep your files for this class.
 
 #+begin_src 
@@ -49,7 +50,7 @@ mkdir 664
 rmdir 664
 #+end_src
 
-** group activity: searching text 10/10
+*** group activity: searching text 10/10
 In partners, figure out how to use the GREP command. What does it do?
 Advanced: how do you use it to search across multiple nested folders?
 (hint: its a flag!)
@@ -58,18 +59,18 @@ Advanced: how do you use it to search across multiple nested folders?
 grep queer notecards.org
 #+end_src
 
-** redirect
+*** redirect
 
 #+begin_src 
 grep queer notecards.org >> queer_words.txt
 #+end_src
 
-*** Group Challenge 15 / 15
+**** Group Challenge 15 / 15
 Practice using grep on your own machine, searching for a word in
 different files. Then, use redirect to save the results to a separate
 file. 
 
-** time to do challenge!
+*** time to do challenge!
 Spend some time navigating NYC Open Data website for a dataset you
 like. 
 
@@ -82,4 +83,266 @@ you'll need to use grep and redirect).
 grep TERM ~/Downloads/..csv >> migrant.txt
 #+end_src
 
-** time to download and install Anaconda (highly recommended) or Python
+*** time to download and install Anaconda (highly recommended) or Python
+** week 2: python day 1
+*** agenda
+- introduce Python programming language
+- start challenge for this week
+
+*** introduction to the Python language
+- What is Python?
+  - powerful programming language for many tasks
+  - "high level"
+  - zen of python
+- Learning objectives
+  - types, variables, for holding data
+  - functions, methods for working w data
+  - complex structures: iteration and logic
+  - python syntax
+
+*** python lessons
+- opening challenge, which you will know by the end
+  - critical approach to data. Nothing is neutral or objective.
+  - "data capture and analysis practices often aim to reduce real-life
+    objects and persons into computable elements"
+- opening jupyter notebook or google colab
+- data types
+  - real world objects that are transformed into a computational
+    format, to be computed.
+  - type() function
+  - int, str, bool, list
+  - types as a constraint
+- variables
+  - how we save data, to work with it
+  - using good names
+  - PARTNERS: creating variables to find the limits
+  - variables as objects
+    - objects have methods, .upper()
+  - methods vs functions
+    - one like a subject, and one like a clause
+  - string methods like split(), lower(), upper()
+  - abstraction, saving our results to a new variable, then using
+    type()
+- lists
+  - list indexing - accessing items by position
+  - list slicing - grabbing sections of a list
+    - inclusive, exclusive values
+  - PARTNERS CHALLENGE: get the middle 3 items of a list
+  - list methods
+    - append(), remove(), pop()
+    - sort(), reverse()
+  - INDIVIDUAL: write a sentence and split it up into a list of words.
+    Then do something to that list of words.
+    - why does split not work on a list?
+- individual practice: ERRORS
+  - there are many kinds of errors you can make with python.
+  - explore different kinds of errors. What are the general category
+    of errors? What is a Name and a Type error, for instance? Syntax
+    or Traceback? Try to get 2 of each.
+    - choose 1 or 2 of your errors and google them. Read the stack
+      overflow post about it. Try to get familiar with the forum
+      format for asking coding questions.
+- Challenge:
+  - Grab a paragraph or two of text from a book on Project Gutenberg,
+    and save that text to a string in a Python notebook. Then use the
+    methods we learned in class to do the following: first, transform
+    the string into a list; then, add, remove, and sort items in the
+    list. Save your python notebook file (.ipynb file) and submit it
+    on canvas.
+    
+** week 3: python 2: lists to logic
+Agenda
+- review challenge
+- review last week's lessons on Python 1
+- lessons for today: loops, logic
+  - incorporate discussion of Butler's chapter
+- start working with CSV module
+
+*** review
+- data types,
+  - ~type()~
+  - what are they?
+  - how do we check them?
+- we save data by creating variables
+- lists
+  - list indexing vs slicing
+- methods vs functions
+  - what are some functions and methods we learned? 
+  - functions are independant
+  - methods depend on objects (also called properties, attributes)
+  - can tell in syntax
+
+
+*** review challenge
+Create a list of words from a text, and do things to the list using
+list methods.
+
+Removing Gender Ideology and Restoring the EEOC’s Role of Protecting
+Women in the Workplace
+
+
+*** butler
+What's her main argument?
+- what's so scary?
+  - that people are currently afraid of gender, "the anti-gender
+    ideology movement" stokes fear.
+  - gender ideology is a threat to children, society, the family,
+    national security, to men and women, heterosexuality.
+- the contradictions:
+  - the vatican saying that something is a threat to children and the
+    family, not considering their own harmful history here;
+  - how withholding sex education also withholds education around
+    consent and just how sex works;
+  - using the right to gender as a way to take that right away from
+    others.
+
+"Phantasm"
+- drawing from psychology, to argue that the fear of gender draws from
+  real world and pyschic forces, the conscious and unconscious.
+  - it becomes a substitute for anxiety about the world. 
+- fear mongering is a way of getting people to agree, come into your
+  ranks, subscribe.
+
+#+begin_quote
+“According to this logic, the anti-gender movement is guided by an
+inflammatory syntax: that is, a way of ordering the world that absorbs
+and reproduces anxieties and fears about permeability, precarity,
+displacement, and replacement; loss of patriarchal power in both the
+family and state; and loss of white supremacy and national purity” 22
+#+end_quote
+
+Resistance
+- produce a "counter vision".
+
+#+begin_quote
+“It is up to us to produce a compelling counter-vision, one that would
+affirm the rights and freedoms of embodied life that we can, and
+should, protect. For in the end, defeating this phantasm is a matter
+of affirming how one loves, how one lives in one’s body, the right to
+exist in the world without fear of violence or discrimination, to
+breathe, to move, to live.” 17
+#+end_quote
+
+#+begin_quote
+“What form of critical imagination would be powerful enough to oppose
+the phantasm? What would it mean to create a form of solidarity and
+concerted imagining that would have the power to expose and defeat the
+cruel norms and sadistic trends that travel under the name of the
+anti–gender ideology movement?” (37).
+#+end_quote
+
+*** loops
+How we do things to data.
+- types of data for categorizing data; variables for saving data; how
+  to work with lists of data; now, how to do things to
+  lists/groupings.
+  - also works with strings
+- syntax: for item in collection: print(item).
+  - practice with both lists and strings
+- a note on variable names:
+  - the variable following "for" is assigned on the fly
+- f-strings
+
+String Methods
+- how to do things to strings within loops
+- 'HELLO'.lower()
+- make a list of cities, and make them all lowercasee
+- now save that list to a new list, an empty list
+  - why would we want to do this?
+    
+**** Group challenge:
+- list of prime numbers and their squares, using f strings.
+
+*** logic
+Boolean data
+- type() -> True or False
+- evaluates mathematical expressions
+  - different operators, look them up. Many different kinds.
+- if statement for checking age
+  - multiple conditions
+
+Combining loops with logic:
+- DEFENDING WOMEN FROM GENDER IDEOLOGY EXTREMISM AND RESTORING
+  BIOLOGICAL TRUTH TO THE FEDERAL GOVERNMENT
+- if it contains the word "gender", "protect", or others, we will
+  print.
+
+#+begin_src python
+for i in text.split('.'):
+    if 'binary' in i:
+	print(i)
+#+end_src
+
+*** BREAK
+
+*** csv module
+- csv module
+  - what is a module? a collection of code for doing something, in
+    this case, for opening csv files
+  - read a little of the docs on CSV module, reader
+
+- printing rows from csv on [[https://data.cityofnewyork.us/City-Government/Enforcement-Actions-Board-Determinations-and-Penal/xrxs-qn95/about_data][Campaign Violations]]:
+  - import csv
+  - open the file with open statement
+  - print the rows
+
+#+begin_src python
+  with open('./Downloads/Enforcement_Actions_Board_Determinations_and_Penalties_20250210.csv') as f:
+      data = csv.reader(f)
+      for row in data:
+	  print(row)
+#+end_src
+
+How do we get just the first object from each column? The names?
+- breakup the problem into parts
+- check the type of data(s)
+- how do we access info from a list?
+
+#+begin_src python
+  
+with open ('violations_sample.csv', 'r') as f:
+    data = csv.reader(f)
+    for row in data:
+        print(row[1])
+
+#+end_src
+
+**** group challenge: Combining logic, loops, and csv:
+- search for a specific candidate name in the dataset
+- print out all rows containing that candidate's name
+- advanced: print out only the date and the violation
+
+
+#+begin_src python
+  with open('violations.csv', 'r') as f:
+    data = csv.reader(f)
+    for row in data:
+        if "Eric" in row[1]:
+            print(row)
+#+end_src
+
+**** advanced challenge (that I'll walk you through)
+Combine what we know from the above with f-strings to write more
+complex output.
+
+Write a loop that prints out the Candidate’s name and Violation if
+that violation contains the word “contribution” in it. Use f-strings
+so that you can format the answer the following:
+
+Name: [candidate name], Violation: [candidate violation]
+
+Here’s the answer, but don’t look until you’ve spent at least 5
+mintues working on it!
+
+#+begin_src python
+  with open ('violations.csv', 'r') as f:
+    dict_reader = csv.reader(f)
+    for row in dict_reader:
+        violation = row[3]
+        if "contribution" in violation:
+            candidate = row[1]
+            print(f'Name: {candidate}, Violation: {violation}')
+#+end_src
+  
+
+*** next week: web scraping!

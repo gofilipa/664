@@ -1,0 +1,293 @@
+% Created 2025-02-12 Wed 14:38
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{fcalado}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={fcalado},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.3 (Org mode 9.6.15)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\section{week 3: python 2: lists to logic}
+\label{sec:org0b39f74}
+Agenda
+\begin{itemize}
+\item review challenge
+\item review last week's lessons on Python 1
+\item lessons for today: loops, logic
+\begin{itemize}
+\item incorporate discussion of Butler's chapter
+\end{itemize}
+\item start working with CSV module
+\end{itemize}
+
+\subsection{review}
+\label{sec:orga147ad0}
+\begin{itemize}
+\item data types,
+\begin{itemize}
+\item \texttt{type()}
+\item what are they?
+\item how do we check them?
+\end{itemize}
+\item we save data by creating variables
+\item lists
+\begin{itemize}
+\item list indexing vs slicing
+\end{itemize}
+\item methods vs functions
+\begin{itemize}
+\item what are some functions and methods we learned?
+\item functions are independant
+\item methods depend on objects (also called properties, attributes)
+\item can tell in syntax
+\end{itemize}
+\end{itemize}
+
+
+\subsection{review challenge}
+\label{sec:orgc721252}
+Create a list of words from a text, and do things to the list using
+list methods.
+
+Removing Gender Ideology and Restoring the EEOC’s Role of Protecting
+Women in the Workplace
+
+
+\subsection{butler}
+\label{sec:org2f81e67}
+What's her main argument?
+\begin{itemize}
+\item what's so scary?
+\begin{itemize}
+\item that people are currently afraid of gender, "the anti-gender
+ideology movement" stokes fear.
+\item gender ideology is a threat to children, society, the family,
+national security, to men and women, heterosexuality.
+\end{itemize}
+\item the contradictions:
+\begin{itemize}
+\item the vatican saying that something is a threat to children and the
+family, not considering their own harmful history here;
+\item how withholding sex education also withholds education around
+consent and just how sex works;
+\item using the right to gender as a way to take that right away from
+others.
+\end{itemize}
+\end{itemize}
+
+"Phantasm"
+\begin{itemize}
+\item drawing from psychology, to argue that the fear of gender draws from
+real world and pyschic forces, the conscious and unconscious.
+\begin{itemize}
+\item it becomes a substitute for anxiety about the world.
+\end{itemize}
+\item fear mongering is a way of getting people to agree, come into your
+ranks, subscribe.
+\end{itemize}
+
+\begin{quote}
+“According to this logic, the anti-gender movement is guided by an
+inflammatory syntax: that is, a way of ordering the world that absorbs
+and reproduces anxieties and fears about permeability, precarity,
+displacement, and replacement; loss of patriarchal power in both the
+family and state; and loss of white supremacy and national purity” 22
+\end{quote}
+
+Resistance
+\begin{itemize}
+\item produce a "counter vision".
+\end{itemize}
+
+\begin{quote}
+“It is up to us to produce a compelling counter-vision, one that would
+affirm the rights and freedoms of embodied life that we can, and
+should, protect. For in the end, defeating this phantasm is a matter
+of affirming how one loves, how one lives in one’s body, the right to
+exist in the world without fear of violence or discrimination, to
+breathe, to move, to live.” 17
+\end{quote}
+
+\begin{quote}
+“What form of critical imagination would be powerful enough to oppose
+the phantasm? What would it mean to create a form of solidarity and
+concerted imagining that would have the power to expose and defeat the
+cruel norms and sadistic trends that travel under the name of the
+anti–gender ideology movement?” (37).
+\end{quote}
+
+\subsection{loops}
+\label{sec:orgf0cc56a}
+How we do things to data.
+\begin{itemize}
+\item types of data for categorizing data; variables for saving data; how
+to work with lists of data; now, how to do things to
+lists/groupings.
+\begin{itemize}
+\item also works with strings
+\end{itemize}
+\item syntax: for item in collection: print(item).
+\begin{itemize}
+\item practice with both lists and strings
+\end{itemize}
+\item a note on variable names:
+\begin{itemize}
+\item the variable following "for" is assigned on the fly
+\end{itemize}
+\item f-strings
+\end{itemize}
+
+String Methods
+\begin{itemize}
+\item how to do things to strings within loops
+\item 'HELLO'.lower()
+\item make a list of cities, and make them all lowercasee
+\item now save that list to a new list, an empty list
+\begin{itemize}
+\item why would we want to do this?
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Group challenge:}
+\label{sec:org96532d4}
+\begin{itemize}
+\item list of prime numbers and their squares, using f strings.
+\end{itemize}
+
+\subsection{logic}
+\label{sec:orge6c9b26}
+Boolean data
+\begin{itemize}
+\item type() -> True or False
+\item evaluates mathematical expressions
+\begin{itemize}
+\item different operators, look them up. Many different kinds.
+\end{itemize}
+\item if statement for checking age
+\begin{itemize}
+\item multiple conditions
+\end{itemize}
+\end{itemize}
+
+Combining loops with logic:
+\begin{itemize}
+\item DEFENDING WOMEN FROM GENDER IDEOLOGY EXTREMISM AND RESTORING
+BIOLOGICAL TRUTH TO THE FEDERAL GOVERNMENT
+\item if it contains the word "gender", "protect", or others, we will
+print.
+\end{itemize}
+
+\begin{verbatim}
+for i in text.split('.'):
+    if 'binary' in i:
+        print(i)
+\end{verbatim}
+
+\subsection{BREAK}
+\label{sec:orgdc856a3}
+
+\subsection{csv module}
+\label{sec:org95fe6e5}
+\begin{itemize}
+\item csv module
+\begin{itemize}
+\item what is a module? a collection of code for doing something, in
+this case, for opening csv files
+\item read a little of the docs on CSV module, reader
+\end{itemize}
+
+\item printing rows from csv on \href{https://data.cityofnewyork.us/City-Government/Enforcement-Actions-Board-Determinations-and-Penal/xrxs-qn95/about\_data}{Campaign Violations}:
+\begin{itemize}
+\item import csv
+\item open the file with open statement
+\item print the rows
+\end{itemize}
+\end{itemize}
+
+\begin{verbatim}
+with open('./Downloads/Enforcement_Actions_Board_Determinations_and_Penalties_20250210.csv') as f:
+    data = csv.reader(f)
+    for row in data:
+        print(row)
+\end{verbatim}
+
+How do we get just the first object from each column? The names?
+\begin{itemize}
+\item breakup the problem into parts
+\item check the type of data(s)
+\item how do we access info from a list?
+\end{itemize}
+
+\begin{verbatim}
+
+with open ('violations_sample.csv', 'r') as f:
+    data = csv.reader(f)
+    for row in data:
+        print(row[1])
+
+\end{verbatim}
+
+\subsubsection{group challenge: Combining logic, loops, and csv:}
+\label{sec:orgb09298e}
+\begin{itemize}
+\item search for a specific candidate name in the dataset
+\item print out all rows containing that candidate's name
+\item advanced: print out only the date and the violation
+\end{itemize}
+
+
+\begin{verbatim}
+with open('violations.csv', 'r') as f:
+  data = csv.reader(f)
+  for row in data:
+      if "Eric" in row[1]:
+          print(row)
+\end{verbatim}
+
+\subsubsection{advanced challenge (that I'll walk you through)}
+\label{sec:org9669b28}
+Combine what we know from the above with f-strings to write more
+complex output.
+
+Write a loop that prints out the Candidate’s name and Violation if
+that violation contains the word “contribution” in it. Use f-strings
+so that you can format the answer the following:
+
+Name: [candidate name], Violation: [candidate violation]
+
+Here’s the answer, but don’t look until you’ve spent at least 5
+mintues working on it!
+
+\begin{verbatim}
+with open ('violations.csv', 'r') as f:
+  dict_reader = csv.reader(f)
+  for row in dict_reader:
+      violation = row[3]
+      if "contribution" in violation:
+          candidate = row[1]
+          print(f'Name: {candidate}, Violation: {violation}')
+\end{verbatim}
+
+
+\subsection{next week: web scraping!}
+\label{sec:org4836bfd}
+\end{document}

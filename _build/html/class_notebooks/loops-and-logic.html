@@ -1,0 +1,2152 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Python for Programming Cultural Heritage</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'class_notebooks/loops-and-logic';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Python for Programming Cultural Heritage - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Python for Programming Cultural Heritage - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python for Programming Cultural Heritage
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gathering/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/what.html">what is web scraping?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/exploring.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/to-dataframe.html">saving scraped data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/dicts.html">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/met_api.html">The MET API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/nyt_api.html">NYT API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/karol.html">Genius API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analyze/pandas.html">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyze/pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">publishing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../publish/github.html">introduction to github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publish/git.html">introduction to git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publish/jekyll.html">publishing a static site</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fclass_notebooks/loops-and-logic.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/class_notebooks/loops-and-logic.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># string - &#39;any characters between quotes&#39;</span>
+<span class="c1"># integer - a whole number: 1</span>
+<span class="c1"># float - a decimal number: 1.0</span>
+<span class="c1"># list - a series of objects, between commas, and brackets</span>
+<span class="c1"># boolean - true or false value</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;hello world!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greeting</span> <span class="o">=</span> <span class="s1">&#39;hello world!&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lunch</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fries&#39;</span><span class="p">,</span> <span class="s1">&#39;burrito&#39;</span><span class="p">,</span> <span class="s2">&quot;chili&#39;s&quot;</span><span class="p">,</span> <span class="s1">&#39;applebees&#39;</span><span class="p">,</span> <span class="s1">&#39;sandwich&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lunch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;fries&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lunch</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sandwich&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lunch</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;burrito&#39;, &quot;chili&#39;s&quot;, &#39;applebees&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># functions: type(data)</span>
+<span class="c1"># methods: just like functions, but with &quot;dot syntax&quot;</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">greeting</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># functions: type(data)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># methods: just like functions, but with &quot;dot syntax&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">greeting</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greeting</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hello &#39;, &#39;orld!&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">I am by birth a Genevese, and my family is one of the most distinguished of </span>
+<span class="s1">that republic. My ancestors had been for many years counsellors and syndics, </span>
+<span class="s1">and my father had filled several public situations with honour and reputation. </span>
+<span class="s1">He was respected by all who knew him for his integrity and indefatigable </span>
+<span class="s1">attention to public business. He passed his younger days perpetually occupied </span>
+<span class="s1">by the affairs of his country; a variety of circumstances had prevented </span>
+<span class="s1">his marrying early, nor was it until the decline of life that he became </span>
+<span class="s1">a husband and the father of a family.</span>
+
+<span class="s1">As the circumstances of his marriage illustrate his character, I cannot </span>
+<span class="s1">refrain from relating them. One of his most intimate friends was a merchant</span>
+<span class="s1">who, from a flourishing state, fell, through numerous mischances, into poverty. </span>
+<span class="s1">This man, whose name was Beaufort, was of a proud and unbending disposition and </span>
+<span class="s1">could not bear to live in poverty and oblivion in the same country where he had </span>
+<span class="s1">formerly been distinguished for his rank and magnificence. Having paid his debts, </span>
+<span class="s1">therefore, in the most honourable manner, he retreated with his daughter to the </span>
+<span class="s1">town of Lucerne, where he lived unknown and in wretchedness. My father loved </span>
+<span class="s1">Beaufort with the truest friendship and was deeply grieved by his retreat in </span>
+<span class="s1">these unfortunate circumstances. He bitterly deplored the false pride which </span>
+<span class="s1">led his friend to a conduct so little worthy of the affection that united them. </span>
+<span class="s1">He lost no time in endeavouring to seek him out, with the hope of persuading </span>
+<span class="s1">him to begin the world again through his credit and assistance. &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nI am by birth a Genevese, and my family is one of the most distinguished of \nthat republic. My ancestors had been for many years counsellors and syndics, \nand my father had filled several public situations with honour and reputation. \nHe was respected by all who knew him for his integrity and indefatigable \nattention to public business. He passed his younger days perpetually occupied \nby the affairs of his country; a variety of circumstances had prevented \nhis marrying early, nor was it until the decline of life that he became \na husband and the father of a family.\n\nAs the circumstances of his marriage illustrate his character, I cannot \nrefrain from relating them. One of his most intimate friends was a merchant\nwho, from a flourishing state, fell, through numerous mischances, into poverty. \nThis man, whose name was Beaufort, was of a proud and unbending disposition and \ncould not bear to live in poverty and oblivion in the same country where he had \nformerly been distinguished for his rank and magnificence. Having paid his debts, \ntherefore, in the most honourable manner, he retreated with his daughter to the \ntown of Lucerne, where he lived unknown and in wretchedness. My father loved \nBeaufort with the truest friendship and was deeply grieved by his retreat in \nthese unfortunate circumstances. He bitterly deplored the false pride which \nled his friend to a conduct so little worthy of the affection that united them. \nHe lost no time in endeavouring to seek him out, with the hope of persuading \nhim to begin the world again through his credit and assistance. &#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;m out, with the hope of persuading \nhim to begin the world again through his credit and assistance. &#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;As&#39;,
+ &#39;Beaufort&#39;,
+ &#39;Beaufort,&#39;,
+ &#39;Genevese,&#39;,
+ &#39;Having&#39;,
+ &#39;He&#39;,
+ &#39;He&#39;,
+ &#39;He&#39;,
+ &#39;He&#39;,
+ &#39;I&#39;,
+ &#39;I&#39;,
+ &#39;Lucerne,&#39;,
+ &#39;My&#39;,
+ &#39;My&#39;,
+ &#39;One&#39;,
+ &#39;This&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;affairs&#39;,
+ &#39;affection&#39;,
+ &#39;again&#39;,
+ &#39;all&#39;,
+ &#39;am&#39;,
+ &#39;ancestors&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;assistance.&#39;,
+ &#39;attention&#39;,
+ &#39;bear&#39;,
+ &#39;became&#39;,
+ &#39;been&#39;,
+ &#39;been&#39;,
+ &#39;begin&#39;,
+ &#39;birth&#39;,
+ &#39;bitterly&#39;,
+ &#39;business.&#39;,
+ &#39;by&#39;,
+ &#39;by&#39;,
+ &#39;by&#39;,
+ &#39;by&#39;,
+ &#39;cannot&#39;,
+ &#39;character,&#39;,
+ &#39;circumstances&#39;,
+ &#39;circumstances&#39;,
+ &#39;circumstances.&#39;,
+ &#39;conduct&#39;,
+ &#39;could&#39;,
+ &#39;counsellors&#39;,
+ &#39;country&#39;,
+ &#39;country;&#39;,
+ &#39;credit&#39;,
+ &#39;daughter&#39;,
+ &#39;days&#39;,
+ &#39;debts,&#39;,
+ &#39;decline&#39;,
+ &#39;deeply&#39;,
+ &#39;deplored&#39;,
+ &#39;disposition&#39;,
+ &#39;distinguished&#39;,
+ &#39;distinguished&#39;,
+ &#39;early,&#39;,
+ &#39;endeavouring&#39;,
+ &#39;false&#39;,
+ &#39;family&#39;,
+ &#39;family.&#39;,
+ &#39;father&#39;,
+ &#39;father&#39;,
+ &#39;father&#39;,
+ &#39;fell,&#39;,
+ &#39;filled&#39;,
+ &#39;flourishing&#39;,
+ &#39;for&#39;,
+ &#39;for&#39;,
+ &#39;for&#39;,
+ &#39;formerly&#39;,
+ &#39;friend&#39;,
+ &#39;friends&#39;,
+ &#39;friendship&#39;,
+ &#39;from&#39;,
+ &#39;from&#39;,
+ &#39;grieved&#39;,
+ &#39;had&#39;,
+ &#39;had&#39;,
+ &#39;had&#39;,
+ &#39;had&#39;,
+ &#39;he&#39;,
+ &#39;he&#39;,
+ &#39;he&#39;,
+ &#39;he&#39;,
+ &#39;him&#39;,
+ &#39;him&#39;,
+ &#39;him&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;honour&#39;,
+ &#39;honourable&#39;,
+ &#39;hope&#39;,
+ &#39;husband&#39;,
+ &#39;illustrate&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;indefatigable&#39;,
+ &#39;integrity&#39;,
+ &#39;intimate&#39;,
+ &#39;into&#39;,
+ &#39;is&#39;,
+ &#39;it&#39;,
+ &#39;knew&#39;,
+ &#39;led&#39;,
+ &#39;life&#39;,
+ &#39;little&#39;,
+ &#39;live&#39;,
+ &#39;lived&#39;,
+ &#39;lost&#39;,
+ &#39;loved&#39;,
+ &#39;magnificence.&#39;,
+ &#39;man,&#39;,
+ &#39;manner,&#39;,
+ &#39;many&#39;,
+ &#39;marriage&#39;,
+ &#39;marrying&#39;,
+ &#39;merchant&#39;,
+ &#39;mischances,&#39;,
+ &#39;most&#39;,
+ &#39;most&#39;,
+ &#39;most&#39;,
+ &#39;my&#39;,
+ &#39;my&#39;,
+ &#39;name&#39;,
+ &#39;no&#39;,
+ &#39;nor&#39;,
+ &#39;not&#39;,
+ &#39;numerous&#39;,
+ &#39;oblivion&#39;,
+ &#39;occupied&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;one&#39;,
+ &#39;out,&#39;,
+ &#39;paid&#39;,
+ &#39;passed&#39;,
+ &#39;perpetually&#39;,
+ &#39;persuading&#39;,
+ &#39;poverty&#39;,
+ &#39;poverty.&#39;,
+ &#39;prevented&#39;,
+ &#39;pride&#39;,
+ &#39;proud&#39;,
+ &#39;public&#39;,
+ &#39;public&#39;,
+ &#39;rank&#39;,
+ &#39;refrain&#39;,
+ &#39;relating&#39;,
+ &#39;republic.&#39;,
+ &#39;reputation.&#39;,
+ &#39;respected&#39;,
+ &#39;retreat&#39;,
+ &#39;retreated&#39;,
+ &#39;same&#39;,
+ &#39;seek&#39;,
+ &#39;several&#39;,
+ &#39;situations&#39;,
+ &#39;so&#39;,
+ &#39;state,&#39;,
+ &#39;syndics,&#39;,
+ &#39;that&#39;,
+ &#39;that&#39;,
+ &#39;that&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;them.&#39;,
+ &#39;them.&#39;,
+ &#39;therefore,&#39;,
+ &#39;these&#39;,
+ &#39;through&#39;,
+ &#39;through&#39;,
+ &#39;time&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;town&#39;,
+ &#39;truest&#39;,
+ &#39;unbending&#39;,
+ &#39;unfortunate&#39;,
+ &#39;united&#39;,
+ &#39;unknown&#39;,
+ &#39;until&#39;,
+ &#39;variety&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;where&#39;,
+ &#39;where&#39;,
+ &#39;which&#39;,
+ &#39;who&#39;,
+ &#39;who,&#39;,
+ &#39;whose&#39;,
+ &#39;with&#39;,
+ &#39;with&#39;,
+ &#39;with&#39;,
+ &#39;with&#39;,
+ &#39;world&#39;,
+ &#39;worthy&#39;,
+ &#39;wretchedness.&#39;,
+ &#39;years&#39;,
+ &#39;younger&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;monster&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;As&#39;,
+ &#39;Beaufort&#39;,
+ &#39;Beaufort,&#39;,
+ &#39;Genevese,&#39;,
+ &#39;Having&#39;,
+ &#39;He&#39;,
+ &#39;He&#39;,
+ &#39;He&#39;,
+ &#39;He&#39;,
+ &#39;I&#39;,
+ &#39;I&#39;,
+ &#39;Lucerne,&#39;,
+ &#39;My&#39;,
+ &#39;My&#39;,
+ &#39;One&#39;,
+ &#39;This&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;affairs&#39;,
+ &#39;affection&#39;,
+ &#39;again&#39;,
+ &#39;all&#39;,
+ &#39;am&#39;,
+ &#39;ancestors&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;assistance.&#39;,
+ &#39;attention&#39;,
+ &#39;bear&#39;,
+ &#39;became&#39;,
+ &#39;been&#39;,
+ &#39;been&#39;,
+ &#39;begin&#39;,
+ &#39;birth&#39;,
+ &#39;bitterly&#39;,
+ &#39;business.&#39;,
+ &#39;by&#39;,
+ &#39;by&#39;,
+ &#39;by&#39;,
+ &#39;by&#39;,
+ &#39;cannot&#39;,
+ &#39;character,&#39;,
+ &#39;circumstances&#39;,
+ &#39;circumstances&#39;,
+ &#39;circumstances.&#39;,
+ &#39;conduct&#39;,
+ &#39;could&#39;,
+ &#39;counsellors&#39;,
+ &#39;country&#39;,
+ &#39;country;&#39;,
+ &#39;credit&#39;,
+ &#39;daughter&#39;,
+ &#39;days&#39;,
+ &#39;debts,&#39;,
+ &#39;decline&#39;,
+ &#39;deeply&#39;,
+ &#39;deplored&#39;,
+ &#39;disposition&#39;,
+ &#39;distinguished&#39;,
+ &#39;distinguished&#39;,
+ &#39;early,&#39;,
+ &#39;endeavouring&#39;,
+ &#39;false&#39;,
+ &#39;family&#39;,
+ &#39;family.&#39;,
+ &#39;father&#39;,
+ &#39;father&#39;,
+ &#39;father&#39;,
+ &#39;fell,&#39;,
+ &#39;filled&#39;,
+ &#39;flourishing&#39;,
+ &#39;for&#39;,
+ &#39;for&#39;,
+ &#39;for&#39;,
+ &#39;formerly&#39;,
+ &#39;friend&#39;,
+ &#39;friends&#39;,
+ &#39;friendship&#39;,
+ &#39;from&#39;,
+ &#39;from&#39;,
+ &#39;grieved&#39;,
+ &#39;had&#39;,
+ &#39;had&#39;,
+ &#39;had&#39;,
+ &#39;had&#39;,
+ &#39;he&#39;,
+ &#39;he&#39;,
+ &#39;he&#39;,
+ &#39;he&#39;,
+ &#39;him&#39;,
+ &#39;him&#39;,
+ &#39;him&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;honour&#39;,
+ &#39;honourable&#39;,
+ &#39;hope&#39;,
+ &#39;husband&#39;,
+ &#39;illustrate&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;indefatigable&#39;,
+ &#39;integrity&#39;,
+ &#39;intimate&#39;,
+ &#39;into&#39;,
+ &#39;is&#39;,
+ &#39;it&#39;,
+ &#39;knew&#39;,
+ &#39;led&#39;,
+ &#39;life&#39;,
+ &#39;little&#39;,
+ &#39;live&#39;,
+ &#39;lived&#39;,
+ &#39;lost&#39;,
+ &#39;loved&#39;,
+ &#39;magnificence.&#39;,
+ &#39;man,&#39;,
+ &#39;manner,&#39;,
+ &#39;many&#39;,
+ &#39;marriage&#39;,
+ &#39;marrying&#39;,
+ &#39;merchant&#39;,
+ &#39;mischances,&#39;,
+ &#39;most&#39;,
+ &#39;most&#39;,
+ &#39;most&#39;,
+ &#39;my&#39;,
+ &#39;my&#39;,
+ &#39;name&#39;,
+ &#39;no&#39;,
+ &#39;nor&#39;,
+ &#39;not&#39;,
+ &#39;numerous&#39;,
+ &#39;oblivion&#39;,
+ &#39;occupied&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;one&#39;,
+ &#39;out,&#39;,
+ &#39;paid&#39;,
+ &#39;passed&#39;,
+ &#39;perpetually&#39;,
+ &#39;persuading&#39;,
+ &#39;poverty&#39;,
+ &#39;poverty.&#39;,
+ &#39;prevented&#39;,
+ &#39;pride&#39;,
+ &#39;proud&#39;,
+ &#39;public&#39;,
+ &#39;public&#39;,
+ &#39;rank&#39;,
+ &#39;refrain&#39;,
+ &#39;relating&#39;,
+ &#39;republic.&#39;,
+ &#39;reputation.&#39;,
+ &#39;respected&#39;,
+ &#39;retreat&#39;,
+ &#39;retreated&#39;,
+ &#39;same&#39;,
+ &#39;seek&#39;,
+ &#39;several&#39;,
+ &#39;situations&#39;,
+ &#39;so&#39;,
+ &#39;state,&#39;,
+ &#39;syndics,&#39;,
+ &#39;that&#39;,
+ &#39;that&#39;,
+ &#39;that&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;them.&#39;,
+ &#39;them.&#39;,
+ &#39;therefore,&#39;,
+ &#39;these&#39;,
+ &#39;through&#39;,
+ &#39;through&#39;,
+ &#39;time&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;town&#39;,
+ &#39;truest&#39;,
+ &#39;unbending&#39;,
+ &#39;unfortunate&#39;,
+ &#39;united&#39;,
+ &#39;unknown&#39;,
+ &#39;until&#39;,
+ &#39;variety&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;where&#39;,
+ &#39;where&#39;,
+ &#39;which&#39;,
+ &#39;who&#39;,
+ &#39;who,&#39;,
+ &#39;whose&#39;,
+ &#39;with&#39;,
+ &#39;with&#39;,
+ &#39;with&#39;,
+ &#39;with&#39;,
+ &#39;world&#39;,
+ &#39;worthy&#39;,
+ &#39;wretchedness.&#39;,
+ &#39;years&#39;,
+ &#39;younger&#39;,
+ &#39;monster&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;younger&#39;,
+ &#39;years&#39;,
+ &#39;wretchedness.&#39;,
+ &#39;worthy&#39;,
+ &#39;world&#39;,
+ &#39;with&#39;,
+ &#39;with&#39;,
+ &#39;with&#39;,
+ &#39;with&#39;,
+ &#39;whose&#39;,
+ &#39;who,&#39;,
+ &#39;who&#39;,
+ &#39;which&#39;,
+ &#39;where&#39;,
+ &#39;where&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;was&#39;,
+ &#39;variety&#39;,
+ &#39;until&#39;,
+ &#39;unknown&#39;,
+ &#39;united&#39;,
+ &#39;unfortunate&#39;,
+ &#39;unbending&#39;,
+ &#39;truest&#39;,
+ &#39;town&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;to&#39;,
+ &#39;time&#39;,
+ &#39;through&#39;,
+ &#39;through&#39;,
+ &#39;these&#39;,
+ &#39;therefore,&#39;,
+ &#39;them.&#39;,
+ &#39;them.&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;the&#39;,
+ &#39;that&#39;,
+ &#39;that&#39;,
+ &#39;that&#39;,
+ &#39;syndics,&#39;,
+ &#39;state,&#39;,
+ &#39;so&#39;,
+ &#39;situations&#39;,
+ &#39;several&#39;,
+ &#39;seek&#39;,
+ &#39;same&#39;,
+ &#39;retreated&#39;,
+ &#39;retreat&#39;,
+ &#39;respected&#39;,
+ &#39;reputation.&#39;,
+ &#39;republic.&#39;,
+ &#39;relating&#39;,
+ &#39;refrain&#39;,
+ &#39;rank&#39;,
+ &#39;public&#39;,
+ &#39;public&#39;,
+ &#39;proud&#39;,
+ &#39;pride&#39;,
+ &#39;prevented&#39;,
+ &#39;poverty.&#39;,
+ &#39;poverty&#39;,
+ &#39;persuading&#39;,
+ &#39;perpetually&#39;,
+ &#39;passed&#39;,
+ &#39;paid&#39;,
+ &#39;out,&#39;,
+ &#39;one&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;of&#39;,
+ &#39;occupied&#39;,
+ &#39;oblivion&#39;,
+ &#39;numerous&#39;,
+ &#39;not&#39;,
+ &#39;nor&#39;,
+ &#39;no&#39;,
+ &#39;name&#39;,
+ &#39;my&#39;,
+ &#39;my&#39;,
+ &#39;most&#39;,
+ &#39;most&#39;,
+ &#39;most&#39;,
+ &#39;monster&#39;,
+ &#39;mischances,&#39;,
+ &#39;merchant&#39;,
+ &#39;marrying&#39;,
+ &#39;marriage&#39;,
+ &#39;many&#39;,
+ &#39;manner,&#39;,
+ &#39;man,&#39;,
+ &#39;magnificence.&#39;,
+ &#39;loved&#39;,
+ &#39;lost&#39;,
+ &#39;lived&#39;,
+ &#39;live&#39;,
+ &#39;little&#39;,
+ &#39;life&#39;,
+ &#39;led&#39;,
+ &#39;knew&#39;,
+ &#39;it&#39;,
+ &#39;is&#39;,
+ &#39;into&#39;,
+ &#39;intimate&#39;,
+ &#39;integrity&#39;,
+ &#39;indefatigable&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;in&#39;,
+ &#39;illustrate&#39;,
+ &#39;husband&#39;,
+ &#39;hope&#39;,
+ &#39;honourable&#39;,
+ &#39;honour&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;his&#39;,
+ &#39;him&#39;,
+ &#39;him&#39;,
+ &#39;him&#39;,
+ &#39;he&#39;,
+ &#39;he&#39;,
+ &#39;he&#39;,
+ &#39;he&#39;,
+ &#39;had&#39;,
+ &#39;had&#39;,
+ &#39;had&#39;,
+ &#39;had&#39;,
+ &#39;grieved&#39;,
+ &#39;from&#39;,
+ &#39;from&#39;,
+ &#39;friendship&#39;,
+ &#39;friends&#39;,
+ &#39;friend&#39;,
+ &#39;formerly&#39;,
+ &#39;for&#39;,
+ &#39;for&#39;,
+ &#39;for&#39;,
+ &#39;flourishing&#39;,
+ &#39;filled&#39;,
+ &#39;fell,&#39;,
+ &#39;father&#39;,
+ &#39;father&#39;,
+ &#39;father&#39;,
+ &#39;family.&#39;,
+ &#39;family&#39;,
+ &#39;false&#39;,
+ &#39;endeavouring&#39;,
+ &#39;early,&#39;,
+ &#39;distinguished&#39;,
+ &#39;distinguished&#39;,
+ &#39;disposition&#39;,
+ &#39;deplored&#39;,
+ &#39;deeply&#39;,
+ &#39;decline&#39;,
+ &#39;debts,&#39;,
+ &#39;days&#39;,
+ &#39;daughter&#39;,
+ &#39;credit&#39;,
+ &#39;country;&#39;,
+ &#39;country&#39;,
+ &#39;counsellors&#39;,
+ &#39;could&#39;,
+ &#39;conduct&#39;,
+ &#39;circumstances.&#39;,
+ &#39;circumstances&#39;,
+ &#39;circumstances&#39;,
+ &#39;character,&#39;,
+ &#39;cannot&#39;,
+ &#39;by&#39;,
+ &#39;by&#39;,
+ &#39;by&#39;,
+ &#39;by&#39;,
+ &#39;business.&#39;,
+ &#39;bitterly&#39;,
+ &#39;birth&#39;,
+ &#39;begin&#39;,
+ &#39;been&#39;,
+ &#39;been&#39;,
+ &#39;became&#39;,
+ &#39;bear&#39;,
+ &#39;attention&#39;,
+ &#39;assistance.&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;and&#39;,
+ &#39;ancestors&#39;,
+ &#39;am&#39;,
+ &#39;all&#39;,
+ &#39;again&#39;,
+ &#39;affection&#39;,
+ &#39;affairs&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;a&#39;,
+ &#39;This&#39;,
+ &#39;One&#39;,
+ &#39;My&#39;,
+ &#39;My&#39;,
+ &#39;Lucerne,&#39;,
+ &#39;I&#39;,
+ &#39;I&#39;,
+ &#39;He&#39;,
+ &#39;He&#39;,
+ &#39;He&#39;,
+ &#39;He&#39;,
+ &#39;Having&#39;,
+ &#39;Genevese,&#39;,
+ &#39;Beaufort,&#39;,
+ &#39;Beaufort&#39;,
+ &#39;As&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greeting</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;hello world!&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greeting</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world!&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tuple
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LOOPS - a way of doing things to collections of data</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">greeting</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>h
+e
+l
+l
+o
+ 
+w
+o
+r
+l
+d
+!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">lunch</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fries
+burrito
+chili&#39;s
+applebees
+sandwich
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">lunch</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FRIES
+BURRITO
+CHILI&#39;S
+APPLEBEES
+SANDWICH
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;the matrix&#39;</span><span class="p">,</span> <span class="s1">&#39;the matrix reloaded&#39;</span><span class="p">,</span> <span class="s1">&#39;the matrix resurrection&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;the matrix&#39;, &#39;the matrix reloaded&#39;, &#39;the matrix resurrection&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the matrix
+the matrix reloaded
+the matrix resurrection
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;the matrix resurrection&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;the matrix resurrection&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lunch</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;fries&#39;, &#39;burrito&#39;, &quot;chili&#39;s&quot;, &#39;applebees&#39;, &#39;sandwich&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lunch</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;enchiladas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lunch</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;fries&#39;, &#39;burrito&#39;, &quot;chili&#39;s&quot;, &#39;applebees&#39;, &#39;sandwich&#39;, &#39;enchiladas&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loud_lunch</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">loud_lunch</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating a list of lunch items</span>
+<span class="n">lunch</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fries&#39;</span><span class="p">,</span> <span class="s1">&#39;burrito&#39;</span><span class="p">,</span> <span class="s2">&quot;chili&#39;s&quot;</span><span class="p">,</span> <span class="s1">&#39;applebees&#39;</span><span class="p">,</span> <span class="s1">&#39;sandwich&#39;</span><span class="p">,</span> <span class="s1">&#39;enchiladas&#39;</span><span class="p">]</span>
+
+<span class="c1"># creating an empty list to drop our items later</span>
+<span class="n">loud_lunch</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># looping through lunch, uppercasing items, appending to loud_lunch</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">lunch</span><span class="p">:</span>
+    <span class="n">uppercase</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The item is now: </span><span class="si">{</span><span class="n">uppercase</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">loud_lunch</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">uppercase</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The item is now: FRIES
+The item is now: BURRITO
+The item is now: CHILI&#39;S
+The item is now: APPLEBEES
+The item is now: SANDWICH
+The item is now: ENCHILADAS
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># looping through lunch, uppercasing items, appending to loud_lunch</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">lunch</span><span class="p">:</span>
+    <span class="n">loud_lunch</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The item is now: </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The item is now: FRIES
+The item is now: BURRITO
+The item is now: CHILI&#39;S
+The item is now: APPLEBEES
+The item is now: SANDWICH
+The item is now: ENCHILADAS
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># f-strings</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;This is a string with </span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is a string with (&#39;hello&#39;, &#39;world!&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prime_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">prime_numbers</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The square of </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">number</span><span class="o">*</span><span class="n">number</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The square of 1 is 1
+The square of 5 is 25
+The square of 7 is 49
+The square of 11 is 121
+The square of 13 is 169
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># logic </span>
+
+<span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="o">==</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">license</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">license</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">26</span>
+<span class="n">license</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">25</span> <span class="ow">and</span> <span class="n">license</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You can rent a car, vote, and drive.&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You can vote&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You can drive a car&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You are too young&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You can vote
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lunch</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;fries&#39;, &#39;burrito&#39;, &quot;chili&#39;s&quot;, &#39;applebees&#39;, &#39;sandwich&#39;, &#39;enchiladas&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">lunch</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;burrito&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>burrito
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">lunch</span><span class="p">:</span> 
+    <span class="k">if</span> <span class="s1">&#39;burrito&#39;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>burrito
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">press</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">Removing Gender Ideology and Restoring the EEOC’s Role of Protecting Women in the Workplace</span>
+
+<span class="s1">WASHINGTON -- Today, U.S. Equal Employment Opportunity Commission (EEOC) Acting Chair Andrea Lucas announced that the agency is returning to its mission of protecting women from sexual harassment and sex-based discrimination in the workplace by rolling back the Biden administration’s gender identity agenda.</span>
+
+<span class="s1">One of President Trump’s first executive orders was Executive Order 14168, “Defending Women From Gender Ideology Extremism and Restoring Biological Truth to the Federal Government.” Among other things, the executive order directed federal agencies to enforce laws governing sex-based rights, protections, opportunities, and accommodations to protect men and women as biologically distinct sexes, and to remove all statements, policies, regulations, forms, communications, or other internal and external messages promoting gender ideology.</span>
+
+<span class="s1">Pursuant to Executive Order 14168, Acting Chair Lucas has taken the following actions to date:</span>
+
+<span class="s1">    Announced that one of her priorities—for compliance, investigations, and litigation—is to defend the biological and binary reality of sex and related rights, including women’s rights to single-sex spaces at work.</span>
+<span class="s1">    Removed the agency’s “pronoun app,” a feature in employees’ Microsoft 365 profiles, which allowed an employee to opt to identify pronouns, content which then appeared alongside the employee’s display name across all Microsoft 365 platforms, including Outlook and Teams. This content was displayed both to internal and external parties with whom EEOC employees communicated.</span>
+<span class="s1">    Ended the use of the “X” gender marker during the intake process for filing a charge of discrimination.</span>
+<span class="s1">    Directed the modification of the charge of discrimination and related forms to remove “Mx.” from the list of prefix options.</span>
+<span class="s1">    Commenced review of the content of EEOC’s “Know Your Rights” poster, which all covered employers are required by law to post in their workplaces.</span>
+<span class="s1">    Removed materials promoting gender ideology on the Commission’s internal and external websites and documents, including webpages, statements, social media platforms, forms, trainings, and others. The agency’s review and removal of such materials remains ongoing. Where a publicly accessible item cannot be immediately removed or revised, a banner has been added to explain why the item has not yet been brought into compliance.</span>
+
+<span class="s1">When issuing certain documents, the Commission acts by majority vote. Based on her existing authority, the Acting Chair cannot unilaterally remove or modify certain “gender identity”-related documents subject to the President’s directives in the executive order. Those documents include the Commission’s Enforcement Guidance on Harassment in the Workplace (issued by a 3-2 vote in 2024); the EEOC Strategic Plan 2022-2026 (issued by a 3-2 vote in 2023); and the EEOC Strategic Enforcement Plan Fiscal Years 2024-2028 (issued by a 3-2 vote in 2023).</span>
+
+<span class="s1">Acting Chair Lucas voted against each of these documents. In particular, Acting Chair Lucas has been vocal in her opposition to portions of EEOC’s harassment guidance that took the enforcement position that harassing conduct under Title VII includes “denial of access to a bathroom or other sex-segregated facility consistent with [an] individual’s gender identity;” and that harassing conduct includes “repeated and intentional use of a name or pronoun inconsistent with [an] individual’s known gender identity.”</span>
+
+<span class="s1">Although Acting Chair Lucas currently cannot rescind portions of the agency’s harassment guidance that are inconsistent with Executive Order 14168, Acting Chair Lucas remains opposed to those portions of the guidance.</span>
+
+<span class="s1">“Biology is not bigotry. Biological sex is real, and it matters,” Lucas said. “Sex is binary (male and female) and immutable. It is not harassment to acknowledge these truths—or to use language like pronouns that flow from these realities, even repeatedly.”</span>
+
+<span class="s1">Lucas emphasized, “Because of biological realities, each sex has its own, unique privacy interests, and women have additional safety interests, that warrant certain single-sex facilities at work and other spaces outside the home. It is neither harassment nor discrimination for a business to draw distinctions between the sexes in providing single-sex bathrooms or other similar facilities which implicate these significant privacy and safety interests. And the Supreme Court’s decision in Bostock v. Clayton County does not demand otherwise: the Court explicitly stated that it did ‘not purport to address bathrooms, locker rooms, or anything else of the kind.’”</span>
+
+<span class="s1">Lucas contended that the EEOC betrayed its mission by issuing the “gender identity” portions of the Enforcement Guidance on Harassment in the Workplace: “The same agency that in the 1960s and 70s fought to ensure women had the right to their own restrooms, locker rooms, sleeping quarters, and other sex-specific workplace facilities—and established that it would be sex discrimination not to provide such women-only facilities—betrayed women by attacking their sex-based rights in the workplace. That must end.”</span>
+
+<span class="s1">“The Commission’s harassment guidance was fundamentally flawed,” said Lucas. “It ignored biological reality, effectively eliminated single-sex workplace facilities, and impinged on all employees’ rights to freedom of speech and belief. In unlawfully expanding past Bostock’s dictates, the EEOC exceeded its authority. The EEOC must rescind the guidance and protect the sex-based privacy and safety needs of women.”</span>
+
+<span class="s1">The EEOC is the sole federal agency authorized to investigate and litigate against businesses and other private employers for violations of federal laws prohibiting employment discrimination, including sexual harassment. For public employers, the EEOC shares jurisdiction with the Department of Justice’s Civil Rights Division; the EEOC is responsible for investigating charges against state and local government employers before referring them to DOJ for potential litigation. The EEOC also is responsible for coordinating the federal government’s employment antidiscrimination effort. More information about the EEOC is available at www.eeoc.gov. Stay connected with the latest EEOC news by subscribing to our email updates.</span>
+
+<span class="s1">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">press</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nRemoving Gender Ideology and Restoring the EEOC’s Role of Protecting Women in the Workplace\n\nWASHINGTON -- Today, U.S. Equal Employment Opportunity Commission (EEOC) Acting Chair Andrea Lucas announced that the agency is returning to its mission of protecting women from sexual harassment and sex-based discrimination in the workplace by rolling back the Biden administration’s gender identity agenda.\n\nOne of President Trump’s first executive orders was Executive Order 14168, “Defending Women From Gender Ideology Extremism and Restoring Biological Truth to the Federal Government.” Among other things, the executive order directed federal agencies to enforce laws governing sex-based rights, protections, opportunities, and accommodations to protect men and women as biologically distinct sexes, and to remove all statements, policies, regulations, forms, communications, or other internal and external messages promoting gender ideology.\n\nPursuant to Executive Order 14168, Acting Chair Lucas has taken the following actions to date:\n\n    Announced that one of her priorities—for compliance, investigations, and litigation—is to defend the biological and binary reality of sex and related rights, including women’s rights to single-sex spaces at work.\n    Removed the agency’s “pronoun app,” a feature in employees’ Microsoft 365 profiles, which allowed an employee to opt to identify pronouns, content which then appeared alongside the employee’s display name across all Microsoft 365 platforms, including Outlook and Teams. This content was displayed both to internal and external parties with whom EEOC employees communicated.\n    Ended the use of the “X” gender marker during the intake process for filing a charge of discrimination.\n    Directed the modification of the charge of discrimination and related forms to remove “Mx.” from the list of prefix options.\n    Commenced review of the content of EEOC’s “Know Your Rights” poster, which all covered employers are required by law to post in their workplaces.\n    Removed materials promoting gender ideology on the Commission’s internal and external websites and documents, including webpages, statements, social media platforms, forms, trainings, and others. The agency’s review and removal of such materials remains ongoing. Where a publicly accessible item cannot be immediately removed or revised, a banner has been added to explain why the item has not yet been brought into compliance.\n\nWhen issuing certain documents, the Commission acts by majority vote. Based on her existing authority, the Acting Chair cannot unilaterally remove or modify certain “gender identity”-related documents subject to the President’s directives in the executive order. Those documents include the Commission’s Enforcement Guidance on Harassment in the Workplace (issued by a 3-2 vote in 2024); the EEOC Strategic Plan 2022-2026 (issued by a 3-2 vote in 2023); and the EEOC Strategic Enforcement Plan Fiscal Years 2024-2028 (issued by a 3-2 vote in 2023).\n\nActing Chair Lucas voted against each of these documents. In particular, Acting Chair Lucas has been vocal in her opposition to portions of EEOC’s harassment guidance that took the enforcement position that harassing conduct under Title VII includes “denial of access to a bathroom or other sex-segregated facility consistent with [an] individual’s gender identity;” and that harassing conduct includes “repeated and intentional use of a name or pronoun inconsistent with [an] individual’s known gender identity.”\n\nAlthough Acting Chair Lucas currently cannot rescind portions of the agency’s harassment guidance that are inconsistent with Executive Order 14168, Acting Chair Lucas remains opposed to those portions of the guidance.\n\n“Biology is not bigotry. Biological sex is real, and it matters,” Lucas said. “Sex is binary (male and female) and immutable. It is not harassment to acknowledge these truths—or to use language like pronouns that flow from these realities, even repeatedly.”\n\nLucas emphasized, “Because of biological realities, each sex has its own, unique privacy interests, and women have additional safety interests, that warrant certain single-sex facilities at work and other spaces outside the home. It is neither harassment nor discrimination for a business to draw distinctions between the sexes in providing single-sex bathrooms or other similar facilities which implicate these significant privacy and safety interests. And the Supreme Court’s decision in Bostock v. Clayton County does not demand otherwise: the Court explicitly stated that it did ‘not purport to address bathrooms, locker rooms, or anything else of the kind.’”\n\nLucas contended that the EEOC betrayed its mission by issuing the “gender identity” portions of the Enforcement Guidance on Harassment in the Workplace: “The same agency that in the 1960s and 70s fought to ensure women had the right to their own restrooms, locker rooms, sleeping quarters, and other sex-specific workplace facilities—and established that it would be sex discrimination not to provide such women-only facilities—betrayed women by attacking their sex-based rights in the workplace. That must end.”\n\n“The Commission’s harassment guidance was fundamentally flawed,” said Lucas. “It ignored biological reality, effectively eliminated single-sex workplace facilities, and impinged on all employees’ rights to freedom of speech and belief. In unlawfully expanding past Bostock’s dictates, the EEOC exceeded its authority. The EEOC must rescind the guidance and protect the sex-based privacy and safety needs of women.”\n\nThe EEOC is the sole federal agency authorized to investigate and litigate against businesses and other private employers for violations of federal laws prohibiting employment discrimination, including sexual harassment. For public employers, the EEOC shares jurisdiction with the Department of Justice’s Civil Rights Division; the EEOC is responsible for investigating charges against state and local government employers before referring them to DOJ for potential litigation. The EEOC also is responsible for coordinating the federal government’s employment antidiscrimination effort. More information about the EEOC is available at www.eeoc.gov. Stay connected with the latest EEOC news by subscribing to our email updates.\n\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentences</span> <span class="o">=</span> <span class="n">press</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentences</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;\nRemoving Gender Ideology and Restoring the EEOC’s Role of Protecting Women in the Workplace\n\nWASHINGTON -- Today, U&#39;,
+ &#39;S&#39;,
+ &#39; Equal Employment Opportunity Commission (EEOC) Acting Chair Andrea Lucas announced that the agency is returning to its mission of protecting women from sexual harassment and sex-based discrimination in the workplace by rolling back the Biden administration’s gender identity agenda&#39;,
+ &#39;\n\nOne of President Trump’s first executive orders was Executive Order 14168, “Defending Women From Gender Ideology Extremism and Restoring Biological Truth to the Federal Government&#39;,
+ &#39;” Among other things, the executive order directed federal agencies to enforce laws governing sex-based rights, protections, opportunities, and accommodations to protect men and women as biologically distinct sexes, and to remove all statements, policies, regulations, forms, communications, or other internal and external messages promoting gender ideology&#39;,
+ &#39;\n\nPursuant to Executive Order 14168, Acting Chair Lucas has taken the following actions to date:\n\n    Announced that one of her priorities—for compliance, investigations, and litigation—is to defend the biological and binary reality of sex and related rights, including women’s rights to single-sex spaces at work&#39;,
+ &#39;\n    Removed the agency’s “pronoun app,” a feature in employees’ Microsoft 365 profiles, which allowed an employee to opt to identify pronouns, content which then appeared alongside the employee’s display name across all Microsoft 365 platforms, including Outlook and Teams&#39;,
+ &#39; This content was displayed both to internal and external parties with whom EEOC employees communicated&#39;,
+ &#39;\n    Ended the use of the “X” gender marker during the intake process for filing a charge of discrimination&#39;,
+ &#39;\n    Directed the modification of the charge of discrimination and related forms to remove “Mx&#39;,
+ &#39;” from the list of prefix options&#39;,
+ &#39;\n    Commenced review of the content of EEOC’s “Know Your Rights” poster, which all covered employers are required by law to post in their workplaces&#39;,
+ &#39;\n    Removed materials promoting gender ideology on the Commission’s internal and external websites and documents, including webpages, statements, social media platforms, forms, trainings, and others&#39;,
+ &#39; The agency’s review and removal of such materials remains ongoing&#39;,
+ &#39; Where a publicly accessible item cannot be immediately removed or revised, a banner has been added to explain why the item has not yet been brought into compliance&#39;,
+ &#39;\n\nWhen issuing certain documents, the Commission acts by majority vote&#39;,
+ &#39; Based on her existing authority, the Acting Chair cannot unilaterally remove or modify certain “gender identity”-related documents subject to the President’s directives in the executive order&#39;,
+ &#39; Those documents include the Commission’s Enforcement Guidance on Harassment in the Workplace (issued by a 3-2 vote in 2024); the EEOC Strategic Plan 2022-2026 (issued by a 3-2 vote in 2023); and the EEOC Strategic Enforcement Plan Fiscal Years 2024-2028 (issued by a 3-2 vote in 2023)&#39;,
+ &#39;\n\nActing Chair Lucas voted against each of these documents&#39;,
+ &#39; In particular, Acting Chair Lucas has been vocal in her opposition to portions of EEOC’s harassment guidance that took the enforcement position that harassing conduct under Title VII includes “denial of access to a bathroom or other sex-segregated facility consistent with [an] individual’s gender identity;” and that harassing conduct includes “repeated and intentional use of a name or pronoun inconsistent with [an] individual’s known gender identity&#39;,
+ &#39;”\n\nAlthough Acting Chair Lucas currently cannot rescind portions of the agency’s harassment guidance that are inconsistent with Executive Order 14168, Acting Chair Lucas remains opposed to those portions of the guidance&#39;,
+ &#39;\n\n“Biology is not bigotry&#39;,
+ &#39; Biological sex is real, and it matters,” Lucas said&#39;,
+ &#39; “Sex is binary (male and female) and immutable&#39;,
+ &#39; It is not harassment to acknowledge these truths—or to use language like pronouns that flow from these realities, even repeatedly&#39;,
+ &#39;”\n\nLucas emphasized, “Because of biological realities, each sex has its own, unique privacy interests, and women have additional safety interests, that warrant certain single-sex facilities at work and other spaces outside the home&#39;,
+ &#39; It is neither harassment nor discrimination for a business to draw distinctions between the sexes in providing single-sex bathrooms or other similar facilities which implicate these significant privacy and safety interests&#39;,
+ &#39; And the Supreme Court’s decision in Bostock v&#39;,
+ &#39; Clayton County does not demand otherwise: the Court explicitly stated that it did ‘not purport to address bathrooms, locker rooms, or anything else of the kind&#39;,
+ &#39;’”\n\nLucas contended that the EEOC betrayed its mission by issuing the “gender identity” portions of the Enforcement Guidance on Harassment in the Workplace: “The same agency that in the 1960s and 70s fought to ensure women had the right to their own restrooms, locker rooms, sleeping quarters, and other sex-specific workplace facilities—and established that it would be sex discrimination not to provide such women-only facilities—betrayed women by attacking their sex-based rights in the workplace&#39;,
+ &#39; That must end&#39;,
+ &#39;”\n\n“The Commission’s harassment guidance was fundamentally flawed,” said Lucas&#39;,
+ &#39; “It ignored biological reality, effectively eliminated single-sex workplace facilities, and impinged on all employees’ rights to freedom of speech and belief&#39;,
+ &#39; In unlawfully expanding past Bostock’s dictates, the EEOC exceeded its authority&#39;,
+ &#39; The EEOC must rescind the guidance and protect the sex-based privacy and safety needs of women&#39;,
+ &#39;”\n\nThe EEOC is the sole federal agency authorized to investigate and litigate against businesses and other private employers for violations of federal laws prohibiting employment discrimination, including sexual harassment&#39;,
+ &#39; For public employers, the EEOC shares jurisdiction with the Department of Justice’s Civil Rights Division; the EEOC is responsible for investigating charges against state and local government employers before referring them to DOJ for potential litigation&#39;,
+ &#39; The EEOC also is responsible for coordinating the federal government’s employment antidiscrimination effort&#39;,
+ &#39; More information about the EEOC is available at www&#39;,
+ &#39;eeoc&#39;,
+ &#39;gov&#39;,
+ &#39; Stay connected with the latest EEOC news by subscribing to our email updates&#39;,
+ &#39;\n\n&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;protect&#39;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Equal Employment Opportunity Commission (EEOC) Acting Chair Andrea Lucas announced that the agency is returning to its mission of protecting women from sexual harassment and sex-based discrimination in the workplace by rolling back the Biden administration’s gender identity agenda
+” Among other things, the executive order directed federal agencies to enforce laws governing sex-based rights, protections, opportunities, and accommodations to protect men and women as biologically distinct sexes, and to remove all statements, policies, regulations, forms, communications, or other internal and external messages promoting gender ideology
+ The EEOC must rescind the guidance and protect the sex-based privacy and safety needs of women
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protection</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;protect&#39;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">protection</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Equal Employment Opportunity Commission (EEOC) Acting Chair Andrea Lucas announced that the agency is returning to its mission of protecting women from sexual harassment and sex-based discrimination in the workplace by rolling back the Biden administration’s gender identity agenda
+” Among other things, the executive order directed federal agencies to enforce laws governing sex-based rights, protections, opportunities, and accommodations to protect men and women as biologically distinct sexes, and to remove all statements, policies, regulations, forms, communications, or other internal and external messages promoting gender ideology
+ The EEOC must rescind the guidance and protect the sex-based privacy and safety needs of women
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protection</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39; Equal Employment Opportunity Commission (EEOC) Acting Chair Andrea Lucas announced that the agency is returning to its mission of protecting women from sexual harassment and sex-based discrimination in the workplace by rolling back the Biden administration’s gender identity agenda&#39;,
+ &#39;” Among other things, the executive order directed federal agencies to enforce laws governing sex-based rights, protections, opportunities, and accommodations to protect men and women as biologically distinct sexes, and to remove all statements, policies, regulations, forms, communications, or other internal and external messages promoting gender ideology&#39;,
+ &#39; The EEOC must rescind the guidance and protect the sex-based privacy and safety needs of women&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./class_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

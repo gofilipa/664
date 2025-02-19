@@ -421,7 +421,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-apis">vs APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-should-i-scrape">when should I scrape?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-scraping-vs-apis">web scraping vs APIs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-for-scraping">tools for scraping</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beautifulsoup4-or-bs4">BeautifulSoup4, or bs4</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scrapy">Scrapy</a></li>
@@ -441,11 +442,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="what-is-web-scraping">
 <h1>what is web scraping?<a class="headerlink" href="#what-is-web-scraping" title="Link to this heading">#</a></h1>
-<p>Web scraping is a programmatic method for extracting data from webpages. It is the process of going into the website’s source code, which is in the form of HTML code, pulling out information from the HTML, and manipulating that information into a desired format, like a spreadsheet. It is distinguished from web crawling (an even more automated form of scraping that “crawls” over several websites) and APIs (requesting data directly from the source), both of which are described below.</p>
-<p>Before deciding what method of getting data is right for you, consider whether the data holder (the publisher or owner of the data) might be able to give it to you directly. Because web scraping can be considered invasive, especially if done repeatedly, data holders are often more than happy to package up the data for you. This is especially true of the data holder is an academic or cultural institution, such as a library, or an archive. If you want access to something in the Princeton University Library, including the online catalog, for example, you should email the librarians directly.</p>
-<section id="vs-apis">
-<h2>vs APIs<a class="headerlink" href="#vs-apis" title="Link to this heading">#</a></h2>
-<p>The most common way to get data these days is via an API. API standsfor “application programming interface.” It is a bit of software that allows you to interface, or “talk,” with an application. For example, your weather application on your phone uses an API to request data about the current temperature from a computer server that contains this information.</p>
+<p>Web scraping is a programmatic method for extracting data from webpages. It is the process of going into the website’s source code, which is in the form of HTML code, pulling out information from the HTML, and manipulating that information into a desired format, like a spreadsheet. It is distinguished from web crawling (an even more automated form of scraping that “crawls” over several websites) and APIs (requesting data directly from the source). The differences are described in more detail below.</p>
+<section id="when-should-i-scrape">
+<h2>when should I scrape?<a class="headerlink" href="#when-should-i-scrape" title="Link to this heading">#</a></h2>
+<p>Before scraping a website, it is important to consider what method of getting data is right for you. There are cases that the data holder (the publisher or owner of the data) might be able to give it to you directly. Because web scraping can be considered invasive, especially if done repeatedly, data holders may be willing to package up the data for you. This is especially true of the data holder is an academic or cultural institution, such as a library or an archive.</p>
+</section>
+<section id="web-scraping-vs-apis">
+<h2>web scraping vs APIs<a class="headerlink" href="#web-scraping-vs-apis" title="Link to this heading">#</a></h2>
+<p>The most common way to get data these days is via an API. API standsfor “application programming interface.” It is a bit of software that allows you to interface, or “talk,” with an application. For example, on your cell phone, your weather application uses an API to request data about the current temperature from a computer server that contains this information.</p>
 <p>The difference between web scraping and APIs is that APIs are created by the data holders themselves, so they are always more efficient. An API will return a nicely packed data in the form of JSON or XML, which are popular data formats, to the requester. Many large websites have APIs, for example Reddit, Twitter, the New York Public Library, SkyScanner, and more. Generally, if there is an API, use that before scraping.</p>
 </section>
 <section id="tools-for-scraping">
@@ -454,11 +458,12 @@ document.write(`
 <p>In Python, there are three major “libraries,” or collections of code, for web scraping. They each have different advantages, working best with specific use cases. Here is a brief overview of their differences.</p>
 <section id="beautifulsoup4-or-bs4">
 <h3>BeautifulSoup4, or bs4<a class="headerlink" href="#beautifulsoup4-or-bs4" title="Link to this heading">#</a></h3>
-<p>More than a web scraper, <a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">bs4</a> is technically an HTML parser, which uses the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library to make http requests using URLs.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[bs4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)</span></code> uses the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library to make <code class="docutils literal notranslate"><span class="pre">http</span></code> (Hypertext Transfer Protocol) requests. That means they work the same way that a browser does, calling information through a URL. More than just a web scraper, however, <code class="docutils literal notranslate"><span class="pre">bs4</span></code> is also an HTML parser, meaning that it can manipulate and transform HTML data.</p>
 <p>Why it’s useful:</p>
 <ul class="simple">
-<li><p>powerful for manipulating and transforming HTML data.</p></li>
-<li><p>beginner-friendly, get started with just a few lines of code.</p></li>
+<li><p>it uses <code class="docutils literal notranslate"><span class="pre">requests</span></code>, the standard Python library for gathering data over the web</p></li>
+<li><p>powerful for manipulating and transforming HTML data</p></li>
+<li><p>beginner-friendly, get started with just a few lines of code</p></li>
 </ul>
 </section>
 <section id="scrapy">
@@ -546,7 +551,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-apis">vs APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-should-i-scrape">when should I scrape?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-scraping-vs-apis">web scraping vs APIs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-for-scraping">tools for scraping</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beautifulsoup4-or-bs4">BeautifulSoup4, or bs4</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scrapy">Scrapy</a></li>

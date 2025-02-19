@@ -423,7 +423,9 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-html">intro to HTML</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-inspector">the Inspector</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scraping-on-google-colab">scraping on Google Colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anti-trans-legislation">anti-trans legislation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-our-page">inspecting our page</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-challenge">individual challenge</a></li>
 </ul>
             </nav>
         </div>
@@ -471,9 +473,22 @@ document.write(`
 <li><p>A new window will pop up within your browser window. This window may appear overwhelming, and it contains a lot more information that we will need. For now, just focus on the part that shows the HTML code.</p></li>
 </ol>
 </section>
-<section id="scraping-on-google-colab">
-<h2>scraping on Google Colab<a class="headerlink" href="#scraping-on-google-colab" title="Link to this heading">#</a></h2>
-<p>On the next page, we will open a Google Colab document to start scraping. If you are unfamiliar with the Colab environment, please see the <a class="reference internal" href="../intro/overview.html#google-colab-environment"><span class="std std-ref">Colab overview section</span></a></p>
+<section id="anti-trans-legislation">
+<h2>anti-trans legislation<a class="headerlink" href="#anti-trans-legislation" title="Link to this heading">#</a></h2>
+<p>The past couple of years have seen an explosion in anti-trans legislation that restricts basic rights and recognition for trans people. The number of bills introduced in 2025, like in the year 2024, 2023, and 2022 before it, marks new records. These bills prevent trans people from using bathrooms, playing in sports, accessing healthcare, and more in ways that accord with their gender identity. See the <a class="reference external" href="https://translegislation.com/">Trans Legislation Tracker</a> for more information.</p>
+</section>
+<section id="inspecting-our-page">
+<h2>inspecting our page<a class="headerlink" href="#inspecting-our-page" title="Link to this heading">#</a></h2>
+<p>Remember that we must inspect pages with our browser’s “Inspector” tool, so we know what elements to scrape with bs4.</p>
+<p>First, navigate to the target website, at <a class="reference external" href="https://translegislation.com/"><code class="docutils literal notranslate"><span class="pre">https://translegislation.com/</span></code></a>. Scroll down until you see the “National Anti-Trans Bills” heading. Click on the blue button that says “View 2025 National Bills”. (Alternatively, just navigate directly to the page <a class="reference external" href="https://translegislation.com/bills/2025/US">here</a>).</p>
+<p>Once you’re on the page, <em>right click</em> on a bill title, any bill title, and select the <strong>inspect element</strong> option (or whatever option is closest to that phrase in your menu). The inspector should pop up.</p>
+<p><img alt="To open the inspector" src="../_images/inspector0.jpg" /></p>
+<p>Then, look for that element in the HTML code. The inspector contains everything you need to know about that element, including it’s HTML tag <code class="docutils literal notranslate"><span class="pre">h3</span></code>, which contains the <code class="docutils literal notranslate"><span class="pre">a</span></code> and any attributes, like <code class="docutils literal notranslate"><span class="pre">class</span></code> or <code class="docutils literal notranslate"><span class="pre">href</span></code>.</p>
+<p><img alt="Examine the inspector" src="../_images/inspector1.jpg" /></p>
+</section>
+<section id="individual-challenge">
+<h2>individual challenge<a class="headerlink" href="#individual-challenge" title="Link to this heading">#</a></h2>
+<p>Spend some time exploring the HTML of the bill cards. Make a note of elements and their classes for the bill number (which starts with US) and the bill title (in bold text). Also be aware of parent and child elements for each of those components.</p>
 </section>
 </section>
 
@@ -543,7 +558,9 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-html">intro to HTML</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-inspector">the Inspector</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scraping-on-google-colab">scraping on Google Colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anti-trans-legislation">anti-trans legislation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-our-page">inspecting our page</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-challenge">individual challenge</a></li>
 </ul>
   </nav></div>
 

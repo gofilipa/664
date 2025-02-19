@@ -32,9 +32,23 @@ To see the website code, you can use the "inspector" tool. Follow these steps:
 1. Open up a web browser, go to the *The New York Times* at `https://nytimes.com`
 2. Right click on the first heading.
 3. On the dropdown menu, select "Inspect" or "Inspector." (If you do not see this option, try opening the "Tools" or "Development" menu at the top of the application, and then selecting "Web Development Tools" or "Inspector" from the menu).
-4. A new window will pop up within your browser window. This window may appear overwhelming, and it contains a lot more information that we will need. For now, just focus on the part that shows the HTML code. 
+4. A new window will pop up within your browser window. This window may appear overwhelming, and it contains a lot more information that we will need. For now, just focus on the part that shows the HTML code.
 
+## anti-trans legislation
+The past couple of years have seen an explosion in anti-trans legislation that restricts basic rights and recognition for trans people. The number of bills introduced in 2025, like in the year 2024, 2023, and 2022 before it, marks new records. These bills prevent trans people from using bathrooms, playing in sports, accessing healthcare, and more in ways that accord with their gender identity. See the [Trans Legislation Tracker](https://translegislation.com/) for more information.
 
-## scraping on Google Colab
-On the next page, we will open a Google Colab document to start scraping. If you are unfamiliar with the Colab environment, please see the [Colab overview section](../intro/overview.md#google-colab-environment)
+## inspecting our page
+Remember that we must inspect pages with our browser's "Inspector" tool, so we know what elements to scrape with bs4.
 
+First, navigate to the target website, at [`https://translegislation.com/`](https://translegislation.com/). Scroll down until you see the "National Anti-Trans Bills" heading. Click on the blue button that says "View 2025 National Bills". (Alternatively, just navigate directly to the page [here](https://translegislation.com/bills/2025/US)).
+
+Once you're on the page, *right click* on a bill title, any bill title, and select the **inspect element** option (or whatever option is closest to that phrase in your menu). The inspector should pop up.
+
+![To open the inspector](./img/inspector0.jpg)
+
+Then, look for that element in the HTML code. The inspector contains everything you need to know about that element, including it's HTML tag `h3`, which contains the `a` and any attributes, like `class` or `href`.
+
+![Examine the inspector](./img/inspector1.jpg)
+
+## individual challenge
+Spend some time exploring the HTML of the bill cards. Make a note of elements and their classes for the bill number (which starts with US) and the bill title (in bold text). Also be aware of parent and child elements for each of those components. 
