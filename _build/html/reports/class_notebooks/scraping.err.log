@@ -1,0 +1,89 @@
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/opt/anaconda3/envs/jb/lib/python3.13/asyncio/base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+for item in bill_cards:
+    print(item.h3.text)
+    print(item.h2.text) # title
+    print(item.p.text) # description
+    print(item.span.text) # category
+    print()
+------------------
+
+----- stdout -----
+TX HB1014
+Relating to regulations and policies for entering or using a bathroom or changing facility in a public school; authorizing a civil penalty, authorizing a private civil right of action.
+Sec. 38.452. DETERMINATION OF BIOLOGICAL SEX. (a) For purposes of this subchapter, a person's biological sex is the biological sex correctly stated on the person's official birth certificate as described by Subsection (b).
+BATHROOM
+
+TX HB1015
+Relating to regulations and policies for entering or using a bathroom or changing facility in a public school.
+DETERMINATION OF BIOLOGICAL SEX. (a) For purposes of this subchapter, a person's biological sex is the biological sex correctly stated on the person's official birth certificate as described by Subsection (b).
+BATHROOM
+
+TX HB1016
+Relating to a public school policy regarding multi-occupancy bathrooms or changing facilities.
+(a) In this section, "multi-occupancy bathroom or changing facility" [...] includes a restroom, locker room, changing room, or shower room. [...] (c) If a school district adopts a policy that allows for separation of multi-occupancy bathrooms or changing facilities according to a criterion other than a person's biological sex assigned at birth, the policy must: (1) include: (A) a description of: (i) which multi-occupancy bathrooms or changing facilities are not separated by biological sex assigned at birth; and (ii) if a multi-occupancy bathroom or changing facility is not separated by biological sex assigned at birth, the method by which students will be supervised in that facility and the manner in which that method of supervision ensures the safety and privacy of students; and (B) accommodations or modifications for students who wish to use a multi-occupancy bathroom or changing facility separated by biological sex assigned at birth; and (2) be: (A) posted on the district's Internet website; and (B) provided at the beginning of each school year by mail to each parent of a student enrolled in the district.
+BATHROOM
+
+TX HB1075
+Relating to a cause of action for drag performances performed in the presence of a minor.
+LIABILITY FOR DRAG PERFORMANCE IN PRESENCE OF MINOR [...] (1) "Drag performance" means a performance in which a performer exhibits a gender that is different than the performer's gender recorded at birth using clothing, makeup, or other physical markers and sings, lip syncs, dances, or otherwise performs in a lascivious manner before an audience.
+PERFORMANCE
+
+TX HB1088
+Relating to the statute of limitations on a health care liability claim involving certain gender modification drugs provided to and procedures performed on a minor.
+Sec. 74.252.  STATUTE OF LIMITATIONS ON HEALTH CARE LIABILITY CLAIMS INVOLVING CERTAIN GENDER MODIFICATION DRUGS AND PROCEDURES. A claimant must bring a health care liability claim not later than the claimant's 30th birthday if: (1)  the claimant is a minor at the time the cause of action accrues; and (2) the basis for the claim is malpractice in the provision of a puberty suppression prescription drug or cross-sex hormone to or the performance of surgery or another medical procedure on the minor for the purpose of gender transitioning or gender reassignment.
+HEALTHCARE
+
+TX HB1106
+Relating to the definition of abuse or neglect of a child.
+In this chapter, “abuse” and “ neglect,” as defined in Sec. 261.001, do not include the refusal of the child’s parent, legal guardian, or other person responsible for a child’s care, custody, or welfare to: (a)  affirm the child’s expressed sexual orientation or gender identity; or (b)  address the child according to the child’s preferred name or pronoun(s), regardless of whether the child has legally changed their name.
+CHILD ABUSE
+
+TX HB1123
+Relating to interscholastic athletic competition based on biological sex, requirements for physical examinations and genetic testing in interscholastic athletics, and the adoption of rules by the University Interscholastic League to implement these requirements.
+A student may not compete in an interscholastic athletic competition designated for a particular biological sex if the student's chromosomal sex does not match the biological sex assigned at birth as described in subsection (a). This determination shall be made based on clinical evidence, including genetic testing results provided by a licensed medical professional under Section 33.098.
+SPORTS
+
+TX HB1434
+Relating to affirmative defenses to prosecution for certain offenses involving material or conduct that is obscene or otherwise harmful to children.
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[24], line 4[0m
+[1;32m      2[0m [38;5;28mprint[39m(item[38;5;241m.[39mh3[38;5;241m.[39mtext)
+[1;32m      3[0m [38;5;28mprint[39m(item[38;5;241m.[39mh2[38;5;241m.[39mtext) [38;5;66;03m# title[39;00m
+[0;32m----> 4[0m [38;5;28mprint[39m([43mitem[49m[38;5;241;43m.[39;49m[43mp[49m[38;5;241;43m.[39;49m[43mtext[49m) [38;5;66;03m# description[39;00m
+[1;32m      5[0m [38;5;28mprint[39m(item[38;5;241m.[39mspan[38;5;241m.[39mtext) [38;5;66;03m# category[39;00m
+[1;32m      6[0m [38;5;28mprint[39m()
+
+[0;31mAttributeError[0m: 'NoneType' object has no attribute 'text'
+

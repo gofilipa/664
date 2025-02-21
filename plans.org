@@ -346,3 +346,39 @@ mintues working on it!
   
 
 *** next week: web scraping!
+** week 4: web scraping 1
+Goals:
+- learn how to scrape a simple web page
+- learn a little bit about HTML/CSS
+- learn more about objects in python, dot syntax
+- explore different functions for bs4
+- reinforce loops
+
+Lesson:
+- what is web scraping? vs APIs, vs asking for data?
+- different web scraping tools: scrapy and selenium
+- HTML
+  - inspecting elements
+  - intro to HTML elements and attributes
+  - looking for bill number element and attributes, looking for bill
+    card, looking for all the cards.
+- scrape a website in 5 lines of code
+- three ways of getting html elements
+  - dot syntax
+  - find()
+  - find_all()
+- narrowing down data by text, class, href
+  - .text: soup.div.a.text
+  - class uses _class
+    - soup.find('h3', _class='css-fdskal;fj'
+  - saving to variables
+    - soup.find_all('h3', _class='css-fdskal;fj'
+
+
+BREAK
+
+Lesson:
+- looping through elements to get just text
+  - how would I do this to print out just bills that contain a certain
+    word in them? 
+- group challenge: print out all of the components of a bill. 

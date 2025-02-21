@@ -28,17 +28,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# go through list of objectIDs, and make a call
-# using "object" path for each one
-objects = 'public/collection/v1/objects/'
-results = []
-
-for i in objectids:
-    url = f'{root}{objects}{i}'
-    response = requests.get(url)
-    if response.status_code == 200:
-        parsed = response.json()
-        results.append(parsed)
+# write a loop that makes an "object" request for the first 
+# 10 items in the "search" results
+first_ten = []
+for i in ids[:100]:
+    # make a new request 
+    response = requests.get(root + object_path + str(i))
+    parsed = response.json()
+    first_ten.append(parsed)
 ------------------
 
 
@@ -116,7 +113,7 @@ File [0;32m/opt/anaconda3/envs/jb/lib/python3.13/site-packages/urllib3/connecti
 [1;32m    216[0m     ) [38;5;28;01mfrom[39;00m [38;5;21;01me[39;00m
 [1;32m    218[0m [38;5;66;03m# Audit hooks are only available in Python 3.8+[39;00m
 
-[0;31mNewConnectionError[0m: <urllib3.connection.HTTPSConnection object at 0x107bae990>: Failed to establish a new connection: [Errno 12] Cannot allocate memory
+[0;31mNewConnectionError[0m: <urllib3.connection.HTTPSConnection object at 0x1047aead0>: Failed to establish a new connection: [Errno 12] Cannot allocate memory
 
 The above exception was the direct cause of the following exception:
 
@@ -150,17 +147,18 @@ File [0;32m/opt/anaconda3/envs/jb/lib/python3.13/site-packages/urllib3/util/ret
 [0;32m--> 519[0m     [38;5;28;01mraise[39;00m MaxRetryError(_pool, url, reason) [38;5;28;01mfrom[39;00m [38;5;21;01mreason[39;00m  [38;5;66;03m# type: ignore[arg-type][39;00m
 [1;32m    521[0m log[38;5;241m.[39mdebug([38;5;124m"[39m[38;5;124mIncremented Retry for (url=[39m[38;5;124m'[39m[38;5;132;01m%s[39;00m[38;5;124m'[39m[38;5;124m): [39m[38;5;132;01m%r[39;00m[38;5;124m"[39m, url, new_retry)
 
-[0;31mMaxRetryError[0m: HTTPSConnectionPool(host='collectionapi.metmuseum.org', port=443): Max retries exceeded with url: /public/collection/v1/objects/53449 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x107bae990>: Failed to establish a new connection: [Errno 12] Cannot allocate memory'))
+[0;31mMaxRetryError[0m: HTTPSConnectionPool(host='collectionapi.metmuseum.org', port=443): Max retries exceeded with url: /public/collection/v1/objects/459027 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1047aead0>: Failed to establish a new connection: [Errno 12] Cannot allocate memory'))
 
 During handling of the above exception, another exception occurred:
 
 [0;31mConnectionError[0m                           Traceback (most recent call last)
-Cell [0;32mIn[9], line 8[0m
-[1;32m      6[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m objectids:
-[1;32m      7[0m     url [38;5;241m=[39m [38;5;124mf[39m[38;5;124m'[39m[38;5;132;01m{[39;00mroot[38;5;132;01m}[39;00m[38;5;132;01m{[39;00mobjects[38;5;132;01m}[39;00m[38;5;132;01m{[39;00mi[38;5;132;01m}[39;00m[38;5;124m'[39m
-[0;32m----> 8[0m     response [38;5;241m=[39m [43mrequests[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[43murl[49m[43m)[49m
-[1;32m      9[0m     [38;5;28;01mif[39;00m response[38;5;241m.[39mstatus_code [38;5;241m==[39m [38;5;241m200[39m:
-[1;32m     10[0m         parsed [38;5;241m=[39m response[38;5;241m.[39mjson()
+Cell [0;32mIn[36], line 6[0m
+[1;32m      3[0m first_ten [38;5;241m=[39m []
+[1;32m      4[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m ids[:[38;5;241m100[39m]:
+[1;32m      5[0m     [38;5;66;03m# make a new request [39;00m
+[0;32m----> 6[0m     response [38;5;241m=[39m [43mrequests[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[43mroot[49m[43m [49m[38;5;241;43m+[39;49m[43m [49m[43mobject_path[49m[43m [49m[38;5;241;43m+[39;49m[43m [49m[38;5;28;43mstr[39;49m[43m([49m[43mi[49m[43m)[49m[43m)[49m
+[1;32m      7[0m     parsed [38;5;241m=[39m response[38;5;241m.[39mjson()
+[1;32m      8[0m     first_ten[38;5;241m.[39mappend(parsed)
 
 File [0;32m/opt/anaconda3/envs/jb/lib/python3.13/site-packages/requests/api.py:73[0m, in [0;36mget[0;34m(url, params, **kwargs)[0m
 [1;32m     62[0m [38;5;28;01mdef[39;00m [38;5;21mget[39m(url, params[38;5;241m=[39m[38;5;28;01mNone[39;00m, [38;5;241m*[39m[38;5;241m*[39mkwargs):
@@ -203,5 +201,5 @@ File [0;32m/opt/anaconda3/envs/jb/lib/python3.13/site-packages/requests/adapter
 [1;32m    702[0m [38;5;28;01mexcept[39;00m ClosedPoolError [38;5;28;01mas[39;00m e:
 [1;32m    703[0m     [38;5;28;01mraise[39;00m [38;5;167;01mConnectionError[39;00m(e, request[38;5;241m=[39mrequest)
 
-[0;31mConnectionError[0m: HTTPSConnectionPool(host='collectionapi.metmuseum.org', port=443): Max retries exceeded with url: /public/collection/v1/objects/53449 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x107bae990>: Failed to establish a new connection: [Errno 12] Cannot allocate memory'))
+[0;31mConnectionError[0m: HTTPSConnectionPool(host='collectionapi.metmuseum.org', port=443): Max retries exceeded with url: /public/collection/v1/objects/459027 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1047aead0>: Failed to establish a new connection: [Errno 12] Cannot allocate memory'))
 
