@@ -28,45 +28,20 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# runs the loop on the bill cards
-bill_cards = soup.find_all('div', class_ ='css-4rck61')
+# import the following libraries for web scraping
 
-for item in bill_cards[:10]: # only the first ten cards, just to check if it is working
-    print(item.h3.text) # title
-    print(item.span.text) # category
-    print(item.h2.text) # caption
-    print(item.p.text) # description (if any)
-    print(item.a['href']) # add https://translegislation.com/bills/2023/US
+import requests # to make https requests
+from bs4 import BeautifulSoup # our web scraping library
+import lxml # our parser (to handle html data)
 ------------------
 
------ stdout -----
-US HB1015
-HEALTHCARE
-To amend title 18, United States Code, to provide for certain rules for housing or transportation based on gender and to provide for a limitation on gender-related medical treatment.
-To amend title 18, United States Code, to provide for certain rules for housing or transportation based on gender and to provide for a limitation on gender-related medical treatment.
-/bills/2025/US/HB1015
-US HB1016
-BATHROOM
-To prohibit individuals from accessing or using single-sex facilities on Federal property other than those corresponding to their biological sex, and for other purposes.
-To prohibit individuals from accessing or using single-sex facilities on Federal property other than those corresponding to their biological sex, and for other purposes.
-/bills/2025/US/HB1016
-US HB1017
-BATHROOM
-To prohibit an entity from receiving Federal funds if such entity permits an individual to access or use a single-sex facility on the property of such entity that does not correspond to the biological sex of such person, and for other purposes.
-To prohibit an entity from receiving Federal funds if such entity permits an individual to access or use a single-sex facility on the property of such entity that does not correspond to the biological sex of such person, and for other purposes.
-/bills/2025/US/HB1017
-US HB1028
-SPORTS
-To modify eligibility requirements for amateur sports governing organizations.
-------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mAttributeError[0m                            Traceback (most recent call last)
-Cell [0;32mIn[27], line 8[0m
-[1;32m      6[0m [38;5;28mprint[39m(item[38;5;241m.[39mspan[38;5;241m.[39mtext) [38;5;66;03m# category[39;00m
-[1;32m      7[0m [38;5;28mprint[39m(item[38;5;241m.[39mh2[38;5;241m.[39mtext) [38;5;66;03m# caption[39;00m
-[0;32m----> 8[0m [38;5;28mprint[39m([43mitem[49m[38;5;241;43m.[39;49m[43mp[49m[38;5;241;43m.[39;49m[43mtext[49m) [38;5;66;03m# description (if any)[39;00m
-[1;32m      9[0m [38;5;28mprint[39m(item[38;5;241m.[39ma[[38;5;124m'[39m[38;5;124mhref[39m[38;5;124m'[39m]) [38;5;66;03m# add https://translegislation.com/bills/2023/US[39;00m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 5[0m
+[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mrequests[39;00m [38;5;66;03m# to make https requests[39;00m
+[1;32m      4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mbs4[39;00m [38;5;28;01mimport[39;00m BeautifulSoup [38;5;66;03m# our web scraping library[39;00m
+[0;32m----> 5[0m [38;5;28;01mimport[39;00m [38;5;21;01mlxml[39;00m [38;5;66;03m# our parser (to handle html data)[39;00m
 
-[0;31mAttributeError[0m: 'NoneType' object has no attribute 'text'
+[0;31mModuleNotFoundError[0m: No module named 'lxml'
 
