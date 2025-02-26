@@ -17,8 +17,8 @@ parts:
   - file: gathering/what
   - file: gathering/inspector
   - file: gathering/scraping
-  - file: gathering/ethics
   - file: gathering/to-dataframe
+  - file: gathering/ethics
   - file: gathering/dicts
   - file: gathering/met_api
   - file: gathering/nyt_api

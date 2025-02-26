@@ -382,3 +382,148 @@ Lesson:
   - how would I do this to print out just bills that contain a certain
     word in them? 
 - group challenge: print out all of the components of a bill. 
+** week 5: web scraping 2
+Agenda:
+- review last week
+- build on scraping skills to save data as CSV
+- talk about ethics & legality, some roadblocks with web scraping
+- spend some time scraping websites
+
+Review last week
+- bs4 and requests
+  - check out bs4 library briefly
+- making the soup object
+  - what are attributes and methods?
+    - (like .text, .find, .find_all)
+- writing a loop to extract the bill numbers
+
+*** from html to csv
+- saving this data to a csv, for storage, analysis, etc.
+- multiple steps:
+  - isolate bill card data
+    - titles, captions, categories (we will add desc. and links later) 
+  - pick out the information we want from the data
+  - process information into lists
+  - adding more data (may skip)
+  - save to CSV 
+- first: from printing to saving to lists (no description)
+  - save each item as a variable to make it cleaner
+    - do not save decription yet. 
+  - create empty lists to hold the information
+  - add another block of code at the bottom of the loop that appends
+    the data.
+  - check the lists to see that everything works well.
+- second: now add description it will throw an error
+  - why did we get this error?
+  - group challenge:
+    - google this error, find out what it means.
+    - check out a solution from stack overflow.
+- third: adding URLs
+  - using f string to insert the href into the url
+  - then adding it to a new list
+#+begin_src python
+for item in bill_cards[:10]:
+    link = f('https://translegislation.com/{item.a['href']})
+    print(link)
+#+end_src
+- Finally, saving data to CSV:
+#+begin_src python
+  import pandas as pd
+  import csv
+
+  # creating the dataframe, passing lists as columns
+  df = pd.DataFrame( 
+    {'title': titles,
+     'caption': captions,
+     'category': categories,
+     'description': descriptions,
+     'url': urls,
+    })
+
+  df.head() # checking the first five lines
+
+  df.to_csv('bill_data.csv')  # saving the dataframe as a csv file
+
+#+end_src
+
+BREAK
+
+
+*** BREAK
+*** ethics and legality
+- focus is on ethics rather than legality
+  - more important to think about the effect your data gathering will
+    have on groups
+  - who is the data about?
+  - legality: most of what you do is protected under "fair use"
+- essential questions
+  - Who is the data about? Who owns the data? (often times, the data’s
+    owner is not the same as the person/group it describes)
+  - Does the data contain any personally identifying characteristics?
+    If so, what are the potential effects of these details being
+    shared or published?
+  - What do I intend to do with the data? (gather it, analyze it,
+    publish it online, all of the above, etc.)
+  - How will publishing the data affect the persons/group(s) that the
+    data describes?
+- The most important thing is to assess any vulnerabilities about the
+  people directly associated with the data. And this can only be
+  answered on a case by case basis. There is no standard that applies
+  to all groups.
+  - Trans legislation is not the same as gathering information about,
+    for example, resources for trans affirming care. In the wrong
+    hands, could be a problem.
+- Legal: some questions:
+  - is data publically available?
+  - Does website allow scraping?
+    - TOS, ~robots.txt~
+- a website that totally prohibits web scraping. Here, the Bill Track
+  50 website, which aggregates legislative data from across the United
+  States, has its robots.txt at
+  https://www.billtrack50.com/robots.txt. It contains the following
+  declaration:
+#+begin_src
+  User-agent: *
+  Disallow: /
+#+end_src
+  - The “user-agent” refers to the entity looking at the website,
+    whether that be a person or a bot. The asterisk is a “wild card,”
+    which means that it applies to all user-agents.
+- Track Trans Legislation, which mostly allows scraping. It does have
+  some limits, but only on the admin and bill-logs paths. Everything
+  else on the site is fair game:
+#+begin_src
+  User-agent: *
+  Disallow: /admin/
+  Disallow: /bill-logs
+#+end_src
+- However, even if the website is legally scrapable, it may not be
+  technically scrapable.
+- Dynamic elements are not scrapable.
+  - ACLU’s “Mapping Attacking on LGBTQ Rights in US State
+    Legislatures”
+- Bot blockers are not scrapable
+  - Congress.gov
+  - ~<title>Just a moment...</title>~
+
+*** data ethics is changing every day, now
+If we have the tools to do this work, we have to be strategic and
+think through the effects of our data gathering.
+
+Data that is gathered can be exploited. We live in a society that
+tries to monetize every bit of data about you.
+
+But I personally believe that data can also empower. We have to be
+strategic to think through the effects of gathering certain data, what
+kind of stories it can tell, what it might reveal.
+
+Especially now, when we are experiencing waves of intellectual
+suppression. 
+
+*** HTML and XML
+Look at standards from LOC.
+*** Start to work on a challenge:
+Write some code that scrapes the info about faculty at Pratt. Get the
+name, title, department.
+
+Advanced: click on the person link, and get their email address. 

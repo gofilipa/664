@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/scraping';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="what is ethical? what is legal?" href="ethics.html" />
+    <link rel="next" title="saving scraped data" href="to-dataframe.html" />
     <link rel="prev" title="the HTML Inspector" href="inspector.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -196,8 +196,8 @@
 <li class="toctree-l1"><a class="reference internal" href="what.html">what is web scraping?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inspector.html">the HTML Inspector</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="to-dataframe.html">saving scraped data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dicts.html">dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nyt_api.html">NYT API</a></li>
@@ -471,6 +471,19 @@ document.write(`
 
 <span class="kn">import</span> <span class="nn">requests</span> <span class="c1"># to make https requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> <span class="c1"># our web scraping library</span>
+<span class="kn">import</span> <span class="nn">lxml</span> <span class="c1"># our parser (to handle html data)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">requests</span> <span class="c1"># to make https requests</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> <span class="c1"># our web scraping library</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">lxml</span> <span class="c1"># our parser (to handle html data)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;lxml&#39;
 </pre></div>
 </div>
 </div>
@@ -479,11 +492,13 @@ document.write(`
 If you get an error with importing one of the above libraries, make sure you have them installed. On Jupyter, that means running the following in your Command Line program (like Terminal or Gitbash):</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install requests</span>
 <span class="go">pip install bs4</span>
+<span class="go">pip install lxml</span>
 </pre></div>
 </div>
-<p>On colab, run the same code, but put an exclamation before <code class="docutils literal notranslate"><span class="pre">pip</span></code>, like:</p>
+<p>On colab, run the same code, but within your python notebook. Be sure to put an exclamation before <code class="docutils literal notranslate"><span class="pre">pip</span></code>, like:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">!pip install requests</span>
 <span class="go">!pip install bs4</span>
+<span class="go">!pip install lxml</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
@@ -643,7 +658,7 @@ If you get an error with importing one of the above libraries, make sure you hav
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;US HB1015&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;US HB1064&#39;
 </pre></div>
 </div>
 </div>
@@ -825,27 +840,86 @@ If you get an error with importing one of the above libraries, make sure you hav
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>US HB1015
-US HB1016
-US HB1017
-US HB1028
-US HB1139
-US HB1282
-US HB28
-US HB461
-US HB498
-US HB600
-US HB653
-US HB742
-US HB800
-US HR26
-US HR47
-US SB209
-US SB312
-US SB74
-US SB9
-US SR21
-US SR22
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>US HB1064
+US HB1112
+US HB1276
+US HB1399
+US HB1490
+US HB1585
+US HB216
+US HB3101
+US HB3102
+US HB3328
+US HB3329
+US HB3462
+US HB3887
+US HB429
+US HB4365
+US HB4367
+US HB4398
+US HB4665
+US HB4821
+US HB5
+US HB5327
+US HB5636
+US HB5893
+US HB5894
+US HB6040
+US HB6258
+US HB6658
+US HB6728
+US HB7183
+US HB7187
+US HB734
+US HB736
+US HB7725
+US HB8070
+US HB8433
+US HB8580
+US HB8708
+US HB8752
+US HB8771
+US HB8774
+US HB8997
+US HB8998
+US HB9026
+US HB9027
+US HB9028
+US HB9029
+US HB9218
+US HB9586
+US HB985
+US HJR160
+US HJR165
+US HR115
+US HR1223
+US HR282
+US HR298
+US HR518
+US HR536
+US HR769
+US SB1595
+US SB1597
+US SB1709
+US SB187
+US SB200
+US SB2357
+US SB2394
+US SB2797
+US SB3035
+US SB3438
+US SB3729
+US SB435
+US SB457
+US SB4638
+US SB613
+US SB635
+US SB752
+US SJR90
+US SJR96
+US SR267
+US SR53
+US SR669
 </pre></div>
 </div>
 </div>
@@ -955,35 +1029,56 @@ US SR22SPORTSINTRODUCEDA resolution concerning the National Collegiate Athletic 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>US HB1015
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>US HB1064
+MILITARY
+Ensuring Military Readiness Act of 2023
+To provide requirements related to the eligibility of transgender individuals from serving in the Armed Forces.
+/bills/2024/US/HB1064
+US HB1112
+MILITARY
+Ensuring Military Readiness Act of 2023
+To provide requirements related to the eligibility of individuals who identify as transgender from serving in the Armed Forces.
+/bills/2024/US/HB1112
+US HB1276
 HEALTHCARE
-To amend title 18, United States Code, to provide for certain rules for housing or transportation based on gender and to provide for a limitation on gender-related medical treatment.
-To amend title 18, United States Code, to provide for certain rules for housing or transportation based on gender and to provide for a limitation on gender-related medical treatment.
-/bills/2025/US/HB1015
-US HB1016
-BATHROOM
-To prohibit individuals from accessing or using single-sex facilities on Federal property other than those corresponding to their biological sex, and for other purposes.
-To prohibit individuals from accessing or using single-sex facilities on Federal property other than those corresponding to their biological sex, and for other purposes.
-/bills/2025/US/HB1016
-US HB1017
-BATHROOM
-To prohibit an entity from receiving Federal funds if such entity permits an individual to access or use a single-sex facility on the property of such entity that does not correspond to the biological sex of such person, and for other purposes.
-To prohibit an entity from receiving Federal funds if such entity permits an individual to access or use a single-sex facility on the property of such entity that does not correspond to the biological sex of such person, and for other purposes.
-/bills/2025/US/HB1017
-US HB1028
-SPORTS
-To modify eligibility requirements for amateur sports governing organizations.
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="c1"># category</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">h2</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="c1"># caption</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="c1"># description (if any)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">])</span> <span class="c1"># add https://translegislation.com/bills/2023/US</span>
-
-<span class="ne">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;text&#39;
+Protect Minors from Medical Malpractice Act of 2023
+To protect children from medical malpractice in the form of gender transition procedures.
+/bills/2024/US/HB1276
+US HB1399
+HEALTHCARE
+Protect Children’s Innocence Act
+To amend chapter 110 of title 18, United States Code, to prohibit gender affirming care on minors, and for other purposes.
+/bills/2024/US/HB1399
+US HB1490
+INCARCERATION
+Preventing Violence Against Female Inmates Act of 2023
+To secure the dignity and safety of incarcerated women.
+/bills/2024/US/HB1490
+US HB1585
+EDUCATION
+Prohibiting Parental Secrecy Policies In Schools Act of 2023
+To require a State receiving funds pursuant to title II of the Elementary and Secondary Education Act of 1965 to implement a State policy to prohibit a school employee from conducting certain social gender transition interventions.
+/bills/2024/US/HB1585
+US HB216
+EDUCATION
+My Child, My Choice Act of 2023
+To prohibit Federal education funds from being provided to elementary schools that do not require teachers to obtain written parental consent prior to teaching lessons specifically related to gender identity, sexual orientation, or transgender studies, and for other purposes.
+/bills/2024/US/HB216
+US HB3101
+OTHER
+TPA Act Traditional Passport Act
+To prohibit the issuance of a passport with any gender designation other than &quot;male&quot; or &quot;female&quot;, and for other purposes.
+/bills/2024/US/HB3101
+US HB3102
+OTHER
+TSA Act Traditional Screening Application Act
+To prohibit the Transportation Security Administration from using the &quot;X&quot; gender designation in the TSA PreCheck advanced security program, and for other purposes.
+/bills/2024/US/HB3102
+US HB3328
+HEALTHCARE
+Protecting Children From Experimentation Act of 2023
+To amend chapter 110 of title 18, United States Code, to prohibit gender transition procedures on minors, and for other purposes.
+/bills/2024/US/HB3328
 </pre></div>
 </div>
 </div>
@@ -1033,11 +1128,11 @@ To modify eligibility requirements for amateur sports governing organizations.
       </div>
     </a>
     <a class="right-next"
-       href="ethics.html"
+       href="to-dataframe.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">what is ethical? what is legal?</p>
+        <p class="prev-next-title">saving scraped data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
