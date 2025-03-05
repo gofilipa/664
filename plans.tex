@@ -1,4 +1,4 @@
-% Created 2025-02-12 Wed 14:38
+% Created 2025-03-05 Wed 14:17
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -26,268 +26,250 @@
 
 \tableofcontents
 
-\section{week 3: python 2: lists to logic}
-\label{sec:org0b39f74}
+\section{week 6: apis}
+\label{sec:org363aad4}
 Agenda
 \begin{itemize}
-\item review challenge
-\item review last week's lessons on Python 1
-\item lessons for today: loops, logic
+\item look at LOC standards for XML
+\item begin work with APIs
 \begin{itemize}
-\item incorporate discussion of Butler's chapter
-\end{itemize}
-\item start working with CSV module
-\end{itemize}
-
-\subsection{review}
-\label{sec:orga147ad0}
-\begin{itemize}
-\item data types,
-\begin{itemize}
-\item \texttt{type()}
-\item what are they?
-\item how do we check them?
-\end{itemize}
-\item we save data by creating variables
-\item lists
-\begin{itemize}
-\item list indexing vs slicing
-\end{itemize}
-\item methods vs functions
-\begin{itemize}
-\item what are some functions and methods we learned?
-\item functions are independant
-\item methods depend on objects (also called properties, attributes)
-\item can tell in syntax
+\item dictionary structures - new data structure
+\item the MET API - beginner friendly
+\item end goal: to get data from MET databases into our own spreadsheet,
+curate that data a little bit.
 \end{itemize}
 \end{itemize}
 
+\subsection{HTML and XML}
+\label{sec:orgce3e50f}
+Look at standards from LOC.
 
-\subsection{review challenge}
-\label{sec:orgc721252}
-Create a list of words from a text, and do things to the list using
-list methods.
+\subsection{the dictionary data type}
+\label{sec:orga9e6fe2}
 
-Removing Gender Ideology and Restoring the EEOC’s Role of Protecting
-Women in the Workplace
-
-
-\subsection{butler}
-\label{sec:org2f81e67}
-What's her main argument?
-\begin{itemize}
-\item what's so scary?
-\begin{itemize}
-\item that people are currently afraid of gender, "the anti-gender
-ideology movement" stokes fear.
-\item gender ideology is a threat to children, society, the family,
-national security, to men and women, heterosexuality.
-\end{itemize}
-\item the contradictions:
-\begin{itemize}
-\item the vatican saying that something is a threat to children and the
-family, not considering their own harmful history here;
-\item how withholding sex education also withholds education around
-consent and just how sex works;
-\item using the right to gender as a way to take that right away from
-others.
-\end{itemize}
-\end{itemize}
-
-"Phantasm"
-\begin{itemize}
-\item drawing from psychology, to argue that the fear of gender draws from
-real world and pyschic forces, the conscious and unconscious.
-\begin{itemize}
-\item it becomes a substitute for anxiety about the world.
-\end{itemize}
-\item fear mongering is a way of getting people to agree, come into your
-ranks, subscribe.
-\end{itemize}
-
-\begin{quote}
-“According to this logic, the anti-gender movement is guided by an
-inflammatory syntax: that is, a way of ordering the world that absorbs
-and reproduces anxieties and fears about permeability, precarity,
-displacement, and replacement; loss of patriarchal power in both the
-family and state; and loss of white supremacy and national purity” 22
-\end{quote}
-
-Resistance
-\begin{itemize}
-\item produce a "counter vision".
-\end{itemize}
-
-\begin{quote}
-“It is up to us to produce a compelling counter-vision, one that would
-affirm the rights and freedoms of embodied life that we can, and
-should, protect. For in the end, defeating this phantasm is a matter
-of affirming how one loves, how one lives in one’s body, the right to
-exist in the world without fear of violence or discrimination, to
-breathe, to move, to live.” 17
-\end{quote}
-
-\begin{quote}
-“What form of critical imagination would be powerful enough to oppose
-the phantasm? What would it mean to create a form of solidarity and
-concerted imagining that would have the power to expose and defeat the
-cruel norms and sadistic trends that travel under the name of the
-anti–gender ideology movement?” (37).
-\end{quote}
-
-\subsection{loops}
-\label{sec:orgf0cc56a}
-How we do things to data.
-\begin{itemize}
-\item types of data for categorizing data; variables for saving data; how
-to work with lists of data; now, how to do things to
-lists/groupings.
-\begin{itemize}
-\item also works with strings
-\end{itemize}
-\item syntax: for item in collection: print(item).
-\begin{itemize}
-\item practice with both lists and strings
-\end{itemize}
-\item a note on variable names:
-\begin{itemize}
-\item the variable following "for" is assigned on the fly
-\end{itemize}
-\item f-strings
-\end{itemize}
-
-String Methods
-\begin{itemize}
-\item how to do things to strings within loops
-\item 'HELLO'.lower()
-\item make a list of cities, and make them all lowercasee
-\item now save that list to a new list, an empty list
-\begin{itemize}
-\item why would we want to do this?
-\end{itemize}
-\end{itemize}
-
-\subsubsection{Group challenge:}
-\label{sec:org96532d4}
-\begin{itemize}
-\item list of prime numbers and their squares, using f strings.
-\end{itemize}
-
-\subsection{logic}
-\label{sec:orge6c9b26}
-Boolean data
-\begin{itemize}
-\item type() -> True or False
-\item evaluates mathematical expressions
-\begin{itemize}
-\item different operators, look them up. Many different kinds.
-\end{itemize}
-\item if statement for checking age
-\begin{itemize}
-\item multiple conditions
-\end{itemize}
-\end{itemize}
-
-Combining loops with logic:
-\begin{itemize}
-\item DEFENDING WOMEN FROM GENDER IDEOLOGY EXTREMISM AND RESTORING
-BIOLOGICAL TRUTH TO THE FEDERAL GOVERNMENT
-\item if it contains the word "gender", "protect", or others, we will
-print.
-\end{itemize}
+What is a dict? key:value pairs
 
 \begin{verbatim}
-for i in text.split('.'):
-    if 'binary' in i:
-        print(i)
+  filipa = {
+    'name': ['filipa', 'da gama', 'calado'],
+    'age': 35,
+    'degree': 'literature',
+    'jobs': ['professor', 'digital scholarship specialist', 'student']
+
+  # access items with brackets, the 'key'
+
+  filipa['jobs'] # 'professor'...
+  filipa['age'] # 35
+
+  # access items within a column, like list indexing
+
+  filipa['name'][1] # 'da gama'
+}
+
+
 \end{verbatim}
-
-\subsection{BREAK}
-\label{sec:orgdc856a3}
-
-\subsection{csv module}
-\label{sec:org95fe6e5}
+\subsection{the MET API}
+\label{sec:org6891e2d}
+Order of things we will do
 \begin{itemize}
-\item csv module
-\begin{itemize}
-\item what is a module? a collection of code for doing something, in
-this case, for opening csv files
-\item read a little of the docs on CSV module, reader
+\item construct the API request (URL)
+\item make the request
+\item parse/format our response
+\item with information from that response, make another call to get more
+information.
 \end{itemize}
 
-\item printing rows from csv on \href{https://data.cityofnewyork.us/City-Government/Enforcement-Actions-Board-Determinations-and-Penal/xrxs-qn95/about\_data}{Campaign Violations}:
-\begin{itemize}
-\item import csv
-\item open the file with open statement
-\item print the rows
-\end{itemize}
-\end{itemize}
+\subsubsection{the anatomy of an API request:}
+\label{sec:orgcb1d5f9}
 
-\begin{verbatim}
-with open('./Downloads/Enforcement_Actions_Board_Determinations_and_Penalties_20250210.csv') as f:
-    data = csv.reader(f)
-    for row in data:
-        print(row)
-\end{verbatim}
-
-How do we get just the first object from each column? The names?
-\begin{itemize}
-\item breakup the problem into parts
-\item check the type of data(s)
-\item how do we access info from a list?
-\end{itemize}
+3 parts of an API: the base url, the path, the query.
 
 \begin{verbatim}
 
-with open ('violations_sample.csv', 'r') as f:
-    data = csv.reader(f)
-    for row in data:
-        print(row[1])
+base_url = "https://collectionapi.metmuseum.org" # root of the website
+path = "/public/collection/v1/search" # directory structure, folders
+query = "?q=woman" # parameter, endpoint - keyword/specifications
+
+# our request
+women = requests.get(f'{base_url}{path}{query}')
+
+# should say 200
+women
 
 \end{verbatim}
 
-\subsubsection{group challenge: Combining logic, loops, and csv:}
-\label{sec:orgb09298e}
-\begin{itemize}
-\item search for a specific candidate name in the dataset
-\item print out all rows containing that candidate's name
-\item advanced: print out only the date and the violation
-\end{itemize}
+All you need for an API is a URL. An HTTP request. 
 
+Some URLs contain requests embedded inside of them. If you know how to
+look.
+
+\subsubsection{inspecting objects: two functions: type() and dir()}
+\label{sec:orgf5e4e97}
+
+Using type() and dir() to better understand our response data. The end
+goal is to sift through the data to discover interesting things.
 
 \begin{verbatim}
-with open('violations.csv', 'r') as f:
-  data = csv.reader(f)
-  for row in data:
-      if "Eric" in row[1]:
-          print(row)
+
+# what type of object do we have?
+
+type(women)
+
+# What can we do with a Response object? Spend a couple of minutes exploring the different methods.
+dir(women)
+
 \end{verbatim}
 
-\subsubsection{advanced challenge (that I'll walk you through)}
-\label{sec:org9669b28}
-Combine what we know from the above with f-strings to write more
-complex output.
-
-Write a loop that prints out the Candidate’s name and Violation if
-that violation contains the word “contribution” in it. Use f-strings
-so that you can format the answer the following:
-
-Name: [candidate name], Violation: [candidate violation]
-
-Here’s the answer, but don’t look until you’ve spent at least 5
-mintues working on it!
+\subsubsection{.json() to parse our response object}
+\label{sec:org141a67a}
 
 \begin{verbatim}
-with open ('violations.csv', 'r') as f:
-  dict_reader = csv.reader(f)
-  for row in dict_reader:
-      violation = row[3]
-      if "contribution" in violation:
-          candidate = row[1]
-          print(f'Name: {candidate}, Violation: {violation}')
+
+# why do we need to add parenthesis? 
+  parsed = women.json()
+
+  # what is it
+  type(parsed)
+
+  # what can we do with it
+  dir(parsed)
+
+  # check out the keys
+  parsed.keys()
+
 \end{verbatim}
 
+\subsubsection{accessing items from a dict}
+\label{sec:org0451d6c}
 
-\subsection{next week: web scraping!}
-\label{sec:org4836bfd}
+\begin{verbatim}
+
+# how would we get the object ids?
+
+parsed['objectIDs']
+
+# how would we get just the first object id?
+
+first = parsed['objectIDs'][0]
+
+\end{verbatim}
+
+\subsubsection{using the “objects” endpoint}
+\label{sec:org5f5ef50}
+
+We can use this first object to create a new request. This time, using
+a different path, the "objects" path.
+
+\begin{verbatim}
+
+objects_path = '/public/collection/v1/objects/'
+
+url = f'{base_url}{objects_path}{first}'
+
+first_object = requests.get(url)
+
+
+\end{verbatim}
+
+Inspecting our new response object, parsing the results
+
+\begin{verbatim}
+# checking the resulting object
+first_object
+
+# the response is just like before. 
+type(first_object)
+dir(first_object)
+
+# parsing the object:
+
+first_object.json()
+\end{verbatim}
+
+See all the data about this object.
+
+See the objectURL? Copy and paste it into your browser.
+
+\subsubsection{reading documentation: individual challenge}
+\label{sec:org7fa3185}
+Look at the docs, see the different paths and parameters.
+
+Pratice searching using another parameter for the search endpoint. And
+then, take the results of that search and look for the objects. 
+
+\subsubsection{looping through our objects}
+\label{sec:org5e79620}
+
+We are going to automate the collection of object metadata. How?
+
+Making a list of objectIDs that we can loop through, and for each one,
+make a new request using the "objects" path.
+
+\begin{verbatim}
+# just the first ten
+ids = parsed['objectIDs'][:10]
+
+# start small, just print the ids for now
+for item in ids:
+  print(item)
+
+# add pseudocode, then fill it in
+# what are the steps we need to take?
+
+first_ten = []
+for item in ids:
+
+    # passing the objectID variable into the URL
+    base_url = 'https://collectionapi.metmuseum.org'
+    path = '/public/collection/v1/objects/'
+    url = f'{base_url}{path}{item}'
+
+    # grabbing our response for that object
+    response = requests.get(url)
+
+    # parsing our response with json
+    parsed = response.json()
+
+    # appending the response to our new list
+    first_ten.append(parsed)
+
+# check the content.
+type(first_ten)
+
+\end{verbatim}
+
+Write a loop to print out information about some of the keys for each
+object. For example, print out the value of artistDisplayName.
+
+\begin{verbatim}
+for item in first_ten:
+  print(item['artistDisplayName'])
+\end{verbatim}
+
+\subsubsection{group challenge}
+\label{sec:org5cc3eca}
+Google the error.
+
+There are two ways: conditional statement and creating a variable
+\begin{verbatim}
+
+for item in first_ten:
+  if item.get('artistDisplayName'):
+      print(item['artistDisplayName'])
+
+
+for item in first_ten:
+    title = item.get('artistDisplayName')
+    print(title)
+\end{verbatim}
+
+\subsubsection{about “women”}
+\label{sec:orgcef25c5}
+Try it with gender. Why do you think we see only female?
+
+\subsubsection{saving to DataFrame}
+\label{sec:orgccb8f37}
+
+\subsubsection{data anlaysis with pandas}
+\label{sec:orgae30460}
 \end{document}
