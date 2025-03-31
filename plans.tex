@@ -1,4 +1,4 @@
-% Created 2025-03-05 Wed 14:17
+% Created 2025-03-12 Wed 14:39
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -26,250 +26,300 @@
 
 \tableofcontents
 
-\section{week 6: apis}
-\label{sec:org363aad4}
-Agenda
+\section{week 7: apis continued}
+\label{sec:org8f7ae74}
+Goals:
 \begin{itemize}
-\item look at LOC standards for XML
-\item begin work with APIs
+\item review MET API,
 \begin{itemize}
-\item dictionary structures - new data structure
-\item the MET API - beginner friendly
-\item end goal: to get data from MET databases into our own spreadsheet,
-curate that data a little bit.
+\item how to request, parse, and extract data
+\item start to do a little data analysis of results
+\end{itemize}
+\item examine concepts: authentication \& pagination
+\begin{itemize}
+\item NYT API
+\item self guided exploration of NYPL API
+\end{itemize}
+\item discuss article, start to brainstrom what we want to do
+\end{itemize}
+
+\subsection{review: API requests, methods, calls (20m)}
+\label{sec:orgf027e9d}
+\begin{itemize}
+\item discuss the anatomy of an API request
+\begin{itemize}
+\item root, path, endpoint
+\item making the call
+\end{itemize}
+\item go over some useful methods for working with API data
+\begin{itemize}
+\item dir(), json(), keys()
+\end{itemize}
+\item using different paths: review documentation for the MET API: 
+\begin{itemize}
+\item search path
+\item object path
 \end{itemize}
 \end{itemize}
 
-\subsection{HTML and XML}
-\label{sec:orgce3e50f}
-Look at standards from LOC.
-
-\subsection{the dictionary data type}
-\label{sec:orga9e6fe2}
-
-What is a dict? key:value pairs
-
 \begin{verbatim}
-  filipa = {
-    'name': ['filipa', 'da gama', 'calado'],
-    'age': 35,
-    'degree': 'literature',
-    'jobs': ['professor', 'digital scholarship specialist', 'student']
+base_url = "https://collectionapi.metmuseum.org"
+path = "/public/collection/v1/search"
+query = "?q=woman"
 
-  # access items with brackets, the 'key'
+url = f'{base_url}{path}{query}'
+r = requests.get(url)
 
-  filipa['jobs'] # 'professor'...
-  filipa['age'] # 35
+type(r)
+dir(r)
 
-  # access items within a column, like list indexing
+parsed = r.json()
 
-  filipa['name'][1] # 'da gama'
-}
-
+parsed.keys()
 
 \end{verbatim}
-\subsection{the MET API}
-\label{sec:org6891e2d}
-Order of things we will do
+
+\subsection{looping through results to make many calls (20m)}
+\label{sec:orgd85b085}
 \begin{itemize}
-\item construct the API request (URL)
-\item make the request
-\item parse/format our response
-\item with information from that response, make another call to get more
-information.
+\item we are going to grab a bunch of these, create a dataset of works.
+\item let's start with the first fifty, saving them to a list:
+\begin{itemize}
+\item get the IDs, make a list.
+\end{itemize}
+\item write a loop that:
+\begin{itemize}
+\item makes a call to the objects path
+\item parses the json
+\item saves to a relevant list
+\end{itemize}
 \end{itemize}
 
-\subsubsection{the anatomy of an API request:}
-\label{sec:orgcb1d5f9}
-
-3 parts of an API: the base url, the path, the query.
-
 \begin{verbatim}
-
-base_url = "https://collectionapi.metmuseum.org" # root of the website
-path = "/public/collection/v1/search" # directory structure, folders
-query = "?q=woman" # parameter, endpoint - keyword/specifications
-
-# our request
-women = requests.get(f'{base_url}{path}{query}')
-
-# should say 200
-women
-
-\end{verbatim}
-
-All you need for an API is a URL. An HTTP request. 
-
-Some URLs contain requests embedded inside of them. If you know how to
-look.
-
-\subsubsection{inspecting objects: two functions: type() and dir()}
-\label{sec:orgf5e4e97}
-
-Using type() and dir() to better understand our response data. The end
-goal is to sift through the data to discover interesting things.
-
-\begin{verbatim}
-
-# what type of object do we have?
-
-type(women)
-
-# What can we do with a Response object? Spend a couple of minutes exploring the different methods.
-dir(women)
-
-\end{verbatim}
-
-\subsubsection{.json() to parse our response object}
-\label{sec:org141a67a}
-
-\begin{verbatim}
-
-# why do we need to add parenthesis? 
-  parsed = women.json()
-
-  # what is it
-  type(parsed)
-
-  # what can we do with it
-  dir(parsed)
-
-  # check out the keys
-  parsed.keys()
-
-\end{verbatim}
-
-\subsubsection{accessing items from a dict}
-\label{sec:org0451d6c}
-
-\begin{verbatim}
-
-# how would we get the object ids?
-
-parsed['objectIDs']
-
-# how would we get just the first object id?
-
-first = parsed['objectIDs'][0]
-
-\end{verbatim}
-
-\subsubsection{using the “objects” endpoint}
-\label{sec:org5f5ef50}
-
-We can use this first object to create a new request. This time, using
-a different path, the "objects" path.
-
-\begin{verbatim}
-
-objects_path = '/public/collection/v1/objects/'
-
-url = f'{base_url}{objects_path}{first}'
-
-first_object = requests.get(url)
-
-
-\end{verbatim}
-
-Inspecting our new response object, parsing the results
-
-\begin{verbatim}
-# checking the resulting object
-first_object
-
-# the response is just like before. 
-type(first_object)
-dir(first_object)
-
-# parsing the object:
-
-first_object.json()
-\end{verbatim}
-
-See all the data about this object.
-
-See the objectURL? Copy and paste it into your browser.
-
-\subsubsection{reading documentation: individual challenge}
-\label{sec:org7fa3185}
-Look at the docs, see the different paths and parameters.
-
-Pratice searching using another parameter for the search endpoint. And
-then, take the results of that search and look for the objects. 
-
-\subsubsection{looping through our objects}
-\label{sec:org5e79620}
-
-We are going to automate the collection of object metadata. How?
-
-Making a list of objectIDs that we can loop through, and for each one,
-make a new request using the "objects" path.
-
-\begin{verbatim}
-# just the first ten
-ids = parsed['objectIDs'][:10]
-
-# start small, just print the ids for now
+first_fifty = []
 for item in ids:
-  print(item)
-
-# add pseudocode, then fill it in
-# what are the steps we need to take?
-
-first_ten = []
-for item in ids:
-
     # passing the objectID variable into the URL
     base_url = 'https://collectionapi.metmuseum.org'
     path = '/public/collection/v1/objects/'
     url = f'{base_url}{path}{item}'
-
     # grabbing our response for that object
     response = requests.get(url)
-
     # parsing our response with json
     parsed = response.json()
-
     # appending the response to our new list
-    first_ten.append(parsed)
-
-# check the content.
-type(first_ten)
-
+    first_fifty.append(parsed)
 \end{verbatim}
 
-Write a loop to print out information about some of the keys for each
-object. For example, print out the value of artistDisplayName.
+Dealing with errors: two ways: if statements and variables, with get()
 
 \begin{verbatim}
-for item in first_ten:
-  print(item['artistDisplayName'])
-\end{verbatim}
-
-\subsubsection{group challenge}
-\label{sec:org5cc3eca}
-Google the error.
-
-There are two ways: conditional statement and creating a variable
-\begin{verbatim}
-
-for item in first_ten:
+for item in first_fifty:
   if item.get('artistDisplayName'):
-      print(item['artistDisplayName'])
+    print(item['artistDisplayName'])
 
-
-for item in first_ten:
-    title = item.get('artistDisplayName')
-    print(title)
+for item in first_fiftu: 
+  title = item.get('artistDisplayName')
+  print(title)
 \end{verbatim}
 
-\subsubsection{about “women”}
-\label{sec:orgcef25c5}
-Try it with gender. Why do you think we see only female?
+Put it into a dataframe. Make a couple of charts - pie chart, bar
+chart, just for demonstration
 
-\subsubsection{saving to DataFrame}
-\label{sec:orgccb8f37}
+\begin{verbatim}
+# let's get a bunch of this data into lists
 
-\subsubsection{data anlaysis with pandas}
-\label{sec:orgae30460}
+titles = []
+names = []
+genders = []
+depts = []
+countries = []
+urls = []
+
+for item in first_fifty:
+    title = item.get('artistGender')
+    titles.append(title)
+    name = item.get('artistDisplayName')
+    names.append(name)
+    gender = item.get('artistGender')
+    genders.append(gender)
+    dept = item.get('department')
+    depts.append(dept)
+    country = item.get('country')
+    countries.append(country)
+    url = item.get('objectURL')
+    urls.append(url)
+
+import pandas as pd
+
+df = pd.DataFrame({
+  'title': titles,
+  'name': names,
+  'gender': genders,
+  'department': depts,
+  'country': countries,
+  'link': urls
+})
+
+df.info()
+
+df.value_counts('department')
+
+df.department.value_counts().plot(kind = 'barh')
+
+df.department.value_counts().plot(kind = 'pie')
+\end{verbatim}
+
+\subsection{authentication \& pagination: NYTimes API (40m)}
+\label{sec:org1b5f5a7}
+
+Creating API calls with keys
+\begin{itemize}
+\item requesting an API key
+\item adding the key
+\end{itemize}
+
+\begin{verbatim}
+# key
+key = 'HHhPAjnfEF2EmLtf9PdGsLEQZizR3iQu'
+
+# query
+query = 'migrant'
+
+# base URL
+url = f'https://api.nytimes.com/svc/search/v2/articlesearch.json?&q={query}&api-key={key}'
+
+response = requests.get(url)
+
+response # 200
+
+type(response) # Response
+
+\end{verbatim}
+
+Understanding our structure
+\begin{itemize}
+\item parse our data
+\item we find different structure of data
+\begin{itemize}
+\item keep going deeper into the data using keys()
+\end{itemize}
+\end{itemize}
+
+\begin{verbatim}
+parsed = response.json()
+
+parsed.keys() # dict_keys(['status', 'copyright', 'response'])
+
+parsed['response'].keys() # dict_keys(['docs', 'meta'])
+
+type(parsed['response']['meta']) # dict
+
+parsed['response']['meta']
+
+type(parsed['response']['docs']) # list
+
+# The very first item in `docs` appears to be information about a
+# single article.
+
+parsed['response']['docs'][0]
+
+parsed['response']['docs'][0].keys()
+
+# If I wanted to proceed to get this data, I would write a loop and
+# assign variables
+\end{verbatim}
+
+Paginating through results
+\begin{itemize}
+\item We have 10 articles, because the NYTimes API only allows us to get
+10 results at a time.
+\item We can paginate through the results by adding an \&page= parameter,
+combined with a sleep() function, which allows us to insert pauses
+in our request (as to not overload the NYTimes servers).
+\item write a loop that goes through a range() of 5 pages, and does a
+search for each page.
+\item append the results for each page to a list called results
+\item check out our results, where is our data?
+\end{itemize}
+
+\begin{verbatim}
+results = []
+query = 'migrant'
+
+for i in range(0, 5):  
+    url = f'https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&page={i}&api-key={key}'
+    response = requests.get(url)
+    parsed = response.json()
+    articles = parsed['response']['docs']
+    results.append(articles)
+    sleep(6) # sleep at least 6 seconds not to overload the servers
+\end{verbatim}
+
+In the end, we have a list of results, 5 lists to be exact (each list
+represents one page of articles). Each result (or page) contains
+information about 10 articles that matched our search.
+
+\begin{verbatim}
+
+results[0][0].keys() # for the very first item on the very first page. 
+
+results[0][0]['abstract']
+
+\end{verbatim}
+
+
+BREAK
+\subsection{group challenge: the NYPL API}
+\label{sec:org700b823}
+Walk them through the authentication process. 
+
+Challenge: use the search path, and figure out a way to get more
+information about the individual objects in the search path results.
+
+\subsection{discuss artivism article}
+\label{sec:orgfab6cf4}
+
+What is "data artivism"?
+\begin{itemize}
+\item works that mobilize art and craft as tools of social contestation
+and (de)construction and as methods to engage with and visualize
+data
+\item not just about making things accessible that weren't before, not
+about representation through presence. But about changing \emph{how} we
+see things.
+\end{itemize}
+
+Buidling on concept of "counterdata"
+
+\begin{quote}
+The production of “counterdata” (D’Ignazio and Klein, 2020) on
+feminicide—a careful practice that involves researching, recording,
+and remembering the lives of women lost to violence (D’Ignazio et al.,
+2022)—has been a key practice for activists to visibilizar the issue.
+With their data, activists hope to move society from silence and
+indifference to outrage and action (Suárez Val, 2021). They also aim
+to contest the hegemonic visuality of feminicide: “an aesthetic order
+[…] made up of structures of visibility and invisibility that classify
+and separate individuals into grievable, political lives and
+culturally objectified lives” (Blaagaard, 2019: 253) that is dominated
+by often glamorized mainstream representations of violence against
+women, such as crime shows or news coverage.
+\end{quote}
+
+The point of amassing this data is not only to make what is not often
+visualized more visible, but to also change the kind of visiblity that
+a topic usually gets: with gender-based violence, we have a lot of
+gratuitous representations in movies, the battered woman, for example,
+we also have crime shows.
+
+There's an example of a visualization project, "No estamos todas",
+that doesn't just enumerate the number of deaths, but to remember them
+by their beauty. They "create an illustration for each woman to
+remember her in life, not as another crime statistic."
+
+A possibility for your project, thinking about using your project for
+taking data and maybe presenting it in another way. 
+
+This kind of "data artivism" wants to represent data, differently to
+move people to action instead of just spectating.
 \end{document}

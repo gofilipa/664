@@ -196,29 +196,23 @@
 <li class="toctree-l1"><a class="reference internal" href="what.html">what is web scraping?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inspector.html">the HTML Inspector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="to-dataframe.html">saving scraped data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dicts.html">dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="met_api.html">The MET API</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">NYT API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legiscan_api.html">Legiscan API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="karol.html">Genius API</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
-</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../analyze/pandas.html">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../analyze/pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/cleaning/cleaning.html">cleaning our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/pandas.html">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/generating/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/generating/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/generating/fine-tune.html">fine-tuning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">publishing</span></p>
 <ul class="nav bd-sidenav">
@@ -640,7 +634,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;hits&#39;: 32482, &#39;offset&#39;: 0, &#39;time&#39;: 38}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;hits&#39;: 32736, &#39;offset&#39;: 0, &#39;time&#39;: 31}
 </pre></div>
 </div>
 </div>
@@ -666,24 +660,24 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;abstract&#39;: &#39;Undocumented workers help feed America’s hunger for prepared foods, but some take jobs with staffing agencies that expose them to hazardous conditions.&#39;,
- &#39;web_url&#39;: &#39;https://www.nytimes.com/2024/12/21/us/immigration-undocumented-workers-jobs.html&#39;,
- &#39;snippet&#39;: &#39;Undocumented workers help feed America’s hunger for prepared foods, but some take jobs with staffing agencies that expose them to hazardous conditions.&#39;,
- &#39;lead_paragraph&#39;: &#39;On a brilliant day three years ago, a grieving crowd gathered on the South Side of Chicago to bury Adewale Ezekiel Ogunyemi.&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;abstract&#39;: &#39;A divide between Oklahoma’s governor and schools chief over undocumented students may mark the outer limits of acceptable immigration enforcement, or the next frontier.&#39;,
+ &#39;web_url&#39;: &#39;https://www.nytimes.com/2025/03/28/us/oklahoma-republican-fight.html&#39;,
+ &#39;snippet&#39;: &#39;A divide between Oklahoma’s governor and schools chief over undocumented students may mark the outer limits of acceptable immigration enforcement, or the next frontier.&#39;,
+ &#39;lead_paragraph&#39;: &#39;Oklahoma’s conservative Republican governor, Kevin Stitt, and its conservative Republican schools superintendent have appeared to stand shoulder-to-shoulder in the years of Donald J. Trump, with the former sending Oklahoma guardsmen to the southern border and the latter stocking the state’s schools with Trump-branded Bibles. &#39;,
  &#39;print_section&#39;: &#39;A&#39;,
- &#39;print_page&#39;: &#39;1&#39;,
+ &#39;print_page&#39;: &#39;18&#39;,
  &#39;source&#39;: &#39;The New York Times&#39;,
  &#39;multimedia&#39;: [{&#39;rank&#39;: 0,
    &#39;subtype&#39;: &#39;xlarge&#39;,
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-articleLarge.jpg&#39;,
-   &#39;height&#39;: 450,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-articleLarge.jpg&#39;,
+   &#39;height&#39;: 400,
    &#39;width&#39;: 600,
-   &#39;legacy&#39;: {&#39;xlarge&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-articleLarge.jpg&#39;,
+   &#39;legacy&#39;: {&#39;xlarge&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-articleLarge.jpg&#39;,
     &#39;xlargewidth&#39;: 600,
-    &#39;xlargeheight&#39;: 450},
+    &#39;xlargeheight&#39;: 400},
    &#39;subType&#39;: &#39;xlarge&#39;,
    &#39;crop_name&#39;: &#39;articleLarge&#39;},
   {&#39;rank&#39;: 0,
@@ -691,8 +685,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-popup.jpg&#39;,
-   &#39;height&#39;: 487,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-popup.jpg&#39;,
+   &#39;height&#39;: 433,
    &#39;width&#39;: 650,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;popup&#39;,
@@ -702,8 +696,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-blog480.jpg&#39;,
-   &#39;height&#39;: 360,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-blog480.jpg&#39;,
+   &#39;height&#39;: 320,
    &#39;width&#39;: 480,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;blog480&#39;,
@@ -713,8 +707,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-blog533.jpg&#39;,
-   &#39;height&#39;: 399,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-blog533.jpg&#39;,
+   &#39;height&#39;: 355,
    &#39;width&#39;: 533,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;blog533&#39;,
@@ -724,8 +718,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-blog427.jpg&#39;,
-   &#39;height&#39;: 320,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-blog427.jpg&#39;,
+   &#39;height&#39;: 285,
    &#39;width&#39;: 427,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;blog427&#39;,
@@ -735,8 +729,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-tmagSF.jpg&#39;,
-   &#39;height&#39;: 271,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-tmagSF.jpg&#39;,
+   &#39;height&#39;: 241,
    &#39;width&#39;: 362,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;tmagSF&#39;,
@@ -746,8 +740,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-tmagArticle.jpg&#39;,
-   &#39;height&#39;: 444,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-tmagArticle.jpg&#39;,
+   &#39;height&#39;: 395,
    &#39;width&#39;: 592,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;tmagArticle&#39;,
@@ -757,8 +751,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-slide.jpg&#39;,
-   &#39;height&#39;: 450,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-slide.jpg&#39;,
+   &#39;height&#39;: 400,
    &#39;width&#39;: 600,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;slide&#39;,
@@ -768,8 +762,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-jumbo.jpg&#39;,
-   &#39;height&#39;: 768,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-jumbo.jpg&#39;,
+   &#39;height&#39;: 683,
    &#39;width&#39;: 1024,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;jumbo&#39;,
@@ -779,8 +773,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-superJumbo.jpg&#39;,
-   &#39;height&#39;: 1535,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-superJumbo.jpg&#39;,
+   &#39;height&#39;: 1366,
    &#39;width&#39;: 2048,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;superJumbo&#39;,
@@ -790,8 +784,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-blog225.jpg&#39;,
-   &#39;height&#39;: 169,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-blog225.jpg&#39;,
+   &#39;height&#39;: 150,
    &#39;width&#39;: 225,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;blog225&#39;,
@@ -801,8 +795,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-master1050.jpg&#39;,
-   &#39;height&#39;: 787,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-master1050.jpg&#39;,
+   &#39;height&#39;: 700,
    &#39;width&#39;: 1050,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;master1050&#39;,
@@ -812,8 +806,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-master675.jpg&#39;,
-   &#39;height&#39;: 506,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-master675.jpg&#39;,
+   &#39;height&#39;: 450,
    &#39;width&#39;: 675,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;master675&#39;,
@@ -823,8 +817,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-master495.jpg&#39;,
-   &#39;height&#39;: 371,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-master495.jpg&#39;,
+   &#39;height&#39;: 330,
    &#39;width&#39;: 495,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;master495&#39;,
@@ -834,8 +828,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-master180.jpg&#39;,
-   &#39;height&#39;: 135,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-master180.jpg&#39;,
+   &#39;height&#39;: 120,
    &#39;width&#39;: 180,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;master180&#39;,
@@ -845,8 +839,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-master315.jpg&#39;,
-   &#39;height&#39;: 236,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-master315.jpg&#39;,
+   &#39;height&#39;: 210,
    &#39;width&#39;: 315,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;master315&#39;,
@@ -856,8 +850,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-master768.jpg&#39;,
-   &#39;height&#39;: 576,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-master768.jpg&#39;,
+   &#39;height&#39;: 512,
    &#39;width&#39;: 768,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;master768&#39;,
@@ -867,10 +861,10 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-thumbStandard.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-thumbStandard.jpg&#39;,
    &#39;height&#39;: 75,
    &#39;width&#39;: 75,
-   &#39;legacy&#39;: {&#39;thumbnail&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-thumbStandard.jpg&#39;,
+   &#39;legacy&#39;: {&#39;thumbnail&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-thumbStandard.jpg&#39;,
     &#39;thumbnailwidth&#39;: 75,
     &#39;thumbnailheight&#39;: 75},
    &#39;subType&#39;: &#39;thumbnail&#39;,
@@ -880,7 +874,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-blogSmallThumb.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-blogSmallThumb.jpg&#39;,
    &#39;height&#39;: 50,
    &#39;width&#39;: 50,
    &#39;legacy&#39;: {},
@@ -891,7 +885,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-thumbLarge.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-thumbLarge.jpg&#39;,
    &#39;height&#39;: 150,
    &#39;width&#39;: 150,
    &#39;legacy&#39;: {},
@@ -902,7 +896,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-smallSquare168.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-smallSquare168.jpg&#39;,
    &#39;height&#39;: 168,
    &#39;width&#39;: 168,
    &#39;legacy&#39;: {},
@@ -913,7 +907,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-smallSquare252.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-smallSquare252.jpg&#39;,
    &#39;height&#39;: 252,
    &#39;width&#39;: 252,
    &#39;legacy&#39;: {},
@@ -924,7 +918,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-square320.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-square320.jpg&#39;,
    &#39;height&#39;: 320,
    &#39;width&#39;: 320,
    &#39;legacy&#39;: {},
@@ -935,7 +929,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-moth.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-moth.jpg&#39;,
    &#39;height&#39;: 151,
    &#39;width&#39;: 151,
    &#39;legacy&#39;: {},
@@ -946,7 +940,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-filmstrip.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-filmstrip.jpg&#39;,
    &#39;height&#39;: 190,
    &#39;width&#39;: 190,
    &#39;legacy&#39;: {},
@@ -957,7 +951,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-square640.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-square640.jpg&#39;,
    &#39;height&#39;: 640,
    &#39;width&#39;: 640,
    &#39;legacy&#39;: {},
@@ -968,7 +962,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-mediumSquare149.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumSquare149.jpg&#39;,
    &#39;height&#39;: 149,
    &#39;width&#39;: 149,
    &#39;legacy&#39;: {},
@@ -979,8 +973,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-mediumSquareAt3X.jpg&#39;,
-   &#39;height&#39;: 1799,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumSquareAt3X.jpg&#39;,
+   &#39;height&#39;: 1800,
    &#39;width&#39;: 1800,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;mediumSquareAt3X&#39;,
@@ -990,7 +984,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-sfSpan.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-sfSpan.jpg&#39;,
    &#39;height&#39;: 263,
    &#39;width&#39;: 395,
    &#39;legacy&#39;: {},
@@ -1001,7 +995,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-largeHorizontal375.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-largeHorizontal375.jpg&#39;,
    &#39;height&#39;: 250,
    &#39;width&#39;: 375,
    &#39;legacy&#39;: {},
@@ -1012,8 +1006,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-largeHorizontalJumbo.jpg&#39;,
-   &#39;height&#39;: 682,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-largeHorizontalJumbo.jpg&#39;,
+   &#39;height&#39;: 683,
    &#39;width&#39;: 1024,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;largeHorizontalJumbo&#39;,
@@ -1023,9 +1017,9 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-horizontalMediumAt2X.jpg&#39;,
-   &#39;height&#39;: 5511,
-   &#39;width&#39;: 8272,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-horizontalMediumAt2X.jpg&#39;,
+   &#39;height&#39;: 2667,
+   &#39;width&#39;: 4000,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;horizontalMediumAt2X&#39;,
    &#39;crop_name&#39;: &#39;horizontalMediumAt2X&#39;},
@@ -1034,7 +1028,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-hpLarge.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-hpLarge.jpg&#39;,
    &#39;height&#39;: 287,
    &#39;width&#39;: 511,
    &#39;legacy&#39;: {},
@@ -1045,7 +1039,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-largeWidescreen573.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-largeWidescreen573.jpg&#39;,
    &#39;height&#39;: 322,
    &#39;width&#39;: 573,
    &#39;legacy&#39;: {},
@@ -1056,7 +1050,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-largeWidescreen1050.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-largeWidescreen1050.jpg&#39;,
    &#39;height&#39;: 590,
    &#39;width&#39;: 1050,
    &#39;legacy&#39;: {},
@@ -1067,12 +1061,12 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-thumbWide.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-thumbWide.jpg&#39;,
    &#39;height&#39;: 126,
    &#39;width&#39;: 190,
    &#39;legacy&#39;: {&#39;widewidth&#39;: 190,
     &#39;wideheight&#39;: 126,
-    &#39;wide&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-thumbWide.jpg&#39;},
+    &#39;wide&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-thumbWide.jpg&#39;},
    &#39;subType&#39;: &#39;wide&#39;,
    &#39;crop_name&#39;: &#39;thumbWide&#39;},
   {&#39;rank&#39;: 0,
@@ -1080,7 +1074,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoThumb.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoThumb.jpg&#39;,
    &#39;height&#39;: 50,
    &#39;width&#39;: 75,
    &#39;legacy&#39;: {},
@@ -1091,7 +1085,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoLarge.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoLarge.jpg&#39;,
    &#39;height&#39;: 507,
    &#39;width&#39;: 768,
    &#39;legacy&#39;: {},
@@ -1102,7 +1096,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-mediumThreeByTwo210.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumThreeByTwo210.jpg&#39;,
    &#39;height&#39;: 140,
    &#39;width&#39;: 210,
    &#39;legacy&#39;: {},
@@ -1113,7 +1107,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-mediumThreeByTwo225.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumThreeByTwo225.jpg&#39;,
    &#39;height&#39;: 150,
    &#39;width&#39;: 225,
    &#39;legacy&#39;: {},
@@ -1124,7 +1118,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-mediumThreeByTwo440.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumThreeByTwo440.jpg&#39;,
    &#39;height&#39;: 293,
    &#39;width&#39;: 440,
    &#39;legacy&#39;: {},
@@ -1135,7 +1129,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-mediumThreeByTwo252.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumThreeByTwo252.jpg&#39;,
    &#39;height&#39;: 168,
    &#39;width&#39;: 252,
    &#39;legacy&#39;: {},
@@ -1146,7 +1140,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-mediumThreeByTwo378.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumThreeByTwo378.jpg&#39;,
    &#39;height&#39;: 252,
    &#39;width&#39;: 378,
    &#39;legacy&#39;: {},
@@ -1157,9 +1151,9 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-threeByTwoLargeAt2X.jpg&#39;,
-   &#39;height&#39;: 5511,
-   &#39;width&#39;: 8272,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-threeByTwoLargeAt2X.jpg&#39;,
+   &#39;height&#39;: 2667,
+   &#39;width&#39;: 4000,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;threeByTwoLargeAt2X&#39;,
    &#39;crop_name&#39;: &#39;threeByTwoLargeAt2X&#39;},
@@ -1168,8 +1162,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-threeByTwoMediumAt2X.jpg&#39;,
-   &#39;height&#39;: 999,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-threeByTwoMediumAt2X.jpg&#39;,
+   &#39;height&#39;: 1000,
    &#39;width&#39;: 1500,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;threeByTwoMediumAt2X&#39;,
@@ -1179,7 +1173,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-threeByTwoSmallAt2X.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-threeByTwoSmallAt2X.jpg&#39;,
    &#39;height&#39;: 400,
    &#39;width&#39;: 600,
    &#39;legacy&#39;: {},
@@ -1190,8 +1184,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-articleInline.jpg&#39;,
-   &#39;height&#39;: 142,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-articleInline.jpg&#39;,
+   &#39;height&#39;: 127,
    &#39;width&#39;: 190,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;articleInline&#39;,
@@ -1201,8 +1195,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-hpSmall.jpg&#39;,
-   &#39;height&#39;: 122,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-hpSmall.jpg&#39;,
+   &#39;height&#39;: 109,
    &#39;width&#39;: 163,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;hpSmall&#39;,
@@ -1212,8 +1206,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-blogSmallInline.jpg&#39;,
-   &#39;height&#39;: 113,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-blogSmallInline.jpg&#39;,
+   &#39;height&#39;: 101,
    &#39;width&#39;: 151,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;blogSmallInline&#39;,
@@ -1223,8 +1217,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-mediumFlexible177.jpg&#39;,
-   &#39;height&#39;: 133,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumFlexible177.jpg&#39;,
+   &#39;height&#39;: 118,
    &#39;width&#39;: 177,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;mediumFlexible177&#39;,
@@ -1234,7 +1228,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoSmall.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSmall.jpg&#39;,
    &#39;height&#39;: 281,
    &#39;width&#39;: 500,
    &#39;legacy&#39;: {},
@@ -1245,7 +1239,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoHpMedium.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoHpMedium.jpg&#39;,
    &#39;height&#39;: 211,
    &#39;width&#39;: 375,
    &#39;legacy&#39;: {},
@@ -1256,7 +1250,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoSixteenByNine600.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine600.jpg&#39;,
    &#39;height&#39;: 338,
    &#39;width&#39;: 600,
    &#39;legacy&#39;: {},
@@ -1267,7 +1261,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoSixteenByNine540.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine540.jpg&#39;,
    &#39;height&#39;: 304,
    &#39;width&#39;: 540,
    &#39;legacy&#39;: {},
@@ -1278,7 +1272,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoSixteenByNine495.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine495.jpg&#39;,
    &#39;height&#39;: 278,
    &#39;width&#39;: 495,
    &#39;legacy&#39;: {},
@@ -1289,7 +1283,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoSixteenByNine390.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine390.jpg&#39;,
    &#39;height&#39;: 219,
    &#39;width&#39;: 390,
    &#39;legacy&#39;: {},
@@ -1300,7 +1294,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoSixteenByNine1050.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine1050.jpg&#39;,
    &#39;height&#39;: 591,
    &#39;width&#39;: 1050,
    &#39;legacy&#39;: {},
@@ -1311,7 +1305,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoSixteenByNine480.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine480.jpg&#39;,
    &#39;height&#39;: 270,
    &#39;width&#39;: 480,
    &#39;legacy&#39;: {},
@@ -1322,7 +1316,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoSixteenByNine310.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine310.jpg&#39;,
    &#39;height&#39;: 174,
    &#39;width&#39;: 310,
    &#39;legacy&#39;: {},
@@ -1333,7 +1327,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoSixteenByNine225.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine225.jpg&#39;,
    &#39;height&#39;: 126,
    &#39;width&#39;: 225,
    &#39;legacy&#39;: {},
@@ -1344,7 +1338,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoSixteenByNine96.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine96.jpg&#39;,
    &#39;height&#39;: 54,
    &#39;width&#39;: 96,
    &#39;legacy&#39;: {},
@@ -1355,8 +1349,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoSixteenByNine3000.jpg&#39;,
-   &#39;height&#39;: 1686,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine3000.jpg&#39;,
+   &#39;height&#39;: 1687,
    &#39;width&#39;: 3000,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;videoSixteenByNine3000&#39;,
@@ -1366,7 +1360,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoSixteenByNine768.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine768.jpg&#39;,
    &#39;height&#39;: 432,
    &#39;width&#39;: 768,
    &#39;legacy&#39;: {},
@@ -1377,7 +1371,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoSixteenByNine150.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine150.jpg&#39;,
    &#39;height&#39;: 84,
    &#39;width&#39;: 150,
    &#39;legacy&#39;: {},
@@ -1388,8 +1382,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoSixteenByNineJumbo1600.jpg&#39;,
-   &#39;height&#39;: 899,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNineJumbo1600.jpg&#39;,
+   &#39;height&#39;: 900,
    &#39;width&#39;: 1600,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;videoSixteenByNineJumbo1600&#39;,
@@ -1399,7 +1393,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-miniMoth.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-miniMoth.jpg&#39;,
    &#39;height&#39;: 70,
    &#39;width&#39;: 151,
    &#39;legacy&#39;: {},
@@ -1410,7 +1404,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-windowsTile336H.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-windowsTile336H.jpg&#39;,
    &#39;height&#39;: 336,
    &#39;width&#39;: 694,
    &#39;legacy&#39;: {},
@@ -1421,7 +1415,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoFifteenBySeven1305.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoFifteenBySeven1305.jpg&#39;,
    &#39;height&#39;: 609,
    &#39;width&#39;: 1305,
    &#39;legacy&#39;: {},
@@ -1432,7 +1426,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-videoFifteenBySeven2610.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoFifteenBySeven2610.jpg&#39;,
    &#39;height&#39;: 1218,
    &#39;width&#39;: 2610,
    &#39;legacy&#39;: {},
@@ -1443,7 +1437,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-facebookJumbo.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-facebookJumbo.jpg&#39;,
    &#39;height&#39;: 549,
    &#39;width&#39;: 1050,
    &#39;legacy&#39;: {},
@@ -1454,7 +1448,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-watch308.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-watch308.jpg&#39;,
    &#39;height&#39;: 348,
    &#39;width&#39;: 312,
    &#39;legacy&#39;: {},
@@ -1465,7 +1459,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-watch268.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-watch268.jpg&#39;,
    &#39;height&#39;: 303,
    &#39;width&#39;: 272,
    &#39;legacy&#39;: {},
@@ -1476,8 +1470,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-verticalTwoByThree735.jpg&#39;,
-   &#39;height&#39;: 1102,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-verticalTwoByThree735.jpg&#39;,
+   &#39;height&#39;: 1103,
    &#39;width&#39;: 735,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;verticalTwoByThree735&#39;,
@@ -1487,8 +1481,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-mobileMasterAt3x.jpg&#39;,
-   &#39;height&#39;: 1799,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mobileMasterAt3x.jpg&#39;,
+   &#39;height&#39;: 1800,
    &#39;width&#39;: 1800,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;mobileMasterAt3x&#39;,
@@ -1498,101 +1492,70 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2024/12/11/multimedia/00migrant-staffing-pizza-mbqc/00migrant-staffing-pizza-mbqc-googleFourByThree.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-googleFourByThree.jpg&#39;,
    &#39;height&#39;: 600,
    &#39;width&#39;: 800,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;googleFourByThree&#39;,
    &#39;crop_name&#39;: &#39;googleFourByThree&#39;}],
- &#39;headline&#39;: {&#39;main&#39;: &#39;Death on the Night Shift at Frozen Pizza Factories in Chicago&#39;,
+ &#39;headline&#39;: {&#39;main&#39;: &#39;In Oklahoma, Counting Migrant Students May Have Gone Too Far&#39;,
   &#39;kicker&#39;: None,
   &#39;content_kicker&#39;: None,
-  &#39;print_headline&#39;: &#39;Fatal Accidents For Immigrants In U.S. Factories&#39;,
+  &#39;print_headline&#39;: &#39;Oklahoma G.O.P. Splits Over Migrant Student Tally&#39;,
   &#39;name&#39;: None,
   &#39;seo&#39;: None,
   &#39;sub&#39;: None},
- &#39;keywords&#39;: [{&#39;name&#39;: &#39;subject&#39;,
-   &#39;value&#39;: &#39;Illegal Immigration&#39;,
+ &#39;keywords&#39;: [{&#39;name&#39;: &#39;glocations&#39;,
+   &#39;value&#39;: &#39;Oklahoma&#39;,
    &#39;rank&#39;: 1,
    &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Education (K-12)&#39;, &#39;rank&#39;: 2, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Illegal Immigration&#39;, &#39;rank&#39;: 3, &#39;major&#39;: &#39;N&#39;},
   {&#39;name&#39;: &#39;subject&#39;,
-   &#39;value&#39;: &#39;Migrant Labor (Non-Agriculture)&#39;,
-   &#39;rank&#39;: 2,
-   &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Deaths (Fatalities)&#39;, &#39;rank&#39;: 3, &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;,
-   &#39;value&#39;: &#39;Workplace Hazards and Violations&#39;,
+   &#39;value&#39;: &#39;Immigration and Emigration&#39;,
    &#39;rank&#39;: 4,
    &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;,
-   &#39;value&#39;: &#39;Temporary Employment&#39;,
-   &#39;rank&#39;: 5,
-   &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;,
-   &#39;value&#39;: &#39;Factories and Manufacturing&#39;,
+  {&#39;name&#39;: &#39;persons&#39;, &#39;value&#39;: &#39;Stitt, Kevin&#39;, &#39;rank&#39;: 5, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;persons&#39;,
+   &#39;value&#39;: &#39;Walters, Ryan (1985- )&#39;,
    &#39;rank&#39;: 6,
    &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;,
-   &#39;value&#39;: &#39;Accidents and Safety&#39;,
+  {&#39;name&#39;: &#39;organizations&#39;,
+   &#39;value&#39;: &#39;Republican Party&#39;,
    &#39;rank&#39;: 7,
    &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Foreign Workers&#39;, &#39;rank&#39;: 8, &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;organizations&#39;,
-   &#39;value&#39;: &#39;Occupational Safety and Health Administration&#39;,
+  {&#39;name&#39;: &#39;subject&#39;,
+   &#39;value&#39;: &#39;Conservatism (US Politics)&#39;,
+   &#39;rank&#39;: 8,
+   &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;,
+   &#39;value&#39;: &#39;United States Politics and Government&#39;,
    &#39;rank&#39;: 9,
    &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;United States&#39;, &#39;rank&#39;: 10, &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Pizza&#39;, &#39;rank&#39;: 11, &#39;major&#39;: &#39;N&#39;}],
- &#39;pub_date&#39;: &#39;2024-12-21T10:01:05+0000&#39;,
+  {&#39;name&#39;: &#39;persons&#39;, &#39;value&#39;: &#39;Trump, Donald J&#39;, &#39;rank&#39;: 10, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;,
+   &#39;value&#39;: &#39;Politics and Government&#39;,
+   &#39;rank&#39;: 11,
+   &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;School Boards&#39;, &#39;rank&#39;: 12, &#39;major&#39;: &#39;N&#39;}],
+ &#39;pub_date&#39;: &#39;2025-03-28T16:47:35+0000&#39;,
  &#39;document_type&#39;: &#39;article&#39;,
- &#39;news_desk&#39;: &#39;Investigative&#39;,
+ &#39;news_desk&#39;: &#39;National&#39;,
  &#39;section_name&#39;: &#39;U.S.&#39;,
- &#39;byline&#39;: {&#39;original&#39;: &#39;By Marcela Valdes, Churchill Ndonwie, Danielle Ivory, Steve Eder and Sebastián Hidalgo&#39;,
-  &#39;person&#39;: [{&#39;firstname&#39;: &#39;Marcela&#39;,
-    &#39;middlename&#39;: None,
-    &#39;lastname&#39;: &#39;Valdes&#39;,
+ &#39;byline&#39;: {&#39;original&#39;: &#39;By J. David Goodman&#39;,
+  &#39;person&#39;: [{&#39;firstname&#39;: &#39;J.&#39;,
+    &#39;middlename&#39;: &#39;David&#39;,
+    &#39;lastname&#39;: &#39;Goodman&#39;,
     &#39;qualifier&#39;: None,
     &#39;title&#39;: None,
     &#39;role&#39;: &#39;reported&#39;,
     &#39;organization&#39;: &#39;&#39;,
-    &#39;rank&#39;: 1},
-   {&#39;firstname&#39;: &#39;Churchill&#39;,
-    &#39;middlename&#39;: None,
-    &#39;lastname&#39;: &#39;Ndonwie&#39;,
-    &#39;qualifier&#39;: None,
-    &#39;title&#39;: None,
-    &#39;role&#39;: &#39;reported&#39;,
-    &#39;organization&#39;: &#39;&#39;,
-    &#39;rank&#39;: 2},
-   {&#39;firstname&#39;: &#39;Danielle&#39;,
-    &#39;middlename&#39;: None,
-    &#39;lastname&#39;: &#39;Ivory&#39;,
-    &#39;qualifier&#39;: None,
-    &#39;title&#39;: None,
-    &#39;role&#39;: &#39;reported&#39;,
-    &#39;organization&#39;: &#39;&#39;,
-    &#39;rank&#39;: 3},
-   {&#39;firstname&#39;: &#39;Steve&#39;,
-    &#39;middlename&#39;: None,
-    &#39;lastname&#39;: &#39;Eder&#39;,
-    &#39;qualifier&#39;: None,
-    &#39;title&#39;: None,
-    &#39;role&#39;: &#39;reported&#39;,
-    &#39;organization&#39;: &#39;&#39;,
-    &#39;rank&#39;: 4},
-   {&#39;firstname&#39;: &#39;Sebastián&#39;,
-    &#39;middlename&#39;: None,
-    &#39;lastname&#39;: &#39;Hidalgo&#39;,
-    &#39;qualifier&#39;: None,
-    &#39;title&#39;: None,
-    &#39;role&#39;: &#39;reported&#39;,
-    &#39;organization&#39;: &#39;&#39;,
-    &#39;rank&#39;: 5}],
+    &#39;rank&#39;: 1}],
   &#39;organization&#39;: None},
  &#39;type_of_material&#39;: &#39;News&#39;,
- &#39;_id&#39;: &#39;nyt://article/89fd7c68-948d-5bea-a4e9-ee0838a711d8&#39;,
- &#39;word_count&#39;: 2649,
- &#39;uri&#39;: &#39;nyt://article/89fd7c68-948d-5bea-a4e9-ee0838a711d8&#39;}
+ &#39;_id&#39;: &#39;nyt://article/ee53c13f-cb40-508c-8a46-00c6137bcb15&#39;,
+ &#39;word_count&#39;: 1253,
+ &#39;uri&#39;: &#39;nyt://article/ee53c13f-cb40-508c-8a46-00c6137bcb15&#39;}
 </pre></div>
 </div>
 </div>
@@ -1683,13 +1646,15 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">articles</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;docs&#39;</span><span class="p">]</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">parsed</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">articles</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;docs&#39;</span><span class="p">]</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">articles</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># sleep at least 6 seconds not to overload the servers</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># sleep at least 6 seconds not to overload the servers</span>
 
-<span class="ne">KeyboardInterrupt</span>: 
+<span class="ne">KeyError</span>: &#39;response&#39;
 </pre></div>
 </div>
 </div>
@@ -1803,7 +1768,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The decision comes as political pressure mounts to cut down on programs that allow migrants to stay in the United States temporarily, even without a visa or green card.&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;There has been a dramatic drop in the number of people gathering at the U.S. border and trying to cross. Can it help Mexico stave off President Trump’s threatened tariffs?&#39;
 </pre></div>
 </div>
 </div>
@@ -1838,15 +1803,23 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;original&#39;: &#39;By Hamed Aleaziz&#39;,
- &#39;person&#39;: [{&#39;firstname&#39;: &#39;Hamed&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;original&#39;: &#39;By Annie Correal and Alejandro Cegarra&#39;,
+ &#39;person&#39;: [{&#39;firstname&#39;: &#39;Annie&#39;,
    &#39;middlename&#39;: None,
-   &#39;lastname&#39;: &#39;Aleaziz&#39;,
+   &#39;lastname&#39;: &#39;Correal&#39;,
    &#39;qualifier&#39;: None,
    &#39;title&#39;: None,
    &#39;role&#39;: &#39;reported&#39;,
    &#39;organization&#39;: &#39;&#39;,
-   &#39;rank&#39;: 1}],
+   &#39;rank&#39;: 1},
+  {&#39;firstname&#39;: &#39;Alejandro&#39;,
+   &#39;middlename&#39;: None,
+   &#39;lastname&#39;: &#39;Cegarra&#39;,
+   &#39;qualifier&#39;: None,
+   &#39;title&#39;: None,
+   &#39;role&#39;: &#39;reported&#39;,
+   &#39;organization&#39;: &#39;&#39;,
+   &#39;rank&#39;: 2}],
  &#39;organization&#39;: None}
 </pre></div>
 </div>
@@ -1883,7 +1856,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hamed&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Annie&#39;
 </pre></div>
 </div>
 </div>
@@ -1895,7 +1868,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Aleaziz&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Correal&#39;
 </pre></div>
 </div>
 </div>
@@ -1916,56 +1889,56 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The decision comes as political pressure mounts to cut down on programs that allow migrants to stay in the United States temporarily, even without a visa or green card.
-The country’s defense ministry said the military officers who opened fire might have mistaken the migrants for cartel members.
-Italy, an aging country, badly needs migrant labor and immigration, but the government has admitted that the pathways for legal entry are rife with abuse.
-At least nine people are known to have died in a sinking off the Canary Islands and 48 more are missing, the latest disaster on the perilous Atlantic crossing from West Africa.
-It’s been a year since Mayor Eric Adams made his ominous prediction. City officials should treat the arrival of migrants as an opportunity rather than a catastrophe, advocates say.
-Reports and interviews shed new light on the holding center, where migrants’ calls with lawyers are monitored and some say they’ve been forced to wear blackout goggles.
-A group of New York’s most powerful philanthropies will spend millions to help make migrants more self-sufficient.
-Former President Donald J. Trump has long tried to stoke fear about immigration. Now, he’s doubling down as the presidential race heats up.
-In his next documentary, Michael P. Nash takes on A.I. and how it might be used to address environmental issues.
-The former president and his allies, who often decry undocumented immigrants, are targeting programs that allow millions of people to enter the country lawfully.
-A federal appeals court will consider the future of DACA, which has allowed hundreds of thousands of undocumented young people to live and work in the United States.
-Donald J. Trump answered preselected questions from a pro-military crowd who echoed his false claims and approved of his vow to conduct massive deportations of undocumented immigrants.
-Several countries have chartered flights, while others issued warnings and offered assistance.
-For the former president, removing millions of undocumented immigrants is the solution to most of the nation’s most pressing challenges.
-An ad from two Democratic groups skates over Kamala Harris’s tough recent stance on border security and instead focuses on her more immigration-friendly plans.
-Gov. Tim Walz of Minnesota has acted as attack dog for the Harris campaign, and Senator JD Vance of Ohio has stepped in to explain away former President Donald J. Trump’s incendiary remarks.
-Germany’s unilateral decision to close its borders has angered its neighbors in Europe.
-Eric Adams gives new meaning to the concept of the frequent-flier program.
-Vice President Kamala Harris vowed to combat the flow of fentanyl into the country when she visited the border on Friday. Former President Donald J. Trump ratcheted up his false claims in response.
-Former President Donald J. Trump assailed Vice President Kamala Harris in harshly personal terms in what he conceded was “a dark speech.”
-The Freedom Party has made itself the country’s most popular party, with calls to bar asylum seekers. It is poised to come out on top in parliamentary elections for the first time.
-Donald Trump used a pair of events to try to blame Kamala Harris for inflation and the migrant crisis, tapping into themes that helped him win Michigan in 2016.
-A local official said there was “absolutely no evidence” that Haitian migrants have stolen and eaten pets, an outlandish claim amplified by the Trump campaign on Monday.
-The change will make what had been a short-term fix, which appears to have led to a drop in border crossings, a central feature of the asylum system.
-Vowing to carry on President Biden’s crackdown on asylum and to impose order on the southern border, the vice president demonstrated how much the politics of immigration have changed.
-Visiting the border on Friday in Arizona, the vice president will try to neutralize a key vulnerability, and will demonstrate her party’s harder line on immigration.
-The Republican vice-presidential nominee acknowledged that an outlandish claim he had amplified about Haitian immigrants stealing and eating pets could “turn out to be false.”
-In his first interview with Western media since becoming president of Senegal, Bassirou Diomaye Faye said the United Nations has to change to reflect changing world demographics.
-During a trip to Arizona, Vice President Kamala Harris is expected to make her first visit to the southern border since becoming the Democratic nominee.
-Mr. Musk described Prime Minister Giorgia Meloni as “authentic, honest and thoughtful.” She used her Atlantic Council spotlight to defend Western values.
-From calling for mass deportations to spreading false claims about migrants’ eating pets, former President Donald J. Trump and his running mate, Senator JD Vance of Ohio, are taking a hard line.
-Tren de Aragua’s emergence in New York City and elsewhere has led law enforcement officials to strategize how to stem the gang’s growth.
-A gallery in a shelter near the Brooklyn Navy Yard is showcasing the work of two migrants. One of them did some of his paintings under the Brooklyn-Queens Expressway.
-The immigrants are mainly in the United States under temporary protected status, which the executive branch can grant to people whose home countries are in crisis.
-We cover the presidential candidates’ immigration policies.
-Margarita Solito and her family fled violence and poverty in El Salvador, hoping to build a better life in San Francisco. The city often wasn’t what they thought it would be.
-Italian rescuers said that seven Syrian migrants survived a shipwreck about 10 miles from the island of Lampedusa, in the Central Mediterranean. The survivors told officials that 21 fellow travelers, including three minors, had fallen off during the crossing because of rough seas.
-The Springfield fable is part of a crusade to throw immigrants out of the country.
-Seven survivors were rescued from the boat that sank after leaving Libya. A crackdown by Italy has reduced migration, but not the high death rates that come with crossing the Mediterranean.
-Representative Gabe Vasquez, a Democrat in a border district, is under attack by his Republican opponent on immigration policy. Can a pro-abortion access message help him prevail?
-The former president meandered over 80 minutes from complaints about Tuesday’s debate to elevating baseless claims that have circulated on right-wing social media.
-Secretary of Homeland Security Alejandro Mayorkas explains what his agency has done to address the challenges at the U.S.-Mexico border.
-Speaking at an event in Tucson, Ariz., former President Donald J. Trump called for eliminating taxes on overtime pay as he declared Tuesday’s debate a “monumental victory” for him.
-Binyamin Appelbaum on why Harris’s ill-defined plan is still better than Trump’s.
-Apparently, this election is about … pets.
-Over 60 people were crowded into a small boat that “rapidly and brutally” broke apart off the coast of France, authorities said.
-Our columnists and contributors rate Trump’s and Harris’s debate performances.
-Former President Donald J. Trump offered a dire portrait of America, often relying on false and debunked claims as he described “a failing nation.”
-The government said it would expand patrols as part of a ‘hard line’ on illegal migration following two deadly stabbings by rejected asylum seekers and a surge in support for the far right.
-As the candidates meet for their only scheduled debate on Tuesday night, here is what to be on the lookout for.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There has been a dramatic drop in the number of people gathering at the U.S. border and trying to cross. Can it help Mexico stave off President Trump’s threatened tariffs?
+The new case, which for now is asking for a court to block the transfer of 10 men to the offshore base, is the first to directly challenge the policy.
+The missing people were on two boats that capsized off Yemen, which is on a major route for migrants trying to reach Gulf countries for work.
+President Trump said the base would house as many as 30,000 migrants awaiting deportation. But construction of a tent city was halted weeks ago.
+More than 100 asylum seekers from around the world sent to Panama from the United States have no sense how long they will be held or where they might eventually be sent.
+Mayor Eric Adams announced on Monday that the hotel will stop housing migrants by June, calling the closure a milestone in New York City’s response to the crisis.
+A transfer operation on Thursday repatriated 177 Venezuelans via a handoff in Honduras, while one migrant was brought back to U.S. soil.
+At a House hearing, the mayors of Boston, Chicago, Denver and New York City rejected accusations that they were harboring criminals by not aiding deportation efforts.
+The president signed an order that would deny loan forgiveness to workers for groups engaged in “substantial illegal activities,” which it indicated included things like diversity initiatives.
+Aiming to appease President Trump, Mexico is hitting China with tariffs, handing cartel leaders over to the United States and using C.I.A. intelligence to hunt down others.
+The Canadian government has reinforced border operations to stop migrants going to the United States, a major Trump complaint. But early data shows people are, instead, starting to flee the United States for Canada.
+Lawsuits are challenging President Trump’s abrupt decision to send men awaiting deportation to the American military base in Cuba.
+In Corona, a once-vibrant New York City enclave home to generations of Latino immigrants, the threat of mass deportations has made many residents afraid to go outside.
+The Trump administration has said little about the Venezuelan men who were transferred from Texas to the U.S. military base in Cuba.
+President Trump’s executive order also directed federal departments and agencies to ensure that federal funds do not encourage people to come to the United States illegally.
+The group of unauthorized migrants, which includes children, were bused to the camp late Tuesday night. “It looks like a zoo, there are fenced cages,” said one of the detainees.
+Costa Rica is the second Central American nation to accept migrants from distant countries as the Trump administration ramps up deportation flights.
+Most undocumented immigrants are ineligible for federal benefits already. But here’s what the directive could mean in practice.
+A new policy requires the fingerprinting of all adults who will be living with a migrant child in the United States. Advocates for immigrants say it could fuel overcrowding in shelters.
+Plus, meat raffles: like bingo, but with beef.
+The decision to sue over the $80 million in seized funds comes as the New York City mayor has been accused of supporting the White House’s immigration agenda in exchange for legal leniency.
+Days after the United States sent 300 migrants from Asia and the Middle East to Panama, a Panamanian official said that more than half had agreed to be deported to their countries of origin.
+The move would be a drastic escalation by the White House to militarize immigration enforcement.
+The administration has asked Panama to take in hundreds of people who can’t easily be sent back to their countries. Many say they are in danger.
+As India’s prime minister, Narendra Modi, meets with President Trump, issues around immigration are likely to be a source of tension, including a U.S. military flight that returned shackled migrants to India.
+The move could herald a new front in the Trump administration’s plans for mass deportations, one that allows for more rapid removal of migrants whose home countries are reluctant to accept them.
+The Times has obtained a list of 53 Venezuelan men the Trump administration has put in a wartime prison built to hold Al Qaeda suspects.
+Luis Alberto Castillo arrived in the United States so that he could “give everything to his son,” said his sister. Then, while scrolling on TikTok, she found out he was headed to Guantánamo.
+The flights, which left Fort Bliss in Texas, represent a significant victory for President Trump, who has vowed to carry out sweeping deportations.
+The city is dramatically rewriting the story of skilled migration.
+The legislation would increase penalties for citizens and allow anyone who is not a citizen to be deported for evading arrest or detention while driving a vehicle within 100 miles of the border.
+Talking to people around Chicago, I heard the word “resentment” over and over.
+In a lawsuit, the groups asked a judge to enable lawyers to communicate with the men in case they would like legal representation.
+Fearing roundups, many immigrants are staying home. Construction, agriculture, senior care and hospitality employers say labor shortages will worsen.
+Mayor Mike Johnston faced hours of hostile questions from House members, some from his own party.
+The president should reread the Declaration of Independence.
+My decision to leave the U.S. seemed crazy. I believed then that America was exceptional, the only nation capable of caring for its people.
+President Trump and his divisive policies are helping to define the primary races for New Jersey governor.
+The judges, who are part of the Justice Department, make decisions about asylum claims and have the power to order someone removed from the country.
+Plus, Dolly Parton’s love story.
+Republicans accused the mayors of New York, Chicago, Denver and Boston of providing sanctuary to criminals, while Democrats pointed to falling crime rates and defended helping the needy.
+Democratic lawmakers grilled Mayor Eric Adams of New York City over the circumstances behind the Justice Department’s move to dismiss his criminal case.
+President Trump’s promise to launch the largest deportation operation in U.S. history is colliding with the practical difficulties of detaining people and transporting them across the globe.
+What Times Opinion columnists and writers thought of the president’s speech to Congress.
+At 9 p.m. Eastern, President Trump will speak to a joint session of Congress for the first time in his second term. The New York Times will carry the address live.
+In a letter to Attorney General Pam Bondi, the lawmakers, Jamie Raskin of Maryland and Jasmine Crockett of Texas, accused the Justice Department of a coverup.
+A group of lawyers accused Panama of violating the rights of people deported from the United States under the Trump administration’s policy of sending migrants to cooperative Latin American nations.
+President Trump’s plan to apply 25 percent tariffs on Canadian exports is set to start on Tuesday. They would deal a brutal blow to Canada’s economy.
+The Times has obtained a list of the names of the men, whom the U.S. government has described as Venezuelan citizens under final deportation orders.
+The troop mobilization indicates that President Trump is breaking with recent presidents’ practice of limiting deployments along the U.S.-Mexico border mostly to small numbers of active-duty soldiers and reservists.
 </pre></div>
 </div>
 </div>
@@ -2012,16 +1985,16 @@ As the candidates meet for their only scheduled debate on Tuesday night, here is
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;The decision comes as political pressure mounts to cut down on programs that allow migrants to stay in the United States temporarily, even without a visa or green card.&#39;,
- &#39;The country’s defense ministry said the military officers who opened fire might have mistaken the migrants for cartel members.&#39;,
- &#39;Italy, an aging country, badly needs migrant labor and immigration, but the government has admitted that the pathways for legal entry are rife with abuse.&#39;,
- &#39;At least nine people are known to have died in a sinking off the Canary Islands and 48 more are missing, the latest disaster on the perilous Atlantic crossing from West Africa.&#39;,
- &#39;It’s been a year since Mayor Eric Adams made his ominous prediction. City officials should treat the arrival of migrants as an opportunity rather than a catastrophe, advocates say.&#39;,
- &#39;Reports and interviews shed new light on the holding center, where migrants’ calls with lawyers are monitored and some say they’ve been forced to wear blackout goggles.&#39;,
- &#39;A group of New York’s most powerful philanthropies will spend millions to help make migrants more self-sufficient.&#39;,
- &#39;Former President Donald J. Trump has long tried to stoke fear about immigration. Now, he’s doubling down as the presidential race heats up.&#39;,
- &#39;In his next documentary, Michael P. Nash takes on A.I. and how it might be used to address environmental issues.&#39;,
- &#39;The former president and his allies, who often decry undocumented immigrants, are targeting programs that allow millions of people to enter the country lawfully.&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;There has been a dramatic drop in the number of people gathering at the U.S. border and trying to cross. Can it help Mexico stave off President Trump’s threatened tariffs?&#39;,
+ &#39;The new case, which for now is asking for a court to block the transfer of 10 men to the offshore base, is the first to directly challenge the policy.&#39;,
+ &#39;The missing people were on two boats that capsized off Yemen, which is on a major route for migrants trying to reach Gulf countries for work.&#39;,
+ &#39;President Trump said the base would house as many as 30,000 migrants awaiting deportation. But construction of a tent city was halted weeks ago.&#39;,
+ &#39;More than 100 asylum seekers from around the world sent to Panama from the United States have no sense how long they will be held or where they might eventually be sent.&#39;,
+ &#39;Mayor Eric Adams announced on Monday that the hotel will stop housing migrants by June, calling the closure a milestone in New York City’s response to the crisis.&#39;,
+ &#39;A transfer operation on Thursday repatriated 177 Venezuelans via a handoff in Honduras, while one migrant was brought back to U.S. soil.&#39;,
+ &#39;At a House hearing, the mayors of Boston, Chicago, Denver and New York City rejected accusations that they were harboring criminals by not aiding deportation efforts.&#39;,
+ &#39;The president signed an order that would deny loan forgiveness to workers for groups engaged in “substantial illegal activities,” which it indicated included things like diversity initiatives.&#39;,
+ &#39;Aiming to appease President Trump, Mexico is hitting China with tariffs, handing cartel leaders over to the United States and using C.I.A. intelligence to hunt down others.&#39;]
 </pre></div>
 </div>
 </div>
@@ -2038,56 +2011,56 @@ As the candidates meet for their only scheduled debate on Tuesday night, here is
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Biden, Joseph R Jr
-Chiapas (Mexico)
-Italy
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>United States International Relations
+Guantanamo Bay Naval Base (Cuba)
 Drownings
-Illegal Immigration
-Illegal Immigration
-Illegal Immigration
-Illegal Immigration
-Democracy (Theory and Philosophy)
-Presidential Election of 2024
-Illegal Immigration
-Presidential Election of 2024
-Evacuations and Evacuees
+United States Defense and Military Forces
+Immigration Detention
+Immigration Shelters
 Trump, Donald J
-Harris, Kamala D
-Presidential Election of 2024
-Right-Wing Extremism and Alt-Right
-Presidential Election of 2024
-Presidential Election of 2024
-Polls and Public Opinion
-Politics and Government
-Presidential Election of 2024
-Springfield (Ohio)
+United States Politics and Government
+United States Politics and Government
 Illegal Immigration
-Harris, Kamala D
-Harris, Kamala D
-Presidential Election of 2024
-Faye, Bassirou Diomaye
-Harris, Kamala D
-Meloni, Giorgia (1977- )
-Presidential Election of 2024
-Tren de Aragua (Gang)
+Immigration and Emigration
+Illegal Immigration
+Corona (Queens, NY)
+Guantanamo Bay Naval Base (Cuba)
+United States Politics and Government
+Illegal Immigration
+Costa Rica
+United States Politics and Government
+United States Politics and Government
+Aviation Accidents, Safety and Disasters
 New York City
-Presidential Election of 2024
-internal-storyline-no
-Homeless Persons
-Drownings
-Haitian-Americans
-Maritime Accidents and Safety
-United States Politics and Government
-Presidential Election of 2024
-Mayorkas, Alejandro
-Presidential Election of 2024
-audio-neutral-informative
-Presidential Election of 2024
-Drownings
-Presidential Election of 2024
-United States Politics and Government
+Panama
+United States Defense and Military Forces
 Illegal Immigration
-Presidential Election of 2024
+Deportation
+Deportation
+United States Defense and Military Forces
+Illegal Immigration
+Illegal Immigration
+Foreign Workers
+United States Politics and Government
+Trump, Donald J
+Illegal Immigration
+Foreign Workers
+Johnston, Michael (1974- )
+Trump, Donald J
+Illegal Immigration
+United States Politics and Government
+United States Politics and Government
+United States Politics and Government
+Mayors
+Adams, Eric L
+Illegal Immigration
+United States Politics and Government
+State of the Union Message (US)
+United States Politics and Government
+Deportation
+Protectionism (Trade)
+United States Defense and Military Forces
+United States Defense and Military Forces
 </pre></div>
 </div>
 </div>
@@ -2155,33 +2128,33 @@ Presidential Election of 2024
   <tbody>
     <tr>
       <th>0</th>
-      <td>2024-10-04T18:58:04+0000</td>
-      <td>The decision comes as political pressure mount...</td>
-      <td>Biden, Joseph R Jr</td>
+      <td>2025-03-03T14:00:34+0000</td>
+      <td>There has been a dramatic drop in the number o...</td>
+      <td>United States International Relations</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2024-10-03T02:49:49+0000</td>
-      <td>The country’s defense ministry said the milita...</td>
-      <td>Chiapas (Mexico)</td>
+      <td>2025-03-01T19:34:05+0000</td>
+      <td>The new case, which for now is asking for a co...</td>
+      <td>Guantanamo Bay Naval Base (Cuba)</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2024-09-28T04:01:18+0000</td>
-      <td>Italy, an aging country, badly needs migrant l...</td>
-      <td>Italy</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2024-09-30T18:52:57+0000</td>
-      <td>At least nine people are known to have died in...</td>
+      <td>2025-03-07T12:33:25+0000</td>
+      <td>The missing people were on two boats that caps...</td>
       <td>Drownings</td>
     </tr>
     <tr>
+      <th>3</th>
+      <td>2025-03-10T20:20:40+0000</td>
+      <td>President Trump said the base would house as m...</td>
+      <td>United States Defense and Military Forces</td>
+    </tr>
+    <tr>
       <th>4</th>
-      <td>2024-09-20T07:00:08+0000</td>
-      <td>It’s been a year since Mayor Eric Adams made h...</td>
-      <td>Illegal Immigration</td>
+      <td>2025-02-28T22:01:42+0000</td>
+      <td>More than 100 asylum seekers from around the w...</td>
+      <td>Immigration Detention</td>
     </tr>
   </tbody>
 </table>

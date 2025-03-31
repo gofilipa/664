@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/karol';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="workshop overview" href="../clean/overview.html" />
+    <link rel="next" title="workshop overview" href="../analyzing/overview.html" />
     <link rel="prev" title="Legiscan API" href="legiscan_api.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -196,29 +196,23 @@
 <li class="toctree-l1"><a class="reference internal" href="what.html">what is web scraping?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inspector.html">the HTML Inspector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="to-dataframe.html">saving scraped data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ethics.html">what is ethical? what is legal?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dicts.html">dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="met_api.html">The MET API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nyt_api.html">NYT API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legiscan_api.html">Legiscan API</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Genius API</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning data</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
-</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../analyze/pandas.html">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../analyze/pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">machine learning</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ml/hf.html">Huggingface🤗 platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ml/inference.html">running inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ml/fine-tune.html">fine-tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/cleaning/cleaning.html">cleaning our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/pandas.html">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/generating/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/generating/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/generating/fine-tune.html">fine-tuning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">publishing</span></p>
 <ul class="nav bd-sidenav">
@@ -582,25 +576,25 @@ document.write(`
  &#39;url&#39;: &#39;https://genius.com/Q-lokura-and-banda-mix-200-copas-lyrics&#39;,
  &#39;featured_artists&#39;: [],
  &#39;primary_artist&#39;: {&#39;api_path&#39;: &#39;/artists/3405050&#39;,
-  &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1739996663&#39;,
+  &#39;header_image_url&#39;: &#39;https://images.genius.com/f7d8ec060a8804559cd0d6400c15a5fe.320x320x1.jpg&#39;,
   &#39;id&#39;: 3405050,
-  &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1739996663&#39;,
+  &#39;image_url&#39;: &#39;https://images.genius.com/f7d8ec060a8804559cd0d6400c15a5fe.320x320x1.jpg&#39;,
   &#39;is_meme_verified&#39;: False,
   &#39;is_verified&#39;: False,
   &#39;name&#39;: &#39;Q’ Lokura&#39;,
   &#39;url&#39;: &#39;https://genius.com/artists/Q-lokura&#39;},
  &#39;primary_artists&#39;: [{&#39;api_path&#39;: &#39;/artists/3405050&#39;,
-   &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1739996663&#39;,
+   &#39;header_image_url&#39;: &#39;https://images.genius.com/f7d8ec060a8804559cd0d6400c15a5fe.320x320x1.jpg&#39;,
    &#39;id&#39;: 3405050,
-   &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1739996663&#39;,
+   &#39;image_url&#39;: &#39;https://images.genius.com/f7d8ec060a8804559cd0d6400c15a5fe.320x320x1.jpg&#39;,
    &#39;is_meme_verified&#39;: False,
    &#39;is_verified&#39;: False,
    &#39;name&#39;: &#39;Q’ Lokura&#39;,
    &#39;url&#39;: &#39;https://genius.com/artists/Q-lokura&#39;},
   {&#39;api_path&#39;: &#39;/artists/3405051&#39;,
-   &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1739996663&#39;,
+   &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1743114117&#39;,
    &#39;id&#39;: 3405051,
-   &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1739996663&#39;,
+   &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1743114117&#39;,
    &#39;is_meme_verified&#39;: False,
    &#39;is_verified&#39;: False,
    &#39;name&#39;: &#39;Banda Mix&#39;,
@@ -715,18 +709,18 @@ document.write(`
    &#39;authors&#39;: [{&#39;attribution&#39;: 1.0,
      &#39;pinned_role&#39;: None,
      &#39;user&#39;: {&#39;api_path&#39;: &#39;/users/17336116&#39;,
-      &#39;avatar&#39;: {&#39;tiny&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/tiny/5cddeebd68ca326ca00f1f5995327a07&#39;,
+      &#39;avatar&#39;: {&#39;tiny&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/tiny/98451d02ae5e2e6daac24f5bd6be9f2a&#39;,
         &#39;bounding_box&#39;: {&#39;width&#39;: 16, &#39;height&#39;: 16}},
-       &#39;thumb&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/thumb/5cddeebd68ca326ca00f1f5995327a07&#39;,
+       &#39;thumb&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/thumb/98451d02ae5e2e6daac24f5bd6be9f2a&#39;,
         &#39;bounding_box&#39;: {&#39;width&#39;: 32, &#39;height&#39;: 32}},
-       &#39;small&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/small/5cddeebd68ca326ca00f1f5995327a07&#39;,
+       &#39;small&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/small/98451d02ae5e2e6daac24f5bd6be9f2a&#39;,
         &#39;bounding_box&#39;: {&#39;width&#39;: 100, &#39;height&#39;: 100}},
-       &#39;medium&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/medium/5cddeebd68ca326ca00f1f5995327a07&#39;,
+       &#39;medium&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/medium/98451d02ae5e2e6daac24f5bd6be9f2a&#39;,
         &#39;bounding_box&#39;: {&#39;width&#39;: 300, &#39;height&#39;: 400}}},
       &#39;header_image_url&#39;: &#39;https://images.genius.com/a3f3e4fae808e9426937a2b4180993bf.640x908x1.jpg&#39;,
       &#39;human_readable_role_for_display&#39;: &#39;Moderator&#39;,
       &#39;id&#39;: 17336116,
-      &#39;iq&#39;: 1312435,
+      &#39;iq&#39;: 1330696,
       &#39;login&#39;: &#39;Fri&#39;,
       &#39;name&#39;: &#39;Fri&#39;,
       &#39;role_for_display&#39;: &#39;moderator&#39;,
@@ -783,7 +777,7 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../clean/overview.html"
+       href="../analyzing/overview.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
