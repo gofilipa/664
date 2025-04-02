@@ -1,4 +1,4 @@
-# workshop overview
+# chapter overview
 
 ## learning objectives
 
