@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -206,7 +206,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../analyzing/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/overview.html">chapter overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analyzing/cleaning/cleaning.html">cleaning our text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analyzing/pandas.html">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analyzing/pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
@@ -446,8 +446,8 @@ document.write(`
 <p>Before continuing our work, we will import the libraries we need and create our <code class="docutils literal notranslate"><span class="pre">soup</span></code> object (that holds our website content), and our <code class="docutils literal notranslate"><span class="pre">bill_cards</span></code> object (which holds our bill card data).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
 </pre></div>
 </div>
 </div>
@@ -457,30 +457,6 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">site</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://translegislation.com/bills/2024/US&#39;</span><span class="p">)</span>
 <span class="n">html_code</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">content</span>
 <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_code</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FeatureNotFound</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">site</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://translegislation.com/bills/2024/US&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">html_code</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">content</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_code</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/jb/lib/python3.13/site-packages/bs4/__init__.py:250,</span> in <span class="ni">BeautifulSoup.__init__</span><span class="nt">(self, markup, features, builder, parse_only, from_encoding, exclude_encodings, element_classes, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">248</span>     <span class="n">builder_class</span> <span class="o">=</span> <span class="n">builder_registry</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="o">*</span><span class="n">features</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span>     <span class="k">if</span> <span class="n">builder_class</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">250</span>         <span class="k">raise</span> <span class="n">FeatureNotFound</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">251</span>             <span class="s2">&quot;Couldn&#39;t find a tree builder with the features you &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">252</span>             <span class="s2">&quot;requested: </span><span class="si">%s</span><span class="s2">. Do you need to install a parser library?&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span>             <span class="o">%</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">features</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">255</span> <span class="c1"># At this point either we have a TreeBuilder instance in</span>
-<span class="g g-Whitespace">    </span><span class="mi">256</span> <span class="c1"># builder, or we have a builder_class that we can instantiate</span>
-<span class="g g-Whitespace">    </span><span class="mi">257</span> <span class="c1"># with the remaining **kwargs.</span>
-<span class="g g-Whitespace">    </span><span class="mi">258</span> <span class="k">if</span> <span class="n">builder</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="ne">FeatureNotFound</span>: Couldn&#39;t find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </pre></div>
 </div>
 </div>
@@ -509,7 +485,27 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>US HB1064
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>US HB10075
+Stopping the Mutilation of Children Act of 2024
+HEALTHCARE
+To prohibit an entity from receiving Federal funds if such entity provides to any person any medical or surgical intervention for the purpose of assisting an individual&#39;s disassociation from his or her sex.
+/bills/2024/US/HB10075
+US HB10186
+Protecting Women’s Private Spaces Act
+BIRTH CERTIFICATES
+To prohibit individuals from accessing or using single-sex facilities on Federal property other than those corresponding to their biological sex, and for other purposes.
+/bills/2024/US/HB10186
+US HB10195
+No Discrimination in Housing Act
+OTHER
+To amend the Internal Revenue Code of 1986 to disallow the low-income housing tax credit to taxpayers that have diversity, equity, and inclusion initiatives.
+/bills/2024/US/HB10195
+US HB10290
+Stop the Invasion of Women’s Spaces Act
+INCARCERATION
+To prohibit an entity from receiving Federal funds if such entity permits an individual to access or use a single-sex facility on the property of such entity that does not correspond to the biological sex of such person, and for other purposes.
+/bills/2024/US/HB10290
+US HB1064
 Ensuring Military Readiness Act of 2023
 MILITARY
 To provide requirements related to the eligibility of transgender individuals from serving in the Armed Forces.
@@ -539,26 +535,6 @@ Prohibiting Parental Secrecy Policies In Schools Act of 2023
 EDUCATION
 To require a State receiving funds pursuant to title II of the Elementary and Secondary Education Act of 1965 to implement a State policy to prohibit a school employee from conducting certain social gender transition interventions.
 /bills/2024/US/HB1585
-US HB216
-My Child, My Choice Act of 2023
-EDUCATION
-To prohibit Federal education funds from being provided to elementary schools that do not require teachers to obtain written parental consent prior to teaching lessons specifically related to gender identity, sexual orientation, or transgender studies, and for other purposes.
-/bills/2024/US/HB216
-US HB3101
-TPA Act Traditional Passport Act
-OTHER
-To prohibit the issuance of a passport with any gender designation other than &quot;male&quot; or &quot;female&quot;, and for other purposes.
-/bills/2024/US/HB3101
-US HB3102
-TSA Act Traditional Screening Application Act
-OTHER
-To prohibit the Transportation Security Administration from using the &quot;X&quot; gender designation in the TSA PreCheck advanced security program, and for other purposes.
-/bills/2024/US/HB3102
-US HB3328
-Protecting Children From Experimentation Act of 2023
-HEALTHCARE
-To amend chapter 110 of title 18, United States Code, to prohibit gender transition procedures on minors, and for other purposes.
-/bills/2024/US/HB3328
 </pre></div>
 </div>
 </div>
@@ -579,16 +555,16 @@ To amend chapter 110 of title 18, United States Code, to prohibit gender transit
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>US HB1064 Ensuring Military Readiness Act of 2023 MILITARY To provide requirements related to the eligibility of transgender individuals from serving in the Armed Forces. https://translegislation.com/bills/2023/passed/bills/2024/US/HB1064
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>US HB10075 Stopping the Mutilation of Children Act of 2024 HEALTHCARE To prohibit an entity from receiving Federal funds if such entity provides to any person any medical or surgical intervention for the purpose of assisting an individual&#39;s disassociation from his or her sex. https://translegislation.com/bills/2023/passed/bills/2024/US/HB10075
+US HB10186 Protecting Women’s Private Spaces Act BIRTH CERTIFICATES To prohibit individuals from accessing or using single-sex facilities on Federal property other than those corresponding to their biological sex, and for other purposes. https://translegislation.com/bills/2023/passed/bills/2024/US/HB10186
+US HB10195 No Discrimination in Housing Act OTHER To amend the Internal Revenue Code of 1986 to disallow the low-income housing tax credit to taxpayers that have diversity, equity, and inclusion initiatives. https://translegislation.com/bills/2023/passed/bills/2024/US/HB10195
+US HB10290 Stop the Invasion of Women’s Spaces Act INCARCERATION To prohibit an entity from receiving Federal funds if such entity permits an individual to access or use a single-sex facility on the property of such entity that does not correspond to the biological sex of such person, and for other purposes. https://translegislation.com/bills/2023/passed/bills/2024/US/HB10290
+US HB1064 Ensuring Military Readiness Act of 2023 MILITARY To provide requirements related to the eligibility of transgender individuals from serving in the Armed Forces. https://translegislation.com/bills/2023/passed/bills/2024/US/HB1064
 US HB1112 Ensuring Military Readiness Act of 2023 MILITARY To provide requirements related to the eligibility of individuals who identify as transgender from serving in the Armed Forces. https://translegislation.com/bills/2023/passed/bills/2024/US/HB1112
 US HB1276 Protect Minors from Medical Malpractice Act of 2023 HEALTHCARE To protect children from medical malpractice in the form of gender transition procedures. https://translegislation.com/bills/2023/passed/bills/2024/US/HB1276
 US HB1399 Protect Children’s Innocence Act HEALTHCARE To amend chapter 110 of title 18, United States Code, to prohibit gender affirming care on minors, and for other purposes. https://translegislation.com/bills/2023/passed/bills/2024/US/HB1399
 US HB1490 Preventing Violence Against Female Inmates Act of 2023 INCARCERATION To secure the dignity and safety of incarcerated women. https://translegislation.com/bills/2023/passed/bills/2024/US/HB1490
 US HB1585 Prohibiting Parental Secrecy Policies In Schools Act of 2023 EDUCATION To require a State receiving funds pursuant to title II of the Elementary and Secondary Education Act of 1965 to implement a State policy to prohibit a school employee from conducting certain social gender transition interventions. https://translegislation.com/bills/2023/passed/bills/2024/US/HB1585
-US HB216 My Child, My Choice Act of 2023 EDUCATION To prohibit Federal education funds from being provided to elementary schools that do not require teachers to obtain written parental consent prior to teaching lessons specifically related to gender identity, sexual orientation, or transgender studies, and for other purposes. https://translegislation.com/bills/2023/passed/bills/2024/US/HB216
-US HB3101 TPA Act Traditional Passport Act OTHER To prohibit the issuance of a passport with any gender designation other than &quot;male&quot; or &quot;female&quot;, and for other purposes. https://translegislation.com/bills/2023/passed/bills/2024/US/HB3101
-US HB3102 TSA Act Traditional Screening Application Act OTHER To prohibit the Transportation Security Administration from using the &quot;X&quot; gender designation in the TSA PreCheck advanced security program, and for other purposes. https://translegislation.com/bills/2023/passed/bills/2024/US/HB3102
-US HB3328 Protecting Children From Experimentation Act of 2023 HEALTHCARE To amend chapter 110 of title 18, United States Code, to prohibit gender transition procedures on minors, and for other purposes. https://translegislation.com/bills/2023/passed/bills/2024/US/HB3328
 </pre></div>
 </div>
 </div>
@@ -623,7 +599,7 @@ US HB3328 Protecting Children From Experimentation Act of 2023 HEALTHCARE To ame
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">category</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">caption</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">h2</span><span class="o">.</span><span class="n">text</span>
 <span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">description</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">text</span>
@@ -962,8 +938,8 @@ https://translegislation.com//bills/2024/US/HB3328
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing the necessary libraries</span>
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
 </pre></div>
 </div>
 </div>

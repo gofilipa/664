@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -206,7 +206,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">chapter overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cleaning/cleaning.html">cleaning our text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pandas.html">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
@@ -415,7 +415,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-values">sorting values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#counting-values">counting values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-by-values-booleans-and-strings">filtering by values: booleans and strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-data">plotting data</a></li>
 </ul>
@@ -433,27 +432,15 @@ document.write(`
 <h1>visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#visualizing-data-with-pandas" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://bit.ly/anti-trans-tracker.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://bit.ly/anti-trans-tracker-csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1182,50 +1169,6 @@ memory usage: 100.2+ KB
       <td>NaN</td>
     </tr>
     <tr>
-      <th>283</th>
-      <td>Missouri</td>
-      <td>HB1699</td>
-      <td>Prohibits state contracts with companies that ...</td>
-      <td>Anti-Boycotts Act</td>
-      <td>5/17/2024</td>
-      <td>Referred: General Laws(H)</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/MO/bill/HB1699/2024</td>
-      <td>Justin Sparks</td>
-      <td>NaN</td>
-      <td>H 2023-12-01 Prefiled (H), H 2024-01-03 Read F...</td>
-      <td>Failed</td>
-      <td>f474b83c7433bd68f3862b20171b6a97</td>
-      <td>1790473.0</td>
-      <td>https://documents.house.mo.gov/billtracking/bi...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=135tBGfzMzcq3...</td>
-    </tr>
-    <tr>
-      <th>179</th>
-      <td>Kansas</td>
-      <td>SB224</td>
-      <td>Enacting the Kansas protection of pensions and...</td>
-      <td>Anti-Boycotts Act</td>
-      <td>4/30/2024</td>
-      <td>Senate Died in Committee</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>Carried over from 2023</td>
-      <td>https://legiscan.com/KS/bill/SB224/2023</td>
-      <td>Federal and State Affairs</td>
-      <td>Hearing 2023-03-07 10:30 Room 144-S</td>
-      <td>S 2023-02-09 Senate Introduced, S 2023-02-10 S...</td>
-      <td>Failed</td>
-      <td>650b001436c6a44804db1e4f8a2d2b0e</td>
-      <td>1702612.0</td>
-      <td>http://kslegislature.org/li/b2023_24/measures/...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
       <th>334</th>
       <td>Missouri</td>
       <td>SB980</td>
@@ -1248,26 +1191,70 @@ memory usage: 100.2+ KB
       <td>https://drive.google.com/open?id=1suZ_biqfQ6Hu...</td>
     </tr>
     <tr>
-      <th>311</th>
-      <td>Missouri</td>
-      <td>SB1061</td>
-      <td>Creates new provisions relating to public cont...</td>
+      <th>187</th>
+      <td>Kansas</td>
+      <td>SB512</td>
+      <td>Prohibiting insurance companies from using env...</td>
       <td>Anti-Boycotts Act</td>
-      <td>1/25/2024</td>
-      <td>Second Read and Referred S Governmental Accoun...</td>
+      <td>4/30/2024</td>
+      <td>Senate Died in Committee</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/KS/bill/SB512/2023</td>
+      <td>Federal and State Affairs</td>
+      <td>NaN</td>
+      <td>S 2024-02-14 Senate Introduced, S 2024-02-15 S...</td>
+      <td>Failed</td>
+      <td>c719603f4a9136b8815cc3c71d493cc5</td>
+      <td>1846647.0</td>
+      <td>http://kslegislature.org/li/b2023_24/measures/...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1yhIYBEwCj3_S...</td>
+    </tr>
+    <tr>
+      <th>283</th>
+      <td>Missouri</td>
+      <td>HB1699</td>
+      <td>Prohibits state contracts with companies that ...</td>
+      <td>Anti-Boycotts Act</td>
+      <td>5/17/2024</td>
+      <td>Referred: General Laws(H)</td>
       <td>Worst</td>
       <td>High</td>
       <td>NaN</td>
-      <td>https://legiscan.com/MO/bill/SB1061/2024</td>
-      <td>Mary Coleman</td>
+      <td>https://legiscan.com/MO/bill/HB1699/2024</td>
+      <td>Justin Sparks</td>
       <td>NaN</td>
-      <td>S 2023-12-01 Prefiled, S 2024-01-03 S First Re...</td>
+      <td>H 2023-12-01 Prefiled (H), H 2024-01-03 Read F...</td>
       <td>Failed</td>
-      <td>d7792245d1830ef0d5b21f2aa563da00</td>
-      <td>1789959.0</td>
-      <td>https://www.senate.mo.gov/24info/pdf-bill/intr...</td>
+      <td>f474b83c7433bd68f3862b20171b6a97</td>
+      <td>1790473.0</td>
+      <td>https://documents.house.mo.gov/billtracking/bi...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=16r5Qj3rbPCta...</td>
+      <td>https://drive.google.com/open?id=135tBGfzMzcq3...</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>Kansas</td>
+      <td>HB2436</td>
+      <td>Senate Substitute for HB 2436 by Committee on ...</td>
+      <td>Anti-Boycotts Act</td>
+      <td>4/29/2024</td>
+      <td>Senate Motion to override veto prevailed; Yea:...</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>Bill enacted but marked here as failed because...</td>
+      <td>https://legiscan.com/KS/bill/HB2436/2023</td>
+      <td>Federal and State Affairs</td>
+      <td>Hearing 2023-03-08 09:00 Room 582-N</td>
+      <td>H 2023-02-22 House Introduced, H 2023-02-22 Ho...</td>
+      <td>Failed</td>
+      <td>dd472b1bfc525eb4c1484bfed4fc4497</td>
+      <td>1717961.0</td>
+      <td>https://kslegislature.org/li/b2023_24/measures...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1kgyUJsERDroy...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1292,28 +1279,6 @@ memory usage: 100.2+ KB
       <td>...</td>
     </tr>
     <tr>
-      <th>245</th>
-      <td>Mississippi</td>
-      <td>HB1521</td>
-      <td>"Safe Dormitories Act"; establish.</td>
-      <td>Trans Segregation Bill</td>
-      <td>3/5/2024</td>
-      <td>Died In Committee</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>Uses IWF and WoLF's "Women's Bill of Rights" L...</td>
-      <td>https://legiscan.com/MS/bill/HB1521/2024</td>
-      <td>Gene Newman</td>
-      <td>NaN</td>
-      <td>H 2024-02-19 Referred To Universities and Coll...</td>
-      <td>Failed</td>
-      <td>73ddd015ad2238296c05624c8490f033</td>
-      <td>1850955.0</td>
-      <td>https://billstatus.ls.state.ms.us/documents/20...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=17oJZVFFMJOYB...</td>
-    </tr>
-    <tr>
       <th>266</th>
       <td>Mississippi</td>
       <td>SB2722</td>
@@ -1336,26 +1301,26 @@ memory usage: 100.2+ KB
       <td>https://drive.google.com/open?id=1bxUMhIyd2P6O...</td>
     </tr>
     <tr>
-      <th>117</th>
-      <td>Illinois</td>
-      <td>HB4355</td>
-      <td>IDPH-PUBERTY BLOCKER REPORT</td>
-      <td>Trans Surveillance Bill</td>
-      <td>1/16/2024</td>
-      <td>Referred to Rules Committee</td>
-      <td>Safest</td>
-      <td>Safest</td>
-      <td>Non-identifying information on puberty blocker...</td>
-      <td>https://legiscan.com/IL/bill/HB4355/2023</td>
-      <td>Tom Weber</td>
+      <th>245</th>
+      <td>Mississippi</td>
+      <td>HB1521</td>
+      <td>"Safe Dormitories Act"; establish.</td>
+      <td>Trans Segregation Bill</td>
+      <td>3/5/2024</td>
+      <td>Died In Committee</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>Uses IWF and WoLF's "Women's Bill of Rights" L...</td>
+      <td>https://legiscan.com/MS/bill/HB1521/2024</td>
+      <td>Gene Newman</td>
       <td>NaN</td>
-      <td>H 2024-01-04 Filed with the Clerk by Rep. Tom ...</td>
+      <td>H 2024-02-19 Referred To Universities and Coll...</td>
       <td>Failed</td>
-      <td>10774a3248cdbe8f0a9bfdf1d76879f2</td>
-      <td>1798337.0</td>
-      <td>https://www.ilga.gov/legislation/103/HB/10300H...</td>
+      <td>73ddd015ad2238296c05624c8490f033</td>
+      <td>1850955.0</td>
+      <td>https://billstatus.ls.state.ms.us/documents/20...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=1vYlOfmSqecJj...</td>
+      <td>https://drive.google.com/open?id=17oJZVFFMJOYB...</td>
     </tr>
     <tr>
       <th>487</th>
@@ -1400,6 +1365,28 @@ memory usage: 100.2+ KB
       <td>https://www.capitol.tn.gov/Bills/113/Bill/SB23...</td>
       <td>NaN</td>
       <td>https://drive.google.com/open?id=1JmOu3xqOF24z...</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>Illinois</td>
+      <td>HB4355</td>
+      <td>IDPH-PUBERTY BLOCKER REPORT</td>
+      <td>Trans Surveillance Bill</td>
+      <td>1/16/2024</td>
+      <td>Referred to Rules Committee</td>
+      <td>Safest</td>
+      <td>Safest</td>
+      <td>Non-identifying information on puberty blocker...</td>
+      <td>https://legiscan.com/IL/bill/HB4355/2023</td>
+      <td>Tom Weber</td>
+      <td>NaN</td>
+      <td>H 2024-01-04 Filed with the Clerk by Rep. Tom ...</td>
+      <td>Failed</td>
+      <td>10774a3248cdbe8f0a9bfdf1d76879f2</td>
+      <td>1798337.0</td>
+      <td>https://www.ilga.gov/legislation/103/HB/10300H...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1vYlOfmSqecJj...</td>
     </tr>
   </tbody>
 </table>
@@ -1485,28 +1472,6 @@ memory usage: 100.2+ KB
       <td>NaN</td>
     </tr>
     <tr>
-      <th>179</th>
-      <td>Kansas</td>
-      <td>SB224</td>
-      <td>Enacting the Kansas protection of pensions and...</td>
-      <td>Anti-Boycotts Act</td>
-      <td>4/30/2024</td>
-      <td>Senate Died in Committee</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>Carried over from 2023</td>
-      <td>https://legiscan.com/KS/bill/SB224/2023</td>
-      <td>Federal and State Affairs</td>
-      <td>Hearing 2023-03-07 10:30 Room 144-S</td>
-      <td>S 2023-02-09 Senate Introduced, S 2023-02-10 S...</td>
-      <td>Failed</td>
-      <td>650b001436c6a44804db1e4f8a2d2b0e</td>
-      <td>1702612.0</td>
-      <td>http://kslegislature.org/li/b2023_24/measures/...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
       <th>187</th>
       <td>Kansas</td>
       <td>SB512</td>
@@ -1551,26 +1516,26 @@ memory usage: 100.2+ KB
       <td>https://drive.google.com/open?id=1kgyUJsERDroy...</td>
     </tr>
     <tr>
-      <th>283</th>
-      <td>Missouri</td>
-      <td>HB1699</td>
-      <td>Prohibits state contracts with companies that ...</td>
+      <th>179</th>
+      <td>Kansas</td>
+      <td>SB224</td>
+      <td>Enacting the Kansas protection of pensions and...</td>
       <td>Anti-Boycotts Act</td>
-      <td>5/17/2024</td>
-      <td>Referred: General Laws(H)</td>
+      <td>4/30/2024</td>
+      <td>Senate Died in Committee</td>
       <td>Worst</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/MO/bill/HB1699/2024</td>
-      <td>Justin Sparks</td>
-      <td>NaN</td>
-      <td>H 2023-12-01 Prefiled (H), H 2024-01-03 Read F...</td>
+      <td>Worst</td>
+      <td>Carried over from 2023</td>
+      <td>https://legiscan.com/KS/bill/SB224/2023</td>
+      <td>Federal and State Affairs</td>
+      <td>Hearing 2023-03-07 10:30 Room 144-S</td>
+      <td>S 2023-02-09 Senate Introduced, S 2023-02-10 S...</td>
       <td>Failed</td>
-      <td>f474b83c7433bd68f3862b20171b6a97</td>
-      <td>1790473.0</td>
-      <td>https://documents.house.mo.gov/billtracking/bi...</td>
+      <td>650b001436c6a44804db1e4f8a2d2b0e</td>
+      <td>1702612.0</td>
+      <td>http://kslegislature.org/li/b2023_24/measures/...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=135tBGfzMzcq3...</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>334</th>
@@ -1593,6 +1558,28 @@ memory usage: 100.2+ KB
       <td>https://www.senate.mo.gov/24info/pdf-bill/intr...</td>
       <td>NaN</td>
       <td>https://drive.google.com/open?id=1suZ_biqfQ6Hu...</td>
+    </tr>
+    <tr>
+      <th>283</th>
+      <td>Missouri</td>
+      <td>HB1699</td>
+      <td>Prohibits state contracts with companies that ...</td>
+      <td>Anti-Boycotts Act</td>
+      <td>5/17/2024</td>
+      <td>Referred: General Laws(H)</td>
+      <td>Worst</td>
+      <td>High</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/MO/bill/HB1699/2024</td>
+      <td>Justin Sparks</td>
+      <td>NaN</td>
+      <td>H 2023-12-01 Prefiled (H), H 2024-01-03 Read F...</td>
+      <td>Failed</td>
+      <td>f474b83c7433bd68f3862b20171b6a97</td>
+      <td>1790473.0</td>
+      <td>https://documents.house.mo.gov/billtracking/bi...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=135tBGfzMzcq3...</td>
     </tr>
     <tr>
       <th>311</th>
@@ -1727,28 +1714,6 @@ memory usage: 100.2+ KB
       <td>NaN</td>
     </tr>
     <tr>
-      <th>551</th>
-      <td>US</td>
-      <td>SB4638</td>
-      <td>A bill to authorize appropriations for fiscal ...</td>
-      <td>Appropriations / Gender Affirming Care Ban</td>
-      <td>7/8/2024</td>
-      <td>Placed on Senate Legislative Calendar under Ge...</td>
-      <td>High</td>
-      <td>High</td>
-      <td>Defense Appropriations bill that includes a ba...</td>
-      <td>https://legiscan.com/US/bill/SB4638/2023</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Pass Committee</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
       <th>516</th>
       <td>US</td>
       <td>HB4664</td>
@@ -1793,6 +1758,28 @@ memory usage: 100.2+ KB
       <td>NaN</td>
     </tr>
     <tr>
+      <th>551</th>
+      <td>US</td>
+      <td>SB4638</td>
+      <td>A bill to authorize appropriations for fiscal ...</td>
+      <td>Appropriations / Gender Affirming Care Ban</td>
+      <td>7/8/2024</td>
+      <td>Placed on Senate Legislative Calendar under Ge...</td>
+      <td>High</td>
+      <td>High</td>
+      <td>Defense Appropriations bill that includes a ba...</td>
+      <td>https://legiscan.com/US/bill/SB4638/2023</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pass Committee</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
       <th>518</th>
       <td>US</td>
       <td>HB5893</td>
@@ -1813,28 +1800,6 @@ memory usage: 100.2+ KB
       <td>https://www.congress.gov/118/bills/hr5893/BILL...</td>
       <td>NaN</td>
       <td>https://drive.google.com/open?id=11JpS6cWGE5-K...</td>
-    </tr>
-    <tr>
-      <th>514</th>
-      <td>US</td>
-      <td>HB4365</td>
-      <td>Department of Defense Appropriations Act, 2024</td>
-      <td>Appropriations / Gender Affirming Care Ban / D...</td>
-      <td>10/16/2023</td>
-      <td>Received in the Senate. Read twice. Placed on ...</td>
-      <td>High</td>
-      <td>High</td>
-      <td>Includes ban on paying for military dependent ...</td>
-      <td>https://legiscan.com/US/bill/HB4365/2023</td>
-      <td>NaN</td>
-      <td>Hearing 2023-09-12 16:00 H-313, CAPITOL, Heari...</td>
-      <td>H 2023-06-27 Introduced in House, H 2023-06-27...</td>
-      <td>Failed</td>
-      <td>c5438762110e18fd30ebb7413ee2a52d</td>
-      <td>1773284.0</td>
-      <td>https://www.congress.gov/118/bills/hr4365/BILL...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1J3K_p3Q94fAo...</td>
     </tr>
     <tr>
       <th>535</th>
@@ -1859,6 +1824,28 @@ memory usage: 100.2+ KB
       <td>NaN</td>
     </tr>
     <tr>
+      <th>514</th>
+      <td>US</td>
+      <td>HB4365</td>
+      <td>Department of Defense Appropriations Act, 2024</td>
+      <td>Appropriations / Gender Affirming Care Ban / D...</td>
+      <td>10/16/2023</td>
+      <td>Received in the Senate. Read twice. Placed on ...</td>
+      <td>High</td>
+      <td>High</td>
+      <td>Includes ban on paying for military dependent ...</td>
+      <td>https://legiscan.com/US/bill/HB4365/2023</td>
+      <td>NaN</td>
+      <td>Hearing 2023-09-12 16:00 H-313, CAPITOL, Heari...</td>
+      <td>H 2023-06-27 Introduced in House, H 2023-06-27...</td>
+      <td>Failed</td>
+      <td>c5438762110e18fd30ebb7413ee2a52d</td>
+      <td>1773284.0</td>
+      <td>https://www.congress.gov/118/bills/hr4365/BILL...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1J3K_p3Q94fAo...</td>
+    </tr>
+    <tr>
       <th>531</th>
       <td>US</td>
       <td>HB8070</td>
@@ -1870,50 +1857,6 @@ memory usage: 100.2+ KB
       <td>High</td>
       <td>DoD appropriations omnibus bill which includes...</td>
       <td>https://legiscan.com/US/bill/HB8070/2023</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Pass One Chamber</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>517</th>
-      <td>US</td>
-      <td>HB4665</td>
-      <td>Department of State, Foreign Operations, and R...</td>
-      <td>Appropriations / Gender Affirming Care Ban / D...</td>
-      <td>10/3/2023</td>
-      <td>Received in the Senate. Read twice. Placed on ...</td>
-      <td>High</td>
-      <td>High</td>
-      <td>Include restrictions on using DOD funds to pay...</td>
-      <td>https://legiscan.com/US/bill/HB4665/2023</td>
-      <td>Mario Diaz-Balart</td>
-      <td>Hearing 2023-09-22 13:00 H-313, CAPITOL</td>
-      <td>H 2023-07-17 Introduced in House, H 2023-07-17...</td>
-      <td>Failed</td>
-      <td>e20fe3521a65e71ff462b15cbaf6c66a</td>
-      <td>1774610.0</td>
-      <td>https://www.congress.gov/118/bills/hr4665/BILL...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1ppyZFdhv57Pl...</td>
-    </tr>
-    <tr>
-      <th>534</th>
-      <td>US</td>
-      <td>HB8771</td>
-      <td>Making appropriations for the Department of St...</td>
-      <td>Appropriations / Gender Affirming Care Ban / D...</td>
-      <td>9/12/2024</td>
-      <td>Read twice. Placed on Senate Legislative Calen...</td>
-      <td>High</td>
-      <td>High</td>
-      <td>Various amendments include restrictions on usi...</td>
-      <td>https://legiscan.com/US/bill/HB8771/2023</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1945,6 +1888,50 @@ memory usage: 100.2+ KB
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+    </tr>
+    <tr>
+      <th>534</th>
+      <td>US</td>
+      <td>HB8771</td>
+      <td>Making appropriations for the Department of St...</td>
+      <td>Appropriations / Gender Affirming Care Ban / D...</td>
+      <td>9/12/2024</td>
+      <td>Read twice. Placed on Senate Legislative Calen...</td>
+      <td>High</td>
+      <td>High</td>
+      <td>Various amendments include restrictions on usi...</td>
+      <td>https://legiscan.com/US/bill/HB8771/2023</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pass One Chamber</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>517</th>
+      <td>US</td>
+      <td>HB4665</td>
+      <td>Department of State, Foreign Operations, and R...</td>
+      <td>Appropriations / Gender Affirming Care Ban / D...</td>
+      <td>10/3/2023</td>
+      <td>Received in the Senate. Read twice. Placed on ...</td>
+      <td>High</td>
+      <td>High</td>
+      <td>Include restrictions on using DOD funds to pay...</td>
+      <td>https://legiscan.com/US/bill/HB4665/2023</td>
+      <td>Mario Diaz-Balart</td>
+      <td>Hearing 2023-09-22 13:00 H-313, CAPITOL</td>
+      <td>H 2023-07-17 Introduced in House, H 2023-07-17...</td>
+      <td>Failed</td>
+      <td>e20fe3521a65e71ff462b15cbaf6c66a</td>
+      <td>1774610.0</td>
+      <td>https://www.congress.gov/118/bills/hr4665/BILL...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1ppyZFdhv57Pl...</td>
     </tr>
     <tr>
       <th>519</th>
@@ -2365,6 +2352,28 @@ memory usage: 100.2+ KB
       <td>NaN</td>
     </tr>
     <tr>
+      <th>75</th>
+      <td>Georgia</td>
+      <td>SB394</td>
+      <td>"Restricting Explicit and Adult-designated Edu...</td>
+      <td>Book Ban</td>
+      <td>2/26/2024</td>
+      <td>Senate Read Second Time</td>
+      <td>Worst</td>
+      <td>Moderate</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/GA/bill/SB394/2023</td>
+      <td>Clint Dixon, Jason Anavitarte, Randy Robertson...</td>
+      <td>Hearing 2024-02-21 17:00 450 CAP</td>
+      <td>S 2024-01-24 Senate Hopper, S 2024-01-25 Senat...</td>
+      <td>Failed</td>
+      <td>93f73e61cc4c1a82015c58e75f5199d3</td>
+      <td>1827773.0</td>
+      <td>https://www.legis.ga.gov/api/legislation/docum...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=18n84nK3QoGm8...</td>
+    </tr>
+    <tr>
       <th>72</th>
       <td>Georgia</td>
       <td>SB154</td>
@@ -2387,26 +2396,26 @@ memory usage: 100.2+ KB
       <td>https://drive.google.com/open?id=1sLDjia5MY0C8...</td>
     </tr>
     <tr>
-      <th>75</th>
-      <td>Georgia</td>
-      <td>SB394</td>
-      <td>"Restricting Explicit and Adult-designated Edu...</td>
+      <th>91</th>
+      <td>Idaho</td>
+      <td>H0384</td>
+      <td>Amends and adds to existing law to prohibit ce...</td>
       <td>Book Ban</td>
-      <td>2/26/2024</td>
-      <td>Senate Read Second Time</td>
+      <td>1/18/2024</td>
+      <td>U.C. to be returned to State Affairs Committee</td>
       <td>Worst</td>
-      <td>Moderate</td>
+      <td>Worst</td>
       <td>NaN</td>
-      <td>https://legiscan.com/GA/bill/SB394/2023</td>
-      <td>Clint Dixon, Jason Anavitarte, Randy Robertson...</td>
-      <td>Hearing 2024-02-21 17:00 450 CAP</td>
-      <td>S 2024-01-24 Senate Hopper, S 2024-01-25 Senat...</td>
+      <td>https://legiscan.com/ID/bill/H0384/2024</td>
+      <td>State Affairs Committee</td>
+      <td>Hearing 2024-01-15 09:00 Room EW40</td>
+      <td>H 2024-01-10 Introduced, read first time, refe...</td>
       <td>Failed</td>
-      <td>93f73e61cc4c1a82015c58e75f5199d3</td>
-      <td>1827773.0</td>
-      <td>https://www.legis.ga.gov/api/legislation/docum...</td>
+      <td>9c724c4466a7784e0aca9f2f84dbdbfd</td>
+      <td>1808590.0</td>
+      <td>https://legislature.idaho.gov/wp-content/uploa...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=18n84nK3QoGm8...</td>
+      <td>https://drive.google.com/open?id=1Gx3e7IpynIEY...</td>
     </tr>
     <tr>
       <th>111</th>
@@ -2451,28 +2460,6 @@ memory usage: 100.2+ KB
       <td>https://legislature.idaho.gov/wp-content/uploa...</td>
       <td>NaN</td>
       <td>https://drive.google.com/open?id=1r_fHa0Ny8ZI7...</td>
-    </tr>
-    <tr>
-      <th>91</th>
-      <td>Idaho</td>
-      <td>H0384</td>
-      <td>Amends and adds to existing law to prohibit ce...</td>
-      <td>Book Ban</td>
-      <td>1/18/2024</td>
-      <td>U.C. to be returned to State Affairs Committee</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/ID/bill/H0384/2024</td>
-      <td>State Affairs Committee</td>
-      <td>Hearing 2024-01-15 09:00 Room EW40</td>
-      <td>H 2024-01-10 Introduced, read first time, refe...</td>
-      <td>Failed</td>
-      <td>9c724c4466a7784e0aca9f2f84dbdbfd</td>
-      <td>1808590.0</td>
-      <td>https://legislature.idaho.gov/wp-content/uploa...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1Gx3e7IpynIEY...</td>
     </tr>
     <tr>
       <th>107</th>
@@ -2643,6 +2630,28 @@ memory usage: 100.2+ KB
       <td>https://drive.google.com/open?id=1elg55a5RJV0C...</td>
     </tr>
     <tr>
+      <th>486</th>
+      <td>Tennessee</td>
+      <td>HB2669</td>
+      <td>AN ACT to amend Tennessee Code Annotated, Titl...</td>
+      <td>Social Credit Score</td>
+      <td>2/7/2024</td>
+      <td>Assigned to s/c Banking &amp; Consumer Affairs Sub...</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/TN/bill/HB2669/2023</td>
+      <td>David Hawk</td>
+      <td>NaN</td>
+      <td>H 2024-01-31 Filed for introduction, H 2024-02...</td>
+      <td>Failed</td>
+      <td>d4b37fd4290e9d7f29d0b3bc6a2fb700</td>
+      <td>1832914.0</td>
+      <td>https://www.capitol.tn.gov/Bills/113/Bill/HB26...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1EJRuPjgJumTK...</td>
+    </tr>
+    <tr>
       <th>504</th>
       <td>Tennessee</td>
       <td>SB2560</td>
@@ -2665,39 +2674,17 @@ memory usage: 100.2+ KB
       <td>https://drive.google.com/open?id=1A1Kn4in85jyk...</td>
     </tr>
     <tr>
-      <th>131</th>
-      <td>Indiana</td>
-      <td>SB0028</td>
-      <td>Discriminatory financial services practices. P...</td>
-      <td>Social Credit Score</td>
-      <td>1/9/2024</td>
-      <td>Senator Niemeyer added as coauthor</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/IN/bill/SB0028/2024</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Failed</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>167</th>
+      <th>147</th>
       <td>Iowa</td>
-      <td>SSB3094</td>
+      <td>HF2409</td>
       <td>A bill for an act relating to discrimination i...</td>
       <td>Social Credit Score</td>
-      <td>1/29/2024</td>
-      <td>Subcommittee recommends amendment and passage....</td>
+      <td>2/8/2024</td>
+      <td>Introduced, referred to Commerce. H.J. 227.</td>
       <td>Worst</td>
       <td>High</td>
-      <td>Legislation replaced by HF2409</td>
-      <td>https://legiscan.com/IA/bill/SSB3094/2023</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/IA/bill/HF2409/2023</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2731,26 +2718,48 @@ memory usage: 100.2+ KB
       <td>https://drive.google.com/open?id=1VGmSqMTa7kAa...</td>
     </tr>
     <tr>
-      <th>393</th>
-      <td>Ohio</td>
-      <td>SCR11</td>
-      <td>To urge Congress and the President of the Unit...</td>
+      <th>290</th>
+      <td>Missouri</td>
+      <td>HB1981</td>
+      <td>Modifies guidelines for student participation ...</td>
       <td>Sports Ban</td>
-      <td>5/22/2024</td>
-      <td>Referred to committee: Education</td>
+      <td>5/17/2024</td>
+      <td>Referred: General Laws(H)</td>
       <td>Worst</td>
       <td>High</td>
       <td>NaN</td>
-      <td>https://legiscan.com/OH/bill/SCR11/2023</td>
+      <td>https://legiscan.com/MO/bill/HB1981/2024</td>
+      <td>Jamie Burger</td>
       <td>NaN</td>
+      <td>H 2023-12-18 Prefiled (H), H 2024-01-03 Read F...</td>
+      <td>Failed</td>
+      <td>326db0fe9b30b026eaacd5801b09c065</td>
+      <td>1795934.0</td>
+      <td>https://documents.house.mo.gov/billtracking/bi...</td>
       <td>NaN</td>
+      <td>https://drive.google.com/open?id=1XidsR0KnriVR...</td>
+    </tr>
+    <tr>
+      <th>322</th>
+      <td>Missouri</td>
+      <td>SB1440</td>
+      <td>Prohibits public and private elementary and se...</td>
+      <td>Sports Ban</td>
+      <td>5/7/2024</td>
+      <td>Hearing Conducted S Select Committee on Empowe...</td>
+      <td>Worst</td>
+      <td>High</td>
       <td>NaN</td>
+      <td>https://legiscan.com/MO/bill/SB1440/2024</td>
+      <td>Mary Coleman</td>
       <td>NaN</td>
+      <td>S 2024-02-22 S First Read, S 2024-03-07 Second...</td>
+      <td>Failed</td>
+      <td>51e4b38a9b6c25cae635c711b756d8d9</td>
+      <td>1852906.0</td>
+      <td>https://www.senate.mo.gov/24info/pdf-bill/intr...</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1PU5C5dPY80KQ...</td>
     </tr>
     <tr>
       <th>664</th>
@@ -2797,92 +2806,26 @@ memory usage: 100.2+ KB
       <td>https://drive.google.com/open?id=1TlTDFAdUfD0v...</td>
     </tr>
     <tr>
-      <th>390</th>
-      <td>Ohio</td>
-      <td>HCR17</td>
-      <td>To express the General Assembly's opposition t...</td>
-      <td>Sports Ban</td>
-      <td>5/21/2024</td>
-      <td>Introduced and Referred to Committee: Civil Ju...</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/OH/bill/HCR17/2023</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>571</th>
-      <td>Utah</td>
-      <td>SB0219</td>
-      <td>School Activity Eligibility Commission Modific...</td>
-      <td>Sports Ban</td>
-      <td>3/21/2024</td>
-      <td>Governor Signed in Lieutenant Governor's offic...</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/UT/bill/SB0219/2024</td>
-      <td>Michael Kennedy, Kera Birkeland</td>
-      <td>Hearing 2024-02-12 16:00 , Hearing 2024-02-23 ...</td>
-      <td>2024-02-08 Bill Numbered but not Distributed ...</td>
-      <td>Enacted</td>
-      <td>dc1ea736a19ed427c8941ea64f7e44bc</td>
-      <td>1840924.0</td>
-      <td>https://le.utah.gov/~2024/bills/sbillint/SB021...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1PUwsO4EKrwsx...</td>
-    </tr>
-    <tr>
-      <th>322</th>
+      <th>292</th>
       <td>Missouri</td>
-      <td>SB1440</td>
-      <td>Prohibits public and private elementary and se...</td>
+      <td>HB2145</td>
+      <td>Removes an expiration date of provisions gover...</td>
       <td>Sports Ban</td>
-      <td>5/7/2024</td>
-      <td>Hearing Conducted S Select Committee on Empowe...</td>
+      <td>5/17/2024</td>
+      <td>Referred: General Laws(H)</td>
       <td>Worst</td>
       <td>High</td>
       <td>NaN</td>
-      <td>https://legiscan.com/MO/bill/SB1440/2024</td>
-      <td>Mary Coleman</td>
+      <td>https://legiscan.com/MO/bill/HB2145/2024</td>
+      <td>Brian Seitz</td>
       <td>NaN</td>
-      <td>S 2024-02-22 S First Read, S 2024-03-07 Second...</td>
+      <td>H 2024-01-02 Prefiled (H), H 2024-01-03 Read F...</td>
       <td>Failed</td>
-      <td>51e4b38a9b6c25cae635c711b756d8d9</td>
-      <td>1852906.0</td>
-      <td>https://www.senate.mo.gov/24info/pdf-bill/intr...</td>
+      <td>ab0fd31537a34cac2229b97884e51e70</td>
+      <td>1795682.0</td>
+      <td>https://documents.house.mo.gov/billtracking/bi...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=1PU5C5dPY80KQ...</td>
-    </tr>
-    <tr>
-      <th>558</th>
-      <td>Utah</td>
-      <td>HB0172</td>
-      <td>Student Athlete Participation Amendments</td>
-      <td>Sports Ban</td>
-      <td>3/12/2024</td>
-      <td>Governor Signed in Lieutenant Governor's offic...</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/UT/bill/HB0172/2024</td>
-      <td>Jordan Teuscher, Lincoln Fillmore</td>
-      <td>Hearing 2024-01-23 14:00 , Hearing 2024-02-09 ...</td>
-      <td>2024-01-05 Bill Numbered but not Distributed ...</td>
-      <td>Enacted</td>
-      <td>1e4f651cc82e968180ba3f90c0c5b9c1</td>
-      <td>1799398.0</td>
-      <td>https://le.utah.gov/~2024/bills/hbillint/HB017...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1hBkK62iI-Oy3...</td>
+      <td>https://drive.google.com/open?id=1Tm12HFaYYV0v...</td>
     </tr>
     <tr>
       <th>76</th>
@@ -2907,48 +2850,92 @@ memory usage: 100.2+ KB
       <td>https://drive.google.com/open?id=1rTQFhaTMf2ud...</td>
     </tr>
     <tr>
-      <th>290</th>
-      <td>Missouri</td>
-      <td>HB1981</td>
-      <td>Modifies guidelines for student participation ...</td>
+      <th>393</th>
+      <td>Ohio</td>
+      <td>SCR11</td>
+      <td>To urge Congress and the President of the Unit...</td>
       <td>Sports Ban</td>
-      <td>5/17/2024</td>
-      <td>Referred: General Laws(H)</td>
+      <td>5/22/2024</td>
+      <td>Referred to committee: Education</td>
       <td>Worst</td>
       <td>High</td>
       <td>NaN</td>
-      <td>https://legiscan.com/MO/bill/HB1981/2024</td>
-      <td>Jamie Burger</td>
+      <td>https://legiscan.com/OH/bill/SCR11/2023</td>
       <td>NaN</td>
-      <td>H 2023-12-18 Prefiled (H), H 2024-01-03 Read F...</td>
-      <td>Failed</td>
-      <td>326db0fe9b30b026eaacd5801b09c065</td>
-      <td>1795934.0</td>
-      <td>https://documents.house.mo.gov/billtracking/bi...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=1XidsR0KnriVR...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>292</th>
-      <td>Missouri</td>
-      <td>HB2145</td>
-      <td>Removes an expiration date of provisions gover...</td>
+      <th>390</th>
+      <td>Ohio</td>
+      <td>HCR17</td>
+      <td>To express the General Assembly's opposition t...</td>
       <td>Sports Ban</td>
-      <td>5/17/2024</td>
-      <td>Referred: General Laws(H)</td>
+      <td>5/21/2024</td>
+      <td>Introduced and Referred to Committee: Civil Ju...</td>
       <td>Worst</td>
       <td>High</td>
       <td>NaN</td>
-      <td>https://legiscan.com/MO/bill/HB2145/2024</td>
-      <td>Brian Seitz</td>
+      <td>https://legiscan.com/OH/bill/HCR17/2023</td>
       <td>NaN</td>
-      <td>H 2024-01-02 Prefiled (H), H 2024-01-03 Read F...</td>
-      <td>Failed</td>
-      <td>ab0fd31537a34cac2229b97884e51e70</td>
-      <td>1795682.0</td>
-      <td>https://documents.house.mo.gov/billtracking/bi...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=1Tm12HFaYYV0v...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>558</th>
+      <td>Utah</td>
+      <td>HB0172</td>
+      <td>Student Athlete Participation Amendments</td>
+      <td>Sports Ban</td>
+      <td>3/12/2024</td>
+      <td>Governor Signed in Lieutenant Governor's offic...</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/UT/bill/HB0172/2024</td>
+      <td>Jordan Teuscher, Lincoln Fillmore</td>
+      <td>Hearing 2024-01-23 14:00 , Hearing 2024-02-09 ...</td>
+      <td>2024-01-05 Bill Numbered but not Distributed ...</td>
+      <td>Enacted</td>
+      <td>1e4f651cc82e968180ba3f90c0c5b9c1</td>
+      <td>1799398.0</td>
+      <td>https://le.utah.gov/~2024/bills/hbillint/HB017...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1hBkK62iI-Oy3...</td>
+    </tr>
+    <tr>
+      <th>571</th>
+      <td>Utah</td>
+      <td>SB0219</td>
+      <td>School Activity Eligibility Commission Modific...</td>
+      <td>Sports Ban</td>
+      <td>3/21/2024</td>
+      <td>Governor Signed in Lieutenant Governor's offic...</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/UT/bill/SB0219/2024</td>
+      <td>Michael Kennedy, Kera Birkeland</td>
+      <td>Hearing 2024-02-12 16:00 , Hearing 2024-02-23 ...</td>
+      <td>2024-02-08 Bill Numbered but not Distributed ...</td>
+      <td>Enacted</td>
+      <td>dc1ea736a19ed427c8941ea64f7e44bc</td>
+      <td>1840924.0</td>
+      <td>https://le.utah.gov/~2024/bills/sbillint/SB021...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1PUwsO4EKrwsx...</td>
     </tr>
     <tr>
       <th>569</th>
@@ -2995,28 +2982,6 @@ memory usage: 100.2+ KB
       <td>NaN</td>
     </tr>
     <tr>
-      <th>106</th>
-      <td>Idaho</td>
-      <td>HCR035</td>
-      <td>States findings of the Legislature and recogni...</td>
-      <td>Straight Pride Month Resolution</td>
-      <td>3/15/2024</td>
-      <td>Introduced, read first time; referred to: Stat...</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/ID/bill/HCR035/2024</td>
-      <td>State Affairs Committee</td>
-      <td>NaN</td>
-      <td>H 2024-03-06 Introduced, read first time, refe...</td>
-      <td>Failed</td>
-      <td>64f338a43e5452f8287f36f9013cc780</td>
-      <td>1860349.0</td>
-      <td>https://legislature.idaho.gov/wp-content/uploa...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1tTdjlDjb52p5...</td>
-    </tr>
-    <tr>
       <th>105</th>
       <td>Idaho</td>
       <td>HCR020</td>
@@ -3039,158 +3004,26 @@ memory usage: 100.2+ KB
       <td>https://drive.google.com/open?id=1wM1VFktxiAxV...</td>
     </tr>
     <tr>
-      <th>448</th>
-      <td>South Carolina</td>
-      <td>H4535</td>
-      <td>Safety in Private Spaces Act</td>
-      <td>Trans Bathroom Ban</td>
-      <td>1/18/2024</td>
-      <td>Member(s) request name added as sponsor: McCravy</td>
+      <th>106</th>
+      <td>Idaho</td>
+      <td>HCR035</td>
+      <td>States findings of the Legislature and recogni...</td>
+      <td>Straight Pride Month Resolution</td>
+      <td>3/15/2024</td>
+      <td>Introduced, read first time; referred to: Stat...</td>
       <td>Worst</td>
-      <td>High</td>
-      <td>Almost identical to the FL bill that passed -A...</td>
-      <td>https://legiscan.com/SC/bill/H4535/2023</td>
-      <td>Thomas Beach, Ashley Trantham, Patrick Haddon,...</td>
+      <td>Worst</td>
       <td>NaN</td>
-      <td>H 2023-11-16 Prefiled, H 2023-11-16 Referred t...</td>
+      <td>https://legiscan.com/ID/bill/HCR035/2024</td>
+      <td>State Affairs Committee</td>
+      <td>NaN</td>
+      <td>H 2024-03-06 Introduced, read first time, refe...</td>
       <td>Failed</td>
-      <td>0152f1a64a6372d21e6b8de6b0075613</td>
-      <td>1784341.0</td>
-      <td>https://www.scstatehouse.gov/sess125_2023-2024...</td>
+      <td>64f338a43e5452f8287f36f9013cc780</td>
+      <td>1860349.0</td>
+      <td>https://legislature.idaho.gov/wp-content/uploa...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=1d37jbkJC400C...</td>
-    </tr>
-    <tr>
-      <th>154</th>
-      <td>Iowa</td>
-      <td>SF2055</td>
-      <td>A bill for an act prohibiting persons from ent...</td>
-      <td>Trans Bathroom Ban</td>
-      <td>1/22/2024</td>
-      <td>Subcommittee: Salmon, Celsi, and Westrich. S.J...</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>Adult public restroom ban -Allison</td>
-      <td>https://legiscan.com/IA/bill/SF2055/2023</td>
-      <td>Sandy Salmon</td>
-      <td>NaN</td>
-      <td>S 2024-01-17 Introduced, referred to State Gov...</td>
-      <td>Failed</td>
-      <td>507f174d7cdcdbf7b3913dfdc2414b2e</td>
-      <td>1818469.0</td>
-      <td>https://www.legis.iowa.gov/docs/publications/L...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1qxFkRlsZJk6S...</td>
-    </tr>
-    <tr>
-      <th>244</th>
-      <td>Mississippi</td>
-      <td>HB1428</td>
-      <td>"SAFER Act"; create to regulate public buildings.</td>
-      <td>Trans Bathroom Ban</td>
-      <td>3/5/2024</td>
-      <td>Died In Committee</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>Uses IWF and WoLF's "Women's Bill of Rights" L...</td>
-      <td>https://legiscan.com/MS/bill/HB1428/2024</td>
-      <td>Celeste Hurst, Randal Rushing, Mark Tullos, An...</td>
-      <td>NaN</td>
-      <td>H 2024-02-19 Referred To Public Property;Judic...</td>
-      <td>Failed</td>
-      <td>e3fb8b466764d1790189eee080dcea74</td>
-      <td>1850544.0</td>
-      <td>https://billstatus.ls.state.ms.us/documents/20...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1ygoev9qQoyDK...</td>
-    </tr>
-    <tr>
-      <th>68</th>
-      <td>Georgia</td>
-      <td>HB836</td>
-      <td>Education; provide safety of students; require...</td>
-      <td>Trans Bathroom Ban</td>
-      <td>1/8/2024</td>
-      <td>House Second Readers</td>
-      <td>Worst</td>
-      <td>Moderate</td>
-      <td>GAC ban with 2 year civil liability for practi...</td>
-      <td>https://legiscan.com/GA/bill/HB836/2023</td>
-      <td>Mitchell Scoggins, Joseph Gullett, Josh Bonner...</td>
-      <td>NaN</td>
-      <td>H 2023-03-27 House Hopper, H 2023-03-29 House ...</td>
-      <td>Failed</td>
-      <td>a8ccfa3d6cc76ecbf29bd23f993d9d30</td>
-      <td>1748443.0</td>
-      <td>https://www.legis.ga.gov/api/legislation/docum...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=186Jl_EeMhriC...</td>
-    </tr>
-    <tr>
-      <th>71</th>
-      <td>Georgia</td>
-      <td>HB936</td>
-      <td>Education; provide safety of students; require...</td>
-      <td>Trans Bathroom Ban</td>
-      <td>1/23/2024</td>
-      <td>House Second Readers</td>
-      <td>Worst</td>
-      <td>Moderate</td>
-      <td>Variation on ADF's Student Physical Privacy Act</td>
-      <td>https://legiscan.com/GA/bill/HB936/2023</td>
-      <td>Josh Bonner, Mitchell Scoggins, Joseph Gullett...</td>
-      <td>NaN</td>
-      <td>H 2024-01-12 House Hopper, H 2024-01-22 House ...</td>
-      <td>Failed</td>
-      <td>15db5e88c2d4a94a2f5c32f462e5e507</td>
-      <td>1813271.0</td>
-      <td>https://www.legis.ga.gov/api/legislation/docum...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1qoLDZ47GC3Ir...</td>
-    </tr>
-    <tr>
-      <th>449</th>
-      <td>South Carolina</td>
-      <td>H4538</td>
-      <td>South Carolina Student Physical Privacy Act</td>
-      <td>Trans Bathroom Ban</td>
-      <td>2/13/2024</td>
-      <td>Member(s) request name added as sponsor: Mitch...</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>Yet another iteration of Alliance Defending Fr...</td>
-      <td>https://legiscan.com/SC/bill/H4538/2023</td>
-      <td>April Cromer, Ashley Trantham, Melissa Oremus,...</td>
-      <td>NaN</td>
-      <td>H 2023-11-16 Prefiled, H 2023-11-16 Referred t...</td>
-      <td>Failed</td>
-      <td>cbd193e0ea992e9d9bd7faf21c3a9d4d</td>
-      <td>1784420.0</td>
-      <td>https://www.scstatehouse.gov/sess125_2023-2024...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1-9-nJgGPPZE2...</td>
-    </tr>
-    <tr>
-      <th>391</th>
-      <td>Ohio</td>
-      <td>SB104</td>
-      <td>To amend sections 3302.03, 3314.03, 3326.11, 3...</td>
-      <td>Trans Bathroom Ban</td>
-      <td>6/26/2024</td>
-      <td>Informally passed</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>The Trans Bathroom Ban for K12 and Colleges fr...</td>
-      <td>https://legiscan.com/OH/bill/SB104/2023</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Pass Both Chambers</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1tTdjlDjb52p5...</td>
     </tr>
     <tr>
       <th>281</th>
@@ -3215,48 +3048,26 @@ memory usage: 100.2+ KB
       <td>https://drive.google.com/open?id=1PMgoJvXHpUI2...</td>
     </tr>
     <tr>
-      <th>508</th>
-      <td>Tennessee</td>
-      <td>SB2781</td>
-      <td>AN ACT to amend Tennessee Code Annotated, Sect...</td>
+      <th>244</th>
+      <td>Mississippi</td>
+      <td>HB1428</td>
+      <td>"SAFER Act"; create to regulate public buildings.</td>
       <td>Trans Bathroom Ban</td>
-      <td>3/27/2024</td>
-      <td>Deferred to Summer Study</td>
+      <td>3/5/2024</td>
+      <td>Died In Committee</td>
       <td>Worst</td>
       <td>Worst</td>
+      <td>Uses IWF and WoLF's "Women's Bill of Rights" L...</td>
+      <td>https://legiscan.com/MS/bill/HB1428/2024</td>
+      <td>Celeste Hurst, Randal Rushing, Mark Tullos, An...</td>
       <td>NaN</td>
-      <td>https://legiscan.com/TN/bill/SB2781/2023</td>
-      <td>Janince Bowling</td>
-      <td>Hearing 2024-03-11 13:00 Cordell Hull Building...</td>
-      <td>S 2024-01-31 Filed for introduction, S 2024-02...</td>
+      <td>H 2024-02-19 Referred To Public Property;Judic...</td>
       <td>Failed</td>
-      <td>ddee52716f72e9127ae8210d79639b4b</td>
-      <td>1834061.0</td>
-      <td>https://www.capitol.tn.gov/Bills/113/Bill/SB27...</td>
+      <td>e3fb8b466764d1790189eee080dcea74</td>
+      <td>1850544.0</td>
+      <td>https://billstatus.ls.state.ms.us/documents/20...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=18VPc_sSAvJNa...</td>
-    </tr>
-    <tr>
-      <th>299</th>
-      <td>Missouri</td>
-      <td>HB2355</td>
-      <td>Requires all public school shower rooms, locke...</td>
-      <td>Trans Bathroom Ban</td>
-      <td>1/31/2024</td>
-      <td>HCS Reported Do Pass (H) - AYES: 10 NOES: 4 PR...</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>Yet another iteration of Alliance Defending Fr...</td>
-      <td>https://legiscan.com/MO/bill/HB2355/2024</td>
-      <td>Ben Baker</td>
-      <td>Hearing 2024-01-17 14:00 House Hearing Room 6,...</td>
-      <td>H 2024-01-09 Introduced and Read First Time (H...</td>
-      <td>Failed</td>
-      <td>eb037b8114cee47788c5c76e7f93f9bd</td>
-      <td>1801739.0</td>
-      <td>https://documents.house.mo.gov/billtracking/bi...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1b592M9N1vNFd...</td>
+      <td>https://drive.google.com/open?id=1ygoev9qQoyDK...</td>
     </tr>
     <tr>
       <th>461</th>
@@ -3281,70 +3092,26 @@ memory usage: 100.2+ KB
       <td>https://drive.google.com/open?id=1cxKAGWcji6GE...</td>
     </tr>
     <tr>
-      <th>561</th>
-      <td>Utah</td>
-      <td>HB0257</td>
-      <td>Sex-based Designations for Privacy, Anti-bully...</td>
+      <th>299</th>
+      <td>Missouri</td>
+      <td>HB2355</td>
+      <td>Requires all public school shower rooms, locke...</td>
       <td>Trans Bathroom Ban</td>
-      <td>1/30/2024</td>
-      <td>Governor Signed in Executive Branch - Lieutena...</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>Uses IWF and WoLF's "Women's Bill of Rights" L...</td>
-      <td>https://legiscan.com/UT/bill/HB0257/2024</td>
-      <td>Kera Birkeland, Daniel McCay</td>
-      <td>Hearing 2024-01-17 14:00 , Hearing 2024-01-22 ...</td>
-      <td>2024-01-11 Bill Numbered but not Distributed ...</td>
-      <td>Enacted</td>
-      <td>1ffbd951f7160b7819dd3bbd92fb1c73</td>
-      <td>1811447.0</td>
-      <td>https://le.utah.gov/~2024/bills/hbillint/HB025...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=19wmudem_l2vF...</td>
-    </tr>
-    <tr>
-      <th>383</th>
-      <td>Ohio</td>
-      <td>HB183</td>
-      <td>Regards single-sex bathroom access in schools,...</td>
-      <td>Trans Bathroom Ban</td>
-      <td>4/10/2024</td>
-      <td>Reported - Substitute: Higher Education</td>
+      <td>1/31/2024</td>
+      <td>HCS Reported Do Pass (H) - AYES: 10 NOES: 4 PR...</td>
       <td>Worst</td>
       <td>High</td>
       <td>Yet another iteration of Alliance Defending Fr...</td>
-      <td>https://legiscan.com/OH/bill/HB183/2023</td>
-      <td>Beth Lear, Adam Bird, Tim Barhorst, Thaddeus C...</td>
-      <td>Hearing 2023-10-04 13:00 Room 017, Hearing 202...</td>
-      <td>H 2023-05-23 Introduced, H 2023-06-07 Referred...</td>
-      <td>Pass Committee</td>
-      <td>a30ec7f1743358021a0cabb1ac2507e6</td>
-      <td>1767656.0</td>
-      <td>https://search-prod.lis.state.oh.us/solarapi/v...</td>
-      <td>The provided text describes House Bill No. 183...</td>
-      <td>https://drive.google.com/open?id=16oeemN7QmBbl...</td>
-    </tr>
-    <tr>
-      <th>297</th>
-      <td>Missouri</td>
-      <td>HB2308</td>
-      <td>Enacts provisions governing emerging issues in...</td>
-      <td>Trans Bathroom Ban</td>
-      <td>1/24/2024</td>
-      <td>Action Postponed (H)</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>School Bathroom Ban + rewriting anti-discrimin...</td>
-      <td>https://legiscan.com/MO/bill/HB2308/2024</td>
-      <td>Adam Schnelting</td>
+      <td>https://legiscan.com/MO/bill/HB2355/2024</td>
+      <td>Ben Baker</td>
       <td>Hearing 2024-01-17 14:00 House Hearing Room 6,...</td>
-      <td>H 2024-01-05 Introduced and Read First Time (H...</td>
+      <td>H 2024-01-09 Introduced and Read First Time (H...</td>
       <td>Failed</td>
-      <td>796f2ec85c0e57fb16c05541ed223ed4</td>
-      <td>1798864.0</td>
+      <td>eb037b8114cee47788c5c76e7f93f9bd</td>
+      <td>1801739.0</td>
       <td>https://documents.house.mo.gov/billtracking/bi...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=1qzRT-Uis4qbc...</td>
+      <td>https://drive.google.com/open?id=1b592M9N1vNFd...</td>
     </tr>
     <tr>
       <th>460</th>
@@ -3369,26 +3136,180 @@ memory usage: 100.2+ KB
       <td>NaN</td>
     </tr>
     <tr>
-      <th>333</th>
-      <td>Missouri</td>
-      <td>SB974</td>
-      <td>Requires all public school shower rooms, locke...</td>
+      <th>478</th>
+      <td>Tennessee</td>
+      <td>HB1949</td>
+      <td>AN ACT to amend Tennessee Code Annotated, Sect...</td>
       <td>Trans Bathroom Ban</td>
-      <td>1/25/2024</td>
-      <td>Second Read and Referred S Emerging Issues Com...</td>
+      <td>4/3/2024</td>
+      <td>Taken off notice for cal in s/c Criminal Justi...</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>Criminal on the basis of expectation and priva...</td>
+      <td>https://legiscan.com/TN/bill/HB1949/2023</td>
+      <td>John Ragan</td>
+      <td>Hearing 2024-02-20 12:00 House Hearing Room II...</td>
+      <td>H 2024-01-23 Filed for introduction, H 2024-01...</td>
+      <td>Failed</td>
+      <td>0c406147942d9d480a3653d10518160d</td>
+      <td>1825523.0</td>
+      <td>https://www.capitol.tn.gov/Bills/113/Bill/HB19...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1tuu6ibVmsGuT...</td>
+    </tr>
+    <tr>
+      <th>449</th>
+      <td>South Carolina</td>
+      <td>H4538</td>
+      <td>South Carolina Student Physical Privacy Act</td>
+      <td>Trans Bathroom Ban</td>
+      <td>2/13/2024</td>
+      <td>Member(s) request name added as sponsor: Mitch...</td>
       <td>Worst</td>
       <td>High</td>
-      <td>requires parental consent for trans student to...</td>
-      <td>https://legiscan.com/MO/bill/SB974/2024</td>
-      <td>Travis Fitzwater</td>
+      <td>Yet another iteration of Alliance Defending Fr...</td>
+      <td>https://legiscan.com/SC/bill/H4538/2023</td>
+      <td>April Cromer, Ashley Trantham, Melissa Oremus,...</td>
       <td>NaN</td>
-      <td>S 2023-12-01 Prefiled, S 2024-01-03 S First Re...</td>
+      <td>H 2023-11-16 Prefiled, H 2023-11-16 Referred t...</td>
       <td>Failed</td>
-      <td>c602253c00676841074971274f2ddf6f</td>
-      <td>1790594.0</td>
-      <td>https://www.senate.mo.gov/24info/pdf-bill/intr...</td>
+      <td>cbd193e0ea992e9d9bd7faf21c3a9d4d</td>
+      <td>1784420.0</td>
+      <td>https://www.scstatehouse.gov/sess125_2023-2024...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=17O36gEWAVdt-...</td>
+      <td>https://drive.google.com/open?id=1-9-nJgGPPZE2...</td>
+    </tr>
+    <tr>
+      <th>448</th>
+      <td>South Carolina</td>
+      <td>H4535</td>
+      <td>Safety in Private Spaces Act</td>
+      <td>Trans Bathroom Ban</td>
+      <td>1/18/2024</td>
+      <td>Member(s) request name added as sponsor: McCravy</td>
+      <td>Worst</td>
+      <td>High</td>
+      <td>Almost identical to the FL bill that passed -A...</td>
+      <td>https://legiscan.com/SC/bill/H4535/2023</td>
+      <td>Thomas Beach, Ashley Trantham, Patrick Haddon,...</td>
+      <td>NaN</td>
+      <td>H 2023-11-16 Prefiled, H 2023-11-16 Referred t...</td>
+      <td>Failed</td>
+      <td>0152f1a64a6372d21e6b8de6b0075613</td>
+      <td>1784341.0</td>
+      <td>https://www.scstatehouse.gov/sess125_2023-2024...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1d37jbkJC400C...</td>
+    </tr>
+    <tr>
+      <th>508</th>
+      <td>Tennessee</td>
+      <td>SB2781</td>
+      <td>AN ACT to amend Tennessee Code Annotated, Sect...</td>
+      <td>Trans Bathroom Ban</td>
+      <td>3/27/2024</td>
+      <td>Deferred to Summer Study</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/TN/bill/SB2781/2023</td>
+      <td>Janince Bowling</td>
+      <td>Hearing 2024-03-11 13:00 Cordell Hull Building...</td>
+      <td>S 2024-01-31 Filed for introduction, S 2024-02...</td>
+      <td>Failed</td>
+      <td>ddee52716f72e9127ae8210d79639b4b</td>
+      <td>1834061.0</td>
+      <td>https://www.capitol.tn.gov/Bills/113/Bill/SB27...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=18VPc_sSAvJNa...</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>Missouri</td>
+      <td>HB2308</td>
+      <td>Enacts provisions governing emerging issues in...</td>
+      <td>Trans Bathroom Ban</td>
+      <td>1/24/2024</td>
+      <td>Action Postponed (H)</td>
+      <td>Worst</td>
+      <td>High</td>
+      <td>School Bathroom Ban + rewriting anti-discrimin...</td>
+      <td>https://legiscan.com/MO/bill/HB2308/2024</td>
+      <td>Adam Schnelting</td>
+      <td>Hearing 2024-01-17 14:00 House Hearing Room 6,...</td>
+      <td>H 2024-01-05 Introduced and Read First Time (H...</td>
+      <td>Failed</td>
+      <td>796f2ec85c0e57fb16c05541ed223ed4</td>
+      <td>1798864.0</td>
+      <td>https://documents.house.mo.gov/billtracking/bi...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1qzRT-Uis4qbc...</td>
+    </tr>
+    <tr>
+      <th>154</th>
+      <td>Iowa</td>
+      <td>SF2055</td>
+      <td>A bill for an act prohibiting persons from ent...</td>
+      <td>Trans Bathroom Ban</td>
+      <td>1/22/2024</td>
+      <td>Subcommittee: Salmon, Celsi, and Westrich. S.J...</td>
+      <td>Worst</td>
+      <td>High</td>
+      <td>Adult public restroom ban -Allison</td>
+      <td>https://legiscan.com/IA/bill/SF2055/2023</td>
+      <td>Sandy Salmon</td>
+      <td>NaN</td>
+      <td>S 2024-01-17 Introduced, referred to State Gov...</td>
+      <td>Failed</td>
+      <td>507f174d7cdcdbf7b3913dfdc2414b2e</td>
+      <td>1818469.0</td>
+      <td>https://www.legis.iowa.gov/docs/publications/L...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1qxFkRlsZJk6S...</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>Georgia</td>
+      <td>HB836</td>
+      <td>Education; provide safety of students; require...</td>
+      <td>Trans Bathroom Ban</td>
+      <td>1/8/2024</td>
+      <td>House Second Readers</td>
+      <td>Worst</td>
+      <td>Moderate</td>
+      <td>GAC ban with 2 year civil liability for practi...</td>
+      <td>https://legiscan.com/GA/bill/HB836/2023</td>
+      <td>Mitchell Scoggins, Joseph Gullett, Josh Bonner...</td>
+      <td>NaN</td>
+      <td>H 2023-03-27 House Hopper, H 2023-03-29 House ...</td>
+      <td>Failed</td>
+      <td>a8ccfa3d6cc76ecbf29bd23f993d9d30</td>
+      <td>1748443.0</td>
+      <td>https://www.legis.ga.gov/api/legislation/docum...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=186Jl_EeMhriC...</td>
+    </tr>
+    <tr>
+      <th>391</th>
+      <td>Ohio</td>
+      <td>SB104</td>
+      <td>To amend sections 3302.03, 3314.03, 3326.11, 3...</td>
+      <td>Trans Bathroom Ban</td>
+      <td>6/26/2024</td>
+      <td>Informally passed</td>
+      <td>Worst</td>
+      <td>High</td>
+      <td>The Trans Bathroom Ban for K12 and Colleges fr...</td>
+      <td>https://legiscan.com/OH/bill/SB104/2023</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pass Both Chambers</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>560</th>
@@ -3413,26 +3334,48 @@ memory usage: 100.2+ KB
       <td>https://drive.google.com/open?id=1atU1cL8eia8Y...</td>
     </tr>
     <tr>
-      <th>478</th>
-      <td>Tennessee</td>
-      <td>HB1949</td>
-      <td>AN ACT to amend Tennessee Code Annotated, Sect...</td>
+      <th>561</th>
+      <td>Utah</td>
+      <td>HB0257</td>
+      <td>Sex-based Designations for Privacy, Anti-bully...</td>
       <td>Trans Bathroom Ban</td>
-      <td>4/3/2024</td>
-      <td>Taken off notice for cal in s/c Criminal Justi...</td>
+      <td>1/30/2024</td>
+      <td>Governor Signed in Executive Branch - Lieutena...</td>
       <td>Worst</td>
       <td>Worst</td>
-      <td>Criminal on the basis of expectation and priva...</td>
-      <td>https://legiscan.com/TN/bill/HB1949/2023</td>
-      <td>John Ragan</td>
-      <td>Hearing 2024-02-20 12:00 House Hearing Room II...</td>
-      <td>H 2024-01-23 Filed for introduction, H 2024-01...</td>
-      <td>Failed</td>
-      <td>0c406147942d9d480a3653d10518160d</td>
-      <td>1825523.0</td>
-      <td>https://www.capitol.tn.gov/Bills/113/Bill/HB19...</td>
+      <td>Uses IWF and WoLF's "Women's Bill of Rights" L...</td>
+      <td>https://legiscan.com/UT/bill/HB0257/2024</td>
+      <td>Kera Birkeland, Daniel McCay</td>
+      <td>Hearing 2024-01-17 14:00 , Hearing 2024-01-22 ...</td>
+      <td>2024-01-11 Bill Numbered but not Distributed ...</td>
+      <td>Enacted</td>
+      <td>1ffbd951f7160b7819dd3bbd92fb1c73</td>
+      <td>1811447.0</td>
+      <td>https://le.utah.gov/~2024/bills/hbillint/HB025...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=1tuu6ibVmsGuT...</td>
+      <td>https://drive.google.com/open?id=19wmudem_l2vF...</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>Georgia</td>
+      <td>HB936</td>
+      <td>Education; provide safety of students; require...</td>
+      <td>Trans Bathroom Ban</td>
+      <td>1/23/2024</td>
+      <td>House Second Readers</td>
+      <td>Worst</td>
+      <td>Moderate</td>
+      <td>Variation on ADF's Student Physical Privacy Act</td>
+      <td>https://legiscan.com/GA/bill/HB936/2023</td>
+      <td>Josh Bonner, Mitchell Scoggins, Joseph Gullett...</td>
+      <td>NaN</td>
+      <td>H 2024-01-12 House Hopper, H 2024-01-22 House ...</td>
+      <td>Failed</td>
+      <td>15db5e88c2d4a94a2f5c32f462e5e507</td>
+      <td>1813271.0</td>
+      <td>https://www.legis.ga.gov/api/legislation/docum...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1qoLDZ47GC3Ir...</td>
     </tr>
     <tr>
       <th>300</th>
@@ -3455,6 +3398,50 @@ memory usage: 100.2+ KB
       <td>https://documents.house.mo.gov/billtracking/bi...</td>
       <td>NaN</td>
       <td>https://drive.google.com/open?id=1B5zRhqsxVhmg...</td>
+    </tr>
+    <tr>
+      <th>333</th>
+      <td>Missouri</td>
+      <td>SB974</td>
+      <td>Requires all public school shower rooms, locke...</td>
+      <td>Trans Bathroom Ban</td>
+      <td>1/25/2024</td>
+      <td>Second Read and Referred S Emerging Issues Com...</td>
+      <td>Worst</td>
+      <td>High</td>
+      <td>requires parental consent for trans student to...</td>
+      <td>https://legiscan.com/MO/bill/SB974/2024</td>
+      <td>Travis Fitzwater</td>
+      <td>NaN</td>
+      <td>S 2023-12-01 Prefiled, S 2024-01-03 S First Re...</td>
+      <td>Failed</td>
+      <td>c602253c00676841074971274f2ddf6f</td>
+      <td>1790594.0</td>
+      <td>https://www.senate.mo.gov/24info/pdf-bill/intr...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=17O36gEWAVdt-...</td>
+    </tr>
+    <tr>
+      <th>383</th>
+      <td>Ohio</td>
+      <td>HB183</td>
+      <td>Regards single-sex bathroom access in schools,...</td>
+      <td>Trans Bathroom Ban</td>
+      <td>4/10/2024</td>
+      <td>Reported - Substitute: Higher Education</td>
+      <td>Worst</td>
+      <td>High</td>
+      <td>Yet another iteration of Alliance Defending Fr...</td>
+      <td>https://legiscan.com/OH/bill/HB183/2023</td>
+      <td>Beth Lear, Adam Bird, Tim Barhorst, Thaddeus C...</td>
+      <td>Hearing 2023-10-04 13:00 Room 017, Hearing 202...</td>
+      <td>H 2023-05-23 Introduced, H 2023-06-07 Referred...</td>
+      <td>Pass Committee</td>
+      <td>a30ec7f1743358021a0cabb1ac2507e6</td>
+      <td>1767656.0</td>
+      <td>https://search-prod.lis.state.oh.us/solarapi/v...</td>
+      <td>The provided text describes House Bill No. 183...</td>
+      <td>https://drive.google.com/open?id=16oeemN7QmBbl...</td>
     </tr>
     <tr>
       <th>320</th>
@@ -3501,50 +3488,6 @@ memory usage: 100.2+ KB
       <td>NaN</td>
     </tr>
     <tr>
-      <th>257</th>
-      <td>Mississippi</td>
-      <td>HC66</td>
-      <td>A Concurrent Resolution Suspending The Deadlin...</td>
-      <td>Trans Bathroom Ban / End Legal Recognition</td>
-      <td>5/14/2024</td>
-      <td>Died In Committee</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>Meta re: SB 2753, which was enacted</td>
-      <td>https://legiscan.com/MS/bill/HC66/2024</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Failed</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>267</th>
-      <td>Mississippi</td>
-      <td>SB2753</td>
-      <td>SAFER Act; enact.</td>
-      <td>Trans Bathroom Ban / End Legal Recognition</td>
-      <td>5/13/2024</td>
-      <td>Approved by Governor</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>Securing Areas for Females Effectively and Res...</td>
-      <td>https://legiscan.com/MS/bill/SB2753/2024</td>
-      <td>Josh Harkins, Jeremy England, Jason Barrett, A...</td>
-      <td>NaN</td>
-      <td>S 2024-02-19 Referred To Judiciary, Division A...</td>
-      <td>Enacted</td>
-      <td>51cab74c4503fa3ed49a80b9af1e3b55</td>
-      <td>1852074.0</td>
-      <td>https://billstatus.ls.state.ms.us/documents/20...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1JWhQhsZIlneW...</td>
-    </tr>
-    <tr>
       <th>271</th>
       <td>Mississippi</td>
       <td>SC549</td>
@@ -3578,6 +3521,50 @@ memory usage: 100.2+ KB
       <td>Worst</td>
       <td>Meta re: SB 2753, which was enacted</td>
       <td>https://legiscan.com/MS/bill/HC65/2024</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Failed</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>267</th>
+      <td>Mississippi</td>
+      <td>SB2753</td>
+      <td>SAFER Act; enact.</td>
+      <td>Trans Bathroom Ban / End Legal Recognition</td>
+      <td>5/13/2024</td>
+      <td>Approved by Governor</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>Securing Areas for Females Effectively and Res...</td>
+      <td>https://legiscan.com/MS/bill/SB2753/2024</td>
+      <td>Josh Harkins, Jeremy England, Jason Barrett, A...</td>
+      <td>NaN</td>
+      <td>S 2024-02-19 Referred To Judiciary, Division A...</td>
+      <td>Enacted</td>
+      <td>51cab74c4503fa3ed49a80b9af1e3b55</td>
+      <td>1852074.0</td>
+      <td>https://billstatus.ls.state.ms.us/documents/20...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1JWhQhsZIlneW...</td>
+    </tr>
+    <tr>
+      <th>257</th>
+      <td>Mississippi</td>
+      <td>HC66</td>
+      <td>A Concurrent Resolution Suspending The Deadlin...</td>
+      <td>Trans Bathroom Ban / End Legal Recognition</td>
+      <td>5/14/2024</td>
+      <td>Died In Committee</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>Meta re: SB 2753, which was enacted</td>
+      <td>https://legiscan.com/MS/bill/HC66/2024</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3633,28 +3620,6 @@ memory usage: 100.2+ KB
       <td>https://drive.google.com/open?id=1V_EYNU1SjuTM...</td>
     </tr>
     <tr>
-      <th>245</th>
-      <td>Mississippi</td>
-      <td>HB1521</td>
-      <td>"Safe Dormitories Act"; establish.</td>
-      <td>Trans Segregation Bill</td>
-      <td>3/5/2024</td>
-      <td>Died In Committee</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>Uses IWF and WoLF's "Women's Bill of Rights" L...</td>
-      <td>https://legiscan.com/MS/bill/HB1521/2024</td>
-      <td>Gene Newman</td>
-      <td>NaN</td>
-      <td>H 2024-02-19 Referred To Universities and Coll...</td>
-      <td>Failed</td>
-      <td>73ddd015ad2238296c05624c8490f033</td>
-      <td>1850955.0</td>
-      <td>https://billstatus.ls.state.ms.us/documents/20...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=17oJZVFFMJOYB...</td>
-    </tr>
-    <tr>
       <th>266</th>
       <td>Mississippi</td>
       <td>SB2722</td>
@@ -3675,6 +3640,28 @@ memory usage: 100.2+ KB
       <td>https://billstatus.ls.state.ms.us/documents/20...</td>
       <td>NaN</td>
       <td>https://drive.google.com/open?id=1bxUMhIyd2P6O...</td>
+    </tr>
+    <tr>
+      <th>245</th>
+      <td>Mississippi</td>
+      <td>HB1521</td>
+      <td>"Safe Dormitories Act"; establish.</td>
+      <td>Trans Segregation Bill</td>
+      <td>3/5/2024</td>
+      <td>Died In Committee</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>Uses IWF and WoLF's "Women's Bill of Rights" L...</td>
+      <td>https://legiscan.com/MS/bill/HB1521/2024</td>
+      <td>Gene Newman</td>
+      <td>NaN</td>
+      <td>H 2024-02-19 Referred To Universities and Coll...</td>
+      <td>Failed</td>
+      <td>73ddd015ad2238296c05624c8490f033</td>
+      <td>1850955.0</td>
+      <td>https://billstatus.ls.state.ms.us/documents/20...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=17oJZVFFMJOYB...</td>
     </tr>
     <tr>
       <th>487</th>
@@ -3725,85 +3712,6 @@ memory usage: 100.2+ KB
 </div></div></div>
 </div>
 </section>
-<section id="counting-values">
-<h2>counting values<a class="headerlink" href="#counting-values" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;Youth State Risk&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Youth State Risk
-Worst            395
-High             128
-Safest            69
-Low               51
-DO NOT TRAVEL     23
-Moderate           6
-Do Not Travel      2
-Name: count, dtype: int64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;Adult State Risk&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adult State Risk
-High             260
-Worst            188
-Safest            75
-Moderate          68
-Low               58
-DO NOT TRAVEL     23
-Do Not Travel      2
-Name: count, dtype: int64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;Bill Type&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bill Type
-Online Obscenity Law                            86
-Gender Affirming Care Ban                       61
-Book Ban                                        51
-Sports Ban                                      43
-DEI Ban                                         40
-                                                ..
-Bathroom Ban/Prison Placement Ban                1
-Omnibus Anti-trans Bill                          1
-Ban On Public Investment in ESG Funds            1
-Drag Ban/Book Ban                                1
-Forced Outing By Schools/ Trans Bathroom Ban     1
-Name: count, Length: 83, dtype: int64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;Bill Type&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 <section id="filtering-by-values-booleans-and-strings">
 <h2>filtering by values: booleans and strings<a class="headerlink" href="#filtering-by-values-booleans-and-strings" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -3814,16 +3722,16 @@ Name: count, Length: 83, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>169    False
-283    False
-179    False
 334    False
-311    False
+187    False
+283    False
+171    False
        ...  
-245    False
 266    False
-117    False
+245    False
 487    False
 503    False
+117    False
 Name: Bill Type, Length: 674, dtype: bool
 </pre></div>
 </div>
@@ -3884,202 +3792,114 @@ Name: Bill Type, Length: 674, dtype: bool
   </thead>
   <tbody>
     <tr>
-      <th>111</th>
-      <td>Idaho</td>
-      <td>S1289</td>
-      <td>Adds to existing law to establish standards fo...</td>
-      <td>Book Ban</td>
-      <td>2/22/2024</td>
-      <td>Filed in Office of the Secretary of Senate</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/ID/bill/S1289/2024</td>
-      <td>State Affairs Committee</td>
-      <td>Hearing 2024-02-12 08:00 Room WW55</td>
-      <td>S 2024-02-07 Introduced; read first time; refe...</td>
-      <td>Failed</td>
-      <td>34fbf239786a460b1b2bebbc63fb14a0</td>
-      <td>1839802.0</td>
-      <td>https://legislature.idaho.gov/wp-content/uploa...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1xIj_EbAQpbvm...</td>
-    </tr>
-    <tr>
-      <th>72</th>
-      <td>Georgia</td>
-      <td>SB154</td>
-      <td>Sale or Distribution of Harmful Materials to M...</td>
-      <td>Book Ban</td>
-      <td>2/26/2024</td>
-      <td>Senate Read Second Time</td>
-      <td>Worst</td>
-      <td>Moderate</td>
-      <td>"school" exemption from laws regulating distri...</td>
-      <td>https://legiscan.com/GA/bill/SB154/2023</td>
-      <td>Greg Dolezal, Colton Moore, Clint Dixon, Chuck...</td>
-      <td>Hearing 2024-02-20 14:30 307 CLOB, Hearing 202...</td>
-      <td>S 2023-02-13 Senate Hopper, S 2023-02-14 Senat...</td>
-      <td>Failed</td>
-      <td>e3431d829f5667d059179b0220a10f97</td>
-      <td>1706063.0</td>
-      <td>https://www.legis.ga.gov/api/legislation/docum...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1sLDjia5MY0C8...</td>
-    </tr>
-    <tr>
-      <th>220</th>
-      <td>Maryland</td>
-      <td>HB671</td>
-      <td>Criminal Law - Display of Obscene Material to ...</td>
-      <td>Book Ban</td>
-      <td>1/31/2024</td>
-      <td>Hearing 2/14 at 1:00 p.m.</td>
-      <td>Safest</td>
-      <td>Safest</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/MD/bill/HB671/2024</td>
-      <td>Robin Grammer, Lauren Arikan, Brian Chisholm, ...</td>
-      <td>Hearing 2024-02-14 13:00</td>
-      <td>H 2024-01-25 First Reading Ways and Means, H 2...</td>
-      <td>Failed</td>
-      <td>8947eac1afb97c8796443b187d631c7a</td>
-      <td>1827883.0</td>
-      <td>https://mgaleg.maryland.gov/2024RS/bills/hb/hb...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1ifjLDX7Qhi6_...</td>
-    </tr>
-    <tr>
-      <th>206</th>
+      <th>189</th>
       <td>Kentucky</td>
-      <td>SB246</td>
+      <td>HB191</td>
       <td>AN ACT relating to materials, programs, or eve...</td>
       <td>Book Ban</td>
-      <td>2/26/2024</td>
-      <td>to Education (S)</td>
+      <td>2/29/2024</td>
+      <td>to Education (H)</td>
       <td>Worst</td>
       <td>Moderate</td>
       <td>NaN</td>
-      <td>https://legiscan.com/KY/bill/SB246/2024</td>
-      <td>Lindsey Tichenor, Stephen Meredith</td>
+      <td>https://legiscan.com/KY/bill/HB191/2024</td>
+      <td>Josh Calloway, Shane Baker, Jennifer Henson De...</td>
       <td>NaN</td>
-      <td>S 2024-02-22 introduced in Senate, S 2024-02-2...</td>
+      <td>H 2024-01-08 introduced in House, H 2024-01-08...</td>
       <td>Failed</td>
-      <td>794631c997d4cd5bd8caf1ec1abc8517</td>
-      <td>1853463.0</td>
+      <td>6c6dfd9eadca77770147a2e4cf45722f</td>
+      <td>1800381.0</td>
       <td>https://apps.legislature.ky.gov/recorddocument...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=11Wr3drYo35O1...</td>
+      <td>https://drive.google.com/open?id=1cWp-RFkd6KQU...</td>
     </tr>
     <tr>
-      <th>319</th>
-      <td>Missouri</td>
-      <td>SB1272</td>
-      <td>Modifies provisions relating to providing expl...</td>
+      <th>555</th>
+      <td>Utah</td>
+      <td>HB0029</td>
+      <td>Sensitive Material Review Amendments</td>
       <td>Book Ban</td>
-      <td>1/25/2024</td>
-      <td>Second Read and Referred S Select Committee on...</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/MO/bill/SB1272/2024</td>
-      <td>Nick Schroer</td>
-      <td>NaN</td>
-      <td>S 2023-12-15 Prefiled, S 2024-01-03 S First Re...</td>
-      <td>Failed</td>
-      <td>22343d8f8634d520da58e2bf41c6679d</td>
-      <td>1792474.0</td>
-      <td>https://www.senate.mo.gov/24info/pdf-bill/intr...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1yiyJrvVldJDF...</td>
-    </tr>
-    <tr>
-      <th>350</th>
-      <td>New Hampshire</td>
-      <td>HB1308</td>
-      <td>Relative to parent access to children's librar...</td>
-      <td>Book Ban</td>
-      <td>3/7/2024</td>
-      <td>Inexpedient to Legislate: Motion Adopted Regul...</td>
-      <td>High</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/NH/bill/HB1308/2024</td>
-      <td>Arlene Quaratiello, Carroll Brown, Riche Colco...</td>
-      <td>Hearing 2024-01-30 11:00 Legislative Office Bu...</td>
-      <td>H 2023-12-06 Introduced 01/03/2024 and referre...</td>
-      <td>Failed</td>
-      <td>2cca133ddd28de3394f784ed738c8c0e</td>
-      <td>1793487.0</td>
-      <td>https://gencourt.state.nh.us/bill_status/legac...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1iEe8hrg3u2e3...</td>
-    </tr>
-    <tr>
-      <th>611</th>
-      <td>West Virginia</td>
-      <td>HB5191</td>
-      <td>Relating to permitting obscenity in schools</td>
-      <td>Book Ban</td>
-      <td>1/25/2024</td>
-      <td>To House Judiciary</td>
-      <td>High</td>
-      <td>High</td>
-      <td>Online Obscenity law as well</td>
-      <td>https://legiscan.com/WV/bill/HB5191/2024</td>
-      <td>Margitta Mazzocchi</td>
-      <td>NaN</td>
-      <td>H 2024-01-25 Filed for introduction, H 2024-01...</td>
-      <td>Failed</td>
-      <td>6eca3418da626d17e7245795e3b09824</td>
-      <td>1828252.0</td>
-      <td>http://www.wvlegislature.gov/Bill_Status/bills...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=14T_iitzxUklz...</td>
-    </tr>
-    <tr>
-      <th>75</th>
-      <td>Georgia</td>
-      <td>SB394</td>
-      <td>"Restricting Explicit and Adult-designated Edu...</td>
-      <td>Book Ban</td>
-      <td>2/26/2024</td>
-      <td>Senate Read Second Time</td>
-      <td>Worst</td>
-      <td>Moderate</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/GA/bill/SB394/2023</td>
-      <td>Clint Dixon, Jason Anavitarte, Randy Robertson...</td>
-      <td>Hearing 2024-02-21 17:00 450 CAP</td>
-      <td>S 2024-01-24 Senate Hopper, S 2024-01-25 Senat...</td>
-      <td>Failed</td>
-      <td>93f73e61cc4c1a82015c58e75f5199d3</td>
-      <td>1827773.0</td>
-      <td>https://www.legis.ga.gov/api/legislation/docum...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=18n84nK3QoGm8...</td>
-    </tr>
-    <tr>
-      <th>214</th>
-      <td>Louisiana</td>
-      <td>HB545</td>
-      <td>Provides relative to certain materials in publ...</td>
-      <td>Book Ban</td>
-      <td>5/7/2024</td>
-      <td>Read by title, returned to the calendar.</td>
+      <td>3/18/2024</td>
+      <td>Governor Signed in Lieutenant Governor's offic...</td>
       <td>Worst</td>
       <td>Worst</td>
-      <td>Passed a committee in the House but failed at ...</td>
-      <td>https://legiscan.com/LA/bill/HB545/2024</td>
-      <td>Beryl Amedee</td>
-      <td>Hearing 2024-04-16 09:30 Room 6</td>
-      <td>H 2024-03-01 Prefiled., H 2024-03-01 Under the...</td>
-      <td>Failed</td>
-      <td>a9068dc615adf12db572fa16cd3a54c3</td>
-      <td>1857939.0</td>
-      <td>https://www.legis.la.gov/Legis/ViewDocument.as...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=1mCuLbEGEFEyd...</td>
+      <td>https://legiscan.com/UT/bill/HB0029/2024</td>
+      <td>Ken Ivory, Todd Weiler</td>
+      <td>Hearing 2024-01-23 14:00 , Hearing 2024-02-09 ...</td>
+      <td>2023-12-19 Bill Numbered but not Distributed ...</td>
+      <td>Enacted</td>
+      <td>0ad73fec40b8b8e960fbdadc26e3620b</td>
+      <td>1793887.0</td>
+      <td>https://le.utah.gov/~2024/bills/hbillint/HB002...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1y7GGgkj4r_L0...</td>
+    </tr>
+    <tr>
+      <th>188</th>
+      <td>Kansas</td>
+      <td>SB531</td>
+      <td>Creating a civil cause of action against schoo...</td>
+      <td>Book Ban</td>
+      <td>4/30/2024</td>
+      <td>Senate Died in Committee</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/KS/bill/SB531/2023</td>
+      <td>Federal and State Affairs</td>
+      <td>NaN</td>
+      <td>S 2024-02-22 Senate Introduced, S 2024-02-23 S...</td>
+      <td>Failed</td>
+      <td>a7a21289b7fa943da7a6b508702d3866</td>
+      <td>1853456.0</td>
+      <td>http://kslegislature.org/li/b2023_24/measures/...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1rOtzWgGoihiZ...</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>Iowa</td>
+      <td>HF2040</td>
+      <td>A bill for an act relating to obscenity exempt...</td>
+      <td>Book Ban</td>
+      <td>1/16/2024</td>
+      <td>Introduced, referred to Education. H.J. 90.</td>
+      <td>Worst</td>
+      <td>High</td>
+      <td>Failed crossover deadline of 3/14/24</td>
+      <td>https://legiscan.com/IA/bill/HF2040/2023</td>
+      <td>Jeff Shipley</td>
+      <td>NaN</td>
+      <td>H 2024-01-16 Introduced, referred to Education...</td>
+      <td>Failed</td>
+      <td>539e43335ed5e2ae123f0f32d1c90561</td>
+      <td>1813683.0</td>
+      <td>https://www.legis.iowa.gov/docs/publications/L...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1zK7rSc6d8DiY...</td>
+    </tr>
+    <tr>
+      <th>501</th>
+      <td>Tennessee</td>
+      <td>SB2173</td>
+      <td>AN ACT to amend Tennessee Code Annotated, Titl...</td>
+      <td>Book Ban</td>
+      <td>3/6/2024</td>
+      <td>Deferred to Summer Study</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/TN/bill/SB2173/2023</td>
+      <td>Joseph Hensley</td>
+      <td>Hearing 2024-03-06 15:00 Cordell Hull Building</td>
+      <td>S 2024-01-30 Filed for introduction, S 2024-01...</td>
+      <td>Failed</td>
+      <td>7b2c36c55abcdc998bc204dbdb458d1b</td>
+      <td>1831445.0</td>
+      <td>https://www.capitol.tn.gov/Bills/113/Bill/SB21...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1bZCYBBoWyi1p...</td>
     </tr>
     <tr>
       <th>364</th>
@@ -4104,92 +3924,114 @@ Name: Bill Type, Length: 674, dtype: bool
       <td>https://drive.google.com/open?id=1c9PxcqyS3YD_...</td>
     </tr>
     <tr>
-      <th>189</th>
-      <td>Kentucky</td>
-      <td>HB191</td>
-      <td>AN ACT relating to materials, programs, or eve...</td>
+      <th>125</th>
+      <td>Indiana</td>
+      <td>HB1221</td>
+      <td>Material that is obscene or harmful to minors.</td>
       <td>Book Ban</td>
-      <td>2/29/2024</td>
-      <td>to Education (H)</td>
+      <td>1/11/2024</td>
+      <td>Representative McGuire J added as coauthor</td>
       <td>Worst</td>
-      <td>Moderate</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/KY/bill/HB191/2024</td>
-      <td>Josh Calloway, Shane Baker, Jennifer Henson De...</td>
-      <td>NaN</td>
-      <td>H 2024-01-08 introduced in House, H 2024-01-08...</td>
-      <td>Failed</td>
-      <td>6c6dfd9eadca77770147a2e4cf45722f</td>
-      <td>1800381.0</td>
-      <td>https://apps.legislature.ky.gov/recorddocument...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1cWp-RFkd6KQU...</td>
-    </tr>
-    <tr>
-      <th>669</th>
-      <td>Wyoming</td>
-      <td>SF0031</td>
-      <td>Sex offender registration-promoting obscenity.</td>
-      <td>Book Ban</td>
-      <td>2/21/2024</td>
-      <td>3rd Reading:Failed 13-17-0-0-1</td>
-      <td>Worst</td>
-      <td>Moderate</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/WY/bill/SF0031/2024</td>
-      <td>Judiciary</td>
-      <td>Hearing 2024-02-16 07:30 Capitol Extension Roo...</td>
-      <td>2023-12-19 Bill Number Assigned, S 2024-01-24...</td>
-      <td>Failed</td>
-      <td>e9ac0ad30ab6480059e4548899baccf9</td>
-      <td>1793746.0</td>
-      <td>https://www.wyoleg.gov/2024/Introduced/SF0031.pdf</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1nw7YD0dlOnKt...</td>
-    </tr>
-    <tr>
-      <th>253</th>
-      <td>Mississippi</td>
-      <td>HB610</td>
-      <td>Libraries; regulate the material that is curat...</td>
-      <td>Book Ban</td>
-      <td>3/5/2024</td>
-      <td>Died In Committee</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/MS/bill/HB610/2024</td>
-      <td>Jill Ford</td>
-      <td>NaN</td>
-      <td>H 2024-01-24 Referred To Judiciary B, H 2024-0...</td>
-      <td>Failed</td>
-      <td>ba659b36cc8f1e32a47dbc70ecf1ba71</td>
-      <td>1827135.0</td>
-      <td>https://billstatus.ls.state.ms.us/documents/20...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1iVXooqVDVWfU...</td>
-    </tr>
-    <tr>
-      <th>574</th>
-      <td>Virginia</td>
-      <td>HB1206</td>
-      <td>Obscene materials; modifies restrictions on pu...</td>
-      <td>Book Ban</td>
-      <td>2/13/2024</td>
-      <td>Left in Courts of Justice</td>
       <td>High</td>
-      <td>Low</td>
-      <td>Carried forward to 2025 Session</td>
-      <td>https://legiscan.com/VA/bill/HB1206/2024</td>
-      <td>Phillip Scott, Wendell Walker, Eric Zehr</td>
-      <td>Hearing 2024-01-31 08:00 House Committee Room ...</td>
-      <td>H 2024-01-10 Prefiled and ordered printed; off...</td>
-      <td>Roll Over</td>
-      <td>3f9d15a4baef3c45c5490b389dee8b36</td>
-      <td>1810011.0</td>
-      <td>https://lis.virginia.gov/cgi-bin/legp604.exe?2...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=1sQPNRbMQFbfk...</td>
+      <td>https://legiscan.com/IN/bill/HB1221/2024</td>
+      <td>David Abbott, Martin Carbaugh, Julie McGuire</td>
+      <td>NaN</td>
+      <td>H 2024-01-09 Coauthored by Representative Carb...</td>
+      <td>Failed</td>
+      <td>b9698d77d216916d44a43bb5af6aee79</td>
+      <td>1800332.0</td>
+      <td>https://iga.in.gov/pdf-documents/123/2024/hous...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1aDeP-EKutDuG...</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>Georgia</td>
+      <td>SB394</td>
+      <td>"Restricting Explicit and Adult-designated Edu...</td>
+      <td>Book Ban</td>
+      <td>2/26/2024</td>
+      <td>Senate Read Second Time</td>
+      <td>Worst</td>
+      <td>Moderate</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/GA/bill/SB394/2023</td>
+      <td>Clint Dixon, Jason Anavitarte, Randy Robertson...</td>
+      <td>Hearing 2024-02-21 17:00 450 CAP</td>
+      <td>S 2024-01-24 Senate Hopper, S 2024-01-25 Senat...</td>
+      <td>Failed</td>
+      <td>93f73e61cc4c1a82015c58e75f5199d3</td>
+      <td>1827773.0</td>
+      <td>https://www.legis.ga.gov/api/legislation/docum...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=18n84nK3QoGm8...</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>Georgia</td>
+      <td>SB154</td>
+      <td>Sale or Distribution of Harmful Materials to M...</td>
+      <td>Book Ban</td>
+      <td>2/26/2024</td>
+      <td>Senate Read Second Time</td>
+      <td>Worst</td>
+      <td>Moderate</td>
+      <td>"school" exemption from laws regulating distri...</td>
+      <td>https://legiscan.com/GA/bill/SB154/2023</td>
+      <td>Greg Dolezal, Colton Moore, Clint Dixon, Chuck...</td>
+      <td>Hearing 2024-02-20 14:30 307 CLOB, Hearing 202...</td>
+      <td>S 2023-02-13 Senate Hopper, S 2023-02-14 Senat...</td>
+      <td>Failed</td>
+      <td>e3431d829f5667d059179b0220a10f97</td>
+      <td>1706063.0</td>
+      <td>https://www.legis.ga.gov/api/legislation/docum...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1sLDjia5MY0C8...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Alabama</td>
+      <td>HB425</td>
+      <td>Provision of sexual content to minor, prohibit...</td>
+      <td>Book Ban</td>
+      <td>4/4/2024</td>
+      <td>Pending House Judiciary</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>defines "gender ideology" as sexual content an...</td>
+      <td>https://legiscan.com/AL/bill/HB425/2024</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Failed</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>498</th>
+      <td>Tennessee</td>
+      <td>SB1858</td>
+      <td>As introduced, gives a parent of a child who a...</td>
+      <td>Book Ban</td>
+      <td>4/1/2024</td>
+      <td>Rcvd. from S., held on H. desk.</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>Crossfiled with HB1632; passed one chamber; fa...</td>
+      <td>https://legiscan.com/TN/bill/SB1858/2023</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Failed</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>278</th>
@@ -4214,21 +4056,153 @@ Name: Bill Type, Length: 674, dtype: bool
       <td>https://drive.google.com/open?id=1Gy_TxSoD8uLQ...</td>
     </tr>
     <tr>
-      <th>498</th>
-      <td>Tennessee</td>
-      <td>SB1858</td>
-      <td>As introduced, gives a parent of a child who a...</td>
+      <th>184</th>
+      <td>Kansas</td>
+      <td>SB358</td>
+      <td>Prohibiting school districts and local librari...</td>
       <td>Book Ban</td>
-      <td>4/1/2024</td>
-      <td>Rcvd. from S., held on H. desk.</td>
+      <td>4/30/2024</td>
+      <td>Senate Died in Committee</td>
       <td>Worst</td>
       <td>Worst</td>
-      <td>Crossfiled with HB1632; passed one chamber; fa...</td>
-      <td>https://legiscan.com/TN/bill/SB1858/2023</td>
       <td>NaN</td>
+      <td>https://legiscan.com/KS/bill/SB358/2023</td>
+      <td>Federal and State Affairs</td>
       <td>NaN</td>
-      <td>NaN</td>
+      <td>S 2024-01-18 Senate Introduced, S 2024-01-19 S...</td>
       <td>Failed</td>
+      <td>db75808ebbfedb1fe3f6200443987431</td>
+      <td>1821213.0</td>
+      <td>http://kslegislature.org/li/b2023_24/measures/...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1n-AqclcCkIYb...</td>
+    </tr>
+    <tr>
+      <th>353</th>
+      <td>New Hampshire</td>
+      <td>HB1419</td>
+      <td>Relative to prohibiting obscene or harmful sex...</td>
+      <td>Book Ban</td>
+      <td>2/15/2024</td>
+      <td>Indefinitely Postpone (Rep. Myler): Motion Ado...</td>
+      <td>High</td>
+      <td>High</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/NH/bill/HB1419/2024</td>
+      <td>Glenn Cordelli, JD Bernardy, Kristin Noble, Kr...</td>
+      <td>Hearing 2024-01-18 09:30 Legislative Office Bu...</td>
+      <td>H 2023-12-06 Introduced 01/03/2024 and referre...</td>
+      <td>Failed</td>
+      <td>39db05526a7405d1c14f6476a0054f3c</td>
+      <td>1792929.0</td>
+      <td>https://gencourt.state.nh.us/bill_status/legac...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1XBgdxPM0cmvm...</td>
+    </tr>
+    <tr>
+      <th>350</th>
+      <td>New Hampshire</td>
+      <td>HB1308</td>
+      <td>Relative to parent access to children's librar...</td>
+      <td>Book Ban</td>
+      <td>3/7/2024</td>
+      <td>Inexpedient to Legislate: Motion Adopted Regul...</td>
+      <td>High</td>
+      <td>High</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/NH/bill/HB1308/2024</td>
+      <td>Arlene Quaratiello, Carroll Brown, Riche Colco...</td>
+      <td>Hearing 2024-01-30 11:00 Legislative Office Bu...</td>
+      <td>H 2023-12-06 Introduced 01/03/2024 and referre...</td>
+      <td>Failed</td>
+      <td>2cca133ddd28de3394f784ed738c8c0e</td>
+      <td>1793487.0</td>
+      <td>https://gencourt.state.nh.us/bill_status/legac...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1iEe8hrg3u2e3...</td>
+    </tr>
+    <tr>
+      <th>669</th>
+      <td>Wyoming</td>
+      <td>SF0031</td>
+      <td>Sex offender registration-promoting obscenity.</td>
+      <td>Book Ban</td>
+      <td>2/21/2024</td>
+      <td>3rd Reading:Failed 13-17-0-0-1</td>
+      <td>Worst</td>
+      <td>Moderate</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/WY/bill/SF0031/2024</td>
+      <td>Judiciary</td>
+      <td>Hearing 2024-02-16 07:30 Capitol Extension Roo...</td>
+      <td>2023-12-19 Bill Number Assigned, S 2024-01-24...</td>
+      <td>Failed</td>
+      <td>e9ac0ad30ab6480059e4548899baccf9</td>
+      <td>1793746.0</td>
+      <td>https://www.wyoleg.gov/2024/Introduced/SF0031.pdf</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1nw7YD0dlOnKt...</td>
+    </tr>
+    <tr>
+      <th>260</th>
+      <td>Mississippi</td>
+      <td>SB2085</td>
+      <td>Crime of distribution of obscene materials; de...</td>
+      <td>Book Ban</td>
+      <td>3/5/2024</td>
+      <td>Died In Committee</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/MS/bill/SB2085/2024</td>
+      <td>Angela Burks Hill</td>
+      <td>NaN</td>
+      <td>S 2024-01-19 Referred To Judiciary, Division B...</td>
+      <td>Failed</td>
+      <td>98941eb3608f7f784e5cc514e23fab49</td>
+      <td>1822216.0</td>
+      <td>https://billstatus.ls.state.ms.us/documents/20...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1akpeCLwXwzQk...</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>Idaho</td>
+      <td>H0384</td>
+      <td>Amends and adds to existing law to prohibit ce...</td>
+      <td>Book Ban</td>
+      <td>1/18/2024</td>
+      <td>U.C. to be returned to State Affairs Committee</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/ID/bill/H0384/2024</td>
+      <td>State Affairs Committee</td>
+      <td>Hearing 2024-01-15 09:00 Room EW40</td>
+      <td>H 2024-01-10 Introduced, read first time, refe...</td>
+      <td>Failed</td>
+      <td>9c724c4466a7784e0aca9f2f84dbdbfd</td>
+      <td>1808590.0</td>
+      <td>https://legislature.idaho.gov/wp-content/uploa...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1Gx3e7IpynIEY...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alabama</td>
+      <td>HB4</td>
+      <td>Crimes and offenses, further provides for obsc...</td>
+      <td>Book Ban</td>
+      <td>7/8/2024</td>
+      <td>Pending House Judiciary</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>Prefiled for 2025 session; re: K12 &amp; public li...</td>
+      <td>https://legiscan.com/AL/bill/HB4/2025</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Roll Over</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -4258,358 +4232,6 @@ Name: Bill Type, Length: 674, dtype: bool
       <td>https://drive.google.com/open?id=1JYJcK1_Jpnmw...</td>
     </tr>
     <tr>
-      <th>636</th>
-      <td>West Virginia</td>
-      <td>SB741</td>
-      <td>Prohibiting creation, production, distribution...</td>
-      <td>Book Ban</td>
-      <td>3/8/2024</td>
-      <td>On 3rd reading with right to amend, Special Ca...</td>
-      <td>High</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/WV/bill/SB741/2024</td>
-      <td>Amy Nichole Grady, Ryan Weld, Charles Trump, L...</td>
-      <td>Hearing 2024-02-14 15:00 Senate Judiciary Comm...</td>
-      <td>S 2024-02-09 Filed for introduction, S 2024-02...</td>
-      <td>Failed</td>
-      <td>bfcbef7c9a4088241d892d0e1ce91d08</td>
-      <td>1842521.0</td>
-      <td>http://www.wvlegislature.gov/Bill_Status/bills...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1h1bl6qVPzauL...</td>
-    </tr>
-    <tr>
-      <th>453</th>
-      <td>South Carolina</td>
-      <td>H4654</td>
-      <td>Public school libraries</td>
-      <td>Book Ban</td>
-      <td>1/9/2024</td>
-      <td>Referred to Committee on Education and Public ...</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/SC/bill/H4654/2023</td>
-      <td>April Cromer, Roger Nutt</td>
-      <td>NaN</td>
-      <td>H 2023-12-14 Prefiled, H 2023-12-14 Referred t...</td>
-      <td>Failed</td>
-      <td>f7b3dc7a9e08bc89f901a7ad044bf6c8</td>
-      <td>1792124.0</td>
-      <td>https://www.scstatehouse.gov/sess125_2023-2024...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1gu6W4lMFwzpY...</td>
-    </tr>
-    <tr>
-      <th>457</th>
-      <td>South Carolina</td>
-      <td>H4701</td>
-      <td>READER Act</td>
-      <td>Book Ban</td>
-      <td>1/9/2024</td>
-      <td>Referred to Committee on Education and Public ...</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/SC/bill/H4701/2023</td>
-      <td>Micajah Caskey, Brandon Guffey, Thomas Pope, R...</td>
-      <td>NaN</td>
-      <td>H 2023-12-14 Prefiled, H 2023-12-14 Referred t...</td>
-      <td>Failed</td>
-      <td>200adb7a91ae713b25a22bc2b80750e4</td>
-      <td>1792138.0</td>
-      <td>https://www.scstatehouse.gov/sess125_2023-2024...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1n_umUt45vYRC...</td>
-    </tr>
-    <tr>
-      <th>188</th>
-      <td>Kansas</td>
-      <td>SB531</td>
-      <td>Creating a civil cause of action against schoo...</td>
-      <td>Book Ban</td>
-      <td>4/30/2024</td>
-      <td>Senate Died in Committee</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/KS/bill/SB531/2023</td>
-      <td>Federal and State Affairs</td>
-      <td>NaN</td>
-      <td>S 2024-02-22 Senate Introduced, S 2024-02-23 S...</td>
-      <td>Failed</td>
-      <td>a7a21289b7fa943da7a6b508702d3866</td>
-      <td>1853456.0</td>
-      <td>http://kslegislature.org/li/b2023_24/measures/...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1rOtzWgGoihiZ...</td>
-    </tr>
-    <tr>
-      <th>302</th>
-      <td>Missouri</td>
-      <td>HB2374</td>
-      <td>Requires schools to adopt school policies gove...</td>
-      <td>Book Ban</td>
-      <td>5/17/2024</td>
-      <td>Referred: General Laws(H)</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/MO/bill/HB2374/2024</td>
-      <td>Mazzie Christensen</td>
-      <td>NaN</td>
-      <td>H 2024-01-10 Introduced and Read First Time (H...</td>
-      <td>Failed</td>
-      <td>8368255e43c9449bdf7a22bc29c35a9b</td>
-      <td>1808316.0</td>
-      <td>https://documents.house.mo.gov/billtracking/bi...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1cbBrLWW-dd5Q...</td>
-    </tr>
-    <tr>
-      <th>353</th>
-      <td>New Hampshire</td>
-      <td>HB1419</td>
-      <td>Relative to prohibiting obscene or harmful sex...</td>
-      <td>Book Ban</td>
-      <td>2/15/2024</td>
-      <td>Indefinitely Postpone (Rep. Myler): Motion Ado...</td>
-      <td>High</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/NH/bill/HB1419/2024</td>
-      <td>Glenn Cordelli, JD Bernardy, Kristin Noble, Kr...</td>
-      <td>Hearing 2024-01-18 09:30 Legislative Office Bu...</td>
-      <td>H 2023-12-06 Introduced 01/03/2024 and referre...</td>
-      <td>Failed</td>
-      <td>39db05526a7405d1c14f6476a0054f3c</td>
-      <td>1792929.0</td>
-      <td>https://gencourt.state.nh.us/bill_status/legac...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1XBgdxPM0cmvm...</td>
-    </tr>
-    <tr>
-      <th>591</th>
-      <td>West Virginia</td>
-      <td>HB4011</td>
-      <td>To modify exemptions from criminal liability t...</td>
-      <td>Book Ban</td>
-      <td>1/10/2024</td>
-      <td>To House Judiciary</td>
-      <td>High</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/WV/bill/HB4011/2024</td>
-      <td>Geno Chiarelli</td>
-      <td>NaN</td>
-      <td>H 2024-01-10 Filed for introduction, H 2024-01...</td>
-      <td>Failed</td>
-      <td>a2c7f653d0415c82ba774cc8673ef1d1</td>
-      <td>1809701.0</td>
-      <td>http://www.wvlegislature.gov/Bill_Status/bills...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1oJt3Y55cK6dt...</td>
-    </tr>
-    <tr>
-      <th>34</th>
-      <td>California</td>
-      <td>SB1435</td>
-      <td>An act to add Section 18112 to the Education C...</td>
-      <td>Book Ban</td>
-      <td>4/24/2024</td>
-      <td>April 24 set for first hearing. Failed passage...</td>
-      <td>Safest</td>
-      <td>Safest</td>
-      <td>For K8 material; amended to replace word "obsc...</td>
-      <td>https://legiscan.com/CA/bill/SB1435/2023</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Failed</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>303</th>
-      <td>Missouri</td>
-      <td>HB2408</td>
-      <td>Prohibits the state librarian from disbursing ...</td>
-      <td>Book Ban</td>
-      <td>5/17/2024</td>
-      <td>Referred: General Laws(H)</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/MO/bill/HB2408/2024</td>
-      <td>Jamie Gragg</td>
-      <td>NaN</td>
-      <td>H 2024-01-16 Introduced and Read First Time (H...</td>
-      <td>Failed</td>
-      <td>bff4ebaebbd553bec70f58db204d0dc4</td>
-      <td>1813740.0</td>
-      <td>https://documents.house.mo.gov/billtracking/bi...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=10sC75bfkSG59...</td>
-    </tr>
-    <tr>
-      <th>339</th>
-      <td>Nebraska</td>
-      <td>LB441</td>
-      <td>Change provisions relating to obscenity</td>
-      <td>Book Ban</td>
-      <td>4/18/2024</td>
-      <td>Indefinitely postponed</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/NE/bill/LB441/2023</td>
-      <td>Joni Albrecht</td>
-      <td>Hearing 2023-03-24 13:30 Room 1113</td>
-      <td>L 2023-01-13 Date of introduction, L 2023-01-1...</td>
-      <td>Failed</td>
-      <td>7b8ef979d6cd9bd80403d60b7894d266</td>
-      <td>1658135.0</td>
-      <td>https://nebraskalegislature.gov/FloorDocs/108/...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1XjAdtMZMKUZM...</td>
-    </tr>
-    <tr>
-      <th>125</th>
-      <td>Indiana</td>
-      <td>HB1221</td>
-      <td>Material that is obscene or harmful to minors.</td>
-      <td>Book Ban</td>
-      <td>1/11/2024</td>
-      <td>Representative McGuire J added as coauthor</td>
-      <td>Worst</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/IN/bill/HB1221/2024</td>
-      <td>David Abbott, Martin Carbaugh, Julie McGuire</td>
-      <td>NaN</td>
-      <td>H 2024-01-09 Coauthored by Representative Carb...</td>
-      <td>Failed</td>
-      <td>b9698d77d216916d44a43bb5af6aee79</td>
-      <td>1800332.0</td>
-      <td>https://iga.in.gov/pdf-documents/123/2024/hous...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1aDeP-EKutDuG...</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Alabama</td>
-      <td>HB425</td>
-      <td>Provision of sexual content to minor, prohibit...</td>
-      <td>Book Ban</td>
-      <td>4/4/2024</td>
-      <td>Pending House Judiciary</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>defines "gender ideology" as sexual content an...</td>
-      <td>https://legiscan.com/AL/bill/HB425/2024</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Failed</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>218</th>
-      <td>Maryland</td>
-      <td>HB25</td>
-      <td>Public Schools - Sexually Explicit Materials -...</td>
-      <td>Book Ban</td>
-      <td>2/19/2024</td>
-      <td>Unfavorable Report by Ways and Means</td>
-      <td>Safest</td>
-      <td>Safest</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/MD/bill/HB25/2024</td>
-      <td>Nino Mangione</td>
-      <td>Hearing 2024-01-31 13:00</td>
-      <td>H 2023-08-28 Pre-filed, H 2024-01-10 First Rea...</td>
-      <td>Failed</td>
-      <td>8390af30a0a627a696fa634e59d835b5</td>
-      <td>1798393.0</td>
-      <td>https://mgaleg.maryland.gov/2024RS/bills/hb/hb...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1A9OkZ4ibVOET...</td>
-    </tr>
-    <tr>
-      <th>599</th>
-      <td>West Virginia</td>
-      <td>HB4654</td>
-      <td>Removing bona fide schools, public libraries, ...</td>
-      <td>Book Ban</td>
-      <td>2/20/2024</td>
-      <td>To Judiciary</td>
-      <td>High</td>
-      <td>High</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/WV/bill/HB4654/2024</td>
-      <td>Brandon Steele, Henry Dillon, Geoff Foster</td>
-      <td>Hearing 2024-01-19 09:15 House Judiciary Commi...</td>
-      <td>H 2024-01-12 Filed for introduction, H 2024-01...</td>
-      <td>Failed</td>
-      <td>0784c91cf3881bba57cc5c6c8372b66a</td>
-      <td>1812462.0</td>
-      <td>http://www.wvlegislature.gov/Bill_Status/bills...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1nWqKk1RBYJc5...</td>
-    </tr>
-    <tr>
-      <th>224</th>
-      <td>Maryland</td>
-      <td>SB355</td>
-      <td>Criminal Law - Display of Obscene Material to ...</td>
-      <td>Book Ban</td>
-      <td>1/30/2024</td>
-      <td>Hearing 2/02 at 10:30 a.m.</td>
-      <td>Safest</td>
-      <td>Safest</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/MD/bill/SB355/2024</td>
-      <td>Johnny Salling</td>
-      <td>Hearing 2024-02-02 10:30</td>
-      <td>S 2024-01-16 First Reading Judicial Proceeding...</td>
-      <td>Failed</td>
-      <td>a1b31fccc9bd1059f4bb100cd1dea59c</td>
-      <td>1813615.0</td>
-      <td>https://mgaleg.maryland.gov/2024RS/bills/sb/sb...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1ki1wuxTLwu_W...</td>
-    </tr>
-    <tr>
-      <th>427</th>
-      <td>Oklahoma</td>
-      <td>SB1994</td>
-      <td>Unlawful occupation of property; assistance fr...</td>
-      <td>Book Ban</td>
-      <td>6/5/2024</td>
-      <td>Approved by Governor 06/05/2024</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>Obscenity ban entirely replaced by a bill abou...</td>
-      <td>https://legiscan.com/OK/bill/SB1994/2024</td>
-      <td>Rob Standridge, Ross Ford, Terry O'Donnell, Jo...</td>
-      <td>Hearing 2024-02-20 14:00 Room 4S.9 , Hearing 2...</td>
-      <td>S 2024-02-05 First Reading, S 2024-02-05 Autho...</td>
-      <td>Failed</td>
-      <td>47515140c6f7a413a12fbe8d69a5ebbb</td>
-      <td>1821179.0</td>
-      <td>http://webserver1.lsb.state.ok.us/cf_pdf/2023-...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=18wYm1UQfAzW_...</td>
-    </tr>
-    <tr>
       <th>663</th>
       <td>Wyoming</td>
       <td>HB0088</td>
@@ -4630,28 +4252,6 @@ Name: Bill Type, Length: 674, dtype: bool
       <td>https://www.wyoleg.gov/2024/Introduced/HB0088.pdf</td>
       <td>NaN</td>
       <td>https://drive.google.com/open?id=1eMSSOlAY2xbO...</td>
-    </tr>
-    <tr>
-      <th>104</th>
-      <td>Idaho</td>
-      <td>H0710</td>
-      <td>Amends and adds to existing law to prohibit ce...</td>
-      <td>Book Ban</td>
-      <td>4/10/2024</td>
-      <td>Reported Signed by Governor on April 10, 2024 ...</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/ID/bill/H0710/2024</td>
-      <td>State Affairs Committee</td>
-      <td>Hearing 2024-03-13 10:00 , Hearing 2024-03-20 ...</td>
-      <td>H 2024-03-11 Introduced, read first time, refe...</td>
-      <td>Enacted</td>
-      <td>374862b1132e4d12811584aeb07c8b33</td>
-      <td>1862873.0</td>
-      <td>https://legislature.idaho.gov/wp-content/uploa...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1r_fHa0Ny8ZI7...</td>
     </tr>
     <tr>
       <th>661</th>
@@ -4676,136 +4276,224 @@ Name: Bill Type, Length: 674, dtype: bool
       <td>https://drive.google.com/open?id=1dXozmc00Ct6V...</td>
     </tr>
     <tr>
-      <th>184</th>
-      <td>Kansas</td>
-      <td>SB358</td>
-      <td>Prohibiting school districts and local librari...</td>
+      <th>339</th>
+      <td>Nebraska</td>
+      <td>LB441</td>
+      <td>Change provisions relating to obscenity</td>
       <td>Book Ban</td>
-      <td>4/30/2024</td>
-      <td>Senate Died in Committee</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/KS/bill/SB358/2023</td>
-      <td>Federal and State Affairs</td>
-      <td>NaN</td>
-      <td>S 2024-01-18 Senate Introduced, S 2024-01-19 S...</td>
-      <td>Failed</td>
-      <td>db75808ebbfedb1fe3f6200443987431</td>
-      <td>1821213.0</td>
-      <td>http://kslegislature.org/li/b2023_24/measures/...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1n-AqclcCkIYb...</td>
-    </tr>
-    <tr>
-      <th>555</th>
-      <td>Utah</td>
-      <td>HB0029</td>
-      <td>Sensitive Material Review Amendments</td>
-      <td>Book Ban</td>
-      <td>3/18/2024</td>
-      <td>Governor Signed in Lieutenant Governor's offic...</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/UT/bill/HB0029/2024</td>
-      <td>Ken Ivory, Todd Weiler</td>
-      <td>Hearing 2024-01-23 14:00 , Hearing 2024-02-09 ...</td>
-      <td>2023-12-19 Bill Numbered but not Distributed ...</td>
-      <td>Enacted</td>
-      <td>0ad73fec40b8b8e960fbdadc26e3620b</td>
-      <td>1793887.0</td>
-      <td>https://le.utah.gov/~2024/bills/hbillint/HB002...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1y7GGgkj4r_L0...</td>
-    </tr>
-    <tr>
-      <th>476</th>
-      <td>Tennessee</td>
-      <td>HB1661</td>
-      <td>AN ACT to amend Tennessee Code Annotated, Titl...</td>
-      <td>Book Ban</td>
-      <td>3/25/2024</td>
-      <td>Taken off notice for cal. in Government Operat...</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/TN/bill/HB1661/2023</td>
-      <td>John Ragan, Jody Barrett</td>
-      <td>Hearing 2024-02-07 09:00 House Hearing Room II...</td>
-      <td>H 2024-01-08 Filed for introduction, H 2024-01...</td>
-      <td>Failed</td>
-      <td>e105559b3c2c37d314cb726985eb2f95</td>
-      <td>1799842.0</td>
-      <td>https://www.capitol.tn.gov/Bills/113/Bill/HB16...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1hL77KirimMb8...</td>
-    </tr>
-    <tr>
-      <th>474</th>
-      <td>Tennessee</td>
-      <td>HB1632</td>
-      <td>AN ACT to amend Tennessee Code Annotated, Titl...</td>
-      <td>Book Ban</td>
-      <td>4/17/2024</td>
-      <td>Taken off notice for cal in s/c Finance, Ways,...</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/TN/bill/HB1632/2023</td>
-      <td>Gino Bulso, Jody Barrett</td>
-      <td>Hearing 2024-01-30 16:30 House Hearing Room II...</td>
-      <td>H 2024-01-02 Filed for introduction, H 2024-01...</td>
-      <td>Failed</td>
-      <td>7612b6ad495ecf375de2eb5fc7ae2343</td>
-      <td>1795310.0</td>
-      <td>https://www.capitol.tn.gov/Bills/113/Bill/HB16...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1KVLzRF7pcYqN...</td>
-    </tr>
-    <tr>
-      <th>213</th>
-      <td>Louisiana</td>
-      <td>HB425</td>
-      <td>Provision of sexual content to minor, prohibit...</td>
-      <td>Book Ban</td>
-      <td>4/4/2024</td>
-      <td>Pending House Judiciary</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>defines "gender ideology" as sexual content an...</td>
-      <td>https://legiscan.com/AL/bill/HB425/2024</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Failed</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>331</th>
-      <td>Missouri</td>
-      <td>SB950</td>
-      <td>Modifies provisions relating to the offense of...</td>
-      <td>Book Ban</td>
-      <td>4/2/2024</td>
-      <td>Hearing Conducted S Select Committee on Empowe...</td>
+      <td>4/18/2024</td>
+      <td>Indefinitely postponed</td>
       <td>Worst</td>
       <td>High</td>
       <td>NaN</td>
-      <td>https://legiscan.com/MO/bill/SB950/2024</td>
-      <td>Rick Brattin</td>
-      <td>Hearing 2024-04-02 12:00 Senate Lounge, Hearin...</td>
-      <td>S 2023-12-01 Prefiled, S 2024-01-03 S First Re...</td>
+      <td>https://legiscan.com/NE/bill/LB441/2023</td>
+      <td>Joni Albrecht</td>
+      <td>Hearing 2023-03-24 13:30 Room 1113</td>
+      <td>L 2023-01-13 Date of introduction, L 2023-01-1...</td>
       <td>Failed</td>
-      <td>3e467cc5554348fecef10650832643d4</td>
-      <td>1790626.0</td>
-      <td>https://www.senate.mo.gov/24info/pdf-bill/intr...</td>
+      <td>7b8ef979d6cd9bd80403d60b7894d266</td>
+      <td>1658135.0</td>
+      <td>https://nebraskalegislature.gov/FloorDocs/108/...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=161_AbOWGrgEO...</td>
+      <td>https://drive.google.com/open?id=1XjAdtMZMKUZM...</td>
+    </tr>
+    <tr>
+      <th>253</th>
+      <td>Mississippi</td>
+      <td>HB610</td>
+      <td>Libraries; regulate the material that is curat...</td>
+      <td>Book Ban</td>
+      <td>3/5/2024</td>
+      <td>Died In Committee</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/MS/bill/HB610/2024</td>
+      <td>Jill Ford</td>
+      <td>NaN</td>
+      <td>H 2024-01-24 Referred To Judiciary B, H 2024-0...</td>
+      <td>Failed</td>
+      <td>ba659b36cc8f1e32a47dbc70ecf1ba71</td>
+      <td>1827135.0</td>
+      <td>https://billstatus.ls.state.ms.us/documents/20...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1iVXooqVDVWfU...</td>
+    </tr>
+    <tr>
+      <th>453</th>
+      <td>South Carolina</td>
+      <td>H4654</td>
+      <td>Public school libraries</td>
+      <td>Book Ban</td>
+      <td>1/9/2024</td>
+      <td>Referred to Committee on Education and Public ...</td>
+      <td>Worst</td>
+      <td>High</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/SC/bill/H4654/2023</td>
+      <td>April Cromer, Roger Nutt</td>
+      <td>NaN</td>
+      <td>H 2023-12-14 Prefiled, H 2023-12-14 Referred t...</td>
+      <td>Failed</td>
+      <td>f7b3dc7a9e08bc89f901a7ad044bf6c8</td>
+      <td>1792124.0</td>
+      <td>https://www.scstatehouse.gov/sess125_2023-2024...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1gu6W4lMFwzpY...</td>
+    </tr>
+    <tr>
+      <th>224</th>
+      <td>Maryland</td>
+      <td>SB355</td>
+      <td>Criminal Law - Display of Obscene Material to ...</td>
+      <td>Book Ban</td>
+      <td>1/30/2024</td>
+      <td>Hearing 2/02 at 10:30 a.m.</td>
+      <td>Safest</td>
+      <td>Safest</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/MD/bill/SB355/2024</td>
+      <td>Johnny Salling</td>
+      <td>Hearing 2024-02-02 10:30</td>
+      <td>S 2024-01-16 First Reading Judicial Proceeding...</td>
+      <td>Failed</td>
+      <td>a1b31fccc9bd1059f4bb100cd1dea59c</td>
+      <td>1813615.0</td>
+      <td>https://mgaleg.maryland.gov/2024RS/bills/sb/sb...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1ki1wuxTLwu_W...</td>
+    </tr>
+    <tr>
+      <th>457</th>
+      <td>South Carolina</td>
+      <td>H4701</td>
+      <td>READER Act</td>
+      <td>Book Ban</td>
+      <td>1/9/2024</td>
+      <td>Referred to Committee on Education and Public ...</td>
+      <td>Worst</td>
+      <td>High</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/SC/bill/H4701/2023</td>
+      <td>Micajah Caskey, Brandon Guffey, Thomas Pope, R...</td>
+      <td>NaN</td>
+      <td>H 2023-12-14 Prefiled, H 2023-12-14 Referred t...</td>
+      <td>Failed</td>
+      <td>200adb7a91ae713b25a22bc2b80750e4</td>
+      <td>1792138.0</td>
+      <td>https://www.scstatehouse.gov/sess125_2023-2024...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1n_umUt45vYRC...</td>
+    </tr>
+    <tr>
+      <th>302</th>
+      <td>Missouri</td>
+      <td>HB2374</td>
+      <td>Requires schools to adopt school policies gove...</td>
+      <td>Book Ban</td>
+      <td>5/17/2024</td>
+      <td>Referred: General Laws(H)</td>
+      <td>Worst</td>
+      <td>High</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/MO/bill/HB2374/2024</td>
+      <td>Mazzie Christensen</td>
+      <td>NaN</td>
+      <td>H 2024-01-10 Introduced and Read First Time (H...</td>
+      <td>Failed</td>
+      <td>8368255e43c9449bdf7a22bc29c35a9b</td>
+      <td>1808316.0</td>
+      <td>https://documents.house.mo.gov/billtracking/bi...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1cbBrLWW-dd5Q...</td>
+    </tr>
+    <tr>
+      <th>636</th>
+      <td>West Virginia</td>
+      <td>SB741</td>
+      <td>Prohibiting creation, production, distribution...</td>
+      <td>Book Ban</td>
+      <td>3/8/2024</td>
+      <td>On 3rd reading with right to amend, Special Ca...</td>
+      <td>High</td>
+      <td>High</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/WV/bill/SB741/2024</td>
+      <td>Amy Nichole Grady, Ryan Weld, Charles Trump, L...</td>
+      <td>Hearing 2024-02-14 15:00 Senate Judiciary Comm...</td>
+      <td>S 2024-02-09 Filed for introduction, S 2024-02...</td>
+      <td>Failed</td>
+      <td>bfcbef7c9a4088241d892d0e1ce91d08</td>
+      <td>1842521.0</td>
+      <td>http://www.wvlegislature.gov/Bill_Status/bills...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1h1bl6qVPzauL...</td>
+    </tr>
+    <tr>
+      <th>303</th>
+      <td>Missouri</td>
+      <td>HB2408</td>
+      <td>Prohibits the state librarian from disbursing ...</td>
+      <td>Book Ban</td>
+      <td>5/17/2024</td>
+      <td>Referred: General Laws(H)</td>
+      <td>Worst</td>
+      <td>High</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/MO/bill/HB2408/2024</td>
+      <td>Jamie Gragg</td>
+      <td>NaN</td>
+      <td>H 2024-01-16 Introduced and Read First Time (H...</td>
+      <td>Failed</td>
+      <td>bff4ebaebbd553bec70f58db204d0dc4</td>
+      <td>1813740.0</td>
+      <td>https://documents.house.mo.gov/billtracking/bi...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=10sC75bfkSG59...</td>
+    </tr>
+    <tr>
+      <th>220</th>
+      <td>Maryland</td>
+      <td>HB671</td>
+      <td>Criminal Law - Display of Obscene Material to ...</td>
+      <td>Book Ban</td>
+      <td>1/31/2024</td>
+      <td>Hearing 2/14 at 1:00 p.m.</td>
+      <td>Safest</td>
+      <td>Safest</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/MD/bill/HB671/2024</td>
+      <td>Robin Grammer, Lauren Arikan, Brian Chisholm, ...</td>
+      <td>Hearing 2024-02-14 13:00</td>
+      <td>H 2024-01-25 First Reading Ways and Means, H 2...</td>
+      <td>Failed</td>
+      <td>8947eac1afb97c8796443b187d631c7a</td>
+      <td>1827883.0</td>
+      <td>https://mgaleg.maryland.gov/2024RS/bills/hb/hb...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1ifjLDX7Qhi6_...</td>
+    </tr>
+    <tr>
+      <th>218</th>
+      <td>Maryland</td>
+      <td>HB25</td>
+      <td>Public Schools - Sexually Explicit Materials -...</td>
+      <td>Book Ban</td>
+      <td>2/19/2024</td>
+      <td>Unfavorable Report by Ways and Means</td>
+      <td>Safest</td>
+      <td>Safest</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/MD/bill/HB25/2024</td>
+      <td>Nino Mangione</td>
+      <td>Hearing 2024-01-31 13:00</td>
+      <td>H 2023-08-28 Pre-filed, H 2024-01-10 First Rea...</td>
+      <td>Failed</td>
+      <td>8390af30a0a627a696fa634e59d835b5</td>
+      <td>1798393.0</td>
+      <td>https://mgaleg.maryland.gov/2024RS/bills/hb/hb...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1A9OkZ4ibVOET...</td>
     </tr>
     <tr>
       <th>462</th>
@@ -4830,114 +4518,92 @@ Name: Bill Type, Length: 674, dtype: bool
       <td>https://drive.google.com/open?id=1KWrzfHuhZ3t3...</td>
     </tr>
     <tr>
-      <th>501</th>
-      <td>Tennessee</td>
-      <td>SB2173</td>
-      <td>AN ACT to amend Tennessee Code Annotated, Titl...</td>
+      <th>214</th>
+      <td>Louisiana</td>
+      <td>HB545</td>
+      <td>Provides relative to certain materials in publ...</td>
       <td>Book Ban</td>
-      <td>3/6/2024</td>
-      <td>Deferred to Summer Study</td>
+      <td>5/7/2024</td>
+      <td>Read by title, returned to the calendar.</td>
       <td>Worst</td>
       <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/TN/bill/SB2173/2023</td>
-      <td>Joseph Hensley</td>
-      <td>Hearing 2024-03-06 15:00 Cordell Hull Building</td>
-      <td>S 2024-01-30 Filed for introduction, S 2024-01...</td>
+      <td>Passed a committee in the House but failed at ...</td>
+      <td>https://legiscan.com/LA/bill/HB545/2024</td>
+      <td>Beryl Amedee</td>
+      <td>Hearing 2024-04-16 09:30 Room 6</td>
+      <td>H 2024-03-01 Prefiled., H 2024-03-01 Under the...</td>
       <td>Failed</td>
-      <td>7b2c36c55abcdc998bc204dbdb458d1b</td>
-      <td>1831445.0</td>
-      <td>https://www.capitol.tn.gov/Bills/113/Bill/SB21...</td>
+      <td>a9068dc615adf12db572fa16cd3a54c3</td>
+      <td>1857939.0</td>
+      <td>https://www.legis.la.gov/Legis/ViewDocument.as...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=1bZCYBBoWyi1p...</td>
+      <td>https://drive.google.com/open?id=1mCuLbEGEFEyd...</td>
     </tr>
     <tr>
-      <th>91</th>
-      <td>Idaho</td>
-      <td>H0384</td>
-      <td>Amends and adds to existing law to prohibit ce...</td>
+      <th>34</th>
+      <td>California</td>
+      <td>SB1435</td>
+      <td>An act to add Section 18112 to the Education C...</td>
       <td>Book Ban</td>
-      <td>1/18/2024</td>
-      <td>U.C. to be returned to State Affairs Committee</td>
-      <td>Worst</td>
-      <td>Worst</td>
+      <td>4/24/2024</td>
+      <td>April 24 set for first hearing. Failed passage...</td>
+      <td>Safest</td>
+      <td>Safest</td>
+      <td>For K8 material; amended to replace word "obsc...</td>
+      <td>https://legiscan.com/CA/bill/SB1435/2023</td>
       <td>NaN</td>
-      <td>https://legiscan.com/ID/bill/H0384/2024</td>
-      <td>State Affairs Committee</td>
-      <td>Hearing 2024-01-15 09:00 Room EW40</td>
-      <td>H 2024-01-10 Introduced, read first time, refe...</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>Failed</td>
-      <td>9c724c4466a7784e0aca9f2f84dbdbfd</td>
-      <td>1808590.0</td>
-      <td>https://legislature.idaho.gov/wp-content/uploa...</td>
       <td>NaN</td>
-      <td>https://drive.google.com/open?id=1Gx3e7IpynIEY...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>136</th>
-      <td>Iowa</td>
-      <td>HF2040</td>
-      <td>A bill for an act relating to obscenity exempt...</td>
+      <th>213</th>
+      <td>Louisiana</td>
+      <td>HB425</td>
+      <td>Provision of sexual content to minor, prohibit...</td>
       <td>Book Ban</td>
-      <td>1/16/2024</td>
-      <td>Introduced, referred to Education. H.J. 90.</td>
+      <td>4/4/2024</td>
+      <td>Pending House Judiciary</td>
       <td>Worst</td>
+      <td>Worst</td>
+      <td>defines "gender ideology" as sexual content an...</td>
+      <td>https://legiscan.com/AL/bill/HB425/2024</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Failed</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>574</th>
+      <td>Virginia</td>
+      <td>HB1206</td>
+      <td>Obscene materials; modifies restrictions on pu...</td>
+      <td>Book Ban</td>
+      <td>2/13/2024</td>
+      <td>Left in Courts of Justice</td>
       <td>High</td>
-      <td>Failed crossover deadline of 3/14/24</td>
-      <td>https://legiscan.com/IA/bill/HF2040/2023</td>
-      <td>Jeff Shipley</td>
+      <td>Low</td>
+      <td>Carried forward to 2025 Session</td>
+      <td>https://legiscan.com/VA/bill/HB1206/2024</td>
+      <td>Phillip Scott, Wendell Walker, Eric Zehr</td>
+      <td>Hearing 2024-01-31 08:00 House Committee Room ...</td>
+      <td>H 2024-01-10 Prefiled and ordered printed; off...</td>
+      <td>Roll Over</td>
+      <td>3f9d15a4baef3c45c5490b389dee8b36</td>
+      <td>1810011.0</td>
+      <td>https://lis.virginia.gov/cgi-bin/legp604.exe?2...</td>
       <td>NaN</td>
-      <td>H 2024-01-16 Introduced, referred to Education...</td>
-      <td>Failed</td>
-      <td>539e43335ed5e2ae123f0f32d1c90561</td>
-      <td>1813683.0</td>
-      <td>https://www.legis.iowa.gov/docs/publications/L...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1zK7rSc6d8DiY...</td>
-    </tr>
-    <tr>
-      <th>107</th>
-      <td>Idaho</td>
-      <td>S1221</td>
-      <td>Amends and adds to existing law to establish p...</td>
-      <td>Book Ban</td>
-      <td>1/15/2024</td>
-      <td>Reported Printed; referred to State Affairs</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/ID/bill/S1221/2024</td>
-      <td>State Affairs Committee, Linda Hartgen, Josh W...</td>
-      <td>NaN</td>
-      <td>S 2024-01-12 Introduced; read first time; refe...</td>
-      <td>Failed</td>
-      <td>7f1f5cb61693c77b32035a4db25ed4fc</td>
-      <td>1812843.0</td>
-      <td>https://legislature.idaho.gov/wp-content/uploa...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=12XxFQunkWIb8...</td>
-    </tr>
-    <tr>
-      <th>260</th>
-      <td>Mississippi</td>
-      <td>SB2085</td>
-      <td>Crime of distribution of obscene materials; de...</td>
-      <td>Book Ban</td>
-      <td>3/5/2024</td>
-      <td>Died In Committee</td>
-      <td>Worst</td>
-      <td>Worst</td>
-      <td>NaN</td>
-      <td>https://legiscan.com/MS/bill/SB2085/2024</td>
-      <td>Angela Burks Hill</td>
-      <td>NaN</td>
-      <td>S 2024-01-19 Referred To Judiciary, Division B...</td>
-      <td>Failed</td>
-      <td>98941eb3608f7f784e5cc514e23fab49</td>
-      <td>1822216.0</td>
-      <td>https://billstatus.ls.state.ms.us/documents/20...</td>
-      <td>NaN</td>
-      <td>https://drive.google.com/open?id=1akpeCLwXwzQk...</td>
+      <td>https://drive.google.com/open?id=1sQPNRbMQFbfk...</td>
     </tr>
     <tr>
       <th>341</th>
@@ -4962,26 +4628,26 @@ Name: Bill Type, Length: 674, dtype: bool
       <td>https://drive.google.com/open?id=1UK9KfO8QUt5c...</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>Alabama</td>
-      <td>HB4</td>
-      <td>Crimes and offenses, further provides for obsc...</td>
+      <th>319</th>
+      <td>Missouri</td>
+      <td>SB1272</td>
+      <td>Modifies provisions relating to providing expl...</td>
       <td>Book Ban</td>
-      <td>7/8/2024</td>
-      <td>Pending House Judiciary</td>
+      <td>1/25/2024</td>
+      <td>Second Read and Referred S Select Committee on...</td>
       <td>Worst</td>
-      <td>Worst</td>
-      <td>Prefiled for 2025 session; re: K12 &amp; public li...</td>
-      <td>https://legiscan.com/AL/bill/HB4/2025</td>
+      <td>High</td>
       <td>NaN</td>
+      <td>https://legiscan.com/MO/bill/SB1272/2024</td>
+      <td>Nick Schroer</td>
       <td>NaN</td>
+      <td>S 2023-12-15 Prefiled, S 2024-01-03 S First Re...</td>
+      <td>Failed</td>
+      <td>22343d8f8634d520da58e2bf41c6679d</td>
+      <td>1792474.0</td>
+      <td>https://www.senate.mo.gov/24info/pdf-bill/intr...</td>
       <td>NaN</td>
-      <td>Roll Over</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1yiyJrvVldJDF...</td>
     </tr>
     <tr>
       <th>439</th>
@@ -5004,6 +4670,248 @@ Name: Bill Type, Length: 674, dtype: bool
       <td>https://www.legis.state.pa.us/cfdocs/legis/PN/...</td>
       <td>NaN</td>
       <td>https://drive.google.com/open?id=1IuGdqdjNIfkD...</td>
+    </tr>
+    <tr>
+      <th>206</th>
+      <td>Kentucky</td>
+      <td>SB246</td>
+      <td>AN ACT relating to materials, programs, or eve...</td>
+      <td>Book Ban</td>
+      <td>2/26/2024</td>
+      <td>to Education (S)</td>
+      <td>Worst</td>
+      <td>Moderate</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/KY/bill/SB246/2024</td>
+      <td>Lindsey Tichenor, Stephen Meredith</td>
+      <td>NaN</td>
+      <td>S 2024-02-22 introduced in Senate, S 2024-02-2...</td>
+      <td>Failed</td>
+      <td>794631c997d4cd5bd8caf1ec1abc8517</td>
+      <td>1853463.0</td>
+      <td>https://apps.legislature.ky.gov/recorddocument...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=11Wr3drYo35O1...</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>Idaho</td>
+      <td>S1289</td>
+      <td>Adds to existing law to establish standards fo...</td>
+      <td>Book Ban</td>
+      <td>2/22/2024</td>
+      <td>Filed in Office of the Secretary of Senate</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/ID/bill/S1289/2024</td>
+      <td>State Affairs Committee</td>
+      <td>Hearing 2024-02-12 08:00 Room WW55</td>
+      <td>S 2024-02-07 Introduced; read first time; refe...</td>
+      <td>Failed</td>
+      <td>34fbf239786a460b1b2bebbc63fb14a0</td>
+      <td>1839802.0</td>
+      <td>https://legislature.idaho.gov/wp-content/uploa...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1xIj_EbAQpbvm...</td>
+    </tr>
+    <tr>
+      <th>611</th>
+      <td>West Virginia</td>
+      <td>HB5191</td>
+      <td>Relating to permitting obscenity in schools</td>
+      <td>Book Ban</td>
+      <td>1/25/2024</td>
+      <td>To House Judiciary</td>
+      <td>High</td>
+      <td>High</td>
+      <td>Online Obscenity law as well</td>
+      <td>https://legiscan.com/WV/bill/HB5191/2024</td>
+      <td>Margitta Mazzocchi</td>
+      <td>NaN</td>
+      <td>H 2024-01-25 Filed for introduction, H 2024-01...</td>
+      <td>Failed</td>
+      <td>6eca3418da626d17e7245795e3b09824</td>
+      <td>1828252.0</td>
+      <td>http://www.wvlegislature.gov/Bill_Status/bills...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=14T_iitzxUklz...</td>
+    </tr>
+    <tr>
+      <th>476</th>
+      <td>Tennessee</td>
+      <td>HB1661</td>
+      <td>AN ACT to amend Tennessee Code Annotated, Titl...</td>
+      <td>Book Ban</td>
+      <td>3/25/2024</td>
+      <td>Taken off notice for cal. in Government Operat...</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/TN/bill/HB1661/2023</td>
+      <td>John Ragan, Jody Barrett</td>
+      <td>Hearing 2024-02-07 09:00 House Hearing Room II...</td>
+      <td>H 2024-01-08 Filed for introduction, H 2024-01...</td>
+      <td>Failed</td>
+      <td>e105559b3c2c37d314cb726985eb2f95</td>
+      <td>1799842.0</td>
+      <td>https://www.capitol.tn.gov/Bills/113/Bill/HB16...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1hL77KirimMb8...</td>
+    </tr>
+    <tr>
+      <th>599</th>
+      <td>West Virginia</td>
+      <td>HB4654</td>
+      <td>Removing bona fide schools, public libraries, ...</td>
+      <td>Book Ban</td>
+      <td>2/20/2024</td>
+      <td>To Judiciary</td>
+      <td>High</td>
+      <td>High</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/WV/bill/HB4654/2024</td>
+      <td>Brandon Steele, Henry Dillon, Geoff Foster</td>
+      <td>Hearing 2024-01-19 09:15 House Judiciary Commi...</td>
+      <td>H 2024-01-12 Filed for introduction, H 2024-01...</td>
+      <td>Failed</td>
+      <td>0784c91cf3881bba57cc5c6c8372b66a</td>
+      <td>1812462.0</td>
+      <td>http://www.wvlegislature.gov/Bill_Status/bills...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1nWqKk1RBYJc5...</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>Idaho</td>
+      <td>H0710</td>
+      <td>Amends and adds to existing law to prohibit ce...</td>
+      <td>Book Ban</td>
+      <td>4/10/2024</td>
+      <td>Reported Signed by Governor on April 10, 2024 ...</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/ID/bill/H0710/2024</td>
+      <td>State Affairs Committee</td>
+      <td>Hearing 2024-03-13 10:00 , Hearing 2024-03-20 ...</td>
+      <td>H 2024-03-11 Introduced, read first time, refe...</td>
+      <td>Enacted</td>
+      <td>374862b1132e4d12811584aeb07c8b33</td>
+      <td>1862873.0</td>
+      <td>https://legislature.idaho.gov/wp-content/uploa...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1r_fHa0Ny8ZI7...</td>
+    </tr>
+    <tr>
+      <th>474</th>
+      <td>Tennessee</td>
+      <td>HB1632</td>
+      <td>AN ACT to amend Tennessee Code Annotated, Titl...</td>
+      <td>Book Ban</td>
+      <td>4/17/2024</td>
+      <td>Taken off notice for cal in s/c Finance, Ways,...</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/TN/bill/HB1632/2023</td>
+      <td>Gino Bulso, Jody Barrett</td>
+      <td>Hearing 2024-01-30 16:30 House Hearing Room II...</td>
+      <td>H 2024-01-02 Filed for introduction, H 2024-01...</td>
+      <td>Failed</td>
+      <td>7612b6ad495ecf375de2eb5fc7ae2343</td>
+      <td>1795310.0</td>
+      <td>https://www.capitol.tn.gov/Bills/113/Bill/HB16...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1KVLzRF7pcYqN...</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>Idaho</td>
+      <td>S1221</td>
+      <td>Amends and adds to existing law to establish p...</td>
+      <td>Book Ban</td>
+      <td>1/15/2024</td>
+      <td>Reported Printed; referred to State Affairs</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/ID/bill/S1221/2024</td>
+      <td>State Affairs Committee, Linda Hartgen, Josh W...</td>
+      <td>NaN</td>
+      <td>S 2024-01-12 Introduced; read first time; refe...</td>
+      <td>Failed</td>
+      <td>7f1f5cb61693c77b32035a4db25ed4fc</td>
+      <td>1812843.0</td>
+      <td>https://legislature.idaho.gov/wp-content/uploa...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=12XxFQunkWIb8...</td>
+    </tr>
+    <tr>
+      <th>427</th>
+      <td>Oklahoma</td>
+      <td>SB1994</td>
+      <td>Unlawful occupation of property; assistance fr...</td>
+      <td>Book Ban</td>
+      <td>6/5/2024</td>
+      <td>Approved by Governor 06/05/2024</td>
+      <td>Worst</td>
+      <td>Worst</td>
+      <td>Obscenity ban entirely replaced by a bill abou...</td>
+      <td>https://legiscan.com/OK/bill/SB1994/2024</td>
+      <td>Rob Standridge, Ross Ford, Terry O'Donnell, Jo...</td>
+      <td>Hearing 2024-02-20 14:00 Room 4S.9 , Hearing 2...</td>
+      <td>S 2024-02-05 First Reading, S 2024-02-05 Autho...</td>
+      <td>Failed</td>
+      <td>47515140c6f7a413a12fbe8d69a5ebbb</td>
+      <td>1821179.0</td>
+      <td>http://webserver1.lsb.state.ok.us/cf_pdf/2023-...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=18wYm1UQfAzW_...</td>
+    </tr>
+    <tr>
+      <th>591</th>
+      <td>West Virginia</td>
+      <td>HB4011</td>
+      <td>To modify exemptions from criminal liability t...</td>
+      <td>Book Ban</td>
+      <td>1/10/2024</td>
+      <td>To House Judiciary</td>
+      <td>High</td>
+      <td>High</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/WV/bill/HB4011/2024</td>
+      <td>Geno Chiarelli</td>
+      <td>NaN</td>
+      <td>H 2024-01-10 Filed for introduction, H 2024-01...</td>
+      <td>Failed</td>
+      <td>a2c7f653d0415c82ba774cc8673ef1d1</td>
+      <td>1809701.0</td>
+      <td>http://www.wvlegislature.gov/Bill_Status/bills...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=1oJt3Y55cK6dt...</td>
+    </tr>
+    <tr>
+      <th>331</th>
+      <td>Missouri</td>
+      <td>SB950</td>
+      <td>Modifies provisions relating to the offense of...</td>
+      <td>Book Ban</td>
+      <td>4/2/2024</td>
+      <td>Hearing Conducted S Select Committee on Empowe...</td>
+      <td>Worst</td>
+      <td>High</td>
+      <td>NaN</td>
+      <td>https://legiscan.com/MO/bill/SB950/2024</td>
+      <td>Rick Brattin</td>
+      <td>Hearing 2024-04-02 12:00 Senate Lounge, Hearin...</td>
+      <td>S 2023-12-01 Prefiled, S 2024-01-03 S First Re...</td>
+      <td>Failed</td>
+      <td>3e467cc5554348fecef10650832643d4</td>
+      <td>1790626.0</td>
+      <td>https://www.senate.mo.gov/24info/pdf-bill/intr...</td>
+      <td>NaN</td>
+      <td>https://drive.google.com/open?id=161_AbOWGrgEO...</td>
     </tr>
   </tbody>
 </table>
@@ -5054,16 +4962,16 @@ Name: count, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>169    False
-283    False
-179    False
 334    False
-311    False
+187    False
+283    False
+171    False
        ...  
-245    False
 266    False
-117    False
+245    False
 487    False
 503    False
+117    False
 Name: Bill Type, Length: 674, dtype: bool
 </pre></div>
 </div>
@@ -5159,7 +5067,7 @@ Name: count, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/3e2cadf0c6076964fed2576c8543da7ecf3c7c2742817bc5f856819e9a8ff588.png" src="../_images/3e2cadf0c6076964fed2576c8543da7ecf3c7c2742817bc5f856819e9a8ff588.png" />
+<img alt="../_images/643592f9f06d1ac12da8934af5cc6cf5b55ee13931dbec7426b0da29f3564468.png" src="../_images/643592f9f06d1ac12da8934af5cc6cf5b55ee13931dbec7426b0da29f3564468.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -5172,7 +5080,7 @@ Name: count, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/260fce478fe2b8d308c95cddc04c8a41cb901a99485dc4e6a8c44dcf2a3134c0.png" src="../_images/260fce478fe2b8d308c95cddc04c8a41cb901a99485dc4e6a8c44dcf2a3134c0.png" />
+<img alt="../_images/e17d35d5c983a4a3697fddcd218bd7bc9284b515c8e465c3ea6ab4e925e778f9.png" src="../_images/e17d35d5c983a4a3697fddcd218bd7bc9284b515c8e465c3ea6ab4e925e778f9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -5185,7 +5093,7 @@ Name: count, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Bill Type&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/b5f29de4267b317d6dd066e47aa228cde812424139f34d52b53ff0ed8050ae05.png" src="../_images/b5f29de4267b317d6dd066e47aa228cde812424139f34d52b53ff0ed8050ae05.png" />
+<img alt="../_images/11f9cdf8500a60fb82ea2c2c2a4dc6f258634d84d5f32561f84a7f3d8d9c2b61.png" src="../_images/11f9cdf8500a60fb82ea2c2c2a4dc6f258634d84d5f32561f84a7f3d8d9c2b61.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -5221,29 +5129,29 @@ Name: count, Length: 83, dtype: int64
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">43</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Bill Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/pandas/plotting/_core.py:1030,</span> in <span class="ni">PlotAccessor.__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="nn">File ~/.conda/envs/jb/lib/python3.11/site-packages/pandas/plotting/_core.py:1030,</span> in <span class="ni">PlotAccessor.__call__</span><span class="nt">(self, *args, **kwargs)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1027</span>             <span class="n">label_name</span> <span class="o">=</span> <span class="n">label_kw</span> <span class="ow">or</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
 <span class="g g-Whitespace">   </span><span class="mi">1028</span>             <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">label_name</span>
 <span class="ne">-&gt; </span><span class="mi">1030</span> <span class="k">return</span> <span class="n">plot_backend</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/pandas/plotting/_matplotlib/__init__.py:71,</span> in <span class="ni">plot</span><span class="nt">(data, kind, **kwargs)</span>
+<span class="nn">File ~/.conda/envs/jb/lib/python3.11/site-packages/pandas/plotting/_matplotlib/__init__.py:71,</span> in <span class="ni">plot</span><span class="nt">(data, kind, **kwargs)</span>
 <span class="g g-Whitespace">     </span><span class="mi">69</span>         <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;ax&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="s2">&quot;left_ax&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">70</span> <span class="n">plot_obj</span> <span class="o">=</span> <span class="n">PLOT_CLASSES</span><span class="p">[</span><span class="n">kind</span><span class="p">](</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="ne">---&gt; </span><span class="mi">71</span> <span class="n">plot_obj</span><span class="o">.</span><span class="n">generate</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="n">plot_obj</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">return</span> <span class="n">plot_obj</span><span class="o">.</span><span class="n">result</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/pandas/plotting/_matplotlib/core.py:499,</span> in <span class="ni">MPLPlot.generate</span><span class="nt">(self)</span>
+<span class="nn">File ~/.conda/envs/jb/lib/python3.11/site-packages/pandas/plotting/_matplotlib/core.py:499,</span> in <span class="ni">MPLPlot.generate</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">497</span> <span class="nd">@final</span>
-<span class="g g-Whitespace">    </span><span class="mi">498</span> <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span> <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">499</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_compute_plot_data</span><span class="p">()</span>
 <span class="g g-Whitespace">    </span><span class="mi">500</span>     <span class="n">fig</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fig</span>
 <span class="g g-Whitespace">    </span><span class="mi">501</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_make_plot</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/pandas/plotting/_matplotlib/core.py:698,</span> in <span class="ni">MPLPlot._compute_plot_data</span><span class="nt">(self)</span>
+<span class="nn">File ~/.conda/envs/jb/lib/python3.11/site-packages/pandas/plotting/_matplotlib/core.py:698,</span> in <span class="ni">MPLPlot._compute_plot_data</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">696</span> <span class="c1"># no non-numeric frames or series allowed</span>
 <span class="g g-Whitespace">    </span><span class="mi">697</span> <span class="k">if</span> <span class="n">is_empty</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">698</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;no numeric data to plot&quot;</span><span class="p">)</span>
@@ -5262,16 +5170,16 @@ Name: count, Length: 83, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>169          Anti-Boycotts Act
-283          Anti-Boycotts Act
-179          Anti-Boycotts Act
 334          Anti-Boycotts Act
-311          Anti-Boycotts Act
+187          Anti-Boycotts Act
+283          Anti-Boycotts Act
+171          Anti-Boycotts Act
                 ...           
-245     Trans Segregation Bill
 266     Trans Segregation Bill
-117    Trans Surveillance Bill
+245     Trans Segregation Bill
 487    Trans Surveillance Bill
 503    Trans Surveillance Bill
+117    Trans Surveillance Bill
 Name: Bill Type, Length: 674, dtype: object
 </pre></div>
 </div>
@@ -5296,7 +5204,7 @@ Name: Bill Type, Length: 674, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/69/bqc5v9sj08n6n_yk_95fpnq8s5fxhq/T/ipykernel_18653/760123532.py:1: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/z6/8hbw1n6n3dq2jdw3_zjysj5sws21gh/T/ipykernel_7834/760123532.py:1: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
   type(df.value_counts(&#39;Bill Type&#39;)[0])
 </pre></div>
 </div>
@@ -5441,7 +5349,6 @@ Name: Bill Type, Length: 674, dtype: object
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-values">sorting values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#counting-values">counting values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-by-values-booleans-and-strings">filtering by values: booleans and strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-data">plotting data</a></li>
 </ul>

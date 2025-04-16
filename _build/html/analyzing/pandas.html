@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -206,7 +206,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">chapter overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cleaning/cleaning.html">cleaning our text</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
@@ -432,24 +432,14 @@ document.write(`
 <h1>introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#introduction-to-pandas" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>This is the script I used to import my data using the MET API. I am including it here as plain text so that the code won’t execute when I run and publish the notebook.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://collectionapi.metmuseum.org/public/collection/v1/search&quot;</span>
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="s1">&#39;woman&#39;</span><span class="p">}</span>
@@ -470,7 +460,9 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://bit.ly/met_woman&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the above script</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://bit.ly/664-met-woman&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -796,7 +788,7 @@ document.write(`
 <section id="viewing-data">
 <h2>viewing data<a class="headerlink" href="#viewing-data" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>overview information: <code class="docutils literal notranslate"><span class="pre">df.info()</span></code>, <code class="docutils literal notranslate"><span class="pre">df.head()</span></code>, <code class="docutils literal notranslate"><span class="pre">dr.tail()</span></code></p></li>
+<li><p>overview information: <code class="docutils literal notranslate"><span class="pre">df.info()</span></code>, <code class="docutils literal notranslate"><span class="pre">df.head()</span></code>, <code class="docutils literal notranslate"><span class="pre">df.tail()</span></code></p></li>
 <li><p>attributes: <code class="docutils literal notranslate"><span class="pre">df.shape</span></code>, <code class="docutils literal notranslate"><span class="pre">df.columns()</span></code></p></li>
 <li><p>selecting columns: <code class="docutils literal notranslate"><span class="pre">df['column_name']</span></code>, <code class="docutils literal notranslate"><span class="pre">df.column_name</span></code></p></li>
 <li><p>seeing values: <code class="docutils literal notranslate"><span class="pre">df['column_name'].values</span></code></p></li>
@@ -882,6 +874,18 @@ memory usage: 230.6+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(500, 59)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
@@ -907,6 +911,70 @@ memory usage: 230.6+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;objectID&#39;, &#39;isHighlight&#39;, &#39;accessionNumber&#39;, &#39;accessionYear&#39;,
+       &#39;isPublicDomain&#39;, &#39;primaryImage&#39;, &#39;primaryImageSmall&#39;,
+       &#39;additionalImages&#39;, &#39;constituents&#39;, &#39;department&#39;, &#39;objectName&#39;, &#39;title&#39;,
+       &#39;culture&#39;, &#39;period&#39;, &#39;dynasty&#39;, &#39;reign&#39;, &#39;portfolio&#39;, &#39;artistRole&#39;,
+       &#39;artistPrefix&#39;, &#39;artistDisplayName&#39;, &#39;artistDisplayBio&#39;, &#39;artistSuffix&#39;,
+       &#39;artistAlphaSort&#39;, &#39;artistNationality&#39;, &#39;artistBeginDate&#39;,
+       &#39;artistEndDate&#39;, &#39;artistGender&#39;, &#39;artistWikidata_URL&#39;, &#39;artistULAN_URL&#39;,
+       &#39;objectDate&#39;, &#39;objectBeginDate&#39;, &#39;objectEndDate&#39;, &#39;medium&#39;,
+       &#39;dimensions&#39;, &#39;measurements&#39;, &#39;creditLine&#39;, &#39;geographyType&#39;, &#39;city&#39;,
+       &#39;state&#39;, &#39;county&#39;, &#39;country&#39;, &#39;region&#39;, &#39;subregion&#39;, &#39;locale&#39;, &#39;locus&#39;,
+       &#39;excavation&#39;, &#39;river&#39;, &#39;classification&#39;, &#39;rightsAndReproduction&#39;,
+       &#39;linkResource&#39;, &#39;metadataDate&#39;, &#39;repository&#39;, &#39;objectURL&#39;, &#39;tags&#39;,
+       &#39;objectWikidata_URL&#39;, &#39;isTimelineWork&#39;, &#39;GalleryNumber&#39;, &#39;message&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unwanted_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;primaryImageSmall&#39;</span><span class="p">,</span> <span class="s1">&#39;portfolio&#39;</span><span class="p">,</span> <span class="s1">&#39;artistRole&#39;</span><span class="p">,</span> <span class="s1">&#39;artistPrefix&#39;</span><span class="p">,</span> <span class="s1">&#39;artistSuffix&#39;</span><span class="p">,</span> <span class="s1">&#39;artistAlphaSort&#39;</span><span class="p">,</span> <span class="s1">&#39;subregion&#39;</span><span class="p">,</span> <span class="s1">&#39;locale&#39;</span><span class="p">,</span> <span class="s1">&#39;locus&#39;</span><span class="p">,</span> <span class="s1">&#39;excavation&#39;</span><span class="p">,</span> <span class="s1">&#39;river&#39;</span><span class="p">,</span> <span class="s1">&#39;classification&#39;</span><span class="p">,</span> <span class="s1">&#39;rightsAndReproduction&#39;</span><span class="p">,</span> <span class="s1">&#39;linkResource&#39;</span><span class="p">,</span> <span class="s1">&#39;metadataDate&#39;</span><span class="p">,</span> <span class="s1">&#39;repository&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">unwanted_columns</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;objectID&#39;, &#39;isHighlight&#39;, &#39;accessionNumber&#39;, &#39;accessionYear&#39;,
+       &#39;isPublicDomain&#39;, &#39;primaryImage&#39;, &#39;additionalImages&#39;, &#39;constituents&#39;,
+       &#39;department&#39;, &#39;objectName&#39;, &#39;title&#39;, &#39;culture&#39;, &#39;period&#39;, &#39;dynasty&#39;,
+       &#39;reign&#39;, &#39;artistDisplayName&#39;, &#39;artistDisplayBio&#39;, &#39;artistNationality&#39;,
+       &#39;artistBeginDate&#39;, &#39;artistEndDate&#39;, &#39;artistGender&#39;,
+       &#39;artistWikidata_URL&#39;, &#39;artistULAN_URL&#39;, &#39;objectDate&#39;, &#39;objectBeginDate&#39;,
+       &#39;objectEndDate&#39;, &#39;medium&#39;, &#39;dimensions&#39;, &#39;measurements&#39;, &#39;creditLine&#39;,
+       &#39;geographyType&#39;, &#39;city&#39;, &#39;state&#39;, &#39;county&#39;, &#39;country&#39;, &#39;region&#39;,
+       &#39;objectURL&#39;, &#39;tags&#39;, &#39;objectWikidata_URL&#39;, &#39;isTimelineWork&#39;,
+       &#39;GalleryNumber&#39;, &#39;message&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -924,6 +992,18 @@ memory usage: 230.6+ KB
 498                                            Sa Amulet
 499                                      The Thrown Kiss
 Name: title, Length: 500, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
 </pre></div>
 </div>
 </div>
@@ -1116,6 +1196,18 @@ Name: medium, Length: 500, dtype: object
        &#39;Pen and brown ink, brush and brown wash, highlighted with white, over a little black chalk, on gray-green paper.  The head of the woman with outstretched arm, to the right of Susanna, is a pentimento that has been pasted onto the sheet.  Squared in black chalk&#39;,
        &#39;Terracotta&#39;, &#39;Silver, electrum&#39;, &#39;Hard-paste porcelain&#39;],
       dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;medium&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
 </pre></div>
 </div>
 </div>
@@ -1512,138 +1604,102 @@ Name: title, Length: 500, dtype: object
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
       <th>objectID</th>
       <th>isHighlight</th>
       <th>accessionYear</th>
       <th>isPublicDomain</th>
-      <th>portfolio</th>
       <th>objectBeginDate</th>
       <th>objectEndDate</th>
       <th>county</th>
-      <th>river</th>
-      <th>linkResource</th>
       <th>isTimelineWork</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>count</th>
-      <td>500.000000</td>
       <td>492.000000</td>
       <td>492.000000</td>
       <td>489.000000</td>
       <td>492.000000</td>
-      <td>0.0</td>
       <td>492.000000</td>
       <td>492.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>492.000000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>249.500000</td>
       <td>338124.420732</td>
       <td>0.075203</td>
       <td>1935.578732</td>
       <td>0.845528</td>
-      <td>NaN</td>
       <td>25.123984</td>
       <td>117.554878</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
       <td>0.126016</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>144.481833</td>
       <td>150547.306742</td>
       <td>0.263987</td>
       <td>37.739216</td>
       <td>0.361768</td>
-      <td>NaN</td>
       <td>1319.632348</td>
       <td>1242.360185</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
       <td>0.332205</td>
     </tr>
     <tr>
       <th>min</th>
-      <td>0.000000</td>
       <td>10112.000000</td>
       <td>0.000000</td>
       <td>1871.000000</td>
       <td>0.000000</td>
-      <td>NaN</td>
       <td>-7000.000000</td>
       <td>-4000.000000</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>124.750000</td>
       <td>247556.750000</td>
       <td>0.000000</td>
       <td>1910.000000</td>
       <td>1.000000</td>
-      <td>NaN</td>
       <td>-550.000000</td>
       <td>-485.000000</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>249.500000</td>
       <td>253507.000000</td>
       <td>0.000000</td>
       <td>1926.000000</td>
       <td>1.000000</td>
-      <td>NaN</td>
       <td>-299.000000</td>
       <td>-200.000000</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>374.250000</td>
       <td>469534.000000</td>
       <td>0.000000</td>
       <td>1966.000000</td>
       <td>1.000000</td>
-      <td>NaN</td>
       <td>1539.500000</td>
       <td>1547.000000</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>499.000000</td>
       <td>897321.000000</td>
       <td>1.000000</td>
       <td>2023.000000</td>
       <td>1.000000</td>
-      <td>NaN</td>
       <td>2005.000000</td>
       <td>2005.000000</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
       <td>1.000000</td>
     </tr>
@@ -1676,21 +1732,21 @@ Name: title, Length: 500, dtype: object
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
       <th>objectID</th>
       <th>isHighlight</th>
       <th>accessionNumber</th>
       <th>accessionYear</th>
       <th>isPublicDomain</th>
       <th>primaryImage</th>
-      <th>primaryImageSmall</th>
       <th>additionalImages</th>
       <th>constituents</th>
+      <th>department</th>
+      <th>objectName</th>
       <th>...</th>
-      <th>rightsAndReproduction</th>
-      <th>linkResource</th>
-      <th>metadataDate</th>
-      <th>repository</th>
+      <th>state</th>
+      <th>county</th>
+      <th>country</th>
+      <th>region</th>
       <th>objectURL</th>
       <th>tags</th>
       <th>objectWikidata_URL</th>
@@ -1702,21 +1758,21 @@ Name: title, Length: 500, dtype: object
   <tbody>
     <tr>
       <th>100</th>
-      <td>100</td>
       <td>555761.0</td>
       <td>0.0</td>
       <td>32.1.131a–d</td>
       <td>1932.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>NaN</td>
+      <td>Egyptian Art</td>
+      <td>Statuette, woman</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2023-02-07T04:46:51.34Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>Egypt</td>
+      <td>Memphite Region</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>NaN</td>
       <td>https://www.wikidata.org/wiki/Q116431161</td>
@@ -1726,21 +1782,21 @@ Name: title, Length: 500, dtype: object
     </tr>
     <tr>
       <th>101</th>
-      <td>101</td>
       <td>254747.0</td>
       <td>0.0</td>
       <td>53.5.22</td>
       <td>1953.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
       <td>[]</td>
       <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Pinax, woman</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Human Figures', 'AAT_URL': 'http://...</td>
       <td>https://www.wikidata.org/wiki/Q116291744</td>
@@ -1750,21 +1806,21 @@ Name: title, Length: 500, dtype: object
     </tr>
     <tr>
       <th>102</th>
-      <td>102</td>
       <td>546047.0</td>
       <td>0.0</td>
       <td>51.172.2</td>
       <td>1951.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/eg/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/eg/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/eg/or...</td>
       <td>NaN</td>
+      <td>Egyptian Art</td>
+      <td>Cosmetic, spoon, woman</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-08T04:54:04.193Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>Upper Egypt</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q116282230</td>
@@ -1774,21 +1830,21 @@ Name: title, Length: 500, dtype: object
     </tr>
     <tr>
       <th>103</th>
-      <td>103</td>
       <td>468716.0</td>
       <td>1.0</td>
       <td>66.25</td>
       <td>1966.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/cl/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/cl/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/cl/or...</td>
       <td>NaN</td>
+      <td>The Cloisters</td>
+      <td>Bust</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29385473</td>
@@ -1798,21 +1854,21 @@ Name: title, Length: 500, dtype: object
     </tr>
     <tr>
       <th>104</th>
-      <td>104</td>
       <td>466235.0</td>
       <td>0.0</td>
       <td>1991.84</td>
       <td>1991.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/md/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/md/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/md/or...</td>
       <td>[{'constituentID': 164122, 'role': 'Artist', '...</td>
+      <td>Medieval Art</td>
+      <td>Statuette</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q116244152</td>
@@ -1822,7 +1878,7 @@ Name: title, Length: 500, dtype: object
     </tr>
   </tbody>
 </table>
-<p>5 rows × 59 columns</p>
+<p>5 rows × 42 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -1864,243 +1920,6 @@ Name: title, Length: 500, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">titles</span><span class="p">:</span>
-    <span class="c1"># have to turn &#39;item&#39; to a string</span>
-    <span class="k">if</span> <span class="s1">&#39;woman&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Marble grave stele of a young woman and servant
-Bronze mirror with a support in the form of a draped woman
-Terracotta head of a woman
-Marble stele (grave marker) of a woman
-Terracotta statuette of a woman
-Bronze statuette of a young woman
-Terracotta alabastron (perfume vase) in the form of a woman holding a dove
-Marble statue of an old woman
-Terracotta statue of a young woman
-Terracotta statuette of a woman looking into a box mirror
-Marble statue of a woman
-Portrait of a young woman in red
-Mask of a woman with a large coil of plaited hair
-Statuette of a nude woman with moveable arms, one missing
-Terracotta statuette of a seated woman
-Molded figurine of a woman
-Nursing woman
-Terracotta relief head of a woman
-Terracotta statuette of a woman standing
-Terracotta relief with bust of a woman
-Terracotta relief head of a woman
-Bronze statuette of a woman
-Standing woman
-Terracotta statuette of a woman
-Terracotta head of a woman
-Terracotta head of a woman
-Terracotta statuette of a veiled woman
-Head of a woman
-Bronze statuette of a woman
-Terracotta draped woman
-Terracotta statuette of an emaciated woman
-Terracotta statuette of a woman
-Terracotta head of a woman
-Marble head of a young woman from a funerary statue
-Terracotta statuette of a woman
-Terracotta figure of a woman
-Terracotta statuette of a standing woman
-Figure of a woman
-Terracotta seated veiled woman
-Statuette of a woman ?
-Head of a woman
-Head of a woman
-Terracotta head of a woman
-Terracotta head of a woman
-Terracotta head of a woman
-Terracotta head of a young woman
-Terracotta head of a woman
-Terracotta head of a woman
-Terracotta head of a woman
-Terracotta statuette of a draped woman
-Terracotta head of a woman
-Terracotta statuette of a seated woman
-Terracotta statuette of a woman
-Bronze plaque of a woman
-Terracotta statuette of a woman
-Terracotta head of a woman
-Terracotta statuette of a nude woman
-Terracotta head of a woman
-Terracotta statuette of a draped woman
-Terracotta bust of a woman
-Fragmentary terracotta statuette of a woman
-Terracotta statuette of a woman
-Terracotta statuette of a woman
-Bronze statuette of a woman
-Fragmentary head of a woman
-Terracotta statuette of a woman
-Wall painting with  a standing woman
-Terracotta statuette of a woman
-Terracotta statuette of a woman
-Terracotta head of an old woman
-Terracotta statuette of a woman
-Terracotta statuette of a woman
-Terracotta head of a veiled woman
-Terracotta head of a woman wearing a stephane
-Terracotta statuette of a draped woman
-Terracotta statuette of a seated woman
-Terracotta head of a woman
-Terracotta statuette of a nude woman
-Terracotta statuette of a draped woman
-Terracotta statuette of a draped woman
-Marble head of a woman
-Terracotta statuette of a woman
-Terracotta statuette of a woman
-Terracotta statuette of a draped woman
-Terracotta statuette of a woman
-Terracotta statuette of a draped woman
-Terracotta statuette of a draped woman
-Terracotta statuette of a draped  woman
-Group statue of man and woman
-Bronze statuette of a woman
-Terracotta statuette of a woman
-Terracotta statuette of a veiled woman
-Terracotta statuette of a woman
-Terracotta statuette of a woman
-Terracotta statuette of a woman
-Terracotta head of a woman
-Terracotta head of a woman
-Terracotta statuette of a nude woman
-Terracotta head of a veiled woman
-Bronze plaque of a woman
-Terracotta statuette of a seated woman
-Terracotta statuette of a woman
-Terracotta statuette of a woman
-Terracotta statuette of a draped woman
-Terracotta statuette of a standing woman
-Terracotta statuette of woman with bird face
-Terracotta head of a veiled woman
-Terracotta head of a woman
-Terracotta statuette of a woman
-Marble head of a woman
-Terracotta statuette of a woman
-Mask of a woman with an austere hairstyle
-Terracotta statuette of a seated woman
-Terracotta statuette of a nude woman
-Marble head of an elderly woman
-Terracotta statuette of a nude woman
-Marble statue of a woman
-Marble portrait head of a woman
-Group statuette of two men and a woman
-Glass portrait head of a woman
-Mask of a woman with corkscrew locks and bang
-Terracotta statuette of a standing woman
-Terracotta head of a woman wearing a high headdress
-Terracotta relief with bust of a woman
-Terracotta statuette of a woman seated on a rock
-Terracotta statuette of a woman reclining on a couch
-Terracotta relief with the head and neck of a woman
-Terracotta relief with head of a woman
-Terracotta statuette of a woman leaning on a pillar
-Terracotta statuette of a woman leaning on a pillar
-Head of a woman from a spoon
-Terracotta statuette of a seated woman
-Terracotta statuette of a seated woman
-Terracotta relief with the head of a woman
-Terracotta head of a woman with a veil
-Fragment of a terracotta statuette of an old woman
-Terracotta statuette of a draped, standing woman
-Terracotta head of an old woman
-Terracotta statuette of a woman wearing a hat and holding a fan
-Terracotta statuette of a seated woman
-Statuette of a standing woman
-Fragments of a vase in the form of a woman holding a basket
-Mask of a woman with cosmetic lines and gilding
-Terracotta head of an old woman
-Mask of a woman with ball earrings, corkscrew locks and bang
-Mask of a woman with an ornate curled bang and loop earrings
-Fragmentary bronze statuette of a woman
-Terracotta head of a woman
-Statuette of a worn or aged woman, probably a goddess
-Kneeling Black woman
-Marble statue of Tyche-Fortuna restored with the portrait head of a woman
-Terracotta statuette of a woman holding a bird
-Seated woman representing Astrology
-Bronze statuette (of a woman?)
-Marble head of an old woman
-Limestone funerary monument of a woman
-Terracotta fragment of a woman&#39;s head
-Terracotta mask of woman to hips
-Relief, woman&#39;s head
-Marble stele (grave marker) of a woman
-Marble head of a woman
-Jug in the shape of a woman&#39;s head
-Fragmentary terracotta statuette of a woman with a kithara
-Fragment of a terracotta relief of a woman and child
-Marble portrait of a young woman
-Marble portrait bust of a woman
-Marble portrait of a young woman
-Marble head of a woman
-Terracotta statuette of a woman
-Terracotta statuette of an enthroned woman
-Faience statuette of a woman
-Terracotta relief bust of a woman
-Marble portrait bust of a woman
-Marble portrait head of a woman
-Terracotta protome of a woman
-Marble head of a woman
-Marble bust of a woman
-Marble portrait bust of a woman
-Marble statuette of a woman
-Marble statue of a woman
-Marble grave stele of a woman
-Mask of a woman with radiating waves of hair
-Terracotta head of a wreathed woman
-Bronze relief of the head of a woman
-Terracotta statuette of a woman
-Faience statuette of a woman holding two vases
-Terracotta statuette of the upper part of a woman
-Terracotta statuette of a woman with tympanum
-Terracotta alabastron (perfume vase) in the form of a woman
-Terracotta statuette of a woman
-Terracotta head of a woman from a statue
-Terracotta statuette of a woman
-Terracotta statuette of a woman
-Terracotta statuette of woman playing a tympanon
-Mask of a woman with her hair rolled back at the forehead and temples
-Bronze relief of a veiled woman riding a sea-goat
-Terracotta statuette of a woman
-Limestone relief with the figure of a woman
-Bronze statuette of a woman holding a bird
-Marble head of a woman wearing diadem and veil
-Terracotta statuette of a woman
-Fragment of a faience statuette of a woman holding a vase on her head
-Fragment of a faience statuette of a woman holding a vase on her head
-Bone statuette of a draped woman
-Mask of a woman with her hair in a small knot
-Figure of a reclining woman
-Pendant: woman carrying a child
-Terracotta woman baking cakes in an oven
-Marble head of a woman from a grave marker
-Bust of a young woman
-Terracotta woman pounding food in a mortar
-Terracotta head of a woman, possibly Artemis
-Bronze statuette of a woman, perhaps a Hesperid
-Marble head of a woman, perhaps a queen
-Vase with Pre-Raphaelite woman
-Terracotta alabastron in the form of a woman
-Friar carrying a woman
-Young woman holding libation cup
-Head of a woman
-Screaming woman with blood on her hands
-Figure of Japanese woman
-Portrait of a young woman
-Terracotta alabastron (perfume vase) in the form of a woman
 </pre></div>
 </div>
 </div>
@@ -2240,15 +2059,15 @@ Name: count, Length: 90, dtype: int64
       <th>accessionYear</th>
       <th>isPublicDomain</th>
       <th>primaryImage</th>
-      <th>primaryImageSmall</th>
       <th>additionalImages</th>
       <th>constituents</th>
       <th>department</th>
+      <th>objectName</th>
       <th>...</th>
-      <th>rightsAndReproduction</th>
-      <th>linkResource</th>
-      <th>metadataDate</th>
-      <th>repository</th>
+      <th>state</th>
+      <th>county</th>
+      <th>country</th>
+      <th>region</th>
       <th>objectURL</th>
       <th>tags</th>
       <th>objectWikidata_URL</th>
@@ -2259,94 +2078,22 @@ Name: count, Length: 90, dtype: int64
   </thead>
   <tbody>
     <tr>
-      <th>367</th>
-      <td>256758.0</td>
-      <td>0.0</td>
-      <td>X.125</td>
-      <td></td>
-      <td>1.0</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
-      <td>[https://images.metmuseum.org/CRDImages/gr/ori...</td>
-      <td>None</td>
-      <td>Greek and Roman Art</td>
-      <td>...</td>
-      <td></td>
-      <td></td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
-      <td>https://www.metmuseum.org/art/collection/searc...</td>
-      <td>[{'term': 'Heads', 'AAT_URL': 'http://vocab.ge...</td>
-      <td>https://www.wikidata.org/wiki/Q116282960</td>
-      <td>0.0</td>
-      <td>171</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>265</th>
-      <td>256831.0</td>
-      <td>0.0</td>
-      <td>X.391</td>
-      <td></td>
-      <td>0.0</td>
-      <td></td>
-      <td></td>
-      <td>[]</td>
-      <td>None</td>
-      <td>Greek and Roman Art</td>
-      <td>...</td>
-      <td></td>
-      <td></td>
-      <td>2023-02-07T04:46:51.34Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
-      <td>https://www.metmuseum.org/art/collection/searc...</td>
-      <td>None</td>
-      <td>https://www.wikidata.org/wiki/Q116406471</td>
-      <td>0.0</td>
-      <td>157</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>313</th>
-      <td>256778.0</td>
-      <td>0.0</td>
-      <td>X.248.14</td>
-      <td></td>
-      <td>1.0</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
-      <td>[https://images.metmuseum.org/CRDImages/gr/ori...</td>
-      <td>None</td>
-      <td>Greek and Roman Art</td>
-      <td>...</td>
-      <td></td>
-      <td></td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
-      <td>https://www.metmuseum.org/art/collection/searc...</td>
-      <td>[{'term': 'Heads', 'AAT_URL': 'http://vocab.ge...</td>
-      <td>https://www.wikidata.org/wiki/Q116282878</td>
-      <td>0.0</td>
-      <td>168</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
       <th>467</th>
       <td>437759.0</td>
       <td>0.0</td>
       <td>71.34</td>
-      <td>1871</td>
+      <td>1871.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/ep/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/ep/web-...</td>
-      <td>[https://images.metmuseum.org/CRDImages/ep/ori...</td>
+      <td>['https://images.metmuseum.org/CRDImages/ep/or...</td>
       <td>[{'constituentID': 108350, 'role': 'Artist', '...</td>
       <td>European Paintings</td>
+      <td>Painting</td>
       <td>...</td>
-      <td></td>
-      <td></td>
-      <td>2024-04-26T04:52:10.83Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Portraits', 'AAT_URL': 'http://voca...</td>
       <td>https://www.wikidata.org/wiki/Q19911479</td>
@@ -2355,25 +2102,97 @@ Name: count, Length: 90, dtype: int64
       <td>NaN</td>
     </tr>
     <tr>
-      <th>247</th>
-      <td>241069.0</td>
+      <th>110</th>
+      <td>244801.0</td>
       <td>0.0</td>
-      <td>74.51.1513</td>
-      <td>1874</td>
+      <td>74.57.20</td>
+      <td>1874.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
-      <td>[https://images.metmuseum.org/CRDImages/gr/ori...</td>
-      <td>None</td>
+      <td>[]</td>
+      <td>NaN</td>
       <td>Greek and Roman Art</td>
+      <td>Statuette of a woman</td>
       <td>...</td>
-      <td></td>
-      <td></td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://www.metmuseum.org/art/collection/searc...</td>
+      <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
+      <td>https://www.wikidata.org/wiki/Q116288910</td>
+      <td>0.0</td>
+      <td>171</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>341</th>
+      <td>244734.0</td>
+      <td>0.0</td>
+      <td>74.51.5859</td>
+      <td>1874.0</td>
+      <td>1.0</td>
+      <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
+      <td>[]</td>
+      <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Head of a woman</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Heads', 'AAT_URL': 'http://vocab.ge...</td>
-      <td>https://www.wikidata.org/wiki/Q116294128</td>
+      <td>https://www.wikidata.org/wiki/Q116289278</td>
+      <td>0.0</td>
+      <td>171</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>217</th>
+      <td>241279.0</td>
+      <td>0.0</td>
+      <td>74.51.1724</td>
+      <td>1874.0</td>
+      <td>1.0</td>
+      <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
+      <td>[]</td>
+      <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Statuette of a woman</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://www.metmuseum.org/art/collection/searc...</td>
+      <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
+      <td>https://www.wikidata.org/wiki/Q116290022</td>
+      <td>0.0</td>
+      <td>171</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>334</th>
+      <td>241063.0</td>
+      <td>0.0</td>
+      <td>74.51.1507</td>
+      <td>1874.0</td>
+      <td>1.0</td>
+      <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
+      <td>['https://images.metmuseum.org/CRDImages/gr/or...</td>
+      <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Head of a woman</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://www.metmuseum.org/art/collection/searc...</td>
+      <td>[{'term': 'Heads', 'AAT_URL': 'http://vocab.ge...</td>
+      <td>https://www.wikidata.org/wiki/Q116294197</td>
       <td>0.0</td>
       <td>171</td>
       <td>NaN</td>
@@ -2401,30 +2220,6 @@ Name: count, Length: 90, dtype: int64
       <td>...</td>
       <td>...</td>
       <td>...</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Not a valid object</td>
     </tr>
     <tr>
       <th>353</th>
@@ -2473,6 +2268,30 @@ Name: count, Length: 90, dtype: int64
       <td>NaN</td>
       <td>NaN</td>
       <td>Not a valid object</td>
+    </tr>
+    <tr>
+      <th>367</th>
+      <td>256758.0</td>
+      <td>0.0</td>
+      <td>X.125</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
+      <td>['https://images.metmuseum.org/CRDImages/gr/or...</td>
+      <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Portrait bust of a woman</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://www.metmuseum.org/art/collection/searc...</td>
+      <td>[{'term': 'Heads', 'AAT_URL': 'http://vocab.ge...</td>
+      <td>https://www.wikidata.org/wiki/Q116282960</td>
+      <td>0.0</td>
+      <td>171</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>427</th>
@@ -2524,7 +2343,7 @@ Name: count, Length: 90, dtype: int64
     </tr>
   </tbody>
 </table>
-<p>500 rows × 58 columns</p>
+<p>500 rows × 42 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -2586,21 +2405,21 @@ Name: title, Length: 500, dtype: bool
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
       <th>objectID</th>
       <th>isHighlight</th>
       <th>accessionNumber</th>
       <th>accessionYear</th>
       <th>isPublicDomain</th>
       <th>primaryImage</th>
-      <th>primaryImageSmall</th>
       <th>additionalImages</th>
       <th>constituents</th>
+      <th>department</th>
+      <th>objectName</th>
       <th>...</th>
-      <th>rightsAndReproduction</th>
-      <th>linkResource</th>
-      <th>metadataDate</th>
-      <th>repository</th>
+      <th>state</th>
+      <th>county</th>
+      <th>country</th>
+      <th>region</th>
       <th>objectURL</th>
       <th>tags</th>
       <th>objectWikidata_URL</th>
@@ -2612,21 +2431,21 @@ Name: title, Length: 500, dtype: bool
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
       <td>483873.0</td>
       <td>0.0</td>
       <td>1984.613.2</td>
       <td>1984.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 161817, 'role': 'Artist', '...</td>
+      <td>Modern and Contemporary Art</td>
+      <td>Painting</td>
       <td>...</td>
-      <td>© 2024 Artists Rights Society (ARS), New York</td>
       <td>NaN</td>
-      <td>2024-10-11T04:53:25.173Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q20189686</td>
@@ -2636,21 +2455,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
       <td>207162.0</td>
       <td>0.0</td>
       <td>1982.60.281</td>
       <td>1982.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/es/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/es/web-...</td>
       <td>[]</td>
       <td>[{'constituentID': 38388, 'role': 'Manufactory...</td>
+      <td>European Sculpture and Decorative Arts</td>
+      <td>Figure</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2023-02-07T04:46:51.34Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q116307111</td>
@@ -2660,21 +2479,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
       <td>283274.0</td>
       <td>0.0</td>
       <td>2005.100.206</td>
       <td>1999.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 162092, 'role': 'Artist', '...</td>
+      <td>Photographs</td>
+      <td>Photograph</td>
       <td>...</td>
-      <td>© 2024 Artists Rights Society (ARS), New York</td>
       <td>NaN</td>
-      <td>2024-01-05T04:58:47.817Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Still Life', 'AAT_URL': 'http://voc...</td>
       <td>NaN</td>
@@ -2684,21 +2503,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>4</th>
-      <td>4</td>
       <td>483877.0</td>
       <td>0.0</td>
       <td>1984.613.6</td>
       <td>1984.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 161817, 'role': 'Artist', '...</td>
+      <td>Modern and Contemporary Art</td>
+      <td>Drawing</td>
       <td>...</td>
-      <td>© 2024 Artists Rights Society (ARS), New York</td>
       <td>NaN</td>
-      <td>2024-08-31T04:53:19.483Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q19923391</td>
@@ -2708,21 +2527,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>6</th>
-      <td>6</td>
       <td>494305.0</td>
       <td>0.0</td>
       <td>2007.247.5</td>
       <td>2007.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 162129, 'role': 'Artist', '...</td>
+      <td>Modern and Contemporary Art</td>
+      <td>Drawing</td>
       <td>...</td>
-      <td>© 2024 Artists Rights Society (ARS), New York</td>
       <td>NaN</td>
-      <td>2024-06-11T04:53:38.053Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2732,21 +2551,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>7</th>
-      <td>7</td>
       <td>481438.0</td>
       <td>0.0</td>
       <td>1975.189.6</td>
       <td>1975.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 161817, 'role': 'Artist', '...</td>
+      <td>Modern and Contemporary Art</td>
+      <td>Painting</td>
       <td>...</td>
-      <td>© 2024 Artists Rights Society (ARS), New York</td>
       <td>NaN</td>
-      <td>2024-05-22T04:52:05.35Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q19919792</td>
@@ -2756,21 +2575,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>8</th>
-      <td>8</td>
       <td>374147.0</td>
       <td>0.0</td>
       <td>43.33.754</td>
       <td>1943.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 97526, 'role': 'Artist', 'n...</td>
+      <td>Drawings and Prints</td>
+      <td>Print</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2021-06-05T04:45:37.2Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>NaN</td>
@@ -2780,21 +2599,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>9</th>
-      <td>9</td>
       <td>515811.0</td>
       <td>0.0</td>
       <td>2002.59</td>
       <td>2002.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 163031, 'role': 'Artist', '...</td>
+      <td>The Michael C. Rockefeller Wing</td>
+      <td>Photograph</td>
       <td>...</td>
-      <td>© Malick Sidibé</td>
       <td>NaN</td>
-      <td>2022-12-15T08:50:39.81Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>Mali</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Portraits', 'AAT_URL': 'http://voca...</td>
       <td>NaN</td>
@@ -2804,21 +2623,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>11</th>
-      <td>11</td>
       <td>489510.0</td>
       <td>0.0</td>
       <td>66.75.2</td>
       <td>1966.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 161734, 'role': 'Artist', '...</td>
+      <td>Modern and Contemporary Art</td>
+      <td>Sculpture</td>
       <td>...</td>
-      <td>© 2024 Artists Rights Society (ARS), New York</td>
       <td>NaN</td>
-      <td>2024-06-06T04:54:25.483Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>NaN</td>
@@ -2828,21 +2647,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>12</th>
-      <td>12</td>
       <td>492892.0</td>
       <td>0.0</td>
       <td>2002.456.122</td>
       <td>2002.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 162129, 'role': 'Artist', '...</td>
+      <td>Modern and Contemporary Art</td>
+      <td>Sculpture</td>
       <td>...</td>
-      <td>© 2024 Artists Rights Society (ARS), New York</td>
       <td>NaN</td>
-      <td>2024-03-29T10:36:46.263Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Abstraction', 'AAT_URL': 'http://vo...</td>
       <td>NaN</td>
@@ -2852,21 +2671,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>13</th>
-      <td>13</td>
       <td>486510.0</td>
       <td>0.0</td>
       <td>1994.592</td>
       <td>1994.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 162129, 'role': 'Artist', '...</td>
+      <td>Modern and Contemporary Art</td>
+      <td>Drawing</td>
       <td>...</td>
-      <td>© 2024 Artists Rights Society (ARS), New York</td>
       <td>NaN</td>
-      <td>2024-05-11T04:52:16.88Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Abstraction', 'AAT_URL': 'http://vo...</td>
       <td>NaN</td>
@@ -2876,21 +2695,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>15</th>
-      <td>15</td>
       <td>204181.0</td>
       <td>0.0</td>
       <td>64.164.80</td>
       <td>1964.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/es/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/es/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/es/or...</td>
       <td>[{'constituentID': 34304, 'role': 'Maker', 'na...</td>
+      <td>European Sculpture and Decorative Arts</td>
+      <td>Crèche figure</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-01-19T04:57:08.877Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>NaN</td>
@@ -2900,21 +2719,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>16</th>
-      <td>16</td>
       <td>205376.0</td>
       <td>0.0</td>
       <td>1971.180.184</td>
       <td>1971.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/es/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/es/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/es/or...</td>
       <td>[{'constituentID': 34736, 'role': 'Factory', '...</td>
+      <td>European Sculpture and Decorative Arts</td>
+      <td>Figure</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2023-10-12T04:55:57.067Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Baskets', 'AAT_URL': 'http://vocab....</td>
       <td>NaN</td>
@@ -2924,21 +2743,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>17</th>
-      <td>17</td>
       <td>193453.0</td>
       <td>0.0</td>
       <td>17.190.301</td>
       <td>1917.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/es/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/es/web-...</td>
       <td>[]</td>
       <td>NaN</td>
+      <td>European Sculpture and Decorative Arts</td>
+      <td>Statuette</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2020-11-14T04:40:04.457Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>NaN</td>
@@ -2948,21 +2767,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>18</th>
-      <td>18</td>
       <td>195502.0</td>
       <td>0.0</td>
       <td>26.223.20</td>
       <td>1926.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/es/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/es/web-...</td>
       <td>[]</td>
       <td>NaN</td>
+      <td>European Sculpture and Decorative Arts</td>
+      <td>Figure</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2021-04-30T11:13:27.41Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>NaN</td>
@@ -2972,21 +2791,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>19</th>
-      <td>19</td>
       <td>193045.0</td>
       <td>0.0</td>
       <td>14.102.397</td>
       <td>1914.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/es/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/es/web-...</td>
       <td>[]</td>
       <td>NaN</td>
+      <td>European Sculpture and Decorative Arts</td>
+      <td>Figure</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-05-16T04:53:54.097Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>NaN</td>
@@ -2996,21 +2815,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>20</th>
-      <td>20</td>
       <td>200897.0</td>
       <td>0.0</td>
       <td>50.211.207</td>
       <td>1950.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/es/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/es/web-...</td>
       <td>[]</td>
       <td>[{'constituentID': 37893, 'role': 'Factory', '...</td>
+      <td>European Sculpture and Decorative Arts</td>
+      <td>Figure</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2022-10-20T04:55:06.267Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>NaN</td>
@@ -3020,21 +2839,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>21</th>
-      <td>21</td>
       <td>208482.0</td>
       <td>0.0</td>
       <td>1995.268.312</td>
       <td>1995.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/es/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/es/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/es/or...</td>
       <td>[{'constituentID': 35103, 'role': 'Manufactory...</td>
+      <td>European Sculpture and Decorative Arts</td>
+      <td>Figure</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2021-04-06T04:41:04.967Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>NaN</td>
@@ -3044,21 +2863,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>62</th>
-      <td>62</td>
       <td>389226.0</td>
       <td>0.0</td>
       <td>1989.1093.1</td>
       <td>1989.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 102288, 'role': 'Artist', '...</td>
+      <td>Drawings and Prints</td>
+      <td>Print</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2020-03-24T04:43:37.347Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3068,21 +2887,21 @@ Name: title, Length: 500, dtype: bool
     </tr>
     <tr>
       <th>63</th>
-      <td>63</td>
       <td>839042.0</td>
       <td>0.0</td>
       <td>1983.1215.4</td>
       <td>1983.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 211108, 'role': 'Artist', '...</td>
+      <td>Drawings and Prints</td>
+      <td>Print</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2022-03-04T10:34:46.977Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3092,7 +2911,7 @@ Name: title, Length: 500, dtype: bool
     </tr>
   </tbody>
 </table>
-<p>20 rows × 59 columns</p>
+<p>20 rows × 42 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -3104,70 +2923,53 @@ Name: title, Length: 500, dtype: bool
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 Index: 20 entries, 0 to 63
-Data columns (total 59 columns):
- #   Column                 Non-Null Count  Dtype  
----  ------                 --------------  -----  
- 0   Unnamed: 0             20 non-null     int64  
- 1   objectID               20 non-null     float64
- 2   isHighlight            20 non-null     float64
- 3   accessionNumber        20 non-null     object 
- 4   accessionYear          20 non-null     float64
- 5   isPublicDomain         20 non-null     float64
- 6   primaryImage           8 non-null      object 
- 7   primaryImageSmall      8 non-null      object 
- 8   additionalImages       20 non-null     object 
- 9   constituents           17 non-null     object 
- 10  department             20 non-null     object 
- 11  objectName             20 non-null     object 
- 12  title                  20 non-null     object 
- 13  culture                0 non-null      object 
- 14  period                 0 non-null      object 
- 15  dynasty                0 non-null      object 
- 16  reign                  0 non-null      object 
- 17  portfolio              0 non-null      float64
- 18  artistRole             17 non-null     object 
- 19  artistPrefix           0 non-null      object 
- 20  artistDisplayName      17 non-null     object 
- 21  artistDisplayBio       16 non-null     object 
- 22  artistSuffix           0 non-null      object 
- 23  artistAlphaSort        17 non-null     object 
- 24  artistNationality      14 non-null     object 
- 25  artistBeginDate        16 non-null     object 
- 26  artistEndDate          16 non-null     object 
- 27  artistGender           1 non-null      object 
- 28  artistWikidata_URL     13 non-null     object 
- 29  artistULAN_URL         14 non-null     object 
- 30  objectDate             20 non-null     object 
- 31  objectBeginDate        20 non-null     float64
- 32  objectEndDate          20 non-null     float64
- 33  medium                 20 non-null     object 
- 34  dimensions             20 non-null     object 
- 35  measurements           18 non-null     object 
- 36  creditLine             20 non-null     object 
- 37  geographyType          0 non-null      object 
- 38  city                   0 non-null      object 
- 39  state                  0 non-null      object 
- 40  county                 0 non-null      float64
- 41  country                1 non-null      object 
- 42  region                 0 non-null      object 
- 43  subregion              0 non-null      object 
- 44  locale                 0 non-null      object 
- 45  locus                  0 non-null      object 
- 46  excavation             0 non-null      object 
- 47  river                  0 non-null      float64
- 48  classification         20 non-null     object 
- 49  rightsAndReproduction  9 non-null      object 
- 50  linkResource           0 non-null      float64
- 51  metadataDate           20 non-null     object 
- 52  repository             20 non-null     object 
- 53  objectURL              20 non-null     object 
- 54  tags                   17 non-null     object 
- 55  objectWikidata_URL     4 non-null      object 
- 56  isTimelineWork         20 non-null     float64
- 57  GalleryNumber          1 non-null      object 
- 58  message                0 non-null      object 
-dtypes: float64(11), int64(1), object(47)
-memory usage: 9.4+ KB
+Data columns (total 42 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   objectID            20 non-null     float64
+ 1   isHighlight         20 non-null     float64
+ 2   accessionNumber     20 non-null     object 
+ 3   accessionYear       20 non-null     float64
+ 4   isPublicDomain      20 non-null     float64
+ 5   primaryImage        8 non-null      object 
+ 6   additionalImages    20 non-null     object 
+ 7   constituents        17 non-null     object 
+ 8   department          20 non-null     object 
+ 9   objectName          20 non-null     object 
+ 10  title               20 non-null     object 
+ 11  culture             0 non-null      object 
+ 12  period              0 non-null      object 
+ 13  dynasty             0 non-null      object 
+ 14  reign               0 non-null      object 
+ 15  artistDisplayName   17 non-null     object 
+ 16  artistDisplayBio    16 non-null     object 
+ 17  artistNationality   14 non-null     object 
+ 18  artistBeginDate     16 non-null     object 
+ 19  artistEndDate       16 non-null     object 
+ 20  artistGender        1 non-null      object 
+ 21  artistWikidata_URL  13 non-null     object 
+ 22  artistULAN_URL      14 non-null     object 
+ 23  objectDate          20 non-null     object 
+ 24  objectBeginDate     20 non-null     float64
+ 25  objectEndDate       20 non-null     float64
+ 26  medium              20 non-null     object 
+ 27  dimensions          20 non-null     object 
+ 28  measurements        18 non-null     object 
+ 29  creditLine          20 non-null     object 
+ 30  geographyType       0 non-null      object 
+ 31  city                0 non-null      object 
+ 32  state               0 non-null      object 
+ 33  county              0 non-null      float64
+ 34  country             1 non-null      object 
+ 35  region              0 non-null      object 
+ 36  objectURL           20 non-null     object 
+ 37  tags                17 non-null     object 
+ 38  objectWikidata_URL  4 non-null      object 
+ 39  isTimelineWork      20 non-null     float64
+ 40  GalleryNumber       1 non-null      object 
+ 41  message             0 non-null      object 
+dtypes: float64(8), object(34)
+memory usage: 6.7+ KB
 </pre></div>
 </div>
 </div>
@@ -3204,21 +3006,21 @@ memory usage: 9.4+ KB
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
       <th>objectID</th>
       <th>isHighlight</th>
       <th>accessionNumber</th>
       <th>accessionYear</th>
       <th>isPublicDomain</th>
       <th>primaryImage</th>
-      <th>primaryImageSmall</th>
       <th>additionalImages</th>
       <th>constituents</th>
+      <th>department</th>
+      <th>objectName</th>
       <th>...</th>
-      <th>rightsAndReproduction</th>
-      <th>linkResource</th>
-      <th>metadataDate</th>
-      <th>repository</th>
+      <th>state</th>
+      <th>county</th>
+      <th>country</th>
+      <th>region</th>
       <th>objectURL</th>
       <th>tags</th>
       <th>objectWikidata_URL</th>
@@ -3230,21 +3032,21 @@ memory usage: 9.4+ KB
   <tbody>
     <tr>
       <th>22</th>
-      <td>22</td>
       <td>436173.0</td>
       <td>1.0</td>
       <td>29.100.35</td>
       <td>1929.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/ep/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/ep/web-...</td>
       <td>[]</td>
       <td>[{'constituentID': 161821, 'role': 'Artist', '...</td>
+      <td>European Paintings</td>
+      <td>Drawing</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q19912688</td>
@@ -3254,21 +3056,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>25</th>
-      <td>25</td>
       <td>548584.0</td>
       <td>1.0</td>
       <td>26.2.47</td>
       <td>1926.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/eg/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/eg/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/eg/or...</td>
       <td>NaN</td>
+      <td>Egyptian Art</td>
+      <td>Cosmetic Spoon, Swimming Woman, Gazelle</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-08T04:54:04.193Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>Egypt</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Animals', 'AAT_URL': 'http://vocab....</td>
       <td>https://www.wikidata.org/wiki/Q29385956</td>
@@ -3278,21 +3080,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>27</th>
-      <td>27</td>
       <td>253505.0</td>
       <td>1.0</td>
       <td>36.11.1</td>
       <td>1936.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
       <td>[]</td>
       <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Grave stele of a young woman</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Men', 'AAT_URL': 'http://vocab.gett...</td>
       <td>https://www.wikidata.org/wiki/Q29383875</td>
@@ -3302,21 +3104,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>32</th>
-      <td>32</td>
       <td>255391.0</td>
       <td>1.0</td>
       <td>1972.118.78</td>
       <td>1972.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/gr/or...</td>
       <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Mirror with a support in the form of a draped ...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Birds', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29383946</td>
@@ -3326,21 +3128,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>33</th>
-      <td>33</td>
       <td>251428.0</td>
       <td>1.0</td>
       <td>23.160.95</td>
       <td>1923.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/gr/or...</td>
       <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Head of a woman</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29383821</td>
@@ -3350,21 +3152,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>35</th>
-      <td>35</td>
       <td>436121.0</td>
       <td>1.0</td>
       <td>29.100.128</td>
       <td>1929.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/ep/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/ep/web-...</td>
       <td>[]</td>
       <td>[{'constituentID': 161821, 'role': 'Artist', '...</td>
+      <td>European Paintings</td>
+      <td>Painting</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Pitchers', 'AAT_URL': 'http://vocab...</td>
       <td>https://www.wikidata.org/wiki/Q3713914</td>
@@ -3374,21 +3176,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>37</th>
-      <td>37</td>
       <td>436896.0</td>
       <td>1.0</td>
       <td>89.15.19</td>
       <td>1889.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/ep/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/ep/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/ep/or...</td>
       <td>[{'constituentID': 107934, 'role': 'Artist', '...</td>
+      <td>European Paintings</td>
+      <td>Painting</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Men', 'AAT_URL': 'http://vocab.gett...</td>
       <td>https://www.wikidata.org/wiki/Q3937681</td>
@@ -3398,21 +3200,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>42</th>
-      <td>42</td>
       <td>436002.0</td>
       <td>1.0</td>
       <td>29.100.57</td>
       <td>1929.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/ep/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/ep/web-...</td>
       <td>[]</td>
       <td>[{'constituentID': 161790, 'role': 'Artist', '...</td>
+      <td>European Paintings</td>
+      <td>Painting</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Female Nudes', 'AAT_URL': 'http://v...</td>
       <td>https://www.wikidata.org/wiki/Q8030760</td>
@@ -3422,21 +3224,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>43</th>
-      <td>43</td>
       <td>254597.0</td>
       <td>1.0</td>
       <td>48.11.4</td>
       <td>1948.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
       <td>[]</td>
       <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Grave relief with enthroned woman, fragment</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29383903</td>
@@ -3446,21 +3248,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>44</th>
-      <td>44</td>
       <td>253135.0</td>
       <td>1.0</td>
       <td>30.117</td>
       <td>1930.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
       <td>[]</td>
       <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Statuette of standing draped woman</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29383855</td>
@@ -3470,21 +3272,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>45</th>
-      <td>45</td>
       <td>249222.0</td>
       <td>1.0</td>
       <td>17.190.2066</td>
       <td>1917.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/gr/or...</td>
       <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Statue of a young woman</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29383793</td>
@@ -3494,21 +3296,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>47</th>
-      <td>47</td>
       <td>253050.0</td>
       <td>1.0</td>
       <td>30.11.6</td>
       <td>1930.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
       <td>[]</td>
       <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Alabastron in the form of a woman</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Doves', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29383851</td>
@@ -3518,21 +3320,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>48</th>
-      <td>48</td>
       <td>248132.0</td>
       <td>1.0</td>
       <td>09.39</td>
       <td>1909.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/gr/or...</td>
       <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Statue of an old market woman</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29383752</td>
@@ -3542,21 +3344,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>49</th>
-      <td>49</td>
       <td>544210.0</td>
       <td>1.0</td>
       <td>20.3.7</td>
       <td>1920.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/eg/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/eg/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/eg/or...</td>
       <td>NaN</td>
+      <td>Egyptian Art</td>
+      <td>Statue, standing woman, offering</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-10T04:53:14.647Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>Egypt</td>
+      <td>Upper Egypt, Thebes</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Ducks', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29385772</td>
@@ -3566,21 +3368,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>51</th>
-      <td>51</td>
       <td>252452.0</td>
       <td>1.0</td>
       <td>26.50</td>
       <td>1926.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/gr/or...</td>
       <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Hydria with protome of a woman</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>NaN</td>
       <td>https://www.wikidata.org/wiki/Q29383837</td>
@@ -3590,21 +3392,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>52</th>
-      <td>52</td>
       <td>547257.0</td>
       <td>1.0</td>
       <td>19.2.6</td>
       <td>1919.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/eg/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/eg/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/eg/or...</td>
       <td>NaN</td>
+      <td>Egyptian Art</td>
+      <td>Mask, cartonnage, woman</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>Middle Egypt</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Masks', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29385892</td>
@@ -3614,21 +3416,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>57</th>
-      <td>57</td>
       <td>255275.0</td>
       <td>1.0</td>
       <td>68.148</td>
       <td>1968.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/gr/or...</td>
       <td>[{'constituentID': 49441, 'role': 'Artist', 'n...</td>
+      <td>Greek and Roman Art</td>
+      <td>Statuette of a woman</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29383939</td>
@@ -3638,21 +3440,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>58</th>
-      <td>58</td>
       <td>255417.0</td>
       <td>1.0</td>
       <td>1972.118.104</td>
       <td>1972.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/gr/or...</td>
       <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Statuette of a woman, steatopygous</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29383951</td>
@@ -3662,21 +3464,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>66</th>
-      <td>66</td>
       <td>437881.0</td>
       <td>1.0</td>
       <td>89.15.21</td>
       <td>1889.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/ep/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/ep/web-...</td>
       <td>[]</td>
       <td>[{'constituentID': 108413, 'role': 'Artist', '...</td>
+      <td>European Paintings</td>
+      <td>Painting</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-19T04:54:04.793Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Interiors', 'AAT_URL': 'http://voca...</td>
       <td>https://www.wikidata.org/wiki/Q386453</td>
@@ -3686,21 +3488,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>69</th>
-      <td>69</td>
       <td>437879.0</td>
       <td>1.0</td>
       <td>1979.396.1</td>
       <td>1979.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/ep/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/ep/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/ep/or...</td>
       <td>[{'constituentID': 108413, 'role': 'Artist', '...</td>
+      <td>European Paintings</td>
+      <td>Painting</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-10T04:53:14.647Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Portraits', 'AAT_URL': 'http://voca...</td>
       <td>https://www.wikidata.org/wiki/Q958088</td>
@@ -3710,21 +3512,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>71</th>
-      <td>71</td>
       <td>544689.0</td>
       <td>1.0</td>
       <td>30.8.54</td>
       <td>1930.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/eg/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/eg/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/eg/or...</td>
       <td>NaN</td>
+      <td>Egyptian Art</td>
+      <td>Canopic Jar Lid to the jar 07.226.1 of Kiya, s...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-23T04:53:13.2Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>Egypt</td>
+      <td>Upper Egypt, Thebes</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29385821</td>
@@ -3734,21 +3536,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>73</th>
-      <td>73</td>
       <td>249223.0</td>
       <td>1.0</td>
       <td>17.190.2067</td>
       <td>1917.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/gr/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/gr/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/gr/or...</td>
       <td>NaN</td>
+      <td>Greek and Roman Art</td>
+      <td>Relief of a woman and youth reclining</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Couples', 'AAT_URL': 'http://vocab....</td>
       <td>https://www.wikidata.org/wiki/Q29383798</td>
@@ -3758,21 +3560,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>78</th>
-      <td>78</td>
       <td>459192.0</td>
       <td>1.0</td>
       <td>1975.1.763</td>
       <td>1975.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/rl/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/rl/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/rl/or...</td>
       <td>[{'constituentID': 162693, 'role': 'Artist', '...</td>
+      <td>Robert Lehman Collection</td>
+      <td>Drawing</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2020-09-16T18:35:19.457Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q20185008</td>
@@ -3782,21 +3584,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>80</th>
-      <td>80</td>
       <td>437160.0</td>
       <td>1.0</td>
       <td>1992.103.2</td>
       <td>1992.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 162143, 'role': 'Artist', '...</td>
+      <td>European Paintings</td>
+      <td>Painting</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Portraits', 'AAT_URL': 'http://voca...</td>
       <td>https://www.wikidata.org/wiki/Q19906245</td>
@@ -3806,21 +3608,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>84</th>
-      <td>84</td>
       <td>546746.0</td>
       <td>1.0</td>
       <td>30.8.93</td>
       <td>1930.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/eg/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/eg/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/eg/or...</td>
       <td>NaN</td>
+      <td>Egyptian Art</td>
+      <td>Female statuette with cartouches of Necho II o...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>Egypt</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Cartouches', 'AAT_URL': 'http://voc...</td>
       <td>https://www.wikidata.org/wiki/Q29385885</td>
@@ -3830,21 +3632,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>85</th>
-      <td>85</td>
       <td>371017.0</td>
       <td>1.0</td>
       <td>2006.17</td>
       <td>2006.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 161708, 'role': 'Artist', '...</td>
+      <td>Drawings and Prints</td>
+      <td>Print</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2022-06-22T05:05:49.633Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Spiders', 'AAT_URL': 'http://vocab....</td>
       <td>NaN</td>
@@ -3854,21 +3656,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>89</th>
-      <td>89</td>
       <td>459052.0</td>
       <td>1.0</td>
       <td>1975.1.110</td>
       <td>1975.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/rl/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/rl/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/rl/or...</td>
       <td>[{'constituentID': 161771, 'role': 'Artist', '...</td>
+      <td>Robert Lehman Collection</td>
+      <td>Painting</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2023-04-18T04:46:43.39Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Interiors', 'AAT_URL': 'http://voca...</td>
       <td>https://www.wikidata.org/wiki/Q2408910</td>
@@ -3878,21 +3680,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>97</th>
-      <td>97</td>
       <td>500194.0</td>
       <td>1.0</td>
       <td>2019.593</td>
       <td>2019.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 162244, 'role': 'Artist', '...</td>
+      <td>Modern and Contemporary Art</td>
+      <td>Painting</td>
       <td>...</td>
-      <td>© 2024 Estate of Pablo Picasso / Artists Right...</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Female Nudes', 'AAT_URL': 'http://v...</td>
       <td>https://www.wikidata.org/wiki/Q116412424</td>
@@ -3902,21 +3704,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>103</th>
-      <td>103</td>
       <td>468716.0</td>
       <td>1.0</td>
       <td>66.25</td>
       <td>1966.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/cl/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/cl/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/cl/or...</td>
       <td>NaN</td>
+      <td>The Cloisters</td>
+      <td>Bust</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29385473</td>
@@ -3926,21 +3728,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>107</th>
-      <td>107</td>
       <td>337064.0</td>
       <td>1.0</td>
       <td>16.2.2</td>
       <td>1916.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 161757, 'role': 'Artist', '...</td>
+      <td>Drawings and Prints</td>
+      <td>Print</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-04T04:54:16Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q29384752</td>
@@ -3950,21 +3752,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>109</th>
-      <td>109</td>
       <td>486209.0</td>
       <td>1.0</td>
       <td>1993.217</td>
       <td>1993.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 161760, 'role': 'Artist', '...</td>
+      <td>Modern and Contemporary Art</td>
+      <td>Sculpture</td>
       <td>...</td>
-      <td>© Estate of Elizabeth Catlett</td>
       <td>NaN</td>
-      <td>2023-09-26T04:54:33.177Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Female Nudes', 'AAT_URL': 'http://v...</td>
       <td>https://www.wikidata.org/wiki/Q96357666</td>
@@ -3974,21 +3776,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>119</th>
-      <td>119</td>
       <td>494051.0</td>
       <td>1.0</td>
       <td>2004.502</td>
       <td>2004.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 149578, 'role': 'Artist', '...</td>
+      <td>Modern and Contemporary Art</td>
+      <td>Drawing</td>
       <td>...</td>
-      <td>© 2024 Artists Rights Society (ARS), New York</td>
       <td>NaN</td>
-      <td>2024-01-05T04:58:47.817Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>German</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Profiles', 'AAT_URL': 'http://vocab...</td>
       <td>NaN</td>
@@ -3998,21 +3800,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>120</th>
-      <td>120</td>
       <td>484524.0</td>
       <td>1.0</td>
       <td>1986.356</td>
       <td>1986.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 145240, 'role': 'Artist', '...</td>
+      <td>Modern and Contemporary Art</td>
+      <td>Painting</td>
       <td>...</td>
-      <td>© 2024 Artists Rights Society (ARS), New York</td>
       <td>NaN</td>
-      <td>2024-07-03T04:53:09.02Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Portraits', 'AAT_URL': 'http://voca...</td>
       <td>https://www.wikidata.org/wiki/Q19917516</td>
@@ -4022,21 +3824,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>295</th>
-      <td>295</td>
       <td>459211.0</td>
       <td>1.0</td>
       <td>1975.1.859</td>
       <td>1975.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/rl/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/rl/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/rl/or...</td>
       <td>[{'constituentID': 161857, 'role': 'Artist', '...</td>
+      <td>Robert Lehman Collection</td>
+      <td>Drawing</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Heads', 'AAT_URL': 'http://vocab.ge...</td>
       <td>https://www.wikidata.org/wiki/Q20187871</td>
@@ -4046,21 +3848,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>306</th>
-      <td>306</td>
       <td>679844.0</td>
       <td>1.0</td>
       <td>2015.146</td>
       <td>2015.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/ep/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/ep/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/ep/or...</td>
       <td>[{'constituentID': 72898, 'role': 'Artist', 'n...</td>
+      <td>European Paintings</td>
+      <td>Painting</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Food', 'AAT_URL': 'http://vocab.get...</td>
       <td>https://www.wikidata.org/wiki/Q19913672</td>
@@ -4070,21 +3872,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>410</th>
-      <td>410</td>
       <td>322114.0</td>
       <td>1.0</td>
       <td>86.16.3</td>
       <td>1886.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/an/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/an/web-...</td>
       <td>['https://images.metmuseum.org/CRDImages/an/or...</td>
       <td>NaN</td>
+      <td>Ancient Near Eastern Art</td>
+      <td>Sculpture</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-06-27T04:54:21.257Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>Mesopotamia</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Female Nudes', 'AAT_URL': 'http://v...</td>
       <td>https://www.wikidata.org/wiki/Q29384398</td>
@@ -4094,21 +3896,21 @@ memory usage: 9.4+ KB
     </tr>
     <tr>
       <th>461</th>
-      <td>461</td>
       <td>271716.0</td>
       <td>1.0</td>
       <td>1996.299</td>
       <td>1996.0</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>[]</td>
       <td>[{'constituentID': 54769, 'role': 'Artist', 'n...</td>
+      <td>Photographs</td>
+      <td>Photograph</td>
       <td>...</td>
-      <td>© The Estate of Diane Arbus</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Women', 'AAT_URL': 'http://vocab.ge...</td>
       <td>NaN</td>
@@ -4118,7 +3920,7 @@ memory usage: 9.4+ KB
     </tr>
   </tbody>
 </table>
-<p>37 rows × 59 columns</p>
+<p>37 rows × 42 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -4130,70 +3932,53 @@ memory usage: 9.4+ KB
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 Index: 37 entries, 22 to 461
-Data columns (total 59 columns):
- #   Column                 Non-Null Count  Dtype  
----  ------                 --------------  -----  
- 0   Unnamed: 0             37 non-null     int64  
- 1   objectID               37 non-null     float64
- 2   isHighlight            37 non-null     float64
- 3   accessionNumber        37 non-null     object 
- 4   accessionYear          37 non-null     float64
- 5   isPublicDomain         37 non-null     float64
- 6   primaryImage           29 non-null     object 
- 7   primaryImageSmall      29 non-null     object 
- 8   additionalImages       37 non-null     object 
- 9   constituents           19 non-null     object 
- 10  department             37 non-null     object 
- 11  objectName             37 non-null     object 
- 12  title                  37 non-null     object 
- 13  culture                14 non-null     object 
- 14  period                 18 non-null     object 
- 15  dynasty                4 non-null      object 
- 16  reign                  4 non-null      object 
- 17  portfolio              0 non-null      float64
- 18  artistRole             19 non-null     object 
- 19  artistPrefix           1 non-null      object 
- 20  artistDisplayName      19 non-null     object 
- 21  artistDisplayBio       18 non-null     object 
- 22  artistSuffix           0 non-null      object 
- 23  artistAlphaSort        19 non-null     object 
- 24  artistNationality      18 non-null     object 
- 25  artistBeginDate        18 non-null     object 
- 26  artistEndDate          18 non-null     object 
- 27  artistGender           7 non-null      object 
- 28  artistWikidata_URL     18 non-null     object 
- 29  artistULAN_URL         18 non-null     object 
- 30  objectDate             37 non-null     object 
- 31  objectBeginDate        37 non-null     float64
- 32  objectEndDate          37 non-null     float64
- 33  medium                 37 non-null     object 
- 34  dimensions             37 non-null     object 
- 35  measurements           37 non-null     object 
- 36  creditLine             37 non-null     object 
- 37  geographyType          7 non-null      object 
- 38  city                   1 non-null      object 
- 39  state                  0 non-null      object 
- 40  county                 0 non-null      float64
- 41  country                5 non-null      object 
- 42  region                 4 non-null      object 
- 43  subregion              4 non-null      object 
- 44  locale                 2 non-null      object 
- 45  locus                  1 non-null      object 
- 46  excavation             2 non-null      object 
- 47  river                  0 non-null      float64
- 48  classification         31 non-null     object 
- 49  rightsAndReproduction  5 non-null      object 
- 50  linkResource           0 non-null      float64
- 51  metadataDate           37 non-null     object 
- 52  repository             37 non-null     object 
- 53  objectURL              37 non-null     object 
- 54  tags                   36 non-null     object 
- 55  objectWikidata_URL     34 non-null     object 
- 56  isTimelineWork         37 non-null     float64
- 57  GalleryNumber          28 non-null     object 
- 58  message                0 non-null      object 
-dtypes: float64(11), int64(1), object(47)
-memory usage: 17.3+ KB
+Data columns (total 42 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   objectID            37 non-null     float64
+ 1   isHighlight         37 non-null     float64
+ 2   accessionNumber     37 non-null     object 
+ 3   accessionYear       37 non-null     float64
+ 4   isPublicDomain      37 non-null     float64
+ 5   primaryImage        29 non-null     object 
+ 6   additionalImages    37 non-null     object 
+ 7   constituents        19 non-null     object 
+ 8   department          37 non-null     object 
+ 9   objectName          37 non-null     object 
+ 10  title               37 non-null     object 
+ 11  culture             14 non-null     object 
+ 12  period              18 non-null     object 
+ 13  dynasty             4 non-null      object 
+ 14  reign               4 non-null      object 
+ 15  artistDisplayName   19 non-null     object 
+ 16  artistDisplayBio    18 non-null     object 
+ 17  artistNationality   18 non-null     object 
+ 18  artistBeginDate     18 non-null     object 
+ 19  artistEndDate       18 non-null     object 
+ 20  artistGender        7 non-null      object 
+ 21  artistWikidata_URL  18 non-null     object 
+ 22  artistULAN_URL      18 non-null     object 
+ 23  objectDate          37 non-null     object 
+ 24  objectBeginDate     37 non-null     float64
+ 25  objectEndDate       37 non-null     float64
+ 26  medium              37 non-null     object 
+ 27  dimensions          37 non-null     object 
+ 28  measurements        37 non-null     object 
+ 29  creditLine          37 non-null     object 
+ 30  geographyType       7 non-null      object 
+ 31  city                1 non-null      object 
+ 32  state               0 non-null      object 
+ 33  county              0 non-null      float64
+ 34  country             5 non-null      object 
+ 35  region              4 non-null      object 
+ 36  objectURL           37 non-null     object 
+ 37  tags                36 non-null     object 
+ 38  objectWikidata_URL  34 non-null     object 
+ 39  isTimelineWork      37 non-null     float64
+ 40  GalleryNumber       28 non-null     object 
+ 41  message             0 non-null      object 
+dtypes: float64(8), object(34)
+memory usage: 12.4+ KB
 </pre></div>
 </div>
 </div>
@@ -4230,21 +4015,21 @@ memory usage: 17.3+ KB
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
       <th>objectID</th>
       <th>isHighlight</th>
       <th>accessionNumber</th>
       <th>accessionYear</th>
       <th>isPublicDomain</th>
       <th>primaryImage</th>
-      <th>primaryImageSmall</th>
       <th>additionalImages</th>
       <th>constituents</th>
+      <th>department</th>
+      <th>objectName</th>
       <th>...</th>
-      <th>rightsAndReproduction</th>
-      <th>linkResource</th>
-      <th>metadataDate</th>
-      <th>repository</th>
+      <th>state</th>
+      <th>county</th>
+      <th>country</th>
+      <th>region</th>
       <th>objectURL</th>
       <th>tags</th>
       <th>objectWikidata_URL</th>
@@ -4256,21 +4041,21 @@ memory usage: 17.3+ KB
   <tbody>
     <tr>
       <th>42</th>
-      <td>42</td>
       <td>436002.0</td>
       <td>1.0</td>
       <td>29.100.57</td>
       <td>1929.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/ep/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/ep/web-...</td>
       <td>[]</td>
       <td>[{'constituentID': 161790, 'role': 'Artist', '...</td>
+      <td>European Paintings</td>
+      <td>Painting</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Female Nudes', 'AAT_URL': 'http://v...</td>
       <td>https://www.wikidata.org/wiki/Q8030760</td>
@@ -4280,21 +4065,21 @@ memory usage: 17.3+ KB
     </tr>
     <tr>
       <th>70</th>
-      <td>70</td>
       <td>436024.0</td>
       <td>0.0</td>
       <td>29.100.59</td>
       <td>1929.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/ep/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/ep/web-...</td>
       <td>[]</td>
       <td>[{'constituentID': 161790, 'role': 'Artist', '...</td>
+      <td>European Paintings</td>
+      <td>Painting</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Portraits', 'AAT_URL': 'http://voca...</td>
       <td>https://www.wikidata.org/wiki/Q19905240</td>
@@ -4304,21 +4089,21 @@ memory usage: 17.3+ KB
     </tr>
     <tr>
       <th>82</th>
-      <td>82</td>
       <td>436004.0</td>
       <td>0.0</td>
       <td>29.100.62</td>
       <td>1929.0</td>
       <td>1.0</td>
       <td>https://images.metmuseum.org/CRDImages/ep/orig...</td>
-      <td>https://images.metmuseum.org/CRDImages/ep/web-...</td>
       <td>[]</td>
       <td>[{'constituentID': 161790, 'role': 'Artist', '...</td>
+      <td>European Paintings</td>
+      <td>Painting</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>2024-10-03T04:53:53.567Z</td>
-      <td>Metropolitan Museum of Art, New York, NY</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>https://www.metmuseum.org/art/collection/searc...</td>
       <td>[{'term': 'Female Nudes', 'AAT_URL': 'http://v...</td>
       <td>https://www.wikidata.org/wiki/Q39013</td>
@@ -4328,7 +4113,7 @@ memory usage: 17.3+ KB
     </tr>
   </tbody>
 </table>
-<p>3 rows × 59 columns</p>
+<p>3 rows × 42 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">

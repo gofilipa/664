@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -206,7 +206,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../analyzing/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/overview.html">chapter overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analyzing/cleaning/cleaning.html">cleaning our text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analyzing/pandas.html">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analyzing/pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
@@ -428,21 +428,9 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">lxml</span> <span class="c1"># parser</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">requests</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">lxml</span> <span class="c1"># parser</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;lxml&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lxml</span> <span class="c1"># parser</span>
 </pre></div>
 </div>
 </div>
@@ -532,15 +520,15 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">bill_numbers</span><span class="o">.</span><span class="n">text</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/bs4/element.py:2428,</span> in <span class="ni">ResultSet.__getattr__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2426</span> <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2427</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Raise a helpful exception to explain a common code fix.&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">2428</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2429</span>         <span class="s2">&quot;ResultSet object has no attribute &#39;</span><span class="si">%s</span><span class="s2">&#39;. You&#39;re probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?&quot;</span> <span class="o">%</span> <span class="n">key</span>
-<span class="g g-Whitespace">   </span><span class="mi">2430</span>     <span class="p">)</span>
+<span class="nn">File ~/.conda/envs/jb/lib/python3.11/site-packages/bs4/element.py:2433,</span> in <span class="ni">ResultSet.__getattr__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2431</span> <span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2432</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Raise a helpful exception to explain a common code fix.&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">2433</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2434</span>         <span class="s2">&quot;ResultSet object has no attribute &#39;</span><span class="si">%s</span><span class="s2">&#39;. You&#39;re probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?&quot;</span> <span class="o">%</span> <span class="n">key</span>
+<span class="g g-Whitespace">   </span><span class="mi">2435</span>     <span class="p">)</span>
 
 <span class="ne">AttributeError</span>: ResultSet object has no attribute &#39;text&#39;. You&#39;re probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?
 </pre></div>
@@ -574,7 +562,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </pre></div>
 </div>
 </div>

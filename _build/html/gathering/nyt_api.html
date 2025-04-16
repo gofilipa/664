@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -206,7 +206,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../analyzing/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/overview.html">chapter overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analyzing/cleaning/cleaning.html">cleaning our text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analyzing/pandas.html">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analyzing/pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
@@ -451,8 +451,8 @@ document.write(`
 <a class="reference external" href="https://nicksubic.medium.com/a-guide-to-querying-the-new-york-times-api-with-python-b621556236f8">https://nicksubic.medium.com/a-guide-to-querying-the-new-york-times-api-with-python-b621556236f8</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
 </pre></div>
 </div>
 </div>
@@ -521,7 +521,6 @@ document.write(`
  &#39;__enter__&#39;,
  &#39;__eq__&#39;,
  &#39;__exit__&#39;,
- &#39;__firstlineno__&#39;,
  &#39;__format__&#39;,
  &#39;__ge__&#39;,
  &#39;__getattribute__&#39;,
@@ -543,7 +542,6 @@ document.write(`
  &#39;__setattr__&#39;,
  &#39;__setstate__&#39;,
  &#39;__sizeof__&#39;,
- &#39;__static_attributes__&#39;,
  &#39;__str__&#39;,
  &#39;__subclasshook__&#39;,
  &#39;__weakref__&#39;,
@@ -609,7 +607,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;docs&#39;, &#39;meta&#39;])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;docs&#39;, &#39;metadata&#39;])
 </pre></div>
 </div>
 </div>
@@ -622,7 +620,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">type</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;meta&#39;</span><span class="p">])</span>
+
+<span class="ne">KeyError</span>: &#39;meta&#39;
 </pre></div>
 </div>
 </div>
@@ -634,7 +637,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;hits&#39;: 32736, &#39;offset&#39;: 0, &#39;time&#39;: 31}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;hits&#39;: 32616, &#39;offset&#39;: 0, &#39;time&#39;: 82}
 </pre></div>
 </div>
 </div>
@@ -660,22 +663,22 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;abstract&#39;: &#39;A divide between Oklahoma’s governor and schools chief over undocumented students may mark the outer limits of acceptable immigration enforcement, or the next frontier.&#39;,
- &#39;web_url&#39;: &#39;https://www.nytimes.com/2025/03/28/us/oklahoma-republican-fight.html&#39;,
- &#39;snippet&#39;: &#39;A divide between Oklahoma’s governor and schools chief over undocumented students may mark the outer limits of acceptable immigration enforcement, or the next frontier.&#39;,
- &#39;lead_paragraph&#39;: &#39;Oklahoma’s conservative Republican governor, Kevin Stitt, and its conservative Republican schools superintendent have appeared to stand shoulder-to-shoulder in the years of Donald J. Trump, with the former sending Oklahoma guardsmen to the southern border and the latter stocking the state’s schools with Trump-branded Bibles. &#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;abstract&#39;: &#39;There has been a dramatic drop in the number of people gathering at the U.S. border and trying to cross. Can it help Mexico stave off President Trump’s threatened tariffs?&#39;,
+ &#39;web_url&#39;: &#39;https://www.nytimes.com/2025/03/03/world/americas/mexico-border-migration-trump-tariffs-deadline.html&#39;,
+ &#39;snippet&#39;: &#39;There has been a dramatic drop in the number of people gathering at the U.S. border and trying to cross. Can it help Mexico stave off President Trump’s threatened tariffs?&#39;,
+ &#39;lead_paragraph&#39;: &#39;On the eve of President Trump’s deadline to impose tariffs on Mexico, one thing is hard to miss on the Mexican side of the border: The migrants are gone.&#39;,
  &#39;print_section&#39;: &#39;A&#39;,
- &#39;print_page&#39;: &#39;18&#39;,
+ &#39;print_page&#39;: &#39;4&#39;,
  &#39;source&#39;: &#39;The New York Times&#39;,
  &#39;multimedia&#39;: [{&#39;rank&#39;: 0,
    &#39;subtype&#39;: &#39;xlarge&#39;,
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-articleLarge.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-articleLarge.jpg&#39;,
    &#39;height&#39;: 400,
    &#39;width&#39;: 600,
-   &#39;legacy&#39;: {&#39;xlarge&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-articleLarge.jpg&#39;,
+   &#39;legacy&#39;: {&#39;xlarge&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-articleLarge.jpg&#39;,
     &#39;xlargewidth&#39;: 600,
     &#39;xlargeheight&#39;: 400},
    &#39;subType&#39;: &#39;xlarge&#39;,
@@ -685,7 +688,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-popup.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-popup.jpg&#39;,
    &#39;height&#39;: 433,
    &#39;width&#39;: 650,
    &#39;legacy&#39;: {},
@@ -696,7 +699,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-blog480.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-blog480.jpg&#39;,
    &#39;height&#39;: 320,
    &#39;width&#39;: 480,
    &#39;legacy&#39;: {},
@@ -707,7 +710,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-blog533.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-blog533.jpg&#39;,
    &#39;height&#39;: 355,
    &#39;width&#39;: 533,
    &#39;legacy&#39;: {},
@@ -718,7 +721,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-blog427.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-blog427.jpg&#39;,
    &#39;height&#39;: 285,
    &#39;width&#39;: 427,
    &#39;legacy&#39;: {},
@@ -729,7 +732,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-tmagSF.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-tmagSF.jpg&#39;,
    &#39;height&#39;: 241,
    &#39;width&#39;: 362,
    &#39;legacy&#39;: {},
@@ -740,7 +743,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-tmagArticle.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-tmagArticle.jpg&#39;,
    &#39;height&#39;: 395,
    &#39;width&#39;: 592,
    &#39;legacy&#39;: {},
@@ -751,7 +754,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-slide.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-slide.jpg&#39;,
    &#39;height&#39;: 400,
    &#39;width&#39;: 600,
    &#39;legacy&#39;: {},
@@ -762,7 +765,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-jumbo.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-jumbo.jpg&#39;,
    &#39;height&#39;: 683,
    &#39;width&#39;: 1024,
    &#39;legacy&#39;: {},
@@ -773,8 +776,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-superJumbo.jpg&#39;,
-   &#39;height&#39;: 1366,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-superJumbo.jpg&#39;,
+   &#39;height&#39;: 1365,
    &#39;width&#39;: 2048,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;superJumbo&#39;,
@@ -784,7 +787,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-blog225.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-blog225.jpg&#39;,
    &#39;height&#39;: 150,
    &#39;width&#39;: 225,
    &#39;legacy&#39;: {},
@@ -795,7 +798,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-master1050.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-master1050.jpg&#39;,
    &#39;height&#39;: 700,
    &#39;width&#39;: 1050,
    &#39;legacy&#39;: {},
@@ -806,7 +809,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-master675.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-master675.jpg&#39;,
    &#39;height&#39;: 450,
    &#39;width&#39;: 675,
    &#39;legacy&#39;: {},
@@ -817,7 +820,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-master495.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-master495.jpg&#39;,
    &#39;height&#39;: 330,
    &#39;width&#39;: 495,
    &#39;legacy&#39;: {},
@@ -828,7 +831,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-master180.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-master180.jpg&#39;,
    &#39;height&#39;: 120,
    &#39;width&#39;: 180,
    &#39;legacy&#39;: {},
@@ -839,7 +842,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-master315.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-master315.jpg&#39;,
    &#39;height&#39;: 210,
    &#39;width&#39;: 315,
    &#39;legacy&#39;: {},
@@ -850,7 +853,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-master768.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-master768.jpg&#39;,
    &#39;height&#39;: 512,
    &#39;width&#39;: 768,
    &#39;legacy&#39;: {},
@@ -861,10 +864,10 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-thumbStandard.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-thumbStandard.jpg&#39;,
    &#39;height&#39;: 75,
    &#39;width&#39;: 75,
-   &#39;legacy&#39;: {&#39;thumbnail&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-thumbStandard.jpg&#39;,
+   &#39;legacy&#39;: {&#39;thumbnail&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-thumbStandard.jpg&#39;,
     &#39;thumbnailwidth&#39;: 75,
     &#39;thumbnailheight&#39;: 75},
    &#39;subType&#39;: &#39;thumbnail&#39;,
@@ -874,7 +877,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-blogSmallThumb.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-blogSmallThumb.jpg&#39;,
    &#39;height&#39;: 50,
    &#39;width&#39;: 50,
    &#39;legacy&#39;: {},
@@ -885,7 +888,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-thumbLarge.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-thumbLarge.jpg&#39;,
    &#39;height&#39;: 150,
    &#39;width&#39;: 150,
    &#39;legacy&#39;: {},
@@ -896,7 +899,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-smallSquare168.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-smallSquare168.jpg&#39;,
    &#39;height&#39;: 168,
    &#39;width&#39;: 168,
    &#39;legacy&#39;: {},
@@ -907,7 +910,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-smallSquare252.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-smallSquare252.jpg&#39;,
    &#39;height&#39;: 252,
    &#39;width&#39;: 252,
    &#39;legacy&#39;: {},
@@ -918,7 +921,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-square320.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-square320.jpg&#39;,
    &#39;height&#39;: 320,
    &#39;width&#39;: 320,
    &#39;legacy&#39;: {},
@@ -929,7 +932,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-moth.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-moth.jpg&#39;,
    &#39;height&#39;: 151,
    &#39;width&#39;: 151,
    &#39;legacy&#39;: {},
@@ -940,7 +943,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-filmstrip.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-filmstrip.jpg&#39;,
    &#39;height&#39;: 190,
    &#39;width&#39;: 190,
    &#39;legacy&#39;: {},
@@ -951,7 +954,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-square640.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-square640.jpg&#39;,
    &#39;height&#39;: 640,
    &#39;width&#39;: 640,
    &#39;legacy&#39;: {},
@@ -962,7 +965,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumSquare149.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-mediumSquare149.jpg&#39;,
    &#39;height&#39;: 149,
    &#39;width&#39;: 149,
    &#39;legacy&#39;: {},
@@ -973,7 +976,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumSquareAt3X.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-mediumSquareAt3X.jpg&#39;,
    &#39;height&#39;: 1800,
    &#39;width&#39;: 1800,
    &#39;legacy&#39;: {},
@@ -984,7 +987,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-sfSpan.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-sfSpan.jpg&#39;,
    &#39;height&#39;: 263,
    &#39;width&#39;: 395,
    &#39;legacy&#39;: {},
@@ -995,7 +998,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-largeHorizontal375.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-largeHorizontal375.jpg&#39;,
    &#39;height&#39;: 250,
    &#39;width&#39;: 375,
    &#39;legacy&#39;: {},
@@ -1006,7 +1009,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-largeHorizontalJumbo.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-largeHorizontalJumbo.jpg&#39;,
    &#39;height&#39;: 683,
    &#39;width&#39;: 1024,
    &#39;legacy&#39;: {},
@@ -1017,9 +1020,9 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-horizontalMediumAt2X.jpg&#39;,
-   &#39;height&#39;: 2667,
-   &#39;width&#39;: 4000,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-horizontalMediumAt2X.jpg&#39;,
+   &#39;height&#39;: 3333,
+   &#39;width&#39;: 5000,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;horizontalMediumAt2X&#39;,
    &#39;crop_name&#39;: &#39;horizontalMediumAt2X&#39;},
@@ -1028,7 +1031,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-hpLarge.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-hpLarge.jpg&#39;,
    &#39;height&#39;: 287,
    &#39;width&#39;: 511,
    &#39;legacy&#39;: {},
@@ -1039,7 +1042,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-largeWidescreen573.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-largeWidescreen573.jpg&#39;,
    &#39;height&#39;: 322,
    &#39;width&#39;: 573,
    &#39;legacy&#39;: {},
@@ -1050,8 +1053,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-largeWidescreen1050.jpg&#39;,
-   &#39;height&#39;: 590,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-largeWidescreen1050.jpg&#39;,
+   &#39;height&#39;: 591,
    &#39;width&#39;: 1050,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;largeWidescreen1050&#39;,
@@ -1061,12 +1064,12 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-thumbWide.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-thumbWide.jpg&#39;,
    &#39;height&#39;: 126,
    &#39;width&#39;: 190,
    &#39;legacy&#39;: {&#39;widewidth&#39;: 190,
     &#39;wideheight&#39;: 126,
-    &#39;wide&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-thumbWide.jpg&#39;},
+    &#39;wide&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-thumbWide.jpg&#39;},
    &#39;subType&#39;: &#39;wide&#39;,
    &#39;crop_name&#39;: &#39;thumbWide&#39;},
   {&#39;rank&#39;: 0,
@@ -1074,7 +1077,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoThumb.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoThumb.jpg&#39;,
    &#39;height&#39;: 50,
    &#39;width&#39;: 75,
    &#39;legacy&#39;: {},
@@ -1085,7 +1088,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoLarge.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoLarge.jpg&#39;,
    &#39;height&#39;: 507,
    &#39;width&#39;: 768,
    &#39;legacy&#39;: {},
@@ -1096,7 +1099,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumThreeByTwo210.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-mediumThreeByTwo210.jpg&#39;,
    &#39;height&#39;: 140,
    &#39;width&#39;: 210,
    &#39;legacy&#39;: {},
@@ -1107,7 +1110,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumThreeByTwo225.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-mediumThreeByTwo225.jpg&#39;,
    &#39;height&#39;: 150,
    &#39;width&#39;: 225,
    &#39;legacy&#39;: {},
@@ -1118,7 +1121,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumThreeByTwo440.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-mediumThreeByTwo440.jpg&#39;,
    &#39;height&#39;: 293,
    &#39;width&#39;: 440,
    &#39;legacy&#39;: {},
@@ -1129,7 +1132,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumThreeByTwo252.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-mediumThreeByTwo252.jpg&#39;,
    &#39;height&#39;: 168,
    &#39;width&#39;: 252,
    &#39;legacy&#39;: {},
@@ -1140,7 +1143,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumThreeByTwo378.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-mediumThreeByTwo378.jpg&#39;,
    &#39;height&#39;: 252,
    &#39;width&#39;: 378,
    &#39;legacy&#39;: {},
@@ -1151,9 +1154,9 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-threeByTwoLargeAt2X.jpg&#39;,
-   &#39;height&#39;: 2667,
-   &#39;width&#39;: 4000,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-threeByTwoLargeAt2X.jpg&#39;,
+   &#39;height&#39;: 3333,
+   &#39;width&#39;: 5000,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;threeByTwoLargeAt2X&#39;,
    &#39;crop_name&#39;: &#39;threeByTwoLargeAt2X&#39;},
@@ -1162,7 +1165,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-threeByTwoMediumAt2X.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-threeByTwoMediumAt2X.jpg&#39;,
    &#39;height&#39;: 1000,
    &#39;width&#39;: 1500,
    &#39;legacy&#39;: {},
@@ -1173,7 +1176,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-threeByTwoSmallAt2X.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-threeByTwoSmallAt2X.jpg&#39;,
    &#39;height&#39;: 400,
    &#39;width&#39;: 600,
    &#39;legacy&#39;: {},
@@ -1184,7 +1187,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-articleInline.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-articleInline.jpg&#39;,
    &#39;height&#39;: 127,
    &#39;width&#39;: 190,
    &#39;legacy&#39;: {},
@@ -1195,7 +1198,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-hpSmall.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-hpSmall.jpg&#39;,
    &#39;height&#39;: 109,
    &#39;width&#39;: 163,
    &#39;legacy&#39;: {},
@@ -1206,7 +1209,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-blogSmallInline.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-blogSmallInline.jpg&#39;,
    &#39;height&#39;: 101,
    &#39;width&#39;: 151,
    &#39;legacy&#39;: {},
@@ -1217,7 +1220,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mediumFlexible177.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-mediumFlexible177.jpg&#39;,
    &#39;height&#39;: 118,
    &#39;width&#39;: 177,
    &#39;legacy&#39;: {},
@@ -1228,7 +1231,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSmall.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoSmall.jpg&#39;,
    &#39;height&#39;: 281,
    &#39;width&#39;: 500,
    &#39;legacy&#39;: {},
@@ -1239,7 +1242,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoHpMedium.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoHpMedium.jpg&#39;,
    &#39;height&#39;: 211,
    &#39;width&#39;: 375,
    &#39;legacy&#39;: {},
@@ -1250,7 +1253,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine600.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoSixteenByNine600.jpg&#39;,
    &#39;height&#39;: 338,
    &#39;width&#39;: 600,
    &#39;legacy&#39;: {},
@@ -1261,7 +1264,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine540.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoSixteenByNine540.jpg&#39;,
    &#39;height&#39;: 304,
    &#39;width&#39;: 540,
    &#39;legacy&#39;: {},
@@ -1272,7 +1275,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine495.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoSixteenByNine495.jpg&#39;,
    &#39;height&#39;: 278,
    &#39;width&#39;: 495,
    &#39;legacy&#39;: {},
@@ -1283,7 +1286,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine390.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoSixteenByNine390.jpg&#39;,
    &#39;height&#39;: 219,
    &#39;width&#39;: 390,
    &#39;legacy&#39;: {},
@@ -1294,7 +1297,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine1050.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoSixteenByNine1050.jpg&#39;,
    &#39;height&#39;: 591,
    &#39;width&#39;: 1050,
    &#39;legacy&#39;: {},
@@ -1305,7 +1308,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine480.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoSixteenByNine480.jpg&#39;,
    &#39;height&#39;: 270,
    &#39;width&#39;: 480,
    &#39;legacy&#39;: {},
@@ -1316,7 +1319,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine310.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoSixteenByNine310.jpg&#39;,
    &#39;height&#39;: 174,
    &#39;width&#39;: 310,
    &#39;legacy&#39;: {},
@@ -1327,7 +1330,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine225.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoSixteenByNine225.jpg&#39;,
    &#39;height&#39;: 126,
    &#39;width&#39;: 225,
    &#39;legacy&#39;: {},
@@ -1338,7 +1341,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine96.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoSixteenByNine96.jpg&#39;,
    &#39;height&#39;: 54,
    &#39;width&#39;: 96,
    &#39;legacy&#39;: {},
@@ -1349,7 +1352,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine3000.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoSixteenByNine3000.jpg&#39;,
    &#39;height&#39;: 1687,
    &#39;width&#39;: 3000,
    &#39;legacy&#39;: {},
@@ -1360,7 +1363,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine768.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoSixteenByNine768.jpg&#39;,
    &#39;height&#39;: 432,
    &#39;width&#39;: 768,
    &#39;legacy&#39;: {},
@@ -1371,7 +1374,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNine150.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoSixteenByNine150.jpg&#39;,
    &#39;height&#39;: 84,
    &#39;width&#39;: 150,
    &#39;legacy&#39;: {},
@@ -1382,7 +1385,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoSixteenByNineJumbo1600.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoSixteenByNineJumbo1600.jpg&#39;,
    &#39;height&#39;: 900,
    &#39;width&#39;: 1600,
    &#39;legacy&#39;: {},
@@ -1393,7 +1396,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-miniMoth.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-miniMoth.jpg&#39;,
    &#39;height&#39;: 70,
    &#39;width&#39;: 151,
    &#39;legacy&#39;: {},
@@ -1404,7 +1407,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-windowsTile336H.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-windowsTile336H.jpg&#39;,
    &#39;height&#39;: 336,
    &#39;width&#39;: 694,
    &#39;legacy&#39;: {},
@@ -1415,7 +1418,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoFifteenBySeven1305.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoFifteenBySeven1305.jpg&#39;,
    &#39;height&#39;: 609,
    &#39;width&#39;: 1305,
    &#39;legacy&#39;: {},
@@ -1426,7 +1429,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-videoFifteenBySeven2610.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-videoFifteenBySeven2610.jpg&#39;,
    &#39;height&#39;: 1218,
    &#39;width&#39;: 2610,
    &#39;legacy&#39;: {},
@@ -1437,8 +1440,8 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-facebookJumbo.jpg&#39;,
-   &#39;height&#39;: 549,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-facebookJumbo.jpg&#39;,
+   &#39;height&#39;: 550,
    &#39;width&#39;: 1050,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;facebookJumbo&#39;,
@@ -1448,7 +1451,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-watch308.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-watch308.jpg&#39;,
    &#39;height&#39;: 348,
    &#39;width&#39;: 312,
    &#39;legacy&#39;: {},
@@ -1459,7 +1462,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-watch268.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-watch268.jpg&#39;,
    &#39;height&#39;: 303,
    &#39;width&#39;: 272,
    &#39;legacy&#39;: {},
@@ -1470,7 +1473,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-verticalTwoByThree735.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-verticalTwoByThree735.jpg&#39;,
    &#39;height&#39;: 1103,
    &#39;width&#39;: 735,
    &#39;legacy&#39;: {},
@@ -1481,7 +1484,7 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-mobileMasterAt3x.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-mobileMasterAt3x.jpg&#39;,
    &#39;height&#39;: 1800,
    &#39;width&#39;: 1800,
    &#39;legacy&#39;: {},
@@ -1492,70 +1495,73 @@ document.write(`
    &#39;caption&#39;: None,
    &#39;credit&#39;: None,
    &#39;type&#39;: &#39;image&#39;,
-   &#39;url&#39;: &#39;images/2025/03/28/multimedia/00nat-ok-gop-fight-01-gcmz/00nat-ok-gop-fight-01-gcmz-googleFourByThree.jpg&#39;,
+   &#39;url&#39;: &#39;images/2025/03/03/multimedia/03mexico-migration01-photo-tlbq/03mexico-migration01-photo-tlbq-googleFourByThree.jpg&#39;,
    &#39;height&#39;: 600,
    &#39;width&#39;: 800,
    &#39;legacy&#39;: {},
    &#39;subType&#39;: &#39;googleFourByThree&#39;,
    &#39;crop_name&#39;: &#39;googleFourByThree&#39;}],
- &#39;headline&#39;: {&#39;main&#39;: &#39;In Oklahoma, Counting Migrant Students May Have Gone Too Far&#39;,
+ &#39;headline&#39;: {&#39;main&#39;: &#39;On Mexico’s Once-Packed Border, Few Migrants Remain&#39;,
   &#39;kicker&#39;: None,
   &#39;content_kicker&#39;: None,
-  &#39;print_headline&#39;: &#39;Oklahoma G.O.P. Splits Over Migrant Student Tally&#39;,
+  &#39;print_headline&#39;: &#39;On a Once-Packed Border,  Just a Few Migrants Remain&#39;,
   &#39;name&#39;: None,
   &#39;seo&#39;: None,
   &#39;sub&#39;: None},
- &#39;keywords&#39;: [{&#39;name&#39;: &#39;glocations&#39;,
-   &#39;value&#39;: &#39;Oklahoma&#39;,
+ &#39;keywords&#39;: [{&#39;name&#39;: &#39;subject&#39;,
+   &#39;value&#39;: &#39;United States International Relations&#39;,
    &#39;rank&#39;: 1,
    &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Education (K-12)&#39;, &#39;rank&#39;: 2, &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Illegal Immigration&#39;, &#39;rank&#39;: 3, &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;,
-   &#39;value&#39;: &#39;Immigration and Emigration&#39;,
-   &#39;rank&#39;: 4,
-   &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;persons&#39;, &#39;value&#39;: &#39;Stitt, Kevin&#39;, &#39;rank&#39;: 5, &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;persons&#39;,
-   &#39;value&#39;: &#39;Walters, Ryan (1985- )&#39;,
-   &#39;rank&#39;: 6,
-   &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;organizations&#39;,
-   &#39;value&#39;: &#39;Republican Party&#39;,
-   &#39;rank&#39;: 7,
-   &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;,
-   &#39;value&#39;: &#39;Conservatism (US Politics)&#39;,
-   &#39;rank&#39;: 8,
-   &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;,
-   &#39;value&#39;: &#39;United States Politics and Government&#39;,
-   &#39;rank&#39;: 9,
-   &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;persons&#39;, &#39;value&#39;: &#39;Trump, Donald J&#39;, &#39;rank&#39;: 10, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Illegal Immigration&#39;, &#39;rank&#39;: 2, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Asylum, Right of&#39;, &#39;rank&#39;: 3, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;Customs (Tariff)&#39;, &#39;rank&#39;: 4, &#39;major&#39;: &#39;N&#39;},
   {&#39;name&#39;: &#39;subject&#39;,
    &#39;value&#39;: &#39;Politics and Government&#39;,
+   &#39;rank&#39;: 5,
+   &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;Mexico&#39;, &#39;rank&#39;: 6, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;persons&#39;, &#39;value&#39;: &#39;Trump, Donald J&#39;, &#39;rank&#39;: 7, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;Tijuana (Mexico)&#39;, &#39;rank&#39;: 8, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;glocations&#39;,
+   &#39;value&#39;: &#39;Ciudad Juarez (Mexico)&#39;,
+   &#39;rank&#39;: 9,
+   &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;glocations&#39;, &#39;value&#39;: &#39;Juarez (Mexico)&#39;, &#39;rank&#39;: 10, &#39;major&#39;: &#39;N&#39;},
+  {&#39;name&#39;: &#39;glocations&#39;,
+   &#39;value&#39;: &#39;Matamoros (Mexico)&#39;,
    &#39;rank&#39;: 11,
    &#39;major&#39;: &#39;N&#39;},
-  {&#39;name&#39;: &#39;subject&#39;, &#39;value&#39;: &#39;School Boards&#39;, &#39;rank&#39;: 12, &#39;major&#39;: &#39;N&#39;}],
- &#39;pub_date&#39;: &#39;2025-03-28T16:47:35+0000&#39;,
+  {&#39;name&#39;: &#39;organizations&#39;,
+   &#39;value&#39;: &#39;Customs and Border Protection (US)&#39;,
+   &#39;rank&#39;: 12,
+   &#39;major&#39;: &#39;N&#39;}],
+ &#39;pub_date&#39;: &#39;2025-03-03T14:00:34+0000&#39;,
  &#39;document_type&#39;: &#39;article&#39;,
- &#39;news_desk&#39;: &#39;National&#39;,
- &#39;section_name&#39;: &#39;U.S.&#39;,
- &#39;byline&#39;: {&#39;original&#39;: &#39;By J. David Goodman&#39;,
-  &#39;person&#39;: [{&#39;firstname&#39;: &#39;J.&#39;,
-    &#39;middlename&#39;: &#39;David&#39;,
-    &#39;lastname&#39;: &#39;Goodman&#39;,
+ &#39;news_desk&#39;: &#39;Foreign&#39;,
+ &#39;section_name&#39;: &#39;World&#39;,
+ &#39;subsection_name&#39;: &#39;Americas&#39;,
+ &#39;byline&#39;: {&#39;original&#39;: &#39;By Annie Correal and Alejandro Cegarra&#39;,
+  &#39;person&#39;: [{&#39;firstname&#39;: &#39;Annie&#39;,
+    &#39;middlename&#39;: None,
+    &#39;lastname&#39;: &#39;Correal&#39;,
     &#39;qualifier&#39;: None,
     &#39;title&#39;: None,
     &#39;role&#39;: &#39;reported&#39;,
     &#39;organization&#39;: &#39;&#39;,
-    &#39;rank&#39;: 1}],
+    &#39;rank&#39;: 1},
+   {&#39;firstname&#39;: &#39;Alejandro&#39;,
+    &#39;middlename&#39;: None,
+    &#39;lastname&#39;: &#39;Cegarra&#39;,
+    &#39;qualifier&#39;: None,
+    &#39;title&#39;: None,
+    &#39;role&#39;: &#39;reported&#39;,
+    &#39;organization&#39;: &#39;&#39;,
+    &#39;rank&#39;: 2}],
   &#39;organization&#39;: None},
  &#39;type_of_material&#39;: &#39;News&#39;,
- &#39;_id&#39;: &#39;nyt://article/ee53c13f-cb40-508c-8a46-00c6137bcb15&#39;,
- &#39;word_count&#39;: 1253,
- &#39;uri&#39;: &#39;nyt://article/ee53c13f-cb40-508c-8a46-00c6137bcb15&#39;}
+ &#39;_id&#39;: &#39;nyt://article/5a74da49-82a5-5147-ae1f-58f9c66437f0&#39;,
+ &#39;word_count&#39;: 1595,
+ &#39;uri&#39;: &#39;nyt://article/5a74da49-82a5-5147-ae1f-58f9c66437f0&#39;}
 </pre></div>
 </div>
 </div>
@@ -1568,7 +1574,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;abstract&#39;, &#39;web_url&#39;, &#39;snippet&#39;, &#39;lead_paragraph&#39;, &#39;print_section&#39;, &#39;print_page&#39;, &#39;source&#39;, &#39;multimedia&#39;, &#39;headline&#39;, &#39;keywords&#39;, &#39;pub_date&#39;, &#39;document_type&#39;, &#39;news_desk&#39;, &#39;section_name&#39;, &#39;byline&#39;, &#39;type_of_material&#39;, &#39;_id&#39;, &#39;word_count&#39;, &#39;uri&#39;])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;abstract&#39;, &#39;web_url&#39;, &#39;snippet&#39;, &#39;lead_paragraph&#39;, &#39;print_section&#39;, &#39;print_page&#39;, &#39;source&#39;, &#39;multimedia&#39;, &#39;headline&#39;, &#39;keywords&#39;, &#39;pub_date&#39;, &#39;document_type&#39;, &#39;news_desk&#39;, &#39;section_name&#39;, &#39;subsection_name&#39;, &#39;byline&#39;, &#39;type_of_material&#39;, &#39;_id&#39;, &#39;word_count&#39;, &#39;uri&#39;])
 </pre></div>
 </div>
 </div>
@@ -1601,7 +1607,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;abstract&#39;, &#39;web_url&#39;, &#39;snippet&#39;, &#39;lead_paragraph&#39;, &#39;print_section&#39;, &#39;print_page&#39;, &#39;source&#39;, &#39;multimedia&#39;, &#39;headline&#39;, &#39;keywords&#39;, &#39;pub_date&#39;, &#39;document_type&#39;, &#39;news_desk&#39;, &#39;section_name&#39;, &#39;byline&#39;, &#39;type_of_material&#39;, &#39;_id&#39;, &#39;word_count&#39;, &#39;uri&#39;])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;abstract&#39;, &#39;web_url&#39;, &#39;snippet&#39;, &#39;lead_paragraph&#39;, &#39;print_section&#39;, &#39;print_page&#39;, &#39;source&#39;, &#39;multimedia&#39;, &#39;headline&#39;, &#39;keywords&#39;, &#39;pub_date&#39;, &#39;document_type&#39;, &#39;news_desk&#39;, &#39;section_name&#39;, &#39;subsection_name&#39;, &#39;byline&#39;, &#39;type_of_material&#39;, &#39;_id&#39;, &#39;word_count&#39;, &#39;uri&#39;])
 </pre></div>
 </div>
 </div>
@@ -1641,20 +1647,6 @@ document.write(`
     <span class="n">articles</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;docs&#39;</span><span class="p">]</span>
     <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">articles</span><span class="p">)</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># sleep at least 6 seconds not to overload the servers</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">parsed</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">articles</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;docs&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">articles</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># sleep at least 6 seconds not to overload the servers</span>
-
-<span class="ne">KeyError</span>: &#39;response&#39;
 </pre></div>
 </div>
 </div>
@@ -2085,7 +2077,7 @@ United States Defense and Military Forces
 <p>make the lists into a dataframe</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">dates</span><span class="p">,</span>
     <span class="s1">&#39;abstract&#39;</span><span class="p">:</span> <span class="n">abstracts</span><span class="p">,</span>
@@ -2173,7 +2165,7 @@ United States Defense and Military Forces
 <h2>text analysis with spaCy<a class="headerlink" href="#text-analysis-with-spacy" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">spacy</span>
 <span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;en_core_web_sm&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2730,7 +2722,7 @@ night TIME
 <h2>word frequencies<a class="headerlink" href="#word-frequencies" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
 
 <span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">:</span>
@@ -2756,7 +2748,7 @@ night TIME
 <h2>dependency<a class="headerlink" href="#dependency" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spacy</span> <span class="kn">import</span> <span class="n">displacy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spacy</span><span class="w"> </span><span class="kn">import</span> <span class="n">displacy</span>
 <span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">docs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;dep&quot;</span><span class="p">,</span> <span class="n">jupyter</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -3162,7 +3154,7 @@ night TIME
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spacy.matcher</span> <span class="kn">import</span> <span class="n">Matcher</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spacy.matcher</span><span class="w"> </span><span class="kn">import</span> <span class="n">Matcher</span>
 
 <span class="c1"># Create a Matcher and provide model vocabulary; assign result under the variable &#39;matcher&#39;</span>
 <span class="n">matcher</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>

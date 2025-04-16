@@ -1012,7 +1012,7 @@ taking data and maybe presenting it in another way.
 This kind of "data artivism" wants to represent data, differently to
 move people to action instead of just spectating.
 
-** api presentations
+** week 8: api presentations
 
 *** APIs
 - Pokemon API
@@ -1025,3 +1025,48 @@ move people to action instead of just spectating.
 - USDA foundation foods API
 
 Use the input function to build an algorithm. 
+
+** week 9: cleaning
+
+Prepared a lesson on cleaning with pure python, then chatgpt, then
+openrefine, using the cleaning notebook.
+
+They were interested in how I scraped the data. So a prologue on that
+for next semester. 
+
+** week 10: analysis and visualization
+
+Introduction to pandas
+- viewing data
+  - info(), head(), tail(), shape, columns, describe()
+  - selecting column syntax
+  - .values()
+  - slicing rows
+- sorting data
+  - value_counts('title') # department, artist display name
+  - sort_values('accessionYear')
+- filtering data
+  - df['title'] == 'Woman'
+    - creates series of booleans
+  - woman = df['title'] == 'Woman'
+    - creates new dataframe, df[woman]
+  - highlights = df['isHighlight'] == 1.0
+    - by boolean condition
+  - df[highlights].info()
+  - courbet = df['artistDisplayName'].str.contains('Courbet',
+    na=False)
+    - using str.contains
+  - df[courbet]['title']
+
+
+Intermediate pandas
+- sorting values
+  - df.sort_values('Bill Type', inplace=True)
+  - see "pandas.DataFrame.sort_values" in docs to understand other
+    parameters
+  - sorted = df.sort_values(['Bill Type', 'State'])
+    - can sort by multiple values, create new df. 
+- filtering by values
+  - Which states have the most book bans?
+- plotting data
+

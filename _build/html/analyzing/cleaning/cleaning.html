@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="introduction to pandas" href="../pandas.html" />
-    <link rel="prev" title="workshop overview" href="../overview.html" />
+    <link rel="prev" title="chapter overview" href="../overview.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -206,7 +206,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">chapter overview</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">cleaning our text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandas.html">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
@@ -457,7 +457,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run the lines below to load up the text from the course website</span>
 
-<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="n">source</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://bit.ly/transgender_text&#39;</span><span class="p">)</span>
 <span class="n">text</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">content</span>
 </pre></div>
@@ -594,7 +594,7 @@ document.write(`
 <p>Let’s start with the definition. First, you name the function, and include parentheses for your parameters (more on this in a moment). Then, in the body of the definition, you write whatever python code you want to execute for that function. Finally, you have a return statement that saves or “returns” the result, so to speak, from the function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
     <span class="n">answer</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
     <span class="k">return</span> <span class="n">answer</span>
 </pre></div>
@@ -621,7 +621,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove all the characters in the &quot;take out&quot; list by writing a</span>
 <span class="c1"># loop that replaces those characters with an empty character, &#39;&#39;</span>
-<span class="k">def</span> <span class="nf">clean_up</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">clean_up</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">to_take_out</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;/n&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">n&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;html&gt;&lt;body&gt;&lt;pre&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;html&gt;&lt;body&gt;&lt;pre&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;  &#39;</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">to_take_out</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
@@ -666,10 +666,10 @@ document.write(`
 <h3>prompt: clean all of the blank spaces and extraneous characters from this text with python.<a class="headerlink" href="#prompt-clean-all-of-the-blank-spaces-and-extraneous-characters-from-this-text-with-python" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">from</span> <span class="nn">html</span> <span class="kn">import</span> <span class="n">unescape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">html</span><span class="w"> </span><span class="kn">import</span> <span class="n">unescape</span>
 
-<span class="k">def</span> <span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="c1"># Remove HTML tags</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;.*?&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
     
@@ -710,7 +710,7 @@ document.write(`
 <p>This text is a collection of legislative bills. Now write me some code that separates the long string of text into individual bills.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">split_bills</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">split_bills</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="c1"># Define a regex pattern to detect the start of a new bill</span>
     <span class="n">bill_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?=\d</span><span class="si">{3}</span><span class="s1">th CONGRESS\s+\d{1,2}st Session\s+H\. R\. \d+)&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">)</span>
     
@@ -827,7 +827,7 @@ document.write(`
 <p>You split the first bill incorrectly. make sure the first bill header information is included with the body of the bill, like on the other bills</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">split_bills</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">split_bills</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="c1"># Regular expression to detect the start of a new bill</span>
     <span class="n">bill_start_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\n\[Congressional Bills \d+th Congress\]\n.*?\n.*?Introduced in House \(IH\)\]\n&quot;</span><span class="p">)</span>
     
@@ -870,9 +870,9 @@ document.write(`
 <p>Now I’m getting nothing for bills</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
-<span class="k">def</span> <span class="nf">split_bills</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">split_bills</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="c1"># Regular expression to detect the start of a new bill</span>
     <span class="n">bill_start_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\[Congressional Bills \d+th Congress\].*?Introduced in House \(IH\)\])&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
 
@@ -911,7 +911,7 @@ document.write(`
 <p>Extract metadata for title, number, session, and plain text</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_metadata</span><span class="p">(</span><span class="n">bill_text</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract_metadata</span><span class="p">(</span><span class="n">bill_text</span><span class="p">):</span>
     <span class="n">metadata</span> <span class="o">=</span> <span class="p">{}</span>
     
     <span class="c1"># Extract bill number</span>
@@ -985,7 +985,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">bills_metadata</span><span class="p">)</span>
 </pre></div>
@@ -1145,7 +1145,7 @@ Name: text, dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to extract metadata from a bill</span>
-<span class="k">def</span> <span class="nf">extract_metadata</span><span class="p">(</span><span class="n">bill_text</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_metadata</span><span class="p">(</span><span class="n">bill_text</span><span class="p">):</span>
     <span class="n">bill_number_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;H\.R\. \d+&quot;</span><span class="p">,</span> <span class="n">bill_text</span><span class="p">)</span>
     
     <span class="c1"># Find the third number occurrence (bill number and other numbers)</span>
@@ -1300,7 +1300,7 @@ Name: text, dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to extract metadata from a bill</span>
-<span class="k">def</span> <span class="nf">extract_metadata</span><span class="p">(</span><span class="n">bill_text</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_metadata</span><span class="p">(</span><span class="n">bill_text</span><span class="p">):</span>
     <span class="n">bill_number_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;H\.R\. \d+&quot;</span><span class="p">,</span> <span class="n">bill_text</span><span class="p">)</span>
     
     <span class="c1"># Find all groups of consecutive numbers</span>
@@ -1487,7 +1487,7 @@ Name: text, dtype: object
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">workshop overview</p>
+        <p class="prev-next-title">chapter overview</p>
       </div>
     </a>
     <a class="right-next"

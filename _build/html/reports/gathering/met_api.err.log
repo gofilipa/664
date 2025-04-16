@@ -1,43 +1,40 @@
 Traceback (most recent call last):
-  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-    ~~~~~~~~~^
-        nb,
-        ^^^
-    ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )
-    ^
-  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 1314, in execute
+  File "/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/nbclient/client.py", line 1319, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
-  File "/opt/anaconda3/envs/jb/lib/python3.13/asyncio/base_events.py", line 721, in run_until_complete
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/fcalado/.conda/envs/jb/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
     return future.result()
-           ~~~~~~~~~~~~~^^
-  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+           ^^^^^^^^^^^^^^^
+  File "/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-        cell, index, execution_count=self.code_cells_executed + 1
-    )
-  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import pandas as pd
-df = pd.DataFrame(instructor)
+for item in first_ten:
+    print(item['artistDisplayName'])
 ------------------
 
+----- stdout -----
+Willem de Kooning
+Royal Porcelain Manufactory, Naples
+Woman Painter
+Man Ray
+Willem de Kooning
+------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[18], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
-[1;32m      2[0m df [38;5;241m=[39m pd[38;5;241m.[39mDataFrame(instructor)
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+Cell [0;32mIn[42], line 2[0m
+[1;32m      1[0m [38;5;28;01mfor[39;00m item [38;5;129;01min[39;00m first_ten:
+[0;32m----> 2[0m     [38;5;28mprint[39m(item[[38;5;124m'[39m[38;5;124martistDisplayName[39m[38;5;124m'[39m])
 
-[0;31mModuleNotFoundError[0m: No module named 'pandas'
+[0;31mKeyError[0m: 'artistDisplayName'
 

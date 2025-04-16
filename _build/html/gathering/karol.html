@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'gathering/karol';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="workshop overview" href="../analyzing/overview.html" />
+    <link rel="next" title="chapter overview" href="../analyzing/overview.html" />
     <link rel="prev" title="Legiscan API" href="legiscan_api.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -206,7 +206,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../analyzing/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/overview.html">chapter overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analyzing/cleaning/cleaning.html">cleaning our text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analyzing/pandas.html">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analyzing/pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
@@ -421,7 +421,7 @@ document.write(`
 <p>This API requires authentication, and here’s an example of how that works.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="c1"># get an access token </span>
 <span class="n">access</span> <span class="o">=</span> <span class="s1">&#39;t_5_qC1yaHVuFRV0YKc6-QyiT1J5D-iMTRCYCuTLtgbdqLyIjdOqXxRUAVqiw1is&#39;</span>
@@ -592,9 +592,9 @@ document.write(`
    &#39;name&#39;: &#39;Q’ Lokura&#39;,
    &#39;url&#39;: &#39;https://genius.com/artists/Q-lokura&#39;},
   {&#39;api_path&#39;: &#39;/artists/3405051&#39;,
-   &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1743114117&#39;,
+   &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1744745561&#39;,
    &#39;id&#39;: 3405051,
-   &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1743114117&#39;,
+   &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1744745561&#39;,
    &#39;is_meme_verified&#39;: False,
    &#39;is_verified&#39;: False,
    &#39;name&#39;: &#39;Banda Mix&#39;,
@@ -709,18 +709,18 @@ document.write(`
    &#39;authors&#39;: [{&#39;attribution&#39;: 1.0,
      &#39;pinned_role&#39;: None,
      &#39;user&#39;: {&#39;api_path&#39;: &#39;/users/17336116&#39;,
-      &#39;avatar&#39;: {&#39;tiny&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/tiny/98451d02ae5e2e6daac24f5bd6be9f2a&#39;,
+      &#39;avatar&#39;: {&#39;tiny&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/tiny/9a61f8a9ef70f92f5c6c88ef1a5f028f&#39;,
         &#39;bounding_box&#39;: {&#39;width&#39;: 16, &#39;height&#39;: 16}},
-       &#39;thumb&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/thumb/98451d02ae5e2e6daac24f5bd6be9f2a&#39;,
+       &#39;thumb&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/thumb/9a61f8a9ef70f92f5c6c88ef1a5f028f&#39;,
         &#39;bounding_box&#39;: {&#39;width&#39;: 32, &#39;height&#39;: 32}},
-       &#39;small&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/small/98451d02ae5e2e6daac24f5bd6be9f2a&#39;,
+       &#39;small&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/small/9a61f8a9ef70f92f5c6c88ef1a5f028f&#39;,
         &#39;bounding_box&#39;: {&#39;width&#39;: 100, &#39;height&#39;: 100}},
-       &#39;medium&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/medium/98451d02ae5e2e6daac24f5bd6be9f2a&#39;,
+       &#39;medium&#39;: {&#39;url&#39;: &#39;https://images.genius.com/avatars/medium/9a61f8a9ef70f92f5c6c88ef1a5f028f&#39;,
         &#39;bounding_box&#39;: {&#39;width&#39;: 300, &#39;height&#39;: 400}}},
       &#39;header_image_url&#39;: &#39;https://images.genius.com/a3f3e4fae808e9426937a2b4180993bf.640x908x1.jpg&#39;,
       &#39;human_readable_role_for_display&#39;: &#39;Moderator&#39;,
       &#39;id&#39;: 17336116,
-      &#39;iq&#39;: 1330696,
+      &#39;iq&#39;: 1334276,
       &#39;login&#39;: &#39;Fri&#39;,
       &#39;name&#39;: &#39;Fri&#39;,
       &#39;role_for_display&#39;: &#39;moderator&#39;,
@@ -781,7 +781,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">workshop overview</p>
+        <p class="prev-next-title">chapter overview</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
