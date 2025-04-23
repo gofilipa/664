@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -414,7 +414,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-colab-and-load-libraries">open Colab and load libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installations">Installations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#on-google-colab">on google colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#on-jupyter">on jupyter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inference">inference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-from-datasets">accessing data from datasets:</a></li>
 </ul>
@@ -441,28 +443,63 @@ model into the colab coding space.</p></li>
 <li><p>Finally, we will import a dataset from the library and practice running inference with it.</p></li>
 </ul>
 <p>We’ll talk about some programming concepts along the way, like variables and data types, and how to access data from different types and structures. We will grapple with a new data type, a <code class="docutils literal notranslate"><span class="pre">dict</span></code>, and how to access or manipulate data from that type.</p>
-<section id="open-colab-and-load-libraries">
-<h2>open Colab and load libraries<a class="headerlink" href="#open-colab-and-load-libraries" title="Link to this heading">#</a></h2>
+<section id="installations">
+<h2>Installations<a class="headerlink" href="#installations" title="Link to this heading">#</a></h2>
+</section>
+<section id="on-google-colab">
+<h2>on google colab<a class="headerlink" href="#on-google-colab" title="Link to this heading">#</a></h2>
 <p>First, on the toolbar, where it says RAM DISK, change the hardware accelator
 to GPU.</p>
-<p>Then, download the necessary libraries to your colab environment.</p>
+<p>Then, download the below libraries to your colab environment:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span> <span class="n">capture</span>
+<span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">transformers</span> <span class="n">trl</span>
+</pre></div>
+</div>
+</section>
+<section id="on-jupyter">
+<h2>on jupyter<a class="headerlink" href="#on-jupyter" title="Link to this heading">#</a></h2>
+<p>Run this in your terminal to download and install transformers with</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda install transformers datasets trl</span>
+<span class="go">pip install torch</span>
+</pre></div>
+</div>
+<p>If that doesn’t work, try using pip:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install transformers datasets trl</span>
+<span class="go">pip install torch</span>
+</pre></div>
+</div>
+<p>And if that doesn’t work (perhaps because you’re on a CPU-only system), try:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install transformers[torch] datasets trl</span>
+</pre></div>
+</div>
+<p>Read more about installations here: <a class="reference external" href="https://huggingface.co/docs/transformers/installation">https://huggingface.co/docs/transformers/installation</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%capture</span>
-<span class="c1"># %pip install transformers trl</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to check that you&#39;ve installed correctly, run:</span>
+
+<span class="o">!</span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from transformers import pipeline; print(pipeline(&#39;sentiment-analysis&#39;)(&#39;Filipa is the coolest prof ever&#39;))&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+ModuleNotFoundError: No module named &#39;transformers&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<p>Go back to the models page.</p>
-<p>Search for gpt-neo, select 125m. On the top right, click on “Use in
-Transformers.”</p>
-<p>Copy that code, and paste it to your google colab cell.</p>
+<p>After installing, go back to the models page. Search for gpt-neo, select 125m. On the top right, click on “Use in
+Transformers.” Copy that code, and paste it to your notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">pipeline</span>
 
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">&quot;text-generation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;EleutherAI/gpt-neo-125m&quot;</span><span class="p">)</span>
+<span class="c1"># if you have a GPU (Mac M1 chip)</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">&quot;text-generation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;EleutherAI/gpt-neo-125m&quot;</span><span class="p">,</span> <span class="n">device</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># if you do not have a GPU</span>
+<span class="c1"># pipe = pipeline(&quot;text-generation&quot;, model=&quot;EleutherAI/gpt-neo-125m&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -471,7 +508,8 @@ Transformers.”</p>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">pipeline</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">pipe</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">&quot;text-generation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;EleutherAI/gpt-neo-125m&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># if you have a GPU (Mac M1 chip)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">pipe</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">&quot;text-generation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;EleutherAI/gpt-neo-125m&quot;</span><span class="p">,</span> <span class="n">device</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;transformers&#39;
 </pre></div>
@@ -498,7 +536,7 @@ use to process our prompt.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Truncation was not explicitly activated but `max_length` is provided a specific value, please use `truncation=True` to explicitly truncate examples to max length. Defaulting to &#39;longest_first&#39; truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
-Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;generated_text&#39;: &quot;Hello, my name is Filipa and I&#39;m a newbie in the world of web development. I&#39;m a newbie in the world of web development. I&#39;m a newbie in the world of web development. I&#39;m a newbie in&quot;}]
@@ -508,17 +546,18 @@ Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">pipe</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">max_length</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># saving the output</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="n">pipe</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">max_length</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 </pre></div>
 </div>
 </div>
 </div>
-<p>Here we see the levels of abstraction at play. Saving the pipeline function to a new variable, then the prompt text to a variable, and passing that prompt into the pipe.</p>
 <p>Now let’s look at the response, and inspect the data structure contained within it, which is a <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
 <p>list is a collection of objects, or bits of information. So our output is saved as this collection type of object.</p>
 <div class="cell docutils container">
@@ -587,6 +626,13 @@ Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
 <section id="accessing-data-from-datasets">
 <h2>accessing data from datasets:<a class="headerlink" href="#accessing-data-from-datasets" title="Link to this heading">#</a></h2>
 <p>Now we will practice what we’ve learned about accessing data on the Datasets library from HF.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datasets</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># install the library and import dataset loader</span>
@@ -671,11 +717,11 @@ Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 </pre></div>
 </div>
 </div>
@@ -789,7 +835,9 @@ Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-colab-and-load-libraries">open Colab and load libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installations">Installations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#on-google-colab">on google colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#on-jupyter">on jupyter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inference">inference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-from-datasets">accessing data from datasets:</a></li>
 </ul>

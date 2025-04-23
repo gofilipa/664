@@ -20,7 +20,11 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 ------------------
 from transformers import pipeline
 
-pipe = pipeline("text-generation", model="EleutherAI/gpt-neo-125m")
+# if you have a GPU (Mac M1 chip)
+pipe = pipeline("text-generation", model="EleutherAI/gpt-neo-125m", device = 1)
+
+# if you do not have a GPU
+# pipe = pipeline("text-generation", model="EleutherAI/gpt-neo-125m")
 ------------------
 
 
@@ -28,7 +32,8 @@ pipe = pipeline("text-generation", model="EleutherAI/gpt-neo-125m")
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
 Cell [0;32mIn[2], line 1[0m
 [0;32m----> 1[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mtransformers[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m pipeline
-[1;32m      3[0m pipe [38;5;241m=[39m pipeline([38;5;124m"[39m[38;5;124mtext-generation[39m[38;5;124m"[39m, model[38;5;241m=[39m[38;5;124m"[39m[38;5;124mEleutherAI/gpt-neo-125m[39m[38;5;124m"[39m)
+[1;32m      3[0m [38;5;66;03m# if you have a GPU (Mac M1 chip)[39;00m
+[1;32m      4[0m pipe [38;5;241m=[39m pipeline([38;5;124m"[39m[38;5;124mtext-generation[39m[38;5;124m"[39m, model[38;5;241m=[39m[38;5;124m"[39m[38;5;124mEleutherAI/gpt-neo-125m[39m[38;5;124m"[39m, device [38;5;241m=[39m [38;5;241m1[39m)
 
 [0;31mModuleNotFoundError[0m: No module named 'transformers'
 

@@ -1,0 +1,1106 @@
+* plans
+** week 1: introduction to the command line
+*** what is the command line?
+- a way of talking to the computer.
+  - GUIs vs commands
+- the bash language
+  
+*** why would you used the command line
+- on your computer, everything is a file
+- "plain text" - what is this?
+  - demo with docx and plain text file.
+- what are some rich text file formats?
+  - what are some plain text file formats?
+- why use command line?
+  - we can manipulate plain text quite easily
+
+*** navigation
+- on your computer, everything is in a folder
+- "directory structure" folder system on your computer
+  - tree: root and branches
+  - "directory"
+
+#+begin_src
+pwd
+
+cd
+
+cd ..
+
+cd ~
+
+ls
+
+# flags
+ls -l -a
+#+end_src
+
+Home vs root folder
+
+**** Practice: Spend a few minutes navigating up and down the directory structure
+
+*** creating files and folders / reading
+Navigate to the place where you want to keep your files for this class.
+
+#+begin_src 
+touch 
+
+mkdir 664
+
+rmdir 664
+#+end_src
+
+*** group activity: searching text 10/10
+In partners, figure out how to use the GREP command. What does it do?
+Advanced: how do you use it to search across multiple nested folders?
+(hint: its a flag!)
+
+#+begin_src 
+grep queer notecards.org
+#+end_src
+
+*** redirect
+
+#+begin_src 
+grep queer notecards.org >> queer_words.txt
+#+end_src
+
+**** Group Challenge 15 / 15
+Practice using grep on your own machine, searching for a word in
+different files. Then, use redirect to save the results to a separate
+file. 
+
+*** time to do challenge!
+Spend some time navigating NYC Open Data website for a dataset you
+like. 
+
+Download the [[https://data.cityofnewyork.us/Social-Services/NYC-Women-s-Resource-Network-Database/pqg4-dm6b/about_data][NYC Women's Resource Network Database]] from [[https://opendata.cityofnewyork.us/][NYC Open Data]].
+Search the text for words like "women" or "migrant" or something else.
+Then, using redirect, save the results to a separate file. (hint:
+you'll need to use grep and redirect).
+
+#+begin_src
+grep TERM ~/Downloads/..csv >> migrant.txt
+#+end_src
+
+*** time to download and install Anaconda (highly recommended) or Python
+** week 2: python day 1
+*** agenda
+- introduce Python programming language
+- start challenge for this week
+
+*** introduction to the Python language
+- What is Python?
+  - powerful programming language for many tasks
+  - "high level"
+  - zen of python
+- Learning objectives
+  - types, variables, for holding data
+  - functions, methods for working w data
+  - complex structures: iteration and logic
+  - python syntax
+
+*** python lessons
+- opening challenge, which you will know by the end
+  - critical approach to data. Nothing is neutral or objective.
+  - "data capture and analysis practices often aim to reduce real-life
+    objects and persons into computable elements"
+- opening jupyter notebook or google colab
+- data types
+  - real world objects that are transformed into a computational
+    format, to be computed.
+  - type() function
+  - int, str, bool, list
+  - types as a constraint
+- variables
+  - how we save data, to work with it
+  - using good names
+  - PARTNERS: creating variables to find the limits
+  - variables as objects
+    - objects have methods, .upper()
+  - methods vs functions
+    - one like a subject, and one like a clause
+  - string methods like split(), lower(), upper()
+  - abstraction, saving our results to a new variable, then using
+    type()
+- lists
+  - list indexing - accessing items by position
+  - list slicing - grabbing sections of a list
+    - inclusive, exclusive values
+  - PARTNERS CHALLENGE: get the middle 3 items of a list
+  - list methods
+    - append(), remove(), pop()
+    - sort(), reverse()
+  - INDIVIDUAL: write a sentence and split it up into a list of words.
+    Then do something to that list of words.
+    - why does split not work on a list?
+- individual practice: ERRORS
+  - there are many kinds of errors you can make with python.
+  - explore different kinds of errors. What are the general category
+    of errors? What is a Name and a Type error, for instance? Syntax
+    or Traceback? Try to get 2 of each.
+    - choose 1 or 2 of your errors and google them. Read the stack
+      overflow post about it. Try to get familiar with the forum
+      format for asking coding questions.
+- Challenge:
+  - Grab a paragraph or two of text from a book on Project Gutenberg,
+    and save that text to a string in a Python notebook. Then use the
+    methods we learned in class to do the following: first, transform
+    the string into a list; then, add, remove, and sort items in the
+    list. Save your python notebook file (.ipynb file) and submit it
+    on canvas.
+    
+** week 3: python 2: lists to logic
+Agenda
+- review challenge
+- review last week's lessons on Python 1
+- lessons for today: loops, logic
+  - incorporate discussion of Butler's chapter
+- start working with CSV module
+
+*** review
+- data types,
+  - ~type()~
+  - what are they?
+  - how do we check them?
+- we save data by creating variables
+- lists
+  - list indexing vs slicing
+- methods vs functions
+  - what are some functions and methods we learned? 
+  - functions are independant
+  - methods depend on objects (also called properties, attributes)
+  - can tell in syntax
+
+
+*** review challenge
+Create a list of words from a text, and do things to the list using
+list methods.
+
+Removing Gender Ideology and Restoring the EEOC’s Role of Protecting
+Women in the Workplace
+
+
+*** butler
+What's her main argument?
+- what's so scary?
+  - that people are currently afraid of gender, "the anti-gender
+    ideology movement" stokes fear.
+  - gender ideology is a threat to children, society, the family,
+    national security, to men and women, heterosexuality.
+- the contradictions:
+  - the vatican saying that something is a threat to children and the
+    family, not considering their own harmful history here;
+  - how withholding sex education also withholds education around
+    consent and just how sex works;
+  - using the right to gender as a way to take that right away from
+    others.
+
+"Phantasm"
+- drawing from psychology, to argue that the fear of gender draws from
+  real world and pyschic forces, the conscious and unconscious.
+  - it becomes a substitute for anxiety about the world. 
+- fear mongering is a way of getting people to agree, come into your
+  ranks, subscribe.
+
+#+begin_quote
+“According to this logic, the anti-gender movement is guided by an
+inflammatory syntax: that is, a way of ordering the world that absorbs
+and reproduces anxieties and fears about permeability, precarity,
+displacement, and replacement; loss of patriarchal power in both the
+family and state; and loss of white supremacy and national purity” 22
+#+end_quote
+
+Resistance
+- produce a "counter vision".
+
+#+begin_quote
+“It is up to us to produce a compelling counter-vision, one that would
+affirm the rights and freedoms of embodied life that we can, and
+should, protect. For in the end, defeating this phantasm is a matter
+of affirming how one loves, how one lives in one’s body, the right to
+exist in the world without fear of violence or discrimination, to
+breathe, to move, to live.” 17
+#+end_quote
+
+#+begin_quote
+“What form of critical imagination would be powerful enough to oppose
+the phantasm? What would it mean to create a form of solidarity and
+concerted imagining that would have the power to expose and defeat the
+cruel norms and sadistic trends that travel under the name of the
+anti–gender ideology movement?” (37).
+#+end_quote
+
+*** loops
+How we do things to data.
+- types of data for categorizing data; variables for saving data; how
+  to work with lists of data; now, how to do things to
+  lists/groupings.
+  - also works with strings
+- syntax: for item in collection: print(item).
+  - practice with both lists and strings
+- a note on variable names:
+  - the variable following "for" is assigned on the fly
+- f-strings
+
+String Methods
+- how to do things to strings within loops
+- 'HELLO'.lower()
+- make a list of cities, and make them all lowercasee
+- now save that list to a new list, an empty list
+  - why would we want to do this?
+    
+**** Group challenge:
+- list of prime numbers and their squares, using f strings.
+
+*** logic
+Boolean data
+- type() -> True or False
+- evaluates mathematical expressions
+  - different operators, look them up. Many different kinds.
+- if statement for checking age
+  - multiple conditions
+
+Combining loops with logic:
+- DEFENDING WOMEN FROM GENDER IDEOLOGY EXTREMISM AND RESTORING
+  BIOLOGICAL TRUTH TO THE FEDERAL GOVERNMENT
+- if it contains the word "gender", "protect", or others, we will
+  print.
+
+#+begin_src python
+for i in text.split('.'):
+    if 'binary' in i:
+	print(i)
+#+end_src
+
+*** BREAK
+
+*** csv module
+- csv module
+  - what is a module? a collection of code for doing something, in
+    this case, for opening csv files
+  - read a little of the docs on CSV module, reader
+
+- printing rows from csv on [[https://data.cityofnewyork.us/City-Government/Enforcement-Actions-Board-Determinations-and-Penal/xrxs-qn95/about_data][Campaign Violations]]:
+  - import csv
+  - open the file with open statement
+  - print the rows
+
+#+begin_src python
+  with open('./Downloads/Enforcement_Actions_Board_Determinations_and_Penalties_20250210.csv') as f:
+      data = csv.reader(f)
+      for row in data:
+	  print(row)
+#+end_src
+
+How do we get just the first object from each column? The names?
+- breakup the problem into parts
+- check the type of data(s)
+- how do we access info from a list?
+
+#+begin_src python
+  
+with open ('violations_sample.csv', 'r') as f:
+    data = csv.reader(f)
+    for row in data:
+        print(row[1])
+
+#+end_src
+
+**** group challenge: Combining logic, loops, and csv:
+- search for a specific candidate name in the dataset
+- print out all rows containing that candidate's name
+- advanced: print out only the date and the violation
+
+
+#+begin_src python
+  with open('violations.csv', 'r') as f:
+    data = csv.reader(f)
+    for row in data:
+        if "Eric" in row[1]:
+            print(row)
+#+end_src
+
+**** advanced challenge (that I'll walk you through)
+Combine what we know from the above with f-strings to write more
+complex output.
+
+Write a loop that prints out the Candidate’s name and Violation if
+that violation contains the word “contribution” in it. Use f-strings
+so that you can format the answer the following:
+
+Name: [candidate name], Violation: [candidate violation]
+
+Here’s the answer, but don’t look until you’ve spent at least 5
+mintues working on it!
+
+#+begin_src python
+  with open ('violations.csv', 'r') as f:
+    dict_reader = csv.reader(f)
+    for row in dict_reader:
+        violation = row[3]
+        if "contribution" in violation:
+            candidate = row[1]
+            print(f'Name: {candidate}, Violation: {violation}')
+#+end_src
+  
+
+*** next week: web scraping!
+** week 4: web scraping 1
+Goals:
+- learn how to scrape a simple web page
+- learn a little bit about HTML/CSS
+- learn more about objects in python, dot syntax
+- explore different functions for bs4
+- reinforce loops
+
+Lesson:
+- what is web scraping? vs APIs, vs asking for data?
+- different web scraping tools: scrapy and selenium
+- HTML
+  - inspecting elements
+  - intro to HTML elements and attributes
+  - looking for bill number element and attributes, looking for bill
+    card, looking for all the cards.
+- scrape a website in 5 lines of code
+- three ways of getting html elements
+  - dot syntax
+  - find()
+  - find_all()
+- narrowing down data by text, class, href
+  - .text: soup.div.a.text
+  - class uses _class
+    - soup.find('h3', _class='css-fdskal;fj'
+  - saving to variables
+    - soup.find_all('h3', _class='css-fdskal;fj'
+
+
+BREAK
+
+Lesson:
+- looping through elements to get just text
+  - how would I do this to print out just bills that contain a certain
+    word in them? 
+- group challenge: print out all of the components of a bill. 
+** week 5: web scraping 2
+Agenda:
+- review last week
+- build on scraping skills to save data as CSV
+- talk about ethics & legality, some roadblocks with web scraping
+- spend some time scraping websites
+
+Review last week
+- bs4 and requests
+  - check out bs4 library briefly
+- making the soup object
+  - what are attributes and methods?
+    - (like .text, .find, .find_all)
+- writing a loop to extract the bill numbers
+
+*** from html to csv
+- saving this data to a csv, for storage, analysis, etc.
+- multiple steps:
+  - isolate bill card data
+    - titles, captions, categories (we will add desc. and links later) 
+  - pick out the information we want from the data
+  - process information into lists
+  - adding more data (may skip)
+  - save to CSV 
+- first: from printing to saving to lists (no description)
+  - save each item as a variable to make it cleaner
+    - do not save decription yet. 
+  - create empty lists to hold the information
+  - add another block of code at the bottom of the loop that appends
+    the data.
+  - check the lists to see that everything works well.
+- second: now add description it will throw an error
+  - why did we get this error?
+  - group challenge:
+    - google this error, find out what it means.
+    - check out a solution from stack overflow.
+- third: adding URLs
+  - using f string to insert the href into the url
+  - then adding it to a new list
+#+begin_src python
+for item in bill_cards[:10]:
+    link = f('https://translegislation.com/{item.a['href']})
+    print(link)
+#+end_src
+- Finally, saving data to CSV:
+#+begin_src python
+  import pandas as pd
+  import csv
+
+  # creating the dataframe, passing lists as columns
+  df = pd.DataFrame( 
+    {'title': titles,
+     'caption': captions,
+     'category': categories,
+     'description': descriptions,
+     'url': urls,
+    })
+
+  df.head() # checking the first five lines
+
+  df.to_csv('bill_data.csv')  # saving the dataframe as a csv file
+
+#+end_src
+
+BREAK
+
+
+*** BREAK
+*** ethics and legality
+- focus is on ethics rather than legality
+  - more important to think about the effect your data gathering will
+    have on groups
+  - who is the data about?
+  - legality: most of what you do is protected under "fair use"
+- essential questions
+  - Who is the data about? Who owns the data? (often times, the data’s
+    owner is not the same as the person/group it describes)
+  - Does the data contain any personally identifying characteristics?
+    If so, what are the potential effects of these details being
+    shared or published?
+  - What do I intend to do with the data? (gather it, analyze it,
+    publish it online, all of the above, etc.)
+  - How will publishing the data affect the persons/group(s) that the
+    data describes?
+- The most important thing is to assess any vulnerabilities about the
+  people directly associated with the data. And this can only be
+  answered on a case by case basis. There is no standard that applies
+  to all groups.
+  - Trans legislation is not the same as gathering information about,
+    for example, resources for trans affirming care. In the wrong
+    hands, could be a problem.
+- Legal: some questions:
+  - is data publically available?
+  - Does website allow scraping?
+    - TOS, ~robots.txt~
+- a website that totally prohibits web scraping. Here, the Bill Track
+  50 website, which aggregates legislative data from across the United
+  States, has its robots.txt at
+  https://www.billtrack50.com/robots.txt. It contains the following
+  declaration:
+#+begin_src
+  User-agent: *
+  Disallow: /
+#+end_src
+  - The “user-agent” refers to the entity looking at the website,
+    whether that be a person or a bot. The asterisk is a “wild card,”
+    which means that it applies to all user-agents.
+- Track Trans Legislation, which mostly allows scraping. It does have
+  some limits, but only on the admin and bill-logs paths. Everything
+  else on the site is fair game:
+#+begin_src
+  User-agent: *
+  Disallow: /admin/
+  Disallow: /bill-logs
+#+end_src
+- However, even if the website is legally scrapable, it may not be
+  technically scrapable.
+- Dynamic elements are not scrapable.
+  - ACLU’s “Mapping Attacking on LGBTQ Rights in US State
+    Legislatures”
+- Bot blockers are not scrapable
+  - Congress.gov
+  - ~<title>Just a moment...</title>~
+
+*** data ethics is changing every day, now
+If we have the tools to do this work, we have to be strategic and
+think through the effects of our data gathering.
+
+Data that is gathered can be exploited. We live in a society that
+tries to monetize every bit of data about you.
+
+But I personally believe that data can also empower. We have to be
+strategic to think through the effects of gathering certain data, what
+kind of stories it can tell, what it might reveal.
+
+Especially now, when we are experiencing waves of intellectual
+suppression. 
+
+*** Start to work on a challenge:
+Write some code that scrapes the info about faculty at Pratt. Get the
+name, title, department.
+
+Advanced: click on the person link, and get their email address. 
+** week 6: apis
+Agenda
+- look at LOC standards for XML
+- begin work with APIs
+  - dictionary structures - new data structure
+  - the MET API - beginner friendly
+  - end goal: to get data from MET databases into our own spreadsheet,
+    curate that data a little bit. 
+
+*** HTML and XML
+Look at standards from LOC.
+
+*** the dictionary data type
+
+What is a dict? key:value pairs
+
+#+begin_src python
+  filipa = {
+    'name': ['filipa', 'da gama', 'calado'],
+    'age': 35,
+    'degree': 'literature',
+    'jobs': ['professor', 'digital scholarship specialist', 'student']
+
+  # access items with brackets, the 'key'
+
+  filipa['jobs'] # 'professor'...
+  filipa['age'] # 35
+
+  # access items within a column, like list indexing
+
+  filipa['name'][1] # 'da gama'
+}
+  
+
+#+end_src
+*** the MET API
+Order of things we will do
+- construct the API request (URL)
+- make the request
+- parse/format our response
+- with information from that response, make another call to get more
+  information.
+
+**** the anatomy of an API request:
+
+3 parts of an API: the base url, the path, the query.
+
+#+begin_src python
+
+  base_url = "https://collectionapi.metmuseum.org" # root of the website
+  path = "/public/collection/v1/search" # directory structure, folders
+  query = "?q=woman" # parameter, endpoint - keyword/specifications
+
+  # our request
+  women = requests.get(f'{base_url}{path}{query}')
+
+  # should say 200
+  women
+
+#+end_src
+
+All you need for an API is a URL. An HTTP request. 
+
+Some URLs contain requests embedded inside of them. If you know how to
+look.
+
+**** inspecting objects: two functions: type() and dir()
+
+Using type() and dir() to better understand our response data. The end
+goal is to sift through the data to discover interesting things.
+
+#+begin_src python
+
+  # what type of object do we have?
+
+  type(women)
+
+  # What can we do with a Response object? Spend a couple of minutes exploring the different methods.
+  dir(women)
+
+#+end_src
+
+**** .json() to parse our response object
+
+#+begin_src python
+
+  # why do we need to add parenthesis? 
+    parsed = women.json()
+
+    # what is it
+    type(parsed)
+
+    # what can we do with it
+    dir(parsed)
+
+    # check out the keys
+    parsed.keys()
+
+#+end_src
+
+**** accessing items from a dict
+
+#+begin_src python
+
+  # how would we get the object ids?
+
+  parsed['objectIDs']
+
+  # how would we get just the first object id?
+
+  first = parsed['objectIDs'][0]
+
+#+end_src
+
+**** using the “objects” endpoint
+
+We can use this first object to create a new request. This time, using
+a different path, the "objects" path.
+
+#+begin_src python
+
+  objects_path = '/public/collection/v1/objects/'
+
+  url = f'{base_url}{objects_path}{first}'
+
+  first_object = requests.get(url)
+
+
+#+end_src
+
+Inspecting our new response object, parsing the results
+
+#+begin_src python
+  # checking the resulting object
+  first_object
+
+  # the response is just like before. 
+  type(first_object)
+  dir(first_object)
+
+  # parsing the object:
+  
+  first_object.json()
+#+end_src
+
+See all the data about this object.
+
+See the objectURL? Copy and paste it into your browser.
+
+**** reading documentation: individual challenge
+Look at the docs, see the different paths and parameters.
+
+Pratice searching using another parameter for the search endpoint. And
+then, take the results of that search and look for the objects. 
+
+**** looping through our objects
+
+We are going to automate the collection of object metadata. How?
+
+Making a list of objectIDs that we can loop through, and for each one,
+make a new request using the "objects" path.
+
+#+begin_src python
+  # just the first ten
+  ids = parsed['objectIDs'][:10]
+
+  # start small, just print the ids for now
+  for item in ids:
+    print(item)
+
+  # add pseudocode, then fill it in
+  # what are the steps we need to take?
+
+  first_ten = []
+  for item in ids:
+
+      # passing the objectID variable into the URL
+      base_url = 'https://collectionapi.metmuseum.org'
+      path = '/public/collection/v1/objects/'
+      url = f'{base_url}{path}{item}'
+
+      # grabbing our response for that object
+      response = requests.get(url)
+
+      # parsing our response with json
+      parsed = response.json()
+
+      # appending the response to our new list
+      first_ten.append(parsed)
+
+  # check the content.
+  type(first_ten)
+
+#+end_src
+
+Write a loop to print out information about some of the keys for each
+object. For example, print out the value of artistDisplayName.
+
+#+begin_src python
+  for item in first_ten:
+    print(item['artistDisplayName'])
+#+end_src
+
+**** group challenge
+Google the error.
+
+There are two ways: conditional statement and creating a variable
+#+begin_src python
+
+for item in first_ten:
+  if item.get('artistDisplayName'):
+      print(item['artistDisplayName'])
+
+
+for item in first_ten:
+    title = item.get('artistDisplayName')
+    print(title)
+#+end_src
+
+**** about “women”
+Try it with gender. Why do you think we see only female?
+
+**** saving to DataFrame
+
+**** data anlaysis with pandas
+
+** week 7: apis continued
+Goals:
+- review MET API,
+  - how to request, parse, and extract data
+  - start to do a little data analysis of results
+- examine concepts: authentication & pagination
+  - NYT API
+  - self guided exploration of NYPL API
+- discuss article, start to brainstrom what we want to do
+  
+*** review: API requests, methods, calls (20m)
+- discuss the anatomy of an API request
+  - root, path, endpoint
+  - making the call
+- go over some useful methods for working with API data
+  - dir(), json(), keys() 
+- using different paths: review documentation for the MET API: 
+  - search path
+  - object path
+
+#+begin_src python
+  base_url = "https://collectionapi.metmuseum.org"
+  path = "/public/collection/v1/search"
+  query = "?q=woman"
+
+  url = f'{base_url}{path}{query}'
+  r = requests.get(url)
+
+  type(r)
+  dir(r)
+
+  parsed = r.json()
+
+  parsed.keys()
+
+#+end_src
+
+*** looping through results to make many calls (20m)
+- we are going to grab a bunch of these, create a dataset of works.
+- let's start with the first fifty, saving them to a list:
+  - get the IDs, make a list.
+- write a loop that:
+  - makes a call to the objects path
+  - parses the json
+  - saves to a relevant list
+
+#+begin_src python
+first_fifty = []
+for item in ids:
+    # passing the objectID variable into the URL
+    base_url = 'https://collectionapi.metmuseum.org'
+    path = '/public/collection/v1/objects/'
+    url = f'{base_url}{path}{item}'
+    # grabbing our response for that object
+    response = requests.get(url)
+    # parsing our response with json
+    parsed = response.json()
+    # appending the response to our new list
+    first_fifty.append(parsed)
+#+end_src
+
+Dealing with errors: two ways: if statements and variables, with get()
+
+#+begin_src python
+  for item in first_fifty:
+    if item.get('artistDisplayName'):
+      print(item['artistDisplayName'])
+      
+  for item in first_fiftu: 
+    title = item.get('artistDisplayName')
+    print(title)
+#+end_src
+
+Put it into a dataframe. Make a couple of charts - pie chart, bar
+chart, just for demonstration
+    
+#+begin_src python
+  # let's get a bunch of this data into lists
+
+  titles = []
+  names = []
+  genders = []
+  depts = []
+  countries = []
+  urls = []
+
+  for item in first_fifty:
+      title = item.get('artistGender')
+      titles.append(title)
+      name = item.get('artistDisplayName')
+      names.append(name)
+      gender = item.get('artistGender')
+      genders.append(gender)
+      dept = item.get('department')
+      depts.append(dept)
+      country = item.get('country')
+      countries.append(country)
+      url = item.get('objectURL')
+      urls.append(url)
+
+  import pandas as pd
+
+  df = pd.DataFrame({
+    'title': titles,
+    'name': names,
+    'gender': genders,
+    'department': depts,
+    'country': countries,
+    'link': urls
+  })
+
+  df.info()
+
+  df.value_counts('department')
+
+  df.department.value_counts().plot(kind = 'barh')
+
+  df.department.value_counts().plot(kind = 'pie')
+#+end_src
+
+*** authentication & pagination: NYTimes API (40m)
+
+Creating API calls with keys
+- requesting an API key
+- adding the key
+
+#+begin_src python
+  # key
+  key = 'HHhPAjnfEF2EmLtf9PdGsLEQZizR3iQu'
+
+  # query
+  query = 'migrant'
+
+  # base URL
+  url = f'https://api.nytimes.com/svc/search/v2/articlesearch.json?&q={query}&api-key={key}'
+
+  response = requests.get(url)
+
+  response # 200
+
+  type(response) # Response
+  
+#+end_src
+
+Understanding our structure
+- parse our data
+- we find different structure of data
+  - keep going deeper into the data using keys()
+
+#+begin_src python
+  parsed = response.json()
+
+  parsed.keys() # dict_keys(['status', 'copyright', 'response'])
+
+  parsed['response'].keys() # dict_keys(['docs', 'meta'])
+
+  type(parsed['response']['meta']) # dict
+
+  parsed['response']['meta']
+
+  type(parsed['response']['docs']) # list
+
+  # The very first item in `docs` appears to be information about a
+  # single article.
+
+  parsed['response']['docs'][0]
+
+  parsed['response']['docs'][0].keys()
+
+  # If I wanted to proceed to get this data, I would write a loop and
+  # assign variables
+#+end_src
+
+Paginating through results
+- We have 10 articles, because the NYTimes API only allows us to get
+  10 results at a time.
+- We can paginate through the results by adding an &page= parameter,
+  combined with a sleep() function, which allows us to insert pauses
+  in our request (as to not overload the NYTimes servers).
+- write a loop that goes through a range() of 5 pages, and does a
+  search for each page.
+- append the results for each page to a list called results
+- check out our results, where is our data?
+
+#+begin_src python
+  results = []
+  query = 'migrant'
+
+  for i in range(0, 5):  
+      url = f'https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&page={i}&api-key={key}'
+      response = requests.get(url)
+      parsed = response.json()
+      articles = parsed['response']['docs']
+      results.append(articles)
+      sleep(6) # sleep at least 6 seconds not to overload the servers
+#+end_src
+
+In the end, we have a list of results, 5 lists to be exact (each list
+represents one page of articles). Each result (or page) contains
+information about 10 articles that matched our search.
+
+#+begin_src python
+
+  results[0][0].keys() # for the very first item on the very first page. 
+
+  results[0][0]['abstract']
+
+#+end_src
+
+
+BREAK
+*** group challenge: the NYPL API
+Walk them through the authentication process. 
+
+Challenge: use the search path, and figure out a way to get more
+information about the individual objects in the search path results.
+
+*** discuss artivism article
+
+What is "data artivism"?
+- works that mobilize art and craft as tools of social contestation
+  and (de)construction and as methods to engage with and visualize
+  data
+- not just about making things accessible that weren't before, not
+  about representation through presence. But about changing /how/ we
+  see things. 
+
+Buidling on concept of "counterdata"
+
+#+begin_quote
+The production of “counterdata” (D’Ignazio and Klein, 2020) on
+feminicide—a careful practice that involves researching, recording,
+and remembering the lives of women lost to violence (D’Ignazio et al.,
+2022)—has been a key practice for activists to visibilizar the issue.
+With their data, activists hope to move society from silence and
+indifference to outrage and action (Suárez Val, 2021). They also aim
+to contest the hegemonic visuality of feminicide: “an aesthetic order
+[…] made up of structures of visibility and invisibility that classify
+and separate individuals into grievable, political lives and
+culturally objectified lives” (Blaagaard, 2019: 253) that is dominated
+by often glamorized mainstream representations of violence against
+women, such as crime shows or news coverage.
+#+end_quote
+
+The point of amassing this data is not only to make what is not often
+visualized more visible, but to also change the kind of visiblity that
+a topic usually gets: with gender-based violence, we have a lot of
+gratuitous representations in movies, the battered woman, for example,
+we also have crime shows.
+
+There's an example of a visualization project, "No estamos todas",
+that doesn't just enumerate the number of deaths, but to remember them
+by their beauty. They "create an illustration for each woman to
+remember her in life, not as another crime statistic."
+
+A possibility for your project, thinking about using your project for
+taking data and maybe presenting it in another way. 
+
+This kind of "data artivism" wants to represent data, differently to
+move people to action instead of just spectating.
+
+** week 9: api presentations
+
+*** APIs
+- Pokemon API
+- Met API
+- openweather API
+- Flickr API
+- Spotify API
+- Fruit API
+- transgender media archive
+- USDA foundation foods API
+
+Use the input function to build an algorithm. 
+
+** week 10: cleaning
+
+Prepared a lesson on cleaning with pure python, then chatgpt, then
+openrefine, using the cleaning notebook.
+
+They were interested in how I scraped the data. So a prologue on that
+for next semester. 
+
+** week 12: analysis and visualization
+
+Introduction to pandas
+- viewing data
+  - info(), head(), tail(), shape, columns, describe()
+  - selecting column syntax
+  - .values()
+  - slicing rows
+- sorting data
+  - value_counts('title') # department, artist display name
+  - sort_values('accessionYear')
+- filtering data
+  - df['title'] == 'Woman'
+    - creates series of booleans
+  - woman = df['title'] == 'Woman'
+    - creates new dataframe, df[woman]
+  - highlights = df['isHighlight'] == 1.0
+    - by boolean condition
+  - df[highlights].info()
+  - courbet = df['artistDisplayName'].str.contains('Courbet',
+    na=False)
+    - using str.contains
+  - df[courbet]['title']
+
+
+Intermediate pandas
+- sorting values
+  - df.sort_values('Bill Type', inplace=True)
+  - see "pandas.DataFrame.sort_values" in docs to understand other
+    parameters
+  - sorted = df.sort_values(['Bill Type', 'State'])
+    - can sort by multiple values, create new df. 
+- filtering by values
+  - Which states have the most book bans?
+    - df['Bill Type'] == 'Book Ban'
+    - books = df['Bill Type'] == 'Book Ban'
+      - df[books]
+    - df[books].value_counts('State')
+  - ~str.contains~: filtering by words 
+    - df['Bill Type'].str.contains('Bathroom')
+    - bathrooms = df['Bill Type'].str.contains('Bathroom')
+    - df[bathrooms].info()
+    - df[bathrooms].value_counts('State')
+
+- plotting data
+  - df.plot(kind='bar')
+
+  - df.value_counts('Bill Type').plot(kind='bar')
+
+  - adding nlargest(10)
+
+    - df.value_counts('Bill Type').nlargest(10).plot(kind='bar')
+
+  - df.value_counts('Bill Type').nlargest(10).plot(kind='barh',
+    xlabel='Number of Bills', title='Most Frequent Categories for
+    Anti-Trans Bills') 
+
+  - df.value_counts('Bill Type').plot(kind='pie')
+
+** week 13: text generation with transformers
+Agenda:
+- introduction to the huggingface platform
+  - models hub
+  - datasets hub
+- introduction to running inference
+  - installations
+  - importing a model
+  - piping in the input
+  - parsing the output
+- running inference from a d

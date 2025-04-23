@@ -24,13 +24,11 @@ does just by looking at the name.
     model to put into practice the Transformer architecture.
 
 Then, filter results by "most liked":
-  - click on [Stable Diffusion](https://huggingface.co/runwayml/stable-diffusion-v1-5)
+  - click on [~Stable Diffusion~](https://huggingface.co/runwayml/stable-diffusion-v1-5) [stable-diffusion-3.5-medium ](https://huggingface.co/stabilityai/stable-diffusion-3.5-medium)
     - on each model, you can see the model details at the top of the
       page (keywords, size, papers)
-    - the inference on the right. Because this is a large model, we
-      will enter a prompt now.
-      - You can run these models (what we call "inference") directly
-        on the HF website. Which is amazing.
+    - the inference on the right. "Inference" means you give it a prompt, and it generates a response.
+        - you used to do this without limits and on all the models, now it's hard to find one that will allow you. 
     - the model card in the main section.
       - explanation of model, code to use it, attributions, licensing,
         instructions for ethical use, "limitations and biases"
@@ -55,8 +53,7 @@ Go back to the search, and type `gpt-neo-125`.
     - the model is totally open to download and modify as you wish,
       even for commercial purposes.
 
-practice running inference here for a few mintues. Anything that you
-notice about the results?
+Practice running inference here for a few minutes. Anything that you notice about the results?
 - it's repetitive. A problem caused by the traits of our
             language itself.
 - it generates words that have the highest likelihood. The words that

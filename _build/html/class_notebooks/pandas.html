@@ -1,0 +1,1738 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Python for Programming Cultural Heritage</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'class_notebooks/pandas';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Python for Programming Cultural Heritage - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Python for Programming Cultural Heritage - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python for Programming Cultural Heritage
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gathering/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/what.html">what is web scraping?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/to-dataframe.html">saving scraped data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/dicts.html">dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/met_api.html">The MET API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/nyt_api.html">NYT API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/legiscan_api.html">Legiscan API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/karol.html">Genius API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/cleaning/cleaning.html">cleaning our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/pandas.html">introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/pandas_2.html">visualizing data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/generating/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/generating/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyzing/generating/fine-tune.html">fine-tuning</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">publishing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../publish/github.html">introduction to github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publish/git.html">introduction to git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publish/jekyll.html">publishing a static site</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fclass_notebooks/pandas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/class_notebooks/pandas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>conda<span class="w"> </span>install<span class="w"> </span>pandas
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Channels:
+ - defaults
+ - conda-forge
+Platform: osx-arm64
+Collecting package metadata (repodata.json): - 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+Solving environment: / 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># All requested packages already installed.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://bit.ly/664-met-woman&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 500 entries, 0 to 499
+Data columns (total 59 columns):
+ #   Column                 Non-Null Count  Dtype  
+---  ------                 --------------  -----  
+ 0   Unnamed: 0             500 non-null    int64  
+ 1   objectID               492 non-null    float64
+ 2   isHighlight            492 non-null    float64
+ 3   accessionNumber        492 non-null    object 
+ 4   accessionYear          489 non-null    float64
+ 5   isPublicDomain         492 non-null    float64
+ 6   primaryImage           415 non-null    object 
+ 7   primaryImageSmall      415 non-null    object 
+ 8   additionalImages       492 non-null    object 
+ 9   constituents           129 non-null    object 
+ 10  department             492 non-null    object 
+ 11  objectName             491 non-null    object 
+ 12  title                  492 non-null    object 
+ 13  culture                283 non-null    object 
+ 14  period                 348 non-null    object 
+ 15  dynasty                66 non-null     object 
+ 16  reign                  26 non-null     object 
+ 17  portfolio              0 non-null      float64
+ 18  artistRole             129 non-null    object 
+ 19  artistPrefix           7 non-null      object 
+ 20  artistDisplayName      129 non-null    object 
+ 21  artistDisplayBio       122 non-null    object 
+ 22  artistSuffix           1 non-null      object 
+ 23  artistAlphaSort        129 non-null    object 
+ 24  artistNationality      120 non-null    object 
+ 25  artistBeginDate        123 non-null    object 
+ 26  artistEndDate          123 non-null    object 
+ 27  artistGender           11 non-null     object 
+ 28  artistWikidata_URL     118 non-null    object 
+ 29  artistULAN_URL         120 non-null    object 
+ 30  objectDate             491 non-null    object 
+ 31  objectBeginDate        492 non-null    float64
+ 32  objectEndDate          492 non-null    float64
+ 33  medium                 492 non-null    object 
+ 34  dimensions             492 non-null    object 
+ 35  measurements           456 non-null    object 
+ 36  creditLine             492 non-null    object 
+ 37  geographyType          99 non-null     object 
+ 38  city                   7 non-null      object 
+ 39  state                  2 non-null      object 
+ 40  county                 0 non-null      float64
+ 41  country                88 non-null     object 
+ 42  region                 38 non-null     object 
+ 43  subregion              38 non-null     object 
+ 44  locale                 23 non-null     object 
+ 45  locus                  13 non-null     object 
+ 46  excavation             26 non-null     object 
+ 47  river                  0 non-null      float64
+ 48  classification         394 non-null    object 
+ 49  rightsAndReproduction  26 non-null     object 
+ 50  linkResource           0 non-null      float64
+ 51  metadataDate           492 non-null    object 
+ 52  repository             492 non-null    object 
+ 53  objectURL              492 non-null    object 
+ 54  tags                   422 non-null    object 
+ 55  objectWikidata_URL     458 non-null    object 
+ 56  isTimelineWork         492 non-null    float64
+ 57  GalleryNumber          443 non-null    object 
+ 58  message                8 non-null      object 
+dtypes: float64(11), int64(1), object(47)
+memory usage: 230.6+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(500, 59)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Unnamed: 0&#39;, &#39;objectID&#39;, &#39;isHighlight&#39;, &#39;accessionNumber&#39;,
+       &#39;accessionYear&#39;, &#39;isPublicDomain&#39;, &#39;primaryImage&#39;, &#39;primaryImageSmall&#39;,
+       &#39;additionalImages&#39;, &#39;constituents&#39;, &#39;department&#39;, &#39;objectName&#39;, &#39;title&#39;,
+       &#39;culture&#39;, &#39;period&#39;, &#39;dynasty&#39;, &#39;reign&#39;, &#39;portfolio&#39;, &#39;artistRole&#39;,
+       &#39;artistPrefix&#39;, &#39;artistDisplayName&#39;, &#39;artistDisplayBio&#39;, &#39;artistSuffix&#39;,
+       &#39;artistAlphaSort&#39;, &#39;artistNationality&#39;, &#39;artistBeginDate&#39;,
+       &#39;artistEndDate&#39;, &#39;artistGender&#39;, &#39;artistWikidata_URL&#39;, &#39;artistULAN_URL&#39;,
+       &#39;objectDate&#39;, &#39;objectBeginDate&#39;, &#39;objectEndDate&#39;, &#39;medium&#39;,
+       &#39;dimensions&#39;, &#39;measurements&#39;, &#39;creditLine&#39;, &#39;geographyType&#39;, &#39;city&#39;,
+       &#39;state&#39;, &#39;county&#39;, &#39;country&#39;, &#39;region&#39;, &#39;subregion&#39;, &#39;locale&#39;, &#39;locus&#39;,
+       &#39;excavation&#39;, &#39;river&#39;, &#39;classification&#39;, &#39;rightsAndReproduction&#39;,
+       &#39;linkResource&#39;, &#39;metadataDate&#39;, &#39;repository&#39;, &#39;objectURL&#39;, &#39;tags&#39;,
+       &#39;objectWikidata_URL&#39;, &#39;isTimelineWork&#39;, &#39;GalleryNumber&#39;, &#39;message&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                                                  Woman
+1                                                  Woman
+2                        Terracotta lekythos (oil flask)
+3                                                  Woman
+4                                                  Woman
+                             ...                        
+495                          Abduction of a Sabine Woman
+496                Susannah and the Elders before Daniel
+497    Terracotta alabastron (perfume vase) in the fo...
+498                                            Sa Amulet
+499                                      The Thrown Kiss
+Name: title, Length: 500, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">495</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;objectURL&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://www.metmuseum.org/art/collection/search/202972&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;artistDisplayName&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                        Willem de Kooning
+1      Royal Porcelain Manufactory, Naples
+2                            Woman Painter
+3                                  Man Ray
+4                        Willem de Kooning
+                      ...                 
+495                            Giambologna
+496                       Pomponio Amalteo
+497                                    NaN
+498                                    NaN
+499                    Meissen Manufactory
+Name: artistDisplayName, Length: 500, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([nan, nan, nan, nan, nan, nan, nan, nan, nan, &#39;Mali&#39;, nan, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+       &#39;Egypt&#39;, &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+       nan, nan, nan, nan, &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan, nan,
+       &#39;Egypt&#39;, &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+       &#39;France&#39;, nan, nan, &#39;Turkey&#39;, nan, nan, &#39;Byzantine Egypt&#39;, &#39;Egypt&#39;,
+       nan, nan, &#39;Egypt&#39;, nan, nan, &#39;Egypt&#39;, nan, &#39;Egypt&#39;, &#39;Egypt&#39;, nan,
+       nan, nan, nan, nan, nan, &#39;Egypt&#39;, nan, nan, &#39;Egypt&#39;, &#39;Egypt&#39;, nan,
+       &#39;Egypt&#39;, &#39;Egypt&#39;, nan, &#39;Egypt&#39;, &#39;Egypt&#39;, nan, &#39;Egypt&#39;, nan,
+       &#39;Egypt&#39;, &#39;Egypt&#39;, &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, &#39;German&#39;, nan,
+       nan, &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan, &#39;Iran&#39;, nan, nan, nan,
+       nan, nan, nan, nan, nan, &#39;Egypt&#39;, nan, nan, &#39;Egypt&#39;, nan, nan,
+       &#39;Egypt&#39;, nan, nan, nan, nan, &#39;Egypt&#39;, nan, nan, &#39;Egypt&#39;, &#39;Egypt&#39;,
+       &#39;Egypt&#39;, nan, &#39;Egypt&#39;, nan, &#39;Egypt&#39;, nan, nan, &#39;Egypt&#39;, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, &#39;Egypt&#39;, &#39;Egypt&#39;,
+       nan, nan, nan, &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+       &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+       &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan, &#39;Egypt&#39;, &#39;Egypt&#39;, nan,
+       &#39;France&#39;, nan, &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan, &#39;Egypt&#39;, nan,
+       nan, nan, &#39;Egypt&#39;, &#39;Egypt&#39;, &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan,
+       nan, &#39;Egypt&#39;, nan, &#39;Egypt&#39;, nan, nan, &#39;Egypt&#39;, &#39;Egypt&#39;, &#39;Egypt&#39;,
+       &#39;Egypt&#39;, &#39;Egypt&#39;, nan, nan, &#39;Egypt&#39;, &#39;Egypt&#39;, &#39;Egypt&#39;, nan, nan,
+       nan, &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, &#39;Egypt&#39;,
+       nan, nan, &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+       nan, nan, &#39;Egypt&#39;, &#39;Egypt&#39;, &#39;Egypt&#39;, &#39;Egypt&#39;, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+       nan, &#39;Egypt&#39;, &#39;Egypt&#39;, nan, &#39;Egypt&#39;, &#39;Egypt&#39;, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, &#39;Egypt&#39;, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, &#39;Egypt&#39;, &#39;Egypt&#39;, nan, nan,
+       &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, &#39;Italy&#39;, nan, nan, nan, nan, nan, nan,
+       nan, nan, nan, &#39;United States&#39;, nan, nan, nan, nan, &#39;Iran&#39;,
+       &#39;Egypt&#39;, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, &#39;Egypt&#39;,
+       nan, nan, &#39;Egypt&#39;, nan, nan, nan, &#39;Egypt&#39;, nan, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, &#39;Egypt&#39;, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+       nan, nan, nan, nan, &#39;Egypt&#39;, &#39;Egypt&#39;, nan, nan, nan, nan, &#39;Egypt&#39;,
+       nan], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .info(), .head(), .tail(), columns, shape</span>
+<span class="c1"># .values(), .iloc(), slicing rows</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sorting values and counting values</span>
+<span class="c1"># .value_counts(), sort_values()</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;artistDisplayName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>artistDisplayName
+Edgar Degas                                       14
+Imperial Porcelain Manufactory, St. Petersburg     8
+Pablo Picasso                                      7
+Willem de Kooning                                  3
+Joan Miró                                          3
+                                                  ..
+Berthe Morisot                                     1
+Antoine Watteau                                    1
+Orazio Borgianni                                   1
+Georges Braque                                     1
+Pomponio Amalteo                                   1
+Name: count, Length: 90, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>title
+Terracotta statuette of a woman               31
+Woman                                         20
+Terracotta head of a woman                    18
+Terracotta statuette of a draped woman         9
+Portrait of a Woman                            9
+                                              ..
+Chair for a Woman                              1
+Relief Fragment Depicting a Kneeling Woman     1
+Statuette of a woman ?                         1
+Terracotta seated veiled woman                 1
+The Thrown Kiss                                1
+Name: count, Length: 332, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>89                               A Goldsmith in his Shop
+122                                        A Royal Woman
+286                                      A Woman Ironing
+274                                      A Woman Reading
+35     A Woman Seated beside a Vase of Flowers (Madam...
+                             ...                        
+24                                                   NaN
+353                                                  NaN
+356                                                  NaN
+427                                                  NaN
+472                                                  NaN
+Name: title, Length: 500, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Unnamed: 0&#39;, &#39;objectID&#39;, &#39;isHighlight&#39;, &#39;accessionNumber&#39;,
+       &#39;accessionYear&#39;, &#39;isPublicDomain&#39;, &#39;primaryImage&#39;, &#39;primaryImageSmall&#39;,
+       &#39;additionalImages&#39;, &#39;constituents&#39;, &#39;department&#39;, &#39;objectName&#39;, &#39;title&#39;,
+       &#39;culture&#39;, &#39;period&#39;, &#39;dynasty&#39;, &#39;reign&#39;, &#39;portfolio&#39;, &#39;artistRole&#39;,
+       &#39;artistPrefix&#39;, &#39;artistDisplayName&#39;, &#39;artistDisplayBio&#39;, &#39;artistSuffix&#39;,
+       &#39;artistAlphaSort&#39;, &#39;artistNationality&#39;, &#39;artistBeginDate&#39;,
+       &#39;artistEndDate&#39;, &#39;artistGender&#39;, &#39;artistWikidata_URL&#39;, &#39;artistULAN_URL&#39;,
+       &#39;objectDate&#39;, &#39;objectBeginDate&#39;, &#39;objectEndDate&#39;, &#39;medium&#39;,
+       &#39;dimensions&#39;, &#39;measurements&#39;, &#39;creditLine&#39;, &#39;geographyType&#39;, &#39;city&#39;,
+       &#39;state&#39;, &#39;county&#39;, &#39;country&#39;, &#39;region&#39;, &#39;subregion&#39;, &#39;locale&#39;, &#39;locus&#39;,
+       &#39;excavation&#39;, &#39;river&#39;, &#39;classification&#39;, &#39;rightsAndReproduction&#39;,
+       &#39;linkResource&#39;, &#39;metadataDate&#39;, &#39;repository&#39;, &#39;objectURL&#39;, &#39;tags&#39;,
+       &#39;objectWikidata_URL&#39;, &#39;isTimelineWork&#39;, &#39;GalleryNumber&#39;, &#39;message&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;accessionYear&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>467    1871.0
+110    1874.0
+341    1874.0
+217    1874.0
+334    1874.0
+        ...  
+353       NaN
+356       NaN
+367       NaN
+427       NaN
+472       NaN
+Name: accessionYear, Length: 500, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;accessionYear&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>467    1871.0
+110    1874.0
+341    1874.0
+217    1874.0
+334    1874.0
+        ...  
+353       NaN
+356       NaN
+367       NaN
+427       NaN
+472       NaN
+Name: accessionYear, Length: 500, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">by_year</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;accessionYear&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">by_year</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 500 entries, 467 to 472
+Data columns (total 59 columns):
+ #   Column                 Non-Null Count  Dtype  
+---  ------                 --------------  -----  
+ 0   Unnamed: 0             500 non-null    int64  
+ 1   objectID               492 non-null    float64
+ 2   isHighlight            492 non-null    float64
+ 3   accessionNumber        492 non-null    object 
+ 4   accessionYear          489 non-null    float64
+ 5   isPublicDomain         492 non-null    float64
+ 6   primaryImage           415 non-null    object 
+ 7   primaryImageSmall      415 non-null    object 
+ 8   additionalImages       492 non-null    object 
+ 9   constituents           129 non-null    object 
+ 10  department             492 non-null    object 
+ 11  objectName             491 non-null    object 
+ 12  title                  492 non-null    object 
+ 13  culture                283 non-null    object 
+ 14  period                 348 non-null    object 
+ 15  dynasty                66 non-null     object 
+ 16  reign                  26 non-null     object 
+ 17  portfolio              0 non-null      float64
+ 18  artistRole             129 non-null    object 
+ 19  artistPrefix           7 non-null      object 
+ 20  artistDisplayName      129 non-null    object 
+ 21  artistDisplayBio       122 non-null    object 
+ 22  artistSuffix           1 non-null      object 
+ 23  artistAlphaSort        129 non-null    object 
+ 24  artistNationality      120 non-null    object 
+ 25  artistBeginDate        123 non-null    object 
+ 26  artistEndDate          123 non-null    object 
+ 27  artistGender           11 non-null     object 
+ 28  artistWikidata_URL     118 non-null    object 
+ 29  artistULAN_URL         120 non-null    object 
+ 30  objectDate             491 non-null    object 
+ 31  objectBeginDate        492 non-null    float64
+ 32  objectEndDate          492 non-null    float64
+ 33  medium                 492 non-null    object 
+ 34  dimensions             492 non-null    object 
+ 35  measurements           456 non-null    object 
+ 36  creditLine             492 non-null    object 
+ 37  geographyType          99 non-null     object 
+ 38  city                   7 non-null      object 
+ 39  state                  2 non-null      object 
+ 40  county                 0 non-null      float64
+ 41  country                88 non-null     object 
+ 42  region                 38 non-null     object 
+ 43  subregion              38 non-null     object 
+ 44  locale                 23 non-null     object 
+ 45  locus                  13 non-null     object 
+ 46  excavation             26 non-null     object 
+ 47  river                  0 non-null      float64
+ 48  classification         394 non-null    object 
+ 49  rightsAndReproduction  26 non-null     object 
+ 50  linkResource           0 non-null      float64
+ 51  metadataDate           492 non-null    object 
+ 52  repository             492 non-null    object 
+ 53  objectURL              492 non-null    object 
+ 54  tags                   422 non-null    object 
+ 55  objectWikidata_URL     458 non-null    object 
+ 56  isTimelineWork         492 non-null    float64
+ 57  GalleryNumber          443 non-null    object 
+ 58  message                8 non-null      object 
+dtypes: float64(11), int64(1), object(47)
+memory usage: 234.4+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">highlights</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;isHighlight&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">highlights</span><span class="p">]</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 37 entries, 22 to 461
+Data columns (total 59 columns):
+ #   Column                 Non-Null Count  Dtype  
+---  ------                 --------------  -----  
+ 0   Unnamed: 0             37 non-null     int64  
+ 1   objectID               37 non-null     float64
+ 2   isHighlight            37 non-null     float64
+ 3   accessionNumber        37 non-null     object 
+ 4   accessionYear          37 non-null     float64
+ 5   isPublicDomain         37 non-null     float64
+ 6   primaryImage           29 non-null     object 
+ 7   primaryImageSmall      29 non-null     object 
+ 8   additionalImages       37 non-null     object 
+ 9   constituents           19 non-null     object 
+ 10  department             37 non-null     object 
+ 11  objectName             37 non-null     object 
+ 12  title                  37 non-null     object 
+ 13  culture                14 non-null     object 
+ 14  period                 18 non-null     object 
+ 15  dynasty                4 non-null      object 
+ 16  reign                  4 non-null      object 
+ 17  portfolio              0 non-null      float64
+ 18  artistRole             19 non-null     object 
+ 19  artistPrefix           1 non-null      object 
+ 20  artistDisplayName      19 non-null     object 
+ 21  artistDisplayBio       18 non-null     object 
+ 22  artistSuffix           0 non-null      object 
+ 23  artistAlphaSort        19 non-null     object 
+ 24  artistNationality      18 non-null     object 
+ 25  artistBeginDate        18 non-null     object 
+ 26  artistEndDate          18 non-null     object 
+ 27  artistGender           7 non-null      object 
+ 28  artistWikidata_URL     18 non-null     object 
+ 29  artistULAN_URL         18 non-null     object 
+ 30  objectDate             37 non-null     object 
+ 31  objectBeginDate        37 non-null     float64
+ 32  objectEndDate          37 non-null     float64
+ 33  medium                 37 non-null     object 
+ 34  dimensions             37 non-null     object 
+ 35  measurements           37 non-null     object 
+ 36  creditLine             37 non-null     object 
+ 37  geographyType          7 non-null      object 
+ 38  city                   1 non-null      object 
+ 39  state                  0 non-null      object 
+ 40  county                 0 non-null      float64
+ 41  country                5 non-null      object 
+ 42  region                 4 non-null      object 
+ 43  subregion              4 non-null      object 
+ 44  locale                 2 non-null      object 
+ 45  locus                  1 non-null      object 
+ 46  excavation             2 non-null      object 
+ 47  river                  0 non-null      float64
+ 48  classification         31 non-null     object 
+ 49  rightsAndReproduction  5 non-null      object 
+ 50  linkResource           0 non-null      float64
+ 51  metadataDate           37 non-null     object 
+ 52  repository             37 non-null     object 
+ 53  objectURL              37 non-null     object 
+ 54  tags                   36 non-null     object 
+ 55  objectWikidata_URL     34 non-null     object 
+ 56  isTimelineWork         37 non-null     float64
+ 57  GalleryNumber          28 non-null     object 
+ 58  message                0 non-null      object 
+dtypes: float64(11), int64(1), object(47)
+memory usage: 17.3+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">461</span><span class="p">][</span><span class="s1">&#39;objectURL&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://www.metmuseum.org/art/collection/search/271716&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .str.contains()</span>
+
+<span class="n">courbet</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;artistDisplayName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Courbet&#39;</span><span class="p">,</span> <span class="n">na</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write a str.contains statement to check if the title has a specific word</span>
+<span class="c1"># create a new dataframe from the results</span>
+
+<span class="n">old</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;old&#39;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">old</span><span class="p">][</span><span class="s1">&#39;objectURL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://www.metmuseum.org/art/collection/search/548584&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">old</span><span class="p">][</span><span class="s1">&#39;objectURL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://www.metmuseum.org/art/collection/search/248132&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://bit.ly/anti-trans-tracker-csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 674 entries, 0 to 673
+Data columns (total 19 columns):
+ #   Column                        Non-Null Count  Dtype  
+---  ------                        --------------  -----  
+ 0   State                         674 non-null    object 
+ 1   Number                        674 non-null    object 
+ 2   Summary                       673 non-null    object 
+ 3   Bill Type                     674 non-null    object 
+ 4   Date                          674 non-null    object 
+ 5   Status                        674 non-null    object 
+ 6   Youth State Risk              674 non-null    object 
+ 7   Adult State Risk              674 non-null    object 
+ 8   Notes                         365 non-null    object 
+ 9   URL                           674 non-null    object 
+ 10  Sponsors                      530 non-null    object 
+ 11  Calendar                      255 non-null    object 
+ 12  History                       526 non-null    object 
+ 13  Manual Status                 626 non-null    object 
+ 14  Change Hash                   527 non-null    object 
+ 15  Bill ID                       527 non-null    float64
+ 16  PDF                           527 non-null    object 
+ 17  Bill Analysis (AI Automated)  4 non-null      object 
+ 18  Bill PDF                      508 non-null    object 
+dtypes: float64(1), object(18)
+memory usage: 100.2+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Bill Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bill Type
+Online Obscenity Law                                          86
+Gender Affirming Care Ban                                     61
+Book Ban                                                      51
+Sports Ban                                                    43
+DEI Ban                                                       40
+                                                              ..
+Forced Outing By Schools/ Trans Bathroom Ban                   1
+Trans Bathroom Ban/ Sports Ban                                 1
+Anti-Journalism                                                1
+Gender Affirming Care Ban/ Sports Ban / Child Custody Bill     1
+Book Ban / Legal Discrimination in Education / Obscenity       1
+Name: count, Length: 83, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Bill Type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Book Ban&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      False
+1       True
+2      False
+3      False
+4      False
+       ...  
+669     True
+670    False
+671    False
+672    False
+673    False
+Name: Bill Type, Length: 674, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Bill Type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Book Ban&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">bans</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;State&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/fe3bad20ffa59c7afbae5313c607e3c069c0c54914760591fd0a1c5102d26770.png" src="../_images/fe3bad20ffa59c7afbae5313c607e3c069c0c54914760591fd0a1c5102d26770.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../_images/bd003b889a7343c41576eb10ebed76d2b78c29d86bcdfc399bc2125b5567ed99.png" src="../_images/bd003b889a7343c41576eb10ebed76d2b78c29d86bcdfc399bc2125b5567ed99.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;pie&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/6e67bf3e9ed5ef8d4c2d54134d76515d4a5731bdde93c927e46451bcb9b2e225.png" src="../_images/6e67bf3e9ed5ef8d4c2d54134d76515d4a5731bdde93c927e46451bcb9b2e225.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Bill Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;End Legal Recognition&#39;, &#39;Book Ban&#39;, &quot;Don&#39;t Say Gay Expansion&quot;,
+       &#39;Online Obscenity Law&#39;, &#39;Online Obscenity Law&#39;, &#39;Drag Ban&#39;,
+       &#39;Book Ban&#39;, &#39;DEI Ban / Trans Bathroom Ban&#39;, &#39;Pride Flag Ban&#39;,
+       &#39;End Legal Recognition&#39;,
+       &quot;Don&#39;t Say Gay / Forced Outing By Schools&quot;,
+       &#39;Ban on Public Investment in ESG Funds&#39;, &#39;Sports Ban&#39;,
+       &#39;Liability Law/Backdoor Ban&#39;,
+       &quot;Don&#39;t Say Gay / Forced Outing By Schools / Trans Bathroom Ban&quot;,
+       &#39;Online Obscenity Law&#39;, &#39;End Legal Recognition&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Legal Discrimination in Education&#39;,
+       &quot;Don&#39;t Say Gay / Forced Outing By Schools&quot;, &#39;Online Obscenity Law&#39;,
+       &#39;DEI Ban&#39;, &#39;Online Obscenity Law&#39;, &#39;Forced Outing By Schools&#39;,
+       &#39;Social Credit Score&#39;, &#39;Trans Bathroom Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Social Credit Score&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Legal Discrimination in Healthcare&#39;,
+       &#39;End Legal Recognition&#39;,
+       &#39;Trans Bathroom Ban / Forced Outing By Schools / Pronoun Ban&#39;,
+       &#39;Forced Outing By Schools&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Book Ban&#39;, &#39;Forced Outing By Schools&#39;, &#39;Sports Ban&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Online Obscenity Law&#39;, &#39;Pronoun Ban&#39;,
+       &#39;Pride Flag Ban&#39;, &#39;Legal Discrimination in Education&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;LGBTQ &quot;Grooming&quot; Bill&#39;,
+       &#39;End Legal Recognition&#39;, &#39;Prison Placement Ban&#39;,
+       &#39;End Legal Recognition&#39;, &#39;Trans Child Abuse&#39;, &quot;Don&#39;t Say Gay&quot;,
+       &quot;Don&#39;t Say Gay&quot;, &#39;Online Obscenity Law&#39;, &#39;Pride Flag Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;LGBTQ &quot;Grooming&quot; Bill&#39;,
+       &#39;Prison Placement Ban&#39;, &#39;Pronoun Ban&#39;,
+       &#39;Anti-LGBTQ+ Law Enforcement Bill&#39;, &#39;Trans Child Abuse&#39;,
+       &#39;Legal Discrimination in Education&#39;, &#39;Anti-Journalism&#39;,
+       &#39;Online Obscenity Law&#39;, &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Omnibus Anti-trans Bill&#39;, &#39;End Legal Recognition&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Social Credit Score&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Trans Bathroom Ban&#39;, &#39;Drag Ban&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Trans Bathroom Ban&#39;, &#39;Book Ban&#39;, &#39;Religious Exemption&#39;,
+       &#39;Forced Outing By Schools&#39;, &#39;Book Ban&#39;, &#39;Sports Ban&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &quot;Don&#39;t Say Gay&quot;,
+       &#39;Forced Outing By Schools&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;, &#39;Sports Ban&#39;,
+       &#39;Child Custody Bill&#39;, &#39;Sports Ban&#39;, &#39;Sports Ban&#39;,
+       &#39;Birth Certificate Change Ban&#39;, &#39;Sports Ban&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Gender Affirming Care Ban&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;, &#39;Sports Ban&#39;, &#39;Book Ban&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;End Legal Recognition&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &quot;Don&#39;t Say Gay&quot;,
+       &#39;Social Credit Score&#39;, &quot;Don&#39;t Say Gay&quot;, &#39;Religious Exemption&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Social Credit Score&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;, &#39;Book Ban&#39;,
+       &#39;Straight Pride Month Resolution&#39;,
+       &#39;Straight Pride Month Resolution&#39;, &#39;Book Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;DEI Ban&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Book Ban&#39;, &#39;Religious Exemption&#39;, &#39;DEI Ban&#39;, &#39;Pride Flag Ban&#39;,
+       &#39;Sports Ban&#39;, &#39;Online Obscenity Law&#39;, &#39;Trans Surveillance Bill&#39;,
+       &#39;End Legal Recognition&#39;, &#39;Broad Discrimination&#39;,
+       &#39;Legal Discrimination in Education&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Book Ban&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;, &#39;End Legal Recognition&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Prison Placement Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Social Credit Score&#39;,
+       &#39;Forced Outing By Schools&#39;, &#39;Religious Exemption&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;DEI Ban&#39;, &#39;Book Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Online Obscenity Law&#39;, &quot;Don&#39;t Say Gay&quot;,
+       &#39;End Legal Recognition&#39;, &#39;Online Obscenity Law&#39;, &#39;Pronoun Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;DEI Ban&#39;, &#39;End Legal Recognition&#39;,
+       &#39;Forced Outing By Schools&#39;, &#39;Social Credit Score&#39;,
+       &#39;Religious Exemption&#39;, &#39;Online Obscenity Law&#39;, &#39;DEI Ban&#39;,
+       &#39;DEI Ban&#39;, &#39;Religious Exemption&#39;, &#39;End Legal Recognition&#39;,
+       &#39;Trans Bathroom Ban&#39;, &#39;Religious Exemption&#39;,
+       &#39;Same-Sex Marriage Discrimination&#39;, &#39;Drag Ban&#39;, &quot;Don&#39;t Say Gay&quot;,
+       &#39;Online Obscenity Law&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Prison Placement Ban&#39;, &#39;Legal Discrimination in Healthcare&#39;,
+       &#39;DEI Ban&#39;, &#39;Legal Discrimination in Healthcare&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;, &#39;Prison Placement Ban&#39;,
+       &#39;Social Credit Score&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Anti-Boycotts Act&#39;, &#39;Legal Discrimination In Education&#39;,
+       &#39;Anti-Boycotts Act&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Drag Ban&#39;, &#39;Drag Ban&#39;,
+       &#39;Forced Misgendering&#39;, &#39;Anti-Boycotts Act&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Legal Discrimination In Education&#39;,
+       &#39;Ban on Public Investment in ESG Funds&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Book Ban&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Broad Discrimination&#39;, &#39;Anti-Boycotts Act&#39;, &#39;Book Ban&#39;,
+       &#39;Book Ban&#39;, &#39;Online Obscenity Law&#39;, &#39;Online Obscenity Law&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Gender Marker Change Ban / Birth Certificate Change Ban&#39;,
+       &#39;End Legal Recognition&#39;, &#39;Drag Ban&#39;, &#39;Social Credit Score&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Legal Discrimination in Healthcare&#39;,
+       &#39;Forced Outing By Schools&#39;, &#39;Federal Override&#39;,
+       &#39;Opt-Out LGBTQ Education&#39;, &#39;DEI Ban&#39;, &#39;Drag Ban&#39;,
+       &#39;Gender Affirming Care Ban / Trans Child Abuse&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;, &#39;Book Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;End Legal Recognition&#39;, &#39;DEI Ban&#39;,
+       &#39;DEI Ban&#39;, &#39;Pronoun Ban&#39;, &quot;Don&#39;t Say Gay&quot;, &#39;Book Ban&#39;, &#39;Book Ban&#39;,
+       &#39;End Legal Recognition/ Trans Bathroom Ban/ Prison Placement Ban&#39;,
+       &#39;Ban On Public Investment in ESG Funds&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Book Ban&#39;, &#39;Sports Ban&#39;, &#39;Book Ban&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Online Obscenity Law&#39;, &#39;Book Ban&#39;,
+       &#39;Sports Ban&#39;, &#39;Online Obscenity Law&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;, &#39;Prison Placement Ban&#39;,
+       &#39;Broad Discrimination&#39;, &#39;Hate Group Classification&#39;,
+       &#39;Religious Exemption&#39;,
+       &#39;Religious Exemption / Legal Discrimination in Education&#39;,
+       &#39;End Legal Recognition&#39;, &#39;Broad Discrimination&#39;,
+       &#39;Sports Ban/Gender Affirming Care Ban&#39;,
+       &#39;Hate Group Classification&#39;, &#39;Legal Discrimination in Education&#39;,
+       &#39;End Legal Recognition&#39;,
+       &#39;End Legal Recognition/ Trans Segregation Bill/ Trans Bathroom Ban&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;End Legal Recognition&#39;, &#39;Trans Bathroom Ban&#39;,
+       &#39;Trans Segregation Bill&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Forced Outing By Schools&#39;, &#39;End Legal Recognition&#39;,
+       &#39;End Legal Recognition&#39;, &#39;Forced Outing By Schools&#39;,
+       &#39;Broad Discrimination&#39;,
+       &#39;Trans Bathroom Bill / Trans Segregation Bill / Prison Placement Ban&#39;,
+       &#39;Book Ban&#39;, &#39;Legal Discrimination in Education&#39;,
+       &#39;End Legal Recognition&#39;,
+       &#39;Trans Bathroom Ban / End Legal Recognition&#39;,
+       &#39;Trans Bathroom Ban / End Legal Recognition&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Book Ban&#39;, &#39;Social Credit Score&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;, &#39;Online Obscenity Law&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;, &#39;Prison Placement Ban&#39;,
+       &#39;Trans Segregation Bill&#39;,
+       &#39;Trans Bathroom Ban / End Legal Recognition&#39;,
+       &#39;End Legal Recognition&#39;, &#39;Birth Certificate Change Ban&#39;,
+       &#39;End Legal Recognition&#39;,
+       &#39;Trans Bathroom Ban / End Legal Recognition&#39;,
+       &#39;Forced Misgendering&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Religious Exemption&#39;, &#39;Legal Discrimination in Healthcare&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Forced Outing By Schools&#39;,
+       &#39;Book Ban&#39;, &#39;Book Ban&#39;, &#39;Drag Ban&#39;, &#39;Trans Bathroom Ban&#39;,
+       &#39;Broad Discrimination&#39;, &#39;Anti-Boycotts Act&#39;,
+       &#39;Ban on Public Investment in ESG Funds&#39;, &#39;DEI Ban&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Same-Sex Marriage Discrimination&#39;, &#39;Drag Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Sports Ban&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Sports Ban&#39;, &#39;KOSA-Type Social Media Law&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;DEI Ban&#39;, &#39;Drag Ban&#39;,
+       &#39;Trans Bathroom Ban&#39;, &#39;End Legal Recognition&#39;,
+       &#39;Trans Bathroom Ban&#39;, &#39;Trans Bathroom Ban&#39;, &#39;DEI Ban&#39;, &#39;Book Ban&#39;,
+       &#39;Book Ban&#39;, &#39;DEI Ban&#39;, &#39;DEI Ban&#39;, &#39;DEI Ban&#39;, &#39;DEI Ban&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Social Transition Ban&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;, &#39;Anti-Boycotts Act&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;DEI Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Drag Ban&#39;, &#39;Same-Sex Marriage Discrimination&#39;, &#39;Sports Ban&#39;,
+       &#39;Pronoun Ban&#39;, &#39;Book Ban&#39;, &#39;Trans Bathroom Ban&#39;, &#39;DEI Ban&#39;,
+       &#39;Sports Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Gender Affirming Care Ban&#39;,
+       &#39;Forced Outing By Schools/ Trans Bathroom Ban&#39;, &#39;DEI Ban&#39;,
+       &#39;Gender Affirming Care Ban&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Opt-Out LGBTQ Education&#39;, &#39;Drag Ban&#39;, &#39;Book Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Trans Bathroom Ban&#39;, &#39;Anti-Boycotts Act&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Online Obscenity Law&#39;, &#39;DEI Ban&#39;,
+       &#39;Drag Ban&#39;, &#39;Book Ban&#39;, &#39;Trans Bathroom Ban/ Sports Ban&#39;,
+       &#39;Book Ban&#39;, &#39;Anti-Boycotts Act&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;, &#39;Forced Outing By Schools&#39;,
+       &#39;Forced Outing By Schools&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;, &#39;Sports Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Book Ban&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;, &#39;Forced Misgendering&#39;,
+       &#39;Book Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Liability Law/Backdoor Ban&#39;,
+       &#39;DEI Ban&#39;, &#39;Trans Bathroom Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Liability Law/Backdoor Ban&#39;, &#39;Forced Outing By Schools&#39;,
+       &#39;Sports Ban&#39;, &#39;Ban on Public Investment in ESG Funds&#39;, &#39;Book Ban&#39;,
+       &#39;Sports Ban&#39;, &#39;End Legal Recognition&#39;, &#39;Forced Outing By Schools&#39;,
+       &quot;Don&#39;t Say Gay&quot;, &#39;DEI Ban&#39;, &#39;Opt-Out LGBTQ Education&#39;,
+       &quot;Don&#39;t Say Gay&quot;, &#39;Sports Ban&#39;, &#39;Opt-Out LGBTQ Education&#39;,
+       &#39;Sports Ban&#39;, &#39;End Legal Recognition&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Forced Outing By Schools&#39;, &#39;Sports Ban&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;, &#39;Sports Ban&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;, &#39;Trans Bathroom Ban&#39;,
+       &#39;Drag Ban&#39;, &#39;End Legal Recognition&#39;, &#39;Broad Discrimination&#39;,
+       &#39;Book Ban / Legal Discrimination in Education / Obscenity&#39;,
+       &#39;Gender Affirming Care Ban/ Sports Ban / Child Custody Bill&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;, &#39;Sports Ban&#39;,
+       &#39;Trans Bathroom Ban&#39;, &#39;DEI Ban&#39;, &#39;Sports Ban&#39;,
+       &#39;End Legal Recognition&#39;, &quot;Don&#39;t Say Gay&quot;, &#39;Online Obscenity Law&#39;,
+       &#39;Bathroom Ban/Prison Placement Ban&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;DEI Ban&#39;, &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Legal Discrimination in Education&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Legal Discrimination in Healthcare&#39;, &#39;Pride Flag Ban&#39;,
+       &#39;Gender Marker Change Ban&#39;, &#39;Drag Ban/Book Ban&#39;,
+       &#39;Legal Discrimination in Education&#39;,
+       &#39;Birth Certificate Change Ban&#39;, &#39;DEI Ban&#39;, &#39;DEI Ban&#39;, &#39;DEI Ban&#39;,
+       &#39;End Legal Recognition&#39;, &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Religious Exemption&#39;, &#39;DEI Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;End Legal Recognition&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;End Legal Recognition&#39;, &#39;Pronoun Ban&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;, &#39;Gender Marker Change Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Online Obscenity Law&#39;, &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Book Ban&#39;, &#39;End Legal Recognition&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Sports Ban&#39;, &#39;Trans Bathroom Ban&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Legal Discrimination in Education&#39;, &#39;Child Custody Bill&#39;,
+       &#39;Child Custody Bill&#39;, &#39;Broad Discrimination&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;DEI Ban&#39;, &#39;Book Ban&#39;, &#39;Sports Ban&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Religious Exemption&#39;,
+       &#39;Religious Exemption&#39;, &#39;Sports Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Drag Ban&#39;, &#39;Trans Bathroom Ban&#39;,
+       &#39;Trans Bathroom Ban&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Gender Affirming Care Ban&#39;,
+       &#39;Gender Affirming Care Ban/ Forced Outing By Schools&#39;, &#39;Book Ban&#39;,
+       &#39;DEI Ban&#39;, &#39;Online Obscenity Law&#39;, &#39;Forced Outing By Schools&#39;,
+       &#39;Book Ban&#39;, &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Trans Bathroom Ban / Appropriations&#39;, &#39;Trans Bathroom Ban&#39;,
+       &#39;Trans Bathroom Ban&#39;, &#39;Book Ban&#39;, &#39;Drag Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Online Obscenity Law&#39;, &#39;Drag Ban&#39;,
+       &#39;Drag Ban&#39;, &#39;Broad Discrimination&#39;,
+       &#39;Same-Sex Marriage Discrimination&#39;,
+       &#39;Same-Sex Marriage Discrimination&#39;, &#39;Forced Outing By Schools&#39;,
+       &#39;Pride Flag Ban&#39;, &#39;Online Obscenity Law&#39;, &#39;Book Ban&#39;,
+       &#39;Legal Discrimination In Education&#39;, &#39;Book Ban&#39;, &#39;DEI Ban&#39;,
+       &#39;Trans Bathroom Ban&#39;, &#39;Same-Sex Marriage Discrimination&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Forced Outing By Schools&#39;, &#39;Child Custody Bill&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Social Credit Score&#39;, &#39;Trans Surveillance Bill&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;, &#39;Broad Discrimination&#39;,
+       &#39;Same-Sex Marriage Discrimination&#39;, &#39;Forced Outing By Schools&#39;,
+       &#39;Same-Sex Marriage Discrimination&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Pride Flag Ban&#39;, &#39;Child Custody Bill&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Forced Outing By Schools&#39;, &#39;Book Ban&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Book Ban&#39;, &#39;DEI Ban&#39;,
+       &#39;Trans Surveillance Bill&#39;, &#39;Social Credit Score&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;,
+       &#39;Legal Discrimination In Education&#39;,
+       &#39;Same-Sex Marriage Discrimination&#39;, &#39;Trans Bathroom Ban&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;DEI Ban&#39;, &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Appropriations / Pride Flag Ban&#39;,
+       &#39;Appropriations / Gender Affirming Care Ban / Drag Ban&#39;,
+       &#39;Appropriations&#39;, &#39;Appropriations / Gender Affirming Care Ban&#39;,
+       &#39;Appropriations / Gender Affirming Care Ban / Drag Ban / Pride Flag Ban&#39;,
+       &#39;Appropriations / Gender Affirming Care Ban / DEI Ban / End Legal Recognition / Prison Placement Ban&#39;,
+       &#39;Appropriations / Gender Affirming Care Ban / Sports Ban&#39;,
+       &#39;Drag Ban&#39;, &#39;Gender Affirming Care Ban&#39;, &#39;Trans Child Abuse&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Pronoun Ban&#39;, &#39;Child Custody Bill&#39;,
+       &#39;Sports Ban&#39;, &#39;Forced Outing by Schools&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Sports Ban&#39;,
+       &#39;KOSA-Type Social Media Law&#39;,
+       &#39;Appropriations / Gender Affirming Care Ban / Drag Ban / Book Ban&#39;,
+       &#39;Appropriations / Pride Flag Ban / Gender Affirming Care Ban / Same-Sex Marriage Discrimination / Religious Exemptions&#39;,
+       &#39;Appropriations / Gender Affirming Care Ban&#39;,
+       &#39;Appropriations / Gender Affirming Care Ban / Drag Ban / Pride Flag Ban&#39;,
+       &#39;Appropriations / Gender Affirming Care Ban / Drag Ban&#39;,
+       &#39;Appropriations / Gender Affirming Care Ban / Drag Ban / Pride Flag Ban&#39;,
+       &#39;Appropriations / DEI Ban / End Legal Recognition / Prison Placement Ban&#39;,
+       &#39;Appropriations / Gender Affirming Care Ban / bathroom ban / Child Custody Bill / Pride Flag Ban&#39;,
+       &#39;Sports Ban / Trans Bathroom Ban / End Legal Recognition&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Legal Discrimination in Healthcare&#39;,
+       &#39;Sports Ban / Legal Discrimination in Education&#39;,
+       &#39;Sports Ban / End Legal Recognition&#39;, &#39;Sports Ban&#39;,
+       &#39;KOSA-Type Social Media Law&#39;, &#39;KOSA-Type Social Media Law&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Pronoun Ban&#39;, &#39;Child Custody Bill&#39;,
+       &#39;Sports Ban&#39;, &#39;Appropriations / Gender Affirming Care Ban&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;,
+       &#39;Sports Ban / Legal Discrimination in Education&#39;, &#39;Sports Ban&#39;,
+       &#39;Book Ban&#39;, &#39;DEI Ban&#39;, &#39;Child Custody Bill&#39;, &#39;Sports Ban&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Trans Bathroom Ban&#39;,
+       &#39;Trans Bathroom Ban&#39;, &#39;DEI Ban&#39;, &#39;DEI Ban&#39;, &#39;Prison Placement Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;KOSA-Type Social Media Law&#39;,
+       &#39;Broad Discrimination&#39;,
+       &#39;Sports Ban / Legal Discrimination in Education&#39;,
+       &#39;Sports Ban / Legal Discrimination in Education&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Sports Ban&#39;, &#39;Sports Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Book Ban&#39;, &#39;Trans Bathroom Ban&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Legal Discrimination in Healthcare&#39;, &#39;End Legal Recognition&#39;,
+       &#39;Legal Discrimination in Healthcare&#39;, &#39;Forced Outing By Schools&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Sports Ban&#39;, &#39;Sports Ban&#39;,
+       &#39;End Legal Recognition&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Prison Placement Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &quot;Don&#39;t Say Gay&quot;, &#39;Forced Outing By Schools&#39;, &#39;Sports Ban&#39;,
+       &#39;Book Ban&#39;, &#39;Online Obscenity Law&#39;, &#39;Birth Certificate Change Ban&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;DEI Ban&#39;, &#39;Drag Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Pronoun Ban&#39;, &#39;Book Ban&#39;,
+       &#39;Trans Bathroom Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Legal Discrimination in Healthcare&#39;,
+       &#39;Religious Exemption&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Trans Child Abuse&#39;, &#39;Trans Bathroom Ban&#39;, &#39;End Legal Recognition&#39;,
+       &#39;Prison Placement Ban&#39;, &#39;Gender Affirming Care Ban&#39;, &#39;Book Ban&#39;,
+       &#39;Broad Discrimination&#39;, &#39;End Legal Recognition&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Forced Outing By Schools&#39;,
+       &quot;Don&#39;t Say Gay&quot;, &#39;Ban on Public Investment in ESG Funds&#39;,
+       &#39;Ban on Public Investment in ESG Funds&#39;, &#39;DEI Ban / Bathroom Ban&#39;,
+       &#39;Drag Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Drag Ban/LGBTQ &quot;Grooming&quot; Bill&#39;, &#39;Drag Ban/LGBTQ &quot;Grooming&quot; Bill&#39;,
+       &#39;Drag Ban&#39;, &#39;Drag Ban&#39;, &#39;Drag Ban&#39;, &#39;Drag Ban&#39;, &#39;Drag Ban&#39;,
+       &quot;Don&#39;t Say Gay&quot;, &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Gender Marker Change Ban&#39;, &#39;Legal Discrimination in Healthcare&#39;,
+       &#39;End Legal Recognition&#39;, &#39;Book Ban&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Online Obscenity Law&#39;,
+       &#39;DEI Ban/End Legal Recognition/Legal Discrimination in Education&#39;,
+       &#39;Sports Ban&#39;, &#39;Sports Ban&#39;, &#39;Prisons Placement Ban&#39;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Liability Law/Backdoor Ban&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Conversion Therapy Legalization&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;Online Obscenity Law&#39;, &#39;Sports Ban&#39;, &#39;Sports Ban&#39;,
+       &#39;Conversion Therapy Legalization&#39;, &#39;Prison Placement Ban&#39;,
+       &#39;Liability Law/Backdoor Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Conversion Therapy Legalization&#39;,
+       &#39;End Legal Recognition&#39;, &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &#39;Gender Affirming Care Ban&#39;, &#39;Book Ban&#39;, &#39;Online Obscenity Law&#39;,
+       &#39;Book Ban&#39;, &#39;Sports Ban&#39;, &#39;Child Custody Bill&#39;,
+       &#39;Religious Exemption&#39;, &quot;Don&#39;t Say Gay/Forced Outing By Schools&quot;,
+       &quot;Don&#39;t Say Gay&quot;, &#39;Book Ban&#39;, &#39;Pronoun Ban&#39;,
+       &#39;Liability Law/Backdoor Ban&#39;, &#39;Gender Affirming Care Ban&#39;,
+       &#39;DEI Ban&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edu</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Bill Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Education&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">edu</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;pie&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/61a97236e3ade48a4e00babab1def42a77e931a5b9e88f9bcfc36e6d1b59024b.png" src="../_images/61a97236e3ade48a4e00babab1def42a77e931a5b9e88f9bcfc36e6d1b59024b.png" />
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./class_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

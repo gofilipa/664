@@ -1012,7 +1012,7 @@ taking data and maybe presenting it in another way.
 This kind of "data artivism" wants to represent data, differently to
 move people to action instead of just spectating.
 
-** week 8: api presentations
+** week 9: api presentations
 
 *** APIs
 - Pokemon API
@@ -1026,7 +1026,7 @@ move people to action instead of just spectating.
 
 Use the input function to build an algorithm. 
 
-** week 9: cleaning
+** week 10: cleaning
 
 Prepared a lesson on cleaning with pure python, then chatgpt, then
 openrefine, using the cleaning notebook.
@@ -1034,7 +1034,7 @@ openrefine, using the cleaning notebook.
 They were interested in how I scraped the data. So a prologue on that
 for next semester. 
 
-** week 10: analysis and visualization
+** week 12: analysis and visualization
 
 Introduction to pandas
 - viewing data
@@ -1068,5 +1068,29 @@ Intermediate pandas
     - can sort by multiple values, create new df. 
 - filtering by values
   - Which states have the most book bans?
-- plotting data
+    - df['Bill Type'] == 'Book Ban'
+    - books = df['Bill Type'] == 'Book Ban'
+      - df[books]
+    - df[books].value_counts('State')
+  - ~str.contains~: filtering by words 
+    - df['Bill Type'].str.contains('Bathroom')
+    - bathrooms = df['Bill Type'].str.contains('Bathroom')
+    - df[bathrooms].info()
+    - df[bathrooms].value_counts('State')
 
+- plotting data
+  - df.plot(kind='bar')
+
+  - df.value_counts('Bill Type').plot(kind='bar')
+
+  - adding nlargest(10)
+
+    - df.value_counts('Bill Type').nlargest(10).plot(kind='bar')
+
+  - df.value_counts('Bill Type').nlargest(10).plot(kind='barh',
+    xlabel='Number of Bills', title='Most Frequent Categories for
+    Anti-Trans Bills') 
+
+  - df.value_counts('Bill Type').plot(kind='pie')
+
+** week 13: text generation with transformers
