@@ -14,11 +14,15 @@ What are static sites? Websites that are generated once (usually by a program li
 
 Jekyll is a static site generator. A program that allows you to convert plain text documents (like markdown files) into HTML and CSS. With Jekyll you can author documents in a relatively easy format like Markdown, and have it transform into HTML.
 
-There are two ways to use Jekyll for Github pages. The easy way and the hard way. I'm going to review both of them here, and provide detailed instructions below.
+Github pages has built-in support for some kinds of Jekyll sites, which means that you can create one completely through Github.com. This is a massive benefit, because virtually all open source web authoring platforms require you to download and install software via the command line.
 
-The easy way: Github pages has built-in support for some kinds of Jekyll sites, which means that you can create one completely through Github.com. This is a massive benefit, because virtually all open source web authoring platforms require you to download and install software via the command line.
-
-The hard way: For those of you more familiar with the command line, you'd have a lot more options of different Jekyll themes to choose from, and a lot more control generally over the way your site is created. That being said, it is a higher barrier to entry and requires you to install software like git, ruby, and jekyll over the command line.
+For those of you more familiar with the command line, you'd have a lot
+more options of different Jekyll themes to choose from, and a lot more
+control generally over the way your site is created. That being said,
+it is a higher barrier to entry and requires you to install software
+like [git](https://git-scm.com/downloads) and
+[jekyll](https://jekyllrb.com/docs/installation/) (along with its
+dependencies, like ruby) over the command line.
 
 ## how to set up Jekyll on Github Pages
 ### 1) choose a theme and fork it!
