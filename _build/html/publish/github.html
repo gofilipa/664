@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'publish/github';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="introduction to git" href="git.html" />
+    <link rel="next" title="publishing a static site" href="jekyll.html" />
     <link rel="prev" title="fine-tuning" href="../analyzing/generating/fine-tune.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -217,7 +217,6 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">publishing</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">introduction to github</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git.html">introduction to git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jekyll.html">publishing a static site</a></li>
 </ul>
 
@@ -417,7 +416,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-make-your-very-own-github-account">Step 1: Make your very own GitHub account</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-a-repository">Step 2: Create a repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-complete-your-readme">Step 3: Complete your README</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-commit-changes">Step 4: commit changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-commit-and-push-changes">Step 4: commit and push changes</a></li>
 </ul>
             </nav>
         </div>
@@ -433,10 +432,9 @@ document.write(`
 <h1>introduction to github<a class="headerlink" href="#introduction-to-github" title="Link to this heading">#</a></h1>
 <p>Github is a website that runs on <code class="docutils literal notranslate"><span class="pre">git</span></code>, a version control software
 (more on this in the next lesson, on Git).</p>
-<p>For our purposes, we will be learning how to use the website
-<code class="docutils literal notranslate"><span class="pre">github.com</span></code>, which is a space for publishing projects, especially
-projects that have to do with software.</p>
-<p>People use github for [[<a class="reference external" href="https://digitalscholarship.files.wordpress.com/2016/07/spirosmithdh2016githubpresentationfinal.pdf">https://digitalscholarship.files.wordpress.com/2016/07/spirosmithdh2016githubpresentationfinal.pdf</a>][a variety of reasons]], like:</p>
+<p>People use github for <a class="reference external" href="https://digitalscholarship.files.wordpress.com/2016/07/spirosmithdh2016githubpresentationfinal.pdf">a variety of
+reasons</a>
+like:</p>
 <ul class="simple">
 <li><p>Developing software</p></li>
 <li><p>Sharing data sets</p></li>
@@ -445,6 +443,9 @@ projects that have to do with software.</p>
 <li><p>Keeping research notes</p></li>
 <li><p>Hosting syllabi and course materials</p></li>
 </ul>
+<p>For our purposes, we will be learning how to use the website
+<code class="docutils literal notranslate"><span class="pre">github.com</span></code>, which is a space for publishing projects, especially
+projects that have to do with software.</p>
 <section id="step-1-make-your-very-own-github-account">
 <h2>Step 1: Make your very own GitHub account<a class="headerlink" href="#step-1-make-your-very-own-github-account" title="Link to this heading">#</a></h2>
 <p>Create an account by going to <a class="reference external" href="http://github.com">github.com</a>.</p>
@@ -459,7 +460,7 @@ working on.</p>
 <p>To create a new repository on GitHub:</p>
 <ul class="simple">
 <li><p>Click the  icon next to your username, top-right.</p></li>
-<li><p>Name your repository hello-world.</p></li>
+<li><p>Name your repository after your project (you can get creative here!).</p></li>
 <li><p>Write a short description.</p></li>
 <li><p>Select Initialize this repository with a README.</p></li>
 </ul>
@@ -470,27 +471,35 @@ working on.</p>
 also includes information about how you completed the project. Here
 are a list of the requirements:</p>
 <ul class="simple">
-<li><p>project title</p></li>
-<li><p>project description: explains what the project does</p></li>
-<li><p>rationale statement: expresses the motivations behind the project</p></li>
-<li><p>workflow: identifies libraries used and explains the important steps
+<li><p><em>project title</em></p></li>
+<li><p><em>project description</em>: explains what the project does</p></li>
+<li><p><em>rationale statement</em>: expresses the motivations behind the project</p></li>
+<li><p><em>workflow</em>: identifies libraries used and explains the important steps
 being taken in the code.</p></li>
-<li><p>further uses: in what ways might someone build on this work or
+<li><p><em>further uses</em>: in what ways might someone build on this work or
 re-use your code.</p></li>
-<li><p>files list: a list of files relevant to the project (python
+<li><p><em>files list</em>: a list of files relevant to the project (python
 notebooks, csv files, etc) and a brief description of what each file
 contains</p></li>
 </ul>
-<p>The readme is generally written in <code class="docutils literal notranslate"><span class="pre">[[https://www.markdownguide.org/cheat-sheet/][Mardown]]</span></code>, but it can also be
-written in plain text <code class="docutils literal notranslate"><span class="pre">.txt</span></code>.</p>
+<p>A note about formatting: except the title and list of files, each of
+these items should have about a paragraph (3-5 sentences) of text. The
+readme is generally written in
+<a class="reference external" href="https://www.markdownguide.org/cheat-sheet/">Markdown</a>, but it can
+also be written in plain text <code class="docutils literal notranslate"><span class="pre">.txt</span></code>.</p>
 </section>
-<section id="step-4-commit-changes">
-<h2>Step 4: commit changes<a class="headerlink" href="#step-4-commit-changes" title="Link to this heading">#</a></h2>
+<section id="step-4-commit-and-push-changes">
+<h2>Step 4: commit and push changes<a class="headerlink" href="#step-4-commit-and-push-changes" title="Link to this heading">#</a></h2>
 <p>When you are finished editing the file, you can save your changes by
-“committing” them. When you commit, you are also required to write a
-little commit message. You can say something like “drafting title and
-description,” whatever you like. Commit messages are useful for
-knowing the specific version of your project at this stage.</p>
+“committing” them.</p>
+<p>When you commit, you are also required to write a little commit
+message. You can say something like “drafting title and description,”
+whatever you like. Commit messages are useful for knowing the specific
+version of your project at this stage.</p>
+<p>That’s it!</p>
+<p>Moving forward, you can edit the README file directly on github. If
+you want to add external files to the project (like python notebooks),
+you can upload them to the repository.</p>
 </section>
 </section>
 
@@ -534,11 +543,11 @@ knowing the specific version of your project at this stage.</p>
       </div>
     </a>
     <a class="right-next"
-       href="git.html"
+       href="jekyll.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">introduction to git</p>
+        <p class="prev-next-title">publishing a static site</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -561,7 +570,7 @@ knowing the specific version of your project at this stage.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-make-your-very-own-github-account">Step 1: Make your very own GitHub account</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-a-repository">Step 2: Create a repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-complete-your-readme">Step 3: Complete your README</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-commit-changes">Step 4: commit changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-commit-and-push-changes">Step 4: commit and push changes</a></li>
 </ul>
   </nav></div>
 

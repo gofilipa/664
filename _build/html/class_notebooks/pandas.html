@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -217,7 +217,6 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">publishing</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../publish/github.html">introduction to github</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../publish/git.html">introduction to git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../publish/jekyll.html">publishing a static site</a></li>
 </ul>
 
@@ -440,6 +439,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Retrieving notices: - 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Channels:
  - defaults
  - conda-forge
@@ -510,11 +521,11 @@ Collecting package metadata (repodata.json): -
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
-Solving environment: / 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+Solving environment: - 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\ 
@@ -523,7 +534,34 @@ Solving environment: /
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># All requested packages already installed.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>## Package Plan ##
+
+  environment location: /Users/fcalado/.conda/envs/jb
+
+  added / updated specs:
+    - pandas
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    certifi-2025.4.26          |  py311hca03da5_0         158 KB
+    ------------------------------------------------------------
+                                           Total:         158 KB
+
+The following packages will be UPDATED:
+
+  certifi                         2025.1.31-py311hca03da5_0 --&gt; 2025.4.26-py311hca03da5_0 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proceed ([y]/n)? 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
+
+CondaSystemExit: 
+Operation aborted.  Exiting.
 </pre></div>
 </div>
 </div>
@@ -995,7 +1033,7 @@ Data columns (total 59 columns):
  57  GalleryNumber          443 non-null    object 
  58  message                8 non-null      object 
 dtypes: float64(11), int64(1), object(47)
-memory usage: 234.4+ KB
+memory usage: 250.5+ KB
 </pre></div>
 </div>
 </div>
@@ -1280,7 +1318,7 @@ Name: Bill Type, Length: 674, dtype: bool
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/6e67bf3e9ed5ef8d4c2d54134d76515d4a5731bdde93c927e46451bcb9b2e225.png" src="../_images/6e67bf3e9ed5ef8d4c2d54134d76515d4a5731bdde93c927e46451bcb9b2e225.png" />
+<img alt="../_images/2318b4666f19068cf7cf2c6a62282cc42ba7fd7a0419aee3be734c57ed136817.png" src="../_images/2318b4666f19068cf7cf2c6a62282cc42ba7fd7a0419aee3be734c57ed136817.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1630,7 +1668,7 @@ Name: Bill Type, Length: 674, dtype: bool
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/61a97236e3ade48a4e00babab1def42a77e931a5b9e88f9bcfc36e6d1b59024b.png" src="../_images/61a97236e3ade48a4e00babab1def42a77e931a5b9e88f9bcfc36e6d1b59024b.png" />
+<img alt="../_images/0dfcb1b92bf0985d1767937c9c13af907427a4829ad18e784d3e290bf052766e.png" src="../_images/0dfcb1b92bf0985d1767937c9c13af907427a4829ad18e784d3e290bf052766e.png" />
 </div>
 </div>
 

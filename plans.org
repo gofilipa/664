@@ -1094,3 +1094,22 @@ Intermediate pandas
   - df.value_counts('Bill Type').plot(kind='pie')
 
 ** week 13: text generation with transformers
+Agenda:
+- introduction to the huggingface platform
+  - models hub
+  - datasets hub
+- introduction to running inference
+  - installations
+  - must use jupyter-lab
+  - importing a model from the hub to our notebook
+  - piping in the input
+  - parsing the output
+- running inference from a dataset
+  - pulling in the dataset
+  - dataset structure
+  - writing a loop to run inference
+- BREAK
+- fine-tuning
+  - demonstration
+- finish project pitches
+- talk about final projects

@@ -3,17 +3,19 @@
 Github is a website that runs on `git`, a version control software
 (more on this in the next lesson, on Git). 
 
-For our purposes, we will be learning how to use the website
-`github.com`, which is a space for publishing projects, especially
-projects that have to do with software.
-
-People use github for [[https://digitalscholarship.files.wordpress.com/2016/07/spirosmithdh2016githubpresentationfinal.pdf][a variety of reasons]], like:
+People use github for [a variety of
+reasons](https://digitalscholarship.files.wordpress.com/2016/07/spirosmithdh2016githubpresentationfinal.pdf)
+like:
 - Developing software
 - Sharing data sets
 - Creating websites
 - Writing articles and books
 - Keeping research notes
 - Hosting syllabi and course materials
+
+For our purposes, we will be learning how to use the website
+`github.com`, which is a space for publishing projects, especially
+projects that have to do with software.
 
 ## Step 1: Make your very own GitHub account
 
@@ -29,7 +31,7 @@ working on.
 
 To create a new repository on GitHub:
 - Click the  icon next to your username, top-right.
-- Name your repository hello-world.
+- Name your repository after your project (you can get creative here!).
 - Write a short description.
 - Select Initialize this repository with a README.
 
@@ -39,24 +41,35 @@ This file serves as a title page and abstract for your project. It
 also includes information about how you completed the project. Here
 are a list of the requirements:
 
-- project title
-- project description: explains what the project does
-- rationale statement: expresses the motivations behind the project
-- workflow: identifies libraries used and explains the important steps
+- *project title*
+- *project description*: explains what the project does
+- *rationale statement*: expresses the motivations behind the project
+- *workflow*: identifies libraries used and explains the important steps
   being taken in the code.
-- further uses: in what ways might someone build on this work or
+- *further uses*: in what ways might someone build on this work or
   re-use your code.
-- files list: a list of files relevant to the project (python
+- *files list*: a list of files relevant to the project (python
   notebooks, csv files, etc) and a brief description of what each file
   contains
 
-The readme is generally written in `[[https://www.markdownguide.org/cheat-sheet/][Mardown]]`, but it can also be
-written in plain text `.txt`. 
+A note about formatting: except the title and list of files, each of
+these items should have about a paragraph (3-5 sentences) of text. The
+readme is generally written in
+[Markdown](https://www.markdownguide.org/cheat-sheet/), but it can
+also be written in plain text `.txt`.
 
-## Step 4: commit changes
+## Step 4: commit and push changes
 
 When you are finished editing the file, you can save your changes by
-"committing" them. When you commit, you are also required to write a
-little commit message. You can say something like "drafting title and
-description," whatever you like. Commit messages are useful for
-knowing the specific version of your project at this stage. 
+"committing" them.
+
+When you commit, you are also required to write a little commit
+message. You can say something like "drafting title and description,"
+whatever you like. Commit messages are useful for knowing the specific
+version of your project at this stage.
+
+That's it!
+
+Moving forward, you can edit the README file directly on github. If
+you want to add external files to the project (like python notebooks),
+you can upload them to the repository. 

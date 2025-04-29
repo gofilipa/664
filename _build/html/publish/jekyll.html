@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'publish/jekyll';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="introduction to git" href="git.html" />
+    <link rel="prev" title="introduction to github" href="github.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -216,7 +216,6 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">publishing</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="github.html">introduction to github</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git.html">introduction to git</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">publishing a static site</a></li>
 </ul>
 
@@ -415,18 +414,11 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-github-pages">what is Github Pages?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-jekyll">what is Jekyll?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-way">easy way</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-set-up-jekyll-on-github-pages">how to set up Jekyll on Github Pages</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-theme-and-fork-it">1) choose a theme and fork it!</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-the-web-editor-edit-your-index-md-file">2) open the web editor, edit your index.md file</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commit-and-push-your-changes">3) commit and push your changes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-github-pages-on-your-repo-settings">4) configure Github pages on your repo settings</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-way">hard way</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pre-requisites-ruby-jekyll">1) installing pre-requisites: ruby &amp; jekyll</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-a-theme">2) fork a theme</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-pages">3) editing pages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-to-github-pages">4) pushing to github pages</a></li>
 </ul>
 </li>
 </ul>
@@ -457,8 +449,8 @@ a website that others can access on the internet.</p>
 <p>The easy way: Github pages has built-in support for some kinds of Jekyll sites, which means that you can create one completely through <a class="reference external" href="http://Github.com">Github.com</a>. This is a massive benefit, because virtually all open source web authoring platforms require you to download and install software via the command line.</p>
 <p>The hard way: For those of you more familiar with the command line, you’d have a lot more options of different Jekyll themes to choose from, and a lot more control generally over the way your site is created. That being said, it is a higher barrier to entry and requires you to install software like git, ruby, and jekyll over the command line.</p>
 </section>
-<section id="easy-way">
-<h2>easy way<a class="headerlink" href="#easy-way" title="Link to this heading">#</a></h2>
+<section id="how-to-set-up-jekyll-on-github-pages">
+<h2>how to set up Jekyll on Github Pages<a class="headerlink" href="#how-to-set-up-jekyll-on-github-pages" title="Link to this heading">#</a></h2>
 <section id="choose-a-theme-and-fork-it">
 <h3>1) choose a theme and fork it!<a class="headerlink" href="#choose-a-theme-and-fork-it" title="Link to this heading">#</a></h3>
 <p>Choose a theme you like from this page: <a class="reference external" href="https://pages.github.com/themes/">https://pages.github.com/themes/</a></p>
@@ -502,78 +494,6 @@ a website that others can access on the internet.</p>
 <p><code class="docutils literal notranslate"><span class="pre">your_username.github.io/your_repo_name</span></code></p>
 </section>
 </section>
-<section id="hard-way">
-<h2>hard way<a class="headerlink" href="#hard-way" title="Link to this heading">#</a></h2>
-<section id="installing-pre-requisites-ruby-jekyll">
-<h3>1) installing pre-requisites: ruby &amp; jekyll<a class="headerlink" href="#installing-pre-requisites-ruby-jekyll" title="Link to this heading">#</a></h3>
-<p>Follow instructions here (according to your Operating System) to install the requirements, which are ruby and jekyll:</p>
-<p><a class="reference external" href="https://jekyllrb.com/docs/installation/">https://jekyllrb.com/docs/installation/</a></p>
-</section>
-<section id="fork-a-theme">
-<h3>2) fork a theme<a class="headerlink" href="#fork-a-theme" title="Link to this heading">#</a></h3>
-<p>Choose a jekyll theme that you like from these pages: <a class="reference external" href="https://jekyllrb.com/docs/themes/">https://jekyllrb.com/docs/themes/</a></p>
-<p>Fork the theme by going to the github page, and on the top right, press “fork”.</p>
-<p>When you are prompted, be sure to change the name of the respository to something relevant to your project.</p>
-<p>Then, clone the repo to your desktop.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">Desktop</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="p">[</span><span class="n">insert</span> <span class="n">URL</span> <span class="k">for</span> <span class="n">your</span> <span class="n">theme</span><span class="p">]</span>
-<span class="n">cd</span> <span class="p">[</span><span class="n">insert</span> <span class="n">name</span> <span class="n">of</span> <span class="n">theme</span> <span class="n">folder</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Next, run bundle install to install the necessary jekyll packages (called “gems”) in that folder.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bundle</span> <span class="n">install</span>
-</pre></div>
-</div>
-<p>Finally, generate the website on your local machine:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bundle</span> <span class="n">exec</span> <span class="n">jekyll</span> <span class="n">serve</span>
-</pre></div>
-</div>
-</section>
-<section id="editing-pages">
-<h3>3) editing pages<a class="headerlink" href="#editing-pages" title="Link to this heading">#</a></h3>
-<p>Open the folder of your repo on you desktop (or wherever you’ve saved it on your computer)</p>
-<p>First, move all of the files (except README) in the root folder to nest permanently under the “docs” folder. You can leave the <a class="reference external" href="http://README.md">README.md</a> file in the root (later on, you can add your own information here).</p>
-<p>The “docs” folder is where Github looks for the HTML files to display on your site, so by moving the files there, you’re making it easier for Github to generate your site later on.</p>
-<p>Second, open the <a class="reference external" href="http://index.md">index.md</a> file, which should now be in the “docs” folder. This file is written in markdown, and offers a handy key for markdown formatting. The top section (sandwiched by hyphens) is layout information for the page. Do not change these first three lines).</p>
-<p>The rest you can delete to get rid of it, or keep it around for convenience, as it offers useful information on how to format markdown. I’ve simply “commented” it out using markdown comments, which look like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!– –&gt;
-</pre></div>
-</div>
-<p>You can comment out most of that text by wrapping it with these symbols. For example, I’m commenting out the first line from the file below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!– Text can be bold, italic, ~strikethrough~ or `keyword`. –&gt;
-</pre></div>
-</div>
-<p>You can read a whole lot more about markdown formatting here: <a class="reference external" href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a></p>
-<p>Want to create new page? Create a new file for your page called <a class="reference external" href="http://PAGE-NAME.md">PAGE-NAME.md</a>, replacing PAGE-NAME with a meaningful filename for the page.</p>
-<p>Add the following frontmatter to the top of the file, replacing PAGE-TITLE with the page’s title and URL-PATH with a path you want for the page’s URL. For example, if the base URL of your site is <a class="reference external" href="https://octocat.github.io">https://octocat.github.io</a> and your URL-PATH is about/contact, your page will be located at <a class="reference external" href="https://octocat.github.io/about/contact">https://octocat.github.io/about/contact</a>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">layout</span><span class="p">:</span> <span class="n">page</span>
-<span class="n">title</span><span class="p">:</span> <span class="s2">&quot;PAGE-TITLE&quot;</span>
-<span class="n">permalink</span><span class="p">:</span> <span class="o">/</span><span class="n">URL</span><span class="o">-</span><span class="n">PATH</span>
-</pre></div>
-</div>
-<p>Below the frontmatter, add content for your page.</p>
-</section>
-<section id="pushing-to-github-pages">
-<h3>4) pushing to github pages<a class="headerlink" href="#pushing-to-github-pages" title="Link to this heading">#</a></h3>
-<p>Add the github-pages gem to your <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> file.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gem</span> <span class="s2">&quot;github-pages&quot;</span><span class="p">,</span> <span class="s2">&quot;~&gt; GITHUB-PAGES-VERSION&quot;</span><span class="p">,</span> <span class="n">group</span><span class="p">:</span> <span class="p">:</span><span class="n">jekyll_plugins</span> 
-</pre></div>
-</div>
-<p>Replace GITHUB-PAGES-VERSION with the latest supported version of the github-pages gem, which is “232” as of December 2024. Save and close the file.</p>
-<p>Then, you’ll have to build your gems once again, since you’ve just just added a new gem for github pages.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bundle</span> <span class="n">install</span>
-</pre></div>
-</div>
-<p>For help, see “Configuring a publishing source for your GitHub Pages site”: <a class="reference external" href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll">https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll</a></p>
-<p>Then, go to <code class="docutils literal notranslate"><span class="pre">github.com</span></code> to your regular repository page.</p>
-<p>On your github repo page, go to the “Settings” tab at the top. Then,
-scroll down to the “Pages” tab on the left sidebar.</p>
-<p>Then, on the main section of the page, go to the Branch heading. From the first dropdown, select “Master” or “Main,” and on the second dropdown, select “docs”. Finally, click save.</p>
-<p>Congratulations!</p>
-<p>Your website will be visible in a few minutes at the URL:</p>
-<p><code class="docutils literal notranslate"><span class="pre">your_username.github.io/your_repo_name</span></code></p>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -607,12 +527,12 @@ scroll down to the “Pages” tab on the left sidebar.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="git.html"
+       href="github.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">introduction to git</p>
+        <p class="prev-next-title">introduction to github</p>
       </div>
     </a>
 </div>
@@ -633,18 +553,11 @@ scroll down to the “Pages” tab on the left sidebar.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-github-pages">what is Github Pages?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-jekyll">what is Jekyll?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-way">easy way</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-set-up-jekyll-on-github-pages">how to set up Jekyll on Github Pages</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-theme-and-fork-it">1) choose a theme and fork it!</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-the-web-editor-edit-your-index-md-file">2) open the web editor, edit your index.md file</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commit-and-push-your-changes">3) commit and push your changes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-github-pages-on-your-repo-settings">4) configure Github pages on your repo settings</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-way">hard way</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pre-requisites-ruby-jekyll">1) installing pre-requisites: ruby &amp; jekyll</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-a-theme">2) fork a theme</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-pages">3) editing pages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-to-github-pages">4) pushing to github pages</a></li>
 </ul>
 </li>
 </ul>

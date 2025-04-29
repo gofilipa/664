@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -217,7 +217,6 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">publishing</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../publish/github.html">introduction to github</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../publish/git.html">introduction to git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../publish/jekyll.html">publishing a static site</a></li>
 </ul>
 
@@ -458,14 +457,13 @@ to GPU.</p>
 </section>
 <section id="on-jupyter">
 <h2>on jupyter<a class="headerlink" href="#on-jupyter" title="Link to this heading">#</a></h2>
-<p>Run this in your terminal to download and install transformers with</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda install transformers datasets trl</span>
-<span class="go">pip install torch</span>
+<p>Run this in your terminal to download and install transformers with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda install transformers datasets</span>
+<span class="go">pip3 install trl torch</span>
 </pre></div>
 </div>
-<p>If that doesn’t work, try using pip:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install transformers datasets trl</span>
-<span class="go">pip install torch</span>
+<p>If installing with conda doesn’t work, you can install all packages using just pip:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip3 install transformers datasets trl torch</span>
 </pre></div>
 </div>
 <p>And if that doesn’t work (perhaps because you’re on a CPU-only system), try:</p>
