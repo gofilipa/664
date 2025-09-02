@@ -7,9 +7,11 @@ parts:
   - file: intro/script
   - file: intro/data-types
   - file: intro/variables
+  - file: intro/functions
   - file: intro/lists
   - file: intro/loops
   - file: intro/logic
+  - file: intro/errors
   - file: intro/csv
 - caption: gathering data
   chapters:

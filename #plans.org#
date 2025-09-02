@@ -1,117 +1,76 @@
 * plans
-** week 1: introduction to the command line
+** week 1: introduction to the command line & python
+*** intro to the syllabus
 *** what is the command line?
 - a way of talking to the computer.
   - GUIs vs commands
 - the bash language
   
 *** why would you used the command line
-- on your computer, everything is a file
-- "plain text" - what is this?
-  - demo with docx and plain text file.
-- what are some rich text file formats?
-  - what are some plain text file formats?
-- why use command line?
-  - we can manipulate plain text quite easily
+- really good for working with "plain text" files
+  - "plain text" - what is this?
+    - demo with docx and plain text file.
+  - what are some rich text file formats?
+    - what are some plain text file formats?
+  - why use command line?
+    - we can manipulate plain text quite easily, like Python,
+      Javascript programs. 
+- to download and install programming software that doesn't have a
+  GUI.
 
-*** navigation
-- on your computer, everything is in a folder
-- "directory structure" folder system on your computer
-  - tree: root and branches
-  - "directory"
+*** command line (30-45m)
+- lesson: introduction to the command line
+  - navigating
+  - creating folders and files
+  - using nano
 
-#+begin_src
-pwd
+Navigating
 
-cd
+#+begin_src console
+  # navigation
+  cd
+  cd ~
+  cd ..
+  cd /
+  # terms: home vs root folder, directory structure
 
-cd ..
+  # listing and flags
+  ls
+  ls -a
+  ls -l
 
-cd ~
+  # creating files and folders
+  mkdir 664
+  touch test.md
+  touch test.py
 
-ls
-
-# flags
-ls -l -a
+  # editing files
+  nano test.md
+  
 #+end_src
 
-Home vs root folder
-
-**** Practice: Spend a few minutes navigating up and down the directory structure
-
-*** creating files and folders / reading
-Navigate to the place where you want to keep your files for this class.
-
-#+begin_src 
-touch 
-
-mkdir 664
-
-rmdir 664
-#+end_src
-
-*** group activity: searching text 10/10
-In partners, figure out how to use the GREP command. What does it do?
-Advanced: how do you use it to search across multiple nested folders?
-(hint: its a flag!)
-
-#+begin_src 
-grep queer notecards.org
-#+end_src
-
-*** redirect
-
-#+begin_src 
-grep queer notecards.org >> queer_words.txt
-#+end_src
-
-**** Group Challenge 15 / 15
-Practice using grep on your own machine, searching for a word in
-different files. Then, use redirect to save the results to a separate
-file. 
-
-*** time to do challenge!
-Spend some time navigating NYC Open Data website for a dataset you
-like. 
-
-Download the [[https://data.cityofnewyork.us/Social-Services/NYC-Women-s-Resource-Network-Database/pqg4-dm6b/about_data][NYC Women's Resource Network Database]] from [[https://opendata.cityofnewyork.us/][NYC Open Data]].
-Search the text for words like "women" or "migrant" or something else.
-Then, using redirect, save the results to a separate file. (hint:
-you'll need to use grep and redirect).
-
-#+begin_src
-grep TERM ~/Downloads/..csv >> migrant.txt
-#+end_src
 
 *** time to download and install Anaconda (highly recommended) or Python
-** week 2: python day 1
-*** agenda
-- introduce Python programming language
-- start challenge for this week
 
-*** introduction to the Python language
+*** BREAK
+
+*** introduction to Python
+**** introduction to the Python language
 - What is Python?
   - powerful programming language for many tasks
-  - "high level"
-  - zen of python
+  - "high level", needs to be interpreted
 - Learning objectives
   - types, variables, for holding data
   - functions, methods for working w data
-  - complex structures: iteration and logic
-  - python syntax
 
-*** python lessons
-- opening challenge, which you will know by the end
-  - critical approach to data. Nothing is neutral or objective.
-  - "data capture and analysis practices often aim to reduce real-life
-    objects and persons into computable elements"
+**** data types and variables
 - opening jupyter notebook or google colab
 - data types
   - real world objects that are transformed into a computational
     format, to be computed.
   - type() function
   - int, str, bool, list
-  - types as a constraint
+  - types as a constraint, methods associated to type.
 - variables
   - how we save data, to work with it
   - using good names
@@ -123,6 +82,23 @@ grep TERM ~/Downloads/..csv >> migrant.txt
   - string methods like split(), lower(), upper()
   - abstraction, saving our results to a new variable, then using
     type()
+- functions
+  - print(), len()
+  - defining a function, calling a function
+  - individual challenge: write a function that uppercases a string.
+    and prints the result.
+  
+** week 2: python day 1
+*** agenda
+- continue learning Python programming language
+- start challenge for this week
+
+*** review
+- data types, what are the types? 
+- variables, how do they work?
+- what is the difference between type('hello world!') and 'hello world'.upper()?
+
+*** lists
 - lists
   - list indexing - accessing items by position
   - list slicing - grabbing sections of a list
@@ -134,23 +110,28 @@ grep TERM ~/Downloads/..csv >> migrant.txt
   - INDIVIDUAL: write a sentence and split it up into a list of words.
     Then do something to that list of words.
     - why does split not work on a list?
-- individual practice: ERRORS
-  - there are many kinds of errors you can make with python.
-  - explore different kinds of errors. What are the general category
-    of errors? What is a Name and a Type error, for instance? Syntax
-    or Traceback? Try to get 2 of each.
-    - choose 1 or 2 of your errors and google them. Read the stack
-      overflow post about it. Try to get familiar with the forum
-      format for asking coding questions.
-- Challenge:
-  - Grab a paragraph or two of text from a book on Project Gutenberg,
-    and save that text to a string in a Python notebook. Then use the
-    methods we learned in class to do the following: first, transform
-    the string into a list; then, add, remove, and sort items in the
-    list. Save your python notebook file (.ipynb file) and submit it
-    on canvas.
+
+*** functions
+- functions do things to data
+- functions in algebra f(x) = x + 1
+- two steps of a function: defining, calling
+- how to define a function to add a number
+- calling the function
+- challenge: how to make a function that prints a string with your name?
+- may have to look up "f-strings"
+
+*** BREAK
+*** 
+Environmental scan. 
+
+*** Challenge:
+Grab a paragraph or two of text from a website you are interested in,
+and save that text to a string in a Python notebook. Then use the
+methods we learned in class to do the following: first, transform the
+string into a list; then, add, remove, and sort items in the list.
+Save your python notebook file (.ipynb file) and submit it on canvas.
     
-** week 3: python 2: lists to logic
+** week 3: python 2: loops, logic, errors
 Agenda
 - review challenge
 - review last week's lessons on Python 1
@@ -180,56 +161,6 @@ list methods.
 Removing Gender Ideology and Restoring the EEOC’s Role of Protecting
 Women in the Workplace
 
-
-*** butler
-What's her main argument?
-- what's so scary?
-  - that people are currently afraid of gender, "the anti-gender
-    ideology movement" stokes fear.
-  - gender ideology is a threat to children, society, the family,
-    national security, to men and women, heterosexuality.
-- the contradictions:
-  - the vatican saying that something is a threat to children and the
-    family, not considering their own harmful history here;
-  - how withholding sex education also withholds education around
-    consent and just how sex works;
-  - using the right to gender as a way to take that right away from
-    others.
-
-"Phantasm"
-- drawing from psychology, to argue that the fear of gender draws from
-  real world and pyschic forces, the conscious and unconscious.
-  - it becomes a substitute for anxiety about the world. 
-- fear mongering is a way of getting people to agree, come into your
-  ranks, subscribe.
-
-#+begin_quote
-“According to this logic, the anti-gender movement is guided by an
-inflammatory syntax: that is, a way of ordering the world that absorbs
-and reproduces anxieties and fears about permeability, precarity,
-displacement, and replacement; loss of patriarchal power in both the
-family and state; and loss of white supremacy and national purity” 22
-#+end_quote
-
-Resistance
-- produce a "counter vision".
-
-#+begin_quote
-“It is up to us to produce a compelling counter-vision, one that would
-affirm the rights and freedoms of embodied life that we can, and
-should, protect. For in the end, defeating this phantasm is a matter
-of affirming how one loves, how one lives in one’s body, the right to
-exist in the world without fear of violence or discrimination, to
-breathe, to move, to live.” 17
-#+end_quote
-
-#+begin_quote
-“What form of critical imagination would be powerful enough to oppose
-the phantasm? What would it mean to create a form of solidarity and
-concerted imagining that would have the power to expose and defeat the
-cruel norms and sadistic trends that travel under the name of the
-anti–gender ideology movement?” (37).
-#+end_quote
 
 *** loops
 How we do things to data.
@@ -344,6 +275,14 @@ mintues working on it!
             print(f'Name: {candidate}, Violation: {violation}')
 #+end_src
   
+*** individual practice: ERRORS
+  - there are many kinds of errors you can make with python.
+  - explore different kinds of errors. What are the general category
+    of errors? What is a Name and a Type error, for instance? Syntax
+    or Traceback? Try to get 2 of each.
+    - choose 1 or 2 of your errors and google them. Read the stack
+      overflow post about it. Try to get familiar with the forum
+      format for asking coding questions.
 
 *** next week: web scraping!
 ** week 4: web scraping 1
@@ -1115,10 +1054,11 @@ Agenda:
 - talk about final projects
 
 ** week 14: introduction to github and static websites
-
 Agenda
+- finish sharing project pitches
 - introduction to github
 - introduction to jekyll
+- project progress and current obstacle or next steps
 
 *** introduction to github
 - Github is a website that runs on git, a version control software
@@ -1180,6 +1120,7 @@ you can upload them to the repository.
 
 
 *** publishing a static site
+publishing a static site
 
 For this session, we will combine Jekyll and Github Pages to deploy
 your project into a website that others can access on the internet.
@@ -1189,76 +1130,112 @@ A hosting service by Github that lets you create static sites on the
 web. It takes HTML, CSS, and JavaScript files from a GitHub
 repository, and publishes them as a website.
 
-What are static sites?
-
-Websites that are generated once (usually by a program like Python or
-Ruby), then pushed to the server to be hosted in its already-generated
-or “static” state. what is Jekyll?
+What are static sites? Websites that are generated once (usually by a
+program like Python or Ruby), then pushed to the server to be hosted
+in its already-generated or “static” state. what is Jekyll?
 
 Jekyll is a static site generator. A program that allows you to
 convert plain text documents (like markdown files) into HTML and CSS.
 With Jekyll you can author documents in a relatively easy format like
 Markdown, and have it transform into HTML.
 
-There are two ways to use Jekyll for Github pages. The easy way and
-the hard way. I’m going to review both of them here, and provide
-detailed instructions below.
+Github pages has built-in support for some kinds of Jekyll sites,
+which means that you can create one completely through Github.com.
+This is a massive benefit, because virtually all open source web
+authoring platforms require you to download and install software via
+the command line.
 
-The easy way: Github pages has built-in support for some kinds of
-Jekyll sites, which means that you can create one completely through
-Github.com. This is a massive benefit, because virtually all open
-source web authoring platforms require you to download and install
-software via the command line.
+For those of you more familiar with the command line, you’d have a lot
+more options of different Jekyll themes to choose from, and a lot more
+control generally over the way your site is created. That being said,
+it is a higher barrier to entry and requires you to install software
+like git and jekyll (along with its dependencies, like ruby) over the
+command line. how to set up Jekyll on Github Pages
 
-The hard way: For those of you more familiar with the command line, you’d have a lot more options of different Jekyll themes to choose from, and a lot more control generally over the way your site is created. That being said, it is a higher barrier to entry and requires you to install software like git, ruby, and jekyll over the command line.
-how to set up Jekyll on Github Pages
 1) choose a theme and fork it!
 
-Choose a theme you like from this page: https://pages.github.com/themes/
+Choose a theme you like from this page:
+https://pages.github.com/themes/
 
-Fork the theme by going to the github page, and on the top right, press “fork”.
+Fork the theme by going to the github page, and on the top right,
+press “fork”.
 
-When you are prompted, be sure to change the name of the respository to something relevant to your project.
+When you are prompted, be sure to change the name of the respository
+to something relevant to your project.
+
 2) open the web editor, edit your index.md file
 
-Open the code editor by pressing the period button on your keyboard. You’ll see a new interface appear which lets you edit the files in your repo.
+Open the code editor by pressing the period button on your keyboard.
+You’ll see a new interface appear which lets you edit the files in
+your repo.
 
-First, move all of the files (except README) in the root folder to nest permanently under the “docs” folder. You can leave the README.md file in the root (later on, you can add your own information here).
+First, move all of the files (except README) in the root folder to
+nest permanently under the “docs” folder. You can leave the README.md
+file in the root (later on, you can add your own information here).
 
-The “docs” folder is where Github looks for the HTML files to display on your site, so by moving the files there, you’re making it easier for Github to generate your site later on.
+The “docs” folder is where Github looks for the HTML files to display
+on your site, so by moving the files there, you’re making it easier
+for Github to generate your site later on.
 
-Second, open the index.md file, which should now be in the “docs” folder. This file is written in markdown, and offers a handy key for markdown formatting. The top section (sandwiched by hyphens) is layout information for the page. Do not change these first three lines).
+Second, open the index.md file, which should now be in the “docs”
+folder. This file is written in markdown, and offers a handy key for
+markdown formatting. The top section (sandwiched by hyphens) is layout
+information for the page. Do not change these first three lines).
 
-The rest you can delete to get rid of it, or keep it around for convenience, as it offers useful information on how to format markdown. I’ve simply “commented” it out using markdown comments, which look like this:
+The rest you can delete to get rid of it, or keep it around for
+convenience, as it offers useful information on how to format
+markdown. I’ve simply “commented” it out using markdown comments,
+which look like this:
 
 <!-- -->
 
-You can comment out most of that text by wrapping it with these symbols. For example, I’m commenting out the first line from the file below:
+You can comment out most of that text by wrapping it with these
+symbols. For example, I’m commenting out the first line from the file
+below:
 
 <!-- Text can be bold, italic, ~strikethrough~ or `keyword`. -->
 
-You can read a whole lot more about markdown formatting here: https://www.markdownguide.org/cheat-sheet/
+You can read a whole lot more about markdown formatting here:
+https://www.markdownguide.org/cheat-sheet/
 
-Want to create new page? Create a new file for your page called PAGE-NAME.md, replacing PAGE-NAME with a meaningful filename for the page.
+Want to create new page? Create a new file for your page called
+PAGE-NAME.md, replacing PAGE-NAME with a meaningful filename for the
+page.
 
-Add the following frontmatter to the top of the file, replacing PAGE-TITLE with the page’s title and URL-PATH with a path you want for the page’s URL. For example, if the base URL of your site is https://octocat.github.io and your URL-PATH is about/contact, your page will be located at https://octocat.github.io/about/contact.
+Add the following frontmatter to the top of the file, replacing
+PAGE-TITLE with the page’s title and URL-PATH with a path you want for
+the page’s URL. For example, if the base URL of your site is
+https://octocat.github.io and your URL-PATH is about/contact, your
+page will be located at https://octocat.github.io/about/contact.
 
 layout: page
 title: "PAGE-TITLE"
 permalink: /URL-PATH
 
 Below the frontmatter, add content for your page.
+
 3) commit and push your changes
 
-Once you’re done editing the markdown file, go to the little “source” tab on the left. It looks like three dots connected by lines. Here, on the lefthand sidebar, you’ll see a list of all the changes you’ve made, and a blank text box above them. In that blank box, write a short message summarizing your changes, like “edited the index.md file”. Then, press the “commit & push” button.
+Once you’re done editing the markdown file, go to the little “source”
+tab on the left. It looks like three dots connected by lines. Here, on
+the lefthand sidebar, you’ll see a list of all the changes you’ve
+made, and a blank text box above them. In that blank box, write a
+short message summarizing your changes, like “edited the index.md
+file”. Then, press the “commit & push” button.
+
 4) configure Github pages on your repo settings
 
-Back on your regular repository page (you will need to open up a new tab and navigate to your repo on github), go to the “Settings” tab at the top. Then, scroll down to the “Pages” tab on the left sidebar.
+Back on your regular repository page (you will need to open up a new
+tab and navigate to your repo on github), go to the “Settings” tab at
+the top. Then, scroll down to the “Pages” tab on the left sidebar.
 
-Then, on the main section of the page, go to the Branch heading. From the first dropdown, select “Master” or “Main,” and on the second dropdown, select “docs”. Finally, click save.
+Then, on the main section of the page, go to the Branch heading. From
+the first dropdown, select “Master” or “Main,” and on the second
+dropdown, select “docs”. Finally, click save.
 
 Congratulations!
 
 Your website will be visible in a few minutes at the URL:
 
 your_username.github.io/your_repo_name
+

@@ -185,9 +185,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/errors.html">Errors in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
@@ -618,7 +620,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Content-Type&#39;: &#39;application/json; charset=UTF-8&#39;, &#39;Vary&#39;: &#39;Origin&#39;, &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;, &#39;X-Powered-By&#39;: &#39;ARR/3.0, ASP.NET&#39;, &#39;Date&#39;: &#39;Tue, 29 Apr 2025 17:21:25 GMT&#39;, &#39;Set-Cookie&#39;: &#39;visid_incap_1662004=yBsx+240S+K2GtJd5ogGt5UKEWgAAAAAQUIPAAAAAAAkP0Le9BVdN78wWPpyZEx/; expires=Wed, 29 Apr 2026 07:36:29 GMT; HttpOnly; path=/; Domain=.metmuseum.org, incap_ses_1338_1662004=8Hn7PRT/IgbgIyUNNoiREpYKEWgAAAAACL+nnoikhGmkboIuQ0fpvA==; path=/; Domain=.metmuseum.org&#39;, &#39;X-CDN&#39;: &#39;Imperva&#39;, &#39;Content-Encoding&#39;: &#39;gzip&#39;, &#39;Transfer-Encoding&#39;: &#39;chunked&#39;, &#39;X-Iinfo&#39;: &#39;9-3801890-3801892 NNYY CT(95 95 0) RT(1745947286461 28) q(0 1 1 1) r(6 6) U12&#39;}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Content-Type&#39;: &#39;application/json; charset=UTF-8&#39;, &#39;Vary&#39;: &#39;Origin&#39;, &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;, &#39;X-Powered-By&#39;: &#39;ARR/3.0, ASP.NET&#39;, &#39;Date&#39;: &#39;Tue, 02 Sep 2025 18:27:32 GMT&#39;, &#39;Set-Cookie&#39;: &#39;visid_incap_1662004=HFBokpPeQVeuhGcU+VURdBQ3t2gAAAAAQUIPAAAAAABITdYC2Z6sySPzHUMI6ENf; expires=Wed, 02 Sep 2026 08:13:46 GMT; HttpOnly; path=/; Domain=.metmuseum.org, incap_ses_159_1662004=0OJrfHXVHRn2vFqPDOI0AhU3t2gAAAAAfPlatGxAJtNdS+ha5EVPPQ==; path=/; Domain=.metmuseum.org&#39;, &#39;X-CDN&#39;: &#39;Imperva&#39;, &#39;Content-Encoding&#39;: &#39;gzip&#39;, &#39;Transfer-Encoding&#39;: &#39;chunked&#39;, &#39;X-Iinfo&#39;: &#39;11-54633381-54633382 NNYY CT(4 5 0) RT(1756837653463 15) q(0 0 0 0) r(7 7) U12&#39;}
 </pre></div>
 </div>
 </div>
@@ -630,7 +632,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;urllib3.response.HTTPResponse at 0x106eb5c90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;urllib3.response.HTTPResponse at 0x10454dc90&gt;
 </pre></div>
 </div>
 </div>
@@ -642,7 +644,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.timedelta(microseconds=696926)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.timedelta(microseconds=811397)
 </pre></div>
 </div>
 </div>
@@ -900,15 +902,15 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[483873,
+ 283274,
  207162,
  247582,
- 283274,
  483877,
  685333,
  494305,
  481438,
  374147,
- 489510]
+ 685319]
 </pre></div>
 </div>
 </div>
@@ -1113,10 +1115,10 @@ document.write(`
    &#39;elementDescription&#39;: None,
    &#39;elementMeasurements&#39;: {&#39;Height&#39;: 116.522736, &#39;Width&#39;: 80.645164}},
   {&#39;elementName&#39;: &#39;Frame&#39;,
-   &#39;elementDescription&#39;: &#39;F.1.1984.613.2 Brown wood float frame-AR Pexi&#39;,
+   &#39;elementDescription&#39;: &#39;F.1.1984.613.2  Brown wood float w//AR plexi&#39;,
    &#39;elementMeasurements&#39;: {&#39;Depth&#39;: 9.207519,
     &#39;Height&#39;: 125.730255,
-    &#39;Width&#39;: 90.80518}}],
+    &#39;Width&#39;: 90.48768}}],
  &#39;creditLine&#39;: &#39;From the Collection of Thomas B. Hess, Gift of the heirs of Thomas B. Hess, 1984&#39;,
  &#39;geographyType&#39;: &#39;&#39;,
  &#39;city&#39;: &#39;&#39;,
@@ -1214,15 +1216,15 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[483873,
+ 283274,
  207162,
  247582,
- 283274,
  483877,
  685333,
  494305,
  481438,
  374147,
- 489510]
+ 685319]
 </pre></div>
 </div>
 </div>
@@ -1245,15 +1247,15 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>483873
+283274
 207162
 247582
-283274
 483877
 685333
 494305
 481438
 374147
-489510
+685319
 </pre></div>
 </div>
 </div>
@@ -1315,75 +1317,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;objectID&#39;: 489510,
- &#39;isHighlight&#39;: False,
- &#39;accessionNumber&#39;: &#39;66.75.2&#39;,
- &#39;accessionYear&#39;: &#39;1966&#39;,
- &#39;isPublicDomain&#39;: False,
- &#39;primaryImage&#39;: &#39;&#39;,
- &#39;primaryImageSmall&#39;: &#39;&#39;,
- &#39;additionalImages&#39;: [],
- &#39;constituents&#39;: [{&#39;constituentID&#39;: 161734,
-   &#39;role&#39;: &#39;Artist&#39;,
-   &#39;name&#39;: &#39;Alexander Calder&#39;,
-   &#39;constituentULAN_URL&#39;: &#39;http://vocab.getty.edu/page/ulan/500007824&#39;,
-   &#39;constituentWikidata_URL&#39;: &#39;https://www.wikidata.org/wiki/Q151580&#39;,
-   &#39;gender&#39;: &#39;&#39;}],
- &#39;department&#39;: &#39;Modern and Contemporary Art&#39;,
- &#39;objectName&#39;: &#39;Sculpture&#39;,
- &#39;title&#39;: &#39;Woman&#39;,
- &#39;culture&#39;: &#39;&#39;,
- &#39;period&#39;: &#39;&#39;,
- &#39;dynasty&#39;: &#39;&#39;,
- &#39;reign&#39;: &#39;&#39;,
- &#39;portfolio&#39;: &#39;&#39;,
- &#39;artistRole&#39;: &#39;Artist&#39;,
- &#39;artistPrefix&#39;: &#39;&#39;,
- &#39;artistDisplayName&#39;: &#39;Alexander Calder&#39;,
- &#39;artistDisplayBio&#39;: &#39;American, Philadelphia, Pennsylvania 1898–1976 New York&#39;,
- &#39;artistSuffix&#39;: &#39;&#39;,
- &#39;artistAlphaSort&#39;: &#39;Calder, Alexander&#39;,
- &#39;artistNationality&#39;: &#39;American&#39;,
- &#39;artistBeginDate&#39;: &#39;1898&#39;,
- &#39;artistEndDate&#39;: &#39;1976&#39;,
- &#39;artistGender&#39;: &#39;&#39;,
- &#39;artistWikidata_URL&#39;: &#39;https://www.wikidata.org/wiki/Q151580&#39;,
- &#39;artistULAN_URL&#39;: &#39;http://vocab.getty.edu/page/ulan/500007824&#39;,
- &#39;objectDate&#39;: &#39;ca. 1926&#39;,
- &#39;objectBeginDate&#39;: 1926,
- &#39;objectEndDate&#39;: 1926,
- &#39;medium&#39;: &#39;Stained wood&#39;,
- &#39;dimensions&#39;: &#39;19 9/16 × 6 7/8 × 6 in., 10.9 lb. (49.7 × 17.5 × 15.3 cm, 4.9 kg)&#39;,
- &#39;measurements&#39;: [{&#39;elementName&#39;: &#39;Overall&#39;,
-   &#39;elementDescription&#39;: None,
-   &#39;elementMeasurements&#39;: {&#39;Depth&#39;: 15.3,
-    &#39;Height&#39;: 49.7,
-    &#39;Weight&#39;: 4.9442077,
-    &#39;Width&#39;: 17.5}}],
- &#39;creditLine&#39;: &#39;Gift of Charles Oppenheim Jr., 1966&#39;,
- &#39;geographyType&#39;: &#39;&#39;,
- &#39;city&#39;: &#39;&#39;,
- &#39;state&#39;: &#39;&#39;,
- &#39;county&#39;: &#39;&#39;,
- &#39;country&#39;: &#39;&#39;,
- &#39;region&#39;: &#39;&#39;,
- &#39;subregion&#39;: &#39;&#39;,
- &#39;locale&#39;: &#39;&#39;,
- &#39;locus&#39;: &#39;&#39;,
- &#39;excavation&#39;: &#39;&#39;,
- &#39;river&#39;: &#39;&#39;,
- &#39;classification&#39;: &#39;Sculpture&#39;,
- &#39;rightsAndReproduction&#39;: &#39;© 2025 Artists Rights Society (ARS), New York&#39;,
- &#39;linkResource&#39;: &#39;&#39;,
- &#39;metadataDate&#39;: &#39;2025-01-08T04:53:43.917Z&#39;,
- &#39;repository&#39;: &#39;Metropolitan Museum of Art, New York, NY&#39;,
- &#39;objectURL&#39;: &#39;https://www.metmuseum.org/art/collection/search/489510&#39;,
- &#39;tags&#39;: [{&#39;term&#39;: &#39;Women&#39;,
-   &#39;AAT_URL&#39;: &#39;http://vocab.getty.edu/page/aat/300025943&#39;,
-   &#39;Wikidata_URL&#39;: &#39;https://www.wikidata.org/wiki/Q467&#39;}],
- &#39;objectWikidata_URL&#39;: &#39;&#39;,
- &#39;isTimelineWork&#39;: False,
- &#39;GalleryNumber&#39;: &#39;&#39;}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;message&#39;: &#39;Not a valid object&#39;}
 </pre></div>
 </div>
 </div>
@@ -1414,9 +1348,9 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Willem de Kooning
+Man Ray
 Royal Porcelain Manufactory, Naples
 Woman Painter
-Man Ray
 Willem de Kooning
 </pre></div>
 </div>

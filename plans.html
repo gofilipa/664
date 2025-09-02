@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-08-27 Wed 13:56 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="fcalado" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgee55e92">1. week 1: introduction to the command line &amp; python</a>
+<ul>
+<li><a href="#org3c5bfe2">1.1. intro to the syllabus</a></li>
+<li><a href="#org022dab0">1.2. what is the command line?</a></li>
+<li><a href="#orga1845be">1.3. why would you used the command line</a></li>
+<li><a href="#orgd323969">1.4. command line (30-45m)</a></li>
+<li><a href="#org4b270e4">1.5. time to download and install Anaconda (highly recommended) or Python</a></li>
+<li><a href="#org0887621">1.6. BREAK</a></li>
+<li><a href="#org8d70d3a">1.7. introduction to Python</a>
+<ul>
+<li><a href="#orga13d5dc">1.7.1. introduction to the Python language</a></li>
+<li><a href="#org9301776">1.7.2. data types and variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgee55e92" class="outline-2">
+<h2 id="orgee55e92"><span class="section-number-2">1.</span> week 1: introduction to the command line &amp; python</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org3c5bfe2" class="outline-3">
+<h3 id="org3c5bfe2"><span class="section-number-3">1.1.</span> intro to the syllabus</h3>
+</div>
+<div id="outline-container-org022dab0" class="outline-3">
+<h3 id="org022dab0"><span class="section-number-3">1.2.</span> what is the command line?</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>a way of talking to the computer.
+<ul class="org-ul">
+<li>GUIs vs commands</li>
+</ul></li>
+<li>the bash language</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga1845be" class="outline-3">
+<h3 id="orga1845be"><span class="section-number-3">1.3.</span> why would you used the command line</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>really good for working with "plain text" files
+<ul class="org-ul">
+<li>"plain text" - what is this?
+<ul class="org-ul">
+<li>demo with docx and plain text file.</li>
+</ul></li>
+<li>what are some rich text file formats?
+<ul class="org-ul">
+<li>what are some plain text file formats?</li>
+</ul></li>
+<li>why use command line?
+<ul class="org-ul">
+<li>we can manipulate plain text quite easily, like Python,
+Javascript programs.</li>
+</ul></li>
+</ul></li>
+<li>to download and install programming software that doesn't have a
+GUI.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd323969" class="outline-3">
+<h3 id="orgd323969"><span class="section-number-3">1.4.</span> command line (30-45m)</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>lesson: introduction to the command line
+<ul class="org-ul">
+<li>navigating</li>
+<li>creating folders and files</li>
+<li>using nano</li>
+</ul></li>
+</ul>
+
+<p>
+Navigating
+</p>
+
+<div class="org-src-container">
+<pre class="src src-console"># navigation
+cd
+cd ~
+cd ..
+cd /
+# terms: home vs root folder, directory structure
+
+# listing and flags
+ls
+ls -a
+ls -l
+
+# creating files and folders
+mkdir 664
+touch test.md
+touch test.py
+
+# editing files
+nano test.md
+
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org4b270e4" class="outline-3">
+<h3 id="org4b270e4"><span class="section-number-3">1.5.</span> time to download and install Anaconda (highly recommended) or Python</h3>
+</div>
+
+<div id="outline-container-org0887621" class="outline-3">
+<h3 id="org0887621"><span class="section-number-3">1.6.</span> BREAK</h3>
+</div>
+
+<div id="outline-container-org8d70d3a" class="outline-3">
+<h3 id="org8d70d3a"><span class="section-number-3">1.7.</span> introduction to Python</h3>
+<div class="outline-text-3" id="text-1-7">
+</div>
+<div id="outline-container-orga13d5dc" class="outline-4">
+<h4 id="orga13d5dc"><span class="section-number-4">1.7.1.</span> introduction to the Python language</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<ul class="org-ul">
+<li>What is Python?
+<ul class="org-ul">
+<li>powerful programming language for many tasks</li>
+<li>"high level", needs to be interpreted</li>
+</ul></li>
+<li>Learning objectives
+<ul class="org-ul">
+<li>types, variables, for holding data</li>
+<li>functions, methods for working w data</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9301776" class="outline-4">
+<h4 id="org9301776"><span class="section-number-4">1.7.2.</span> data types and variables</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<ul class="org-ul">
+<li>opening jupyter notebook or google colab</li>
+<li>data types
+<ul class="org-ul">
+<li>real world objects that are transformed into a computational
+format, to be computed.</li>
+<li>type() function</li>
+<li>int, str, bool, list</li>
+<li>types as a constraint, methods associated to type.</li>
+</ul></li>
+<li>variables
+<ul class="org-ul">
+<li>how we save data, to work with it</li>
+<li>using good names</li>
+<li>PARTNERS: creating variables to find the limits</li>
+<li>variables as objects
+<ul class="org-ul">
+<li>objects have methods, .upper()</li>
+</ul></li>
+<li>methods vs functions
+<ul class="org-ul">
+<li>one like a subject, and one like a clause</li>
+</ul></li>
+<li>string methods like split(), lower(), upper()</li>
+<li>abstraction, saving our results to a new variable, then using
+type()</li>
+</ul></li>
+<li>functions
+<ul class="org-ul">
+<li>print(), len()</li>
+<li>defining a function, calling a function</li>
+<li>individual challenge: write a function that uppercases a string.
+and prints the result.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: fcalado</p>
+<p class="date">Created: 2025-08-27 Wed 13:56</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

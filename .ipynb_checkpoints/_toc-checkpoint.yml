@@ -7,9 +7,11 @@ parts:
   - file: intro/script
   - file: intro/data-types
   - file: intro/variables
+  - file: intro/functions
   - file: intro/lists
   - file: intro/loops
   - file: intro/logic
+  - file: intro/errors
   - file: intro/csv
 - caption: gathering data
   chapters:
@@ -17,28 +19,23 @@ parts:
   - file: gathering/what
   - file: gathering/inspector
   - file: gathering/scraping
-  - file: gathering/ethics
   - file: gathering/to-dataframe
+  - file: gathering/ethics
   - file: gathering/dicts
   - file: gathering/met_api
   - file: gathering/nyt_api
   - file: gathering/legiscan_api
   - file: gathering/karol
-- caption: cleaning data
-  chapters:
-  - file: clean/overview
-  - file: clean/cleaning
 - caption: analyzing data
   chapters:
-  - file: analyze/pandas
-  - file: analyze/pandas_2
-- caption: machine learning
-  chapters:
-  - file: ml/hf
-  - file: ml/inference
-  - file: ml/fine-tune
+  - file: analyzing/overview
+  - file: analyzing/cleaning/cleaning
+  - file: analyzing/pandas
+  - file: analyzing/pandas_2
+  - file: analyzing/generating/hf
+  - file: analyzing/generating/inference
+  - file: analyzing/generating/fine-tune
 - caption: publishing
   chapters:
   - file: publish/github
-  - file: publish/git
   - file: publish/jekyll

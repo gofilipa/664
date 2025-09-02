@@ -13,7 +13,7 @@ It introduces:
 ## Python environments
 
 There are many ways to use Python. For this workshop, we will be using
-[Jupyter-Notebooks](https://jupyter.org/), installed through the
+[JupyterLab](https://jupyter.org/), installed through the
 [Python Anaconda](https://www.anaconda.com/download/success)
 distrubtion. This option is convenient because it creates a "local"
 version of Python directly on your computer, which means you can use

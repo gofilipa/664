@@ -185,9 +185,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/errors.html">Errors in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
@@ -489,7 +491,7 @@ If you get an error with importing one of the above libraries, make sure you hav
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;title data-rh=&quot;true&quot;&gt;&lt;/title&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;title data-rh=&quot;true&quot;&gt;New York - The New York Times&lt;/title&gt;
 </pre></div>
 </div>
 </div>
@@ -500,10 +502,20 @@ If you get an error with importing one of the above libraries, make sure you hav
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;h1 class=&quot;css-14dhlt9 e16wpn5v0&quot; data-component-name=&quot;collection-header&quot;&gt;New York&lt;/h1&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;a class=&quot;css-kgn7zc&quot; href=&quot;#site-content&quot;&gt;Skip to content&lt;/a&gt;
 </pre></div>
 </div>
 </div>
@@ -521,7 +533,7 @@ If you get an error with importing one of the above libraries, make sure you hav
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;New York - The New York Times&#39;
 </pre></div>
 </div>
 </div>
@@ -535,17 +547,6 @@ If you get an error with importing one of the above libraries, make sure you hav
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># saving the text from the level 3 header element to &quot;bill_title&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">headline</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">h3</span><span class="o">.</span><span class="n">text</span>
-
-<span class="ne">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;text&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -554,7 +555,7 @@ If you get an error with importing one of the above libraries, make sure you hav
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;A $336 Million Plan to Build Housing, Retail and an Arts Hub in Newark&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;N.Y.C. Man Is Fourth Person to Die in Custody in Just Over a Week&#39;
 </pre></div>
 </div>
 </div>
@@ -566,7 +567,7 @@ If you get an error with importing one of the above libraries, make sure you hav
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p&gt;Advertisement&lt;/p&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p&gt;Supported by&lt;/p&gt;
 </pre></div>
 </div>
 </div>
@@ -621,7 +622,7 @@ If you get an error with importing one of the above libraries, make sure you hav
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;css-14ee9cx&quot;&gt;&lt;article class=&quot;css-1l4spti&quot;&gt;&lt;figure aria-label=&quot;media&quot; class=&quot;css-8izaxg&quot; role=&quot;group&quot;&gt;&lt;div class=&quot;css-79elbk&quot; data-testid=&quot;imageContainer-children-Image&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;css-rq4mmj&quot; decoding=&quot;async&quot; height=&quot;100&quot; sizes=&quot;(min-width: 1024px) 205px, 150px&quot; src=&quot;https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-thumbWide.jpg?quality=75&amp;amp;auto=webp&amp;amp;disable=upscale&quot; srcset=&quot;https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-thumbWide.jpg?quality=100&amp;amp;auto=webp 190w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-videoThumb.jpg?quality=100&amp;amp;auto=webp 75w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-videoLarge.jpg?quality=100&amp;amp;auto=webp 768w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-mediumThreeByTwo210.jpg?quality=100&amp;amp;auto=webp 210w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-mediumThreeByTwo225.jpg?quality=100&amp;amp;auto=webp 225w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-mediumThreeByTwo440.jpg?quality=100&amp;amp;auto=webp 440w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-mediumThreeByTwo252.jpg?quality=100&amp;amp;auto=webp 252w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-mediumThreeByTwo378.jpg?quality=100&amp;amp;auto=webp 378w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-threeByTwoLargeAt2X.jpg?quality=100&amp;amp;auto=webp 2227w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-threeByTwoMediumAt2X.jpg?quality=100&amp;amp;auto=webp 1500w,https://static01.nyt.com/images/2024/09/18/multimedia/18Golden-bhcl/18Golden-bhcl-threeByTwoSmallAt2X.jpg?quality=100&amp;amp;auto=webp 600w&quot; width=&quot;150&quot;/&gt;&lt;/div&gt;&lt;figcaption class=&quot;css-ktho12 e3rygrp0&quot; data-testid=&quot;photoviewer-children-ImageCaption&quot;&gt;&lt;/figcaption&gt;&lt;/figure&gt;&lt;a class=&quot;css-8hzhxf&quot; href=&quot;/2024/09/18/nyregion/harrison-j-goldin-dead.html&quot;&gt;&lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Harrison J. Goldin, 88, New York City Comptroller in Fiscal Crisis, Is Dead&lt;/h3&gt;&lt;/a&gt;&lt;p class=&quot;css-1pga48a e15t083i1&quot;&gt;He weathered the storm as the city’s chief financial officer for 16 years and jousted with Mayor Koch in a public feud and a losing primary bid to replace him.&lt;/p&gt;&lt;p class=&quot;css-1y3ykdt e140qd2t0&quot;&gt;By &lt;span class=&quot;css-1n7hynb&quot;&gt;Joseph P. Fried&lt;/span&gt;&lt;/p&gt;&lt;/article&gt;&lt;div class=&quot;css-agsgss e15t083i3&quot;&gt;&lt;span class=&quot;&quot;&gt; &lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;css-14ee9cx&quot;&gt;&lt;article class=&quot;css-1l4spti&quot;&gt;&lt;figure aria-label=&quot;media&quot; class=&quot;css-1spw4h6&quot; role=&quot;group&quot;&gt;&lt;div class=&quot;css-79elbk&quot; data-testid=&quot;imageContainer-children-Image&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;css-rq4mmj&quot; decoding=&quot;async&quot; height=&quot;150&quot; sizes=&quot;(min-width: 1024px) 205px, 150px&quot; src=&quot;https://static01.nyt.com/images/2025/09/01/multimedia/01muss-01-tfkb/01muss-01-tfkb-square320.jpg?quality=75&amp;amp;auto=webp&amp;amp;disable=upscale&quot; srcset=&quot;https://static01.nyt.com/images/2025/09/01/multimedia/01muss-01-tfkb/01muss-01-tfkb-square320.jpg?quality=100&amp;amp;auto=webp 320w,https://static01.nyt.com/images/2025/09/01/multimedia/01muss-01-tfkb/01muss-01-tfkb-moth.jpg?quality=100&amp;amp;auto=webp 151w,https://static01.nyt.com/images/2025/09/01/multimedia/01muss-01-tfkb/01muss-01-tfkb-filmstrip.jpg?quality=100&amp;amp;auto=webp 190w,https://static01.nyt.com/images/2025/09/01/multimedia/01muss-01-tfkb/01muss-01-tfkb-square640.jpg?quality=100&amp;amp;auto=webp 640w,https://static01.nyt.com/images/2025/09/01/multimedia/01muss-01-tfkb/01muss-01-tfkb-mediumSquare149.jpg?quality=100&amp;amp;auto=webp 149w,https://static01.nyt.com/images/2025/09/01/multimedia/01muss-01-tfkb/01muss-01-tfkb-mediumSquareAt3X.jpg?quality=100&amp;amp;auto=webp 1800w&quot; width=&quot;150&quot;/&gt;&lt;/div&gt;&lt;figcaption class=&quot;css-ktho12 e3rygrp0&quot; data-testid=&quot;photoviewer-children-ImageCaption&quot;&gt;&lt;/figcaption&gt;&lt;/figure&gt;&lt;a class=&quot;css-8hzhxf&quot; href=&quot;/2025/09/02/realestate/stephen-muss-dead.html&quot;&gt;&lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Stephen Muss, Developer Who Helped Revive Miami Beach, Dies at 97&lt;/h3&gt;&lt;/a&gt;&lt;p class=&quot;css-1pga48a e15t083i1&quot;&gt;The scion of a New York family of builders, he rescued the Fontainebleau hotel from bankruptcy, spurring a real estate boom.&lt;/p&gt;&lt;p class=&quot;css-1y3ykdt e140qd2t0&quot;&gt;By &lt;span class=&quot;css-1n7hynb&quot;&gt;Sam Roberts&lt;/span&gt;&lt;/p&gt;&lt;/article&gt;&lt;div class=&quot;css-agsgss e15t083i3&quot;&gt;&lt;span class=&quot;&quot;&gt; &lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
 </pre></div>
 </div>
 </div>
@@ -634,7 +635,7 @@ If you get an error with importing one of the above libraries, make sure you hav
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Harrison J. Goldin, 88, New York City Comptroller in Fiscal Crisis, Is DeadHe weathered the storm as the city’s chief financial officer for 16 years and jousted with Mayor Koch in a public feud and a losing primary bid to replace him.By Joseph P. Fried\xa0&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Stephen Muss, Developer Who Helped Revive Miami Beach, Dies at 97The scion of a New York family of builders, he rescued the Fontainebleau hotel from bankruptcy, spurring a real estate boom.By Sam Roberts\xa0&#39;
 </pre></div>
 </div>
 </div>
@@ -654,20 +655,20 @@ If you get an error with importing one of the above libraries, make sure you hav
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2024/09/18/nyregion/performing-arts-real-estate-nj.html&quot;&gt;A $336 Million Plan to Build Housing, Retail and an Arts Hub in Newark&lt;/a&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2024/09/18/nyregion/trump-long-island-nassau.html&quot;&gt;Trump, Hardly New York’s Favorite Son, Brings His Message to Long Island&lt;/a&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2024/09/18/nyregion/nypd-shooting-brooklyn-subway-bystander.html&quot;&gt;The Police Called. He Checked the News, and His ‘Heart Dropped.’&lt;/a&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2024/09/18/nyregion/mta-capital-plan-congestion-pricing.html&quot;&gt;M.T.A.’s Financial Needs Grow With Congestion Pricing in Purgatory&lt;/a&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Harrison J. Goldin, 88, New York City Comptroller in Fiscal Crisis, Is Dead&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;‘You’re Basically on a Broadway Stage, With New Friends’&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Panic! At the Vegan Food Festival&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;The King Cole Bar Reopens, Moodier Than Before&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;A Wildly Popular New York Taqueria Nails Its Sequel&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Why Taxpayers Are Funding Cuomo’s Legal Bills&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Critics Question N.Y.P.D. Shootings After Fare Evasion Stop in Subway&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;N.Y.C. Fire Safety Chiefs Accused of Taking Bribes&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;A ‘Buena Vista Social Club’ Musical Will Open on Broadway Next Year&lt;/h3&gt;,
- &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;2 N.Y.C. Fire Department Chiefs Arrested on Bribery Charges&lt;/h3&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2025/09/01/nyregion/nyc-jail-deaths.html&quot;&gt;N.Y.C. Man Is Fourth Person to Die in Custody in Just Over a Week&lt;/a&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2025/09/01/nyregion/west-indian-day-parade-labor-day-photos.html&quot;&gt;In Brooklyn, West Indian Parade Celebrates Heritage and Carnival&lt;/a&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2025/09/02/nyregion/rescue-medic-wall-street-.html&quot;&gt;The Millionaire Who Left Wall Street to Become a Paramedic&lt;/a&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1ykb5sd e1hr934v2&quot;&gt;&lt;a class=&quot;css-1u3p7j1&quot; data-rref=&quot;&quot; href=&quot;/2025/09/02/nyregion/rudy-giuliani-new-hampshire.html&quot;&gt;Giuliani Finds a Home Away From Home in New Hampshire&lt;/a&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Stephen Muss, Developer Who Helped Revive Miami Beach, Dies at 97&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;In a Tiny Space With a Spare Korean Menu, Sunn’s Makes Magic&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;The Art to See This Fall, According to Our Chief Critic&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Art’s New Season Offers Rauschenberg and More Headliner Shows for Fall&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;What to Know About Giuliani’s Car Crash&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Rikers Detainee Becomes Third Person to Die in N.Y.C. Custody in a Week&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;What’s Loud, Pink and Drawing New Yorkers Together?&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;Beaten and Choked at a U.N. Mission, Then Arrested by the N.Y.P.D.&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;The Manhattan Park That Keeps Children Locked Out&lt;/h3&gt;,
+ &lt;h3 class=&quot;css-1j88qqx e15t083i0&quot;&gt;‘I Stood on the Corner Dreading the Long, Humid Wait for the Subway’&lt;/h3&gt;]
 </pre></div>
 </div>
 </div>
@@ -682,15 +683,15 @@ If you get an error with importing one of the above libraries, make sure you hav
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">41</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/bs4/element.py:2428,</span> in <span class="ni">ResultSet.__getattr__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2426</span> <span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2427</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Raise a helpful exception to explain a common code fix.&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">2428</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2429</span>         <span class="s2">&quot;ResultSet object has no attribute &#39;</span><span class="si">%s</span><span class="s2">&#39;. You&#39;re probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?&quot;</span> <span class="o">%</span> <span class="n">key</span>
-<span class="g g-Whitespace">   </span><span class="mi">2430</span>     <span class="p">)</span>
+<span class="nn">File ~/.conda/envs/jb/lib/python3.11/site-packages/bs4/element.py:2433,</span> in <span class="ni">ResultSet.__getattr__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2431</span> <span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2432</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Raise a helpful exception to explain a common code fix.&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">2433</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2434</span>         <span class="s2">&quot;ResultSet object has no attribute &#39;</span><span class="si">%s</span><span class="s2">&#39;. You&#39;re probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?&quot;</span> <span class="o">%</span> <span class="n">key</span>
+<span class="g g-Whitespace">   </span><span class="mi">2435</span>     <span class="p">)</span>
 
 <span class="ne">AttributeError</span>: ResultSet object has no attribute &#39;text&#39;. You&#39;re probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?
 </pre></div>

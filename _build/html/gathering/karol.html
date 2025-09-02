@@ -185,9 +185,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/errors.html">Errors in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
@@ -591,9 +593,9 @@ document.write(`
    &#39;name&#39;: &#39;Q’ Lokura&#39;,
    &#39;url&#39;: &#39;https://genius.com/artists/Q-lokura&#39;},
   {&#39;api_path&#39;: &#39;/artists/3405051&#39;,
-   &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1745879682&#39;,
+   &#39;header_image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1756755208&#39;,
    &#39;id&#39;: 3405051,
-   &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1745879682&#39;,
+   &#39;image_url&#39;: &#39;https://assets.genius.com/images/default_avatar_300.png?1756755208&#39;,
    &#39;is_meme_verified&#39;: False,
    &#39;is_verified&#39;: False,
    &#39;name&#39;: &#39;Banda Mix&#39;,
@@ -637,7 +639,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;annotation_count&#39;, &#39;api_path&#39;, &#39;apple_music_id&#39;, &#39;apple_music_player_url&#39;, &#39;artist_names&#39;, &#39;description&#39;, &#39;embed_content&#39;, &#39;featured_video&#39;, &#39;full_title&#39;, &#39;header_image_thumbnail_url&#39;, &#39;header_image_url&#39;, &#39;id&#39;, &#39;language&#39;, &#39;lyrics_owner_id&#39;, &#39;lyrics_state&#39;, &#39;path&#39;, &#39;primary_artist_names&#39;, &#39;pyongs_count&#39;, &#39;recording_location&#39;, &#39;relationships_index_url&#39;, &#39;release_date&#39;, &#39;release_date_for_display&#39;, &#39;release_date_with_abbreviated_month_for_display&#39;, &#39;song_art_image_thumbnail_url&#39;, &#39;song_art_image_url&#39;, &#39;stats&#39;, &#39;title&#39;, &#39;title_with_featured&#39;, &#39;url&#39;, &#39;current_user_metadata&#39;, &#39;song_art_primary_color&#39;, &#39;song_art_secondary_color&#39;, &#39;song_art_text_color&#39;, &#39;album&#39;, &#39;custom_performances&#39;, &#39;description_annotation&#39;, &#39;featured_artists&#39;, &#39;lyrics_marked_complete_by&#39;, &#39;lyrics_marked_staff_approved_by&#39;, &#39;media&#39;, &#39;primary_artist&#39;, &#39;primary_artists&#39;, &#39;producer_artists&#39;, &#39;song_relationships&#39;, &#39;translation_songs&#39;, &#39;verified_annotations_by&#39;, &#39;verified_contributors&#39;, &#39;verified_lyrics_by&#39;, &#39;writer_artists&#39;])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;annotation_count&#39;, &#39;api_path&#39;, &#39;apple_music_id&#39;, &#39;apple_music_player_url&#39;, &#39;artist_names&#39;, &#39;description&#39;, &#39;embed_content&#39;, &#39;full_title&#39;, &#39;header_image_thumbnail_url&#39;, &#39;header_image_url&#39;, &#39;id&#39;, &#39;language&#39;, &#39;lyrics_owner_id&#39;, &#39;lyrics_state&#39;, &#39;path&#39;, &#39;primary_artist_names&#39;, &#39;pyongs_count&#39;, &#39;recording_location&#39;, &#39;relationships_index_url&#39;, &#39;release_date&#39;, &#39;release_date_for_display&#39;, &#39;release_date_with_abbreviated_month_for_display&#39;, &#39;song_art_image_thumbnail_url&#39;, &#39;song_art_image_url&#39;, &#39;stats&#39;, &#39;title&#39;, &#39;title_with_featured&#39;, &#39;url&#39;, &#39;current_user_metadata&#39;, &#39;song_art_primary_color&#39;, &#39;song_art_secondary_color&#39;, &#39;song_art_text_color&#39;, &#39;album&#39;, &#39;custom_performances&#39;, &#39;description_annotation&#39;, &#39;featured_artists&#39;, &#39;lyrics_marked_complete_by&#39;, &#39;lyrics_marked_staff_approved_by&#39;, &#39;media&#39;, &#39;primary_artist&#39;, &#39;primary_artists&#39;, &#39;producer_artists&#39;, &#39;song_relationships&#39;, &#39;translation_songs&#39;, &#39;verified_annotations_by&#39;, &#39;verified_contributors&#39;, &#39;verified_lyrics_by&#39;, &#39;writer_artists&#39;])
 </pre></div>
 </div>
 </div>
@@ -719,7 +721,7 @@ document.write(`
       &#39;header_image_url&#39;: &#39;https://images.genius.com/a3f3e4fae808e9426937a2b4180993bf.640x908x1.jpg&#39;,
       &#39;human_readable_role_for_display&#39;: &#39;Moderator&#39;,
       &#39;id&#39;: 17336116,
-      &#39;iq&#39;: 1336991,
+      &#39;iq&#39;: 1351562,
       &#39;login&#39;: &#39;Fri&#39;,
       &#39;name&#39;: &#39;Fri&#39;,
       &#39;role_for_display&#39;: &#39;moderator&#39;,
