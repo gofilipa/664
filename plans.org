@@ -121,46 +121,47 @@ Navigating
 - may have to look up "f-strings"
 
 *** BREAK
-*** vibe coding exercise
-Watch a tutorial on "vibe coding".
+*** Project Development 30 minutes, share 30 minutes
+Spend some time thinking about what kind of data you're interested in,
+and would like to work with.
 
-*** Challenge:
-Grab a paragraph or two of text from a book on Project Gutenberg, and
-save that text to a string in a Python notebook. Then use the methods
-we learned in class to do the following: first, transform the string
-into a list; then, add, remove, and sort items in the list. Save your
-python notebook file (.ipynb file) and submit it on canvas.
+Why are you interested in this data? What kinds of questions do you
+have about this data?
+
+Come up with two or three online sources for this data. Can be
+websites, archives, pdfs, anything electronic.
+
+Next step: environmental scan of existing projects.
+
+*** Start challenge:
+Grab a paragraph or two of text from a website you are interested in,
+and save that text to a string in a Python notebook. Then use the
+methods we learned in class to do the following: first, transform the
+string into a list; then, add, remove, and sort items in the list.
+Save your python notebook file (.ipynb file) and submit it on canvas.
     
 ** week 3: python 2: loops, logic, errors
 Agenda
 - review challenge
-- review last week's lessons on Python 1
+- review last week's lessons on lists, functions
 - lessons for today: loops, logic
-  - incorporate discussion of Butler's chapter
-- start working with CSV module
+- start working with CSV module using VS Code & Copilot
 
 *** review
-- data types,
-  - ~type()~
-  - what are they?
-  - how do we check them?
-- we save data by creating variables
 - lists
   - list indexing vs slicing
+- functions
+  - how do we write them, and how do we call them?
+  - formatting strings
 - methods vs functions
   - what are some functions and methods we learned? 
   - functions are independant
   - methods depend on objects (also called properties, attributes)
   - can tell in syntax
 
-
 *** review challenge
 Create a list of words from a text, and do things to the list using
 list methods.
-
-Removing Gender Ideology and Restoring the EEOC’s Role of Protecting
-Women in the Workplace
-
 
 *** loops
 How we do things to data.
@@ -173,16 +174,14 @@ How we do things to data.
 - a note on variable names:
   - the variable following "for" is assigned on the fly
 - f-strings
+- CHALLENGE: prime numbers
 
-String Methods
+Doing things to strings
 - how to do things to strings within loops
 - 'HELLO'.lower()
 - make a list of cities, and make them all lowercasee
 - now save that list to a new list, an empty list
   - why would we want to do this?
-    
-**** Group challenge:
-- list of prime numbers and their squares, using f strings.
 
 *** logic
 Boolean data
@@ -238,7 +237,7 @@ with open ('violations_sample.csv', 'r') as f:
 
 #+end_src
 
-**** group challenge: Combining logic, loops, and csv:
+**** Combining logic, loops, and csv:
 - search for a specific candidate name in the dataset
 - print out all rows containing that candidate's name
 - advanced: print out only the date and the violation
@@ -252,7 +251,7 @@ with open ('violations_sample.csv', 'r') as f:
             print(row)
 #+end_src
 
-**** advanced challenge (that I'll walk you through)
+**** Challenge (that I'll walk you through)
 Combine what we know from the above with f-strings to write more
 complex output.
 

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-08-27 Wed 13:56 -->
+<!-- 2025-09-10 Wed 14:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,190 +200,285 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgee55e92">1. week 1: introduction to the command line &amp; python</a>
+<li><a href="#org5ea200d">1. week 3: python 2: loops, logic, errors</a>
 <ul>
-<li><a href="#org3c5bfe2">1.1. intro to the syllabus</a></li>
-<li><a href="#org022dab0">1.2. what is the command line?</a></li>
-<li><a href="#orga1845be">1.3. why would you used the command line</a></li>
-<li><a href="#orgd323969">1.4. command line (30-45m)</a></li>
-<li><a href="#org4b270e4">1.5. time to download and install Anaconda (highly recommended) or Python</a></li>
-<li><a href="#org0887621">1.6. BREAK</a></li>
-<li><a href="#org8d70d3a">1.7. introduction to Python</a>
+<li><a href="#orgf6d4740">1.1. review</a></li>
+<li><a href="#org3eefba7">1.2. review challenge</a></li>
+<li><a href="#org7afd7d8">1.3. loops</a></li>
+<li><a href="#org46f2094">1.4. logic</a></li>
+<li><a href="#org76972b9">1.5. BREAK</a></li>
+<li><a href="#org3fccd28">1.6. csv module</a>
 <ul>
-<li><a href="#orga13d5dc">1.7.1. introduction to the Python language</a></li>
-<li><a href="#org9301776">1.7.2. data types and variables</a></li>
+<li><a href="#orgeb1053f">1.6.1. Combining logic, loops, and csv:</a></li>
+<li><a href="#orgd133219">1.6.2. Challenge (that I'll walk you through)</a></li>
 </ul>
 </li>
+<li><a href="#org4e456c2">1.7. individual practice: ERRORS</a></li>
+<li><a href="#org972a7b4">1.8. next week: web scraping!</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgee55e92" class="outline-2">
-<h2 id="orgee55e92"><span class="section-number-2">1.</span> week 1: introduction to the command line &amp; python</h2>
+<div id="outline-container-org5ea200d" class="outline-2">
+<h2 id="org5ea200d"><span class="section-number-2">1.</span> week 3: python 2: loops, logic, errors</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+Agenda
+</p>
+<ul class="org-ul">
+<li>review challenge</li>
+<li>review last week's lessons on lists, functions</li>
+<li>lessons for today: loops, logic</li>
+<li>start working with CSV module using VS Code &amp; Copilot</li>
+</ul>
 </div>
-<div id="outline-container-org3c5bfe2" class="outline-3">
-<h3 id="org3c5bfe2"><span class="section-number-3">1.1.</span> intro to the syllabus</h3>
+
+<div id="outline-container-orgf6d4740" class="outline-3">
+<h3 id="orgf6d4740"><span class="section-number-3">1.1.</span> review</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>lists
+<ul class="org-ul">
+<li>list indexing vs slicing</li>
+</ul></li>
+<li>functions
+<ul class="org-ul">
+<li>how do we write them, and how do we call them?</li>
+<li>formatting strings</li>
+</ul></li>
+<li>methods vs functions
+<ul class="org-ul">
+<li>what are some functions and methods we learned?</li>
+<li>functions are independant</li>
+<li>methods depend on objects (also called properties, attributes)</li>
+<li>can tell in syntax</li>
+</ul></li>
+</ul>
 </div>
-<div id="outline-container-org022dab0" class="outline-3">
-<h3 id="org022dab0"><span class="section-number-3">1.2.</span> what is the command line?</h3>
+</div>
+
+<div id="outline-container-org3eefba7" class="outline-3">
+<h3 id="org3eefba7"><span class="section-number-3">1.2.</span> review challenge</h3>
 <div class="outline-text-3" id="text-1-2">
-<ul class="org-ul">
-<li>a way of talking to the computer.
-<ul class="org-ul">
-<li>GUIs vs commands</li>
-</ul></li>
-<li>the bash language</li>
-</ul>
+<p>
+Create a list of words from a text, and do things to the list using
+list methods.
+</p>
 </div>
 </div>
 
-<div id="outline-container-orga1845be" class="outline-3">
-<h3 id="orga1845be"><span class="section-number-3">1.3.</span> why would you used the command line</h3>
+<div id="outline-container-org7afd7d8" class="outline-3">
+<h3 id="org7afd7d8"><span class="section-number-3">1.3.</span> loops</h3>
 <div class="outline-text-3" id="text-1-3">
+<p>
+How we do things to data.
+</p>
 <ul class="org-ul">
-<li>really good for working with "plain text" files
+<li>types of data for categorizing data; variables for saving data; how
+to work with lists of data; now, how to do things to
+lists/groupings.
 <ul class="org-ul">
-<li>"plain text" - what is this?
-<ul class="org-ul">
-<li>demo with docx and plain text file.</li>
+<li>also works with strings</li>
 </ul></li>
-<li>what are some rich text file formats?
+<li>syntax: for item in collection: print(item).
 <ul class="org-ul">
-<li>what are some plain text file formats?</li>
+<li>practice with both lists and strings</li>
 </ul></li>
-<li>why use command line?
+<li>a note on variable names:
 <ul class="org-ul">
-<li>we can manipulate plain text quite easily, like Python,
-Javascript programs.</li>
+<li>the variable following "for" is assigned on the fly</li>
 </ul></li>
+<li>f-strings</li>
+<li>CHALLENGE: prime numbers</li>
+</ul>
+
+<p>
+Doing things to strings
+</p>
+<ul class="org-ul">
+<li>how to do things to strings within loops</li>
+<li>'HELLO'.lower()</li>
+<li>make a list of cities, and make them all lowercasee</li>
+<li>now save that list to a new list, an empty list
+<ul class="org-ul">
+<li>why would we want to do this?</li>
 </ul></li>
-<li>to download and install programming software that doesn't have a
-GUI.</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd323969" class="outline-3">
-<h3 id="orgd323969"><span class="section-number-3">1.4.</span> command line (30-45m)</h3>
+<div id="outline-container-org46f2094" class="outline-3">
+<h3 id="org46f2094"><span class="section-number-3">1.4.</span> logic</h3>
 <div class="outline-text-3" id="text-1-4">
+<p>
+Boolean data
+</p>
 <ul class="org-ul">
-<li>lesson: introduction to the command line
+<li>type() -&gt; True or False</li>
+<li>evaluates mathematical expressions
 <ul class="org-ul">
-<li>navigating</li>
-<li>creating folders and files</li>
-<li>using nano</li>
+<li>different operators, look them up. Many different kinds.</li>
+</ul></li>
+<li>if statement for checking age
+<ul class="org-ul">
+<li>multiple conditions</li>
 </ul></li>
 </ul>
 
 <p>
-Navigating
+Combining loops with logic:
 </p>
+<ul class="org-ul">
+<li>DEFENDING WOMEN FROM GENDER IDEOLOGY EXTREMISM AND RESTORING
+BIOLOGICAL TRUTH TO THE FEDERAL GOVERNMENT</li>
+<li>if it contains the word "gender", "protect", or others, we will
+print.</li>
+</ul>
 
 <div class="org-src-container">
-<pre class="src src-console"># navigation
-cd
-cd ~
-cd ..
-cd /
-# terms: home vs root folder, directory structure
-
-# listing and flags
-ls
-ls -a
-ls -l
-
-# creating files and folders
-mkdir 664
-touch test.md
-touch test.py
-
-# editing files
-nano test.md
-
+<pre class="src src-python">for i in text.split('.'):
+    if 'binary' in i:
+        print(i)
 </pre>
 </div>
 </div>
 </div>
 
-
-<div id="outline-container-org4b270e4" class="outline-3">
-<h3 id="org4b270e4"><span class="section-number-3">1.5.</span> time to download and install Anaconda (highly recommended) or Python</h3>
+<div id="outline-container-org76972b9" class="outline-3">
+<h3 id="org76972b9"><span class="section-number-3">1.5.</span> BREAK</h3>
 </div>
 
-<div id="outline-container-org0887621" class="outline-3">
-<h3 id="org0887621"><span class="section-number-3">1.6.</span> BREAK</h3>
+<div id="outline-container-org3fccd28" class="outline-3">
+<h3 id="org3fccd28"><span class="section-number-3">1.6.</span> csv module</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>csv module
+<ul class="org-ul">
+<li>what is a module? a collection of code for doing something, in
+this case, for opening csv files</li>
+<li>read a little of the docs on CSV module, reader</li>
+</ul></li>
+
+<li>printing rows from csv on <a href="https://data.cityofnewyork.us/City-Government/Enforcement-Actions-Board-Determinations-and-Penal/xrxs-qn95/about_data">Campaign Violations</a>:
+<ul class="org-ul">
+<li>import csv</li>
+<li>open the file with open statement</li>
+<li>print the rows</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-python">with open('./Downloads/Enforcement_Actions_Board_Determinations_and_Penalties_20250210.csv') as f:
+    data = csv.reader(f)
+    for row in data:
+        print(row)
+</pre>
 </div>
 
-<div id="outline-container-org8d70d3a" class="outline-3">
-<h3 id="org8d70d3a"><span class="section-number-3">1.7.</span> introduction to Python</h3>
+<p>
+How do we get just the first object from each column? The names?
+</p>
+<ul class="org-ul">
+<li>breakup the problem into parts</li>
+<li>check the type of data(s)</li>
+<li>how do we access info from a list?</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-python">
+with open ('violations_sample.csv', 'r') as f:
+    data = csv.reader(f)
+    for row in data:
+        print(row[1])
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgeb1053f" class="outline-4">
+<h4 id="orgeb1053f"><span class="section-number-4">1.6.1.</span> Combining logic, loops, and csv:</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<ul class="org-ul">
+<li>search for a specific candidate name in the dataset</li>
+<li>print out all rows containing that candidate's name</li>
+<li>advanced: print out only the date and the violation</li>
+</ul>
+
+
+<div class="org-src-container">
+<pre class="src src-python">with open('violations.csv', 'r') as f:
+  data = csv.reader(f)
+  for row in data:
+      if "Eric" in row[1]:
+          print(row)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd133219" class="outline-4">
+<h4 id="orgd133219"><span class="section-number-4">1.6.2.</span> Challenge (that I'll walk you through)</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<p>
+Combine what we know from the above with f-strings to write more
+complex output.
+</p>
+
+<p>
+Write a loop that prints out the Candidate’s name and Violation if
+that violation contains the word “contribution” in it. Use f-strings
+so that you can format the answer the following:
+</p>
+
+<p>
+Name: [candidate name], Violation: [candidate violation]
+</p>
+
+<p>
+Here’s the answer, but don’t look until you’ve spent at least 5
+mintues working on it!
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">with open ('violations.csv', 'r') as f:
+  dict_reader = csv.reader(f)
+  for row in dict_reader:
+      violation = row[3]
+      if "contribution" in violation:
+          candidate = row[1]
+          print(f'Name: {candidate}, Violation: {violation}')
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4e456c2" class="outline-3">
+<h3 id="org4e456c2"><span class="section-number-3">1.7.</span> individual practice: ERRORS</h3>
 <div class="outline-text-3" id="text-1-7">
-</div>
-<div id="outline-container-orga13d5dc" class="outline-4">
-<h4 id="orga13d5dc"><span class="section-number-4">1.7.1.</span> introduction to the Python language</h4>
-<div class="outline-text-4" id="text-1-7-1">
 <ul class="org-ul">
-<li>What is Python?
+<li>there are many kinds of errors you can make with python.</li>
+<li>explore different kinds of errors. What are the general category
+of errors? What is a Name and a Type error, for instance? Syntax
+or Traceback? Try to get 2 of each.
 <ul class="org-ul">
-<li>powerful programming language for many tasks</li>
-<li>"high level", needs to be interpreted</li>
-</ul></li>
-<li>Learning objectives
-<ul class="org-ul">
-<li>types, variables, for holding data</li>
-<li>functions, methods for working w data</li>
+<li>choose 1 or 2 of your errors and google them. Read the stack
+overflow post about it. Try to get familiar with the forum
+format for asking coding questions.</li>
 </ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9301776" class="outline-4">
-<h4 id="org9301776"><span class="section-number-4">1.7.2.</span> data types and variables</h4>
-<div class="outline-text-4" id="text-1-7-2">
-<ul class="org-ul">
-<li>opening jupyter notebook or google colab</li>
-<li>data types
-<ul class="org-ul">
-<li>real world objects that are transformed into a computational
-format, to be computed.</li>
-<li>type() function</li>
-<li>int, str, bool, list</li>
-<li>types as a constraint, methods associated to type.</li>
-</ul></li>
-<li>variables
-<ul class="org-ul">
-<li>how we save data, to work with it</li>
-<li>using good names</li>
-<li>PARTNERS: creating variables to find the limits</li>
-<li>variables as objects
-<ul class="org-ul">
-<li>objects have methods, .upper()</li>
-</ul></li>
-<li>methods vs functions
-<ul class="org-ul">
-<li>one like a subject, and one like a clause</li>
-</ul></li>
-<li>string methods like split(), lower(), upper()</li>
-<li>abstraction, saving our results to a new variable, then using
-type()</li>
-</ul></li>
-<li>functions
-<ul class="org-ul">
-<li>print(), len()</li>
-<li>defining a function, calling a function</li>
-<li>individual challenge: write a function that uppercases a string.
-and prints the result.</li>
-</ul></li>
-</ul>
-</div>
-</div>
+<div id="outline-container-org972a7b4" class="outline-3">
+<h3 id="org972a7b4"><span class="section-number-3">1.8.</span> next week: web scraping!</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: fcalado</p>
-<p class="date">Created: 2025-08-27 Wed 13:56</p>
+<p class="date">Created: 2025-09-10 Wed 14:51</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
