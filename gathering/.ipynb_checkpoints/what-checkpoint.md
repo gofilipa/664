@@ -15,7 +15,7 @@ If you find yourself in a scenario where there's no API to access the data you w
 In Python, there are three major "libraries," or collections of code, for web scraping. They each have different advantages, working best with specific use cases. Here is a brief overview of their differences.
 
 ### BeautifulSoup4, or bs4
-`[bs4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)` uses the `requests` library to make `http` (Hypertext Transfer Protocol) requests. That means they work the same way that a browser does, calling information through a URL. More than just a web scraper, however, `bs4` is also an HTML parser, meaning that it can manipulate and transform HTML data.
+[bs4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) uses the `requests` library to make `http` (Hypertext Transfer Protocol) requests. That means they work the same way that a browser does, calling information through a URL. More than just a web scraper, however, `bs4` is also an HTML parser, meaning that it can manipulate and transform HTML data.
 
 Why it's useful:
 - it uses `requests`, the standard Python library for gathering data over the web

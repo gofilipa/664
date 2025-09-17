@@ -274,8 +274,24 @@ mintues working on it!
             print(f'Name: {candidate}, Violation: {violation}')
 #+end_src
   
-*** individual practice: ERRORS
+*** next week: web scraping!
+** week 4: web scraping 1
+Goals:
+- debugging practice: how to handle errors
+- web scraping
+  - learn how to scrape a simple web page
+  - learn a little bit about HTML/CSS
+  - learn more about objects in python, dot syntax
+
+*** errors
   - there are many kinds of errors you can make with python.
+    - syntax errors: before the program runs, checking the code is
+      typed in correctly and grammatically makes sense.
+    - traceback errors: during the program's execution, it just cannot
+      anymore. Something went wrong.
+    - close reading the error message.
+      4
+*** partners practice: make all the errors, 15 min
   - explore different kinds of errors. What are the general category
     of errors? What is a Name and a Type error, for instance? Syntax
     or Traceback? Try to get 2 of each.
@@ -283,43 +299,70 @@ mintues working on it!
       overflow post about it. Try to get familiar with the forum
       format for asking coding questions.
 
-*** next week: web scraping!
-** week 4: web scraping 1
-Goals:
-- learn how to scrape a simple web page
-- learn a little bit about HTML/CSS
-- learn more about objects in python, dot syntax
-- explore different functions for bs4
-- reinforce loops
-
-Lesson:
+*** web scraping: a simple scrape
 - what is web scraping? vs APIs, vs asking for data?
+  - what should you do first? API, directly reaching out, scrape. 
 - different web scraping tools: scrapy and selenium
-- HTML
+- scrape a website in 5 lines of code
+  - first install the libraries
+- 2 ways of getting htmml elements
+  - dot syntax: soup.title, .p. .h1, .a
+  - find() method
+- getting just the text
+  - .text
+  - looping through elements with find_all()
+
+*** BREAK
+
+*** digging into HTML elements
+- the HTML inspector
   - inspecting elements
   - intro to HTML elements and attributes
   - looking for bill number element and attributes, looking for bill
     card, looking for all the cards.
-- scrape a website in 5 lines of code
-- three ways of getting html elements
-  - dot syntax
-  - find()
-  - find_all()
-- narrowing down data by text, class, href
-  - .text: soup.div.a.text
-  - class uses _class
-    - soup.find('h3', _class='css-fdskal;fj'
-  - saving to variables
-    - soup.find_all('h3', _class='css-fdskal;fj'
+
+*** narrowing down elements by text, class, href
+  - To access the attributes like ~class~, we use the syntax:
+    ~tag['attr']~)For example, we can search for CSS classes using
+    this syntax.
+
+#+begin_src python
+  soup.h3['class'] #['chakra-heading', 'css-1vygpf9']
+  soup.h3.a['href']
+#+end_src
+
+- Once we have a `class` value, then we can get more granular about
+  our searching. Here, we would use the `find()` method. This is
+  useful when there are a lot of objects with the same element, and
+  you want more specificity.
+
+#+begin_quote python
+
+soup.find('h3', class_='css-1vygpf9')
+soup.find_all('h3', class_='css-1vygpf9')
+
+#+end_quote
+
+*** GROUP CHALLENGE:
+find a way of printing out an individual item in the bill card, like
+the category/tag, or the description.
 
 
-BREAK
-
-Lesson:
+*** looping through elements 
 - looping through elements to get just text
   - how would I do this to print out just bills that contain a certain
-    word in them? 
-- group challenge: print out all of the components of a bill. 
+    word in them?
+
+#+begin_src python
+
+  soup.find_all('div', class_ ='css-4rck61').text # this gets an error, why?
+
+  # this is the correct way
+  for i in soup.find_all('div', class_ ='css-4rck61'):
+    print(i.text)
+
+#+end_src
+
 ** week 5: web scraping 2
 Agenda:
 - review last week

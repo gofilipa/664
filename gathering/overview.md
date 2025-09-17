@@ -1,11 +1,11 @@
-# chapter overview
+# section overview
 ## learning objectives
-This chapter explores approaches for programmatically extracting information from websites using web scraping and APIs. Participants will practice gathering data from the web about politics, art, news and more, for example, scraping data about congressional legislation and using the Metropolitan Museum of Art API. They will work primarily with the `requests` and `bs4` Python libraries for gathering data and the `pandas` library for organizing and saving that data. They will also learn principles from object-oriented programming to gather and parse HTML and JSON type data. 
+This section explores web scraping and APIs for programmatically extracting information from websites. You will practice gathering data from the web about politics, art, news, and more, for example, scraping data about congressional legislation and using the Metropolitan Museum of Art API. You will work primarily with the `requests` and `bs4` Python libraries for gathering data and the `pandas` library for organizing and saving that data. You will also learn principles from object-oriented programming to gather and parse HTML and JSON type data. 
 
-This chapter introduces:
-- overview of HTML and how to use web browser developer tools
+This section introduces:
 - the differences between web scraping and APIs and what methods are appropriate for specific use cases
 - ethical and legal considerations for data gathering, use, and publication
+- overview of HTML and how to use web browser developer tools
 - Python libraries for data gathering and simple analysis, like `bs4`, `requests`, and `pandas` 
 - object-oriented programming syntax for parsing text based data
 

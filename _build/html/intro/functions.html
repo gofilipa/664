@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Functions &#8212; Python for Programming Cultural Heritage</title>
+    <title>functions &#8212; Python for Programming Cultural Heritage</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -185,16 +185,16 @@
 <li class="toctree-l1"><a class="reference internal" href="script.html">opening challenge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-types.html">data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">variables</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lists.html">lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loops.html">loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logic.html">logic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="errors.html">Errors in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../gathering/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gathering/overview.html">section overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/what.html">what is web scraping?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/inspector.html">the HTML Inspector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gathering/scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
@@ -405,7 +405,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Functions</h1>
+    <h1>functions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -428,7 +428,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="functions">
-<h1>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h1>
+<h1>functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h1>
 <p>Broadly defined, a function is a block of reusable code that performs a specific task. Often, a function takes an input, transforms the input, and returns an output.</p>
 <p>For those of you who remember high school algebra, the function <code class="docutils literal notranslate"><span class="pre">f(x)</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code> means that given an input <code class="docutils literal notranslate"><span class="pre">x</span></code>, the function will return <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code>. For example, if I substituted <code class="docutils literal notranslate"><span class="pre">2</span></code> for <code class="docutils literal notranslate"><span class="pre">x</span></code>, my function would read <code class="docutils literal notranslate"><span class="pre">f(2)</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">1</span></code>, or <code class="docutils literal notranslate"><span class="pre">f(2)</span> <span class="pre">=</span> <span class="pre">3</span></code>. In this case, my input was <code class="docutils literal notranslate"><span class="pre">2</span></code>, the transformation was to add <code class="docutils literal notranslate"><span class="pre">1</span></code>, and the output was <code class="docutils literal notranslate"><span class="pre">3</span></code>. These are the basic concepts that make up a function in Python as well!</p>
 <p>In a python notebook, let’s write a Python function that prints the output from our alegebraic equation <code class="docutils literal notranslate"><span class="pre">f(x)</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code> above.</p>

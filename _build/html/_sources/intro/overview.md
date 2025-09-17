@@ -1,7 +1,7 @@
 # chapter overview
 
 ## learning objectives
-This chapter explores how the Python programming language takes data, organizes it into collections or groupings, with the goal of doing something to that data. 
+This section explores how the Python programming language takes data, organizes it into collections or groupings, with the goal of doing something to that data. 
 
 It introduces:
 
@@ -12,7 +12,7 @@ It introduces:
 
 ## Python environments
 
-There are many ways to use Python. For this workshop, we will be using
+There are many ways to use Python. For these lesson, we will be using
 [JupyterLab](https://jupyter.org/), installed through the
 [Python Anaconda](https://www.anaconda.com/download/success)
 distrubtion. This option is convenient because it creates a "local"
