@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -185,16 +185,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../../intro/script.html">opening challenge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/data-types.html">data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/variables.html">variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../intro/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro/functions.html">functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/lists.html">lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/loops.html">loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/logic.html">logic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../intro/errors.html">Errors in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro/errors.html">errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../gathering/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gathering/overview.html">section overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gathering/what.html">what is web scraping?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gathering/inspector.html">the HTML Inspector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gathering/scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
@@ -536,7 +536,7 @@ use to process our prompt.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Truncation was not explicitly activated but `max_length` is provided a specific value, please use `truncation=True` to explicitly truncate examples to max length. Defaulting to &#39;longest_first&#39; truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
-Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;generated_text&#39;: &quot;Hello, my name is Filipa and I&#39;m a newbie in the world of web development. I&#39;m a newbie in the world of web development. I&#39;m a newbie in the world of web development. I&#39;m a newbie in&quot;}]
@@ -553,7 +553,7 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
 </pre></div>
 </div>
 </div>
@@ -646,7 +646,7 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the dataset and its subset</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;gofilipa/bedtime_stories&quot;</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;gofilipa/love_is_blind_sample&quot;</span><span class="p">)</span>
 
 <span class="c1"># check the dataset object</span>
 <span class="n">dataset</span>
@@ -656,8 +656,8 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatasetDict({
     train: Dataset({
-        features: [&#39;stories&#39;],
-        num_rows: 199
+        features: [&#39;text&#39;],
+        num_rows: 2000
     })
 })
 </pre></div>
@@ -686,8 +686,8 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset({
-    features: [&#39;stories&#39;],
-    num_rows: 199
+    features: [&#39;text&#39;],
+    num_rows: 2000
 })
 </pre></div>
 </div>
@@ -697,12 +697,12 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># how would we get the second row from this dataset?</span>
 
-<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">][</span><span class="s1">&#39;stories&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">][</span><span class="s1">&#39;text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The stars twinkled in the night sky as little Eva lay in her bed dreaming of adventures. She imagined flying on the back of a dragon across the clouds, soaring over the tallest mountains. Just then, Eva heard a gentle whisper that seemed to come from everywhere. It said, &quot;It\&#39;s time for beddy-byes now, dream sweetly little one.&quot; Eva smiled and snuggled into her cozy blankets, dreaming of more magical places.&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;What if I come here and everyone\&#39;s like, &quot;That girl has an unattractive voice.&quot;&#39;
 </pre></div>
 </div>
 </div>
@@ -710,18 +710,18 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">][</span><span class="s1">&#39;stories&#39;</span><span class="p">][:</span><span class="mi">5</span><span class="p">]:</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">][</span><span class="s1">&#39;text&#39;</span><span class="p">][:</span><span class="mi">5</span><span class="p">]:</span>
     <span class="n">out</span> <span class="o">=</span> <span class="n">pipe</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
     <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
 </pre></div>
 </div>
 </div>
@@ -733,11 +733,11 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[{&#39;generated_text&#39;: &#39;The stars twinkled in the night sky as little Eva lay in her bed dreaming of adventures. She imagined flying on the back of a dragon across the clouds, soaring over the tallest mountains. Just then, Eva heard a gentle whisper that seemed to come from everywhere. It said, &quot;It\&#39;s time for beddy-byes now, dream sweetly little one.&quot; Eva smiled and snuggled into her cozy blankets, dreaming of more magical places.\n\nThe next morning, Eva woke up with a start. She was in the middle of a dream, and she was in the middle of a dream. She was in the middle of a dream. She was in the middle of a dream. She was in the middle of a dream. She was in the middle of a dream. She was in the middle of a dream. She was in the middle of a dream. She was in the middle of a dream. She was in the middle&#39;}],
- [{&#39;generated_text&#39;: &quot;Once upon a time there was a little girl named Sam. Every night she snuggled into her warm bed for a cozy sleep. One night, while snuggling with her teddy bear, Sam heard a gentle voice coming from the window. She got up to investigate and saw a soft, glowing light outside. It was a fairy with a big smile who asked Sam to join her on a magical adventure. They flew around the night sky, visiting different planets and galaxies. When the sun began to rise they returned back to Sam&#39;s window. The magical fairy gave Sam a hug and Sam went back to bed filled with wonderful memories.\n\nThe next morning, Sam woke up with a strange feeling. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was&quot;}],
- [{&#39;generated_text&#39;: &quot;Alice was so excited for her first sleepover at her best friend&#39;s house. After playing all night and eating delicious snacks, they both got into their pajamas and laid down in the bed. They discussed all their favorite stories until their eyes got heavy and they both drifted off to dreamland while the stars shimmered above them. As they slowly fell asleep, Alice and her friend were filled with joy knowing they&#39;d have more adventures to come.\n\nAlice was so excited for her first sleepover at her best friend&#39;s house. After playing all night and eating delicious snacks, they both got into their pajamas and lay down in the bed. They discussed all their favorite stories until their eyes got heavy and they both drifted off to dreamland while the stars shimmered above them. As they slowly fell asleep, Alice and her friend were filled with joy knowing they&#39;d have more adventures to come.\n\nAlice was so excited for&quot;}],
- [{&#39;generated_text&#39;: &#39;Once upon a time, there lived two best friends, a squirrel and a rabbit. Every day they spent playing together in the meadow, chasing each other around the tall grass and laughing with glee. At night, they snuggled together in a cozy nook of a tree, dreaming about their next adventure. One night, when the stars shone like little diamonds in the sky, they heard a magical song from a mysterious musician. As they followed the music, they discovered a small pond, full of fireflies that lit up the water and filled the air with even more wondrous tunes. From that day forward, every night before bed, they’d sit by the pond and listen to the enchanting song, until their dreams were over.\n\nThe next day, they’d wake up and find themselves in the middle of a forest, surrounded by a huge, beautiful, and beautiful world. They’d sit on the ground and listen to the song, and then they’d sit on the grass and dream about the world.\n\nThe next day, they’d wake up and find themselves in the middle of a forest, surrounded by a huge, beautiful, and beautiful world.&#39;}],
- [{&#39;generated_text&#39;: &#39;Max loved the stars. Every night he would lay in bed and count each and every one. One night, he wished on the brightest star. When the morning came, a surprise was waiting for him at his doorstep! Max opened the package to find a jar of stars – millions of them! He now had all the stars he ever wanted!\n\nHe took the jar and opened it. The stars were there, but they were not there. He opened the jar and found a tiny star. He opened the jar and found a tiny star. He opened the jar and found a tiny star. He opened the jar and found a tiny star. He opened the jar and found a tiny star. He opened the jar and found a tiny star. He opened the jar and found a tiny star. He opened the jar and found a tiny star&#39;}]]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[{&#39;generated_text&#39;: &#39;What if I come here and everyone\&#39;s like, &quot;That girl has an unattractive voice.&quot;\n\nI\&#39;m not saying that I\&#39;m not a girl, but I\&#39;m saying that I\&#39;m not a girl. I\&#39;m saying that I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl.&#39;}],
+ [{&#39;generated_text&#39;: &#39;And that\&#39;s all I have right now. I\&#39;m going to be back in the office.&quot;\n\n&quot;I\&#39;m not going to be back in the office,&quot; she said. &quot;I\&#39;m going to be back in the office.&quot;\n\n&quot;I\&#39;m not going to be back in the office,&quot; he said. &quot;I\&#39;m going to be back in the office.&quot;\n\n&quot;I\&#39;m not going to be back in the office,&quot; she said. &quot;I\&#39;m going to be back in the office.&quot;\n\n&quot;I\&#39;m not&#39;}],
+ [{&#39;generated_text&#39;: &#39;I have a dirt bike too, just to top it off. I have a couple of other bikes that I have been riding for a while, but I have never ridden a dirt bike. I have a couple of other bikes that I have been riding for a while, but I have never ridden a dirt bike. I have a couple of other bikes that I have been riding for a while, but I have never ridden a dirt bike. I have a couple of other bikes that I have been riding for a while, but I have never ridden a dirt bike.&#39;}],
+ [{&#39;generated_text&#39;: &quot;I wish I looked like J. Lo. - Hello? - I&#39;m a little confused. I&#39;m trying to find the right way to do this. I&#39;m trying to find the right way to do this. I&#39;m trying to find the right way to do this. I&#39;m trying to find the right way to do this. I&#39;m trying to find the right way to do this. I&#39;m trying to find the right way to do this. I&#39;m trying to find the right way to do this. I&#39;m trying to find the right way to do&quot;}],
+ [{&#39;generated_text&#39;: &quot;- Uh, I work in real estate. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m&quot;}]]
 </pre></div>
 </div>
 </div>
@@ -759,11 +759,11 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;The stars twinkled in the night sky as little Eva lay in her bed dreaming of adventures. She imagined flying on the back of a dragon across the clouds, soaring over the tallest mountains. Just then, Eva heard a gentle whisper that seemed to come from everywhere. It said, &quot;It\&#39;s time for beddy-byes now, dream sweetly little one.&quot; Eva smiled and snuggled into her cozy blankets, dreaming of more magical places.\n\nThe next morning, Eva woke up with a start. She was in the middle of a dream, and she was in the middle of a dream. She was in the middle of a dream. She was in the middle of a dream. She was in the middle of a dream. She was in the middle of a dream. She was in the middle of a dream. She was in the middle of a dream. She was in the middle of a dream. She was in the middle&#39;,
- &quot;Once upon a time there was a little girl named Sam. Every night she snuggled into her warm bed for a cozy sleep. One night, while snuggling with her teddy bear, Sam heard a gentle voice coming from the window. She got up to investigate and saw a soft, glowing light outside. It was a fairy with a big smile who asked Sam to join her on a magical adventure. They flew around the night sky, visiting different planets and galaxies. When the sun began to rise they returned back to Sam&#39;s window. The magical fairy gave Sam a hug and Sam went back to bed filled with wonderful memories.\n\nThe next morning, Sam woke up with a strange feeling. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was in a dream. She was&quot;,
- &quot;Alice was so excited for her first sleepover at her best friend&#39;s house. After playing all night and eating delicious snacks, they both got into their pajamas and laid down in the bed. They discussed all their favorite stories until their eyes got heavy and they both drifted off to dreamland while the stars shimmered above them. As they slowly fell asleep, Alice and her friend were filled with joy knowing they&#39;d have more adventures to come.\n\nAlice was so excited for her first sleepover at her best friend&#39;s house. After playing all night and eating delicious snacks, they both got into their pajamas and lay down in the bed. They discussed all their favorite stories until their eyes got heavy and they both drifted off to dreamland while the stars shimmered above them. As they slowly fell asleep, Alice and her friend were filled with joy knowing they&#39;d have more adventures to come.\n\nAlice was so excited for&quot;,
- &#39;Once upon a time, there lived two best friends, a squirrel and a rabbit. Every day they spent playing together in the meadow, chasing each other around the tall grass and laughing with glee. At night, they snuggled together in a cozy nook of a tree, dreaming about their next adventure. One night, when the stars shone like little diamonds in the sky, they heard a magical song from a mysterious musician. As they followed the music, they discovered a small pond, full of fireflies that lit up the water and filled the air with even more wondrous tunes. From that day forward, every night before bed, they’d sit by the pond and listen to the enchanting song, until their dreams were over.\n\nThe next day, they’d wake up and find themselves in the middle of a forest, surrounded by a huge, beautiful, and beautiful world. They’d sit on the ground and listen to the song, and then they’d sit on the grass and dream about the world.\n\nThe next day, they’d wake up and find themselves in the middle of a forest, surrounded by a huge, beautiful, and beautiful world.&#39;,
- &#39;Max loved the stars. Every night he would lay in bed and count each and every one. One night, he wished on the brightest star. When the morning came, a surprise was waiting for him at his doorstep! Max opened the package to find a jar of stars – millions of them! He now had all the stars he ever wanted!\n\nHe took the jar and opened it. The stars were there, but they were not there. He opened the jar and found a tiny star. He opened the jar and found a tiny star. He opened the jar and found a tiny star. He opened the jar and found a tiny star. He opened the jar and found a tiny star. He opened the jar and found a tiny star. He opened the jar and found a tiny star. He opened the jar and found a tiny star&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;What if I come here and everyone\&#39;s like, &quot;That girl has an unattractive voice.&quot;\n\nI\&#39;m not saying that I\&#39;m not a girl, but I\&#39;m saying that I\&#39;m not a girl. I\&#39;m saying that I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl. I\&#39;m not a girl.&#39;,
+ &#39;And that\&#39;s all I have right now. I\&#39;m going to be back in the office.&quot;\n\n&quot;I\&#39;m not going to be back in the office,&quot; she said. &quot;I\&#39;m going to be back in the office.&quot;\n\n&quot;I\&#39;m not going to be back in the office,&quot; he said. &quot;I\&#39;m going to be back in the office.&quot;\n\n&quot;I\&#39;m not going to be back in the office,&quot; she said. &quot;I\&#39;m going to be back in the office.&quot;\n\n&quot;I\&#39;m not&#39;,
+ &#39;I have a dirt bike too, just to top it off. I have a couple of other bikes that I have been riding for a while, but I have never ridden a dirt bike. I have a couple of other bikes that I have been riding for a while, but I have never ridden a dirt bike. I have a couple of other bikes that I have been riding for a while, but I have never ridden a dirt bike. I have a couple of other bikes that I have been riding for a while, but I have never ridden a dirt bike.&#39;,
+ &quot;I wish I looked like J. Lo. - Hello? - I&#39;m a little confused. I&#39;m trying to find the right way to do this. I&#39;m trying to find the right way to do this. I&#39;m trying to find the right way to do this. I&#39;m trying to find the right way to do this. I&#39;m trying to find the right way to do this. I&#39;m trying to find the right way to do this. I&#39;m trying to find the right way to do this. I&#39;m trying to find the right way to do&quot;,
+ &quot;- Uh, I work in real estate. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m a real estate agent. I&#39;m&quot;]
 </pre></div>
 </div>
 </div>

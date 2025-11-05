@@ -1,0 +1,22 @@
+** apis
+
+Azka - spotify, studying the evolution of k-pop as a genre
+
+Jace - art institute chicago, gore subject headings
+
+Tony - dog API, dog breed; scraping job postings.
+
+Betty - community board data; tracking heat events/levels in nyc
+
+Alana - rilks museum api; word generator/predictor based on ny post
+
+Isola - springernature api; comparing word patterns on climate across
+academic and popular contexts
+
+Ellie - 4chan api; role of religion in radicalization
+
+Alex - nyt api; studying language around art exhibitions
+
+Sam - open
+
+Annie - administrative districts

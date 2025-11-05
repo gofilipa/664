@@ -343,15 +343,8 @@ soup.find_all('h3', class_='css-1vygpf9')
 
 #+end_quote
 
-*** GROUP CHALLENGE:
-find a way of printing out an individual item in the bill card, like
-the category/tag, or the description.
-
-
-*** looping through elements 
+*** GROUP CHALLENGE: looping through elements 
 - looping through elements to get just text
-  - how would I do this to print out just bills that contain a certain
-    word in them?
 
 #+begin_src python
 
@@ -365,12 +358,14 @@ the category/tag, or the description.
 
 ** week 5: web scraping 2
 Agenda:
+- share websites that we found
 - review last week
 - build on scraping skills to save data as CSV
 - talk about ethics & legality, some roadblocks with web scraping
 - spend some time scraping websites
 
-Review last week
+*** share websites from challenge
+*** review last week
 - bs4 and requests
   - check out bs4 library briefly
 - making the soup object
@@ -378,36 +373,111 @@ Review last week
     - (like .text, .find, .find_all)
 - writing a loop to extract the bill numbers
 
-*** from html to csv
+*** extracting data about the bills
 - saving this data to a csv, for storage, analysis, etc.
 - multiple steps:
-  - isolate bill card data
+  1. isolate bill card data
     - titles, captions, categories (we will add desc. and links later) 
-  - pick out the information we want from the data
-  - process information into lists
-  - adding more data (may skip)
-  - save to CSV 
-- first: from printing to saving to lists (no description)
-  - save each item as a variable to make it cleaner
-    - do not save decription yet. 
-  - create empty lists to hold the information
-  - add another block of code at the bottom of the loop that appends
-    the data.
-  - check the lists to see that everything works well.
-- second: now add description it will throw an error
-  - why did we get this error?
-  - group challenge:
-    - google this error, find out what it means.
-    - check out a solution from stack overflow.
-- third: adding URLs
-  - using f string to insert the href into the url
-  - then adding it to a new list
+  2. pick out the information we want from the data
+  3. process information into lists
+  4. save to CSV 
+
+First, create a new object called bill_cards, which enables us to
+narrow down the parts of the website that we want to scrape.
+
 #+begin_src python
-for item in bill_cards[:10]:
-    link = f('https://translegislation.com/{item.a['href']})
-    print(link)
+  bill_cards = soup.find_all('div', class_ ='css-4rck61')
+
+  # use a loop to check that we have all the right data
+  for i in bill_cards:
+    print(i.text)
+    
 #+end_src
-- Finally, saving data to CSV:
+
+Second, pick out information from each bill card. Now that we have
+narrowed down our data to bill_cards, we can search within this code
+for the individual elements we want.
+
+Using the inspector, take 5-10 minutes create a list of html elements
+and attributes that correspond to the above information. Work in
+partners.
+
+- bill title
+- bill caption (if it exists!)
+- bill category
+- bill description
+
+Write out the problem in pseudocode:
+
+#+begin_src python
+
+  # for each card in bill_cards:
+  # get the title in h3.text
+  # get the category in span.text
+  # get the caption in h2.text
+  # get the descriptoin in p.text (if any)
+  # get the link in a tag, class "chakra-link"
+
+  bill_cards = soup.find_all('div', class_ ='css-4rck61')
+
+  for item in bill_cards[:10]: # only the first ten cards, just to check if it is working
+    print(item.h3.text) # title
+    print(item.span.text) # category
+    print(item.h2.text) # caption
+    print(item.p.text) # description (if any)
+
+#+end_src
+
+Now, we want to save our data to a list. How might we do that?
+
+#+begin_src python
+
+    # a bunch of empty lists where we will dump our data
+  titles = []
+  captions = []
+  categories = []
+  descriptions = []
+  links = []
+
+  # our for loop that saves each item we want from the bill_cards
+  for item in bill_cards:
+      title = item.h3.text
+      category = item.find('span').text
+      caption = item.h2.text
+      description = item.p.text
+      link = 'https://translegislation.com/bills/2023/passed' + item.a['href']
+    
+      # adding the items to the empty lists
+      titles.append(title)
+      categories.append(category)
+      captions.append(caption)
+      descriptions.append(description)
+      links.append(link)
+      
+#+end_src
+
+Attribute error! ~AttributeError: 'NoneType' object has no attribute
+'text'~
+
+*** BREAK
+*** INDIVIDUAL CHALLENGE: Google this error, try to understand what it
+means. And then try out a solution from Stak Overflow, making sure to
+change out the variable names.
+
+#+begin_src python
+  for item in bill_cards:
+    title = item.h3.text
+    category = item.find('span').text
+    caption = item.h2.text
+    if item.h2.text is not None:
+        description = item.h2.text
+    else:
+        description = 'No bill description'
+    link = 'https://translegislation.com/bills/2023/passed' + item.a['href']
+#+end_src
+
+*** Finally, saving data to CSV:
+
 #+begin_src python
   import pandas as pd
   import csv
@@ -429,8 +499,6 @@ for item in bill_cards[:10]:
 
 BREAK
 
-
-*** BREAK
 *** ethics and legality
 - focus is on ethics rather than legality
   - more important to think about the effect your data gathering will
@@ -501,11 +569,7 @@ kind of stories it can tell, what it might reveal.
 Especially now, when we are experiencing waves of intellectual
 suppression. 
 
-*** Start to work on a challenge:
-Write some code that scrapes the info about faculty at Pratt. Get the
-name, title, department.
-
-Advanced: click on the person link, and get their email address. 
+*** Start to work on the challenge
 ** week 6: apis
 Agenda
 - look at LOC standards for XML
@@ -515,41 +579,35 @@ Agenda
   - end goal: to get data from MET databases into our own spreadsheet,
     curate that data a little bit. 
 
-*** HTML and XML
-Look at standards from LOC.
-
-*** the dictionary data type
+*** review dictionary data type
 
 What is a dict? key:value pairs
 
 #+begin_src python
-  filipa = {
-    'name': ['filipa', 'da gama', 'calado'],
-    'age': 35,
-    'degree': 'literature',
-    'jobs': ['professor', 'digital scholarship specialist', 'student']
+    people = {
+      'filipa': ['gemini', 'blue'],
+    
 
-  # access items with brackets, the 'key'
+    # access items with brackets, the 'key'
 
-  filipa['jobs'] # 'professor'...
-  filipa['age'] # 35
+    people['filipa'] # 'blue', 'gemini', 'the beast'
+	
+    # access items within a column, like list indexing
 
-  # access items within a column, like list indexing
-
-  filipa['name'][1] # 'da gama'
-}
+    people['filipa'][1] # 'blue'
+  }
   
 
 #+end_src
 *** the MET API
 Order of things we will do
-- construct the API request (URL)
-- make the request
-- parse/format our response
-- with information from that response, make another call to get more
-  information.
+1. construct the API request (URL)
+2. make the request, requests.get()
+3. inspect and parse our response using type(), .json(), .keys()
+4. with information from that response, make another call to get more
+   information.
 
-**** the anatomy of an API request:
+**** 1. the anatomy of an API request:
 
 3 parts of an API: the base url, the path, the query.
 
@@ -559,12 +617,15 @@ Order of things we will do
   path = "/public/collection/v1/search" # directory structure, folders
   query = "?q=woman" # parameter, endpoint - keyword/specifications
 
-  # our request
+#+end_src
+
+**** 2. make the request using requests.get()
+#+begin_src python
+    # our request
   women = requests.get(f'{base_url}{path}{query}')
 
   # should say 200
   women
-
 #+end_src
 
 All you need for an API is a URL. An HTTP request. 
@@ -572,7 +633,9 @@ All you need for an API is a URL. An HTTP request.
 Some URLs contain requests embedded inside of them. If you know how to
 look.
 
-**** inspecting objects: two functions: type() and dir()
+**** 3. inspecting objects:
+
+Inspecting: start with two functions: type() and dir()
 
 Using type() and dir() to better understand our response data. The end
 goal is to sift through the data to discover interesting things.
@@ -588,7 +651,8 @@ goal is to sift through the data to discover interesting things.
 
 #+end_src
 
-**** .json() to parse our response object
+Then, use .json() to parse our response object, and .keys() to see the
+keys (labels). 
 
 #+begin_src python
 
@@ -598,21 +662,21 @@ goal is to sift through the data to discover interesting things.
     # what is it
     type(parsed)
 
-    # what can we do with it
-    dir(parsed)
-
-    # check out the keys
+    # we can use .keys() to get the keys
+    
     parsed.keys()
 
 #+end_src
 
-**** accessing items from a dict
+How do we get data from a dictionary?
 
 #+begin_src python
 
-  # how would we get the object ids?
+  # formatting to get just the objectID key
 
   parsed['objectIDs']
+
+  # what are we looking at?
 
   # how would we get just the first object id?
 
@@ -620,10 +684,14 @@ goal is to sift through the data to discover interesting things.
 
 #+end_src
 
-**** using the “objects” endpoint
+**** 4. making a new call, using the “objects” endpoint
+We are going to use another endpoint to get further information, using
+the data we've already requested.
 
-We can use this first object to create a new request. This time, using
-a different path, the "objects" path.
+So far, we've been using the "search" path. Now, we will use the
+"objects" parth. 
+
+We can use this first object to create a new request.
 
 #+begin_src python
 
@@ -659,14 +727,22 @@ See the objectURL? Copy and paste it into your browser.
 Look at the docs, see the different paths and parameters.
 
 Pratice searching using another parameter for the search endpoint. And
-then, take the results of that search and look for the objects. 
+then, take the results of that search and look for the objects.
+
+**** BREAK
 
 **** looping through our objects
+What if we want to collect data on several objects, and save them to a
+spreadsheet. Columns like "artist", "title", etc.
+- write a loop that makes calls to each objectID, parses the response,
+  and adds to a list. (Will end with a list of dicts)
 
-We are going to automate the collection of object metadata. How?
-
-Making a list of objectIDs that we can loop through, and for each one,
-make a new request using the "objects" path.
+Write it out in pseudocode
+- make a list of objectIDs
+- write a loop
+- make call to objectID
+- parse response
+- append response to list
 
 #+begin_src python
   # just the first ten
@@ -701,16 +777,19 @@ make a new request using the "objects" path.
 
 #+end_src
 
-Write a loop to print out information about some of the keys for each
-object. For example, print out the value of artistDisplayName.
+Now, we have a list object with tons of information that we can
+extract from.
+
+How can we extract this information? Let's say, the artist name?
 
 #+begin_src python
   for item in first_ten:
     print(item['artistDisplayName'])
 #+end_src
 
-**** group challenge
-Google the error.
+This gives us an error
+
+**** group challenge: google the error for >2 solutions
 
 There are two ways: conditional statement and creating a variable
 #+begin_src python
@@ -730,7 +809,7 @@ Try it with gender. Why do you think we see only female?
 
 **** saving to DataFrame
 
-**** data anlaysis with pandas
+**** start challenge, to make requests using multiple parameters
 
 ** week 7: apis continued
 Goals:
@@ -780,7 +859,7 @@ Goals:
 
 #+begin_src python
 first_fifty = []
-for item in ids:
+for item in ids[:50]:
     # passing the objectID variable into the URL
     base_url = 'https://collectionapi.metmuseum.org'
     path = '/public/collection/v1/objects/'
@@ -852,6 +931,8 @@ chart, just for demonstration
   df.department.value_counts().plot(kind = 'pie')
 #+end_src
 
+*** sign up for an NYTimes API account & key
+*** BREAK
 *** authentication & pagination: NYTimes API (40m)
 
 Creating API calls with keys
@@ -941,57 +1022,11 @@ information about 10 articles that matched our search.
 
 #+end_src
 
-
-BREAK
 *** group challenge: the NYPL API
 Walk them through the authentication process. 
 
 Challenge: use the search path, and figure out a way to get more
 information about the individual objects in the search path results.
-
-*** discuss artivism article
-
-What is "data artivism"?
-- works that mobilize art and craft as tools of social contestation
-  and (de)construction and as methods to engage with and visualize
-  data
-- not just about making things accessible that weren't before, not
-  about representation through presence. But about changing /how/ we
-  see things. 
-
-Buidling on concept of "counterdata"
-
-#+begin_quote
-The production of “counterdata” (D’Ignazio and Klein, 2020) on
-feminicide—a careful practice that involves researching, recording,
-and remembering the lives of women lost to violence (D’Ignazio et al.,
-2022)—has been a key practice for activists to visibilizar the issue.
-With their data, activists hope to move society from silence and
-indifference to outrage and action (Suárez Val, 2021). They also aim
-to contest the hegemonic visuality of feminicide: “an aesthetic order
-[…] made up of structures of visibility and invisibility that classify
-and separate individuals into grievable, political lives and
-culturally objectified lives” (Blaagaard, 2019: 253) that is dominated
-by often glamorized mainstream representations of violence against
-women, such as crime shows or news coverage.
-#+end_quote
-
-The point of amassing this data is not only to make what is not often
-visualized more visible, but to also change the kind of visiblity that
-a topic usually gets: with gender-based violence, we have a lot of
-gratuitous representations in movies, the battered woman, for example,
-we also have crime shows.
-
-There's an example of a visualization project, "No estamos todas",
-that doesn't just enumerate the number of deaths, but to remember them
-by their beauty. They "create an illustration for each woman to
-remember her in life, not as another crime statistic."
-
-A possibility for your project, thinking about using your project for
-taking data and maybe presenting it in another way. 
-
-This kind of "data artivism" wants to represent data, differently to
-move people to action instead of just spectating.
 
 ** week 9: api presentations
 
@@ -1008,7 +1043,6 @@ move people to action instead of just spectating.
 Use the input function to build an algorithm. 
 
 ** week 10: cleaning
-
 Prepared a lesson on cleaning with pure python, then chatgpt, then
 openrefine, using the cleaning notebook.
 
@@ -1018,19 +1052,28 @@ for next semester.
 ** week 12: analysis and visualization
 
 Introduction to pandas
+- df = pd.read_csv('https://bit.ly/664-met-woman')
 - viewing data
-  - info(), head(), tail(), shape, columns, describe()
-  - selecting column syntax
+  - info(), head(), tail(), shape, columns
+  - selecting column syntax, dot or brackets
+    - methods vs attributes, how stuff is generated/stored
+    - Series type of data
   - .values()
-  - slicing rows
+    - gives back a np object
+  - slicing rows, df[100:110]
+  - , describe() # statistics
 - sorting data
   - value_counts('title') # department, artist display name
   - sort_values('accessionYear')
 - filtering data
-  - df['title'] == 'Woman'
-    - creates series of booleans
-  - woman = df['title'] == 'Woman'
-    - creates new dataframe, df[woman]
+  - first, create a boolean
+    - df['title'] == 'Woman'
+  - then, create a variable to hold the booleans
+    - woman = df['title'] == 'Woman'
+  - finally, creates new dataframe, df[woman]
+    - we can now further sort elements from this dataframe.
+      - df[woman]['artistDisplayName']
+      - df[woman].value_counts('department')
   - highlights = df['isHighlight'] == 1.0
     - by boolean condition
   - df[highlights].info()
@@ -1039,40 +1082,41 @@ Introduction to pandas
     - using str.contains
   - df[courbet]['title']
 
+BREAK
 
 Intermediate pandas
+- df = pd.read_csv('https://bit.ly/anti-trans-tracker-csv')
 - sorting values
   - df.sort_values('Bill Type', inplace=True)
   - see "pandas.DataFrame.sort_values" in docs to understand other
     parameters
   - sorted = df.sort_values(['Bill Type', 'State'])
-    - can sort by multiple values, create new df. 
-- filtering by values
-  - Which states have the most book bans?
-    - df['Bill Type'] == 'Book Ban'
+    - can sort by multiple values, create new df.
+- filtering values
+  - looking for different kinds of bans.
+  - df['Bill Type'] == 'Trans Bathroom Ban'
+- CHALLENGE: Which states have the most book bans?
+- two ways:
+  - df['Bill Type'] == 'Book Ban'
     - books = df['Bill Type'] == 'Book Ban'
-      - df[books]
+    - df[books]
     - df[books].value_counts('State')
   - ~str.contains~: filtering by words 
     - df['Bill Type'].str.contains('Bathroom')
     - bathrooms = df['Bill Type'].str.contains('Bathroom')
     - df[bathrooms].info()
     - df[bathrooms].value_counts('State')
-
 - plotting data
   - df.plot(kind='bar')
-
   - df.value_counts('Bill Type').plot(kind='bar')
-
   - adding nlargest(10)
-
     - df.value_counts('Bill Type').nlargest(10).plot(kind='bar')
-
-  - df.value_counts('Bill Type').nlargest(10).plot(kind='barh',
-    xlabel='Number of Bills', title='Most Frequent Categories for
-    Anti-Trans Bills') 
-
-  - df.value_counts('Bill Type').plot(kind='pie')
+  - look at the docs, and explore some of the parameters to make the
+    graph more detailed
+    - df.value_counts('Bill Type').nlargest(10).plot(kind='barh',
+      xlabel='Number of Bills', title='Most Frequent Categories for
+      Anti-Trans Bills')
+    - df.value_counts('Bill Type').plot(kind='pie')
 
 ** week 13: text generation with transformers
 Agenda:

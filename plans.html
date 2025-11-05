@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-10 Wed 14:51 -->
+<!-- 2025-10-29 Wed 14:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,285 +200,135 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5ea200d">1. week 3: python 2: loops, logic, errors</a>
-<ul>
-<li><a href="#orgf6d4740">1.1. review</a></li>
-<li><a href="#org3eefba7">1.2. review challenge</a></li>
-<li><a href="#org7afd7d8">1.3. loops</a></li>
-<li><a href="#org46f2094">1.4. logic</a></li>
-<li><a href="#org76972b9">1.5. BREAK</a></li>
-<li><a href="#org3fccd28">1.6. csv module</a>
-<ul>
-<li><a href="#orgeb1053f">1.6.1. Combining logic, loops, and csv:</a></li>
-<li><a href="#orgd133219">1.6.2. Challenge (that I'll walk you through)</a></li>
-</ul>
-</li>
-<li><a href="#org4e456c2">1.7. individual practice: ERRORS</a></li>
-<li><a href="#org972a7b4">1.8. next week: web scraping!</a></li>
-</ul>
-</li>
+<li><a href="#orgead9da1">1. week 12: analysis and visualization</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5ea200d" class="outline-2">
-<h2 id="org5ea200d"><span class="section-number-2">1.</span> week 3: python 2: loops, logic, errors</h2>
+<div id="outline-container-orgead9da1" class="outline-2">
+<h2 id="orgead9da1"><span class="section-number-2">1.</span> week 12: analysis and visualization</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Agenda
+Introduction to pandas
 </p>
 <ul class="org-ul">
-<li>review challenge</li>
-<li>review last week's lessons on lists, functions</li>
-<li>lessons for today: loops, logic</li>
-<li>start working with CSV module using VS Code &amp; Copilot</li>
-</ul>
-</div>
-
-<div id="outline-container-orgf6d4740" class="outline-3">
-<h3 id="orgf6d4740"><span class="section-number-3">1.1.</span> review</h3>
-<div class="outline-text-3" id="text-1-1">
+<li>df = pd.read_csv('https://bit.ly/664-met-woman')</li>
+<li>viewing data
 <ul class="org-ul">
-<li>lists
+<li>info(), head(), tail(), shape, columns</li>
+<li>selecting column syntax, dot or brackets
 <ul class="org-ul">
-<li>list indexing vs slicing</li>
+<li>methods vs attributes, how stuff is generated/stored</li>
+<li>Series type of data</li>
 </ul></li>
-<li>functions
+<li>.values()
 <ul class="org-ul">
-<li>how do we write them, and how do we call them?</li>
-<li>formatting strings</li>
+<li>gives back a np object</li>
 </ul></li>
-<li>methods vs functions
-<ul class="org-ul">
-<li>what are some functions and methods we learned?</li>
-<li>functions are independant</li>
-<li>methods depend on objects (also called properties, attributes)</li>
-<li>can tell in syntax</li>
+<li>slicing rows, df[100:110]</li>
+<li>, describe() # statistics</li>
 </ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org3eefba7" class="outline-3">
-<h3 id="org3eefba7"><span class="section-number-3">1.2.</span> review challenge</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-Create a list of words from a text, and do things to the list using
-list methods.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org7afd7d8" class="outline-3">
-<h3 id="org7afd7d8"><span class="section-number-3">1.3.</span> loops</h3>
-<div class="outline-text-3" id="text-1-3">
-<p>
-How we do things to data.
-</p>
+<li>sorting data
 <ul class="org-ul">
-<li>types of data for categorizing data; variables for saving data; how
-to work with lists of data; now, how to do things to
-lists/groupings.
-<ul class="org-ul">
-<li>also works with strings</li>
+<li>value_counts('title') # department, artist display name</li>
+<li>sort_values('accessionYear')</li>
 </ul></li>
-<li>syntax: for item in collection: print(item).
+<li>filtering data
 <ul class="org-ul">
-<li>practice with both lists and strings</li>
+<li>first, create a boolean
+<ul class="org-ul">
+<li>df['title'] == 'Woman'</li>
 </ul></li>
-<li>a note on variable names:
+<li>then, create a variable to hold the booleans
 <ul class="org-ul">
-<li>the variable following "for" is assigned on the fly</li>
+<li>woman = df['title'] == 'Woman'</li>
 </ul></li>
-<li>f-strings</li>
-<li>CHALLENGE: prime numbers</li>
-</ul>
-
-<p>
-Doing things to strings
-</p>
+<li>finally, creates new dataframe, df[woman]
 <ul class="org-ul">
-<li>how to do things to strings within loops</li>
-<li>'HELLO'.lower()</li>
-<li>make a list of cities, and make them all lowercasee</li>
-<li>now save that list to a new list, an empty list
+<li>we can now further sort elements from this dataframe.
 <ul class="org-ul">
-<li>why would we want to do this?</li>
+<li>df[woman]['artistDisplayName']</li>
+<li>df[woman].value_counts('department')</li>
 </ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org46f2094" class="outline-3">
-<h3 id="org46f2094"><span class="section-number-3">1.4.</span> logic</h3>
-<div class="outline-text-3" id="text-1-4">
-<p>
-Boolean data
-</p>
-<ul class="org-ul">
-<li>type() -&gt; True or False</li>
-<li>evaluates mathematical expressions
-<ul class="org-ul">
-<li>different operators, look them up. Many different kinds.</li>
 </ul></li>
-<li>if statement for checking age
+<li>highlights = df['isHighlight'] == 1.0
 <ul class="org-ul">
-<li>multiple conditions</li>
+<li>by boolean condition</li>
+</ul></li>
+<li>df[highlights].info()</li>
+<li>courbet = df['artistDisplayName'].str.contains('Courbet',
+na=False)
+<ul class="org-ul">
+<li>using str.contains</li>
+</ul></li>
+<li>df[courbet]['title']</li>
 </ul></li>
 </ul>
 
 <p>
-Combining loops with logic:
+BREAK
+</p>
+
+<p>
+Intermediate pandas
 </p>
 <ul class="org-ul">
-<li>DEFENDING WOMEN FROM GENDER IDEOLOGY EXTREMISM AND RESTORING
-BIOLOGICAL TRUTH TO THE FEDERAL GOVERNMENT</li>
-<li>if it contains the word "gender", "protect", or others, we will
-print.</li>
-</ul>
-
-<div class="org-src-container">
-<pre class="src src-python">for i in text.split('.'):
-    if 'binary' in i:
-        print(i)
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org76972b9" class="outline-3">
-<h3 id="org76972b9"><span class="section-number-3">1.5.</span> BREAK</h3>
-</div>
-
-<div id="outline-container-org3fccd28" class="outline-3">
-<h3 id="org3fccd28"><span class="section-number-3">1.6.</span> csv module</h3>
-<div class="outline-text-3" id="text-1-6">
+<li>df = pd.read_csv('https://bit.ly/anti-trans-tracker-csv')</li>
+<li>sorting values
 <ul class="org-ul">
-<li>csv module
+<li>df.sort_values('Bill Type', inplace=True)</li>
+<li>see "pandas.DataFrame.sort_values" in docs to understand other
+parameters</li>
+<li>sorted = df.sort_values(['Bill Type', 'State'])
 <ul class="org-ul">
-<li>what is a module? a collection of code for doing something, in
-this case, for opening csv files</li>
-<li>read a little of the docs on CSV module, reader</li>
+<li>can sort by multiple values, create new df.</li>
 </ul></li>
-
-<li>printing rows from csv on <a href="https://data.cityofnewyork.us/City-Government/Enforcement-Actions-Board-Determinations-and-Penal/xrxs-qn95/about_data">Campaign Violations</a>:
-<ul class="org-ul">
-<li>import csv</li>
-<li>open the file with open statement</li>
-<li>print the rows</li>
 </ul></li>
-</ul>
-
-<div class="org-src-container">
-<pre class="src src-python">with open('./Downloads/Enforcement_Actions_Board_Determinations_and_Penalties_20250210.csv') as f:
-    data = csv.reader(f)
-    for row in data:
-        print(row)
-</pre>
-</div>
-
-<p>
-How do we get just the first object from each column? The names?
-</p>
+<li>filtering values
 <ul class="org-ul">
-<li>breakup the problem into parts</li>
-<li>check the type of data(s)</li>
-<li>how do we access info from a list?</li>
-</ul>
-
-<div class="org-src-container">
-<pre class="src src-python">
-with open ('violations_sample.csv', 'r') as f:
-    data = csv.reader(f)
-    for row in data:
-        print(row[1])
-
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgeb1053f" class="outline-4">
-<h4 id="orgeb1053f"><span class="section-number-4">1.6.1.</span> Combining logic, loops, and csv:</h4>
-<div class="outline-text-4" id="text-1-6-1">
+<li>looking for different kinds of bans.</li>
+<li>df['Bill Type'] == 'Trans Bathroom Ban'</li>
+</ul></li>
+<li>CHALLENGE: Which states have the most book bans?</li>
+<li>two ways:
 <ul class="org-ul">
-<li>search for a specific candidate name in the dataset</li>
-<li>print out all rows containing that candidate's name</li>
-<li>advanced: print out only the date and the violation</li>
-</ul>
-
-
-<div class="org-src-container">
-<pre class="src src-python">with open('violations.csv', 'r') as f:
-  data = csv.reader(f)
-  for row in data:
-      if "Eric" in row[1]:
-          print(row)
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgd133219" class="outline-4">
-<h4 id="orgd133219"><span class="section-number-4">1.6.2.</span> Challenge (that I'll walk you through)</h4>
-<div class="outline-text-4" id="text-1-6-2">
-<p>
-Combine what we know from the above with f-strings to write more
-complex output.
-</p>
-
-<p>
-Write a loop that prints out the Candidate’s name and Violation if
-that violation contains the word “contribution” in it. Use f-strings
-so that you can format the answer the following:
-</p>
-
-<p>
-Name: [candidate name], Violation: [candidate violation]
-</p>
-
-<p>
-Here’s the answer, but don’t look until you’ve spent at least 5
-mintues working on it!
-</p>
-
-<div class="org-src-container">
-<pre class="src src-python">with open ('violations.csv', 'r') as f:
-  dict_reader = csv.reader(f)
-  for row in dict_reader:
-      violation = row[3]
-      if "contribution" in violation:
-          candidate = row[1]
-          print(f'Name: {candidate}, Violation: {violation}')
-</pre>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org4e456c2" class="outline-3">
-<h3 id="org4e456c2"><span class="section-number-3">1.7.</span> individual practice: ERRORS</h3>
-<div class="outline-text-3" id="text-1-7">
+<li>df['Bill Type'] == 'Book Ban'
 <ul class="org-ul">
-<li>there are many kinds of errors you can make with python.</li>
-<li>explore different kinds of errors. What are the general category
-of errors? What is a Name and a Type error, for instance? Syntax
-or Traceback? Try to get 2 of each.
+<li>books = df['Bill Type'] == 'Book Ban'</li>
+<li>df[books]</li>
+<li>df[books].value_counts('State')</li>
+</ul></li>
+<li><code>str.contains</code>: filtering by words 
 <ul class="org-ul">
-<li>choose 1 or 2 of your errors and google them. Read the stack
-overflow post about it. Try to get familiar with the forum
-format for asking coding questions.</li>
+<li>df['Bill Type'].str.contains('Bathroom')</li>
+<li>bathrooms = df['Bill Type'].str.contains('Bathroom')</li>
+<li>df[bathrooms].info()</li>
+<li>df[bathrooms].value_counts('State')</li>
+</ul></li>
+</ul></li>
+<li>plotting data
+<ul class="org-ul">
+<li>df.plot(kind='bar')</li>
+<li>df.value_counts('Bill Type').plot(kind='bar')</li>
+<li>adding nlargest(10)
+<ul class="org-ul">
+<li>df.value_counts('Bill Type').nlargest(10).plot(kind='bar')</li>
+</ul></li>
+<li>look at the docs, and explore some of the parameters to make the
+graph more detailed
+<ul class="org-ul">
+<li>df.value_counts('Bill Type').nlargest(10).plot(kind='barh',
+xlabel='Number of Bills', title='Most Frequent Categories for
+Anti-Trans Bills')</li>
+<li>df.value_counts('Bill Type').plot(kind='pie')</li>
+</ul></li>
 </ul></li>
 </ul>
-</div>
-</div>
-
-<div id="outline-container-org972a7b4" class="outline-3">
-<h3 id="org972a7b4"><span class="section-number-3">1.8.</span> next week: web scraping!</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: fcalado</p>
-<p class="date">Created: 2025-09-10 Wed 14:51</p>
+<p class="date">Created: 2025-10-29 Wed 14:56</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

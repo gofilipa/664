@@ -1,9 +1,8 @@
-# workshop overview
+# chapter overview
 
 ## learning objectives
 
-Welcome to the final workshop in this series, Generating Text! This
-workshop builds on the previous ones to fine-tune a text generation
+This section builds on the previous ones to fine-tune a text generation
 model with Python. Participants will explore Machine Learning (ML)
 processes, datasets, and tools, with the goal of customizing a text
 generator. They will work primarily with the HuggingFace🤗 platform

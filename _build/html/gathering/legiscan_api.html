@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -185,16 +185,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../intro/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/functions.html">functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../intro/errors.html">Errors in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/errors.html">errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">section overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="what.html">what is web scraping?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inspector.html">the HTML Inspector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
@@ -426,6 +426,148 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.0.1 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with &#39;pybind11&gt;=2.12&#39;.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to &#39;numpy&lt;2&#39; or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/runpy.py&quot;, line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/runpy.py&quot;, line 88, in _run_code
+    exec(code, run_globals)
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel_launcher.py&quot;, line 18, in &lt;module&gt;
+    app.launch_new_instance()
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/traitlets/config/application.py&quot;, line 1075, in launch_instance
+    app.start()
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/kernelapp.py&quot;, line 739, in start
+    self.io_loop.start()
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/tornado/platform/asyncio.py&quot;, line 205, in start
+    self.asyncio_loop.run_forever()
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/asyncio/base_events.py&quot;, line 608, in run_forever
+    self._run_once()
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/asyncio/base_events.py&quot;, line 1936, in _run_once
+    handle._run()
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/asyncio/events.py&quot;, line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 545, in dispatch_queue
+    await self.process_one()
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 534, in process_one
+    await dispatch(*args)
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 437, in dispatch_shell
+    await result
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/ipkernel.py&quot;, line 362, in execute_request
+    await super().execute_request(stream, ident, parent)
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 778, in execute_request
+    reply_content = await reply_content
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/ipkernel.py&quot;, line 449, in do_execute
+    res = shell.run_cell(
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/zmqshell.py&quot;, line 549, in run_cell
+    return super().run_cell(*args, **kwargs)
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3075, in run_cell
+    result = self._run_cell(
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3130, in _run_cell
+    result = runner(coro)
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/IPython/core/async_helpers.py&quot;, line 128, in _pseudo_sync_runner
+    coro.send(None)
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3334, in run_cell_async
+    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3517, in run_ast_nodes
+    if await self.run_code(code, result, async_=asy):
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3577, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File &quot;/var/folders/z6/8hbw1n6n3dq2jdw3_zjysj5sws21gh/T/ipykernel_71574/4032102518.py&quot;, line 2, in &lt;module&gt;
+    import pandas as pd
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/pandas/__init__.py&quot;, line 26, in &lt;module&gt;
+    from pandas.compat import (
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/pandas/compat/__init__.py&quot;, line 27, in &lt;module&gt;
+    from pandas.compat.pyarrow import (
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/pandas/compat/pyarrow.py&quot;, line 8, in &lt;module&gt;
+    import pyarrow as pa
+  File &quot;/Users/fcalado/.local/lib/python3.11/site-packages/pyarrow/__init__.py&quot;, line 65, in &lt;module&gt;
+    import pyarrow.lib as _lib
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">AttributeError</span>: _ARRAY_API not found
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.0.1 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with &#39;pybind11&gt;=2.12&#39;.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to &#39;numpy&lt;2&#39; or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/runpy.py&quot;, line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/runpy.py&quot;, line 88, in _run_code
+    exec(code, run_globals)
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel_launcher.py&quot;, line 18, in &lt;module&gt;
+    app.launch_new_instance()
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/traitlets/config/application.py&quot;, line 1075, in launch_instance
+    app.start()
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/kernelapp.py&quot;, line 739, in start
+    self.io_loop.start()
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/tornado/platform/asyncio.py&quot;, line 205, in start
+    self.asyncio_loop.run_forever()
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/asyncio/base_events.py&quot;, line 608, in run_forever
+    self._run_once()
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/asyncio/base_events.py&quot;, line 1936, in _run_once
+    handle._run()
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/asyncio/events.py&quot;, line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 545, in dispatch_queue
+    await self.process_one()
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 534, in process_one
+    await dispatch(*args)
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 437, in dispatch_shell
+    await result
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/ipkernel.py&quot;, line 362, in execute_request
+    await super().execute_request(stream, ident, parent)
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 778, in execute_request
+    reply_content = await reply_content
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/ipkernel.py&quot;, line 449, in do_execute
+    res = shell.run_cell(
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/ipykernel/zmqshell.py&quot;, line 549, in run_cell
+    return super().run_cell(*args, **kwargs)
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3075, in run_cell
+    result = self._run_cell(
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3130, in _run_cell
+    result = runner(coro)
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/IPython/core/async_helpers.py&quot;, line 128, in _pseudo_sync_runner
+    coro.send(None)
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3334, in run_cell_async
+    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3517, in run_ast_nodes
+    if await self.run_code(code, result, async_=asy):
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3577, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File &quot;/var/folders/z6/8hbw1n6n3dq2jdw3_zjysj5sws21gh/T/ipykernel_71574/4032102518.py&quot;, line 2, in &lt;module&gt;
+    import pandas as pd
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/pandas/__init__.py&quot;, line 49, in &lt;module&gt;
+    from pandas.core.api import (
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/pandas/core/api.py&quot;, line 9, in &lt;module&gt;
+    from pandas.core.dtypes.dtypes import (
+  File &quot;/Users/fcalado/.conda/envs/jb/lib/python3.11/site-packages/pandas/core/dtypes/dtypes.py&quot;, line 24, in &lt;module&gt;
+    from pandas._libs import (
+  File &quot;/Users/fcalado/.local/lib/python3.11/site-packages/pyarrow/__init__.py&quot;, line 65, in &lt;module&gt;
+    import pyarrow.lib as _lib
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">AttributeError</span>: _ARRAY_API not found
 </pre></div>
 </div>
 </div>

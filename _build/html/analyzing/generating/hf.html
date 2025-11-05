@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -185,16 +185,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../../intro/script.html">opening challenge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/data-types.html">data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/variables.html">variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../intro/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro/functions.html">functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/lists.html">lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/loops.html">loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/logic.html">logic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../intro/errors.html">Errors in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro/errors.html">errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../gathering/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gathering/overview.html">section overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gathering/what.html">what is web scraping?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gathering/inspector.html">the HTML Inspector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gathering/scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
@@ -415,10 +415,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models-hub">“models hub”</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#models-hub-activity-5-10-minutes">models hub activity: 5-10 minutes</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models-hub">“models hub”</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets-hub">“datasets hub”</a></li>
 </ul>
             </nav>
@@ -433,31 +430,24 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="huggingface-platform">
 <h1>Huggingface🤗 platform<a class="headerlink" href="#huggingface-platform" title="Link to this heading">#</a></h1>
-<p>Now let’s move to the platform we will be using, HuggingFace🤗.</p>
-<p>🤗 is an AI research and development company based in Brooklyn, New
-York City. The company hosts and develops platform for Machine
-Learning, which contains compute &amp; collaborative spaces for AI
-models, datasets, and more. It is like a github for ML, if github
-had additional “hubs” for things besides just code (like datasets,
-papers, apps, etc).</p>
+<p>🤗 is an AI research and development company based in Brooklyn, New York City. The company hosts and develops a <em>platform</em> for Machine Learning, which contains compute &amp; collaborative spaces for AI models, datasets, and more.</p>
+<p>It is like a github for ML, if github had additional “hubs” for things besides just code (like datasets, papers, apps, etc).</p>
 <section id="models-hub">
 <h2>“models hub”<a class="headerlink" href="#models-hub" title="Link to this heading">#</a></h2>
 <p>We will start with the “models hub,” which contains AI models created
 by 🤗 users. Users train and/or fine-tune models, then publish them on
 the hub for others to use.</p>
-<p>The navigation goes from left to right. On left side, there are tasks,
-like text classification. On right side, there are models. We are
-going to narrow down the models.</p>
-<p>Filter results by “most downloaded”, and try to guess what the model
+<p>The navigation goes from left to right: on left side, there are tasks, like text classification; on right side, there are models.</p>
+<p><strong>Filter results by “most downloaded”</strong>, and try to guess what the model
 does just by looking at the name.</p>
 <ul class="simple">
 <li><p>Wav2Vec - audio to vector, speech to text.</p></li>
 <li><p>RoBERTa - one of the many permutations of BERT, you’ll see. First
 model to put into practice the Transformer architecture.</p></li>
 </ul>
-<p>Then, filter results by “most liked”:</p>
+<p>Then, <strong>filter results by “most liked”</strong>:</p>
 <ul class="simple">
-<li><p>click on <a class="reference external" href="https://huggingface.co/runwayml/stable-diffusion-v1-5">~Stable Diffusion~</a> <a class="reference external" href="https://huggingface.co/stabilityai/stable-diffusion-3.5-medium">stable-diffusion-3.5-medium </a></p>
+<li><p>click on <a class="reference external" href="https://huggingface.co/stabilityai/stable-diffusion-3.5-medium">stable-diffusion-3.5-medium </a></p>
 <ul>
 <li><p>on each model, you can see the model details at the top of the
 page (keywords, size, papers)</p></li>
@@ -477,16 +467,19 @@ rare.</p></li>
 </ul>
 </li>
 </ul>
-<p>Go back to the search, and type <code class="docutils literal notranslate"><span class="pre">gpt-neo-125</span></code>.</p>
+<p>Now, <strong>filter by task and by size</strong>. Then, filter by <em>inference available</em>. Choose one of the results that looks interesting to you, and practice running inference here for a few minutes. Anything that you notice about the results?</p>
 <ul class="simple">
-<li><p>click on the
-<a class="reference external" href="https://huggingface.co/EleutherAI/gpt-neo-125m">gpt-125m</a> result.</p>
-<ul>
-<li><p>a model developed by EleutherAI, a non-profit research lab.</p></li>
-<li><p>part of a larger family of models named “gpt-neo” with the size
-at the end.</p></li>
+<li><p>it’s repetitive. A problem caused by the traits of our
+language itself.</p></li>
+<li><p>it generates words that have the highest likelihood. The words that
+have this likelihood tend to be the same ones, over and
+over again.</p></li>
 </ul>
-</li>
+<p>Go back to the search, and <strong>type <code class="docutils literal notranslate"><span class="pre">gpt-neo-125</span></code>.</strong> Click on the
+<a class="reference external" href="https://huggingface.co/EleutherAI/gpt-neo-125m">gpt-125m</a> result. This is a model developed by EleutherAI, a non-profit research lab. It is part of a larger family of models named “gpt-neo” with the size at the end.</p>
+<p>Here, we can see the <em>model card</em>, which contains important information about the model. There are a couple of things to note here:</p>
+<p>On the header, and the right hand panel:</p>
+<ul class="simple">
 <li><p>notice “<em>model size</em>”. How big is it?</p></li>
 <li><p>125m parameters. That’s how many inputs goes into
 inference. Includes things like word vectors, but also different
@@ -504,52 +497,16 @@ even for commercial purposes.</p></li>
 </li>
 </ul>
 </li>
+<li><p>notice the dataset, in this case, <a class="reference external" href="https://en.wikipedia.org/wiki/The_Pile_(dataset)">the Pile</a>. This was the dataset used to train the model, and it’s a relatively well curated dataset for LLM training.</p></li>
 </ul>
-<p>Practice running inference here for a few minutes. Anything that you notice about the results?</p>
-<ul class="simple">
-<li><p>it’s repetitive. A problem caused by the traits of our
-language itself.</p></li>
-<li><p>it generates words that have the highest likelihood. The words that
-have this likelihood tend to be the same ones, over and
-over again.</p></li>
-</ul>
-<section id="models-hub-activity-5-10-minutes">
-<h3>models hub activity: 5-10 minutes<a class="headerlink" href="#models-hub-activity-5-10-minutes" title="Link to this heading">#</a></h3>
-<p>Go back to the models page, and choose a task that interests you.</p>
-<p>Filter by “most likes” or “most downloads”.</p>
-<p>Explore some of the top results, clicking on the links to the model
-pages.</p>
-<p>Run inference on a few of the models that you find, taking note of the
-model size.</p>
-<p>What differences do you notice between the models?</p>
-</section>
+<p>Now, look at the main text on the page. Here you will find context and information for the model, including training and inference information.</p>
 </section>
 <section id="datasets-hub">
 <h2>“datasets hub”<a class="headerlink" href="#datasets-hub" title="Link to this heading">#</a></h2>
-<p>Besides models, 🤗 offers Datasets. These datasets are used to
-fine-tune (and also train and evaluate) models. We are going to take
-a little peak into this part of the platform.</p>
-<p>Before diving in, important to consider how these datasets were
-created. There are a lot of <em>ethical issues</em> with the ways that
-datasets for training are created and cleaned (or not cleaned).</p>
-<p>Where do we get most of the data used to train these models?</p>
-<ul class="simple">
-<li><p>scraped from the internet, most of them.</p>
-<ul>
-<li><p>What kind of data does the internet contain?</p></li>
-</ul>
-</li>
-<li><p>how do you remove bias and discrimination?</p>
-<ul>
-<li><p>attempts to automate this have failed: “<a class="reference external" href="https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words">List of Dirty Obscene…</a>”</p></li>
-</ul>
-</li>
-<li><p>RLHF - “reinforcement learning from human feedback”, which creates a
-labor exploitation issue.</p></li>
-</ul>
-<p>TLDR: There’s a race to get these products out there, so people aren’t
-taking the time needed to adequately clean the data and make sure
-it’s safe.</p>
+<p>Besides models, 🤗 offers Datasets. These datasets are used to fine-tune (and also train and evaluate) models. We are going to take a little peak into this part of the platform.</p>
+<p>Where do we get most of the data used to train these models? From scraping the internet. Look at the <a class="reference external" href="https://huggingface.co/datasets/allenai/c4">c4</a> dataset, for example. This dataset is based on <a class="reference external" href="https://commoncrawl.org/">the Common Crawl</a>, the largest web crawling initiative. The c4 dataset is a “colossal, cleaned” version of the common crawl (hence the <em>4</em>c). It cleans the Common Crawl dataset using the “badwords filter”, aka the <a class="reference external" href="https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words">List of Dirty Naughty Obscene and Otherwise Bad Words</a>.</p>
+<p>It is very difficult to clean this amount of data at scale, which is a major issue for ML model training — and a major opportunity for anyone who wants to get into the field.</p>
+<p>In the next section, we will look at how to use these models by running “inference” directly in Python.</p>
 </section>
 </section>
 
@@ -617,10 +574,7 @@ it’s safe.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models-hub">“models hub”</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#models-hub-activity-5-10-minutes">models hub activity: 5-10 minutes</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models-hub">“models hub”</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets-hub">“datasets hub”</a></li>
 </ul>
   </nav></div>

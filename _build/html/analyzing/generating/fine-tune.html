@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -185,16 +185,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../../intro/script.html">opening challenge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/data-types.html">data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/variables.html">variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../intro/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro/functions.html">functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/lists.html">lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/loops.html">loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/logic.html">logic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../intro/errors.html">Errors in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro/errors.html">errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/csv.html">the <code class="docutils literal notranslate"><span class="pre">csv</span></code> module</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">gathering data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../gathering/overview.html">chapter overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gathering/overview.html">section overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gathering/what.html">what is web scraping?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gathering/inspector.html">the HTML Inspector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../gathering/scraping.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
@@ -479,7 +479,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;gofilipa/bedtime_stories&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;gofilipa/love_is_blind_sample&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -502,7 +502,7 @@ Batched inputs are often different lengths, so they can’t be converted to fixe
     <span class="n">num_train_epochs</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="c1"># how many times we iterate over the dataset as a whole</span>
     <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">2e-4</span><span class="p">,</span> <span class="c1"># how many &quot;steps&quot; we take in adjusting the parameters to make up for loss</span>
     <span class="n">weight_decay</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">,</span> <span class="c1"># way of regularizing the parameters</span>
-    <span class="n">dataset_text_field</span> <span class="o">=</span> <span class="s2">&quot;stories&quot;</span><span class="p">,</span>
+    <span class="n">dataset_text_field</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
     <span class="n">report_to</span><span class="o">=</span><span class="s2">&quot;none&quot;</span> <span class="c1"># this is a new param, to avoid a login to W&amp;B</span>
 <span class="p">)</span>
 </pre></div>
@@ -520,6 +520,8 @@ Batched inputs are often different lengths, so they can’t be converted to fixe
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3c868d251f52461ebbcfc690847ae618", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -533,8 +535,8 @@ Batched inputs are often different lengths, so they can’t be converted to fixe
 <div class="output text_html">
     <div>
       
-      <progress value='75' max='75' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      [75/75 00:48, Epoch 3/3]
+      <progress value='750' max='750' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      [750/750 02:32, Epoch 3/3]
     </div>
     <table border="1" class="dataframe">
   <thead>
@@ -544,8 +546,12 @@ Batched inputs are often different lengths, so they can’t be converted to fixe
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>500</td>
+      <td>2.853200</td>
+    </tr>
   </tbody>
-</table><p></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TrainOutput(global_step=75, training_loss=1.781717529296875, metrics={&#39;train_runtime&#39;: 54.1603, &#39;train_samples_per_second&#39;: 11.023, &#39;train_steps_per_second&#39;: 1.385, &#39;total_flos&#39;: 40251401496576.0, &#39;train_loss&#39;: 1.781717529296875})
+</table><p></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TrainOutput(global_step=750, training_loss=2.3747747802734374, metrics={&#39;train_runtime&#39;: 156.1686, &#39;train_samples_per_second&#39;: 38.42, &#39;train_steps_per_second&#39;: 4.803, &#39;total_flos&#39;: 83606677954560.0, &#39;train_loss&#39;: 2.3747747802734374, &#39;epoch&#39;: 3.0})
 </pre></div>
 </div>
 </div>
@@ -566,29 +572,41 @@ Batched inputs are often different lengths, so they can’t be converted to fixe
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># commenting out this code so that it doesn&#39;t run (when I create this website)!</span>
 
-<span class="c1">### first, save the model to a folder called &quot;models&quot; </span>
+<span class="c1"># ## first, save the model to a folder called &quot;models&quot; </span>
 <span class="c1"># trainer.model.save_pretrained(&quot;models&quot;)</span>
 <span class="c1"># trainer.tokenizer.save_pretrained(&quot;models&quot;)</span>
 
-<span class="c1">### then, load our model from that folder</span>
+<span class="c1"># ## then, load our model from that folder</span>
 <span class="c1"># model = AutoModelForCausalLM.from_pretrained(&quot;./models&quot;)</span>
 <span class="c1"># tokenizer = AutoTokenizer.from_pretrained(&quot;./models&quot;)</span>
 
-<span class="c1">### create a pipe() function that calls our new model</span>
+<span class="c1"># ## create a pipe() function that calls our new model</span>
 <span class="c1"># pipe = pipeline(&#39;text-generation&#39;, model=model, tokenizer=tokenizer, max_length=50)</span>
 
-<span class="c1">### run inference!</span>
-<span class="n">pipe</span><span class="p">(</span><span class="s2">&quot;There once was a little girl named Filipa and&quot;</span><span class="p">)</span>
+<span class="c1"># ### run inference!</span>
+<span class="c1"># pipe(&quot;I love&quot;)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
-Device set to use mps:0
+Hardware accelerator e.g. GPU is available in the environment, but no `device` argument is passed to the `Pipeline` object. Model will be on CPU.
 Truncation was not explicitly activated but `max_length` is provided a specific value, please use `truncation=True` to explicitly truncate examples to max length. Defaulting to &#39;longest_first&#39; truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;generated_text&#39;: &#39;There once was a little girl named Filipa and her momma. Every night, she would go outside and look up at the stars in the sky. One night, she saw a magical rainbow that would bring her all the joy she wanted. She&#39;}]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;generated_text&#39;: &quot;I love that you made an effort to make me happy. - Thank you. - I appreciate it. - I&#39;m just so glad you made an effort. - I&#39;m so glad you chose me. - I&#39;m so happy for you. -&quot;}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipe</span><span class="p">(</span><span class="s2">&quot;I cannot imagine&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;generated_text&#39;: &quot;I cannot imagine a life without her, and I don&#39;t think she&#39;s gonna be okay. - I don&#39;t know, I think. - I don&#39;t know. - I don&#39;t know. - I don&#39;t know. - I don&#39;t&quot;}]
 </pre></div>
 </div>
 </div>
