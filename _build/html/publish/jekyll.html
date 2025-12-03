@@ -460,27 +460,34 @@ dependencies, like ruby) over the command line.</p>
 <h2>how to set up Jekyll on Github Pages<a class="headerlink" href="#how-to-set-up-jekyll-on-github-pages" title="Link to this heading">#</a></h2>
 <section id="choose-a-theme-and-fork-it">
 <h3>1) choose a theme and fork it!<a class="headerlink" href="#choose-a-theme-and-fork-it" title="Link to this heading">#</a></h3>
-<p>Choose a theme you like from this page: <a class="reference external" href="https://pages.github.com/themes/">https://pages.github.com/themes/</a></p>
-<p>Fork the theme by going to the github page, and on the top right, press “fork”.</p>
-<p>When you are prompted, be sure to change the name of the respository to something relevant to your project.</p>
+<p>Choose a theme you like from this page: <a class="github reference external" href="https://github.com/pages-themes">pages-themes</a></p>
+<p>Fork the theme by going to the github repository for that theme, and
+on the top right, press “fork”.</p>
+<p>When you are prompted, be sure to change the name of the respository
+to something relevant to your project.</p>
 </section>
 <section id="open-the-web-editor-edit-your-index-md-file">
 <h3>2) open the web editor, edit your <a class="reference external" href="http://index.md">index.md</a> file<a class="headerlink" href="#open-the-web-editor-edit-your-index-md-file" title="Link to this heading">#</a></h3>
-<p>Open the code editor by pressing the period button on your keyboard. You’ll see a new interface appear which lets you edit the files in your repo.</p>
-<p>First, move all of the files (except README) in the root folder to nest permanently under the “docs” folder. You can leave the <a class="reference external" href="http://README.md">README.md</a> file in the root (later on, you can add your own information here).</p>
-<p>The “docs” folder is where Github looks for the HTML files to display on your site, so by moving the files there, you’re making it easier for Github to generate your site later on.</p>
-<p>Second, open the <a class="reference external" href="http://index.md">index.md</a> file, which should now be in the “docs” folder. This file is written in markdown, and offers a handy key for markdown formatting. The top section (sandwiched by hyphens) is layout information for the page. Do not change these first three lines).</p>
-<p>The rest you can delete to get rid of it, or keep it around for convenience, as it offers useful information on how to format markdown. I’ve simply “commented” it out using markdown comments, which look like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!-- --&gt;
-</pre></div>
-</div>
-<p>You can comment out most of that text by wrapping it with these symbols. For example, I’m commenting out the first line from the file below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!-- Text can be bold, italic, ~strikethrough~ or `keyword`. --&gt;
-</pre></div>
-</div>
-<p>You can read a whole lot more about markdown formatting here: <a class="reference external" href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a></p>
-<p>Want to create new page? Create a new file for your page called <a class="reference external" href="http://PAGE-NAME.md">PAGE-NAME.md</a>, replacing PAGE-NAME with a meaningful filename for the page.</p>
-<p>Add the following frontmatter to the top of the file, replacing PAGE-TITLE with the page’s title and URL-PATH with a path you want for the page’s URL. For example, if the base URL of your site is <a class="reference external" href="https://octocat.github.io">https://octocat.github.io</a> and your URL-PATH is about/contact, your page will be located at <a class="reference external" href="https://octocat.github.io/about/contact">https://octocat.github.io/about/contact</a>.</p>
+<p>Open the code editor by pressing the period (<code class="docutils literal notranslate"><span class="pre">.</span></code>) button on your
+keyboard. You’ll see a new interface appear which lets you edit the
+files in your repo.</p>
+<p>First, edit your <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file, which should be in the root (first
+level) folder of the repository. Copy and paste your current <a class="reference external" href="http://README.md">README.md</a>
+file to this file, replacing what is currently there.</p>
+<p>Second, edit your <code class="docutils literal notranslate"><span class="pre">index.md</span></code> file. This file is written in markdown,
+and offers a handy key for markdown formatting. The top section
+(sandwiched by hyphens) is layout information for the page. Do not
+change these first three lines).</p>
+<p>You can read a whole lot more about markdown formatting here:
+<a class="reference external" href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a></p>
+<p>Want to create new page? Create a new file for your page called
+<a class="reference external" href="http://PAGE-NAME.md">PAGE-NAME.md</a>, replacing PAGE-NAME with a meaningful filename for the
+page.</p>
+<p>Add the following frontmatter to the top of the file, replacing
+PAGE-TITLE with the page’s title and URL-PATH with a path you want for
+the page’s URL. For example, if the base URL of your site is
+<a class="reference external" href="https://octocat.github.io">https://octocat.github.io</a> and your URL-PATH is about/contact, your
+page will be located at <a class="reference external" href="https://octocat.github.io/about/contact">https://octocat.github.io/about/contact</a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">layout</span><span class="p">:</span> <span class="n">page</span>
 <span class="n">title</span><span class="p">:</span> <span class="s2">&quot;PAGE-TITLE&quot;</span>
 <span class="n">permalink</span><span class="p">:</span> <span class="o">/</span><span class="n">URL</span><span class="o">-</span><span class="n">PATH</span>
@@ -490,12 +497,21 @@ dependencies, like ruby) over the command line.</p>
 </section>
 <section id="commit-and-push-your-changes">
 <h3>3) commit and push your changes<a class="headerlink" href="#commit-and-push-your-changes" title="Link to this heading">#</a></h3>
-<p>Once you’re done editing the markdown file, go to the little “source” tab on the left. It looks like three dots connected by lines. Here, on the lefthand sidebar, you’ll see a list of all the changes you’ve made, and a blank text box above them. In that blank box, write a short message summarizing your changes, like “edited the <a class="reference external" href="http://index.md">index.md</a> file”. Then, press the “commit &amp; push” button.</p>
+<p>Once you’re done editing the markdown file, go to the little “source”
+tab on the left. It looks like three dots connected by lines. Here, on
+the lefthand sidebar, you’ll see a list of all the changes you’ve
+made, and a blank text box above them. In that blank box, write a
+short message summarizing your changes, like “edited the <a class="reference external" href="http://index.md">index.md</a>
+file”. Then, press the “commit &amp; push” button.</p>
 </section>
 <section id="configure-github-pages-on-your-repo-settings">
 <h3>4) configure Github pages on your repo settings<a class="headerlink" href="#configure-github-pages-on-your-repo-settings" title="Link to this heading">#</a></h3>
-<p>Back on your regular repository page (you will need to open up a new tab and navigate to your repo on github), go to the “Settings” tab at the top. Then, scroll down to the “Pages” tab on the left sidebar.</p>
-<p>Then, on the main section of the page, go to the Branch heading. From the first dropdown, select “Master” or “Main,” and on the second dropdown, select “docs”. Finally, click save.</p>
+<p>Back on your regular repository page (you will need to open up a new
+tab and navigate to your repo on github), go to the “Settings” tab at
+the top. Then, scroll down to the “Pages” tab on the left sidebar.</p>
+<p>Then, on the main section of the page, go to the Branch heading. From
+the first dropdown, select “Master” or “Main,” and select “root” (if
+not already selected). Finally, click save.</p>
 <p>Congratulations!</p>
 <p>Your website will be visible in a few minutes at the URL:</p>
 <p><code class="docutils literal notranslate"><span class="pre">your_username.github.io/your_repo_name</span></code></p>
