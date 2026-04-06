@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-10-29 Wed 14:56 -->
+<!-- 2026-03-31 Tue 13:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,135 +200,50 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgead9da1">1. week 12: analysis and visualization</a></li>
+<li><a href="#orge5549eb">1. week 10: text generation with transformers</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgead9da1" class="outline-2">
-<h2 id="orgead9da1"><span class="section-number-2">1.</span> week 12: analysis and visualization</h2>
+<div id="outline-container-orge5549eb" class="outline-2">
+<h2 id="orge5549eb"><span class="section-number-2">1.</span> week 10: text generation with transformers</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Introduction to pandas
+Agenda:
 </p>
 <ul class="org-ul">
-<li>df = pd.read_csv('https://bit.ly/664-met-woman')</li>
-<li>viewing data
+<li>introduction to the huggingface platform
 <ul class="org-ul">
-<li>info(), head(), tail(), shape, columns</li>
-<li>selecting column syntax, dot or brackets
-<ul class="org-ul">
-<li>methods vs attributes, how stuff is generated/stored</li>
-<li>Series type of data</li>
+<li>models hub</li>
+<li>datasets hub</li>
 </ul></li>
-<li>.values()
+<li>introduction to running inference
 <ul class="org-ul">
-<li>gives back a np object</li>
+<li>installations</li>
+<li>must use jupyter-lab</li>
+<li>importing a model from the hub to our notebook</li>
+<li>piping in the input</li>
+<li>parsing the output</li>
 </ul></li>
-<li>slicing rows, df[100:110]</li>
-<li>, describe() # statistics</li>
-</ul></li>
-<li>sorting data
+<li>running inference from a dataset
 <ul class="org-ul">
-<li>value_counts('title') # department, artist display name</li>
-<li>sort_values('accessionYear')</li>
+<li>pulling in the dataset</li>
+<li>dataset structure</li>
+<li>writing a loop to run inference</li>
 </ul></li>
-<li>filtering data
+<li>fine-tuning
 <ul class="org-ul">
-<li>first, create a boolean
-<ul class="org-ul">
-<li>df['title'] == 'Woman'</li>
+<li>demonstration</li>
 </ul></li>
-<li>then, create a variable to hold the booleans
-<ul class="org-ul">
-<li>woman = df['title'] == 'Woman'</li>
-</ul></li>
-<li>finally, creates new dataframe, df[woman]
-<ul class="org-ul">
-<li>we can now further sort elements from this dataframe.
-<ul class="org-ul">
-<li>df[woman]['artistDisplayName']</li>
-<li>df[woman].value_counts('department')</li>
-</ul></li>
-</ul></li>
-<li>highlights = df['isHighlight'] == 1.0
-<ul class="org-ul">
-<li>by boolean condition</li>
-</ul></li>
-<li>df[highlights].info()</li>
-<li>courbet = df['artistDisplayName'].str.contains('Courbet',
-na=False)
-<ul class="org-ul">
-<li>using str.contains</li>
-</ul></li>
-<li>df[courbet]['title']</li>
-</ul></li>
-</ul>
-
-<p>
-BREAK
-</p>
-
-<p>
-Intermediate pandas
-</p>
-<ul class="org-ul">
-<li>df = pd.read_csv('https://bit.ly/anti-trans-tracker-csv')</li>
-<li>sorting values
-<ul class="org-ul">
-<li>df.sort_values('Bill Type', inplace=True)</li>
-<li>see "pandas.DataFrame.sort_values" in docs to understand other
-parameters</li>
-<li>sorted = df.sort_values(['Bill Type', 'State'])
-<ul class="org-ul">
-<li>can sort by multiple values, create new df.</li>
-</ul></li>
-</ul></li>
-<li>filtering values
-<ul class="org-ul">
-<li>looking for different kinds of bans.</li>
-<li>df['Bill Type'] == 'Trans Bathroom Ban'</li>
-</ul></li>
-<li>CHALLENGE: Which states have the most book bans?</li>
-<li>two ways:
-<ul class="org-ul">
-<li>df['Bill Type'] == 'Book Ban'
-<ul class="org-ul">
-<li>books = df['Bill Type'] == 'Book Ban'</li>
-<li>df[books]</li>
-<li>df[books].value_counts('State')</li>
-</ul></li>
-<li><code>str.contains</code>: filtering by words 
-<ul class="org-ul">
-<li>df['Bill Type'].str.contains('Bathroom')</li>
-<li>bathrooms = df['Bill Type'].str.contains('Bathroom')</li>
-<li>df[bathrooms].info()</li>
-<li>df[bathrooms].value_counts('State')</li>
-</ul></li>
-</ul></li>
-<li>plotting data
-<ul class="org-ul">
-<li>df.plot(kind='bar')</li>
-<li>df.value_counts('Bill Type').plot(kind='bar')</li>
-<li>adding nlargest(10)
-<ul class="org-ul">
-<li>df.value_counts('Bill Type').nlargest(10).plot(kind='bar')</li>
-</ul></li>
-<li>look at the docs, and explore some of the parameters to make the
-graph more detailed
-<ul class="org-ul">
-<li>df.value_counts('Bill Type').nlargest(10).plot(kind='barh',
-xlabel='Number of Bills', title='Most Frequent Categories for
-Anti-Trans Bills')</li>
-<li>df.value_counts('Bill Type').plot(kind='pie')</li>
-</ul></li>
-</ul></li>
+<li>BREAK</li>
+<li>project pitches</li>
+<li>work on final projects</li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: fcalado</p>
-<p class="date">Created: 2025-10-29 Wed 14:56</p>
+<p class="date">Created: 2026-03-31 Tue 13:32</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

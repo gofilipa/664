@@ -1,4 +1,4 @@
-% Created 2025-04-16 Wed 14:39
+% Created 2026-02-10 Tue 14:43
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -26,97 +26,198 @@
 
 \tableofcontents
 
-\section{week 10: analysis and visualization}
-\label{sec:orgb0e0bf3}
+\section{week 3: python 3: loops, logic, errors}
+\label{sec:org8de9e42}
+Agenda
+\begin{itemize}
+\item review last week's lessons on lists
+\item lessons for today: loops, logic
+\item start working with CSV module using VS Code \& Copilot
+\end{itemize}
 
-Introduction to pandas
+\subsection{review}
+\label{sec:orgc69f080}
 \begin{itemize}
-\item viewing data
+\item lists
 \begin{itemize}
-\item info(), head(), tail(), shape, columns, describe()
-\item selecting column syntax
-\item .values()
-\item slicing rows
+\item list indexing vs slicing
 \end{itemize}
-\item sorting data
+\item methods vs functions
 \begin{itemize}
-\item value\_counts('title') \# department, artist display name
-\item sort\_values('accessionYear')
-\end{itemize}
-\item filtering data
-\begin{itemize}
-\item df['title'] == 'Woman'
-\begin{itemize}
-\item creates series of booleans
-\end{itemize}
-\item woman = df['title'] == 'Woman'
-\begin{itemize}
-\item creates new dataframe, df[woman]
-\end{itemize}
-\item highlights = df['isHighlight'] == 1.0
-\begin{itemize}
-\item by boolean condition
-\end{itemize}
-\item df[highlights].info()
-\item courbet = df['artistDisplayName'].str.contains('Courbet',
-na=False)
-\begin{itemize}
-\item using str.contains
-\end{itemize}
-\item df[courbet]['title']
+\item what are some functions and methods we learned?
+\item functions are independant
+\item methods depend on objects (also called properties, attributes)
+\item can tell in syntax
 \end{itemize}
 \end{itemize}
 
+\subsection{review challenge}
+\label{sec:orgc374bcd}
+Create a list of words from a text, and do things to the list using
+list methods.
 
-Intermediate pandas
+\subsection{loops}
+\label{sec:orgbb57d90}
+How we do things to data.
 \begin{itemize}
-\item sorting values
+\item types of data for categorizing data; variables for saving data; how
+to work with lists of data; now, how to do things to
+lists/groupings.
 \begin{itemize}
-\item df.sort\_values('Bill Type', inplace=True)
-\item see "pandas.DataFrame.sort\_values" in docs to understand other
-parameters
-\item sorted = df.sort\_values(['Bill Type', 'State'])
-\begin{itemize}
-\item can sort by multiple values, create new df.
+\item also works with strings
 \end{itemize}
-\end{itemize}
-\item filtering by values
+\item syntax: for item in collection: print(item).
 \begin{itemize}
-\item Which states have the most book bans?
-\begin{itemize}
-\item df['Bill Type'] == 'Book Ban'
-\item books = df['Bill Type'] == 'Book Ban'
-\begin{itemize}
-\item df[books]
+\item practice with both lists and strings
 \end{itemize}
-\item df[books].value\_counts('State')
-\end{itemize}
-\item \texttt{str.contains}: filtering by words 
+\item a note on variable names:
 \begin{itemize}
-\item df['Bill Type'].str.contains('Bathroom')
-\item bathrooms = df['Bill Type'].str.contains('Bathroom')
-\item df[bathrooms].info()
-\item df[bathrooms].value\_counts('State')
+\item the variable following "for" is assigned on the fly
 \end{itemize}
+\item f-strings
+\item CHALLENGE: prime numbers
 \end{itemize}
 
-\item plotting data
+Doing things to strings
 \begin{itemize}
-\item df.plot(kind='bar')
-
-\item df.value\_counts('Bill Type').plot(kind='bar')
-
-\item adding nlargest(10)
-
+\item how to do things to strings within loops
+\item 'HELLO'.lower()
+\item make a list of cities, and make them all lowercasee
+\item now save that list to a new list, an empty list
 \begin{itemize}
-\item df.value\_counts('Bill Type').nlargest(10).plot(kind='bar')
+\item why would we want to do this?
+\end{itemize}
+\end{itemize}
+\subsection{functions}
+\label{sec:org5a81ffa}
+\begin{itemize}
+\item functions do things to data
+\begin{itemize}
+\item functions in algebra f(x) = x + 1
+\end{itemize}
+\item two steps of a function: defining, calling
+\begin{itemize}
+\item how to define a function to add a number
+\end{itemize}
+\item calling the function
+\item challenge: how to make a function that prints a string with your name?
 \end{itemize}
 
-\item df.value\_counts('Bill Type').nlargest(10).plot(kind='barh',
-xlabel='Number of Bills', title='Most Frequent Categories for
-Anti-Trans Bills')
+\subsection{BREAK}
+\label{sec:orgf2d8dc4}
 
-\item df.value\_counts('Bill Type').plot(kind='pie')
+\subsection{logic}
+\label{sec:orgf7fa992}
+Boolean data
+\begin{itemize}
+\item type() -> True or False
+\item evaluates mathematical expressions
+\begin{itemize}
+\item different operators, look them up. Many different kinds.
+\end{itemize}
+\item if statement for checking age
+\begin{itemize}
+\item multiple conditions
 \end{itemize}
 \end{itemize}
+
+Combining loops with logic:
+\begin{itemize}
+\item DEFENDING WOMEN FROM GENDER IDEOLOGY EXTREMISM AND RESTORING
+BIOLOGICAL TRUTH TO THE FEDERAL GOVERNMENT
+\item if it contains the word "gender", "protect", or others, we will
+print.
+\end{itemize}
+
+\begin{verbatim}
+sentences = text.split('.')
+  for i in sentences:
+      if 'binary' in i:
+          print(i)
+\end{verbatim}
+
+\subsection{csv module}
+\label{sec:orge2795bf}
+\begin{itemize}
+\item csv module
+\begin{itemize}
+\item what is a module? a collection of code for doing something, in
+this case, for opening csv files
+\item read a little of the docs on CSV module, reader
+\end{itemize}
+
+\item printing rows from csv on \href{https://data.cityofnewyork.us/City-Government/Enforcement-Actions-Board-Determinations-and-Penal/xrxs-qn95/about\_data}{Campaign Violations}:
+\begin{itemize}
+\item import csv
+\item open the file with open statement
+\item print the rows
+\end{itemize}
+\end{itemize}
+
+\begin{verbatim}
+with open('./Downloads/Enforcement_Actions_Board_Determinations_and_Penalties_20250210.csv') as f:
+    data = csv.reader(f)
+    for row in data: # can we slice this to do only the first 5 rows?
+        print(row)
+\end{verbatim}
+
+How do we get just the first object from each column? The names?
+\begin{itemize}
+\item breakup the problem into parts
+\item check the type of data(s)
+\item how do we access info from a list?
+\end{itemize}
+
+\begin{verbatim}
+
+with open ('violations_sample.csv', 'r') as f:
+    data = csv.reader(f)
+    for row in data:
+        print(row[1])
+
+\end{verbatim}
+
+\subsubsection{Combining logic, loops, and csv:}
+\label{sec:org6f8d84f}
+\begin{itemize}
+\item search for a specific candidate name in the dataset
+\item print out all rows containing that candidate's name
+\item advanced: print out only the date and the violation
+\end{itemize}
+
+
+\begin{verbatim}
+with open('violations.csv', 'r') as f:
+  data = csv.reader(f)
+  for row in data:
+      if "Eric" in row[1]:
+          print(row)
+\end{verbatim}
+
+\subsubsection{Challenge (that I'll walk you through)}
+\label{sec:org683412c}
+Combine what we know from the above with f-strings to write more
+complex output.
+
+Write a loop that prints out the Candidate’s name and Violation if
+that violation contains the word “contribution” in it. Use f-strings
+so that you can format the answer the following:
+
+Name: [candidate name], Violation: [candidate violation]
+
+Here’s the answer, but don’t look until you’ve spent at least 5
+mintues working on it!
+
+\begin{verbatim}
+with open ('violations.csv', 'r') as f:
+  dict_reader = csv.reader(f)
+  for row in dict_reader:
+      violation = row[3]
+      if "contribution" in violation:
+          candidate = row[1]
+          print(f'Name: {candidate}, Violation: {violation}')
+\end{verbatim}
+
+\subsection{next week: web scraping!}
+\label{sec:org5dce8ca}
 \end{document}

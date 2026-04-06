@@ -1,5 +1,5 @@
 * plans
-** week 1: introduction to the command line & python
+** day 1: introduction to the command line & python
 *** intro to the syllabus
 *** what is the command line?
 - a way of talking to the computer.
@@ -88,7 +88,7 @@ Navigating
   - individual challenge: write a function that uppercases a string.
     and prints the result.
   
-** week 2: python day 1
+** day 2: python day 2: lists (guest speaker)
 *** agenda
 - continue learning Python programming language
 - start challenge for this week
@@ -96,7 +96,6 @@ Navigating
 *** review
 - data types, what are the types? 
 - variables, how do they work?
-- what is the difference between type('hello world!') and 'hello world'.upper()?
 
 *** lists
 - lists
@@ -107,32 +106,34 @@ Navigating
   - list methods
     - append(), remove(), pop()
     - sort(), reverse()
-  - INDIVIDUAL: write a sentence and split it up into a list of words.
-    Then do something to that list of words.
-    - why does split not work on a list?
-
-*** functions
-- functions do things to data
-- functions in algebra f(x) = x + 1
-- two steps of a function: defining, calling
-- how to define a function to add a number
-- calling the function
-- challenge: how to make a function that prints a string with your name?
-- may have to look up "f-strings"
+  - string methods
+    - string.split()
+    - string.upper()
+  - how would I get a list of words in a sentence into alphabetical
+    order. 
+  - INDIVIDUAL: look up "string methods" and try out 3 different ones,
+    to see how they work.
 
 *** BREAK
-*** Project Development 30 minutes, share 30 minutes
-Spend some time thinking about what kind of data you're interested in,
-and would like to work with.
+*** loops
+How we do things to data.
+- types of data for categorizing data; variables for saving data; how
+  to work with lists of data; now, how to do things to
+  lists/groupings.
+  - also works with strings
+- syntax: for item in collection: print(item).
+  - practice with both lists and strings
+- a note on variable names:
+  - the variable following "for" is assigned on the fly
+- f-strings
+- CHALLENGE: prime numbers
 
-Why are you interested in this data? What kinds of questions do you
-have about this data?
-
-Come up with two or three online sources for this data. Can be
-websites, archives, pdfs, anything electronic.
-
-Next step: environmental scan of existing projects.
-
+Doing things to strings
+- how to do things to strings within loops
+- 'HELLO'.lower()
+- make a list of cities, and make them all lowercasee
+- now save that list to a new list, an empty list
+  - why would we want to do this?
 *** Start challenge:
 Grab a paragraph or two of text from a website you are interested in,
 and save that text to a string in a Python notebook. Then use the
@@ -140,19 +141,15 @@ methods we learned in class to do the following: first, transform the
 string into a list; then, add, remove, and sort items in the list.
 Save your python notebook file (.ipynb file) and submit it on canvas.
     
-** week 3: python 2: loops, logic, errors
+** day 3: python 3: loops, logic, errors
 Agenda
-- review challenge
-- review last week's lessons on lists, functions
+- review last week's lessons on lists
 - lessons for today: loops, logic
 - start working with CSV module using VS Code & Copilot
 
 *** review
 - lists
   - list indexing vs slicing
-- functions
-  - how do we write them, and how do we call them?
-  - formatting strings
 - methods vs functions
   - what are some functions and methods we learned? 
   - functions are independant
@@ -182,6 +179,15 @@ Doing things to strings
 - make a list of cities, and make them all lowercasee
 - now save that list to a new list, an empty list
   - why would we want to do this?
+*** functions
+- functions do things to data
+  - functions in algebra f(x) = x + 1
+- two steps of a function: defining, calling
+  - how to define a function to add a number
+- calling the function
+- challenge: how to make a function that prints a string with your name?
+
+*** BREAK
 
 *** logic
 Boolean data
@@ -198,12 +204,11 @@ Combining loops with logic:
   print.
 
 #+begin_src python
-for i in text.split('.'):
-    if 'binary' in i:
-	print(i)
+sentences = text.split('.')
+  for i in sentences:
+      if 'binary' in i:
+	  print(i)
 #+end_src
-
-*** BREAK
 
 *** csv module
 - csv module
@@ -219,7 +224,7 @@ for i in text.split('.'):
 #+begin_src python
   with open('./Downloads/Enforcement_Actions_Board_Determinations_and_Penalties_20250210.csv') as f:
       data = csv.reader(f)
-      for row in data:
+      for row in data: # can we slice this to do only the first 5 rows?
 	  print(row)
 #+end_src
 
@@ -275,29 +280,13 @@ mintues working on it!
 #+end_src
   
 *** next week: web scraping!
-** week 4: web scraping 1
+** day 4: web scraping 1
 Goals:
-- debugging practice: how to handle errors
 - web scraping
-  - learn how to scrape a simple web page
+  - learn how to scrape a web site
   - learn a little bit about HTML/CSS
   - learn more about objects in python, dot syntax
-
-*** errors
-  - there are many kinds of errors you can make with python.
-    - syntax errors: before the program runs, checking the code is
-      typed in correctly and grammatically makes sense.
-    - traceback errors: during the program's execution, it just cannot
-      anymore. Something went wrong.
-    - close reading the error message.
-      4
-*** partners practice: make all the errors, 15 min
-  - explore different kinds of errors. What are the general category
-    of errors? What is a Name and a Type error, for instance? Syntax
-    or Traceback? Try to get 2 of each.
-    - choose 1 or 2 of your errors and google them. Read the stack
-      overflow post about it. Try to get familiar with the forum
-      format for asking coding questions.
+- debugging practice: how to handle errors
 
 *** web scraping: a simple scrape
 - what is web scraping? vs APIs, vs asking for data?
@@ -305,45 +294,42 @@ Goals:
 - different web scraping tools: scrapy and selenium
 - scrape a website in 5 lines of code
   - first install the libraries
-- 2 ways of getting htmml elements
+- the soup object
   - dot syntax: soup.title, .p. .h1, .a
-  - find() method
-- getting just the text
-  - .text
-  - looping through elements with find_all()
+  - chaining elements
+- find() method
+  - can add a class, but need to look this up.
 
-*** BREAK
-
-*** digging into HTML elements
+*** using the inspector to get classes
 - the HTML inspector
   - inspecting elements
   - intro to HTML elements and attributes
-  - looking for bill number element and attributes, looking for bill
-    card, looking for all the cards.
+- find() method, with classes
+- getting just the text
+  - .text
 
 *** narrowing down elements by text, class, href
-  - To access the attributes like ~class~, we use the syntax:
-    ~tag['attr']~)For example, we can search for CSS classes using
-    this syntax.
-
-#+begin_src python
-  soup.h3['class'] #['chakra-heading', 'css-1vygpf9']
-  soup.h3.a['href']
-#+end_src
-
-- Once we have a `class` value, then we can get more granular about
-  our searching. Here, we would use the `find()` method. This is
-  useful when there are a lot of objects with the same element, and
-  you want more specificity.
+Once we have a `class` value, then we can get more granular about our
+searching. Here, we would use the `find()` method. This is useful when
+there are a lot of objects with the same element, and you want more
+specificity.
 
 #+begin_quote python
 
 soup.find('h3', class_='css-1vygpf9')
-soup.find_all('h3', class_='css-1vygpf9')
+
 
 #+end_quote
 
-*** GROUP CHALLENGE: looping through elements 
+*** find_all(), looping through elements
+looping through elements to extract just the text.
+
+
+*** BREAK
+
+*** GROUP CHALLENGE: looping through elements
+Choose a website.
+
 - looping through elements to get just text
 
 #+begin_src python
@@ -356,7 +342,7 @@ soup.find_all('h3', class_='css-1vygpf9')
 
 #+end_src
 
-** week 5: web scraping 2
+** day 5: web scraping 2
 Agenda:
 - share websites that we found
 - review last week
@@ -366,46 +352,26 @@ Agenda:
 
 *** share websites from challenge
 *** review last week
-- bs4 and requests
-  - check out bs4 library briefly
 - making the soup object
   - what are attributes and methods?
     - (like .text, .find, .find_all)
+  - narrowing down into elements
+  - INDIVIDUAL CHALLENGE: extract just the author's name.
 - writing a loop to extract the bill numbers
+  - first, isolate the smallest possible element
+  - check the structure of the code
+  - sometimes, need to layer elements
 
-*** extracting data about the bills
+*** pause: a useful protocol for extracting data
 - saving this data to a csv, for storage, analysis, etc.
 - multiple steps:
-  1. isolate bill card data
-    - titles, captions, categories (we will add desc. and links later) 
-  2. pick out the information we want from the data
-  3. process information into lists
-  4. save to CSV 
-
-First, create a new object called bill_cards, which enables us to
-narrow down the parts of the website that we want to scrape.
-
-#+begin_src python
-  bill_cards = soup.find_all('div', class_ ='css-4rck61')
-
-  # use a loop to check that we have all the right data
-  for i in bill_cards:
-    print(i.text)
-    
-#+end_src
-
-Second, pick out information from each bill card. Now that we have
-narrowed down our data to bill_cards, we can search within this code
-for the individual elements we want.
-
-Using the inspector, take 5-10 minutes create a list of html elements
-and attributes that correspond to the above information. Work in
-partners.
-
-- bill title
-- bill caption (if it exists!)
-- bill category
-- bill description
+  1. choose element that contains all data you want
+     - titles, date, tags, ... 
+  2. note the html structure of data
+     - which elements are contained within which elements?
+  3. write code that picks out the information we want from the data
+  4. process information into lists
+  5. save to CSV 
 
 Write out the problem in pseudocode:
 
@@ -428,7 +394,7 @@ Write out the problem in pseudocode:
 
 #+end_src
 
-Now, we want to save our data to a list. How might we do that?
+*** save our data to a list
 
 #+begin_src python
 
@@ -459,8 +425,7 @@ Now, we want to save our data to a list. How might we do that?
 Attribute error! ~AttributeError: 'NoneType' object has no attribute
 'text'~
 
-*** BREAK
-*** INDIVIDUAL CHALLENGE: Google this error, try to understand what it
+**** INDIVIDUAL CHALLENGE: Google this error, try to understand what it
 means. And then try out a solution from Stak Overflow, making sure to
 change out the variable names.
 
@@ -476,7 +441,7 @@ change out the variable names.
     link = 'https://translegislation.com/bills/2023/passed' + item.a['href']
 #+end_src
 
-*** Finally, saving data to CSV:
+*** finally, saving data to CSV:
 
 #+begin_src python
   import pandas as pd
@@ -499,6 +464,8 @@ change out the variable names.
 
 BREAK
 
+*** Expanding our dataset
+*** BREAK
 *** ethics and legality
 - focus is on ethics rather than legality
   - more important to think about the effect your data gathering will
@@ -569,10 +536,10 @@ kind of stories it can tell, what it might reveal.
 Especially now, when we are experiencing waves of intellectual
 suppression. 
 
-*** Start to work on the challenge
-** week 6: apis
+*** group work: extract some text from another website of your choice
+- ACLU, nytimes, or another
+** day 6: apis
 Agenda
-- look at LOC standards for XML
 - begin work with APIs
   - dictionary structures - new data structure
   - the MET API - beginner friendly
@@ -723,15 +690,15 @@ See all the data about this object.
 
 See the objectURL? Copy and paste it into your browser.
 
-**** reading documentation: individual challenge
+*** BREAK
+
+*** reading documentation: individual challenge
 Look at the docs, see the different paths and parameters.
 
 Pratice searching using another parameter for the search endpoint. And
 then, take the results of that search and look for the objects.
 
-**** BREAK
-
-**** looping through our objects
+*** looping through our objects
 What if we want to collect data on several objects, and save them to a
 spreadsheet. Columns like "artist", "title", etc.
 - write a loop that makes calls to each objectID, parses the response,
@@ -789,7 +756,7 @@ How can we extract this information? Let's say, the artist name?
 
 This gives us an error
 
-**** group challenge: google the error for >2 solutions
+*** group challenge: google the error for >2 solutions
 
 There are two ways: conditional statement and creating a variable
 #+begin_src python
@@ -804,14 +771,14 @@ for item in first_ten:
     print(title)
 #+end_src
 
-**** about “women”
+*** about “women”
 Try it with gender. Why do you think we see only female?
 
-**** saving to DataFrame
+*** saving to DataFrame
 
-**** start challenge, to make requests using multiple parameters
+*** start challenge, to make requests using multiple parameters
 
-** week 7: apis continued
+** day 7: apis continued
 Goals:
 - review MET API,
   - how to request, parse, and extract data
@@ -1028,9 +995,15 @@ Walk them through the authentication process.
 Challenge: use the search path, and figure out a way to get more
 information about the individual objects in the search path results.
 
-** week 9: api presentations
+** day 9: api presentations
 
-*** APIs
+Agenda
+- present our APIs, at whatever stage you were able to reach.
+- troubleshooting errors as a class.
+- break
+- brainstorming final projects, freewrite & share.
+
+*** 2025 spring APIs
 - Pokemon API
 - Met API
 - openweather API
@@ -1040,8 +1013,46 @@ information about the individual objects in the search path results.
 - transgender media archive
 - USDA foundation foods API
 
-Use the input function to build an algorithm. 
+Use the input function to build an algorithm.
 
+*** 2026 spring APIs
+- OpenLibrary API
+- MediaStack API
+- DogAPI
+- cooper hewitt API
+- D&D API
+- NOAA API
+- Pokemon API
+- Project Gutenberg API
+- LogoAPI
+- 
+
+** day 10: text generation with transformers
+Agenda:
+- introduction to the huggingface platform
+  - models hub
+  - datasets hub
+- introduction to running inference
+  - installations
+  - must use jupyter-lab
+  - importing a model from the hub to our notebook
+  - piping in the input
+  - parsing the output
+- running inference from a dataset
+  - pulling in the dataset
+  - dataset structure
+  - writing a loop to run inference
+- fine-tuning
+  - demonstration
+- BREAK
+- project pitches
+- work on final projects
+
+** day 11: Introduction to OpenRefine
+- Welcome Dr Bryan Winston from PUL!
+- BREAK
+- project pitches
+- work on final projects
 ** week 10: cleaning
 Prepared a lesson on cleaning with pure python, then chatgpt, then
 openrefine, using the cleaning notebook.
@@ -1117,27 +1128,6 @@ Intermediate pandas
       xlabel='Number of Bills', title='Most Frequent Categories for
       Anti-Trans Bills')
     - df.value_counts('Bill Type').plot(kind='pie')
-
-** week 13: text generation with transformers
-Agenda:
-- introduction to the huggingface platform
-  - models hub
-  - datasets hub
-- introduction to running inference
-  - installations
-  - must use jupyter-lab
-  - importing a model from the hub to our notebook
-  - piping in the input
-  - parsing the output
-- running inference from a dataset
-  - pulling in the dataset
-  - dataset structure
-  - writing a loop to run inference
-- BREAK
-- fine-tuning
-  - demonstration
-- finish project pitches
-- talk about final projects
 
 ** week 14: introduction to github and static websites
 Agenda
