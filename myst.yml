@@ -2,10 +2,10 @@
 version: 1
 project:
   id: 687888ab-38d7-4dcc-93a1-530a1a64b93d
-  # title:
+  title: INFO-664 notebooks
   # description:
   # keywords: []
-  # authors: []
+  authors: [Filipa Calado]
   github: https://github.com/gofilipa/664
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
   toc:
