@@ -1053,34 +1053,38 @@ Agenda:
 - BREAK
 - project pitches
 - work on final projects
-** week 10: cleaning
-Prepared a lesson on cleaning with pure python, then chatgpt, then
-openrefine, using the cleaning notebook.
-
-They were interested in how I scraped the data. So a prologue on that
-for next semester. 
-
 ** week 12: analysis and visualization
+Agenda
+- data analysis and visualization
+- BREAK
+- review fine-tuning with transformers
+- work on projects
 
-Introduction to pandas
+*** Introduction to pandas
 - df = pd.read_csv('https://bit.ly/664-met-woman')
 - viewing data
   - info(), head(), tail(), shape, columns
-  - selecting column syntax, dot or brackets
+  - selecting columns
+    - syntax: either dot or brackets
     - methods vs attributes, how stuff is generated/stored
-    - Series type of data
-  - .values()
+    - column = Series type of data
+  - values()
+    - the items in a column
     - gives back a np object
   - slicing rows, df[100:110]
-  - , describe() # statistics
+  - describe() # statistics
 - sorting data
   - value_counts('title') # department, artist display name
+    - counts most common values for a column
   - sort_values('accessionYear')
+    - sorts by values in a column
 - filtering data
   - first, create a boolean
     - df['title'] == 'Woman'
+      - this is a conditional
   - then, create a variable to hold the booleans
     - woman = df['title'] == 'Woman'
+      - this is a variable assignment from a conditional
   - finally, creates new dataframe, df[woman]
     - we can now further sort elements from this dataframe.
       - df[woman]['artistDisplayName']
@@ -1092,10 +1096,18 @@ Introduction to pandas
     na=False)
     - using str.contains
   - df[courbet]['title']
+- plotting data
+  - df.plot(kind='bar')
+  - df.value_counts('department').plot(kind='bar')
+  - adding nlargest(10)
+    - df.value_counts('title').nlargest(10).plot(kind='bar')
+  - look at the docs, and explore some of the parameters to make the
+    graph more detailed
+    - df.value_counts('artristDisplayName').nlargest(10).plot(kind='barh',
+      xlabel='Artist Name', title='Works of "Women" at the MET')
+    - df.value_counts('').plot(kind='pie')
 
-BREAK
-
-Intermediate pandas
+*** Intermediate pandas (if time)
 - df = pd.read_csv('https://bit.ly/anti-trans-tracker-csv')
 - sorting values
   - df.sort_values('Bill Type', inplace=True)
@@ -1129,16 +1141,21 @@ Intermediate pandas
       Anti-Trans Bills')
     - df.value_counts('Bill Type').plot(kind='pie')
 
-** week 14: introduction to github and static websites
+BREAK
+
+*** fine-tuning review
+- one line of code changed!
+
+** week 13: introduction to github 
 Agenda
-- finish sharing project pitches
+- did we do project pitches last week?
+- today is pretty chill
 - introduction to github
-- introduction to jekyll
-- project progress and current obstacle or next steps
+- break
+- how to troubleshoot errors (in groups)
 
 *** introduction to github
-- Github is a website that runs on git, a version control software
-  (more on this in the next lesson, on Git).
+- Github is a website that runs on git, a version control software.
 - For our purposes, we will be learning how to use the website
   github.com, which is a space for publishing projects, especially
   projects that have to do with software.
@@ -1150,10 +1167,10 @@ Agenda
   - Keeping research notes
   - Hosting syllabi and course materials
 
-Step 1: Make your very own GitHub account
+**** Step 1: Make your very own GitHub account
 - Create an account by going to github.com.
   
-Step 2: Create a repository
+**** Step 2: Create a repository
 - The first thing we’ll do is create a repository. You can think of a
   repository as a folder that contains related items, such as files,
   images, videos, or even other folders. A repository usually groups
@@ -1165,7 +1182,7 @@ Step 2: Create a repository
   - Write a short description.
   - Initialize this repository with a README.
 
-Step 3: Complete your README
+**** Step 3: Complete your README
 - This file serves as a title page and abstract for your project. It
   also includes information about how you completed the project. Here
   are a list of the requirements:
@@ -1178,10 +1195,10 @@ Step 3: Complete your README
     notebooks, csv files, etc) and a brief description of what each
     file contains
 
-The readme is generally written in [[https://www.markdownguide.org/cheat-sheet/][Mardown]], but it can also be written
+The readme is generally written in [[https://www.markdownguide.org/cheat-sheet/][Markdown]], but it can also be written
 in plain text .txt.
 
-Step 4: commit changes
+**** Step 4: commit changes
 - When you are finished editing the file, you can save your changes by
   “committing” them. When you commit, you are also required to write a
   little commit message. You can say something like “drafting title
@@ -1194,7 +1211,25 @@ Moving forward, you can edit the README file directly on github. If
 you want to add external files to the project (like python notebooks),
 you can upload them to the repository.
 
+*** work on your READMEs
+*** BREAK
+*** troubleshooting errors
+What is the most common kind of error that you get? 15m
+- There are two kinds:
+  - syntax errors: typos, you made a mistake 
+  - traceback errors: the program is not tenable
+- Spend 2 minutes trying to make both kinds of errors. 
 
+Crowd sourced debugging - 45m
+- Get into groups of 3-4
+- Each person talks about an error that they currently have/have had,
+  and how they tried to fix it (10m)
+- From the errors being shared, your group picks one to debug.
+- Eachperson will reproduce the error, and then look it up to try and
+  fix it (15m)
+- Share as a class (20m)
+
+** week 15: publishing a static site
 *** publishing a static site
 publishing a static site
 

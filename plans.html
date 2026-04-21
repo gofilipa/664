@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-03-31 Tue 13:32 -->
+<!-- 2026-04-21 Tue 13:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,50 +200,178 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge5549eb">1. week 10: text generation with transformers</a></li>
+<li><a href="#org45b2eeb">1. week 13: introduction to github</a>
+<ul>
+<li><a href="#org16f1cb8">1.1. introduction to github</a>
+<ul>
+<li><a href="#org2c65114">1.1.1. Step 1: Make your very own GitHub account</a></li>
+<li><a href="#orgdbcb361">1.1.2. Step 2: Create a repository</a></li>
+<li><a href="#org4be8fc2">1.1.3. Step 3: Complete your README</a></li>
+<li><a href="#orgb20795f">1.1.4. Step 4: commit changes</a></li>
+</ul>
+</li>
+<li><a href="#orga90a0a1">1.2. work on your READMEs</a></li>
+<li><a href="#org74bfecf">1.3. BREAK</a></li>
+<li><a href="#org4a88c8b">1.4. troubleshooting errors</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge5549eb" class="outline-2">
-<h2 id="orge5549eb"><span class="section-number-2">1.</span> week 10: text generation with transformers</h2>
+<div id="outline-container-org45b2eeb" class="outline-2">
+<h2 id="org45b2eeb"><span class="section-number-2">1.</span> week 13: introduction to github</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Agenda:
+Agenda
 </p>
 <ul class="org-ul">
-<li>introduction to the huggingface platform
-<ul class="org-ul">
-<li>models hub</li>
-<li>datasets hub</li>
-</ul></li>
-<li>introduction to running inference
-<ul class="org-ul">
-<li>installations</li>
-<li>must use jupyter-lab</li>
-<li>importing a model from the hub to our notebook</li>
-<li>piping in the input</li>
-<li>parsing the output</li>
-</ul></li>
-<li>running inference from a dataset
-<ul class="org-ul">
-<li>pulling in the dataset</li>
-<li>dataset structure</li>
-<li>writing a loop to run inference</li>
-</ul></li>
-<li>fine-tuning
-<ul class="org-ul">
-<li>demonstration</li>
-</ul></li>
-<li>BREAK</li>
-<li>project pitches</li>
-<li>work on final projects</li>
+<li>did we do project pitches last week?</li>
+<li>today is pretty chill</li>
+<li>introduction to github</li>
+<li>break</li>
+<li>how to troubleshoot errors (in groups)</li>
 </ul>
+</div>
+
+<div id="outline-container-org16f1cb8" class="outline-3">
+<h3 id="org16f1cb8"><span class="section-number-3">1.1.</span> introduction to github</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Github is a website that runs on git, a version control software.</li>
+<li>For our purposes, we will be learning how to use the website
+github.com, which is a space for publishing projects, especially
+projects that have to do with software.</li>
+<li>People use github for <a href="https://digitalscholarship.files.wordpress.com/2016/07/spirosmithdh2016githubpresentationfinal.pdf">a variety of reasons</a>, like:
+<ul class="org-ul">
+<li>Developing software</li>
+<li>Sharing data sets</li>
+<li>Creating websites</li>
+<li>Writing articles and books</li>
+<li>Keeping research notes</li>
+<li>Hosting syllabi and course materials</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-org2c65114" class="outline-4">
+<h4 id="org2c65114"><span class="section-number-4">1.1.1.</span> Step 1: Make your very own GitHub account</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li>Create an account by going to github.com.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdbcb361" class="outline-4">
+<h4 id="orgdbcb361"><span class="section-number-4">1.1.2.</span> Step 2: Create a repository</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li>The first thing we’ll do is create a repository. You can think of a
+repository as a folder that contains related items, such as files,
+images, videos, or even other folders. A repository usually groups
+together items that belong to the same “project” or thing you’re
+working on.</li>
+<li>To create a new repository on GitHub:
+<ul class="org-ul">
+<li>Click the icon next to your username, top-right.</li>
+<li>Name your repository hello-world.</li>
+<li>Write a short description.</li>
+<li>Initialize this repository with a README.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4be8fc2" class="outline-4">
+<h4 id="org4be8fc2"><span class="section-number-4">1.1.3.</span> Step 3: Complete your README</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li>This file serves as a title page and abstract for your project. It
+also includes information about how you completed the project. Here
+are a list of the requirements:
+<ul class="org-ul">
+<li>project title</li>
+<li>project description: explains what the project does</li>
+<li>rationale statement: expresses the motivations behind the project</li>
+<li>workflow: identifies libraries used and explains the important steps being taken in the code.</li>
+<li>further uses: in what ways might someone build on this work or re-use your code.</li>
+<li>files list: a list of files relevant to the project (python
+notebooks, csv files, etc) and a brief description of what each
+file contains</li>
+</ul></li>
+</ul>
+
+<p>
+The readme is generally written in <a href="https://www.markdownguide.org/cheat-sheet/">Markdown</a>, but it can also be written
+in plain text .txt.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb20795f" class="outline-4">
+<h4 id="orgb20795f"><span class="section-number-4">1.1.4.</span> Step 4: commit changes</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<ul class="org-ul">
+<li>When you are finished editing the file, you can save your changes by
+“committing” them. When you commit, you are also required to write a
+little commit message. You can say something like “drafting title
+and description,” whatever you like. Commit messages are useful for
+knowing the specific version of your project at this stage.</li>
+</ul>
+
+<p>
+That’s it!
+</p>
+
+<p>
+Moving forward, you can edit the README file directly on github. If
+you want to add external files to the project (like python notebooks),
+you can upload them to the repository.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga90a0a1" class="outline-3">
+<h3 id="orga90a0a1"><span class="section-number-3">1.2.</span> work on your READMEs</h3>
+</div>
+<div id="outline-container-org74bfecf" class="outline-3">
+<h3 id="org74bfecf"><span class="section-number-3">1.3.</span> BREAK</h3>
+</div>
+<div id="outline-container-org4a88c8b" class="outline-3">
+<h3 id="org4a88c8b"><span class="section-number-3">1.4.</span> troubleshooting errors</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+What is the most common kind of error that you get? 15m
+</p>
+<ul class="org-ul">
+<li>There are two kinds:
+<ul class="org-ul">
+<li>syntax errors: typos, you made a mistake</li>
+<li>traceback errors: the program is not tenable</li>
+</ul></li>
+<li>Spend 2 minutes trying to make both kinds of errors.</li>
+</ul>
+
+<p>
+Crowd sourced debugging - 45m
+</p>
+<ul class="org-ul">
+<li>Get into groups of 3-4</li>
+<li>Each person talks about an error that they currently have/have had,
+and how they tried to fix it (10m)</li>
+<li>From the errors being shared, your group picks one to debug.</li>
+<li>Eachperson will reproduce the error, and then look it up to try and
+fix it (15m)</li>
+<li>Share as a class (20m)</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: fcalado</p>
-<p class="date">Created: 2026-03-31 Tue 13:32</p>
+<p class="date">Created: 2026-04-21 Tue 13:39</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

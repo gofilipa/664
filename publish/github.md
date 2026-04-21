@@ -1,7 +1,6 @@
 # introduction to github
 
-Github is a website that runs on `git`, a version control software
-(more on this in the next lesson, on Git). 
+Github is a website that runs on `git`, a version control software.
 
 People use github for [a variety of
 reasons](https://digitalscholarship.files.wordpress.com/2016/07/spirosmithdh2016githubpresentationfinal.pdf)
