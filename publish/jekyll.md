@@ -4,25 +4,32 @@ For this session, we will combine [Jekyll](https://jekyllrb.com/) and
 [Github Pages](https://pages.github.com/) to deploy your project into
 a website that others can access on the internet.
 
-## what is Github Pages?
+For this session, we will use Github Pages to deploy your project into
+a website that others can access on the internet.
 
-A hosting service by Github that lets you create static sites on the web. It takes HTML, CSS, and JavaScript files from a GitHub repository, and publishes them as a website.
+## What is Github Pages?
+- A hosting service by Github that lets you create static sites on the
+  web. It takes HTML, CSS, and JavaScript files from a GitHub
+  repository, and publishes them as a website.
 
-What are static sites? Websites that are generated once (usually by a program like Python or Ruby), then pushed to the server to be hosted in its already-generated or "static" state.
+## What are static sites?
+- Websites that are generated once (usually by a program like Python
+  or Ruby), then pushed to the server to be hosted in its
+  already-generated or “static” state
+- This static site uses a software called jekyll, written in Ruby.
+  
+Github pages has built-in support for some kinds of Jekyll sites,
+which means that you can create one completely through Github.com.
+This is a massive benefit, because virtually all open source web
+authoring platforms require you to download and install software via
+the command line.
 
-## what is Jekyll?
-
-Jekyll is a static site generator. A program that allows you to convert plain text documents (like markdown files) into HTML and CSS. With Jekyll you can author documents in a relatively easy format like Markdown, and have it transform into HTML.
-
-Github pages has built-in support for some kinds of Jekyll sites, which means that you can create one completely through Github.com. This is a massive benefit, because virtually all open source web authoring platforms require you to download and install software via the command line.
-
-For those of you more familiar with the command line, you'd have a lot
+For those of you more familiar with the command line, you’d have a lot
 more options of different Jekyll themes to choose from, and a lot more
 control generally over the way your site is created. That being said,
 it is a higher barrier to entry and requires you to install software
-like [git](https://git-scm.com/downloads) and
-[jekyll](https://jekyllrb.com/docs/installation/) (along with its
-dependencies, like ruby) over the command line.
+like git and jekyll (along with its dependencies, like ruby) over the
+command line. how to set up Jekyll on Github Pages
 
 ## how to set up Jekyll on Github Pages
 ### 1) choose a theme and fork it!
@@ -38,7 +45,7 @@ to something relevant to your project.
 ### 2) open the web editor, edit your index.md file
 
 Open the code editor by pressing the period (`.`) button on your
-keyboard. You'll see a new interface appear which lets you edit the
+Keyboard. You'll see a new interface appear which lets you edit the
 files in your repo.
 
 First, edit your `README.md` file, which should be in the root (first

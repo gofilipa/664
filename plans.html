@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-04-21 Tue 13:39 -->
+<!-- 2026-04-28 Tue 14:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,170 +200,228 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org45b2eeb">1. week 13: introduction to github</a>
+<li><a href="#org2c1b132">1. day 14: static sites &amp; support group</a>
 <ul>
-<li><a href="#org16f1cb8">1.1. introduction to github</a>
+<li><a href="#org17b3b5c">1.1. publishing a static site</a>
 <ul>
-<li><a href="#org2c65114">1.1.1. Step 1: Make your very own GitHub account</a></li>
-<li><a href="#orgdbcb361">1.1.2. Step 2: Create a repository</a></li>
-<li><a href="#org4be8fc2">1.1.3. Step 3: Complete your README</a></li>
-<li><a href="#orgb20795f">1.1.4. Step 4: commit changes</a></li>
+<li><a href="#org52d8fae">1.1.1. 1) choose a theme and fork it!</a></li>
+<li><a href="#org9f0492f">1.1.2. 2) open the web editor, edit your index.md file</a></li>
+<li><a href="#orge23e804">1.1.3. 3) commit and push your changes</a></li>
+<li><a href="#org68884f4">1.1.4. 4) configure Github pages on your repo settings</a></li>
 </ul>
 </li>
-<li><a href="#orga90a0a1">1.2. work on your READMEs</a></li>
-<li><a href="#org74bfecf">1.3. BREAK</a></li>
-<li><a href="#org4a88c8b">1.4. troubleshooting errors</a></li>
+<li><a href="#org4da5e5f">1.2. open work session on site</a></li>
+<li><a href="#org9df6225">1.3. break</a></li>
+<li><a href="#orgf95c31d">1.4. support groups</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org45b2eeb" class="outline-2">
-<h2 id="org45b2eeb"><span class="section-number-2">1.</span> week 13: introduction to github</h2>
+<div id="outline-container-org2c1b132" class="outline-2">
+<h2 id="org2c1b132"><span class="section-number-2">1.</span> day 14: static sites &amp; support group</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-Agenda
-</p>
-<ul class="org-ul">
-<li>did we do project pitches last week?</li>
-<li>today is pretty chill</li>
-<li>introduction to github</li>
-<li>break</li>
-<li>how to troubleshoot errors (in groups)</li>
-</ul>
 </div>
-
-<div id="outline-container-org16f1cb8" class="outline-3">
-<h3 id="org16f1cb8"><span class="section-number-3">1.1.</span> introduction to github</h3>
+<div id="outline-container-org17b3b5c" class="outline-3">
+<h3 id="org17b3b5c"><span class="section-number-3">1.1.</span> publishing a static site</h3>
 <div class="outline-text-3" id="text-1-1">
+<p>
+publishing a static site
+</p>
+
+<p>
+For this session, we will use Github Pages to deploy your project into
+a website that others can access on the internet.
+</p>
+
+<p>
+What is Github Pages?
+</p>
 <ul class="org-ul">
-<li>Github is a website that runs on git, a version control software.</li>
-<li>For our purposes, we will be learning how to use the website
-github.com, which is a space for publishing projects, especially
-projects that have to do with software.</li>
-<li>People use github for <a href="https://digitalscholarship.files.wordpress.com/2016/07/spirosmithdh2016githubpresentationfinal.pdf">a variety of reasons</a>, like:
-<ul class="org-ul">
-<li>Developing software</li>
-<li>Sharing data sets</li>
-<li>Creating websites</li>
-<li>Writing articles and books</li>
-<li>Keeping research notes</li>
-<li>Hosting syllabi and course materials</li>
-</ul></li>
+<li>A hosting service by Github that lets you create static sites on the
+web. It takes HTML, CSS, and JavaScript files from a GitHub
+repository, and publishes them as a website.</li>
 </ul>
+
+<p>
+What are static sites?
+</p>
+<ul class="org-ul">
+<li>Websites that are generated once (usually by a program like Python
+or Ruby), then pushed to the server to be hosted in its
+already-generated or “static” state</li>
+<li>This static site uses a software called jekyll, written in Ruby.</li>
+</ul>
+
+<p>
+Github pages has built-in support for some kinds of Jekyll sites,
+which means that you can create one completely through Github.com.
+This is a massive benefit, because virtually all open source web
+authoring platforms require you to download and install software via
+the command line.
+</p>
+
+<p>
+For those of you more familiar with the command line, you’d have a lot
+more options of different Jekyll themes to choose from, and a lot more
+control generally over the way your site is created. That being said,
+it is a higher barrier to entry and requires you to install software
+like git and jekyll (along with its dependencies, like ruby) over the
+command line. how to set up Jekyll on Github Pages
+</p>
 </div>
 
-<div id="outline-container-org2c65114" class="outline-4">
-<h4 id="org2c65114"><span class="section-number-4">1.1.1.</span> Step 1: Make your very own GitHub account</h4>
+<div id="outline-container-org52d8fae" class="outline-4">
+<h4 id="org52d8fae"><span class="section-number-4">1.1.1.</span> 1) choose a theme and fork it!</h4>
 <div class="outline-text-4" id="text-1-1-1">
-<ul class="org-ul">
-<li>Create an account by going to github.com.</li>
-</ul>
+<p>
+Choose a theme you like from this page:
+<a href="https://github.com/pages-themes">https://github.com/pages-themes</a>
+</p>
+
+<p>
+Fork the theme by going to the github page, and on the top right,
+press “fork”.
+</p>
+
+<p>
+When you are prompted, be sure to change the name of the respository
+to something relevant to your project.
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgdbcb361" class="outline-4">
-<h4 id="orgdbcb361"><span class="section-number-4">1.1.2.</span> Step 2: Create a repository</h4>
+<div id="outline-container-org9f0492f" class="outline-4">
+<h4 id="org9f0492f"><span class="section-number-4">1.1.2.</span> 2) open the web editor, edit your index.md file</h4>
 <div class="outline-text-4" id="text-1-1-2">
-<ul class="org-ul">
-<li>The first thing we’ll do is create a repository. You can think of a
-repository as a folder that contains related items, such as files,
-images, videos, or even other folders. A repository usually groups
-together items that belong to the same “project” or thing you’re
-working on.</li>
-<li>To create a new repository on GitHub:
-<ul class="org-ul">
-<li>Click the icon next to your username, top-right.</li>
-<li>Name your repository hello-world.</li>
-<li>Write a short description.</li>
-<li>Initialize this repository with a README.</li>
-</ul></li>
-</ul>
+<p>
+Open the code editor by pressing the period button on your keyboard.
+You’ll see a new interface appear which lets you edit the files in
+your repo.
+</p>
+
+<p>
+Open the index.md file. This file is written in markdown, and offers a
+handy key for markdown formatting. The top section (sandwiched by
+hyphens) is layout information for the page. Do not change these first
+three lines).
+</p>
+
+<p>
+The rest you can delete to get rid of it, or keep it around for
+convenience, as it offers useful information on how to format
+markdown. I’ve simply “commented” it out using markdown comments,
+which look like this:
+</p>
+
+<p>
+&lt;!&#x2013; &#x2013;&gt;
+</p>
+
+<p>
+You can comment out most of that text by wrapping it with these
+symbols. For example, I’m commenting out the first line from the file
+below:
+</p>
+
+<p>
+&lt;!&#x2013; Text can be bold, italic, <code>strikethrough</code> or `keyword`. &#x2013;&gt;
+</p>
+
+<p>
+You can read a whole lot more about markdown formatting here:
+<a href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a>
+</p>
+
+<p>
+Want to create new page? Create a new file for your page called
+PAGE-NAME.md, replacing PAGE-NAME with a meaningful filename for the
+page.
+</p>
+
+<p>
+Add the following frontmatter to the top of the file, replacing
+PAGE-TITLE with the page’s title and URL-PATH with a path you want for
+the page’s URL. For example, if the base URL of your site is
+<a href="https://octocat.github.io">https://octocat.github.io</a> and your URL-PATH is about/contact, your
+page will be located at <a href="https://octocat.github.io/about/contact">https://octocat.github.io/about/contact</a>.
+</p>
+
+<p>
+layout: page
+title: "PAGE-TITLE"
+permalink: /URL-PATH
+</p>
+
+<p>
+Below the frontmatter, add content for your page.
+</p>
 </div>
 </div>
 
-<div id="outline-container-org4be8fc2" class="outline-4">
-<h4 id="org4be8fc2"><span class="section-number-4">1.1.3.</span> Step 3: Complete your README</h4>
+<div id="outline-container-orge23e804" class="outline-4">
+<h4 id="orge23e804"><span class="section-number-4">1.1.3.</span> 3) commit and push your changes</h4>
 <div class="outline-text-4" id="text-1-1-3">
-<ul class="org-ul">
-<li>This file serves as a title page and abstract for your project. It
-also includes information about how you completed the project. Here
-are a list of the requirements:
-<ul class="org-ul">
-<li>project title</li>
-<li>project description: explains what the project does</li>
-<li>rationale statement: expresses the motivations behind the project</li>
-<li>workflow: identifies libraries used and explains the important steps being taken in the code.</li>
-<li>further uses: in what ways might someone build on this work or re-use your code.</li>
-<li>files list: a list of files relevant to the project (python
-notebooks, csv files, etc) and a brief description of what each
-file contains</li>
-</ul></li>
-</ul>
-
 <p>
-The readme is generally written in <a href="https://www.markdownguide.org/cheat-sheet/">Markdown</a>, but it can also be written
-in plain text .txt.
+Once you’re done editing the markdown file, go to the little “source”
+tab on the left. It looks like three dots connected by lines. Here, on
+the lefthand sidebar, you’ll see a list of all the changes you’ve
+made, and a blank text box above them. In that blank box, write a
+short message summarizing your changes, like “edited the index.md
+file”. Then, press the “commit &amp; push” button.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb20795f" class="outline-4">
-<h4 id="orgb20795f"><span class="section-number-4">1.1.4.</span> Step 4: commit changes</h4>
+<div id="outline-container-org68884f4" class="outline-4">
+<h4 id="org68884f4"><span class="section-number-4">1.1.4.</span> 4) configure Github pages on your repo settings</h4>
 <div class="outline-text-4" id="text-1-1-4">
-<ul class="org-ul">
-<li>When you are finished editing the file, you can save your changes by
-“committing” them. When you commit, you are also required to write a
-little commit message. You can say something like “drafting title
-and description,” whatever you like. Commit messages are useful for
-knowing the specific version of your project at this stage.</li>
-</ul>
-
 <p>
-That’s it!
+Back on your regular repository page (you will need to open up a new
+tab and navigate to your repo on github), go to the “Settings” tab at
+the top. Then, scroll down to the “Pages” tab on the left sidebar.
 </p>
 
 <p>
-Moving forward, you can edit the README file directly on github. If
-you want to add external files to the project (like python notebooks),
-you can upload them to the repository.
+Then, on the main section of the page, go to the Branch heading. From
+the first dropdown, select “Master” or “Main,” and on the second
+dropdown, select “root”. Finally, click save.
+</p>
+
+<p>
+Congratulations!
+</p>
+
+<p>
+Your website will be visible in a few minutes at the URL:
+</p>
+
+<p>
+your_username.github.io/your_repo_name
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga90a0a1" class="outline-3">
-<h3 id="orga90a0a1"><span class="section-number-3">1.2.</span> work on your READMEs</h3>
+<div id="outline-container-org4da5e5f" class="outline-3">
+<h3 id="org4da5e5f"><span class="section-number-3">1.2.</span> open work session on site</h3>
 </div>
-<div id="outline-container-org74bfecf" class="outline-3">
-<h3 id="org74bfecf"><span class="section-number-3">1.3.</span> BREAK</h3>
+<div id="outline-container-org9df6225" class="outline-3">
+<h3 id="org9df6225"><span class="section-number-3">1.3.</span> break</h3>
 </div>
-<div id="outline-container-org4a88c8b" class="outline-3">
-<h3 id="org4a88c8b"><span class="section-number-3">1.4.</span> troubleshooting errors</h3>
+<div id="outline-container-orgf95c31d" class="outline-3">
+<h3 id="orgf95c31d"><span class="section-number-3">1.4.</span> support groups</h3>
 <div class="outline-text-3" id="text-1-4">
-<p>
-What is the most common kind of error that you get? 15m
-</p>
 <ul class="org-ul">
-<li>There are two kinds:
+<li>What is the most important python library you're working with right
+now? What are you using/want to use that libary for?</li>
+<li>Organize into groups based on libraries.</li>
+<li>In your groups, take turns walking people through how you're using
+the library.
 <ul class="org-ul">
-<li>syntax errors: typos, you made a mistake</li>
-<li>traceback errors: the program is not tenable</li>
+<li>Start with the person most comfortable.</li>
+<li>Share resources on how you learned how to use the library.</li>
 </ul></li>
-<li>Spend 2 minutes trying to make both kinds of errors.</li>
-</ul>
-
-<p>
-Crowd sourced debugging - 45m
-</p>
-<ul class="org-ul">
-<li>Get into groups of 3-4</li>
-<li>Each person talks about an error that they currently have/have had,
-and how they tried to fix it (10m)</li>
-<li>From the errors being shared, your group picks one to debug.</li>
-<li>Eachperson will reproduce the error, and then look it up to try and
-fix it (15m)</li>
-<li>Share as a class (20m)</li>
 </ul>
 </div>
 </div>
@@ -371,7 +429,7 @@ fix it (15m)</li>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: fcalado</p>
-<p class="date">Created: 2026-04-21 Tue 13:39</p>
+<p class="date">Created: 2026-04-28 Tue 14:46</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

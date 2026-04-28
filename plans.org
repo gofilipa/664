@@ -1053,7 +1053,7 @@ Agenda:
 - BREAK
 - project pitches
 - work on final projects
-** week 12: analysis and visualization
+** day 12: analysis and visualization
 Agenda
 - data analysis and visualization
 - BREAK
@@ -1146,7 +1146,7 @@ BREAK
 *** fine-tuning review
 - one line of code changed!
 
-** week 13: introduction to github 
+** day 13: introduction to github 
 Agenda
 - did we do project pitches last week?
 - today is pretty chill
@@ -1229,27 +1229,24 @@ Crowd sourced debugging - 45m
   fix it (15m)
 - Share as a class (20m)
 
-** week 15: publishing a static site
+** day 14: static sites & support group
 *** publishing a static site
 publishing a static site
 
-For this session, we will combine Jekyll and Github Pages to deploy
-your project into a website that others can access on the internet.
-what is Github Pages?
+For this session, we will use Github Pages to deploy your project into
+a website that others can access on the internet.
 
-A hosting service by Github that lets you create static sites on the
-web. It takes HTML, CSS, and JavaScript files from a GitHub
-repository, and publishes them as a website.
+What is Github Pages?
+- A hosting service by Github that lets you create static sites on the
+  web. It takes HTML, CSS, and JavaScript files from a GitHub
+  repository, and publishes them as a website.
 
-What are static sites? Websites that are generated once (usually by a
-program like Python or Ruby), then pushed to the server to be hosted
-in its already-generated or “static” state. what is Jekyll?
-
-Jekyll is a static site generator. A program that allows you to
-convert plain text documents (like markdown files) into HTML and CSS.
-With Jekyll you can author documents in a relatively easy format like
-Markdown, and have it transform into HTML.
-
+What are static sites?
+- Websites that are generated once (usually by a program like Python
+  or Ruby), then pushed to the server to be hosted in its
+  already-generated or “static” state
+- This static site uses a software called jekyll, written in Ruby.
+  
 Github pages has built-in support for some kinds of Jekyll sites,
 which means that you can create one completely through Github.com.
 This is a massive benefit, because virtually all open source web
@@ -1263,10 +1260,10 @@ it is a higher barrier to entry and requires you to install software
 like git and jekyll (along with its dependencies, like ruby) over the
 command line. how to set up Jekyll on Github Pages
 
-1) choose a theme and fork it!
+**** 1) choose a theme and fork it!
 
 Choose a theme you like from this page:
-https://pages.github.com/themes/
+https://github.com/pages-themes
 
 Fork the theme by going to the github page, and on the top right,
 press “fork”.
@@ -1274,24 +1271,16 @@ press “fork”.
 When you are prompted, be sure to change the name of the respository
 to something relevant to your project.
 
-2) open the web editor, edit your index.md file
+**** 2) open the web editor, edit your index.md file
 
 Open the code editor by pressing the period button on your keyboard.
 You’ll see a new interface appear which lets you edit the files in
 your repo.
 
-First, move all of the files (except README) in the root folder to
-nest permanently under the “docs” folder. You can leave the README.md
-file in the root (later on, you can add your own information here).
-
-The “docs” folder is where Github looks for the HTML files to display
-on your site, so by moving the files there, you’re making it easier
-for Github to generate your site later on.
-
-Second, open the index.md file, which should now be in the “docs”
-folder. This file is written in markdown, and offers a handy key for
-markdown formatting. The top section (sandwiched by hyphens) is layout
-information for the page. Do not change these first three lines).
+Open the index.md file. This file is written in markdown, and offers a
+handy key for markdown formatting. The top section (sandwiched by
+hyphens) is layout information for the page. Do not change these first
+three lines).
 
 The rest you can delete to get rid of it, or keep it around for
 convenience, as it offers useful information on how to format
@@ -1325,7 +1314,7 @@ permalink: /URL-PATH
 
 Below the frontmatter, add content for your page.
 
-3) commit and push your changes
+**** 3) commit and push your changes
 
 Once you’re done editing the markdown file, go to the little “source”
 tab on the left. It looks like three dots connected by lines. Here, on
@@ -1334,7 +1323,7 @@ made, and a blank text box above them. In that blank box, write a
 short message summarizing your changes, like “edited the index.md
 file”. Then, press the “commit & push” button.
 
-4) configure Github pages on your repo settings
+**** 4) configure Github pages on your repo settings
 
 Back on your regular repository page (you will need to open up a new
 tab and navigate to your repo on github), go to the “Settings” tab at
@@ -1342,11 +1331,23 @@ the top. Then, scroll down to the “Pages” tab on the left sidebar.
 
 Then, on the main section of the page, go to the Branch heading. From
 the first dropdown, select “Master” or “Main,” and on the second
-dropdown, select “docs”. Finally, click save.
+dropdown, select “root”. Finally, click save.
 
 Congratulations!
 
 Your website will be visible in a few minutes at the URL:
 
 your_username.github.io/your_repo_name
+
+*** open work session on site
+*** break
+*** support groups
+- What is the most important python library you're working with right
+  now? What are you using/want to use that libary for?
+- Organize into groups based on libraries.
+- In your groups, take turns walking people through how you're using
+  the library.
+  - Start with the person most comfortable.
+  - Share resources on how you learned how to use the library.
+** day 15: open work session
 
