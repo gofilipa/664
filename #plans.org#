@@ -49,7 +49,6 @@ Navigating
   
 #+end_src
 
-
 *** time to download and install Anaconda (highly recommended) or Python
 
 *** BREAK
@@ -88,7 +87,7 @@ Navigating
   - individual challenge: write a function that uppercases a string.
     and prints the result.
   
-** day 2: python day 2: lists (guest speaker)
+** day 2: python day 2: lists 
 *** agenda
 - continue learning Python programming language
 - start challenge for this week
