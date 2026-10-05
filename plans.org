@@ -9,14 +9,14 @@
 *** why would you used the command line
 - really good for working with "plain text" files
   - "plain text" - what is this?
+    - files which contain only text without visuals or special
+      formatting, like a program script, or a .txt file
+    - what are some rich text file formats?
+      - what are some plain text file formats?
     - demo with docx and plain text file.
-  - what are some rich text file formats?
-    - what are some plain text file formats?
-  - why use command line?
-    - we can manipulate plain text quite easily, like Python,
-      Javascript programs. 
-- to download and install programming software that doesn't have a
-  GUI.
+- to download and install programming software (especially that which
+  doesn't have a GUI.)
+  - you can run python from the command line
 
 *** command line (30-45m)
 - lesson: introduction to the command line
@@ -42,13 +42,16 @@ Navigating
   # creating files and folders
   mkdir 664
   touch test.md
-  touch test.py
-
+  
   # editing files
   nano test.md
   
 #+end_src
 
+You can also:
+- move files, even in bulk (using asterix)
+- search across many files, put output into a new file
+- many more things!
 
 *** time to download and install Anaconda (highly recommended) or Python
 
@@ -75,6 +78,8 @@ Navigating
   - how we save data, to work with it
   - using good names
   - PARTNERS: creating variables to find the limits
+
+DIDN'T GET TO:
   - variables as objects
     - objects have methods, .upper()
   - methods vs functions
@@ -88,11 +93,20 @@ Navigating
   - individual challenge: write a function that uppercases a string.
     and prints the result.
   
-** day 2: python day 2: lists (guest speaker)
+** day 2: python day 2: lists & loops
 *** agenda
 - continue learning Python programming language
 - start challenge for this week
 
+*** discussion of Will the future of software development run on vibes?
+- what did you think of the essay?
+- Vibe Coding vs traditional programming:
+  - "Karpathy’s technique stands in stark contrast to traditional
+    software development best practices, which typically emphasize
+    careful planning, testing, and understanding of implementation
+    details."
+- "Vibe coding is all fun and games until you have to vibe debug"
+  
 *** review
 - data types, what are the types? 
 - variables, how do they work?
@@ -102,17 +116,20 @@ Navigating
   - list indexing - accessing items by position
   - list slicing - grabbing sections of a list
     - inclusive, exclusive values
-  - PARTNERS CHALLENGE: get the middle 3 items of a list
+*** PARTNERS CHALLENGE: get the middle 3 items of a list
   - list methods
-    - append(), remove(), pop()
-    - sort(), reverse()
+    - append(), remove()
+    - sort()
   - string methods
     - string.split()
     - string.upper()
   - how would I get a list of words in a sentence into alphabetical
-    order. 
-  - INDIVIDUAL: look up "string methods" and try out 3 different ones,
-    to see how they work.
+    order?
+*** GROUP CHALLENGE: list methods
+- look up "list methods" and try out 3 different ones that we haven't
+  used yet, to see how they work.
+- write some code that uses three of these on single sentence (of your
+  imagination), which you have split into a list using split().
 
 *** BREAK
 *** loops
@@ -126,7 +143,7 @@ How we do things to data.
 - a note on variable names:
   - the variable following "for" is assigned on the fly
 - f-strings
-- CHALLENGE: prime numbers
+*** PARTNERS CHALLENGE: prime numbers
 
 Doing things to strings
 - how to do things to strings within loops
@@ -134,6 +151,11 @@ Doing things to strings
 - make a list of cities, and make them all lowercasee
 - now save that list to a new list, an empty list
   - why would we want to do this?
+*** GROUP CHALLENGE: cleaning a text
+- copy and paste a long paragraph from somewhere on the internet.
+- remove all capital letters from the words in the paragraph, save it
+  to a new list. You will have to use "split()" like before. 
+
 *** Start challenge:
 Grab a paragraph or two of text from a website you are interested in,
 and save that text to a string in a Python notebook. Then use the
@@ -141,11 +163,11 @@ methods we learned in class to do the following: first, transform the
 string into a list; then, add, remove, and sort items in the list.
 Save your python notebook file (.ipynb file) and submit it on canvas.
     
-** day 3: python 3: loops, logic, errors
+** day 3: python 3: logic, functions, errors
 Agenda
 - review last week's lessons on lists
 - lessons for today: loops, logic
-- start working with CSV module using VS Code & Copilot
+- start working with CSV module
 
 *** review
 - lists
@@ -155,39 +177,12 @@ Agenda
   - functions are independant
   - methods depend on objects (also called properties, attributes)
   - can tell in syntax
-
-*** review challenge
-Create a list of words from a text, and do things to the list using
-list methods.
-
-*** loops
-How we do things to data.
-- types of data for categorizing data; variables for saving data; how
-  to work with lists of data; now, how to do things to
-  lists/groupings.
-  - also works with strings
-- syntax: for item in collection: print(item).
-  - practice with both lists and strings
-- a note on variable names:
+- loops
+  - what is a loop? why do we use loops? 
+    - syntax: for item in collection: print(item)
+  - make a list of cities, and make them all lowercase.
   - the variable following "for" is assigned on the fly
-- f-strings
-- CHALLENGE: prime numbers
-
-Doing things to strings
-- how to do things to strings within loops
-- 'HELLO'.lower()
-- make a list of cities, and make them all lowercasee
-- now save that list to a new list, an empty list
-  - why would we want to do this?
-*** functions
-- functions do things to data
-  - functions in algebra f(x) = x + 1
-- two steps of a function: defining, calling
-  - how to define a function to add a number
-- calling the function
-- challenge: how to make a function that prints a string with your name?
-
-*** BREAK
+  - f-strings
 
 *** logic
 Boolean data
@@ -198,87 +193,70 @@ Boolean data
   - multiple conditions
 
 Combining loops with logic:
-- DEFENDING WOMEN FROM GENDER IDEOLOGY EXTREMISM AND RESTORING
-  BIOLOGICAL TRUTH TO THE FEDERAL GOVERNMENT
-- if it contains the word "gender", "protect", or others, we will
+- Heritage Foundation: "Feminists Want Choice, but Only When It Is the
+  Right One"
+- if it contains the word "woman", "choice", or others, we will
   print.
 
 #+begin_src python
 sentences = text.split('.')
   for i in sentences:
-      if 'binary' in i:
+      if 'woman' in i:
 	  print(i)
 #+end_src
 
+*** BREAK
+
+*** functions
+- functions do things to data
+  - functions in algebra f(x) = x + 1
+- two steps of a function: defining, calling
+  - how to define a function to add a number
+- calling the function
+- GROUP CHALLENGE: how to make a function that prints a string with your name?
+
+*** (if time) errors!
+What is the most common kind of error that you get? 15m
+- There are two kinds:
+  - syntax errors: typos, you made a mistake 
+  - traceback errors: the program is not tenable
+- Spend 2 minutes trying to make both kinds of errors. 
 *** csv module
 - csv module
   - what is a module? a collection of code for doing something, in
     this case, for opening csv files
   - read a little of the docs on CSV module, reader
 
-- printing rows from csv on [[https://data.cityofnewyork.us/City-Government/Enforcement-Actions-Board-Determinations-and-Penal/xrxs-qn95/about_data][Campaign Violations]]:
+- printing rows from csv from squirrel census
   - import csv
   - open the file with open statement
   - print the rows
 
 #+begin_src python
-  with open('./Downloads/Enforcement_Actions_Board_Determinations_and_Penalties_20250210.csv') as f:
+  with open('squirrels.csv') as f:
       data = csv.reader(f)
       for row in data: # can we slice this to do only the first 5 rows?
 	  print(row)
 #+end_src
 
-How do we get just the first object from each column? The names?
-- breakup the problem into parts
-- check the type of data(s)
-- how do we access info from a list?
+How can we print just the column which has color?
+
+*** combining csv, logic, loops
+
+Checking if that color is equal to "Cinnamon"?
 
 #+begin_src python
-  
-with open ('violations_sample.csv', 'r') as f:
-    data = csv.reader(f)
-    for row in data:
-        print(row[1])
+
+   with open('squirrels.csv') as f:
+        data = csv.reader(f)
+        for row in data: # can we slice this to do only the first 5 rows?
+            if "Cinnamon" in row[9]:
+                print(row)
 
 #+end_src
 
-**** Combining logic, loops, and csv:
-- search for a specific candidate name in the dataset
-- print out all rows containing that candidate's name
-- advanced: print out only the date and the violation
 
 
-#+begin_src python
-  with open('violations.csv', 'r') as f:
-    data = csv.reader(f)
-    for row in data:
-        if "Eric" in row[1]:
-            print(row)
-#+end_src
-
-**** Challenge (that I'll walk you through)
-Combine what we know from the above with f-strings to write more
-complex output.
-
-Write a loop that prints out the Candidate’s name and Violation if
-that violation contains the word “contribution” in it. Use f-strings
-so that you can format the answer the following:
-
-Name: [candidate name], Violation: [candidate violation]
-
-Here’s the answer, but don’t look until you’ve spent at least 5
-mintues working on it!
-
-#+begin_src python
-  with open ('violations.csv', 'r') as f:
-    dict_reader = csv.reader(f)
-    for row in dict_reader:
-        violation = row[3]
-        if "contribution" in violation:
-            candidate = row[1]
-            print(f'Name: {candidate}, Violation: {violation}')
-#+end_src
-  
 *** next week: web scraping!
 ** day 4: web scraping 1
 Goals:
@@ -291,22 +269,23 @@ Goals:
 *** web scraping: a simple scrape
 - what is web scraping? vs APIs, vs asking for data?
   - what should you do first? API, directly reaching out, scrape. 
-- different web scraping tools: scrapy and selenium
 - scrape a website in 5 lines of code
   - first install the libraries
+
+*** two ways of accessing data: as property and function
 - the soup object
+  - accessing HTML elements as "properties"
   - dot syntax: soup.title, .p. .h1, .a
+  - accessing further properties like .text
   - chaining elements
+    - a good way to narrow down
 - find() method
-  - can add a class, but need to look this up.
+  - uses a function syntax
 
 *** using the inspector to get classes
 - the HTML inspector
   - inspecting elements
   - intro to HTML elements and attributes
-- find() method, with classes
-- getting just the text
-  - .text
 
 *** narrowing down elements by text, class, href
 Once we have a `class` value, then we can get more granular about our
@@ -324,13 +303,26 @@ soup.find('h3', class_='css-1vygpf9')
 *** find_all(), looping through elements
 looping through elements to extract just the text.
 
-
 *** BREAK
+*** now try on another website
+Use the inspector to find elements from a totally new website. Choose
+from: 
+- fox news
+- town hall
+- breitbart
+- national review
+
 
 *** GROUP CHALLENGE: looping through elements
 Choose a website.
-
-- looping through elements to get just text
+- goal: looping through search results to get items like title,
+  author, date.
+- you want to identify first the largest element that contains all of
+  the elements you want.
+- then loop through the item, print out just the text
+- once you have this working, print out just the title
+- once you have this working, print out the title and the author
+- etc. 
 
 #+begin_src python
 
@@ -342,38 +334,45 @@ Choose a website.
 
 #+end_src
 
+*** advanced tools
+- scrapy and selenium
 ** day 5: web scraping 2
 Agenda:
 - share websites that we found
 - review last week
 - build on scraping skills to save data as CSV
 - talk about ethics & legality, some roadblocks with web scraping
-- spend some time scraping websites
+- talk about other tools for scraping
 
-*** share websites from challenge
+*** share webisites from challenge
 *** review last week
 - making the soup object
   - what are attributes and methods?
     - (like .text, .find, .find_all)
   - narrowing down into elements
   - INDIVIDUAL CHALLENGE: extract just the author's name.
-- writing a loop to extract the bill numbers
+*** looping through data
+- choose a page that has lists of items (like headlines)
+- writing a loop to extract this item
   - first, isolate the smallest possible element
   - check the structure of the code
-  - sometimes, need to layer elements
+  - sometimes, need to layer elements    
 
-*** pause: a useful protocol for extracting data
-- saving this data to a csv, for storage, analysis, etc.
+*** a scraping protocol: from web page to csv
+- a useful protocol saving this data to a csv, for storage, analysis,
+  etc.
 - multiple steps:
   1. choose element that contains all data you want
      - titles, date, tags, ... 
-  2. note the html structure of data
+  2. write out the task in pseudocode
+  3. out the task in code
+     - note the html structure of data
      - which elements are contained within which elements?
-  3. write code that picks out the information we want from the data
   4. process information into lists
   5. save to CSV 
 
-Write out the problem in pseudocode:
+*** 1. find the html elements you want
+*** 2. write out the problem in pseudocode:
 
 #+begin_src python
 
@@ -394,7 +393,9 @@ Write out the problem in pseudocode:
 
 #+end_src
 
-*** save our data to a list
+*** 3. write and run the task in code
+*** BREAK
+*** 4. save data to a list
 
 #+begin_src python
 
@@ -441,7 +442,7 @@ change out the variable names.
     link = 'https://translegislation.com/bills/2023/passed' + item.a['href']
 #+end_src
 
-*** finally, saving data to CSV:
+*** 5. save data to CSV:
 
 #+begin_src python
   import pandas as pd
@@ -464,8 +465,11 @@ change out the variable names.
 
 BREAK
 
-*** Expanding our dataset
-*** BREAK
+*** other scraping tools
+- for paginating through multiple pages of search results:
+  - scrapy
+- for tricking bot blockers:
+  - selenium
 *** ethics and legality
 - focus is on ethics rather than legality
   - more important to think about the effect your data gathering will
@@ -522,7 +526,7 @@ BREAK
   - Congress.gov
   - ~<title>Just a moment...</title>~
 
-*** data ethics is changing every day, now
+**** data ethics is changing every day, now
 If we have the tools to do this work, we have to be strategic and
 think through the effects of our data gathering.
 
@@ -542,38 +546,31 @@ suppression.
 Agenda
 - begin work with APIs
   - dictionary structures - new data structure
-  - the MET API - beginner friendly
+  - the MET API docs - beginner friendly
   - end goal: to get data from MET databases into our own spreadsheet,
     curate that data a little bit. 
 
-*** review dictionary data type
+*** ~dict~ data type
 
 What is a dict? key:value pairs
 
 #+begin_src python
-    people = {
-      'filipa': ['gemini', 'blue'],
-    
+filipa = {
+  'name': ['filipa', 'maria', 'da gama', 'barreiros', 'calado'],
+  'sign': ['gemini', 'saggitarius', 'aquarius'],
+  'interests': ['literature', 'programming', 'soccer']
+}
 
-    # access items with brackets, the 'key'
+  # access items with brackets, the 'key'
 
-    people['filipa'] # 'blue', 'gemini', 'the beast'
-	
-    # access items within a column, like list indexing
+  filipa['interests']
 
-    people['filipa'][1] # 'blue'
-  }
-  
+  # access items within a column, like list indexing
 
+  filipa['interests'][2]
+}
 #+end_src
 *** the MET API
-Order of things we will do
-1. construct the API request (URL)
-2. make the request, requests.get()
-3. inspect and parse our response using type(), .json(), .keys()
-4. with information from that response, make another call to get more
-   information.
-
 **** 1. the anatomy of an API request:
 
 3 parts of an API: the base url, the path, the query.
@@ -581,7 +578,7 @@ Order of things we will do
 #+begin_src python
 
   base_url = "https://collectionapi.metmuseum.org" # root of the website
-  path = "/public/collection/v1/search" # directory structure, folders
+  path = "/public/collection/v1.1/search" # directory structure, folders
   query = "?q=woman" # parameter, endpoint - keyword/specifications
 
 #+end_src
@@ -662,7 +659,7 @@ We can use this first object to create a new request.
 
 #+begin_src python
 
-  objects_path = '/public/collection/v1/objects/'
+  objects_path = '/public/collection/v1.1/objects/'
 
   url = f'{base_url}{objects_path}{first}'
 
@@ -689,18 +686,20 @@ Inspecting our new response object, parsing the results
 See all the data about this object.
 
 See the objectURL? Copy and paste it into your browser.
+*** the order of tasks:
+1. construct the API request (URL)
+2. make the request, requests.get()
+3. inspect and parse our response using type(), .json(), .keys()
+4. make another call to get more information.
 
-*** BREAK
-
-*** reading documentation: individual challenge
-Look at the docs, see the different paths and parameters.
-
-Pratice searching using another parameter for the search endpoint. And
-then, take the results of that search and look for the objects.
-
-*** looping through our objects
+*** partners: how to get objects that are deeply nested
+- get the constituent name for an item
+- break it down into parts, always
+  - get a larger portion, then go for the smaller
+- get the second tag for an item
+*** collecting several objects
 What if we want to collect data on several objects, and save them to a
-spreadsheet. Columns like "artist", "title", etc.
+spreadsheet, with columns like "artist", "title", etc.?
 - write a loop that makes calls to each objectID, parses the response,
   and adds to a list. (Will end with a list of dicts)
 
@@ -712,35 +711,39 @@ Write it out in pseudocode
 - append response to list
 
 #+begin_src python
-  # just the first ten
-  ids = parsed['objectIDs'][:10]
+from time import sleep
 
-  # start small, just print the ids for now
-  for item in ids:
-    print(item)
+# just the first ten
+ids = parsed['objectIDs'][:10]
 
-  # add pseudocode, then fill it in
-  # what are the steps we need to take?
+# start small, just print the ids for now
+for item in ids:
+  print(item)
 
-  first_ten = []
-  for item in ids:
+# add pseudocode, then fill it in
+# what are the steps we need to take?
 
-      # passing the objectID variable into the URL
-      base_url = 'https://collectionapi.metmuseum.org'
-      path = '/public/collection/v1/objects/'
-      url = f'{base_url}{path}{item}'
+first_ten = []
+for item in ids:
 
-      # grabbing our response for that object
-      response = requests.get(url)
+    # passing the objectID variable into the URL
+    base_url = 'https://collectionapi.metmuseum.org'
+    path = '/public/collection/v1/objects/'
+    url = f'{base_url}{path}{item}'
 
-      # parsing our response with json
-      parsed = response.json()
+    # grabbing our response for that object
+    response = requests.get(url)
 
-      # appending the response to our new list
-      first_ten.append(parsed)
+    # parsing our response with json
+    parsed = response.json()
 
-  # check the content.
-  type(first_ten)
+    sleep(1)
+
+    # appending the response to our new list
+    first_ten.append(parsed)
+
+# check the content.
+type(first_ten)
 
 #+end_src
 
@@ -756,25 +759,33 @@ How can we extract this information? Let's say, the artist name?
 
 This gives us an error
 
-*** group challenge: google the error for >2 solutions
+*** BREAK
 
-There are two ways: conditional statement and creating a variable
+*** google the error for a solution
+
+There are multiple ways
+
 #+begin_src python
 
 for item in first_ten:
   if item.get('artistDisplayName'):
       print(item['artistDisplayName'])
-
-
-for item in first_ten:
-    title = item.get('artistDisplayName')
-    print(title)
 #+end_src
+
+*** saving to DataFrame
+- save to lists
+- save to df
+- save to csv
 
 *** about “women”
 Try it with gender. Why do you think we see only female?
 
-*** saving to DataFrame
+*** reading the docs: partners challenge
+Look at the docs, see the different paths and parameters.
+
+Implement the search path with an additional parameter for the search
+endpoint. And then, take the results of that search and look for the
+objects.
 
 *** start challenge, to make requests using multiple parameters
 
@@ -1213,14 +1224,8 @@ you can upload them to the repository.
 
 *** work on your READMEs
 *** BREAK
-*** troubleshooting errors
-What is the most common kind of error that you get? 15m
-- There are two kinds:
-  - syntax errors: typos, you made a mistake 
-  - traceback errors: the program is not tenable
-- Spend 2 minutes trying to make both kinds of errors. 
 
-Crowd sourced debugging - 45m
+*** crowd sourced debugging - 45m
 - Get into groups of 3-4
 - Each person talks about an error that they currently have/have had,
   and how they tried to fix it (10m)
@@ -1228,7 +1233,6 @@ Crowd sourced debugging - 45m
 - Eachperson will reproduce the error, and then look it up to try and
   fix it (15m)
 - Share as a class (20m)
-
 ** day 14: static sites & support group
 *** publishing a static site
 publishing a static site

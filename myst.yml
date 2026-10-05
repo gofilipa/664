@@ -49,9 +49,8 @@ project:
       children:
         - file: publish/github.md
         - file: publish/jekyll.md
-    
 site:
   template: book-theme
-  # options:
-  #   favicon: favicon.ico
-  #   logo: site_logo.png
+  nav:
+    - title: Info 664 Notebooks
+      url: /
