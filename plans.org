@@ -542,7 +542,7 @@ suppression.
 
 *** group work: extract some text from another website of your choice
 - ACLU, nytimes, or another
-** day 6: apis
+** day 6: apis I
 Agenda
 - begin work with APIs
   - dictionary structures - new data structure
@@ -789,7 +789,7 @@ objects.
 
 *** start challenge, to make requests using multiple parameters
 
-** day 7: apis continued
+** day 7: apis II
 Goals:
 - review MET API,
   - how to request, parse, and extract data
@@ -803,54 +803,71 @@ Goals:
 - discuss the anatomy of an API request
   - root, path, endpoint
   - making the call
-- go over some useful methods for working with API data
-  - dir(), json(), keys() 
-- using different paths: review documentation for the MET API: 
-  - search path
-  - object path
-
+- interpreting some pre-written code
+- discussing common error: KEY error
+  
+**** what is this code doing, line by line?
 #+begin_src python
-  base_url = "https://collectionapi.metmuseum.org"
-  path = "/public/collection/v1/search"
-  query = "?q=woman"
+import requests
 
-  url = f'{base_url}{path}{query}'
-  r = requests.get(url)
+base_url = "https://collectionapi.metmuseum.org"
+path = "/public/collection/v1.1/search"
+query = "?q=woman"
 
-  type(r)
-  dir(r)
+url = f'{base_url}{path}{query}'
+r = requests.get(url)
+parsed = r.json()
 
-  parsed = r.json()
-
-  parsed.keys()
-
-#+end_src
-
-*** looping through results to make many calls (20m)
-- we are going to grab a bunch of these, create a dataset of works.
-- let's start with the first fifty, saving them to a list:
-  - get the IDs, make a list.
-- write a loop that:
-  - makes a call to the objects path
-  - parses the json
-  - saves to a relevant list
-
-#+begin_src python
-first_fifty = []
-for item in ids[:50]:
-    # passing the objectID variable into the URL
+for item in parsed['objectIDs'][:10]:
     base_url = 'https://collectionapi.metmuseum.org'
     path = '/public/collection/v1/objects/'
     url = f'{base_url}{path}{item}'
-    # grabbing our response for that object
     response = requests.get(url)
-    # parsing our response with json
     parsed = response.json()
-    # appending the response to our new list
-    first_fifty.append(parsed)
+    first_ten.append(parsed)
+
 #+end_src
 
-Dealing with errors: two ways: if statements and variables, with get()
+**** Review: into dataframes
+Put it into a dataframe. Make a couple of charts - pie chart, bar
+chart, just for demonstration
+    
+#+begin_src python
+    # let's get a bunch of this data into lists
+import pandas as pd
+
+titles = []
+names = []
+genders = []
+depts = []
+countries = []
+urls = []
+
+for item in first_ten:
+    title = item.get('artistGender')
+    titles.append(title)
+    name = item.get('artistDisplayName')
+    names.append(name)
+    gender = item.get('artistGender')
+    genders.append(gender)
+    dept = item.get('department')
+    depts.append(dept)
+    country = item.get('country')
+    countries.append(country)
+    url = item.get('objectURL')
+    urls.append(url)
+
+df = pd.DataFrame({
+  'title': titles,
+  'name': names,
+  'gender': genders,
+  'department': depts,
+  'country': countries,
+  'link': urls
+})
+#+end_src
+
+**** Review: KEY error:
 
 #+begin_src python
   for item in first_fifty:
@@ -862,130 +879,86 @@ Dealing with errors: two ways: if statements and variables, with get()
     print(title)
 #+end_src
 
-Put it into a dataframe. Make a couple of charts - pie chart, bar
-chart, just for demonstration
-    
-#+begin_src python
-  # let's get a bunch of this data into lists
-
-  titles = []
-  names = []
-  genders = []
-  depts = []
-  countries = []
-  urls = []
-
-  for item in first_fifty:
-      title = item.get('artistGender')
-      titles.append(title)
-      name = item.get('artistDisplayName')
-      names.append(name)
-      gender = item.get('artistGender')
-      genders.append(gender)
-      dept = item.get('department')
-      depts.append(dept)
-      country = item.get('country')
-      countries.append(country)
-      url = item.get('objectURL')
-      urls.append(url)
-
-  import pandas as pd
-
-  df = pd.DataFrame({
-    'title': titles,
-    'name': names,
-    'gender': genders,
-    'department': depts,
-    'country': countries,
-    'link': urls
-  })
-
-  df.info()
-
-  df.value_counts('department')
-
-  df.department.value_counts().plot(kind = 'barh')
-
-  df.department.value_counts().plot(kind = 'pie')
-#+end_src
-
+*** NYT API! 
 *** sign up for an NYTimes API account & key
-*** BREAK
-*** authentication & pagination: NYTimes API (40m)
-
-Creating API calls with keys
+*** authentication & pagination: (40m)
+**** Creating API calls with keys
 - requesting an API key
 - adding the key
 
 #+begin_src python
-  # key
-  key = 'HHhPAjnfEF2EmLtf9PdGsLEQZizR3iQu'
+# key
+key = 'HHhPAjnfEF2EmLtf9PdGsLEQZizR3iQu'
 
-  # query
-  query = 'migrant'
+# query
+query = 'migrant'
 
-  # base URL
-  url = f'https://api.nytimes.com/svc/search/v2/articlesearch.json?&q={query}&api-key={key}'
+# base URL
+url = f'https://api.nytimes.com/svc/search/v2/articlesearch.json?&q={query}&api-key={key}'
 
-  response = requests.get(url)
+response = requests.get(url)
 
-  response # 200
+response # 200
 
-  type(response) # Response
+type(response) # Response
   
 #+end_src
 
-Understanding our structure
+**** How do we understand our data structure?
+- we poke at the response
 - parse our data
 - we find different structure of data
   - keep going deeper into the data using keys()
 
 #+begin_src python
-  parsed = response.json()
+parsed = response.json()
 
-  parsed.keys() # dict_keys(['status', 'copyright', 'response'])
+parsed.keys() # dict_keys(['status', 'copyright', 'response'])
 
-  parsed['response'].keys() # dict_keys(['docs', 'meta'])
+parsed['response'].keys() # dict_keys(['docs', 'meta'])
 
-  type(parsed['response']['meta']) # dict
+type(parsed['response']['metadata']) # dict
 
-  parsed['response']['meta']
+parsed['response']['metadata']
 
-  type(parsed['response']['docs']) # list
+type(parsed['response']['docs']) # list
 
-  # The very first item in `docs` appears to be information about a
-  # single article.
+# The very first item in `docs` appears to be information about a
+# single article.
 
-  parsed['response']['docs'][0]
+parsed['response']['docs'][0]
 
-  parsed['response']['docs'][0].keys()
+parsed['response']['docs'][0].keys()
 
-  # If I wanted to proceed to get this data, I would write a loop and
-  # assign variables
+
 #+end_src
+If I wanted to proceed to get this data, I would write a loop. 
 
-Paginating through results
+**** Paginating through results
 - We have 10 articles, because the NYTimes API only allows us to get
   10 results at a time.
-- We can paginate through the results by adding an &page= parameter,
-  combined with a sleep() function, which allows us to insert pauses
-  in our request (as to not overload the NYTimes servers).
-- write a loop that goes through a range() of 5 pages, and does a
+- We can paginate through the results, by adding:
+  - ~&page=~ parameter,
+  - ~sleep()~ function,
+    - which allows us to insert pauses in our request (as to not
+      overload the NYTimes servers)
+- write a loop that goes through a ~range()~ of 5 pages, and does a
   search for each page.
 - append the results for each page to a list called results
 - check out our results, where is our data?
 
 #+begin_src python
-  results = []
-  query = 'migrant'
+from time import sleep
+results = []
+query = 'migrant'
 
-  for i in range(0, 5):  
-      url = f'https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&page={i}&api-key={key}'
-      response = requests.get(url)
-      parsed = response.json()
-      articles = parsed['response']['docs']
-      results.append(articles)
-      sleep(6) # sleep at least 6 seconds not to overload the servers
+for i in range(0, 5):  
+    url = f'https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&page={i}&api-key={key}'
+    response = requests.get(url)
+    parsed = response.json()
+    articles = parsed['response']['docs']
+    results.append(articles)
+    sleep(6) # sleep at least 6 seconds not to overload the servers
 #+end_src
 
 In the end, we have a list of results, 5 lists to be exact (each list
@@ -994,12 +967,13 @@ information about 10 articles that matched our search.
 
 #+begin_src python
 
-  results[0][0].keys() # for the very first item on the very first page. 
+results[0][0].keys() # for the very first item on the very first page. 
 
-  results[0][0]['abstract']
+results[0][0]['abstract']
 
 #+end_src
 
+*** BREAK
 *** group challenge: the NYPL API
 Walk them through the authentication process. 
 
@@ -1009,11 +983,48 @@ information about the individual objects in the search path results.
 ** day 9: api presentations
 
 Agenda
+- debug a common error from homework
+- resolve discrepancy from last class
 - present our APIs, at whatever stage you were able to reach.
-- troubleshooting errors as a class.
 - break
-- brainstorming final projects, freewrite & share.
+- continue presenting
 
+*** web scraping error
+**** NoneType error
+The error:
+- when Python is trying to extract some data from an item, but the
+  item is empty.
+
+#+begin_src python
+  for item in soup.find_all('p'):
+    print(item.strong.text)
+#+end_src
+
+The workaround:
+- open an if statement
+- check if the item exists
+- if not: indicate with a string
+
+#+begin_src python
+  for item in soup.find_all('p'):
+    if item.strong:
+        print(item.strong.text)
+    else:
+        print("No text")
+#+end_src
+
+*** NYT API error.
+Need to add the equals sign after the page number.
+
+*** 2026 fall APIs
+- Google Analytics API
+- Openlibrary API
+- Openbookrank API
+- NASA API
+- Art Institute Chicago API
+- lyricsgenius API (new one)
+- Poetry DB API
+- UNESCO API
 *** 2025 spring APIs
 - Pokemon API
 - Met API
@@ -1038,38 +1049,16 @@ Use the input function to build an algorithm.
 - LogoAPI
 - 
 
-** day 10: text generation with transformers
-Agenda:
-- introduction to the huggingface platform
-  - models hub
-  - datasets hub
-- introduction to running inference
-  - installations
-  - must use jupyter-lab
-  - importing a model from the hub to our notebook
-  - piping in the input
-  - parsing the output
-- running inference from a dataset
-  - pulling in the dataset
-  - dataset structure
-  - writing a loop to run inference
-- fine-tuning
-  - demonstration
-- BREAK
-- project pitches
-- work on final projects
-
-** day 11: Introduction to OpenRefine
+** day 10: Introduction to OpenRefine
 - Welcome Dr Bryan Winston from PUL!
 - BREAK
-- project pitches
+- share data plans
 - work on final projects
-** day 12: analysis and visualization
+** day 11: data and text analysis
 Agenda
-- data analysis and visualization
+- data analysis with pandas
 - BREAK
-- review fine-tuning with transformers
-- work on projects
+- text analysis with NLTK
 
 *** Introduction to pandas
 - df = pd.read_csv('https://bit.ly/664-met-woman')
@@ -1156,6 +1145,27 @@ BREAK
 
 *** fine-tuning review
 - one line of code changed!
+
+** day 12: text generation with transformers
+Agenda:
+- introduction to the huggingface platform
+  - models hub
+  - datasets hub
+- introduction to running inference
+  - installations
+  - must use jupyter-lab
+  - importing a model from the hub to our notebook
+  - piping in the input
+  - parsing the output
+- running inference from a dataset
+  - pulling in the dataset
+  - dataset structure
+  - writing a loop to run inference
+- fine-tuning
+  - demonstration
+- BREAK
+- project pitches
+- work on final projects
 
 ** day 13: introduction to github 
 Agenda

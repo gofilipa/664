@@ -51,6 +51,4 @@ project:
         - file: publish/jekyll.md
 site:
   template: book-theme
-  nav:
-    - title: Info 664 Notebooks
-      url: /
+  logo_text: INFO-664

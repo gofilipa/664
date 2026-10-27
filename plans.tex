@@ -1,4 +1,4 @@
-% Created 2026-09-29 Tue 09:08
+% Created 2026-10-06 Tue 11:31
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -26,272 +26,229 @@
 
 \tableofcontents
 
-\section{day 6: apis}
-\label{sec:org6b4d419}
-Agenda
+\section{day 7: apis II}
+\label{sec:org82d3d88}
+Goals:
 \begin{itemize}
-\item begin work with APIs
+\item review MET API,
 \begin{itemize}
-\item dictionary structures - new data structure
-\item the MET API docs - beginner friendly
-\item end goal: to get data from MET databases into our own spreadsheet,
-curate that data a little bit.
+\item how to request, parse, and extract data
+\item start to do a little data analysis of results
+\end{itemize}
+\item examine concepts: authentication \& pagination
+\begin{itemize}
+\item NYT API
+\item self guided exploration of NYPL API
+\end{itemize}
+\item discuss article, start to brainstrom what we want to do
+\end{itemize}
+
+\subsection{review: API requests, methods, calls (20m)}
+\label{sec:org7b59df3}
+\begin{itemize}
+\item discuss the anatomy of an API request
+\begin{itemize}
+\item root, path, endpoint
+\item making the call
+\end{itemize}
+\item interpreting some pre-written code
+\item discussing common error: KEY error
+\end{itemize}
+
+\subsubsection{what is this code doing, line by line?}
+\label{sec:org8d730a5}
+\begin{verbatim}
+import requests
+
+base_url = "https://collectionapi.metmuseum.org"
+path = "/public/collection/v1.1/search"
+query = "?q=woman"
+
+url = f'{base_url}{path}{query}'
+r = requests.get(url)
+parsed = r.json()
+
+for item in parsed['objectIDs'][:10]:
+    base_url = 'https://collectionapi.metmuseum.org'
+    path = '/public/collection/v1/objects/'
+    url = f'{base_url}{path}{item}'
+    response = requests.get(url)
+    parsed = response.json()
+    first_ten.append(parsed)
+
+\end{verbatim}
+
+\subsubsection{Review: into dataframes}
+\label{sec:orgbb1f6b5}
+Put it into a dataframe. Make a couple of charts - pie chart, bar
+chart, just for demonstration
+
+\begin{verbatim}
+    # let's get a bunch of this data into lists
+import pandas as pd
+
+titles = []
+names = []
+genders = []
+depts = []
+countries = []
+urls = []
+
+for item in first_ten:
+    title = item.get('artistGender')
+    titles.append(title)
+    name = item.get('artistDisplayName')
+    names.append(name)
+    gender = item.get('artistGender')
+    genders.append(gender)
+    dept = item.get('department')
+    depts.append(dept)
+    country = item.get('country')
+    countries.append(country)
+    url = item.get('objectURL')
+    urls.append(url)
+
+df = pd.DataFrame({
+  'title': titles,
+  'name': names,
+  'gender': genders,
+  'department': depts,
+  'country': countries,
+  'link': urls
+})
+\end{verbatim}
+
+\subsubsection{Review: KEY error:}
+\label{sec:orgd172dad}
+
+\begin{verbatim}
+for item in first_fifty:
+  if item.get('artistDisplayName'):
+    print(item['artistDisplayName'])
+
+for item in first_fiftu: 
+  title = item.get('artistDisplayName')
+  print(title)
+\end{verbatim}
+
+\subsection{NYT API!}
+\label{sec:org2be166a}
+\subsection{sign up for an NYTimes API account \& key}
+\label{sec:org88c902b}
+\subsection{authentication \& pagination: (40m)}
+\label{sec:org6b6dff2}
+\subsubsection{Creating API calls with keys}
+\label{sec:orgd21b03f}
+\begin{itemize}
+\item requesting an API key
+\item adding the key
+\end{itemize}
+
+\begin{verbatim}
+# key
+key = 'HHhPAjnfEF2EmLtf9PdGsLEQZizR3iQu'
+
+# query
+query = 'migrant'
+
+# base URL
+url = f'https://api.nytimes.com/svc/search/v2/articlesearch.json?&q={query}&api-key={key}'
+
+response = requests.get(url)
+
+response # 200
+
+type(response) # Response
+
+\end{verbatim}
+
+\subsubsection{How do we understand our data structure?}
+\label{sec:org2273c68}
+\begin{itemize}
+\item we poke at the response
+\item parse our data
+\item we find different structure of data
+\begin{itemize}
+\item keep going deeper into the data using keys()
 \end{itemize}
 \end{itemize}
 
-\subsection{\texttt{dict} data type}
-\label{sec:orgd947b13}
-
-What is a dict? key:value pairs
-
 \begin{verbatim}
-filipa = {
-  'name': ['filipa', 'maria', 'da gama', 'barreiros', 'calado'],
-  'sign': ['gemini', 'saggitarius', 'aquarius'],
-  'interests': ['literature', 'programming', 'soccer']
-}
+parsed = response.json()
 
-  # access items with brackets, the 'key'
+parsed.keys() # dict_keys(['status', 'copyright', 'response'])
 
-  filipa['interests']
+parsed['response'].keys() # dict_keys(['docs', 'meta'])
 
-  # access items within a column, like list indexing
+type(parsed['response']['metadata']) # dict
 
-  filipa['interests'][2]
-}
-\end{verbatim}
-\subsection{the MET API}
-\label{sec:orgd457bd9}
-\subsubsection{1. the anatomy of an API request:}
-\label{sec:org11516ce}
+parsed['response']['metadata']
 
-3 parts of an API: the base url, the path, the query.
+type(parsed['response']['docs']) # list
 
-\begin{verbatim}
+# The very first item in `docs` appears to be information about a
+# single article.
 
-base_url = "https://collectionapi.metmuseum.org" # root of the website
-path = "/public/collection/v1.1/search" # directory structure, folders
-query = "?q=woman" # parameter, endpoint - keyword/specifications
+parsed['response']['docs'][0]
 
-\end{verbatim}
-
-\subsubsection{2. make the request using requests.get()}
-\label{sec:org66f9eb1}
-\begin{verbatim}
-  # our request
-women = requests.get(f'{base_url}{path}{query}')
-
-# should say 200
-women
-\end{verbatim}
-
-All you need for an API is a URL. An HTTP request. 
-
-Some URLs contain requests embedded inside of them. If you know how to
-look.
-
-\subsubsection{3. inspecting objects:}
-\label{sec:org79e1aca}
-
-Inspecting: start with two functions: type() and dir()
-
-Using type() and dir() to better understand our response data. The end
-goal is to sift through the data to discover interesting things.
-
-\begin{verbatim}
-
-# what type of object do we have?
-
-type(women)
-
-# What can we do with a Response object? Spend a couple of minutes exploring the different methods.
-dir(women)
-
-\end{verbatim}
-
-Then, use .json() to parse our response object, and .keys() to see the
-keys (labels). 
-
-\begin{verbatim}
-
-# why do we need to add parenthesis? 
-  parsed = women.json()
-
-  # what is it
-  type(parsed)
-
-  # we can use .keys() to get the keys
-
-  parsed.keys()
-
-\end{verbatim}
-
-How do we get data from a dictionary?
-
-\begin{verbatim}
-
-# formatting to get just the objectID key
-
-parsed['objectIDs']
-
-# what are we looking at?
-
-# how would we get just the first object id?
-
-first = parsed['objectIDs'][0]
-
-\end{verbatim}
-
-\subsubsection{4. making a new call, using the “objects” endpoint}
-\label{sec:orgc5e13f0}
-We are going to use another endpoint to get further information, using
-the data we've already requested.
-
-So far, we've been using the "search" path. Now, we will use the
-"objects" parth. 
-
-We can use this first object to create a new request.
-
-\begin{verbatim}
-
-objects_path = '/public/collection/v1.1/objects/'
-
-url = f'{base_url}{objects_path}{first}'
-
-first_object = requests.get(url)
+parsed['response']['docs'][0].keys()
 
 
 \end{verbatim}
+If I wanted to proceed to get this data, I would write a loop. 
 
-Inspecting our new response object, parsing the results
-
-\begin{verbatim}
-# checking the resulting object
-first_object
-
-# the response is just like before. 
-type(first_object)
-dir(first_object)
-
-# parsing the object:
-
-first_object.json()
-\end{verbatim}
-
-See all the data about this object.
-
-See the objectURL? Copy and paste it into your browser.
-\subsection{the order of tasks:}
-\label{sec:org08d28f9}
-\begin{enumerate}
-\item construct the API request (URL)
-\item make the request, requests.get()
-\item inspect and parse our response using type(), .json(), .keys()
-\item make another call to get more information.
-\end{enumerate}
-
-\subsection{BREAK}
-\label{sec:org13b8315}
-
-\subsection{collecting several objects}
-\label{sec:org4ee6bac}
-What if we want to collect data on several objects, and save them to a
-spreadsheet, with columns like "artist", "title", etc.?
+\subsubsection{Paginating through results}
+\label{sec:org844e6e5}
 \begin{itemize}
-\item write a loop that makes calls to each objectID, parses the response,
-and adds to a list. (Will end with a list of dicts)
+\item We have 10 articles, because the NYTimes API only allows us to get
+10 results at a time.
+\item We can paginate through the results, by adding:
+\begin{itemize}
+\item \texttt{\&page=} parameter,
+\item \texttt{sleep()} function,
+\begin{itemize}
+\item which allows us to insert pauses in our request (as to not
+overload the NYTimes servers)
 \end{itemize}
-
-Write it out in pseudocode
-\begin{itemize}
-\item make a list of objectIDs
-\item write a loop
-\item make call to objectID
-\item parse response
-\item append response to list
+\end{itemize}
+\item write a loop that goes through a \texttt{range()} of 5 pages, and does a
+search for each page.
+\item append the results for each page to a list called results
+\item check out our results, where is our data?
 \end{itemize}
 
 \begin{verbatim}
 from time import sleep
+results = []
+query = 'migrant'
 
-# just the first ten
-ids = parsed['objectIDs'][:10]
-
-# start small, just print the ids for now
-for item in ids:
-  print(item)
-
-# add pseudocode, then fill it in
-# what are the steps we need to take?
-
-first_ten = []
-for item in ids:
-
-    # passing the objectID variable into the URL
-    base_url = 'https://collectionapi.metmuseum.org'
-    path = '/public/collection/v1/objects/'
-    url = f'{base_url}{path}{item}'
-
-    # grabbing our response for that object
+for i in range(0, 5):  
+    url = f'https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&page={i}&api-key={key}'
     response = requests.get(url)
-
-    # parsing our response with json
     parsed = response.json()
-
-    sleep(1)
-
-    # appending the response to our new list
-    first_ten.append(parsed)
-
-# check the content.
-type(first_ten)
-
+    articles = parsed['response']['docs']
+    results.append(articles)
+    sleep(6) # sleep at least 6 seconds not to overload the servers
 \end{verbatim}
 
-Now, we have a list object with tons of information that we can
-extract from.
-
-How can we extract this information? Let's say, the artist name?
-
-\begin{verbatim}
-for item in first_ten:
-  print(item['artistDisplayName'])
-\end{verbatim}
-
-This gives us an error
-
-\subsection{google the error for a solution}
-\label{sec:org2a8bdb2}
-
-There are multiple ways
+In the end, we have a list of results, 5 lists to be exact (each list
+represents one page of articles). Each result (or page) contains
+information about 10 articles that matched our search.
 
 \begin{verbatim}
 
-for item in first_ten:
-  if item.get('artistDisplayName'):
-      print(item['artistDisplayName'])
+results[0][0].keys() # for the very first item on the very first page. 
+
+results[0][0]['abstract']
+
 \end{verbatim}
 
-\subsection{saving to DataFrame}
-\label{sec:org1706f1d}
-\begin{itemize}
-\item save to lists
-\item save to df
-\item save to csv
-\end{itemize}
+\subsection{BREAK}
+\label{sec:orgb76c540}
+\subsection{group challenge: the NYPL API}
+\label{sec:org882d5de}
+Walk them through the authentication process. 
 
-\subsection{about “women”}
-\label{sec:orga561505}
-Try it with gender. Why do you think we see only female?
-
-\subsection{reading the docs: partners challenge}
-\label{sec:orgbcd25fa}
-Look at the docs, see the different paths and parameters.
-
-Implement the search path with an additional parameter for the search
-endpoint. And then, take the results of that search and look for the
-objects.
-
-\subsection{start challenge, to make requests using multiple parameters}
-\label{sec:org516aba4}
+Challenge: use the search path, and figure out a way to get more
+information about the individual objects in the search path results.
 \end{document}
