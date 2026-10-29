@@ -42,6 +42,7 @@ project:
         - file: analyzing/cleaning/cleaning.ipynb
         - file: analyzing/pandas.ipynb
         - file: analyzing/pandas_2.ipynb
+        - file: analyzing/nltk.ipynb
         - file: analyzing/generating/hf.md
         - file: analyzing/generating/inference.ipynb
         - file: analyzing/generating/fine-tune.ipynb

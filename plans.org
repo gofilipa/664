@@ -1054,6 +1054,37 @@ Use the input function to build an algorithm.
 - BREAK
 - share data plans
 - work on final projects
+- talk about advancing scraping: BAB
+*** BOTS class
+Some more announcements about the BOTS class
+- will learn some advanced programming skills
+- using the terminal and github a lot more
+- how to create virtual environments with python
+- how to use github to automate your apps
+- finally, advanced scraping!
+
+scraping XHR - hiringcafe.com
+- Open inspector, click Network, type in the search bar.
+- Then, get the CURL and run it in your terminal. 
+- https://hiringcafe.com/_next/data/udL519CreQWXs51amRFp8/
+- classic.json?searchState=%7B%22searchQuery%22%3A%22librarian%22%7D
+
+scraping dynamic elements with ghost browsers
+- seleniumbase
+- open terminal
+- conda activate scrape
+- ipython
+
+#+begin_src python
+from seleniumbase import SB
+
+with SB(uc=True, test=True, locale="en") as sb:
+    sb.activate_cdp_mode()
+    sb.goto("https://gitlab.com/users/sign_in")
+    sb.sleep(2)
+#+end_src
+
+
 ** day 11: data and text analysis
 Agenda
 - data analysis with pandas

@@ -1,4 +1,4 @@
-% Created 2026-10-06 Tue 11:31
+% Created 2026-10-27 Tue 16:14
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -26,229 +26,48 @@
 
 \tableofcontents
 
-\section{day 7: apis II}
-\label{sec:org82d3d88}
-Goals:
+\section{day 10: Introduction to OpenRefine}
+\label{sec:org3dc5a80}
 \begin{itemize}
-\item review MET API,
-\begin{itemize}
-\item how to request, parse, and extract data
-\item start to do a little data analysis of results
+\item Welcome Dr Bryan Winston from PUL!
+\item BREAK
+\item share data plans
+\item work on final projects
+\item talk about advancing scraping: BAB
 \end{itemize}
-\item examine concepts: authentication \& pagination
+\subsection{BOTS class}
+\label{sec:orgb47c7a3}
+Some more announcements about the BOTS class
 \begin{itemize}
-\item NYT API
-\item self guided exploration of NYPL API
-\end{itemize}
-\item discuss article, start to brainstrom what we want to do
-\end{itemize}
-
-\subsection{review: API requests, methods, calls (20m)}
-\label{sec:org7b59df3}
-\begin{itemize}
-\item discuss the anatomy of an API request
-\begin{itemize}
-\item root, path, endpoint
-\item making the call
-\end{itemize}
-\item interpreting some pre-written code
-\item discussing common error: KEY error
+\item will learn some advanced programming skills
+\item using the terminal and github a lot more
+\item how to create virtual environments with python
+\item how to use github to automate your apps
+\item finally, advanced scraping!
 \end{itemize}
 
-\subsubsection{what is this code doing, line by line?}
-\label{sec:org8d730a5}
-\begin{verbatim}
-import requests
-
-base_url = "https://collectionapi.metmuseum.org"
-path = "/public/collection/v1.1/search"
-query = "?q=woman"
-
-url = f'{base_url}{path}{query}'
-r = requests.get(url)
-parsed = r.json()
-
-for item in parsed['objectIDs'][:10]:
-    base_url = 'https://collectionapi.metmuseum.org'
-    path = '/public/collection/v1/objects/'
-    url = f'{base_url}{path}{item}'
-    response = requests.get(url)
-    parsed = response.json()
-    first_ten.append(parsed)
-
-\end{verbatim}
-
-\subsubsection{Review: into dataframes}
-\label{sec:orgbb1f6b5}
-Put it into a dataframe. Make a couple of charts - pie chart, bar
-chart, just for demonstration
-
-\begin{verbatim}
-    # let's get a bunch of this data into lists
-import pandas as pd
-
-titles = []
-names = []
-genders = []
-depts = []
-countries = []
-urls = []
-
-for item in first_ten:
-    title = item.get('artistGender')
-    titles.append(title)
-    name = item.get('artistDisplayName')
-    names.append(name)
-    gender = item.get('artistGender')
-    genders.append(gender)
-    dept = item.get('department')
-    depts.append(dept)
-    country = item.get('country')
-    countries.append(country)
-    url = item.get('objectURL')
-    urls.append(url)
-
-df = pd.DataFrame({
-  'title': titles,
-  'name': names,
-  'gender': genders,
-  'department': depts,
-  'country': countries,
-  'link': urls
-})
-\end{verbatim}
-
-\subsubsection{Review: KEY error:}
-\label{sec:orgd172dad}
-
-\begin{verbatim}
-for item in first_fifty:
-  if item.get('artistDisplayName'):
-    print(item['artistDisplayName'])
-
-for item in first_fiftu: 
-  title = item.get('artistDisplayName')
-  print(title)
-\end{verbatim}
-
-\subsection{NYT API!}
-\label{sec:org2be166a}
-\subsection{sign up for an NYTimes API account \& key}
-\label{sec:org88c902b}
-\subsection{authentication \& pagination: (40m)}
-\label{sec:org6b6dff2}
-\subsubsection{Creating API calls with keys}
-\label{sec:orgd21b03f}
+scraping XHR - hiringcafe.com
 \begin{itemize}
-\item requesting an API key
-\item adding the key
+\item Open inspector, click Network, type in the search bar.
+\item Then, get the CURL and run it in your terminal.
+\item \url{https://hiringcafe.com/\_next/data/udL519CreQWXs51amRFp8/}
+\item classic.json?searchState=\%7B\%22searchQuery\%22\%3A\%22librarian\%22\%7D
+\end{itemize}
+
+scraping dynamic elements with ghost browsers
+\begin{itemize}
+\item seleniumbase
+\item open terminal
+\item conda activate scrape
+\item ipython
 \end{itemize}
 
 \begin{verbatim}
-# key
-key = 'HHhPAjnfEF2EmLtf9PdGsLEQZizR3iQu'
+from seleniumbase import SB
 
-# query
-query = 'migrant'
-
-# base URL
-url = f'https://api.nytimes.com/svc/search/v2/articlesearch.json?&q={query}&api-key={key}'
-
-response = requests.get(url)
-
-response # 200
-
-type(response) # Response
-
+with SB(uc=True, test=True, locale="en") as sb:
+    sb.activate_cdp_mode()
+    sb.goto("https://gitlab.com/users/sign_in")
+    sb.sleep(2)
 \end{verbatim}
-
-\subsubsection{How do we understand our data structure?}
-\label{sec:org2273c68}
-\begin{itemize}
-\item we poke at the response
-\item parse our data
-\item we find different structure of data
-\begin{itemize}
-\item keep going deeper into the data using keys()
-\end{itemize}
-\end{itemize}
-
-\begin{verbatim}
-parsed = response.json()
-
-parsed.keys() # dict_keys(['status', 'copyright', 'response'])
-
-parsed['response'].keys() # dict_keys(['docs', 'meta'])
-
-type(parsed['response']['metadata']) # dict
-
-parsed['response']['metadata']
-
-type(parsed['response']['docs']) # list
-
-# The very first item in `docs` appears to be information about a
-# single article.
-
-parsed['response']['docs'][0]
-
-parsed['response']['docs'][0].keys()
-
-
-\end{verbatim}
-If I wanted to proceed to get this data, I would write a loop. 
-
-\subsubsection{Paginating through results}
-\label{sec:org844e6e5}
-\begin{itemize}
-\item We have 10 articles, because the NYTimes API only allows us to get
-10 results at a time.
-\item We can paginate through the results, by adding:
-\begin{itemize}
-\item \texttt{\&page=} parameter,
-\item \texttt{sleep()} function,
-\begin{itemize}
-\item which allows us to insert pauses in our request (as to not
-overload the NYTimes servers)
-\end{itemize}
-\end{itemize}
-\item write a loop that goes through a \texttt{range()} of 5 pages, and does a
-search for each page.
-\item append the results for each page to a list called results
-\item check out our results, where is our data?
-\end{itemize}
-
-\begin{verbatim}
-from time import sleep
-results = []
-query = 'migrant'
-
-for i in range(0, 5):  
-    url = f'https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&page={i}&api-key={key}'
-    response = requests.get(url)
-    parsed = response.json()
-    articles = parsed['response']['docs']
-    results.append(articles)
-    sleep(6) # sleep at least 6 seconds not to overload the servers
-\end{verbatim}
-
-In the end, we have a list of results, 5 lists to be exact (each list
-represents one page of articles). Each result (or page) contains
-information about 10 articles that matched our search.
-
-\begin{verbatim}
-
-results[0][0].keys() # for the very first item on the very first page. 
-
-results[0][0]['abstract']
-
-\end{verbatim}
-
-\subsection{BREAK}
-\label{sec:orgb76c540}
-\subsection{group challenge: the NYPL API}
-\label{sec:org882d5de}
-Walk them through the authentication process. 
-
-Challenge: use the search path, and figure out a way to get more
-information about the individual objects in the search path results.
 \end{document}
