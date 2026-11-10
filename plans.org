@@ -1084,7 +1084,6 @@ with SB(uc=True, test=True, locale="en") as sb:
     sb.sleep(2)
 #+end_src
 
-
 ** day 11: data and text analysis
 Agenda
 - data analysis with pandas
@@ -1097,9 +1096,8 @@ Agenda
   - info(), head(), tail(), shape, columns
   - selecting columns
     - syntax: either dot or brackets
-    - methods vs attributes, how stuff is generated/stored
     - column = Series type of data
-  - values()
+  - values
     - the items in a column
     - gives back a np object
   - slicing rows, df[100:110]
@@ -1138,6 +1136,9 @@ Agenda
       xlabel='Artist Name', title='Works of "Women" at the MET')
     - df.value_counts('').plot(kind='pie')
 
+*** other libraries for plotting
+- seaborn
+- plotly
 *** Intermediate pandas (if time)
 - df = pd.read_csv('https://bit.ly/anti-trans-tracker-csv')
 - sorting values
@@ -1174,25 +1175,23 @@ Agenda
 
 BREAK
 
-*** fine-tuning review
-- one line of code changed!
+*** text analysis with NLTK
+- install and import NLTK
+- create sentence, then tokenize
+  - why do we tokenize?
 
 ** day 12: text generation with transformers
 Agenda:
-- introduction to the huggingface platform
+- introduction to the huggingface platform - 5 m
   - models hub
   - datasets hub
-- introduction to running inference
+- introduction to running inference - 10 m
   - installations
   - must use jupyter-lab
   - importing a model from the hub to our notebook
   - piping in the input
   - parsing the output
-- running inference from a dataset
-  - pulling in the dataset
-  - dataset structure
-  - writing a loop to run inference
-- fine-tuning
+- fine-tuning - 20 m
   - demonstration
 - BREAK
 - project pitches

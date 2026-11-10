@@ -1,4 +1,4 @@
-% Created 2026-10-27 Tue 16:14
+% Created 2026-11-03 Tue 14:48
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -26,48 +26,170 @@
 
 \tableofcontents
 
-\section{day 10: Introduction to OpenRefine}
-\label{sec:org3dc5a80}
+\section{day 11: data and text analysis}
+\label{sec:orge4bcb2c}
+Agenda
 \begin{itemize}
-\item Welcome Dr Bryan Winston from PUL!
+\item data analysis with pandas
 \item BREAK
-\item share data plans
-\item work on final projects
-\item talk about advancing scraping: BAB
+\item text analysis with NLTK
 \end{itemize}
-\subsection{BOTS class}
-\label{sec:orgb47c7a3}
-Some more announcements about the BOTS class
+
+\subsection{Introduction to pandas}
+\label{sec:orgc60713e}
 \begin{itemize}
-\item will learn some advanced programming skills
-\item using the terminal and github a lot more
-\item how to create virtual environments with python
-\item how to use github to automate your apps
-\item finally, advanced scraping!
-\end{itemize}
-
-scraping XHR - hiringcafe.com
+\item df = pd.read\_csv('https://bit.ly/664-met-woman')
+\item viewing data
 \begin{itemize}
-\item Open inspector, click Network, type in the search bar.
-\item Then, get the CURL and run it in your terminal.
-\item \url{https://hiringcafe.com/\_next/data/udL519CreQWXs51amRFp8/}
-\item classic.json?searchState=\%7B\%22searchQuery\%22\%3A\%22librarian\%22\%7D
-\end{itemize}
-
-scraping dynamic elements with ghost browsers
+\item info(), head(), tail(), shape, columns
+\item selecting columns
 \begin{itemize}
-\item seleniumbase
-\item open terminal
-\item conda activate scrape
-\item ipython
+\item syntax: either dot or brackets
+\item column = Series type of data
+\end{itemize}
+\item values
+\begin{itemize}
+\item the items in a column
+\item gives back a np object
+\end{itemize}
+\item slicing rows, df[100:110]
+\item describe() \# statistics
+\end{itemize}
+\item sorting data
+\begin{itemize}
+\item value\_counts('title') \# department, artist display name
+\begin{itemize}
+\item counts most common values for a column
+\end{itemize}
+\item sort\_values('accessionYear')
+\begin{itemize}
+\item sorts by values in a column
+\end{itemize}
+\end{itemize}
+\item filtering data
+\begin{itemize}
+\item first, create a boolean
+\begin{itemize}
+\item df['title'] == 'Woman'
+\begin{itemize}
+\item this is a conditional
+\end{itemize}
+\end{itemize}
+\item then, create a variable to hold the booleans
+\begin{itemize}
+\item woman = df['title'] == 'Woman'
+\begin{itemize}
+\item this is a variable assignment from a conditional
+\end{itemize}
+\end{itemize}
+\item finally, creates new dataframe, df[woman]
+\begin{itemize}
+\item we can now further sort elements from this dataframe.
+\begin{itemize}
+\item df[woman]['artistDisplayName']
+\item df[woman].value\_counts('department')
+\end{itemize}
+\end{itemize}
+\item highlights = df['isHighlight'] == 1.0
+\begin{itemize}
+\item by boolean condition
+\end{itemize}
+\item df[highlights].info()
+\item courbet = df['artistDisplayName'].str.contains('Courbet',
+na=False)
+\begin{itemize}
+\item using str.contains
+\end{itemize}
+\item df[courbet]['title']
+\end{itemize}
+\item plotting data
+\begin{itemize}
+\item df.plot(kind='bar')
+\item df.value\_counts('department').plot(kind='bar')
+\item adding nlargest(10)
+\begin{itemize}
+\item df.value\_counts('title').nlargest(10).plot(kind='bar')
+\end{itemize}
+\item look at the docs, and explore some of the parameters to make the
+graph more detailed
+\begin{itemize}
+\item df.value\_counts('artristDisplayName').nlargest(10).plot(kind='barh',
+xlabel='Artist Name', title='Works of "Women" at the MET')
+\item df.value\_counts('').plot(kind='pie')
+\end{itemize}
+\end{itemize}
 \end{itemize}
 
-\begin{verbatim}
-from seleniumbase import SB
+\subsection{other libraries for plotting}
+\label{sec:org5a4d1f2}
+\begin{itemize}
+\item seaborn
+\item plotly
+\end{itemize}
+\subsection{Intermediate pandas (if time)}
+\label{sec:orga6a5b66}
+\begin{itemize}
+\item df = pd.read\_csv('https://bit.ly/anti-trans-tracker-csv')
+\item sorting values
+\begin{itemize}
+\item df.sort\_values('Bill Type', inplace=True)
+\item see "pandas.DataFrame.sort\_values" in docs to understand other
+parameters
+\item sorted = df.sort\_values(['Bill Type', 'State'])
+\begin{itemize}
+\item can sort by multiple values, create new df.
+\end{itemize}
+\end{itemize}
+\item filtering values
+\begin{itemize}
+\item looking for different kinds of bans.
+\item df['Bill Type'] == 'Trans Bathroom Ban'
+\end{itemize}
+\item CHALLENGE: Which states have the most book bans?
+\item two ways:
+\begin{itemize}
+\item df['Bill Type'] == 'Book Ban'
+\begin{itemize}
+\item books = df['Bill Type'] == 'Book Ban'
+\item df[books]
+\item df[books].value\_counts('State')
+\end{itemize}
+\item \texttt{str.contains}: filtering by words 
+\begin{itemize}
+\item df['Bill Type'].str.contains('Bathroom')
+\item bathrooms = df['Bill Type'].str.contains('Bathroom')
+\item df[bathrooms].info()
+\item df[bathrooms].value\_counts('State')
+\end{itemize}
+\end{itemize}
+\item plotting data
+\begin{itemize}
+\item df.plot(kind='bar')
+\item df.value\_counts('Bill Type').plot(kind='bar')
+\item adding nlargest(10)
+\begin{itemize}
+\item df.value\_counts('Bill Type').nlargest(10).plot(kind='bar')
+\end{itemize}
+\item look at the docs, and explore some of the parameters to make the
+graph more detailed
+\begin{itemize}
+\item df.value\_counts('Bill Type').nlargest(10).plot(kind='barh',
+xlabel='Number of Bills', title='Most Frequent Categories for
+Anti-Trans Bills')
+\item df.value\_counts('Bill Type').plot(kind='pie')
+\end{itemize}
+\end{itemize}
+\end{itemize}
 
-with SB(uc=True, test=True, locale="en") as sb:
-    sb.activate_cdp_mode()
-    sb.goto("https://gitlab.com/users/sign_in")
-    sb.sleep(2)
-\end{verbatim}
+BREAK
+
+\subsection{text analysis with NLTK}
+\label{sec:orgf69fd70}
+\begin{itemize}
+\item install and import NLTK
+\item create sentence, then tokenize
+\begin{itemize}
+\item why do we tokenize?
+\end{itemize}
+\end{itemize}
 \end{document}
